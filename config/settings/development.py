@@ -8,18 +8,11 @@ SECRET_KEY = 'no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a'
 DEBUG = True
 
 
-# The host/domain names that can be served
-ALLOWED_HOSTS = []
-
-
-# Database
+# Database (may need to change some values so it references your local db)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tigerpath',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'localhost'
     }
 }

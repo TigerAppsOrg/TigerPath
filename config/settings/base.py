@@ -1,4 +1,5 @@
 import os
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -18,7 +19,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,28 +82,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Database (configured in inherited settings files)
-# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
-DATABASES = {
-}
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# STATIC_URL = '/static/'
-
-# # Extra places for collectstatic to find static files.
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
-# # Enable gzip functionality for static files
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
 # Security
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -111,3 +89,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
 X_FRAME_OPTIONS = 'DENY'
+
+
+# Activate Django-Heroku - automatically configures databases, test_runner,
+# staticfiles, allowed_hosts, logging, secret_key
+django_heroku.settings(locals())

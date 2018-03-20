@@ -4,4 +4,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world!")
+    context = {}
+    return render(request, 'tigerpath/index.html', context)
