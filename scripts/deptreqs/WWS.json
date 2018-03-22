@@ -69,7 +69,7 @@
     {
       "name": "Core",
       "max_counted": 1,
-      "min_needed": 8,
+      "min_needed": 9,
       "description": "Core Course Requirements",
       "explanation": "Prior to graduation, WWS students must complete the core course requirements listed below. All courses used to meet these requirements must be taken at Princeton on a graded basis (no pdf). Courses taken to meet elective requirements cannot be used to fulfill core requirements.",
       "double_counting_allowed": false,
@@ -150,8 +150,8 @@
         },
         {
           "name": "Elective Courses",
-          "max_counted": 3,
-          "min_needed": 3,
+          "max_counted": 4,
+          "min_needed": 4,
           "description": "Elective Courses",
           "explanation": "Elective Courses\nEach student must complete four electives on a graded basis (no pdf) from a list issued by WWS.\nNo more than three electives can be courses listed or cross-listed by the same department. Methodology courses that are on the electives list and all WWS courses will be exempt, but cross-listings on WWS courses will count.\n\nUp to three elective courses can be taken in semester-long study abroad programs. Electives taken at Princeton must be taken on a graded basis. Summer courses may not be used as electives.",
           "ReqList": [
@@ -535,6 +535,7 @@
                   "CourseList": [
                     "AFS 320 The Resource Curse and Development in Africa",
                     "ANT 376 Charity, Philanthropy & Development",
+                    "EAS 302 Dilemmas of Development in Asia",
                     "ECO 301 Macroeconomics",
                     "ECO 311 Macroeconomics: A Mathematical Approach",
                     "ECO 315 Topics in Macroeconomics",
@@ -922,6 +923,7 @@
                 "ECO 313 Econometric Applications",
                 "ECO 418 Strategy and Information",
                 "GEO 422 Data, Models, and Uncertainty in the Natural Sciences",
+                "NEU 425 Neuroeconomics",
                 "ORF 350 Analysis of Big Data",
                 "ORF 405 Regression and Time Series",
                 "POL 346 Applied Quantitative Analysis",
@@ -1146,6 +1148,86 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": 1,
+      "min_needed": 8,
+      "description": "Independent Work",
+      "explanation": "To satisfy the junior independent work requirement, each student must complete one policy task force and one policy research seminar in the junior year. The policy research seminar will include a methods laboratory and will also count as a course.\n\nEach student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue."
+    },
+    {
+      "name": "Language Requirement",
+      "max_counted": 1,
+      "min_needed": 1,
+      "description": "Language Requirement",
+      "explanation": "WWS majors must complete at least one foreign language course beyond the current University requirement. This may be done by:\n(1) taking an additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used; or\n(2) taking a course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.\nCourses used to meet this requirement may be taken at Princeton or elsewhere; all courses must be taken on a graded basis.\nWhen they declare their concentration, students who are bilingual may apply to WWS to have this requirement waived.",
+      "double_counting_allowed": false,
+      "pdf_allowed": false,
+      "ReqList": [
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": "",
+          "description": "200 or 300 level language course",
+          "explanation": "An additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used.",
+          "note": "LAN stands for any one single language",
+          "CourseList": [
+            "LAN 2**",
+            "LAN 3**"
+          ]
+        },
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": 2,
+          "description": "Another Language",
+          "explanation": "A course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.",
+          "ReqList": [
+            {
+              "name": "",
+              "max_counted": 1,
+              "min_needed": "",
+              "description": "",
+              "explanation": "",
+              "note": "LAN stands for any one single language",
+              "CourseList": [
+                "LAN 102",
+                "LAN 103",
+                "LAN 104",
+                "LAN 105",
+                "LAN 106",
+                "LAN 107",
+                "LAN 108"
+              ]
+            },
+            {
+              "name": "",
+              "max_counted": 1,
+              "min_needed": "",
+              "description": "",
+              "explanation": "",
+              "note": "LAN stands for any one single language",
+              "CourseList": [
+                "LAN 102",
+                "LAN 103",
+                "LAN 104",
+                "LAN 105",
+                "LAN 106",
+                "LAN 107",
+                "LAN 108"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Field Experience",
+      "max_counted": "",
+      "min_needed": "",
+      "description": "Field Experience",
+      "explanation": "Prior to the second semester of the senior year, each student must have completed an approved cross-cultural or field experience. The requirement may be satisfied in a number of ways, including but not limited to:\n\n\n- semester study abroad\n- summer study abroad\n- summer language study abroad\n- policy-relevant summer jobs abroad\n- ROTC training\n- senior thesis research in the field\n- extended service in an underserved community\n- internship involving public policy work in a nonprofit, government, or international agency such as the U.N., the World Bank, the U.S. Congress, or a state or federal agency.\n\nSummer study, language study or thesis research must be done for at least four weeks to qualify as a cross-cultural or field experience (note that to meet the WWS language requirement, eight weeks of summer study is required).\n\nInternships, jobs or community service must be for at least six consecutive weeks, or 240 hours.\nCross-cultural or field experience gained during the freshmen or sophomore year may count toward this requirement. To meet this requirement, all past or proposed work must be approved by the Undergraduate Program Office."
     }
   ]
 }
