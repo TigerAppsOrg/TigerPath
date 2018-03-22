@@ -1,42 +1,20 @@
 {
-  "name": "Computer Science - AB",
+  "name": "Computer Science - BSE",
   "code": "COS",
-  "AB": true,
+  "AB": false,
   "certificate": false,
   "note": "",
-  "url": "https://ua.princeton.edu/academic-units/department-computer-science-ab#",
+  "url": "https://ua.princeton.edu/academic-units/department-computer-science-bse",
   "Requirements": [
     {
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": 6,
       "description": "Prerequisites",
-      "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
+      "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements(link is external). Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites(link is external) for all later computer science courses.",
       "double_counting_allowed": false,
       "pdf_allowed": false,
       "ReqList": [
-        {
-          "name": "Calculus",
-          "max_counted": 2,
-          "min_needed": 2,
-          "description": "",
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
-          "CourseList": [
-            "MAT 103",
-            "MAT 104"
-          ]
-        },
-        {
-          "name": "Linear Algebra",
-          "max_counted": 1,
-          "min_needed": 1,
-          "description": "",
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
-          "CourseList": [
-            "MAT 202",
-            "MAT 204"
-          ]
-        },
         {
           "name": "Computer Science Prerequisites",
           "max_counted": 3,
@@ -184,37 +162,65 @@
           "max_counted": 2,
           "min_needed": 2,
           "description": "General",
-          "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nAny 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303, ECO 312, MOL 437/NEU 437, NEU 330, and ECO 326 – Economics of the Internet count as departmentals.",
-          "CourseList": [
-            "COS 3**",
-            "COS 4**",
-            "MAT 3**",
-            "MAT 4**",
-            "ELE 3**",
-            "ELE 4**",
-            "PHY 3**",
-            "PHY 4**",
-            "ORF 3**",
-            "ORF 4**",
-            "PHI 312",
-            "MAE 345",
-            "CHM 303",
-            "ECO 312",
-            "MOL 437/NEU 437",
-            "NEU 330",
-            "ECO 326"
+          "explanation": "",
+          "ReqList": [
+            {
+              "name": "",
+              "max_counted": "",
+              "min_needed": "",
+              "description": "",
+              "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nAny 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303, ECO 312, MOL 437/NEU 437, NEU 330, and ECO 326 – Economics of the Internet count as departmentals.",
+              "CourseList": [
+                "COS 3**",
+                "COS 4**",
+                "MAT 3**",
+                "MAT 4**",
+                "ELE 3**",
+                "ELE 4**",
+                "PHY 3**",
+                "PHY 4**",
+                "ORF 3**",
+                "ORF 4**",
+                "PHI 312",
+                "MAE 345",
+                "CHM 303",
+                "ECO 312",
+                "MOL 437/NEU 437",
+                "NEU 330",
+                "ECO 326"
+              ]
+            },
+            {
+              "name": "",
+              "max_counted": 1,
+              "min_needed": 2,
+              "description": "",
+              "explanation": "One additional semester of independent work may be counted as one of the departmental courses.",
+              "CourseList": [
+                "COS 397",
+                "COS 398",
+                "COS 497",
+                "COS 498"
+              ]
+            }
           ]
         }
       ]
     },
     {
       "name": "Independent Work",
-      "max_counted": "",
-      "min_needed": "",
+      "max_counted": 1,
+      "min_needed": 1,
       "description": "Independent Work",
-      "explanation": "All A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.",
+      "explanation": "All B.S.E. concentrators engage in independent work supervised by a member of the department, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in a written report and poster session. B.S.E. students must elect one semester of independent work by enrolling in 397, 398, 497, or 498. One additional semester of independent work may be counted as one of the departmental courses.",
       "double_counting_allowed": false,
-      "pdf_allowed": false
+      "pdf_allowed": false,
+      "CourseList": [
+        "COS 397",
+        "COS 398",
+        "COS 497",
+        "COS 498"
+      ]
     }
   ]
 }
