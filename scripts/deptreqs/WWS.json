@@ -1,0 +1,71 @@
+{
+  "name": "Woodrow Wilson School of Public and International Affairs",
+  "code": "WWS",
+  "AB": true,
+  "certificate": false,
+  "note": "study abroad, other cross-cultural experience, or policy-relevant field experience required",
+  "url": "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
+  "Requirements": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": 4,
+      "ReqList": [
+        {
+          "name": "Statistics Prerequisite",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "A course in Statistics",
+          "explanation": "One Course in Statistics\nWWS 200 Statistics for Social Science\nECO 302 Econometrics\nECO 312 Econometrics: A Mathematical Approach\nPOL 345 Quantitative Analysis in Politics\nPOL 346 Applied Quantitative Analysis",
+          "CourseList": [
+            "WWS 200",
+            "ECO 302",
+            "ECO 312",
+            "POL 345",
+            "POL 346"
+          ]
+        },
+        {
+          "name": "Microeconomics Prerequisite",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "A course in Microeconomics",
+          "explanation": "One Course in Microeconomics\nECO 100 Introduction to Microeconomics\nECO 300 Microeconomic Theory\nECO 310 Microeconomic Theory: A Mathematical Approach\nWWS 300 Microeconomic for Public Policy",
+          "CourseList": [
+            "ECO 100",
+            "ECO 300",
+            "ECO 310",
+            "WWS 300"
+          ]
+        },
+        {
+          "name": "History Prerequisite",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "A course in History",
+          "explanation": "One History course at any level (designated HIS)\nA cross-listed course with a HIS designation may also be used. Courses in the HA distribution area do not qualify unless they are designated HIS.  For example, courses in NES or SOC that are in the HA distribution area do not fulfill this requirement unless they are cross-listed with HIS.",
+          "CourseList": [
+            "HIS *"
+          ]
+        },
+        {
+          "name": "Politics, Sociology or Psychology Prerequisite",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "A course in Politics, Sociology or Psychology",
+          "explanation": "One Politics, Sociology or Psychology at any level (designated POL, SOC, or PSY)\nCross-listed courses with these designations can also be used. A course taken to meet the statistics requirement cannot be used to meet this requirement.",
+          "CourseList": [
+            "POL *",
+            "SOC *",
+            "PSY *"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core",
+      "max_counted": 1,
+      "min_needed": 4
+    }
+  ]
+}
