@@ -1152,9 +1152,40 @@
     {
       "name": "Independent Work",
       "max_counted": 1,
-      "min_needed": 8,
+      "min_needed": 2,
       "description": "Independent Work",
-      "explanation": "To satisfy the junior independent work requirement, each student must complete one policy task force and one policy research seminar in the junior year. The policy research seminar will include a methods laboratory and will also count as a course.\n\nEach student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue."
+      "explanation": "To satisfy the junior independent work requirement, each student must complete one policy task force and one policy research seminar in the junior year. The policy research seminar will include a methods laboratory and will also count as a course.\n\nEach student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue.",
+      "ReqList": [
+        {
+          "name": "Policy Task Force",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "Policy Task Force",
+          "explanation": "In the task forces, a small group of juniors works together with a faculty director, one or two seniors, and, often, a graduate student toward proposing solutions to current problems in public and international affairs. Each junior conducts research on a topic carefully chosen to shed light on the larger problem that is central to the group. The principal collective product is a final report with policy recommendations, drafted after debates among the entire group.",
+          "CourseList": [
+            "WWS 401 Policy Seminars",
+            "WWS 402 Policy Seminars"
+          ]
+        },
+        {
+          "name": "Policy Research Seminar",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "Policy Research Seminar",
+          "explanation": "In the policy research seminars, a faculty member supervises a small group of students similarly engaged in research on a specific topic in public and international affairs. Students also participate in a methods lab designed to teach them methods for quantitative and qualitative research. An important aim of all of the elements of the research seminar is to prepare students for their senior thesis work.",
+          "CourseList": [
+            "WWS 403 Policy Research Seminar",
+            "WWS 404 Policy Research Seminar"
+          ]
+        },
+        {
+          "name": "Senior Thesis",
+          "max_counted": "",
+          "min_needed": "",
+          "description": "Senior Thesis",
+          "explanation": "Each student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue."
+        }
+      ]
     },
     {
       "name": "Language Requirement",
