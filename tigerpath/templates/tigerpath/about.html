@@ -1,0 +1,172 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TigerPath</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'landing/css/landing-page.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+      <div class="container">
+        <a class="navbar-brand" href="/landing">TigerPath</a>
+        <div>
+        <a class="btn" href="/about">About</a>
+        <a class="btn" href="#">Contact</a>
+        <a class="btn" href="/">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Masthead -->
+    <header class="about-masthead text-white text-center">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <h1 class="mb-3">About TigerPath</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="text-container">
+      <div class="about-section container">
+        <h4>Team Members</h4>
+        <p>Richard Chu (Project Leader) - <a href="mailto:rc11@princeton.edu">rc11@</a></p>
+        <p>Barak Nehoran - <a href="mailto:bnehoran@princeton.edu">bnehoran@</a></p>
+        <p>Adeniji Ogunlana - <a href="mailto:ogunlana@princeton.edu">ogunlana@</a></p>
+        <p>Daniel Leung - <a href="mailto:dl13@princeton.edu">dl13@</a></p>
+
+        <h4 class="about-header">Mentor</h4>
+        <p>Jeremie Lumbroso</p>
+
+        <h4 class="about-header">Timeline</h4>
+        <p><b>March 18th:</b></p>
+        <ul><li><p>Design document submitted</p></li></ul>
+
+        <p><b>March 25th:</b></p>
+        <ul>
+          <li><p>Start a Git repository</p></li>
+          <li><p>Set up project website and link it to tigerpath.io</p></li>
+          <li><p>Develop elevator pitch</p></li>
+          <li><p>Server-side: Set up a Django app and connect it to the database</p></li>
+          <li><p>Hosting: Host the app on heroku</p></li>
+          <li><p>Client-side: Start working on searching for courses and adding them to different semesters</p></li>
+          <li><p>Database: Start parsing course data and storing it in the database</p></li>
+          <li><p>Database: Start parsing major requirements data and storing it in the database</p></li>
+        </ul>
+
+        <p><b>April 1st:</b></p>
+        <ul>
+          <li><p>Database: Have all of the course data stored in the database</p></li>
+          <li><p>Database: Have the requirements for our selected majors stored in the database</p></li>
+          <li><p>Client-side: Setup CAS authentication</p></li>
+          <li><p>Server-side: GET /api/courses is finished</p></li>
+          <li><p>Client-side: Finish being able to search for courses and drag-and-drop them into semesters</p></li>
+        </ul>
+
+        <p><b>April 8th:</b></p>
+        <ul>
+          <li><p>Server-side: GET /api/require/[USER_MAJOR] is finished</p></li>
+          <li><p>Client-side: Checks the user four-year schedule with the requirements to see which requirements have been satisfied and which have not</p></li>
+        </ul>
+
+        <p><b>April 13th: Prototype Finished</b></p>
+        <ul>
+          <li><p>By this time, we should have basic functionality of the app, including the following:</p></li>
+          <li><p>User can search for courses and add them to their four-year schedule</p></li>
+          <li><p>User can check what requirements are satisfied by their schedule, and what requirements have yet to be satisfied</p></li>
+          <li><p>User data is not yet stored in the database</p></li>
+          <li><p>Start propagating the app to friends for them to test</p></li>
+        </ul>
+
+        <p><b>April 15th:</b></p>
+        <ul>
+          <li><p>Server-side: GET /api/user/plan, POST /api/user/plan, GET /api/user/meta, POST /api/user/meta are finished</p></li>
+          <li><p>Client-side: Store the user plan in the database and retrieve it during new sessions, retrieve/store user metadata</p></li>
+        </ul>
+
+        <p><b>April 22nd:</b></p>
+        <ul>
+          <li><p>Clean up UI and make it look nicer, if it doesn’t already look good</p></li>
+          <li><p>Let the user customize requirements that they have fulfilled through other means (such as study abroad)</p></li>
+          <li><p>Inform the user of when courses are typically offered (such as how frequently the course is offered and which semester it is typically offered in)</p></li>
+          <li><p>Start putting in requirements for other majors</p></li>
+        </ul>
+
+        <p><b>April 27th: Alpha test</b></p>
+        <ul>
+          <li><p>By this time, we should have full basic functionality of the app, including the following:</p></li>
+          <li><p>Being able to retrieve saved user data during a later session</p></li>
+          <li><p>Having a presentable UI</p></li>
+          <li><p>Requirements customization and course time predictions</p></li>
+          <li><p>Continue propagating app for people to try out</p></li>
+        </ul>
+
+        <p><b>April 29th:</b></p>
+        <ul>
+          <li><p>Continue putting in requirements for other majors</p></li>
+          <li><p>Work on other additional features</p></li>
+          <li><p>Start working on presentation/final documentation</p></li>
+        </ul>
+
+        <p><b>May 3rd: Beta Test</b></p>
+        <ul>
+          <li><p>The app is fully usable and useful to a user that would want to use it</p></li>
+          <li><p>Do a beta test release to the Princeton community</p></li>
+        </ul>
+
+        <p><b>May 9th, 10th: Demo Days</b></p>
+        <ul><li><p>Finish presentation</p></li></ul>
+
+        <p><b>May 13th: Project Due</b></p>
+        <ul><li><p>Finish final documentation</p></li></ul>
+
+        <h4 class="about-header">Resources</h4>
+        <a href="{% static 'res/tigerpath_design_doc.pdf' %}">Design Document</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+            <ul class="list-inline mb-2">
+              <li class="list-inline-item">
+                <a href="/about">About</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Contact</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+              <li class="list-inline-item">&sdot;</li>
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+            </ul>
+            <p class="text-muted small mb-4 mb-lg-0">Made with ❤️by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
