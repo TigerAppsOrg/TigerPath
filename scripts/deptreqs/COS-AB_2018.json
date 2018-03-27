@@ -14,6 +14,7 @@
       "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "double_counting_allowed": false,
       "pdf_allowed": false,
+      "completed_by_semester": 4,
       "ReqList": [
         {
           "name": "Calculus",

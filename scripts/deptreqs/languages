@@ -1,7 +1,7 @@
 ARA - Arabic
-BCS - Bosnian-Croatian-Serbian
-      Bulgarian
-SLA - Slavic Languages and Lit
+BCS - Bosnian-Croatian-Serbian*
+      Bulgarian*
+SLA - Slavic Languages and Lit*
 CHI - Chinese
 CZE - Czech
 FRE - French
@@ -14,11 +14,15 @@ ITA - Italian
 JPN - Japanese
 KOR - Korean
 LAT - Latin
-PLS - Polish
-POR - Portuguese
+PER - Persian
+PLS - Polish*
+POR - Portuguese*
 RUS - Russian
 SPA - Spanish
 SWA - Swahili
 TUR - Turkish
-TWI - Twi
+TWI - Twi*
 URD - Urdu
+
+
+*unsure if can count for AB foreign language requirement. TODO: confirm
