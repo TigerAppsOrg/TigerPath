@@ -1203,10 +1203,10 @@
           "min_needed": "",
           "description": "200 or 300 level language course",
           "explanation": "An additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used.",
-          "note": "LAN stands for any one single language",
+          "note": "LANG stands for any one single language",
           "CourseList": [
-            "LAN 2**",
-            "LAN 3**"
+            "LANG 2**",
+            "LANG 3**"
           ]
         },
         {
@@ -1222,15 +1222,15 @@
               "min_needed": "",
               "description": "",
               "explanation": "",
-              "note": "LAN stands for any one single language",
+              "note": "LANG stands for any one single language",
               "CourseList": [
-                "LAN 102",
-                "LAN 103",
-                "LAN 104",
-                "LAN 105",
-                "LAN 106",
-                "LAN 107",
-                "LAN 108"
+                "LANG 102",
+                "LANG 103",
+                "LANG 104",
+                "LANG 105",
+                "LANG 106",
+                "LANG 107",
+                "LANG 108"
               ]
             },
             {
@@ -1239,15 +1239,15 @@
               "min_needed": "",
               "description": "",
               "explanation": "",
-              "note": "LAN stands for any one single language",
+              "note": "LANG stands for any one single language",
               "CourseList": [
-                "LAN 102",
-                "LAN 103",
-                "LAN 104",
-                "LAN 105",
-                "LAN 106",
-                "LAN 107",
-                "LAN 108"
+                "LANG 102",
+                "LANG 103",
+                "LANG 104",
+                "LANG 105",
+                "LANG 106",
+                "LANG 107",
+                "LANG 108"
               ]
             }
           ]
