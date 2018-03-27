@@ -27,7 +27,7 @@
       "name": "Writing Seminar",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Writing Seminar--one course",
+      "description": "Writing Seminar — one course",
       "explanation": "All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nEnrollment process:\nhttps://writing.princeton.edu/seminars/how-enroll",
       "pdf_allowed": false,
       "CourseList": [
@@ -38,7 +38,7 @@
       "name": "Foreign Language",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Foreign Language--one to four terms to complete, depending on the language students study and the level at which they start",
+      "description": "Foreign Language — one to four terms to complete, depending on the language students study and the level at which they start",
       "explanation": "When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world. All candidates for the A.B. degree at Princeton must demonstrate proficiency in a foreign language before graduation. Many undergraduates satisfy the foreign language requirement by demonstrating proficiency when they enter the University. In order to fulfill the language requirement through coursework, we expect successful completion of courses normally numbered through 107/108. ",
       "double_counting_allowed": false,
       "Req": "LAN"
@@ -47,7 +47,7 @@
       "name": "Epistemology and Cognition",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Epistemology and Cognition (EC)--one course",
+      "description": "Epistemology and Cognition (EC) — one course",
       "explanation": "The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
       "Req": "EC"
     },
@@ -95,7 +95,7 @@
       "name": "Science and Technology",
       "max_counted": 1,
       "min_needed": 2,
-      "description": "Science and Technology (STL/STN)--two courses. \nAt least one course must be a science and technology course with laboratory (STL). Students may elect a second laboratory science course, or a nonlaboratory science course (STN).",
+      "description": "Science and Technology (STL/STN) — two courses. \nAt least one course must be a science and technology course with laboratory (STL). Students may elect a second laboratory science course, or a nonlaboratory science course (STN).",
       "explanation": "The requirement in science and technology is designed to give you a basic knowledge of the capabilities and limitations of scientific inquiry and technological development. The common purpose of courses in this area is to instill a lasting interest in science and technology; to impart some understanding of the value of scientific thinking and its relation to societal issues; to foster an appreciation of the essential role of experimentation and measurement; and to convey the excitement of doing scientific research. The laboratory component is essential to an understanding of how scientific concepts are tested and of the limitations of the scientific method, including the concepts of error and reproducibility.",
       "ReqList": [
         {
