@@ -10,7 +10,7 @@
     {
       "name": "Degree Progress",
       "max_counted": 1,
-      "min_needed": "",
+      "min_needed": 4,
       "description": "",
       "explanation": "B.S.E. students enroll in four courses for the first term of the freshman year and in four or five courses in each succeeding term, following a sequence appropriate to their individual programs. The school requirement for the B.S.E. degree is at least 36 courses in the four years of study. Sophomores, juniors, and seniors must complete at least four courses each term, with a minimum of 17 courses by the start of junior year and 26 courses by the start of senior year.",
       "ReqList": [
@@ -66,7 +66,7 @@
           "min_needed": 1,
           "description": "103 Calculus",
           "explanation": "",
-          "pdf_allowed": false,
+          "completed_by_semester": 2,
           "CourseList": [
             "MAT 103"
           ]
@@ -77,7 +77,7 @@
           "min_needed": 1,
           "description": "104 Calculus",
           "explanation": "",
-          "pdf_allowed": false,
+          "completed_by_semester": 2,
           "CourseList": [
             "MAT 104"
           ]
@@ -88,7 +88,6 @@
           "min_needed": 1,
           "description": "",
           "explanation": "201 Multivariable Calculus, 203 Advanced Multivariable Calculus, 218 Analysis in Several Variables, or EGR 192 Integrated Introduction to Engineering, Mathematics, Physics",
-          "pdf_allowed": false,
           "CourseList": [
             "MAT 201",
             "MAT 203",
@@ -102,13 +101,71 @@
           "min_needed": 1,
           "description": "",
           "explanation": "202 Linear Algebra with Applications, 204 Advanced Linear Algebra with Applications, or 217 Honors Linear Algebra, or equivalent",
-          "pdf_allowed": false,
           "CourseList": [
             "MAT 202",
             "MAT 204",
             "MAT 217"
           ]
         }
+      ]
+    },
+    {
+      "name": "Physics",
+      "max_counted": 1,
+      "min_needed": 2,
+      "description": "Physics (two semesters)",
+      "explanation": "",
+      "pdf_allowed": false,
+      "completed_by_semester": 2,
+      "ReqList": [
+        {
+          "name": "Mechanics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "",
+          "explanation": "103 General Physics, 105 Advanced Physics, or EGR 191 Integrated Introduction to Engineering, Mathematics, Physics",
+          "CourseList": [
+            "PHY 103",
+            "PHY 105",
+            "EGR 191"
+          ]
+        },
+        {
+          "name": "Electromagnetism",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": "",
+          "explanation": "104 General Physics or 106 Advanced Physics, or equivalent",
+          "CourseList": [
+            "PHY 104",
+            "PHY 106"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chemistry",
+      "max_counted": 1,
+      "min_needed": 1,
+      "description": "Chemistry (one semester)",
+      "explanation": "",
+      "pdf_allowed": false,
+      "completed_by_semester": 2,
+      "CourseList": [
+        "CHM 207",
+        "CHM 201"
+      ]
+    },
+    {
+      "name": "Computer Science",
+      "max_counted": 1,
+      "min_needed": 1,
+      "description": "Computer proficiency is a requirement for the B.S.E. degree",
+      "explanation": "Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
+      "pdf_allowed": false,
+      "completed_by_semester": 4,
+      "CourseList": [
+        "COS 126"
       ]
     },
     {
