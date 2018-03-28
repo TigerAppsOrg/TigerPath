@@ -89,6 +89,7 @@
           "CourseList": [
             "MAT 201",
             "MAT 203",
+            "MAT 216",
             "MAT 218",
             "EGR 192"
           ]
@@ -149,9 +150,33 @@
       "explanation": "",
       "pdf_allowed": false,
       "completed_by_semester": 2,
-      "CourseList": [
-        "CHM 207",
-        "CHM 201"
+      "ReqList": [
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": "",
+          "description": "",
+          "explanation": "",
+          "CourseList": [
+            "CHM 201",
+            "CHM 201A",
+            "CHM 203",
+            "CHM 207"
+          ]
+        },
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": 4,
+          "description": "",
+          "explanation": "",
+          "CourseList": [
+            "ISC 231",
+            "ISC 232",
+            "ISC 233",
+            "ISC 234"
+          ]
+        }
       ]
     },
     {
@@ -164,6 +189,33 @@
       "completed_by_semester": 4,
       "CourseList": [
         "COS 126"
+      ]
+      "ReqList": [
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": "",
+          "description": "",
+          "explanation": "",
+          "CourseList": [
+            "COS 126",
+            "COS 217",
+            "COS 226"
+          ]
+        },
+        {
+          "name": "",
+          "max_counted": 1,
+          "min_needed": 4,
+          "description": "",
+          "explanation": "",
+          "CourseList": [
+            "ISC 231",
+            "ISC 232",
+            "ISC 233",
+            "ISC 234"
+          ]
+        }
       ]
     },
     {
