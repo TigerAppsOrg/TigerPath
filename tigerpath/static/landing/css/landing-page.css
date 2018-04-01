@@ -64,19 +64,6 @@ header.masthead h1 {
   font-size: 2rem;
 }
 
-.text-container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.about-section p {
-  margin-bottom: 0;
-}
-
-.about-header {
-  margin-top: 1em;
-}
-
 @media (min-width: 768px) {
   header.masthead {
     padding-top: 12rem;
@@ -90,4 +77,27 @@ header.masthead h1 {
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+/* About page */
+
+.text-container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.about-section p {
+  margin-bottom: 0;
+}
+
+.tl-section {
+  font-weight: bold;
+}
+
+#about-description p {
+  margin-bottom: 16px;
+}
+
+#about-team, #about-mentor, #about-timeline, #about-res h4 {
+  margin-top: 2em;
 }
