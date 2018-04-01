@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_cas_ng',
 ]
 
 MIDDLEWARE = [
@@ -28,6 +29,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'django_cas_ng.backends.CASBackend',
+)
 
 ROOT_URLCONF = 'config.urls'
 
@@ -73,13 +79,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'America/New_York'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -105,7 +107,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Security
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
-
 SECURE_BROWSER_XSS_FILTER = True
-
 X_FRAME_OPTIONS = 'DENY'
+
+
+# CAS Authentication
+
+CAS_SERVER_URL = 'https://fed.princeton.edu/cas/'
+CAS_FORCE_CHANGE_USERNAME_CASE = 'lower'
+CAS_LOGIN_MSG = None
+CAS_LOGGED_MSG = None
