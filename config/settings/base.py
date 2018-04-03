@@ -1,5 +1,5 @@
 import os
-import django_heroku
+import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,6 +19,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -73,13 +74,32 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'US/Eastern'
+TIME_ZONE = 'America/New_York'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
+
+
+# Set secret key, database
+SECRET_KEY = os.getenv('SECRET_KEY', 'no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a')
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config()
+
+
+# Static files (CSS, JavaScript, Images)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+
+# Ensure STATIC_ROOT exists.
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+# Enable gzip functionality for static files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Security
@@ -89,8 +109,3 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
 X_FRAME_OPTIONS = 'DENY'
-
-
-# Activate Django-Heroku - automatically configures databases, test_runner,
-# staticfiles, allowed_hosts, logging, secret_key
-django_heroku.settings(locals())
