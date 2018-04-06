@@ -1,0 +1,79 @@
+.navbar-custom {
+background-color: #3d8af7;
+font-family: "Open Sans";
+font-size: large;
+color: #FFFFFF;
+margin-bottom: 10px;
+}
+.navbar-custom-searchbox {
+background-color: #3d8af7;
+font-family: "Open Sans";
+font-size: large;
+color: #FFFFFF;
+border: 1px solid black;
+padding: 3px;
+width: 100%;
+}
+.navbar-custom-drop {
+background-color: #dacafb;
+font-family: "Open Sans";
+font-size: medium;
+color: #000000;
+border: 1px solid black;
+width: 100%;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+color: #FFFFFF;
+}
+.reqtable-custom {
+background-color: #FFFFFF;
+margin: 20px;
+padding-top: 10px;
+text-align: center;
+}
+.reqtable-boxes {
+  padding: 10px;
+  white-space: nowrap;
+}
+.completed {
+  background-color: #cbe8ba;
+}
+.incomplete {
+  background-color: #ffd783;
+}
+.not-started {
+  background-color: #ffc3ae;
+}
+#mainNav a{
+color: #FFFFFF;
+text-decoration:none;
+margin: 5px;
+}
+#mainNav a:hover {
+color: blue;
+text-decoration: underline;
+}
+button.custom-toggler.navbar-toggler {
+border-color: #FFFFFF;
+}
+table.standard, th.standard, td.standard {
+border: 1px solid black;
+width: 20%;
+}
+table.courses {
+border-collapse: separate;
+border-spacing: 3px 0px;
+font-family: "Open Sans";
+font-size: large;
+color: #FFFFFF;
+width: 100%;
+}
+.course {
+  background-color: #ebebeb;
+  text-align: center;
+}
+.semester-header {
+  background-color: #3d8af7;
+  text-align: center;
+}
