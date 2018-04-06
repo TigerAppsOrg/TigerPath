@@ -1,7 +1,11 @@
 from .base import *
+import os
 
 
 DEBUG = False
+ADMIN_ENABLED = DEBUG
+
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
 
 # Security
