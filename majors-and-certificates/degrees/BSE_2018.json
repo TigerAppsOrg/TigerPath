@@ -5,8 +5,7 @@
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering",
     "https://ua.princeton.edu/contents/general-education-requirements",
-    "https://lsi.princeton.edu/integratedscience/freshman-year",
-    "https://writing.princeton.edu/seminars/fall-seminars"
+    "https://lsi.princeton.edu/integratedscience/freshman-year"
   ],
   "req_list": [
     {
@@ -240,7 +239,6 @@
       "description": "Writing Seminar",
       "explanation": "All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nEnrollment process:\nhttps://writing.princeton.edu/seminars/how-enroll",
       "pdfs_allowed": false,
-      "completed_by_semester": 2,
       "course_list": [
         "WRI 1**"
       ]
