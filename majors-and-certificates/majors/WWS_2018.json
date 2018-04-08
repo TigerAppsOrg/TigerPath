@@ -1,11 +1,14 @@
 {
+  "type": "Major",
   "name": "Woodrow Wilson School of Public and International Affairs",
   "code": "WWS",
-  "AB": true,
-  "certificate": false,
-  "note": "study abroad, other cross-cultural experience, or policy-relevant field experience required",
-  "url": "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
-  "Requirements": [
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
+    "http://wws.princeton.edu/undergraduate-academics"
+  ],
+  "req_list": [
     {
       "name": "Prerequisites",
       "max_counted": 1,
@@ -13,16 +16,16 @@
       "description": "Prerequisites",
       "explanation": "There are four prerequisites for concentrating in the Woodrow Wilson School:\n1. A course in Statistics\n2. A course in Microeconomics\n3. A course in History\n4. A course in Politics, Sociology or Psychology\nPrerequisites must be completed prior to the beginning of the fall term of the junior year.\nAll courses taken to meet these prerequisites must be taken on a graded basis (no pass/D/fail). AP courses or freshman seminars may not be used to fulfill prerequisites. Students must receive a grade of C minus or higher in all courses used as prerequisites.  One course cannot be used to fulfill more than one prerequisite.\n\nAll courses that meet prerequisites must be taken before September of the junior year. A summer course or a course taken abroad can be used to meet a WWS prerequisite if the course is certified by the relevant department as equivalent to one of the courses offered at Princeton that would meet the prerequisite and the course is approved for Princeton credit. No more than two prerequisites may be taken over the summer. Any course taken outside of Princeton to meet the statistics prerequisite must also be approved by the WWS Undergraduate Program Office (approval is granted only for special circumstances).\nA course taken at Princeton and used as a prerequisite can also be used to meet either a WWS core requirement (if it is on the list of core requirements) or as a WWS elective (if it is on the electives list).",
       "double_counting_allowed": false,
-      "pdf_allowed": false,
+      "pdfs_allowed": false,
       "completed_by_semester": 4,
-      "ReqList": [
+      "req_list": [
         {
           "name": "Statistics Prerequisite",
           "max_counted": 1,
           "min_needed": 1,
           "description": "A course in Statistics",
           "explanation": "One Course in Statistics\nWWS 200 Statistics for Social Science\nECO 302 Econometrics\nECO 312 Econometrics: A Mathematical Approach\nPOL 345 Quantitative Analysis in Politics\nPOL 346 Applied Quantitative Analysis",
-          "CourseList": [
+          "course_list": [
             "WWS 200",
             "ECO 302",
             "ECO 312",
@@ -36,7 +39,7 @@
           "min_needed": 1,
           "description": "A course in Microeconomics",
           "explanation": "One Course in Microeconomics\nECO 100 Introduction to Microeconomics\nECO 300 Microeconomic Theory\nECO 310 Microeconomic Theory: A Mathematical Approach\nWWS 300 Microeconomic for Public Policy",
-          "CourseList": [
+          "course_list": [
             "ECO 100",
             "ECO 300",
             "ECO 310",
@@ -49,7 +52,7 @@
           "min_needed": 1,
           "description": "A course in History",
           "explanation": "One History course at any level (designated HIS)\nA cross-listed course with a HIS designation may also be used. Courses in the HA distribution area do not qualify unless they are designated HIS.  For example, courses in NES or SOC that are in the HA distribution area do not fulfill this requirement unless they are cross-listed with HIS.",
-          "CourseList": [
+          "course_list": [
             "HIS *"
           ]
         },
@@ -59,7 +62,7 @@
           "min_needed": 1,
           "description": "A course in Politics, Sociology or Psychology",
           "explanation": "One Politics, Sociology or Psychology at any level (designated POL, SOC, or PSY)\nCross-listed courses with these designations can also be used. A course taken to meet the statistics requirement cannot be used to meet this requirement.",
-          "CourseList": [
+          "course_list": [
             "POL *",
             "SOC *",
             "PSY *"
@@ -74,15 +77,15 @@
       "description": "Core Course Requirements",
       "explanation": "Prior to graduation, WWS students must complete the core course requirements listed below. All courses used to meet these requirements must be taken at Princeton on a graded basis (no pdf). Courses taken to meet elective requirements cannot be used to fulfill core requirements.",
       "double_counting_allowed": false,
-      "pdf_allowed": false,
-      "ReqList": [
+      "pdfs_allowed": false,
+      "req_list": [
         {
           "name": "Microeconomics",
           "max_counted": 1,
           "min_needed": 1,
           "description": "One Course in Microeconomics",
           "explanation": "One Course in Microeconomics\nWWS 300 Microeconomics for Public Policy\nECO 300 Microeconomic Theory\nECO 310 Microeconomic Theory: A Mathematical Approach",
-          "CourseList": [
+          "course_list": [
             "WWS 300",
             "ECO 300",
             "ECO 310"
@@ -94,7 +97,7 @@
           "min_needed": 1,
           "description": "One Course in Politics",
           "explanation": "One Course in Politics\nPOL 220/WWS 310 American Politics\nPOL 230/WWS 325 Introduction to Comparative Politics\nPOL 240/WWS 312 International Relations\nPOL 351/WWS 311 Politics in Developing Countries",
-          "CourseList": [
+          "course_list": [
             "POL 220/WWS 310",
             "POL 230/WWS 325",
             "POL 240/WWS 312",
@@ -107,7 +110,7 @@
           "min_needed": 1,
           "description": "One Course in Sociology or Psychology",
           "explanation": "One Course in Sociology or Psychology\nWWS 330 Population and Public Policy\nWWS 331 Race and Public Policy\nWWS 333/SOC 326 Law, Institutions and Public Policy\nWWS 340 The Psychology of Decision-Making and Judgment\nWWS 344/PSY 312 The Psychology of Social Influence\nAAS 384/PSY 384 Prejudice: Its Causes, Consequences, and Cures",
-          "CourseList": [
+          "course_list": [
             "WWS 330",
             "WWS 331",
             "WWS 333/SOC 326",
@@ -122,7 +125,7 @@
           "min_needed": 1,
           "description": "One Course in Science Policy",
           "explanation": "One Course in Science Policy\nWWS 350 The Environment: Science and Public Policy\nWWS 351 Information Technology and Public Policy\nWWS 353 Science and Global Security\nWWS 354 Modern Genetics & Public Policy\nCEE 334/WWS 452 Global Environmental Issues\nENV 304/WWS 455 Disease, Ecology, Economics and Policy\nGEO 366/WWS 451 Climate Change: Scientific Basis, Policy Implications",
-          "CourseList": [
+          "course_list": [
             "WWS 350",
             "WWS 351",
             "WWS 353",
@@ -138,7 +141,7 @@
           "min_needed": 1,
           "description": "One Course in Ethics",
           "explanation": "One Course in Ethics\nWWS 370 Ethics and Public Policy\nPOL 307  The Just Society\nPOL 313  Global Justice\nCHV 310/PHI 385 Practical Ethics\nPHI 307/CHV 311 Systematic Ethics\nPHI 309/CHV 309 Political Philosophy\nPHI 319/CHV 319 Normative Ethics\nREL261/CHV 261 Christian Ethics and Modern Society",
-          "CourseList": [
+          "course_list": [
             "WWS 370",
             "POL 307",
             "POL 313",
@@ -155,21 +158,21 @@
           "min_needed": 4,
           "description": "Elective Courses",
           "explanation": "Elective Courses\nEach student must complete four electives on a graded basis (no pdf) from a list issued by WWS.\nNo more than three electives can be courses listed or cross-listed by the same department. Methodology courses that are on the electives list and all WWS courses will be exempt, but cross-listings on WWS courses will count.\n\nUp to three elective courses can be taken in semester-long study abroad programs. Electives taken at Princeton must be taken on a graded basis. Summer courses may not be used as electives.",
-          "ReqList": [
+          "req_list": [
             {
               "name": "Human Welfare and Social Policy",
-              "max_counted": "",
-              "min_needed": "",
+              "max_counted": null,
+              "min_needed": null,
               "description": "Human Welfare and Social Policy ",
               "explanation": "Human Welfare and Social Policy\nEducation\nGender, Sexuality, and Families\nHealth and Well Being\nHousing and Urban Issues\nHuman Rights\nImmigration\nPoverty, Inequality, Income, and Social Mobility\nRace, Ethnicity, and Discrimination",
-              "ReqList": [
+              "req_list": [
                 {
                   "name": "Education",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Education",
                   "explanation": "Education",
-                  "CourseList": [
+                  "course_list": [
                     "AMS 311 Education and Inequality",
                     "ANT 368 Ethnography of Schools and Schooling",
                     "HIS 487 Women in American Higher Education",
@@ -185,11 +188,11 @@
                 },
                 {
                   "name": "Gender, Sexuality, and Families",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Gender, Sexuality, and Families",
                   "explanation": "Gender, Sexuality, and Families",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 302 Political Bodies: The Social Anatomy of Power and Difference",
                     "AAS 351 Law, Social Policy, and African American Women",
                     "AAS 404 Intersectional Activisms and Movements for Social Justice",
@@ -223,11 +226,11 @@
                 },
                 {
                   "name": "Health and Well Being",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Health and Well Being",
                   "explanation": "Health and Well Being",
-                  "CourseList": [
+                  "course_list": [
                     "AMS 306 Issues in American Public Health",
                     "ANT 335 Medical Anthropology",
                     "ANT 403 Race and Medicine",
@@ -266,11 +269,11 @@
                 },
                 {
                   "name": "Housing and Urban Issues",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Housing and Urban Issues",
                   "explanation": "Housing and Urban Issues",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 350 Rats, Riots, and Revolution: Housing in the Metropolitan United States",
                     "ARC 401 Theories of Housing and Urbanism",
                     "CEE 475 Cities in the 21st Century: The Nexus of the Climate, Water and Energy",
@@ -290,11 +293,11 @@
                 },
                 {
                   "name": "Human Rights",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Human Rights",
                   "explanation": "Human Rights",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 313 Modern Caribbean History",
                     "AAS 345 Race, Labor, and the Long Civil Rights Movement",
                     "AAS 351 Law, Social Policy, and African American Women",
@@ -324,11 +327,11 @@
                 },
                 {
                   "name": "Immigration",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Immigration",
                   "explanation": "Immigration",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 313 Modern Caribbean History",
                     "AAS 323 Diversity in Black America",
                     "ECO 331 Economics of the Labor Market",
@@ -351,11 +354,11 @@
                 },
                 {
                   "name": "Poverty, Inequality, Income, and Social Mobility",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Poverty, Inequality, Income, and Social Mobility",
                   "explanation": "Poverty, Inequality, Income, and Social Mobility",
-                  "CourseList": [
+                  "course_list": [
                     "AMS 311 Education and Inequality",
                     "ANT 417 Labors of Consciousness: Culture, Capital, Moral Economy",
                     "CHV 370 Capitalism, Utopia and Social Justice",
@@ -392,11 +395,11 @@
                 },
                 {
                   "name": "Race, Ethnicity, and Discrimination",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Race, Ethnicity, and Discrimination",
                   "explanation": "Race, Ethnicity, and Discrimination",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 313 Modern Caribbean History",
                     "AAS 247 The New Jim Crow: US Crime Policy from Constitutional Formation to Ferguson",
                     "AAS 302 Political Bodies: The Social Anatomy of Power and Difference",
@@ -458,18 +461,18 @@
             },
             {
               "name": "Security and Sustainability",
-              "max_counted": "",
-              "min_needed": "",
+              "max_counted": null,
+              "min_needed": null,
               "description": "Security and Sustainability",
               "explanation": "Security and Sustainability\nConflict and Cooperation\nDevelopment\nEnvironment, Climate, and Energy\nTechnology and Security\nTrade and Finance",
-              "ReqList": [
+              "req_list": [
                 {
                   "name": "Conflict and Cooperation",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Conflict and Cooperation",
                   "explanation": "Conflict and Cooperation",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 404 Intersectional Activisms and Movements for Social Justice",
                     "AFS 427 Conflict in Africa",
                     "ANT 329 Doing Good, Doing Well: The Political Lives of NGOs",
@@ -529,11 +532,11 @@
                 },
                 {
                   "name": "Development",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Development",
                   "explanation": "Development",
-                  "CourseList": [
+                  "course_list": [
                     "AFS 320 The Resource Curse and Development in Africa",
                     "ANT 376 Charity, Philanthropy & Development",
                     "EAS 302 Dilemmas of Development in Asia",
@@ -570,11 +573,11 @@
                 },
                 {
                   "name": "Environment, Climate, and Energy",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Environment, Climate, and Energy",
                   "explanation": "Environment, Climate, and Energy",
-                  "CourseList": [
+                  "course_list": [
                     "AMS 364 Environmental and Social Crisis",
                     "AST 309 Science and Technology of Nuclear Energy: Fission and Fusion",
                     "CEE 334 Global Environmental Issues",
@@ -616,11 +619,11 @@
                 },
                 {
                   "name": "Technology and Security",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Technology and Security",
                   "explanation": "Technology and Security",
-                  "CourseList": [
+                  "course_list": [
                     "AST 309 Science and Technology of Nuclear Energy: Fission and Fusion",
                     "CHV 411 Free Speech in the Internet Age",
                     "COS 432 Information Security",
@@ -639,11 +642,11 @@
                 },
                 {
                   "name": "Trade and Finance",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Trade and Finance",
                   "explanation": "Trade and Finance",
-                  "CourseList": [
+                  "course_list": [
                     "CEE 460 Risk Assessment and Management",
                     "COS 445 Networks, Economics and Computing",
                     "ECO 301 Macroeconomics",
@@ -691,18 +694,18 @@
             },
             {
               "name": "Institutions and Networks",
-              "max_counted": "",
-              "min_needed": "",
+              "max_counted": null,
+              "min_needed": null,
               "description": "Institutions and Networks",
               "explanation": "Institutions and Networks –pg. 11\nCommunications and Media Influence\nInternational Organizations and Global Governance\nLaw and Legal Systems\nPolitical Systems\nScience and Technology\nSocial Networks",
-              "ReqList": [
+              "req_list": [
                 {
                   "name": "Communications and Media Influence",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Communications and Media Influence",
                   "explanation": "Communications and Media Influence",
-                  "CourseList": [
+                  "course_list": [
                     "ENV 316 Communicating Climate Change",
                     "GSS 395 Media Spectacles, Scandalous Citizens and Democratic Possibilities",
                     "HIS 403 The History of Free Speech",
@@ -721,11 +724,11 @@
                 },
                 {
                   "name": "International Organizations and Global Governance",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "International Organizations and Global Governance",
                   "explanation": "International Organizations and Global Governance",
-                  "CourseList": [
+                  "course_list": [
                     "ANT 329 Doing Good, Doing Well: The Political Lives of NGOs",
                     "CEE 334 Global Environmental Issues",
                     "CHV 370 Capitalism, Utopia and Social Justice",
@@ -751,11 +754,11 @@
                 },
                 {
                   "name": "Law and Legal Systems",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Law and Legal Systems",
                   "explanation": "Law and Legal Systems",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 247 The New Jim Crow: US Crime Policy from Constitutional Formation to Ferguson",
                     "AAS 351 Law, Social Policy, and African American Women",
                     "AAS 362 Race and the American Legal Process",
@@ -785,11 +788,11 @@
                 },
                 {
                   "name": "Political Systems",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Political Systems",
                   "explanation": "Political Systems",
-                  "CourseList": [
+                  "course_list": [
                     "ANT 304 Political Anthropology",
                     "ANT 450 The Revolution Will Not be Televised",
                     "EPS 300 European Politics and Society in the 20th Century",
@@ -853,11 +856,11 @@
                 },
                 {
                   "name": "Science and Technology",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Science and Technology",
                   "explanation": "Science and Technology",
-                  "CourseList": [
+                  "course_list": [
                     "ARC 311 Building Science and Technology: Building Systems",
                     "AST 309 Science and Technology of Nuclear Energy: Fission and Fusion",
                     "CBE 260 Ethics and Technology: Engineering in the Real World",
@@ -887,11 +890,11 @@
                 },
                 {
                   "name": "Social Networks",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Social Networks",
                   "explanation": "Social Networks",
-                  "CourseList": [
+                  "course_list": [
                     "COS 445 Networks, Economics and Computing",
                     "COS 461 Computer Networks",
                     "EGR 277 Technology and Society",
@@ -911,11 +914,11 @@
             },
             {
               "name": "Methodology and Decision Making",
-              "max_counted": "",
-              "min_needed": "",
+              "max_counted": null,
+              "min_needed": null,
               "description": "Methodology and Decision Making",
               "explanation": "Methodology and Decision Making",
-              "CourseList": [
+              "course_list": [
                 "ANT 300A Ethnography, Evidence and Experience",
                 "ANT 301A The Ethnographer's Craft",
                 "COS 424 Interacting with Data",
@@ -942,18 +945,18 @@
             },
             {
               "name": "Regional Studies",
-              "max_counted": "",
-              "min_needed": "",
+              "max_counted": null,
+              "min_needed": null,
               "description": "Regional Studies",
               "explanation": "Regional Studies: \nAfrica\nEast Asia\nEurope\nLatin America\nMiddle East\nUnited States of America\nSouth Asia",
-              "ReqList": [
+              "req_list": [
                 {
                   "name": "Africa",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Africa",
                   "explanation": "Africa",
-                  "CourseList": [
+                  "course_list": [
                     "AFS 320 The Resource Curse and Development in Africa",
                     "AFS 427 Conflict in Africa",
                     "ANT 405 Topics in Anthropology: Sexuality, Laws and Ethics in Africa",
@@ -967,11 +970,11 @@
                 },
                 {
                   "name": "East Asia",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "East Asia",
                   "explanation": "East Asia",
-                  "CourseList": [
+                  "course_list": [
                     "EAS 225 Japanese Society and Culture",
                     "EAS 229 Contemporary East Asia",
                     "EAS 309 Ideas and Society in Modern Japan, 1600-1945",
@@ -998,11 +1001,11 @@
                 },
                 {
                   "name": "Europe",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Europe",
                   "explanation": "Europe",
-                  "CourseList": [
+                  "course_list": [
                     "ECO 372 Topics in Country and Regional Economics: Economics of the European Union and Economies in Europe",
                     "EPS 300 European Politics and Society in the 20th Century",
                     "EPS 302 Landmarks of European Identity",
@@ -1020,11 +1023,11 @@
                 },
                 {
                   "name": "Latin America",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Latin America",
                   "explanation": "Latin America",
-                  "CourseList": [
+                  "course_list": [
                     "HIS 304 Modern Latin America since 1810",
                     "HIS 371 Colonial North America",
                     "HIS 393 Race, Drugs, and Drug Policy",
@@ -1044,11 +1047,11 @@
                 },
                 {
                   "name": "Middle East",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "Middle East",
                   "explanation": "Middle East",
-                  "CourseList": [
+                  "course_list": [
                     "HIS 267 The Modern Middle East",
                     "HIS 419 Topics in History of Modern Syria: Ba’athist Syria – Ideology, Literature & Film",
                     "NES 201 Introduction to the Middle East",
@@ -1080,11 +1083,11 @@
                 },
                 {
                   "name": "South Asia",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "South Asia",
                   "explanation": "South Asia",
-                  "CourseList": [
+                  "course_list": [
                     "ANT 332 Power and Politics in Southeast Asia",
                     "HIS 241 Faith and Power in the Indian Ocean Arena",
                     "HIS 317 The Making of Modern India and Pakistan",
@@ -1098,11 +1101,11 @@
                 },
                 {
                   "name": "United States of America",
-                  "max_counted": "",
-                  "min_needed": "",
+                  "max_counted": null,
+                  "min_needed": null,
                   "description": "United States of America",
                   "explanation": "United States of America",
-                  "CourseList": [
+                  "course_list": [
                     "AAS 247 The New Jim Crow: US Crime Policy from Constitutional Formation to Ferguson",
                     "AAS 345 Race, Labor, and the Long Civil Rights Movement",
                     "AAS 350 Rats, Riots, and Revolution: Housing in the Metropolitan United States",
@@ -1156,14 +1159,14 @@
       "min_needed": 2,
       "description": "Independent Work",
       "explanation": "To satisfy the junior independent work requirement, each student must complete one policy task force and one policy research seminar in the junior year. The policy research seminar will include a methods laboratory and will also count as a course.\n\nEach student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue.",
-      "ReqList": [
+      "req_list": [
         {
           "name": "Policy Task Force",
           "max_counted": 1,
           "min_needed": 1,
           "description": "Policy Task Force",
           "explanation": "In the task forces, a small group of juniors works together with a faculty director, one or two seniors, and, often, a graduate student toward proposing solutions to current problems in public and international affairs. Each junior conducts research on a topic carefully chosen to shed light on the larger problem that is central to the group. The principal collective product is a final report with policy recommendations, drafted after debates among the entire group.",
-          "CourseList": [
+          "course_list": [
             "WWS 401 Policy Seminars",
             "WWS 402 Policy Seminars"
           ]
@@ -1174,15 +1177,15 @@
           "min_needed": 1,
           "description": "Policy Research Seminar",
           "explanation": "In the policy research seminars, a faculty member supervises a small group of students similarly engaged in research on a specific topic in public and international affairs. Students also participate in a methods lab designed to teach them methods for quantitative and qualitative research. An important aim of all of the elements of the research seminar is to prepare students for their senior thesis work.",
-          "CourseList": [
+          "course_list": [
             "WWS 403 Policy Research Seminar",
             "WWS 404 Policy Research Seminar"
           ]
         },
         {
           "name": "Senior Thesis",
-          "max_counted": "",
-          "min_needed": "",
+          "max_counted": null,
+          "min_needed": null,
           "description": "Senior Thesis",
           "explanation": "Each student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue."
         }
@@ -1195,35 +1198,35 @@
       "description": "Language Requirement",
       "explanation": "WWS majors must complete at least one foreign language course beyond the current University requirement. This may be done by:\n(1) taking an additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used; or\n(2) taking a course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.\nCourses used to meet this requirement may be taken at Princeton or elsewhere; all courses must be taken on a graded basis.\nWhen they declare their concentration, students who are bilingual may apply to WWS to have this requirement waived.",
       "double_counting_allowed": false,
-      "pdf_allowed": false,
-      "ReqList": [
+      "pdfs_allowed": false,
+      "req_list": [
         {
-          "name": "",
+          "name": null,
           "max_counted": 1,
-          "min_needed": "",
+          "min_needed": null,
           "description": "200 or 300 level language course",
           "explanation": "An additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used.",
           "note": "LANG stands for any one single language",
-          "CourseList": [
+          "course_list": [
             "LANG 2**",
             "LANG 3**"
           ]
         },
         {
-          "name": "",
+          "name": null,
           "max_counted": 1,
           "min_needed": 2,
           "description": "Another Language",
           "explanation": "A course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.",
-          "ReqList": [
+          "req_list": [
             {
-              "name": "",
+              "name": null,
               "max_counted": 1,
-              "min_needed": "",
-              "description": "",
-              "explanation": "",
+              "min_needed": null,
+              "description": null,
+              "explanation": null,
               "note": "LANG stands for any one single language",
-              "CourseList": [
+              "course_list": [
                 "LANG 102",
                 "LANG 103",
                 "LANG 104",
@@ -1234,13 +1237,13 @@
               ]
             },
             {
-              "name": "",
+              "name": null,
               "max_counted": 1,
-              "min_needed": "",
-              "description": "",
-              "explanation": "",
+              "min_needed": null,
+              "description": null,
+              "explanation": null,
               "note": "LANG stands for any one single language",
-              "CourseList": [
+              "course_list": [
                 "LANG 102",
                 "LANG 103",
                 "LANG 104",
@@ -1256,8 +1259,8 @@
     },
     {
       "name": "Field Experience",
-      "max_counted": "",
-      "min_needed": "",
+      "max_counted": null,
+      "min_needed": null,
       "description": "Field Experience",
       "explanation": "Prior to the second semester of the senior year, each student must have completed an approved cross-cultural or field experience. The requirement may be satisfied in a number of ways, including but not limited to:\n\n\n- semester study abroad\n- summer study abroad\n- summer language study abroad\n- policy-relevant summer jobs abroad\n- ROTC training\n- senior thesis research in the field\n- extended service in an underserved community\n- internship involving public policy work in a nonprofit, government, or international agency such as the U.N., the World Bank, the U.S. Congress, or a state or federal agency.\n\nSummer study, language study or thesis research must be done for at least four weeks to qualify as a cross-cultural or field experience (note that to meet the WWS language requirement, eight weeks of summer study is required).\n\nInternships, jobs or community service must be for at least six consecutive weeks, or 240 hours.\nCross-cultural or field experience gained during the freshmen or sophomore year may count toward this requirement. To meet this requirement, all past or proposed work must be approved by the Undergraduate Program Office."
     }
