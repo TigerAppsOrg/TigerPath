@@ -39,10 +39,12 @@ def landing(request):
 def about(request):
     return render(request, 'tigerpath/about.html', None)
 
+
 def display_courses(request):
     professor_list = Professor.objects.all()
     return render(request, 'tigerpath/test.html', {"item_list": professor_list})
     
+
 def hydrate_meeting_dict(meeting):
     return {
         'days': meeting.days,
@@ -51,6 +53,7 @@ def hydrate_meeting_dict(meeting):
         'location': meeting.location,
         'id': meeting.id
     }
+
 
 def hydrate_section_dict(section, course):
     meetings = [hydrate_meeting_dict(meeting)
@@ -65,12 +68,14 @@ def hydrate_section_dict(section, course):
         'meetings': meetings
     }
 
+
 def hydrate_course_listing_dict(course_listing):
     return {
         'dept': course_listing.dept,
         'number': course_listing.number,
         'is_primary': course_listing.is_primary,
     }
+
 
 def hydrate_semester(semester):
     return {
@@ -80,6 +85,7 @@ def hydrate_semester(semester):
         'name': str(semester),
         'term_code': semester.term_code
     }
+
 
 def hydrate_course_dict(course):
     sections = [hydrate_section_dict(section, course)
@@ -95,6 +101,7 @@ def hydrate_course_dict(course):
         'sections': sections,
         'semester': hydrate_semester(course.semester),
     }
+    
 
 def get_courses_by_term_code(term_code):
     filtered = Course.objects.filter(Q(semester__term_code=term_code))

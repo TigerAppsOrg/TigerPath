@@ -1,6 +1,6 @@
 import json
 
-from tigerpath import scrape_all
+from tigerpath.scraper import scrape_all
 from tigerpath.views import get_courses_by_term_code
 from django.conf import settings
 from django.core.cache import caches

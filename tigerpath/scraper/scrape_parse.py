@@ -66,7 +66,7 @@ def scrape_parse_semester(term_code):
         Seed page should be "http://registrar.princeton.edu/course-offerings/"
         Automatically gets the courses for the current term.
         """
-        soup = BeautifulSoup(seed_page)
+        soup = BeautifulSoup(seed_page, "lxml")
         # Example tag:
         # <input name="subject" type="checkbox" value="COS">
         dept_tags = soup('input', {"name": "subject"})
