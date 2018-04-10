@@ -26,10 +26,10 @@ class ScrapeCounter:
 
 
 def scrape_import_course(course, counter=ScrapeCounter()):
-    from ..models import Course
+    from tigerpath.models import Course
 
     def import_section(section, course_object):
-        from ..models import Section, Meeting
+        from tigerpath.models import Section, Meeting
 
         def import_meeting(meeting, course_object, section_object):
             meeting_object, created = Meeting.objects.get_or_create(
@@ -61,7 +61,7 @@ def scrape_import_course(course, counter=ScrapeCounter()):
         return section_object
 
     def import_professor(prof, course_object):
-        from ..models import Professor
+        from tigerpath.models import Professor
         prof_object, created = Professor.objects.get_or_create(
             name=prof['full_name']
         )
@@ -73,7 +73,7 @@ def scrape_import_course(course, counter=ScrapeCounter()):
         return course_object
 
     def import_listing(listing, course_object):
-        from ..models import Course_Listing
+        from tigerpath.models import Course_Listing
         listing_object, created = Course_Listing.objects.get_or_create(
             course=course_object,
             dept=listing['dept'],
@@ -86,7 +86,7 @@ def scrape_import_course(course, counter=ScrapeCounter()):
         return listing_object
 
     def import_semester(semester):
-        from ..models import Semester
+        from tigerpath.models import Semester
         semester_object, created = Semester.objects.get_or_create(
             start_date=semester['start_date'],
             end_date=semester['end_date'],
