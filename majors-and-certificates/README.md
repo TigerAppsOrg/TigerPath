@@ -44,8 +44,8 @@
       "double_counting_allowed": false, // whether courses may count for multiple subrequirements
       "max_common_with_major": 0, // number of courses that can be in common with major
                                   // only relevant for certificates
-      "pdfs_allowed": false, // whether stuent is allowed to take the course SPDF (pass/D/fail)
-                             // can be false, true, or a numnber indicating how many courses
+      "pdfs_allowed": false, // whether stuent is allowed to take the courses SPDF (pass/D/fail)
+                             // can be false, true, or a number indicating how many courses
       "completed_by_semester": 4, // 1-8: semester by which the requirement must be complete
       "req_list": [ // may be a course_list, a req_list, a dist_req, or a num_courses
         {

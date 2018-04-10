@@ -8,6 +8,23 @@
     "https://ua.princeton.edu/academic-units/department-computer-science-bse",
     "https://www.cs.princeton.edu/ugrad/becoming-cs-major/requirements"
   ],
+  "contacts": [
+    {
+      "type": "Program Coordinator",
+      "name": "Colleen Kenny",
+      "email": "ckenny@cs.princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Brian Kernighan",
+      "email": "bwk@cs.princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Andrea LaPaugh",
+      "email": "aslp@cs.princeton.edu"
+    }
+  ],
   "req_list": [
     {
       "name": "Prerequisites",
