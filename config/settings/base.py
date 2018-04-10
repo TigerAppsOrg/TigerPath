@@ -128,8 +128,3 @@ CAS_LOGGED_MSG = None
 # Note: generally, limit this to three terms. This defines the terms that are
 #   scraped and the default terms displayed on schedules.
 ACTIVE_TERMS = [1182, 1184]
-
-# TODO: is this still used? if not, we can remove it
-# Use helper method nice.models.get_cur_semester() to get current Semester
-# object.
-CURR_TERM = 1184
