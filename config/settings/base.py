@@ -117,3 +117,14 @@ CAS_SERVER_URL = 'https://fed.princeton.edu/cas/'
 CAS_FORCE_CHANGE_USERNAME_CASE = 'lower'
 CAS_LOGIN_MSG = None
 CAS_LOGGED_MSG = None
+
+# GLOBAL VARIABLES
+
+# Apparent term numbering system (unconfirmed):
+#   Fall: 1{last 2 digits of ending year}2
+#   Spring: 1{last 2 digits of ending year}4
+# For example, the Fall 2016 term is 1172 - the ending year is 2017.
+# Similarly, the Spring 2017 term is 1174 - the ending year is 2017.
+# Note: generally, limit this to three terms. This defines the terms that are
+#   scraped and the default terms displayed on schedules.
+ACTIVE_TERMS = [1182, 1184]
