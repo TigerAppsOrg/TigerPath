@@ -10,10 +10,14 @@ TigerPath is a COS 333 project that helps Princeton University students plan out
 
 3. You'll have to modify the environment variables in the `Dockerfile.dev` file in order to get your development environment set up properly. Specifically, you should replace `ENV DATABASE_URL postgres://username:password@localhost:port/name` with the proper database url for your Postgres server.
 
-3. Use the following commands to work with Docker:
+3. Use the following commands to build your project and then run it on a local server:
     ```
     docker build -t tigerpath -f Dockerfile.dev .                   # Build code changes
     docker run -it -p 8000:8000 tigerpath                           # Run a local server at http://localhost:8000
+    ```
+
+4. If you want to push your changes to the [Heroku development server](http://tigerpath333-dev.herokuapp.com), then run the following command:
+    ```
     heroku container:push web --remote heroku-dev                   # Push to the Heroku development server
     ```
 
