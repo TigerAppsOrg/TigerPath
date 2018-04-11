@@ -1,5 +1,10 @@
 # Major and Certificate Requirements
 
+
+##### NEW: Form to help in the creation of Major/Certificate JSONs:
+
+<https://preview.c9users.io/bnehoran/majors-and-certificates/JSON_creator.html>
+
 ## Course Code Conventions
 | code               | meaning                                               |
 | ------------------ | ----------------------------------------------------- |
@@ -34,7 +39,7 @@
       "email": "dprof@princeton.edu"
     }
   ],
-  "req_list": [ //* req_list's contain subrequirements or subrequirements
+  "req_list": [ //* req_list's contain requirements or subrequirements
     {
       "name": "Prerequisites", //* requirement name
       "max_counted": 1, //* > 0 or null: max passed up to parent. unlimited if null
