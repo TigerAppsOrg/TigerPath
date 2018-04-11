@@ -8,6 +8,28 @@
     "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
     "http://wws.princeton.edu/undergraduate-academics"
   ],
+  "contacts": [
+    {
+      "type": "Associate Dean for Undergraduate Education",
+      "name": "Nate Scovronick",
+      "email": "nates@princeton.edu"
+    },
+    {
+      "type": "Director, Undergraduate Program and Career Services",
+      "name": "Monica Ruscil",
+      "email": "mgruscil@princeton.edu"
+    },
+    {
+      "type": "Academic Coordinator, Undergraduate Program",
+      "name": "Jan Burch",
+      "email": "jburch@princeton.edu"
+    },
+    {
+      "type": "Administrative Coordinator, Undergraduate Program",
+      "name": "Georgette Harrison",
+      "email": "gharriso@princeton.edu"
+    }
+  ],
   "req_list": [
     {
       "name": "Prerequisites",
@@ -1187,7 +1209,8 @@
           "max_counted": null,
           "min_needed": null,
           "description": "Senior Thesis",
-          "explanation": "Each student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue."
+          "explanation": "Each student must complete a senior thesis that clearly articulates a research question about a significant public policy issue and draws conclusions that contribute to the debate on that issue.",
+          "no_req": null
         }
       ]
     },
@@ -1242,7 +1265,7 @@
               "min_needed": null,
               "description": null,
               "explanation": null,
-              "note": "LANG stands for any one single language",
+              "note": "LANG stands for any other single language",
               "course_list": [
                 "LANG 102",
                 "LANG 103",
@@ -1262,7 +1285,8 @@
       "max_counted": null,
       "min_needed": null,
       "description": "Field Experience",
-      "explanation": "Prior to the second semester of the senior year, each student must have completed an approved cross-cultural or field experience. The requirement may be satisfied in a number of ways, including but not limited to:\n\n\n- semester study abroad\n- summer study abroad\n- summer language study abroad\n- policy-relevant summer jobs abroad\n- ROTC training\n- senior thesis research in the field\n- extended service in an underserved community\n- internship involving public policy work in a nonprofit, government, or international agency such as the U.N., the World Bank, the U.S. Congress, or a state or federal agency.\n\nSummer study, language study or thesis research must be done for at least four weeks to qualify as a cross-cultural or field experience (note that to meet the WWS language requirement, eight weeks of summer study is required).\n\nInternships, jobs or community service must be for at least six consecutive weeks, or 240 hours.\nCross-cultural or field experience gained during the freshmen or sophomore year may count toward this requirement. To meet this requirement, all past or proposed work must be approved by the Undergraduate Program Office."
+      "explanation": "Prior to the second semester of the senior year, each student must have completed an approved cross-cultural or field experience. The requirement may be satisfied in a number of ways, including but not limited to:\n\n\n- semester study abroad\n- summer study abroad\n- summer language study abroad\n- policy-relevant summer jobs abroad\n- ROTC training\n- senior thesis research in the field\n- extended service in an underserved community\n- internship involving public policy work in a nonprofit, government, or international agency such as the U.N., the World Bank, the U.S. Congress, or a state or federal agency.\n\nSummer study, language study or thesis research must be done for at least four weeks to qualify as a cross-cultural or field experience (note that to meet the WWS language requirement, eight weeks of summer study is required).\n\nInternships, jobs or community service must be for at least six consecutive weeks, or 240 hours.\nCross-cultural or field experience gained during the freshmen or sophomore year may count toward this requirement. To meet this requirement, all past or proposed work must be approved by the Undergraduate Program Office.",
+      "no_req": null
     }
   ]
 }
