@@ -42,7 +42,7 @@
   "req_list": [ //* req_list's contain requirements or subrequirements
     {
       "name": "Prerequisites", //* requirement name
-      "max_counted": 1, //* > 0 or null: max passed up to parent. unlimited if null
+      "max_counted": 1, // > 0 or null: max passed up to parent. unlimited if null
       "min_needed": 4, //* >= 0 or "ALL": min demanded of children (subrequirements)
       "description": "Prerequisites", // medium length description. usually redundant
       "explanation": "Long text\nfrom dept website", //* long human readable description
