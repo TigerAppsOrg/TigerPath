@@ -234,8 +234,7 @@
       "min_needed": null,
       "description": "Independent Work",
       "explanation": "All A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.",
-      "double_counting_allowed": false,
-      "pdfs_allowed": false
+      "no_req": null
     }
   ]
 }
