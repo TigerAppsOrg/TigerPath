@@ -22,7 +22,6 @@ ADD . "$APP_DIR"
 
 # Collect static files and apply migrations
 RUN python manage.py collectstatic --noinput
-RUN python manage.py makemigrations
 RUN python manage.py migrate --noinput
 
 # Start server
