@@ -6,18 +6,15 @@
 <https://preview.c9users.io/bnehoran/majors-and-certificates/JSON_creator.html>
 
 ## Course Code Conventions
-| code               | meaning                                               |
-| ------------------ | ----------------------------------------------------- |
-| AAA 111            | course listing                                        |
-| AAA ***            | any course in department AAA                          |
-| AAA *              | any course in department AAA                          |
-| AAA 2**            | any 200 level course in department AAA                |
-| AAA 2*             | any 200 level course in department AAA                |
-| LANG 101           | the 101 course in any language department             |
-| LANG               | the distribution requirements for any one language    |
-| STL                | STL distribution requirement                          |
-| STN                | STN distribution requirement                          |
-| EC, EM, HA, etc    | Distribution requirement                              |
+| code                                              | meaning                                                                           |
+| ------------------------------------------------- | --------------------------------------------------------------------------------- |
+| AAA 111<br>AAA 123/BBB 133                        | course listing                                                                    |
+| AAA \*\*\*<br>AAA \*                              | any course in department AAA                                                      |
+| AAA 2\*\*<br>AAA 2\*                              | any 200 level course in department AAA                                            |
+| **LANG** 101                                      | the 101 course in any language department                                         |
+| **LANG**                                          | the distribution requirements for any one language                                |
+| **STL**<br>**STN**<br>**EC**, **EM**, **HA**, etc | Distribution requirements                                                         |
+| AAA 101: Intro to Aardvarks                       | course listing with title <br>(title is ignored and only for human readability)   |
 
 ## Requirements JSON Format
 
@@ -62,9 +59,10 @@
           "course_list": [ //* may be a course_list, a req_list, a dist_req, or a num_courses
             "NST 100",  // course_list's contain the course codes (see above)
             "NST 2**",  // of courses satisfying the requirement
-            "NST 312C", // and, optionally, a [tab]-sparated course name which is 
+            "NST 312C", // and, optionally, a colon-sparated course name which is
             "NST 96",   // ignored by the parser (only for human reference)
-            "NST 487	The Study of Modern Names"
+            "NST 482/ACR 382",
+            "NST 487: The Study of Modern Names"
           ]
         }
         ... //another prerequisite

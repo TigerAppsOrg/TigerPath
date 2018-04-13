@@ -95,12 +95,12 @@
               "description": null,
               "explanation": null,
               "course_list": [
-                "COS 340 Reasoning about Computation",
-                "COS 423 Theory of Algorithms",
-                "COS 445 Networks, Economics and Computing",
-                "COS 451 Computational Geometry",
-                "COS 487 Theory of Computation",
-                "COS 488 Introduction to Analytic Combinatorics"
+                "COS 340: Reasoning about Computation",
+                "COS 423: Theory of Algorithms",
+                "COS 445: Networks, Economics and Computing",
+                "COS 451: Computational Geometry",
+                "COS 487: Theory of Computation",
+                "COS 488: Introduction to Analytic Combinatorics"
               ]
             },
             {
@@ -110,9 +110,9 @@
               "description": null,
               "explanation": "If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.",
               "course_list": [
-                "COS 510 Programming Languages",
-                "COS 441 Programming Languages",
-                "COS 516 Reasoning About Software"
+                "COS 510: Programming Languages",
+                "COS 441: Programming Languages",
+                "COS 516: Reasoning About Software"
               ]
             },
             {
@@ -122,8 +122,8 @@
               "description": null,
               "explanation": "If you take COS 433 and COS 533 only one will count as a theory requirement.",
               "course_list": [
-                "COS 433 Cryptography",
-                "COS 533 Advanced Cryptography"
+                "COS 433: Cryptography",
+                "COS 533: Advanced Cryptography"
               ]
             }
           ]
@@ -142,14 +142,14 @@
               "description": null,
               "explanation": null,
               "course_list": [
-                "COS 306/ELE 206 Introduction to Logic Design",
-                "COS 318 Operating Systems",
-                "COS 320 Compiling Techniques",
-                "COS 333 Advanced Programming Techniques",
+                "COS 306/ELE 206: Introduction to Logic Design",
+                "COS 318: Operating Systems",
+                "COS 320: Compiling Techniques",
+                "COS 333: Advanced Programming Techniques",
                 "COS 375/ELE 375 Computer Architecture and Organization",
-                "COS 425 Database and Information Management Systems",
-                "COS 463 Wireless Networks",
-                "COS 475/ELE 475 Computer Architecture"
+                "COS 425: Database and Information Management Systems",
+                "COS 463: Wireless Networks",
+                "COS 475/ELE 475: Computer Architecture"
               ]
             },
             {
@@ -159,8 +159,8 @@
               "description": null,
               "explanation": "If you take COS 461 and  COS 561 only one will count as a systems requirement.",
               "course_list": [
-                "COS 461 Computer Networks",
-                "COS 561 Advanced Computer Networks"
+                "COS 461: Computer Networks",
+                "COS 561: Advanced Computer Networks"
               ]
             },
             {
@@ -170,8 +170,8 @@
               "description": null,
               "explanation": "If you take COS 418 and  COS 518 only one will count as a systems requirement.",
               "course_list": [
-                "COS 418 Distributed Systems",
-                "COS 518 Advanced Computer Systems"
+                "COS 418: Distributed Systems",
+                "COS 518: Advanced Computer Systems"
               ]
             }
           ]
@@ -183,21 +183,21 @@
           "description": "Applications",
           "explanation": null,
           "course_list": [
-            "COS 314/MUS 314 Computer and Electronic Music through Programming, Performance, and Composition",
-            "COS 323/ORF 363 Computing and Optimization for the Physical and Social Sciences",
-            "COS 324 Introduction to Machine Learning",
-            "COS 325/MUS 315 Transforming Reality by Computer",
-            "COS 326 Functional Programming",
-            "COS 401/TRA 301 Introduction to Machine Translation ",
-            "COS 402 Machine Learning and  Artificial Intelligence",
-            "COS 424 Fundamentals of Machine Learning",
-            "COS 426 Computer Graphics",
-            "COS 429 Computer Vision",
-            "COS 432 Information Security",
-            "COS 435 Information Retrieval, Discovery, and Delivery",
-            "COS 436 Human-Computer Interface Technology ",
-            "COS 455/MOL 455 Introduction to Genomics and Computational Molecular Biology",
-            "COS 485 Neural Networks"
+            "COS 314/MUS 314: Computer and Electronic Music through Programming, Performance, and Composition",
+            "COS 323/ORF 363: Computing and Optimization for the Physical and Social Sciences",
+            "COS 324: Introduction to Machine Learning",
+            "COS 325/MUS: 315 Transforming Reality by Computer",
+            "COS 326: Functional Programming",
+            "COS 401/TRA 301: Introduction to Machine Translation ",
+            "COS 402: Machine Learning and  Artificial Intelligence",
+            "COS 424: Fundamentals of Machine Learning",
+            "COS 426: Computer Graphics",
+            "COS 429: Computer Vision",
+            "COS 432: Information Security",
+            "COS 435: Information Retrieval, Discovery, and Delivery",
+            "COS 436: Human-Computer Interface Technology ",
+            "COS 455/MOL: 455 Introduction to Genomics and Computational Molecular Biology",
+            "COS 485: Neural Networks"
           ]
         },
         {
