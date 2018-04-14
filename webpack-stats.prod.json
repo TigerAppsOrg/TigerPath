@@ -1,0 +1,1 @@
+{"status":"error","publicPath":"/static/bundles/","error":"ModuleDependencyError","message":"1:195-198 \"export 'default' (imported as 'App') was not found in './App'"}

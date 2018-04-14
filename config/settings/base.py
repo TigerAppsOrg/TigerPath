@@ -4,6 +4,7 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REACT_BASE_DIR = os.path.dirname(BASE_DIR)
 
 
 # Application definition
@@ -17,7 +18,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cas_ng',
+    'webpack_loader',
 ]
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+            'BUNDLE_DIR_NAME': 'bundles/',
+            'STATS_FILE': os.path.join(REACT_BASE_DIR, 'webpack-stats.dev.json'),
+        }
+}
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -89,7 +98,7 @@ USE_TZ = True
 SECRET_KEY = os.getenv('SECRET_KEY', 'no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a')
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default='postgres://tigerpath:e7e5f0ee15f81d80076716add445d5dacc0b74f0e5c27638a3b47e47017d80abb170c5f64b7f385f87e2eb7f0cf6928a6f@67.207.80.210:5432/tigerpath')
 
 
 # Static files (CSS, JavaScript, Images)

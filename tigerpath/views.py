@@ -2,10 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import django_cas_ng.views
-
+import ujson
 from .models import Course
 from django.db.models import Q
 from .models import Professor
+from .serializers import CourseSerializer
+from django.http import JsonResponse
 
 
 # cas auth login
@@ -40,9 +42,8 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-def display_courses(request):
-    professor_list = Professor.objects.all()
-    return render(request, 'tigerpath/test.html', {"item_list": professor_list})
+def search(request):
+    return render(request, 'tigerpath/search.html', None)
     
 
 def hydrate_meeting_dict(meeting):
