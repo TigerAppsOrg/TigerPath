@@ -4,6 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> TigerPath </title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -16,12 +17,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
-        <a class="navbar-brand" href="/landing">TigerPath</a>
+        <a class="navbar-brand" href="{% url 'landing' %}">TigerPath</a>
         <div>
         <a class="btn" href="#">Settings</a>
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a>
-        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">Netid</a>
-        <a class="btn hidden" href="/logout" id="logout-btn">Logout</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link" target="_blank"> Feedback </a>
+        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
+        <a class="btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
         </div>
       </div>
     </nav>

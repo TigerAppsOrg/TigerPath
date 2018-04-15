@@ -19,17 +19,7 @@
     <link href="{% static 'landing/css/landing-page.css' %}" rel="stylesheet">
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-dark nav-color-custom static-top">
-      <div class="container">
-        <a class="navbar-brand" href="/landing">TigerPath</a>
-        <div>
-        <a class="btn" href="/landing"> Home</a>
-        <a class="btn" href="/about"> About </a>
-        <a class="btn" href="/login"> Login</a>
-        </div>
-      </div>
-    </nav>
+    {% include '../includes/navigation.html' %}
 
     <!-- Masthead -->
     <header class="about-masthead text-white text-center">
@@ -156,32 +146,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item">
-                <a href="/about">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">Made with ❤️by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include '../includes/footer.html' %}
   </body>
 </html>

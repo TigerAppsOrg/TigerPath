@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_cas_ng',
     'webpack_loader',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -124,6 +125,12 @@ CAS_SERVER_URL = 'https://fed.princeton.edu/cas/'
 CAS_FORCE_CHANGE_USERNAME_CASE = 'lower'
 CAS_LOGIN_MSG = None
 CAS_LOGGED_MSG = None
+CAS_IGNORE_REFERER = True
+
+
+# Login url
+LOGIN_URL = 'login'
+
 
 # GLOBAL VARIABLES
 

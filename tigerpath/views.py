@@ -1,19 +1,21 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
+from django.db.models import Q
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from . import models
+from .forms import UserProfileForm
+
 import django_cas_ng.views
 import ujson
 import re
-from . import models
-from django.db.models import Q
 
 
 # cas auth login
 @csrf_exempt
 def login(request):
     if request.user.is_authenticated:
-        return render(request, 'tigerpath/index.html', None)
+        return redirect('index')
     else:
         return django_cas_ng.views.login(request)
 
@@ -26,9 +28,12 @@ def logout(request):
 # index page
 def index(request):
     if request.user.is_authenticated:
-        return render(request, 'tigerpath/index.html', None)
+        if request.user.profile.user_state['onboarding_complete']:
+            return render(request, 'tigerpath/index.html', None)
+        else:
+            return onboarding(request)
     else:
-        return render(request, 'tigerpath/landing.html', None)
+        return landing(request)
 
 
 # landing page
@@ -64,7 +69,7 @@ def filter_courses(search_query):
     for query in split_query:
         queries = queries + query.split(" ")
 
-# populate with all of semester's courses and convert to course_listings
+    # populate with all of semester's courses and convert to course_listings
     results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.prefetch_related('course_listing_set')
     results = models.Course_Listing.objects.filter(course__in=results)
 
@@ -98,6 +103,29 @@ def filter_courses(search_query):
 def update_schedule(request):
     print(request.POST)
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
+
+
+# onboarding page
+@login_required
+def onboarding(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        form = UserProfileForm(request.POST, instance=instance)
+        # check whether it's valid:
+        if form.is_valid():
+            # Save data to database and redirect to app
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.user_state['onboarding_complete'] = True
+            profile.save()
+            return redirect('index')
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = UserProfileForm()
+
+    return render(request, 'tigerpath/onboarding.html', {'form': form})
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
@@ -158,7 +186,7 @@ def hydrate_course_dict(course):
         'sections': sections,
         'semester': hydrate_semester(course.semester),
     }
-    
+
 
 def get_courses_by_term_code(term_code):
     filtered = Course.objects.filter(Q(semester__term_code=term_code))
