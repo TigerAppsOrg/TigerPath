@@ -1,13 +1,5 @@
 from django.urls import path
-from django.conf.urls import include
 from . import views
-from .resources import CourseResource
-from .resources import ProfessorResource
-from .resources import SectionResource
-
-course_resource = CourseResource()
-professor_resource = ProfessorResource()
-section_resource = SectionResource()
 
 urlpatterns = [
     # app urls
