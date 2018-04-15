@@ -1,13 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 import django_cas_ng.views
 import ujson
-from .models import Course
+import re
+from . import models
 from django.db.models import Q
-from .models import Professor
-from .serializers import CourseSerializer
-from django.http import JsonResponse
 
 
 # cas auth login
@@ -42,10 +41,103 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
+# search engine, will integrate with frontend later
 def search(request):
     return render(request, 'tigerpath/search.html', None)
-    
 
+
+# filters courses with query from react and sends back a list of filtered courses to display
+def get_courses(request, search_query):
+    course_list = filter_courses(search_query);
+    return HttpResponse(ujson.dumps(course_list, ensure_ascii=False), content_type='application/json')
+
+
+# returns list of courses filterd by query
+def filter_courses(search_query):
+    queries = break_query(search_query)
+
+    results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.all().prefetch_related('course_listing_set')
+    results = listing_to_course(results, reverse=True)
+
+    for query in queries:
+        if(query == ''):
+            continue
+        query = query.upper()
+
+        # is department
+        if(len(query) <= 3 and query.isalpha()):
+            results = filter_dept(query, results)
+
+        # is course number
+        elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
+            results = filter_num(query, results)
+
+        # check if it matches title
+        else:
+            # convert course_listings to courses to filter
+            results = listing_to_course(results)
+            results = filter_title(query, results)
+            # convert courses back to course_listings
+            results = listing_to_course(results, reverse=True) 
+
+    # convert course_listings to course to output
+    return results
+
+
+# preprocesses query for filtering
+def break_query(search_query):
+    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
+    split_query = re.split('(\d.*)', search_query)
+    queries = []
+    # split again by spaces
+    for query in split_query:
+        queries = queries + query.split(" ")
+    return queries
+
+
+# filter courses where query is a dept code
+def filter_dept(query, results):
+    filtered_results = []
+    for course_listing in results:
+        if(course_listing.dept == query):
+            filtered_results.append(course_listing)
+    return filtered_results
+
+
+# filter courses where query is a course num
+def filter_num(query, results):
+    filtered_results = []
+    for course_listing in results:
+        if(course_listing.number.startswith(query)):
+            filtered_results.append(course_listing)
+    return filtered_results
+
+
+# filter courses where query is a course title
+def filter_title(query, results):
+    filtered_results = []
+    for course in results:
+        if(query.lower() in course.title.lower()):
+            filtered_results.append(course)
+    return filtered_results
+
+
+# converts list of course_lisiting models to course models (through foreign key) and vice versa
+def listing_to_course(results, reverse = False):
+    converted_results = []
+    if(not reverse):
+        for course_listing in results:
+            if(course_listing.course not in converted_results):
+                converted_results.append(course_listing.course)
+    else:
+        for course in results:
+            for course_listing in course.course_listing_set.all():
+                converted_results.append(course_listing)
+    return converted_results
+
+
+# course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
+# these functions may not be necessary, it seems recal uses these functions for memcache which we are not using
 def hydrate_meeting_dict(meeting):
     return {
         'days': meeting.days,
