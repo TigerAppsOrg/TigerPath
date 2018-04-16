@@ -12,6 +12,25 @@ h6 {
   font-weight: 700;
 }
 
+.navbar {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: medium;
+  padding-left: 125px;
+}
+
+#main-nav a{
+  color: #FFFFFF;
+  text-decoration:none;
+  margin: 5px;
+}
+#main-nav a:hover {
+  color: #3d8af7;
+  text-decoration: underline;
+}
+button.custom-toggler.navbar-toggler {
+  border-color: #FFFFFF;
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;

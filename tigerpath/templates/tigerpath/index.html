@@ -1,204 +1,202 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8"/>
     <title> TigerPath </title>
+    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/custom.css">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm navbar-custom">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand">TigerPath - Your Road to Success</a>
-        </div>
-        <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#mainNav">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">TigerPath - Your Road to Success</a>
+      <div class="container col-8">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="nav navbar-nav navbar-right" id="mainNav">
-          <li class="active"><a href="about.html"> About </a></li>
-          <li><a href="#"> Settings </a></li>
-          <li><a href="#"> Feedback </a></li>
-          <li><a href="#"> netid </a></li>
-        </ul>
+      </button>
+        <div class="collapse navbar-collapse" id="main-nav">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-link active" target="__blank" href="/about"> About </a></li>
+            <a class="nav-link" href="#"> Settings </a></li>
+            <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a></li>
+            <a class="nav-link" href="#"> netid </a></li>
+            <a class="nav-link" href="/logout"> Logout </a></li>
+          </div>
+        </div>
       </div>
     </nav>
-    <div class="container">
-      <div class="row reqtable-custom col-lg-12" id="major">
-        <table class="standard">
+
+    <div class="row">
+      <div class="col-lg-2 no-padding-right">
+        <form class="navbar-form navbar-custom-searchbox">
+          <input type="search" class="form-control" placeholder="Search">
+        </form>
+        <table class="navbar-custom-drop">
+        </table>
+      </div>
+
+      <div class="col-lg-10 no-padding-left">
+        <table class="courses">
+          <thead class="semester-header">
+            <tr>
+              <td> Fall '16 </td>
+              <td> Spring '17 </td>
+              <td> Fall '17 </td>
+              <td> Spring '18 </td>
+            </tr>
+          </thead>
           <tbody>
             <tr>
-              <td class="standard" rowspan="3"> Major: COS (BSE) </td>
-              <td class="standard reqtable-boxes completed"> Prerequisites 3/3 </td>
-              <td class="standard reqtable-boxes completed"> Departmental (Applications): 2/2 </td>
-              <td class="standard reqtable-boxes incomplete"> Departmental (General): 5/8 </td>
-              <td class="standard reqtable-boxes incomplete"> Distribution: 4/7 </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
             </tr>
           </tbody>
           <tbody>
             <tr>
-              <td class="standard reqtable-boxes incomplete"> Departmental (Theory): 1/2 </td>
-              <td class="standard reqtable-boxes completed"> Departmental (Systems): 2/2 </td>
-              <td class="standard reqtable-boxes not-started"> Independent Work: 0/1 </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="no-border"> </td>
+            </tr>
+          </tbody>
+          <thead class="semester-header">
+            <tr>
+              <td> Fall '18 </td>
+              <td> Spring '19 </td>
+              <td> Fall '19 </td>
+              <td> Spring '20 </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-2">
-          <form class="navbar-form navbar-custom-searchbox">
-            <input type="search" class="form-control" placeholder="Search">
-          </form>
-          <table class="navbar-custom-drop">
-            <tbody>
-              <tr>
-                <td> COS 340 </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-lg-10">
-          <table class="courses">
-            <thead class="semester-header">
-              <tr>
-                <td> Fall '16&nbsp;&nbsp; </td>
-                <td> Spring '17 </td>
-                <td> Fall '17&nbsp;&nbsp; </td>
-                <td> Spring '18 </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="no-border">&nbsp; </td>
-              </tr>
-            </tbody>
-            <thead class="semester-header">
-              <tr>
-                <td> Fall '18&nbsp;&nbsp; </td>
-                <td> Spring '19 </td>
-                <td> Fall '19&nbsp;&nbsp; </td>
-                <td> Spring '20 </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-                <td class="course"> &nbsp; </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      function toggler(divId)
+      {
+        var isSearchHidden = $("#search-bar").is(":hidden");
+        if (divId == "requirements-list" && !isSearchHidden) {
+          $("#requirements-list").toggle();
+          $("#search-bar").toggle();
+        }
+        var isReqHidden = $("#requirements-list").is(":hidden");
+        if (divId == "search-bar" && !isReqHidden) {
+          $("#requirements-list").toggle();
+          $("#search-bar").toggle();
+        }
+      }
+      function treeexp () {
+        $('label.tree-toggler').click(function () {
+            $(this).parent().children('ul.tree').toggle(300);
+        });
+      }
+    </script>
   </body>
 </html>
