@@ -5,8 +5,7 @@ import $ from 'jquery'
 import jQuery from 'jquery'
 
 class Courses extends Component {
-  constructor()
-  {
+  constructor() {
     super();
   }
   render() {

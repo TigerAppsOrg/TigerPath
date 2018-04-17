@@ -7,10 +7,6 @@ ADMIN_ENABLED = DEBUG
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
-STATICFILES_DIRS = [
-    os.path.join(REACT_BASE_DIR, "assets"),
-]
-
 WEBPACK_LOADER = {
     'DEFAULT': {
             'BUNDLE_DIR_NAME': 'bundles/',
