@@ -24,7 +24,7 @@ class Search extends Component {
         cache: true,
         success: function(data) {
           this.setState({data: data});
-          if(search_query == this.state.search)
+          if(search_query == this.state.search || search_query == '$')
             ReactDOM.render(<Courses course_list={data}/>, document.getElementById('courses'));
         }.bind(this)
     })
