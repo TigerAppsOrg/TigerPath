@@ -18,7 +18,7 @@ class Search extends Component {
     // makes sure that there is always an argument after load_courses, $ is dummy arg
     if(search_query == '') search_query = "$"
     $.ajax({
-        url: "/get_courses/" + search_query,
+        url: "/api/v1/get_courses/" + search_query,
         datatype: 'json',
         type: 'GET',
         cache: true,
