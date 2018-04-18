@@ -19,22 +19,17 @@
     <link href="{% static 'landing/css/landing-page.css' %}" rel="stylesheet">
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">TigerPath</a>
-      <div class="container col-8">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="main-nav">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-link active" href="/landing"> Home </a></li>
-            <a class="nav-link" href="/about"> About </a></li>
-            <a class="nav-link" target="__blank" href="/login"> Login </a></li>
+      <!-- Navigation -->
+      <nav class="navbar navbar-dark nav-color-custom static-top">
+        <div class="container">
+          <a class="navbar-brand" href="/landing">TigerPath</a>
+          <div>
+          <a class="btn" href="/landing"> Home</a>
+          <a class="btn" href="/about"> About </a>
+          <a class="btn" href="/login"> Login</a>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
     <!-- Masthead -->
     <header class="masthead text-white text-center">
@@ -52,7 +47,7 @@
     </header>
 
     <!-- Footer -->
-    <footer class="footer bg-dark">
+    <footer class="footer bg-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 h-100 text-center text-lg-left my-auto">

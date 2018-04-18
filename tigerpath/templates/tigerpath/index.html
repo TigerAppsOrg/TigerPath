@@ -10,35 +10,30 @@
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">TigerPath - Your Road to Success</a>
-      <div class="container col-8">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <div class="collapse navbar-collapse" id="main-nav">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-link active" target="__blank" href="/about"> About </a></li>
-            <a class="nav-link" href="#"> Settings </a></li>
-            <a class="nav-link" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a></li>
-            <a class="nav-link" href="#"> netid </a></li>
-            <a class="nav-link" href="/logout"> Logout </a></li>
-          </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark nav-color-custom static-top">
+      <div class="container">
+        <a class="navbar-brand" href="/landing">TigerPath</a>
+        <div>
+        <a class="btn" href="#">Settings</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a>
+        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">Netid</a>
+        <a class="btn hidden" href="/logout" id="logout-btn">Logout</a>
         </div>
       </div>
     </nav>
 
     <div class="row">
-      <div class="col-lg-2 no-padding-right">
-        <form class="navbar-form navbar-custom-searchbox">
+      <div class="col-lg-3 no-padding-right">
+        <!-- search bar -->
+        <form class="navbar-form">
           <input type="search" class="form-control" placeholder="Search">
         </form>
-        <table class="navbar-custom-drop">
-        </table>
+
+        <!-- Requirements -->
       </div>
 
-      <div class="col-lg-10 no-padding-left">
+      <div class="col-lg-9 no-padding-left">
         <table class="courses">
           <thead class="semester-header">
             <tr>
@@ -178,18 +173,15 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- draggable bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.6/lib/draggable.bundle.js"></script>
     <script>
       function toggler(divId)
       {
-        var isSearchHidden = $("#search-bar").is(":hidden");
-        if (divId == "requirements-list" && !isSearchHidden) {
-          $("#requirements-list").toggle();
-          $("#search-bar").toggle();
-        }
-        var isReqHidden = $("#requirements-list").is(":hidden");
-        if (divId == "search-bar" && !isReqHidden) {
-          $("#requirements-list").toggle();
-          $("#search-bar").toggle();
+        var isLogoutHidden = $("#logout-btn").is(":hidden");
+        if ($("#logout-btn").is(":hidden")) {
+          $("#logout-btn").toggle();
+          $("#netid-btn").toggle();
         }
       }
       function treeexp () {

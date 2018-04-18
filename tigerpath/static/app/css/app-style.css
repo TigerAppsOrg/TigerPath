@@ -13,9 +13,7 @@ h6 {
 .navbar {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: medium;
-}
-.navbar-brand {
-  font-size: medium;
+  padding-left: 125px;
 }
 .navbar-toggle {
   position: relative;
@@ -43,11 +41,10 @@ h6 {
     display: block;
     padding: 10px;
 }
-.reqtable-custom {
-  background-color: #FFFFFF;
-  margin: 20px;
-  padding-top: 10px;
-  text-align: center;
+.requirements-list {
+  background-color: #7e7f82;
+  width: inherit;
+  height: 100px;
 }
 .reqtable-boxes {
   padding: 10px;
@@ -74,28 +71,24 @@ h6 {
 button.custom-toggler.navbar-toggler {
   border-color: #FFFFFF;
 }
-table.standard, th.standard, td.standard {
-  border: 1px solid black;
-  width: 20%;
-}
 table.courses {
   border-collapse: separate;
   border-spacing: 2px 0px;
   font-size: large;
-  height: 100
+  height: 100px;
   color: #FFFFFF;
-  width: 100%;
+  width: inherit;
 }
 .course {
   background-color: #ebebeb;
   text-align: center;
   height: 40px;
+  width: 25%;
 }
 thead.semester-header {
   background-color: #3d8af7;
   color: #FFFFFF;
   text-align: center;
-  width: 20%;
 }
 .hidden {
   display:none;
@@ -105,4 +98,16 @@ thead.semester-header {
 }
 .no-padding-left {
    padding-left: 0 !important;
+}
+
+.btn {
+  color: white;
+}
+
+.foot-text {
+  color: white;
+}
+
+.nav-color-custom {
+  background-color: #464e56!important;
 }

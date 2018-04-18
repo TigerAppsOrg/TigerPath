@@ -120,3 +120,15 @@ footer.footer {
 #about-team, #about-mentor, #about-timeline, #about-res h4 {
   margin-top: 2em;
 }
+
+.btn {
+  color: white;
+}
+
+.foot-text {
+  color: white;
+}
+
+.nav-color-custom {
+  background-color: #464e56!important;
+}
