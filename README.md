@@ -24,7 +24,7 @@ You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
 
 2. Using pipenv makes it easy to manage your dependencies. Use `pipenv install` to install all of the current dependencies from Pipfile.lock.
 
-3. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`.
+3. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. You also need to start the React server by running `npm start` in the folder "frontend"
 
 ## Development
 
