@@ -29,7 +29,7 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 6,
+      "min_needed": "ALL",
       "description": "Prerequisites",
       "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements(link is external). Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites(link is external) for all later computer science courses.",
       "double_counting_allowed": false,
@@ -52,7 +52,7 @@
     {
       "name": "Core Courses",
       "max_counted": 1,
-      "min_needed": 8,
+      "min_needed": "ALL",
       "description": "Departmental Requirements",
       "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
       "double_counting_allowed": false,
@@ -60,7 +60,7 @@
       "req_list": [
         {
           "name": "Theory",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Theoretical computer science",
           "explanation": null,
@@ -107,7 +107,7 @@
         },
         {
           "name": "Systems",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Systems",
           "explanation": null,
@@ -155,7 +155,7 @@
         },
         {
           "name": "Applications",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Applications",
           "explanation": null,
@@ -172,14 +172,14 @@
             "COS 429: Computer Vision",
             "COS 432: Information Security",
             "COS 435: Information Retrieval, Discovery, and Delivery",
-            "COS 436: Human-Computer Interface Technology ",
+            "COS 436: Human-Computer Interface Technology",
             "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
             "COS 485: Neural Networks"
           ]
         },
         {
           "name": "General",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "General",
           "explanation": null,
@@ -213,7 +213,7 @@
             {
               "name": null,
               "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": null,
               "description": null,
               "explanation": "One additional semester of independent work may be counted as one of the departmental courses.",
               "course_list": [

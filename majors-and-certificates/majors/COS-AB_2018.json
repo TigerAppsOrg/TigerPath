@@ -29,7 +29,7 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 6,
+      "min_needed": "ALL",
       "description": "Prerequisites",
       "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "double_counting_allowed": false,
@@ -75,7 +75,7 @@
     {
       "name": "Core Courses",
       "max_counted": 1,
-      "min_needed": 8,
+      "min_needed": "ALL",
       "description": "Departmental Requirements",
       "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
       "double_counting_allowed": false,
@@ -83,7 +83,7 @@
       "req_list": [
         {
           "name": "Theory",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Theoretical computer science",
           "explanation": null,
@@ -130,7 +130,7 @@
         },
         {
           "name": "Systems",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Systems",
           "explanation": null,
@@ -146,7 +146,7 @@
                 "COS 318: Operating Systems",
                 "COS 320: Compiling Techniques",
                 "COS 333: Advanced Programming Techniques",
-                "COS 375/ELE 375 Computer Architecture and Organization",
+                "COS 375/ELE 375: Computer Architecture and Organization",
                 "COS 425: Database and Information Management Systems",
                 "COS 463: Wireless Networks",
                 "COS 475/ELE 475: Computer Architecture"
@@ -178,7 +178,7 @@
         },
         {
           "name": "Applications",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "Applications",
           "explanation": null,
@@ -186,7 +186,7 @@
             "COS 314/MUS 314: Computer and Electronic Music through Programming, Performance, and Composition",
             "COS 323/ORF 363: Computing and Optimization for the Physical and Social Sciences",
             "COS 324: Introduction to Machine Learning",
-            "COS 325/MUS: 315 Transforming Reality by Computer",
+            "COS 325/MUS 315: Transforming Reality by Computer",
             "COS 326: Functional Programming",
             "COS 401/TRA 301: Introduction to Machine Translation ",
             "COS 402: Machine Learning and  Artificial Intelligence",
@@ -195,14 +195,14 @@
             "COS 429: Computer Vision",
             "COS 432: Information Security",
             "COS 435: Information Retrieval, Discovery, and Delivery",
-            "COS 436: Human-Computer Interface Technology ",
-            "COS 455/MOL: 455 Introduction to Genomics and Computational Molecular Biology",
+            "COS 436: Human-Computer Interface Technology",
+            "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
             "COS 485: Neural Networks"
           ]
         },
         {
           "name": "General",
-          "max_counted": 2,
+          "max_counted": 1,
           "min_needed": 2,
           "description": "General",
           "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nAny 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303, ECO 312, MOL 437/NEU 437, NEU 330, and ECO 326 – Economics of the Internet count as departmentals.",
