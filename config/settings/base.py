@@ -76,9 +76,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(REACT_BASE_DIR, "assets"),
-]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -100,10 +97,15 @@ DATABASES['default'] = dj_database_url.config()
 # Static files (CSS, JavaScript, Images)
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+REACT_STATIC_ROOT = os.path.join(REACT_BASE_DIR, "assets")
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    REACT_STATIC_ROOT,
+]
 
 # Ensure STATIC_ROOT exists.
 os.makedirs(STATIC_ROOT, exist_ok=True)
+os.makedirs(REACT_STATIC_ROOT, exist_ok=True)
 
 # Enable gzip functionality for static files
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
