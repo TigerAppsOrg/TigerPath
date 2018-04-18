@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "49635b40db79b8ee6daf57b90ebf683d4c84062a166b20debaa75f77c0398179"
+            "sha256": "4f2f4a2132d7f2fba1b660c9e090d433347a830419366c64b764b8100bdc8ca8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -70,6 +70,14 @@
             ],
             "index": "pypi",
             "version": "==3.5.9"
+        },
+        "django-webpack-loader": {
+            "hashes": [
+                "sha256:60bab6b9a037a5346fad12d2a70a6bc046afb33154cf75ed640b93d3ebd5f520",
+                "sha256:970b968c2a8975fb7eff56a3bab5d0d90d396740852d1e0c50c5cfe2b824199a"
+            ],
+            "index": "pypi",
+            "version": "==0.6.0"
         },
         "django-widget-tweaks": {
             "hashes": [
@@ -192,6 +200,13 @@
             ],
             "index": "pypi",
             "version": "==1.11.0"
+        },
+        "ujson": {
+            "hashes": [
+                "sha256:f66073e5506e91d204ab0c614a148d5aa938bdbf104751be66f8ad7a222f5f86"
+            ],
+            "index": "pypi",
+            "version": "==1.35"
         },
         "urllib3": {
             "hashes": [
