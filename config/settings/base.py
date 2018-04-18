@@ -4,6 +4,7 @@ import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REACT_BASE_DIR = os.path.dirname(BASE_DIR)
 
 
 # Application definition
@@ -17,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_cas_ng',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +76,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+STATICFILES_DIRS = [
+    os.path.join(REACT_BASE_DIR, "assets"),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

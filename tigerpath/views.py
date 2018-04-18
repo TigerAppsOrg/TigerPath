@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
 import django_cas_ng.views
-
-from .models import Course
+import ujson
+import re
+from . import models
 from django.db.models import Q
-from .models import Professor
 
 
 # cas auth login
@@ -40,11 +41,57 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-def display_courses(request):
-    professor_list = Professor.objects.all()
-    return render(request, 'tigerpath/test.html', {"item_list": professor_list})
-    
+# search engine, will integrate with frontend later
+def search(request):
+    return render(request, 'tigerpath/search.html', None)
 
+
+# filters courses with query from react and sends back a list of filtered courses to display
+def get_courses(request, search_query):
+    course_list = filter_courses(search_query);
+    return HttpResponse(ujson.dumps(course_list, ensure_ascii=False), content_type='application/json')
+
+
+# returns list of courses filterd by query
+def filter_courses(search_query):
+    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
+    split_query = re.split('(\d.*)', search_query)
+    queries = []
+    # split again by spaces
+    for query in split_query:
+        queries = queries + query.split(" ")
+
+# populate with all of semester's courses and convert to course_listings
+    results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.prefetch_related('course_listing_set')
+    results = models.Course_Listing.objects.filter(course__in=results)
+
+    for query in queries:
+        if(query == ''):
+            continue
+        query = query.upper()
+
+        # is department
+        if(len(query) <= 3 and query.isalpha()):
+            results = list(filter(lambda x: x.dept == query, results))
+
+        # is course number
+        elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
+            results = list(filter(lambda x: x.number.startswith(query), results))
+
+        # check if it matches title
+        else:
+            # convert course_listings to courses to filter
+            results = models.Course.objects.filter(course_listing_set__in=results)
+            results = list(filter(lambda x: query.lower() in x.title.lower(), results))
+            # convert courses back to course_listings
+            results = models.Course_Listing.objects.filter(course__in=results)
+
+    # convert course_listings to course to output
+    return results
+
+
+# course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
+# these functions may not be necessary, it seems recal uses these functions for memcache which we are not using
 def hydrate_meeting_dict(meeting):
     return {
         'days': meeting.days,
