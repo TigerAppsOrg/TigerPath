@@ -1,11 +1,17 @@
 # Use Node
-FROM node:8.11
+FROM node:8.11 AS reactapp
 
 ARG APP_DIR=/opt/tigerpath
-ADD frontend "$APP_DIR"
+RUN mkdir "$APP_DIR"
+RUN mkdir "$APP_DIR/frontend"
+
 WORKDIR "$APP_DIR/frontend"
+ADD frontend .
 
 RUN npm install
+RUN npm run build
+
+WORKDIR "$APP_DIR"
 ADD . "$APP_DIR"
 
 
@@ -14,6 +20,9 @@ FROM python:3.6
 
 # Arguments
 ARG APP_DIR=/opt/tigerpath
+
+# Create a new folder
+RUN mkdir "$APP_DIR"
 
 # Set working directory
 WORKDIR "$APP_DIR"
@@ -26,6 +35,7 @@ RUN pip install -r "$APP_DIR/requirements.txt"
 EXPOSE "$PORT"
 
 # Add all the files
+COPY --from=reactapp "$APP_DIR" .
 ADD . "$APP_DIR"
 
 # Collect static files and apply migrations
