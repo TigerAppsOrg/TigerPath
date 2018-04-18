@@ -9,7 +9,6 @@ class Courses extends Component {
     super();
   }
   render() {
-    console.info(this.props.course_list)
     return(
       <ul>
         {this.props.course_list.map((course)=> {
