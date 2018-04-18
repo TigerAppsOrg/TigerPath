@@ -44,6 +44,7 @@
       "description": "Prerequisites", // medium length description. usually redundant
       "explanation": "Long text\nfrom dept website", //* long human readable description
       "double_counting_allowed": false, // whether courses may count for multiple subrequirements
+                                        // should only be enabled for the root of such subtree
       "max_common_with_major": 0, // number of courses that can be in common with major
                                   // only relevant for certificates
       "pdfs_allowed": false, // whether student is allowed to take the courses SPDF (pass/D/fail)

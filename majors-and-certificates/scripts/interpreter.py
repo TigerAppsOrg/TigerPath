@@ -50,9 +50,17 @@ def check_major(major_filename, courses, user_info=None):
         # pprint(major)
     _init_counts(major)
     _init_min_ALL(major)
-    # _update_path(major)
-    print (json.dumps(major, sort_keys=False, indent=2, separators=(',', ': ')))
-    return False
+    _init_path_to(major)
+    courses = [[{
+        "name": c.split(':')[0],
+        "used": False,
+        "reqs_satisfied": []
+    } for c in sem] for sem in courses]
+    _update_paths(major, courses)
+    pprint(courses)
+    print("\n")
+    print(json.dumps(major, sort_keys=False, indent=2, separators=(',', ': ')))
+    return (major["min_needed"]-major["count"] <= 0)
 
 def _init_counts(major):
     """
@@ -65,6 +73,8 @@ def _init_counts(major):
             major["min_needed"] = "ALL"
         else:
             major["min_needed"] = 0
+    if major["min_needed"] == None:
+        major["min_needed"] = 0
     if "max_counted" not in major:
         major["max_counted"] = None
     if "req_list" in major:
@@ -92,24 +102,66 @@ def _init_min_ALL(major):
     else:
         return min(major["max_counted"], num_counted_from_below)
 
-def _update_path(major):
-    deficit = major["min_needed"] - major["count"]
-    available = major["max_counted"] - major["count"]
-    if available <= 0: # already saturated, nothing to update
-        return 0
+def _update_paths(major, courses):
+    """
+    Finds augmenting paths from leaves to the root, and updates those paths. 
+    """
+    old_deficit = major["min_needed"] - major["count"]
+    if (major["max_counted"] != None):
+        old_available = major["max_counted"] - major["count"]
+        if old_available <= 0: # already saturated, nothing to update
+            return 0
+    was_satisfied = (old_deficit <= 0)
     newly_satisfied = 0
-    if "req_list" in major:
+    if "req_list" in major: # recursively check subrequirements
         for req in major["req_list"]:
-            newly_satisfied += _update_path(req)
+            newly_satisfied += _update_paths(req, courses)
+    elif "course_list" in major:
+        newly_satisfied = _mark_courses(major["path_to"],major["course_list"],courses)
     major["count"] += newly_satisfied
-    deficit = major["min_needed"] - major["count"]
-    available = major["max_counted"] - major["count"]
-    if deficit <= 0: # this req is now satisfied
-        if major["max_counted"] == None:
+    new_deficit = major["min_needed"] - major["count"]
+    # new_available = major["max_counted"] - major["count"]
+    if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
+        if major["max_counted"] == None: # unlimited
             return major["count"]
         else:
-            return min(major["max_counted"],major["count"])
-    return 0
+            return min(major["max_counted"],major["count"]) # cut off at max
+    elif (was_satisfied) and (new_deficit <= 0): # this requirement was already satisfied, but added more
+        if major["max_counted"] == None: # unlimited
+            return newly_satisfied
+        else:
+            return min(old_available,newly_satisfied) # cut off at old_available
+        pass
+    else: # requirement still not satisfied
+        return 0
+
+def _init_path_to(major, path_to_parent = ''):
+    major["path_to"] = str(path_to_parent) + "::" + str(major["name"])
+    if "req_list" in major:
+        for req in major["req_list"]:
+           _init_path_to(req, major["path_to"])
+    pass
+
+def _mark_courses(path_to, course_list, courses):
+    num_marked = 0
+    for sem in courses:
+        for c in sem:
+            if path_to in c["reqs_satisfied"]: # already used
+                continue
+            for pattern in course_list:
+                if _course_match(c["name"], pattern):
+                    num_marked += 1
+                    c["reqs_satisfied"].append(path_to)
+                    c["used"] = True
+                    break
+    return num_marked
+
+def _course_match(course_name, pattern):
+    pattern = pattern.split(':')[0]
+    pattern = pattern.split('/')
+    if course_name in pattern:
+        return True
+    return False
 
 def main():
     courses = [
@@ -124,6 +176,15 @@ def main():
         ],
         [
             "COS 398",
+            "COS 306",
+            "MUS 314",
+            "COS 423",
+            "COS 436",
+        ],
+        [
+            "ABC 123",
+            "NEU 437",
+            "COS 498",
         ]
     ]
     major_filename = "../majors/COS-BSE_2018.json"

@@ -296,7 +296,7 @@
                           "$id": "/properties/req_list/items/properties/double_counting_allowed",
                           "type": "boolean",
                           "title": "double_counting_allowed",
-                          "description": "whether courses may simultaneously count for multiple subrequirements",
+                          "description": "Whether courses may simultaneously count for multiple subrequirements of subtree. Should only be enabled for the root of such a subtree.",
                           "default": false,
                           "examples": [
                             false
@@ -306,7 +306,7 @@
                           "$id": "/properties/req_list/items/properties/max_common_with_major",
                           "type": "integer",
                           "title": "max_common_with_major",
-                          "description": "number of courses that can be in common with major. Only relevant for certificates",
+                          "description": "Number of courses that can be in common with major. Only relevant for certificates.",
                           "default": null,
                           "examples": [
                             0
@@ -319,7 +319,7 @@
                             "number"
                           ],
                           "title": "pdfs_allowed",
-                          "description": "whether student is allowed to take the courses SPDF (student-elected pass/D/fail). Can be false, true, or a number indicating how many SPDF courses are allowed",
+                          "description": "Whether student is allowed to take the courses SPDF (student-elected pass/D/fail). Can be false, true, or a number indicating how many SPDF courses are allowed.",
                           "default": null,
                           "examples": [
                             // false,
@@ -330,7 +330,7 @@
                           "$id": "/properties/req_list/items/properties/completed_by_semester",
                           "type": "integer",
                           "title": "completed_by_semester",
-                          "description": "1-8: semester by which the requirement must be complete",
+                          "description": "1-8: semester by which the requirement must be complete.",
                           "default": 8,
                           "minimum": 1,
                           "maximum": 8
