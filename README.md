@@ -24,7 +24,11 @@ You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
 
 2. Using pipenv makes it easy to manage your dependencies. Use `pipenv install` to install all of the current dependencies from Pipfile.lock.
 
-3. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. After initial setup, you also need to install the necessary React node modules by running `npm install` in the folder "frontend". Run the React server along with the django server by calling `npm start` in the folder "frontend"
+3. Navigate to the folder "frontend" and run `npm install` to install the necessary node modules for React to work. 
+
+3. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the django server by calling `npm start` in the folder "frontend". 
+
+4. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server (Running the webpack (React) server will no longer be necessary). Then run `python manage.py runserver --settings=config.settings.production` 
 
 ## Development
 
