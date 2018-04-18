@@ -24,17 +24,19 @@ You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
 
 2. Using pipenv makes it easy to manage your dependencies. Use `pipenv install` to install all of the current dependencies from Pipfile.lock.
 
-3. Navigate to the folder "frontend" and run `npm install` to install the necessary node modules for React to work. 
+3. Navigate to the folder "frontend" and run `npm install` to install the necessary node modules for React to work.
 
-3. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the django server by calling `npm start` in the folder "frontend". 
+4. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the django server by calling `npm start` in the folder "frontend".
 
-4. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server (Running the webpack (React) server will no longer be necessary). Then run `python manage.py runserver --settings=config.settings.production` 
+5. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server (Running the webpack (React) server will no longer be necessary). Then run `python manage.py runserver --settings=config.settings.production`
 
 ## Development
 
 To run a command in a Docker container, do `docker exec -it [CONTAINER_NAME_OR_ID] [YOUR_COMMAND]`
 
 #### Make migrations and update database
+
+If you're using Docker and you want to make migrations, then you should run your Docker container by adding an extra flag `--mount src=$(pwd),target=/opt/tigerpath,type=bind` to the command in `run.sh`. This means that when you make the migration inside the Docker container, the migration file will also appear on your local computer. You should push this migration file to Git.
 
 ```
 python manage.py makemigrations                             # Makes migrations based on models.py
