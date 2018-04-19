@@ -1,1 +1,196 @@
-<p>Hello, {{ request.user }}!</p>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title> TigerPath </title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark nav-color-custom static-top">
+      <div class="container">
+        <a class="navbar-brand" href="/landing">TigerPath</a>
+        <div>
+        <a class="btn" href="#">Settings</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a>
+        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">Netid</a>
+        <a class="btn hidden" href="/logout" id="logout-btn">Logout</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div class="col-lg-3 no-padding-right">
+        <!-- search bar -->
+        <form class="navbar-form">
+          <input type="search" class="form-control" placeholder="Search">
+        </form>
+
+        <!-- Requirements -->
+      </div>
+
+      <div class="col-lg-9 no-padding-left">
+        <table class="courses">
+          <thead class="semester-header">
+            <tr>
+              <td> Fall '16 </td>
+              <td> Spring '17 </td>
+              <td> Fall '17 </td>
+              <td> Spring '18 </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="no-border"> </td>
+            </tr>
+          </tbody>
+          <thead class="semester-header">
+            <tr>
+              <td> Fall '18 </td>
+              <td> Spring '19 </td>
+              <td> Fall '19 </td>
+              <td> Spring '20 </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+              <td class="course">  </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- draggable bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.6/lib/draggable.bundle.js"></script>
+    <script>
+      function toggler(divId)
+      {
+        var isLogoutHidden = $("#logout-btn").is(":hidden");
+        if ($("#logout-btn").is(":hidden")) {
+          $("#logout-btn").toggle();
+          $("#netid-btn").toggle();
+        }
+      }
+      function treeexp () {
+        $('label.tree-toggler').click(function () {
+            $(this).parent().children('ul.tree').toggle(300);
+        });
+      }
+    </script>
+  </body>
+</html>

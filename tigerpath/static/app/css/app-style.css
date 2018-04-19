@@ -1,0 +1,112 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+.navbar {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: medium;
+}
+.navbar-toggle {
+  position: relative;
+  float: right;
+}
+.navbar-custom-searchbox {
+  background-color: #3d8af7;
+  color: #FFFFFF;
+  border: 1px solid black;
+  padding: 3px;
+  width: 100%;
+}
+.navbar-custom-drop {
+  background-color: #dacafb;
+  font-size: medium;
+  color: #000000;
+  border: 1px solid black;
+  width: 100%;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: #FFFFFF;
+}
+.nav-tabs {
+    display: block;
+    padding: 10px;
+}
+.requirements-list {
+  background-color: #7e7f82;
+  width: inherit;
+  height: 100px;
+}
+.reqtable-boxes {
+  padding: 10px;
+  white-space: nowrap;
+}
+.completed {
+  background-color: #cbe8ba;
+}
+.incomplete {
+  background-color: #ffd783;
+}
+.not-started {
+  background-color: #ffc3ae;
+}
+#main-nav a{
+  color: #FFFFFF;
+  text-decoration:none;
+  margin: 5px;
+}
+#main-nav a:hover {
+  color: #3d8af7;
+  text-decoration: underline;
+}
+button.custom-toggler.navbar-toggler {
+  border-color: #FFFFFF;
+}
+table.courses {
+  border-collapse: separate;
+  border-spacing: 2px 0px;
+  font-size: large;
+  height: 100px;
+  color: #FFFFFF;
+  width: inherit;
+}
+.course {
+  background-color: #ebebeb;
+  text-align: center;
+  height: 40px;
+  width: 25%;
+}
+thead.semester-header {
+  background-color: #3d8af7;
+  color: #FFFFFF;
+  text-align: center;
+}
+.hidden {
+  display:none;
+}
+.no-padding-right {
+  padding-right: 0 !important;
+}
+.no-padding-left {
+   padding-left: 0 !important;
+}
+
+.btn {
+  color: white;
+}
+
+.foot-text {
+  color: white;
+}
+
+.nav-color-custom {
+  background-color: #464e56!important;
+}
