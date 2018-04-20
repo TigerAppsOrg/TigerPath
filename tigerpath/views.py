@@ -41,11 +41,6 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-# search engine, will integrate with frontend later
-def search(request):
-    return render(request, 'tigerpath/search.html', None)
-
-
 # filters courses with query from react and sends back a list of filtered courses to display
 def get_courses(request, search_query):
     course_list = filter_courses(search_query);
@@ -88,6 +83,13 @@ def filter_courses(search_query):
 
     # convert course_listings to course to output
     return results
+
+
+# updates users schedules with added courses
+@csrf_exempt
+def update_schedule(request):
+    print(request.POST)
+    return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
