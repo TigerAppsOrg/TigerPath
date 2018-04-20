@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "postinstall": "cd frontend && npm install"
+  },
+  "engines": {
+    "node": "8.11.x"
+  },
+  "cacheDirectories": [
+    "frontend/node_modules"
+  ]
+}
