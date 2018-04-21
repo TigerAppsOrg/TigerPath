@@ -70,7 +70,7 @@ h6 {
 button.custom-toggler.navbar-toggler {
   border-color: #FFFFFF;
 }
-table.courses {
+table.semesters {
   border-collapse: separate;
   border-spacing: 2px 0px;
   font-size: large;
@@ -78,7 +78,7 @@ table.courses {
   color: #FFFFFF;
   width: inherit;
 }
-.course {
+.semester {
   background-color: #ebebeb;
   vertical-align: top;
   height: 280px;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Courses.css';
 import $ from 'jquery'
-import jQuery from 'jquery'
+import styles from 'dragula/dist/dragula.css';
 
 var dragula = require('react-dragula')
 
@@ -15,40 +15,46 @@ class Search extends Component {
     };
 
     // select containers to make items draggable
-    let drake = dragula([document.getElementById("display_courses"), 
-      document.getElementById("sem1"), 
-      document.getElementById("sem2"), 
-      document.getElementById("sem3"), 
-      document.getElementById("sem4"), 
-      document.getElementById("sem5"), 
-      document.getElementById("sem6"), 
-      document.getElementById("sem7"), 
-      document.getElementById("sem8")]);
+    let draggableItems = $(".semester").get()
+    draggableItems.push($("#display_courses")[0])
+    let drake = dragula(draggableItems)
 
-    // tells react to update course schedule when an item is dropped
-    drake.on('drop', function (){
-      let added_courses = document.querySelectorAll(".course");
-      let courses_taken = [[],[],[],[],[],[],[],[]];
+    // gets current enrolled courses and sends post request
+    let get_courses = function(){
+      let added_courses = document.querySelectorAll(".semester");
+      let courses_taken = [];
       let i = 0;
       added_courses.forEach(function (semester){
+        courses_taken.push([]);
         semester.childNodes.forEach(function(course){
-          if(typeof course.innerHTML != 'undefined')
+          if(typeof course.innerHTML != 'undefined'){
             courses_taken[i].push(course.innerHTML);
+            // adds onclick listener to remove courses on schedule
+            // .off to prevent multiple bindings of click event
+            $("#" + course["id"]).off("click").click(function(){
+                $("#display_courses").append($(this)[0].outerHTML);
+                $(this).remove();
+                // send post request of updated schedule
+                get_courses();
+              });
+          }
         })
-        i++
+        i++;
       });
       courses_taken = JSON.stringify(courses_taken);
-      console.info(courses_taken);
       $.ajax({
         url: "/api/v1/update_schedule/",
         type: 'POST',
         data: courses_taken
-      })
-    });
+      });
+    };
+
+    // tells react to post updated course schedule when an item is dropped
+    drake.on('drop', get_courses);
   }
 
   // is called whenever search query is modified
-  updateSearch(event) {
+  update_search(event) {
     ReactDOM.unmountComponentAtNode(document.getElementById('display_courses'));
     this.setState({search: event.target.value});
     let search_query = event.target.value;
@@ -66,7 +72,7 @@ class Search extends Component {
           {
             ReactDOM.render(
               data.map((course)=> {
-              return <li key={course["id"]}>{course["dept"]} {course["number"]}</li>
+              return <li key={course["id"]} id={course["id"]}>{course["dept"]} {course["number"]}</li>
             }),
             document.getElementById('display_courses')
             )
@@ -81,7 +87,7 @@ class Search extends Component {
         <input type = "text" 
           placeholder = 'Search Courses'
           value={this.state.search}
-          onChange={this.updateSearch.bind(this)}
+          onChange={this.update_search.bind(this)}
           className="form-control"/>
         </div>
       )
