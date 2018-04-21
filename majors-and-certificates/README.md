@@ -21,10 +21,15 @@
 ```javascript
 {
   "type": "Major", //* Major, Certificate, or Degree
-  "name": "Name Studies", //* major/certificate name
-  "code": "NST", //* three-letter dept code
+  "name": "Name Studies", //* major/certificate name (If separate JSONs for same program, specify AB/BSE. For instance, "Computer Science - BSE")
+  "code": "NST", //* Three-letter dept code. Not required for certificates.
   "degree": "AB", //* AB or BSE for majors, or null otherwise
   "year": 2018, //* year in which the requirements apply
+  "description": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an offical source.",
+  "allowed_majors": [ // only relevant for certificates
+    "NST", // list of majors that are allowed to take the certificate
+    ... // default if empty or not present is that all majors are allowed
+  ],
   "urls": [ //* links to requirements pages
     "https://ua.princeton.edu/academic-units/name-studies", 
     ... // every source of information on the listed requirements should be included
