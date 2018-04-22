@@ -7,6 +7,7 @@ urlpatterns = [
     path('landing', views.landing, name='landing'),
     path('about', views.about, name='about'),
     path('onboarding', views.onboarding, name='onboarding'),
+    path('settings', views.settings, name='settings'),
     # cas auth
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),

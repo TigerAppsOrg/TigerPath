@@ -3,8 +3,9 @@ from django.db.models import Q
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from . import models
-from .forms import UserProfileForm
+from django.http import Http404
+from django.urls import reverse
+from . import models, forms
 
 import django_cas_ng.views
 import ujson
@@ -27,11 +28,17 @@ def logout(request):
 
 # index page
 def index(request):
+    # check if the user is authenticated
     if request.user.is_authenticated:
-        if request.user.profile.user_state['onboarding_complete']:
-            return render(request, 'tigerpath/index.html', None)
-        else:
-            return onboarding(request)
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        # add settings form
+        settings_form = forms.SettingsForm(instance=instance)
+        context = {'settings_form': settings_form}
+        # add onboarding form
+        if not request.user.profile.user_state['onboarding_complete']:
+            onboarding_form = forms.OnboardingForm()
+            context['onboarding_form'] = onboarding_form
+        return render(request, 'tigerpath/index.html', context)
     else:
         return landing(request)
 
@@ -44,6 +51,41 @@ def landing(request):
 # about page
 def about(request):
     return render(request, 'tigerpath/about.html', None)
+
+
+# onboarding page
+@login_required
+def onboarding(request):
+    profile = update_profile(request, forms.OnboardingForm)
+    profile.user_state['onboarding_complete'] = True
+    profile.save()
+    return redirect('index')
+
+
+# settings page
+@login_required
+def settings(request):
+    profile = update_profile(request, forms.SettingsForm)
+    profile.save()
+    return redirect('index')
+
+
+# checks whether the form data is valid and returns the updated user profile
+def update_profile(request, profile_form):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        form = profile_form(request.POST, instance=instance)
+        # check whether it's valid:
+        if form.is_valid():
+            # save data to database and redirect to app
+            profile = form.save(commit=False)
+            profile.user = request.user
+            return profile
+    # if it's any other request, we raise a 404 error
+    else:
+        raise Http404
 
 
 # filters courses with query from react and sends back a list of filtered courses to display
@@ -103,29 +145,6 @@ def filter_courses(search_query):
 def update_schedule(request):
     print(request.POST)
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
-
-
-# onboarding page
-@login_required
-def onboarding(request):
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request
-        instance = models.UserProfile.objects.get(user_id=request.user.id)
-        form = UserProfileForm(request.POST, instance=instance)
-        # check whether it's valid:
-        if form.is_valid():
-            # Save data to database and redirect to app
-            profile = form.save(commit=False)
-            profile.user = request.user
-            profile.user_state['onboarding_complete'] = True
-            profile.save()
-            return redirect('index')
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = UserProfileForm()
-
-    return render(request, 'tigerpath/onboarding.html', {'form': form})
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 

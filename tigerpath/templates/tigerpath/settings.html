@@ -1,0 +1,39 @@
+<!-- Settings modal -->
+<div class="modal fade in" id="settings-modal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="settings-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <form method="post" action="{% url 'settings' %}" class="modal-content" id="settings-form">
+      <div class="modal-header">
+        <h5 class="modal-title" id="settings-modal-label">Settings</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <h6 class="mb-3">General</h6>
+          <div class="container bg-light pt-3 pb-3">
+            {% csrf_token %}
+            {% include 'includes/bs4_form.html' with form=settings_form %}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" id="save-btn">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script type="text/javascript">
+  // wait for DOM to load first
+  $(function() {
+    // onclick listener for settings button
+    $('{{ btn_id }}').click(function() {
+      $('#settings-modal').modal('show');
+    });
+
+    // onclick listener for save button
+    $('#save-btn').click(function() {
+      $('#settings-modal').modal('hide');
+    })
+  });
+</script>

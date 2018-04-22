@@ -144,7 +144,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User,
                                 on_delete=models.CASCADE,
                                 related_name='profile')
-    nickname = models.CharField(max_length=50, null=True)
+    nickname = models.CharField(max_length=50, null=True, blank=True)
     major = models.CharField(max_length=7, null=True)
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
