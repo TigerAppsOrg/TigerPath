@@ -60,12 +60,10 @@ class Search extends Component {
       if(added_courses.length > 1){
         // add tip to course on search list
         search_list_course.addClass("showtip");
-        search_list_course.find(".tooltiptext-custom").empty();
-        search_list_course.find(".tooltiptext-custom").append("Note: class already added");
+        search_list_course.find(".tooltiptext-custom").empty().append("Note: class already added");
         added_courses.each(function(course){
           $(this).addClass("showtip");
-          $(this).find(".tooltiptext-custom").empty();
-          $(this).find(".tooltiptext-custom").append("Note: class already added");
+          $(this).find(".tooltiptext-custom").empty().append("Note: class already added");
           });
       }
       else{

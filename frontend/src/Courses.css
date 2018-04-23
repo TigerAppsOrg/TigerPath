@@ -80,6 +80,11 @@ li:hover{
     white-space:normal !important;
     position: absolute;
     z-index: 1;
+    float:left;
+}
+
+#display_courses .tooltip-custom .tooltiptext-custom {
+  left:45%;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
