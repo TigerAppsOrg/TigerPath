@@ -98,7 +98,7 @@ table tr td:last-child {
 .semester {
   background-color: #ebebeb;
   vertical-align: top;
-  height: 280px;
+  height: 250px;
   width: 25%;
   list-style-type: none;
   color: #DB7093;
@@ -137,6 +137,7 @@ thead.semester-header {
 .col-lg-3{
   padding-left: 0;
   padding-right: 0;
+  overflow: hidden;
 }
 
 .row{

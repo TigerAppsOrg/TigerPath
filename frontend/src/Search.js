@@ -53,18 +53,25 @@ class Search extends Component {
         return target.className === "semester";}
     });
 
-    // check for duplicates to add tooltip, initial num is 3 because 1 from course search, 
-    // 1 from draggable mirror, and 1 in course schedule
+    // check for duplicates to add tooltip
     let addToolTip = function(course){
-      let selected_course = $('[id=' + course.id +']');
-      if(selected_course.length > 3){
-        selected_course.each(function(course){
+      let added_courses = $(".semester").find('[id=' + course.id +']');
+      let search_list_course = $("#display_courses").find('[id=' + course.id +']');
+      if(added_courses.length > 1){
+        // add tip to course on search list
+        search_list_course.addClass("showtip");
+        search_list_course.find(".tooltiptext-custom").empty();
+        search_list_course.find(".tooltiptext-custom").append("Note: class already added");
+        added_courses.each(function(course){
           $(this).addClass("showtip");
+          $(this).find(".tooltiptext-custom").empty();
           $(this).find(".tooltiptext-custom").append("Note: class already added");
           });
       }
       else{
-        selected_course.each(function(course){
+        search_list_course.removeClass("showtip");
+        search_list_course.find(".tooltiptext-custom").empty();
+        added_courses.each(function(course){
           $(this).removeClass("showtip");
           $(this).find(".tooltiptext-custom").empty();
           });
