@@ -48,22 +48,25 @@ class Search extends Component {
     let draggableItems = $(".semester").get();
     draggableItems.push($("#display_courses")[0]);
     let drake = dragula(draggableItems, {
-      copy: function(el, source){return el.parentElement.id == "display_courses";},
+      copy: function(el, source){return el.parentElement.id === "display_courses";},
       accepts: function(el, target){
-        return target.className == "semester";}
+        return target.className === "semester";}
     });
 
     // check for duplicates to add tooltip, initial num is 3 because 1 from course search, 
     // 1 from draggable mirror, and 1 in course schedule
     let addToolTip = function(course){
-      if($('[id=' + course.id +']').length > 3){
-        $('[id=' + course.id +']').each(function(course){
-          $(this).addClass("duplicate");
+      let selected_course = $('[id=' + course.id +']');
+      if(selected_course.length > 3){
+        selected_course.each(function(course){
+          $(this).addClass("showtip");
+          $(this).find(".tooltiptext-custom").append("Note: class already added");
           });
       }
       else{
-        $('[id=' + course.id +']').each(function(course){
-          $(this).removeClass("duplicate");
+        selected_course.each(function(course){
+          $(this).removeClass("showtip");
+          $(this).find(".tooltiptext-custom").empty();
           });
       }
     };
@@ -97,15 +100,19 @@ class Search extends Component {
 
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
-      // assigns delete listeners to all buttons 
-      // (cant assign to only currently dropped item because copied courses have same ids)
-        $(".delete_course").click(function(){
+      // assigns delete listener to dropped item
+      $('[id=' + el.id + ']').each(function(course){
+        if($(this).parent().hasClass('semester')){
+          $(this).find(".delete_course").click(function(){
             $(this).parent().remove();
             updateSchedule();
           });
-        updateSchedule();
+        }
       });
+      updateSchedule();
+    });
   }
+
 
   // is called whenever search query is modified
   updateSearch(event) {
@@ -113,8 +120,7 @@ class Search extends Component {
     this.setState({search: event.target.value});
     let search_query = event.target.value;
     // makes sure that there is always an argument after load_courses, $ is dummy arg
-    if(search_query == '') search_query = "$"
-    function removeParent(){this.parentNode.remove();}
+    if(search_query === '') search_query = "$"
     // get request, renders list of courses received
     $.ajax({
         url: "/api/v1/get_courses/" + search_query,
@@ -122,7 +128,7 @@ class Search extends Component {
         type: 'GET',
         cache: true,
         success: function(data) {
-          if(search_query == this.state.search || search_query == '$')
+          if(search_query === this.state.search || search_query === '$')
           {
             this.setState({data: data});
             ReactDOM.render(
@@ -130,7 +136,7 @@ class Search extends Component {
               return <li key={course["id"]} id={course["id"]} className='course_display tooltip-custom'>
               <span className="course_name">{course["listing"]}</span><span className='delete_course'>✖</span><br />
               <span className='course_title'>{course["title"]}</span>
-              <span className="tooltiptext-custom">Note: class already added</span>
+              <span className="tooltiptext-custom"></span>
               </li>
             }),
             document.getElementById('display_courses')

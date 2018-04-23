@@ -58,11 +58,6 @@ li:hover{
   background-color: #ffc0cb;
   list-style-type: none;
   color: #DB7093;
-/*
-  border-bottom: #ddd;
-  border-width: 1px;
-  border-bottom-style: solid;
-  */
 }
 
 .delete_course {
@@ -83,13 +78,11 @@ li:hover{
     padding: 5px 0;
     border-radius: 6px;
     white-space:normal !important;
- 
-    /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip-custom:hover.duplicate .tooltiptext-custom {
+.tooltip-custom:hover.showtip .tooltiptext-custom {
     visibility: visible;
 }
