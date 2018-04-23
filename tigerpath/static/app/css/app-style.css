@@ -71,13 +71,30 @@ button.custom-toggler.navbar-toggler {
   border-color: #FFFFFF;
 }
 table.semesters {
-  border-collapse: separate;
-  border-spacing: 2px 0px;
+  border-collapse: collapse;
   font-size: large;
   height: 100px;
   color: #FFFFFF;
   width: inherit;
+  table-layout:fixed;
 }
+
+table td {
+  border: 1.5px solid white; 
+}
+table tr:first-child td {
+  border-top: 0;
+}
+table tr td:first-child {
+  border-left: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:last-child {
+  border-right: 0;
+}
+
 .semester {
   background-color: #ebebeb;
   vertical-align: top;
@@ -111,4 +128,50 @@ thead.semester-header {
 
 .nav-color-custom {
   background-color: #464e56!important;
+}
+#display_courses {
+  height:500px;
+  overflow:auto;
+}
+
+.col-lg-3{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.row{
+  margin-right:0;
+  margin-left:0;
+}
+
+/* get rid of rounded corners and highlighed box on focus */
+.form-control{
+  border-radius:0rem;
+  border:solid white;
+}
+
+.form-control:focus{
+  border-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
+  outline: 0 none;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }

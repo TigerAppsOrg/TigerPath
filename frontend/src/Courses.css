@@ -1,18 +1,95 @@
-ul{
-  list-style-type: none;
-}
-
-li{
-  width: 200px;
+/* items in semester columns */
+.semesters li{
+  font-size: large;
   height: 40px;
-  margin: 5px;
+  width: 96%;
+  margin-left: 2%;
   padding: 5px;
   background-color: #ffc0cb;
   list-style-type: none;
   color: #DB7093;
+  margin-top: 5px;
+}
+
+/* for courses with long names */
+.semesters .course_name{
+	width: 90%;
+	overflow: hidden;
+	float: left;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+.semesters .course_title{
+	/* deletes title */
+	display:none;
+}
+
+.semesters .delete_course {
+	/* adds delete button */
+	display: inline;
+}
+
+/* styles course while it's being dragged (opaque) */
+.gu-mirror{
+  font-size: large !important;
+  width: 200px !important;
+  height: auto !important;
+  margin: 5px !important;
+  padding: 5px !important;
+}
+
+.gu-mirror .course_title{
+	/* deletes title*/
+	display:none;
 }
 
 li:hover{
   cursor: pointer;
 }
 
+/* courses in search results*/
+.course_display {
+  font-size: 13px;
+  padding-left: 2px;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  background-color: #ffc0cb;
+  list-style-type: none;
+  color: #DB7093;
+/*
+  border-bottom: #ddd;
+  border-width: 1px;
+  border-bottom-style: solid;
+  */
+}
+
+.delete_course {
+	/* gets rid of delete button */
+	display:none;
+	float:right;
+}
+
+/* Tooltip */
+.tooltip-custom .tooltiptext-custom {
+	font-size: small;
+    visibility: hidden;
+    width: 120px;
+    height: auto !important;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    white-space:normal !important;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip-custom:hover.duplicate .tooltiptext-custom {
+    visibility: visible;
+}
