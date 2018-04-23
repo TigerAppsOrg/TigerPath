@@ -65,29 +65,3 @@ li:hover{
 	display:none;
 	float:right;
 }
-
-/* Tooltip */
-.tooltip-custom .tooltiptext-custom {
-	font-size: small;
-    visibility: hidden;
-    width: 120px;
-    height: auto !important;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    white-space:normal !important;
-    position: absolute;
-    z-index: 1;
-    float:left;
-}
-
-#display_courses .tooltip-custom .tooltiptext-custom {
-  left:45%;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip-custom:hover.showtip .tooltiptext-custom {
-    visibility: visible;
-}
