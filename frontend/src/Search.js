@@ -111,6 +111,8 @@ class Search extends Component {
           $(this).find(".delete_course").click(function(){
             $(this).parent().remove();
             updateSchedule();
+            // gets rid of lingering tooltips
+            $('.tooltip').tooltip('hide');
           });
         }
       });
