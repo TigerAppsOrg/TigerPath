@@ -6,5 +6,5 @@ import registerServiceWorker from './registerServiceWorker';
 import $ from 'jquery'
 import jQuery from 'jquery'
 
-ReactDOM.render(<Search />, document.getElementById('root'));
+ReactDOM.render(<Search />, document.getElementById('search_courses'));
 registerServiceWorker();

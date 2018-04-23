@@ -41,15 +41,18 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-# search engine, will integrate with frontend later
-def search(request):
-    return render(request, 'tigerpath/search.html', None)
-
-
 # filters courses with query from react and sends back a list of filtered courses to display
 def get_courses(request, search_query):
+    course_info_list = []
     course_list = filter_courses(search_query);
-    return HttpResponse(ujson.dumps(course_list, ensure_ascii=False), content_type='application/json')
+    models.Course.objects.prefetch_related('course_listing_set');
+    for course in course_list:
+        course_info = {}
+        course_info['title'] = course.title
+        course_info['id'] = course.registrar_id
+        course_info['listing'] = ' / '.join([listing.dept + listing.number for listing in course.course_listing_set.all()])
+        course_info_list.append(course_info)
+    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 
 # returns list of courses filterd by query
@@ -83,11 +86,18 @@ def filter_courses(search_query):
             # convert course_listings to courses to filter
             results = models.Course.objects.filter(course_listing_set__in=results)
             results = list(filter(lambda x: query.lower() in x.title.lower(), results))
+
             # convert courses back to course_listings
             results = models.Course_Listing.objects.filter(course__in=results)
 
     # convert course_listings to course to output
-    return results
+    return models.Course.objects.filter(course_listing_set__in=results)
+
+
+# updates users schedules with added courses
+def update_schedule(request):
+    print(request.POST)
+    return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
