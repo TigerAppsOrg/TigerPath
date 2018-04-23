@@ -3,7 +3,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from django.http import Http404
+from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms
 
@@ -62,9 +62,9 @@ def onboarding(request):
     return redirect('index')
 
 
-# settings page
+# user settings page
 @login_required
-def settings(request):
+def user_settings(request):
     profile = update_profile(request, forms.SettingsForm)
     profile.save()
     return redirect('index')

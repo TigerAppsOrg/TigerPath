@@ -17,7 +17,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'landing' %}">TigerPath</a>
+        <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
         <div>
         <a class="btn" href="#" id="settings-btn">Settings</a>
         <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link" target="_blank">Feedback</a>
@@ -106,12 +106,14 @@
     <!-- onboarding -->
     {% if onboarding_form %}
       {% include 'tigerpath/onboarding.html' %}
+      <script src="{% static 'app/js/onboarding.js' %}"></script>
     {% endif %}
 
     <!-- react webpack -->
     {% render_bundle 'main' %}
 
     <!-- settings -->
-    {% include 'tigerpath/settings.html' with btn_id='#settings-btn' %}
+    {% include 'tigerpath/settings.html' %}
+    <script src="{% static 'app/js/settings.js' %}"></script>
   </body>
 </html>
