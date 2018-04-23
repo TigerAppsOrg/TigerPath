@@ -129,7 +129,7 @@ thead.semester-header {
 .nav-color-custom {
   background-color: #464e56!important;
 }
-#display_courses {
+#display-courses {
   height:500px;
   overflow:auto;
 }

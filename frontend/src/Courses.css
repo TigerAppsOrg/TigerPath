@@ -12,7 +12,7 @@
 }
 
 /* for courses with long names */
-.semesters .course_name{
+.semesters .course-name{
 	width: 90%;
 	overflow: hidden;
 	float: left;
@@ -20,12 +20,12 @@
 	white-space:nowrap;
 }
 
-.semesters .course_title{
+.semesters .course-title{
 	/* deletes title */
 	display:none;
 }
 
-.semesters .delete_course {
+.semesters .delete-course {
 	/* adds delete button */
 	display: inline;
 }
@@ -39,7 +39,7 @@
   padding: 5px !important;
 }
 
-.gu-mirror .course_title{
+.gu-mirror .course-title{
 	/* deletes title*/
 	display:none;
 }
@@ -49,7 +49,7 @@ li:hover{
 }
 
 /* courses in search results*/
-.course_display {
+.course-display {
   font-size: 13px;
   padding-left: 2px;
   width: 100%;
@@ -60,7 +60,7 @@ li:hover{
   color: #DB7093;
 }
 
-.delete_course {
+.delete-course {
 	/* gets rid of delete button */
 	display:none;
 	float:right;

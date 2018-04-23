@@ -7,5 +7,5 @@ import $ from 'jquery'
 import jQuery from 'jquery'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
-ReactDOM.render(<Search />, document.getElementById('search_courses'));
+ReactDOM.render(<Search />, document.getElementById('search-courses'));
 registerServiceWorker();
