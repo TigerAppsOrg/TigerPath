@@ -46,28 +46,33 @@ class Search extends Component {
 
     // select containers to make items draggable
     let draggableItems = $(".semester").get();
-    draggableItems.push($("#display_courses")[0]);
+    draggableItems.push($("#display-courses")[0]);
     let drake = dragula(draggableItems, {
-      copy: function(el, source){return el.parentElement.id === "display_courses";},
+      copy: function(el, source){return el.parentElement.id === "display-courses";},
       accepts: function(el, target){
         return target.className === "semester";}
     });
 
-    // check for duplicates to add tooltip, initial num is 3 because 1 from course search, 
-    // 1 from draggable mirror, and 1 in course schedule
+    // check for duplicates to add tooltip
     let addToolTip = function(course){
-      let selected_course = $('[id=' + course.id +']');
-      if(selected_course.length > 3){
-        selected_course.each(function(course){
-          $(this).addClass("showtip");
-          $(this).find(".tooltiptext-custom").append("Note: class already added");
-          });
+      let added_courses = $('.semester').find('[id=' + course.id +']');
+      let search_list_course = $('#display-courses').find('[id=' + course.id +']');
+      if(added_courses.length > 1){
+        // add tip to course on search list
+        search_list_course.attr('data-original-title', 'Note: class already added');
+        search_list_course.tooltip('enable');
+        added_courses.attr('data-original-title', 'Note: class already added');
+        added_courses.tooltip('enable')
       }
       else{
-        selected_course.each(function(course){
-          $(this).removeClass("showtip");
-          $(this).find(".tooltiptext-custom").empty();
+        search_list_course.attr('data-original-title', '');
+        search_list_course.tooltip('disable');
+        added_courses.each(function(course){
+          $(this).attr('data-original-title', '');
+          $(this).tooltip('disable');
           });
+        // get rid of lingering toolltips
+        $('.tooltip').tooltip('hide');
       }
     };
 
@@ -81,8 +86,8 @@ class Search extends Component {
         semester.childNodes.forEach(function(course){
           if(typeof course.innerHTML != 'undefined'){
             let course_entry = {}
-            course_entry["course_name"] = course.getElementsByClassName("course_name")[0].innerHTML;
-            course_entry["course_title"] = course.getElementsByClassName("course_title")[0].innerHTML;
+            course_entry["course_name"] = course.getElementsByClassName("course-name")[0].innerHTML;
+            course_entry["course_title"] = course.getElementsByClassName("course-title")[0].innerHTML;
             course_entry["course_id"] = course.id;
             courses_taken[i].push(course_entry);
             addToolTip(course);
@@ -103,9 +108,11 @@ class Search extends Component {
       // assigns delete listener to dropped item
       $('[id=' + el.id + ']').each(function(course){
         if($(this).parent().hasClass('semester')){
-          $(this).find(".delete_course").click(function(){
+          $(this).find(".delete-course").click(function(){
             $(this).parent().remove();
             updateSchedule();
+            // gets rid of lingering tooltips
+            $('.tooltip').tooltip('hide');
           });
         }
       });
@@ -116,7 +123,7 @@ class Search extends Component {
 
   // is called whenever search query is modified
   updateSearch(event) {
-    ReactDOM.unmountComponentAtNode(document.getElementById('display_courses'));
+    ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
     this.setState({search: event.target.value});
     let search_query = event.target.value;
     // makes sure that there is always an argument after load_courses, $ is dummy arg
@@ -133,13 +140,12 @@ class Search extends Component {
             this.setState({data: data});
             ReactDOM.render(
               data.map((course)=> {
-              return <li key={course["id"]} id={course["id"]} className='course_display tooltip-custom'>
-              <span className="course_name">{course["listing"]}</span><span className='delete_course'>✖</span><br />
-              <span className='course_title'>{course["title"]}</span>
-              <span className="tooltiptext-custom"></span>
+              return <li key={course["id"]} id={course["id"]} className='course-display' data-placement="top" data-toggle="tooltip">
+              <span className="course-name">{course["listing"]}</span><span className='delete-course'>✖</span><br />
+              <span className='course-title'>{course["title"]}</span>
               </li>
             }),
-            document.getElementById('display_courses')
+            document.getElementById('display-courses')
             )
           }
         }.bind(this)
