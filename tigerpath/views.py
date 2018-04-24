@@ -1,19 +1,22 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
+from django.db.models import Q
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, Http404
+from django.urls import reverse
+from . import models, forms
+
 import django_cas_ng.views
 import ujson
 import re
-from . import models
-from django.db.models import Q
 
 
 # cas auth login
 @csrf_exempt
 def login(request):
     if request.user.is_authenticated:
-        return render(request, 'tigerpath/index.html', None)
+        return redirect('index')
     else:
         return django_cas_ng.views.login(request)
 
@@ -25,10 +28,19 @@ def logout(request):
 
 # index page
 def index(request):
+    # check if the user is authenticated
     if request.user.is_authenticated:
-        return render(request, 'tigerpath/index.html', None)
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        # add settings form
+        settings_form = forms.SettingsForm(instance=instance)
+        context = {'settings_form': settings_form}
+        # add onboarding form
+        if not request.user.profile.user_state['onboarding_complete']:
+            onboarding_form = forms.OnboardingForm()
+            context['onboarding_form'] = onboarding_form
+        return render(request, 'tigerpath/index.html', context)
     else:
-        return render(request, 'tigerpath/landing.html', None)
+        return landing(request)
 
 
 # landing page
@@ -39,6 +51,41 @@ def landing(request):
 # about page
 def about(request):
     return render(request, 'tigerpath/about.html', None)
+
+
+# onboarding page
+@login_required
+def onboarding(request):
+    profile = update_profile(request, forms.OnboardingForm)
+    profile.user_state['onboarding_complete'] = True
+    profile.save()
+    return redirect('index')
+
+
+# user settings page
+@login_required
+def user_settings(request):
+    profile = update_profile(request, forms.SettingsForm)
+    profile.save()
+    return redirect('index')
+
+
+# checks whether the form data is valid and returns the updated user profile
+def update_profile(request, profile_form):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        form = profile_form(request.POST, instance=instance)
+        # check whether it's valid:
+        if form.is_valid():
+            # save data to database and redirect to app
+            profile = form.save(commit=False)
+            profile.user = request.user
+            return profile
+    # if it's any other request, we raise a 404 error
+    else:
+        raise Http404
 
 
 # filters courses with query from react and sends back a list of filtered courses to display
@@ -64,7 +111,7 @@ def filter_courses(search_query):
     for query in split_query:
         queries = queries + query.split(" ")
 
-# populate with all of semester's courses and convert to course_listings
+    # populate with all of semester's courses and convert to course_listings
     results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.prefetch_related('course_listing_set')
     results = models.Course_Listing.objects.filter(course__in=results)
 
@@ -158,7 +205,7 @@ def hydrate_course_dict(course):
         'sections': sections,
         'semester': hydrate_semester(course.semester),
     }
-    
+
 
 def get_courses_by_term_code(term_code):
     filtered = Course.objects.filter(Q(semester__term_code=term_code))

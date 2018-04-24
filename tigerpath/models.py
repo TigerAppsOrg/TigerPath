@@ -1,7 +1,11 @@
 from django.db import models
 from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.postgres.fields import JSONField
 import uuid
+
 
 class Semester(models.Model):
     # fields
@@ -131,3 +135,24 @@ class Course_Listing(models.Model):
         ordering = ['dept', 'number']
 
 
+class Major(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=7)
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User,
+                                on_delete=models.CASCADE,
+                                related_name='profile')
+    nickname = models.CharField(max_length=50, null=True, blank=True)
+    major = models.CharField(max_length=7, null=True)
+    year = models.PositiveSmallIntegerField(null=True)
+    user_state = JSONField(null=True, blank=True)
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        profile = UserProfile.objects.create(user=instance, user_state={
+            'onboarding_complete': False
+            })

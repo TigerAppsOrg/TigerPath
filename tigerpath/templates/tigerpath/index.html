@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title> TigerPath </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TigerPath</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Custom fonts for this template -->
@@ -16,12 +17,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
-        <a class="navbar-brand" href="/landing">TigerPath</a>
+        <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
         <div>
-        <a class="btn" href="#">Settings</a>
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link"> Feedback </a>
-        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">Netid</a>
-        <a class="btn hidden" href="/logout" id="logout-btn">Logout</a>
+        <a class="btn" href="#" id="settings-btn">Settings</a>
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link" target="_blank">Feedback</a>
+        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
+        <a class="btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
         </div>
       </div>
     </nav>
@@ -41,10 +42,12 @@
         <table class="semesters">
           <thead class="semester-header">
             <tr>
-              <td> Fall '16 </td>
-              <td> Spring '17 </td>
-              <td> Fall '17 </td>
-              <td> Spring '18 </td>
+              {% with year=request.user.profile.year %}
+                <td>Fall {{ year|add:"-4"|default:"20XX" }}</td>
+                <td>Spring {{ year|add:"-3"|default:"20XX" }}</td>
+                <td>Fall {{ year|add:"-3"|default:"20XX" }}</td>
+                <td>Spring {{ year|add:"-2"|default:"20XX" }}</td>
+              {% endwith %}
             </tr>
           </thead>
           <tbody>
@@ -62,10 +65,12 @@
           </tbody>
           <thead class="semester-header">
             <tr>
-              <td> Fall '18 </td>
-              <td> Spring '19 </td>
-              <td> Fall '19 </td>
-              <td> Spring '20 </td>
+              {% with year=request.user.profile.year %}
+                <td>Fall {{ year|add:"-2"|default:"20XX" }}</td>
+                <td>Spring {{ year|add:"-1"|default:"20XX" }}</td>
+                <td>Fall {{ year|add:"-1"|default:"20XX" }}</td>
+                <td>Spring {{ year|default:"20XX" }}</td>
+              {% endwith %}
             </tr>
           </thead>
           <tbody>
@@ -79,6 +84,7 @@
         </table>
       </div>
     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
@@ -96,6 +102,18 @@
         });
       }
     </script>
+
+    <!-- onboarding -->
+    {% if onboarding_form %}
+      {% include 'tigerpath/onboarding.html' %}
+      <script src="{% static 'app/js/onboarding.js' %}"></script>
+    {% endif %}
+
+    <!-- react webpack -->
     {% render_bundle 'main' %}
+
+    <!-- settings -->
+    {% include 'tigerpath/settings.html' %}
+    <script src="{% static 'app/js/settings.js' %}"></script>
   </body>
 </html>

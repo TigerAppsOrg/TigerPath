@@ -19,17 +19,7 @@
     <link href="{% static 'landing/css/landing-page.css' %}" rel="stylesheet">
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-dark nav-color-custom static-top">
-      <div class="container">
-        <a class="navbar-brand" href="/landing">TigerPath</a>
-        <div>
-        <a class="btn" href="/landing"> Home</a>
-        <a class="btn" href="/about"> About </a>
-        <a class="btn" href="/login"> Login</a>
-        </div>
-      </div>
-    </nav>
+    {% include '../includes/navigation.html' %}
 
     <!-- Masthead -->
     <header class="about-masthead text-white text-center">
@@ -47,9 +37,9 @@
       <div class="about-section container">
         <div id="about-description">
           <h4>Description</h4>
-          <p>TigerPath is a web application that helps Princeton University students manage and plan out their four-year course schedules.</p>
-          <p>There is currently no good way for students to plan out what courses they’re taking and when they're taking them beyond the current or upcoming semester. Many students try to manually do this by using an Excel spreadsheet or a notes app, but any mistake can easily lead to an overloaded semester or a need to take summer classes in order to fulfill missed requirements.</p>
-          <p>TigerPath aims to solve this problem by providing a platform for students to manage what courses they're taking during each semester and giving them feedback on what graduation requirements their schedule fulfills and does not fulfill. Our goal is for TigerPath to become a useful, enduring tool that ensures Princeton students are able to stay on top of requirements and graduate on time.</p>
+          <p>TigerPath is a web application that helps Princeton University students plan out their four-year course schedules.</p>
+          <p>There is currently no good way for students to manage what courses they’re taking and when they're taking them beyond the current or upcoming semester. Many students try to manually do this by using an Excel spreadsheet or pen-and-paper, but any mistake can easily lead to an overloaded semester or a need to take summer classes in order to fulfill missed requirements.</p>
+          <p>TigerPath aims to solve this problem by providing a platform for students to manage what courses they're taking during each semester and giving them feedback on the major requirements their schedule fulfills and does not fulfill. Our goal is for TigerPath to become a useful, enduring tool that ensures Princeton students are able to stay on top of requirements and graduate on time.</p>
         </div>
 
         <div id="about-team">
@@ -156,32 +146,6 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-            <ul class="list-inline mb-2">
-              <li class="list-inline-item">
-                <a href="/about">About</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Contact</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-            </ul>
-            <p class="text-muted small mb-4 mb-lg-0">Made with ❤️by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    {% include '../includes/footer.html' %}
   </body>
 </html>

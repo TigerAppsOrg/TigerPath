@@ -1,0 +1,298 @@
+[
+  {
+    "model": "tigerpath.major",
+    "pk": 1,
+    "fields": {
+      "name": "African American Studies",
+      "code": "AAS"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 2,
+    "fields": {
+      "name": "Anthropology",
+      "code": "ANT"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 3,
+    "fields": {
+      "name": "Architecture",
+      "code": "ARC"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 4,
+    "fields": {
+      "name": "Art and Archaeology",
+      "code": "ART"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 5,
+    "fields": {
+      "name": "Astrophysical Sciences",
+      "code": "AST"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 6,
+    "fields": {
+      "name": "Chemistry",
+      "code": "CHM"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 7,
+    "fields": {
+      "name": "Classics",
+      "code": "CLA"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 8,
+    "fields": {
+      "name": "Comparative Literature",
+      "code": "COM"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 9,
+    "fields": {
+      "name": "Computer Science - A.B.",
+      "code": "COS-AB"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 10,
+    "fields": {
+      "name": "East Asian Studies",
+      "code": "EAS"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 11,
+    "fields": {
+      "name": "Ecology and Evolutionary Biology",
+      "code": "EEB"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 12,
+    "fields": {
+      "name": "Economics",
+      "code": "ECO"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 13,
+    "fields": {
+      "name": "English",
+      "code": "ENG"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 14,
+    "fields": {
+      "name": "French and Italian",
+      "code": "FRE/ITA"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 15,
+    "fields": {
+      "name": "Geosciences",
+      "code": "GEO"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 16,
+    "fields": {
+      "name": "German",
+      "code": "GER"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 17,
+    "fields": {
+      "name": "History",
+      "code": "HIS"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 18,
+    "fields": {
+      "name": "Mathematics",
+      "code": "MAT"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 19,
+    "fields": {
+      "name": "Molecular Biology",
+      "code": "MOL"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 20,
+    "fields": {
+      "name": "Music",
+      "code": "MUS"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 21,
+    "fields": {
+      "name": "Near Eastern Studies",
+      "code": "NES"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 22,
+    "fields": {
+      "name": "Neuroscience",
+      "code": "NEU"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 23,
+    "fields": {
+      "name": "Philosophy",
+      "code": "PHI"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 24,
+    "fields": {
+      "name": "Physics",
+      "code": "PHY"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 25,
+    "fields": {
+      "name": "Politics",
+      "code": "POL"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 26,
+    "fields": {
+      "name": "Psychology",
+      "code": "PSY"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 27,
+    "fields": {
+      "name": "Religion",
+      "code": "REL"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 28,
+    "fields": {
+      "name": "Slavic Languages and Literatures",
+      "code": "SLA"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 29,
+    "fields": {
+      "name": "Sociology",
+      "code": "SOC"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 30,
+    "fields": {
+      "name": "Spanish and Portuguese",
+      "code": "SPA/POR"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 31,
+    "fields": {
+      "name": "Woodrow Wilson School of Public and International Affairs",
+      "code": "WWS"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 32,
+    "fields": {
+      "name": "Chemical and Biological Engineering",
+      "code": "CBE"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 33,
+    "fields": {
+      "name": "Civil and Environmental Engineering",
+      "code": "CEE"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 34,
+    "fields": {
+      "name": "Computer Science - B.S.E.",
+      "code": "COS-BSE"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 35,
+    "fields": {
+      "name": "Electrical Engineering",
+      "code": "ELE"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 36,
+    "fields": {
+      "name": "Mechanical and Aerospace Engineering",
+      "code": "MAE"
+    }
+  },
+  {
+    "model": "tigerpath.major",
+    "pk": 37,
+    "fields": {
+      "name": "Operations Research and Financial Engineering",
+      "code": "ORF"
+    }
+  }
+]

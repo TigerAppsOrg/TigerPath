@@ -20,6 +20,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+webpack-stats.dev.json
+webpack-stats.prod.json
+
 #---------------------------------------------
 # Byte-compiled / optimized / DLL files
 __pycache__/
