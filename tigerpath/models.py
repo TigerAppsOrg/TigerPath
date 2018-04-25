@@ -44,6 +44,7 @@ class Course(models.Model):
     rating = models.FloatField(default=0)
     description = models.TextField()
     registrar_id = models.CharField(max_length=20)
+    dist_area = models.TextField(default="")
 
     def course_listings(self):
         # + ' ' + ': ' + self.title
@@ -148,6 +149,7 @@ class UserProfile(models.Model):
     major = models.CharField(max_length=7, null=True)
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
+    user_schedule = JSONField(null=True, blank=True)
 
 
 @receiver(post_save, sender=User)

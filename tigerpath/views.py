@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms
+from collections import defaultdict
 
 import django_cas_ng.views
 import ujson
@@ -89,16 +90,31 @@ def update_profile(request, profile_form):
 
 
 # filters courses with query from react and sends back a list of filtered courses to display
+@login_required
 def get_courses(request, search_query):
     course_info_list = []
     course_list = filter_courses(search_query);
     models.Course.objects.prefetch_related('course_listing_set');
+    duplicates = {}
     for course in course_list:
+        # for checking duplicates
+        trunc_id = course.registrar_id[4:]
         course_info = {}
         course_info['title'] = course.title
         course_info['id'] = course.registrar_id
-        course_info['listing'] = ' / '.join([listing.dept + listing.number for listing in course.course_listing_set.all()])
+        ordered_listings = list(course.course_listing_set.filter(is_primary=True))
+        ordered_listings.extend(list(course.course_listing_set.filter(is_primary=False)))
+        course_info['listing'] = ' / '.join([listing.dept + listing.number for listing in ordered_listings])
+        course_info['semester'] = "fall"
+        if(course.registrar_id[:4][-1] == '4'):
+            course_info['semester'] = "spring"
+        # remove old one and update current one to both
+        if(trunc_id in duplicates):
+            course_info['semester'] = "both"
+            course_info_list = [course for course in course_info_list if course['id'] != duplicates[trunc_id]]
         course_info_list.append(course_info)
+        duplicates[trunc_id] = course.registrar_id
+
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 
@@ -112,8 +128,15 @@ def filter_courses(search_query):
         queries = queries + query.split(" ")
 
     # populate with all of semester's courses and convert to course_listings
-    results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.prefetch_related('course_listing_set')
+    # convert semesters to courses
+    results = models.Semester.objects.all()
+    results = models.Course.objects.filter(semester__in=results).prefetch_related('course_listing_set')
     results = models.Course_Listing.objects.filter(course__in=results)
+
+    depts = set(['AAS', 'AFS', 'AMS', 'ANT', 'AOS', 'APC', 'ARA', 'ARC', 'ART', 'ASA', 'AST', 'ATL', 'BCS', 'CBE', 'CEE', 'CGS', 'CHI', 'CHM', 'CHV', 'CLA', 'CLG', 'COM', 'COS', 'CTL', 'CWR', 'CZE', 
+        'DAN', 'EAS', 'ECO', 'ECS', 'EEB', 'EGR', 'ELE', 'ENE', 'ENG', 'ENT', 'ENV', 'EPS', 'FIN', 'FRE', 'FRS', 'GEO', 'GER', 'GHP', 'GLS', 'GSS', 'HEB', 'HIN', 'HIS', 'HLS', 'HOS', 'HPD', 'HUM', 'ISC', 
+        'ITA', 'JDS', 'JPN', 'JRN', 'KOR', 'LAO', 'LAS', 'LAT', 'LCA', 'LIN', 'MAE', 'MAT', 'MED', 'MOD', 'MOG', 'MOL', 'MSE', 'MTD', 'MUS', 'NES', 'NEU', 'ORF', 'PAW', 'PER', 'PHI', 'PHY', 'PLS', 'POL', 
+        'POP', 'POR', 'PSY', 'QCB', 'REL', 'RES', 'RUS', 'SAN', 'SAS', 'SLA', 'SML', 'SOC', 'SPA', 'STC', 'SWA', 'THR', 'TPP', 'TRA', 'TUR', 'TWI', 'URB', 'URD', 'VIS', 'WRI', 'WWS'])
 
     for query in queries:
         if(query == ''):
@@ -121,7 +144,7 @@ def filter_courses(search_query):
         query = query.upper()
 
         # is department
-        if(len(query) <= 3 and query.isalpha()):
+        if(query in depts):
             results = list(filter(lambda x: x.dept == query, results))
 
         # is course number
@@ -141,10 +164,20 @@ def filter_courses(search_query):
     return models.Course.objects.filter(course_listing_set__in=results)
 
 
-# updates users schedules with added courses
+# updates user's schedules with added courses
+@login_required
 def update_schedule(request):
-    print(request.POST)
+    current_user = models.UserProfile.objects.get(user=request.user)
+    current_user.user_schedule = ujson.loads(list(request.POST)[0])
+    current_user.save()
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
+
+
+# returns user's existing schedule
+@login_required
+def get_schedule(request):
+    schedule = models.UserProfile.objects.get(user=request.user).user_schedule
+    return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 

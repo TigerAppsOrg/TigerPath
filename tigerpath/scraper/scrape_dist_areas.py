@@ -22,19 +22,8 @@ import re
 import string
 import sqlite3
 import sys
-import urllib2
-from BeautifulSoup import BeautifulSoup
-
-TERM_CODE = 1122  # seems to be fall 11-12
-TERM_CODE = 1124  # so 1124 would be spring 11-12
-                  # 1134 is definitely spring 13 (course offerings link)`
-TERM_CODE = 1134
-TERM_CODE = 1142  # fall 2013; spring 2014 will be 1144
-TERM_CODE = 1144  # spring 2014
-TERM_CODE = 1154  # spring 2015
-TERM_CODE = 1174  # spring 2017
-TERM_CODE = 1184  # spring 2018
-TERM_CODE = 1182  # fall 2017 ??
+import urllib.request
+from bs4 import BeautifulSoup
 
 URL_PREFIX = "http://registrar.princeton.edu/course-offerings/"
 LIST_URL = URL_PREFIX + "search_results.xml?term={term}"
@@ -86,11 +75,11 @@ def scrape_page(page):
   course['listings'] = get_course_listings(soup)
   return course
 
-def scrape_id(id):
-  page = urllib2.urlopen(COURSE_URL.format(term=TERM_CODE, courseid=id))
+def scrape_id(id, TERM_CODE):
+  page = urllib.request.urlopen(COURSE_URL.format(term=TERM_CODE, courseid=id))
   return scrape_page(page)
 
-def scrape_all():
+def scrape_all_courses(TERM_CODE):
   """
   Return an iterator over all courses listed on the registrar's site.
   
@@ -100,7 +89,7 @@ def scrape_all():
   To be robust in case the registrar breaks a small subset of courses, we trap
   all exceptions and log them to stdout so that the rest of the program can continue.
   """
-  search_page = urllib2.urlopen(LIST_URL.format(term=TERM_CODE))
+  search_page = urllib.request.urlopen(LIST_URL.format(term=TERM_CODE))
   courseids = get_course_list(search_page)
 
   n = 0
@@ -109,19 +98,8 @@ def scrape_all():
       if n > 99999:
         return
       n += 1
-      yield scrape_id(id)
+      yield scrape_id(id, TERM_CODE)
     except Exception:
       import traceback
       traceback.print_exc(file=sys.stderr)
       sys.stderr.write('Error processing course id {0}\n'.format(id))
-
-if __name__ == "__main__":
-  first = True
-  for course in scrape_all():
-    if first:
-      first = False
-      print '['
-    else:
-      print ','
-    json.dump(course, sys.stdout)
-  print ']'
