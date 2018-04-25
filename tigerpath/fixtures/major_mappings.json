@@ -108,7 +108,7 @@
     "pk": 14,
     "fields": {
       "name": "French and Italian",
-      "code": "FRE/ITA"
+      "code": "FIT"
     }
   },
   {
@@ -236,7 +236,7 @@
     "pk": 30,
     "fields": {
       "name": "Spanish and Portuguese",
-      "code": "SPA/POR"
+      "code": "SPO"
     }
   },
   {
