@@ -1,19 +1,32 @@
 version: '3.6'
 
 services:
+  build_react:
+    image: react
+    build:
+      context: .
+      dockerfile: Dockerfile-react
+    command: cp -a /opt/tigerpath/ /target
+    volumes:
+      - tigerpath-volume:/target
   react:
-    image: tigerpath
-    command: bash -c "cd frontend && npm start"
+    image: react
+    command: npm start
     ports:
       - 3000:3000
     volumes:
-      - tigerpath-volume:/opt/tigerpath
+      - tigerpath-volume:/target
     depends_on:
-      - web
-  web:
+      - build_react
+  build_web:
+    image: web
     build:
       context: .
       dockerfile: Dockerfile
+    command: cp -a /opt/tigerpath/ /target
+    volumes:
+      - tigerpath-volume:/target
+  web:
     image: web
     command: python3 manage.py runserver 0.0.0.0:8000
     ports:
@@ -21,7 +34,9 @@ services:
     env_file:
       - .env
     volumes:
-      - tigerpath-volume:/opt/tigerpath
+      - tigerpath-volume:/target
+    depends_on:
+      - build_web
 
 volumes:
   tigerpath-volume: {}

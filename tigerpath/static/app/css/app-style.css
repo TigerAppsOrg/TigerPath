@@ -145,13 +145,13 @@ thead.semester-header {
   margin-left:0;
 }
 
-/* get rid of rounded corners and highlighed box on focus */
-#search_courses .form-control{
+/* for search box, get rid of rounded corners and highlighted box on focus */
+#search-courses .form-control{
   border-radius:0rem;
   border:solid white;
 }
 
-#search_courses .form-control:focus{
+#search-courses .form-control:focus{
   border-color: rgba(255, 255, 255, 0);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
   outline: 0 none;
