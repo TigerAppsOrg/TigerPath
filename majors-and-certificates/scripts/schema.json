@@ -38,7 +38,7 @@
         "NST"
       ],
       "minLength": 2,
-      "maxLength": 4
+      "maxLength": 7
     },
     "degree": {
       "$id": "/properties/degree",
@@ -85,6 +85,24 @@
           "https://ua.princeton.edu/academic-units/name-studies"
         ],
         "pattern": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+      }
+    },
+    "allowed_majors": {
+      "$id": "/properties/allowed_majors",
+      "type": "array",
+      "title": "Allowed Majors (only relevant for certificates)",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$id": "/properties/allowed_majors/items",
+        "type": "string",
+        "description": "",
+        "default": "ABC",
+        "examples": [
+          "ELE"
+        ],
+        "minLength": 3,
+        "maxLength": 3
       }
     },
     "contacts": {
@@ -272,8 +290,8 @@
             "type": "array",
             "title": "Requirement List",
             "items": {
-              "$ref": "#/properties/req_list/items",
-              "#$ref": "/properties/req_list/items"
+              "#$ref": "#/properties/req_list/items",
+              "$ref": "/properties/req_list/items"
             }
           },
           "course_list": {
@@ -333,7 +351,6 @@
   "required": [
     "type",
     "name",
-    "code",
     "degree",
     "year",
     "urls",

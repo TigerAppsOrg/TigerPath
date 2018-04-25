@@ -90,7 +90,7 @@
                       "NST"
                     ],
                     "minLength": 2,
-                    "maxLength": 4
+                    "maxLength": 7
                   },
                   "degree": {
                     "$id": "/properties/degree",
@@ -140,6 +140,23 @@
                         "https://ua.princeton.edu/academic-units/name-studies"
                       ],
                       "pattern": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+                    }
+                  },
+                  "allowed_majors": {
+                    "$id": "/properties/allowed_majors",
+                    "type": "array",
+                    "title": "Allowed Majors (only relevant for certificates)",
+                    "uniqueItems": true,
+                    "items": {
+                      "$id": "/properties/allowed_majors/items",
+                      "type": "string",
+                      "description": "",
+                      "default": "ABC",
+                      "examples": [
+                        "ELE"
+                      ],
+                      "minLength": 3,
+                      "maxLength": 3
                     }
                   },
                   "contacts": {
@@ -358,7 +375,7 @@
                               "NST 2**",
                               "NST 312C",
                               "NST 96",
-                              "NST 487\tThe Study of Modern Names"
+                              "NST 487: The Study of Modern Names"
                             ]
                           }
                       //   },
@@ -399,7 +416,6 @@
                 "required": [
                   "type",
                   "name",
-                  "code",
                   "degree",
                   "year",
                   "urls",
@@ -445,6 +461,24 @@
                   },
                   "urls": {
                     "helper": "Every source of information on the listed requirements should be linked here. At lease one url should be present. Start with https://ua.princeton.edu/academic-units/[your-dept-name] and add others as needed.",
+                    "actionbar": {
+                        "actions": [
+                          {
+                            "action": "up",
+                            "enabled": false
+                          },
+                          {
+                            "action": "down",
+                            "enabled": false
+                          }
+                        ]
+                    }
+                  },
+                  "allowed_majors": {
+                    "helper": [
+                      "List of majors that are allowed to take the certificate. The default if empty or not present is that all majors are allowed.",
+                      "Note: For majors, this must be removed from the resulting JSON, even if this is not enforced by the schema."
+                    ],
                     "actionbar": {
                         "actions": [
                           {
@@ -528,7 +562,10 @@
                           "helper": "Number of courses that can be in common with major. Only relevant for certificates. Leave empty for majors."
                         },
                         "pdfs_allowed": {
-                          "helper": "Whether student is allowed to take the courses SPDF (student-elected pass/D/fail). Can be false, true, or a number indicating how many SPDF courses are allowed."
+                          "helper": [
+                            "Whether student is allowed to take the courses SPDF (student-elected pass/D/fail). Can be false, true, or a number indicating how many SPDF courses are allowed. Applies to all requirements in the subtree, so leave blank/empty if specified in parent. If never specified explicitly, the default is assumed to be true.",
+                            "Note: true/false values currently cause an error due to an Alpaca quirk. Workaround 1: use 0 for false and leave empty if true (defaults to true unless specified differently in parent). Workaround 2: Put in a dummy value, one that can't be mistaken for a real possibility (say, -12345), and then edit the resulting json to change it to true/false, possibly through a find/replace."
+                          ]
                         },
                         "completed_by_semester": {
                           "helper": "1-8: semester by which the requirement must be complete. Should be left empty if not needed."
@@ -552,7 +589,10 @@
                           }
                         },
                         "course_list": {
-                          "helper": "Only one of Requirement List or Course List should be used. Use a Course List if this requirement can be expressed as a list of courses.",
+                          "helper": [
+                            "Only one of Requirement List or Course List should be used. Use a Course List if this requirement can be expressed as a list of courses.",
+                            "Course Lists contain the course codes (see GitHub repo) of courses satisfying the requirement and, optionally, a colon-sparated course name which is ignored by the parser (only for human reference)."
+                          ],
                           "actionbar": {
                               "actions": [
                                 {
