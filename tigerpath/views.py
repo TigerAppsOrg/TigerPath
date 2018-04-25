@@ -6,7 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms
-from collections import defaultdict
 
 import django_cas_ng.views
 import ujson
