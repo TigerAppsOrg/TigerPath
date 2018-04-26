@@ -5,7 +5,8 @@ import $ from 'jquery'
 import jQuery from 'jquery'
 import styles from 'dragula/dist/dragula.css';
 
-var dragula = require('react-dragula')
+var dragula = require('react-dragula');
+var current_request = null;
 
 // setting up ajax request with csrf
 function getCookie(name) {
@@ -157,11 +158,17 @@ class Search extends Component {
     // makes sure that there is always an argument after load_courses, $ is dummy arg
     if(search_query === '') search_query = "$"
     // get request, renders list of courses received
-    $.ajax({
+    
+    current_request = $.ajax({
         url: "/api/v1/get_courses/" + search_query,
         datatype: 'json',
         type: 'GET',
         cache: true,
+        beforeSend : function() {           
+          if(current_request != null && current_request.readyState != 4) {
+              current_request.abort();
+          }
+        },
         success: function(data) {
           if(search_query === this.state.search || search_query === '$')
           {
@@ -176,7 +183,7 @@ class Search extends Component {
             document.getElementById('display-courses')
             )
           }
-        }.bind(this)
+        }.bind(this),
     })
   }
   render()

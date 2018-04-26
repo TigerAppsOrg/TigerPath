@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         scrape_all.get_all_courses()
-#        self.stdout.write('course selection: courses scraped successfully')
+        self.stdout.write('course selection: courses scraped successfully')
 #        for term_code in settings.ACTIVE_TERMS:
 #            results = get_courses_by_term_code(term_code)
 #            data = json.dumps(results)

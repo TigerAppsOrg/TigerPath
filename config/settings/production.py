@@ -2,7 +2,7 @@ from .base import *
 import os
 
 
-DEBUG = False
+DEBUG = True
 ADMIN_ENABLED = DEBUG
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')

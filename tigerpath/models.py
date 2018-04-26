@@ -36,7 +36,7 @@ class Professor(models.Model):
 
 class Course(models.Model):
     # relationships
-    semester = models.ForeignKey(Semester, on_delete=models.PROTECT)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
     professors = models.ManyToManyField(Professor)
 
     # fields
@@ -45,6 +45,8 @@ class Course(models.Model):
     description = models.TextField()
     registrar_id = models.CharField(max_length=20)
     dist_area = models.TextField(default="")
+    semesters = models.TextField(default="")
+    is_master = models.BooleanField(default=False)
 
     def course_listings(self):
         # + ' ' + ': ' + self.title
@@ -92,7 +94,7 @@ class Section(models.Model):
     )
 
     # relationships
-    course = models.ForeignKey(Course, related_name="sections", on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, related_name="sections", on_delete=models.CASCADE)
 
     # fields
     name = models.CharField(max_length=100, default='')
@@ -112,7 +114,7 @@ class Section(models.Model):
 
 
 class Meeting(models.Model):
-    section = models.ForeignKey(Section, related_name="meetings", on_delete=models.PROTECT)
+    section = models.ForeignKey(Section, related_name="meetings", on_delete=models.CASCADE)
     start_time = models.CharField(max_length=20)
     end_time = models.CharField(max_length=20)
     days = models.CharField(max_length=10)
@@ -123,7 +125,7 @@ class Meeting(models.Model):
 
 
 class Course_Listing(models.Model):
-    course = models.ForeignKey(Course, related_name="course_listing_set", on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, related_name="course_listing_set", on_delete=models.CASCADE)
     # Even though the max_length should be 3~4, there are extreme cases.
     dept = models.CharField(max_length=10)
     number = models.CharField(max_length=10)
