@@ -1,4 +1,4 @@
-from django.forms import ModelForm, Select
+from django import forms
 from tigerpath.models import UserProfile, Major
 import datetime
 
@@ -10,28 +10,29 @@ YEAR_CHOICES = [(now.year+i, str(now.year+i)) for i in range(offset, offset+4)]
 MAJORS = Major.objects.order_by('name').values_list('code', 'name')
 
 
-class OnboardingForm(ModelForm):
+class OnboardingForm(forms.ModelForm):
     class Meta:
         # model and fields used for the form
         model = UserProfile
-        fields = ['year', 'major']
+        fields = ['nickname', 'year', 'major']
         # set up the form
         labels = {
             'year': ('What year are you in?'),
             'major': ('What is your major, or what major are you planning on declaring?')
         }
         widgets = {
-            'year': Select(choices=YEAR_CHOICES),
-            'major': Select(choices=MAJORS)
+            'nickname': forms.HiddenInput(),
+            'year': forms.Select(choices=YEAR_CHOICES),
+            'major': forms.Select(choices=MAJORS)
         }
 
 
-class SettingsForm(ModelForm):
+class SettingsForm(forms.ModelForm):
     class Meta:
         # model and fields used for the form
         model = UserProfile
         fields = ['nickname', 'year', 'major']
         widgets = {
-            'year': Select(choices=YEAR_CHOICES),
-            'major': Select(choices=MAJORS)
+            'year': forms.Select(choices=YEAR_CHOICES),
+            'major': forms.Select(choices=MAJORS)
         }
