@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.urls import reverse
-from . import models, forms
+from . import models, forms, utils
 
 import django_cas_ng.views
 import ujson
@@ -36,7 +36,8 @@ def index(request):
         context = {'settings_form': settings_form}
         # add onboarding form
         if not request.user.profile.user_state['onboarding_complete']:
-            onboarding_form = forms.OnboardingForm()
+            initial_values = get_onboarding_initial_values(request.user.username)
+            onboarding_form = forms.OnboardingForm(initial=initial_values)
             context['onboarding_form'] = onboarding_form
         return render(request, 'tigerpath/index.html', context)
     else:
@@ -86,6 +87,30 @@ def update_profile(request, profile_form):
     # if it's any other request, we raise a 404 error
     else:
         raise Http404
+
+
+# get onboarding initial values from tigerbook
+def get_onboarding_initial_values(username):
+    initial_values = {}
+    student_json = utils.get_student_info(username)
+    if student_json:
+        # get first name
+        if student_json['first_name']:
+            initial_values['nickname'] = student_json['first_name']
+        # get class year
+        if student_json['class_year']:
+            initial_values['year'] = student_json['class_year']
+        # get major code
+        if student_json['major_code']:
+            initial_values['major'] = student_json['major_code']
+            # handle the way tigerbook stores major codes
+            if initial_values['major'] == 'COS':
+                initial_values['major'] += '-' + student_json['major_type']
+            elif initial_values['major'] == 'FRE ITA':
+                initial_values['major'] = 'FIT'
+            elif initial_values['major'] == 'SPA POR':
+                initial_values['major'] = 'SPO'
+    return initial_values
 
 
 # filters courses with query from react and sends back a list of filtered courses to display
