@@ -91,31 +91,6 @@ def update_profile(request, profile_form):
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
-    course_info_list = []
-    course_list = filter_courses(search_query);
-    models.Course_Listing.objects.select_related('course');
-    for x_listing in course_list:
-        course = x_listing[0].course
-        course_info = {}
-        course_info['title'] = course.title
-        course_info['id'] = course.registrar_id
-        ordered_listings = list(x_listing.filter(is_primary=True))
-        ordered_listings.extend(list(x_listing.filter(is_primary=False)))
-        course_info['listing'] = ' / '.join([listing.dept + listing.number for listing in ordered_listings])
-        # tag semester
-        if('f' in course.semesters and 's' in course.semesters):
-            course_info['semester'] = 'both'
-        if('f' in course.semesters):
-            course_info['semester'] = 'fall'
-        else:
-            course_info['semester'] = 'spring'
-        course_info_list.append(course_info)
-#    course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(search_query)))
-    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
-
-
-# returns list of courses filtered by query
-def filter_courses(search_query):
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
     split_query = re.split('(\d.*)', search_query)
     queries = []
@@ -123,56 +98,52 @@ def filter_courses(search_query):
     for query in split_query:
         queries = queries + query.split(" ")
 
-    # # populate with all of semester's courses and convert to course_listings
-    # # convert semesters to courses
-    # results = models.Semester.objects.all()
-    # results = models.Course.objects.filter(semester__in=results).prefetch_related('course_listing_set')
-    # results = models.Course_Listing.objects.filter(course__in=results)
+    course_info_list = []
+    course_list = filter_courses(queries)
+    for course in course_list:
+        course_info = {}
+        course_info['title'] = course.title
+        course_info['id'] = course.registrar_id
+        course_info['listing'] = course.cross_listings
+        # tag semester
+        if('f' in course.semesters and 's' in course.semesters):
+            course_info['semester'] = 'both'
+        elif('f' in course.semesters):
+            course_info['semester'] = 'fall'
+        else:
+            course_info['semester'] = 'spring'
+        course_info_list.append(course_info)
 
-    # for query in queries:
-    #     if(query == ''):
-    #         continue
-
-    #     # is department
-    #     if(len(query.upper()) <= 3 and query.isalpha()):
-    #         results = list(filter(lambda x: query in [listing.dept for listing in x.course_listing_set.all()], results))
-
-    #     # is course number
-    #     elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
-    #         results = list(filter(lambda x: x.number.startswith(query), results))
-
-    #     # check if it matches title
-    #     else:
-    #         # convert course_listings to courses to filter
-    #         results = models.Course.objects.filter(course_listing_set__in=results)
-    #         results = list(filter(lambda x: query.lower() in x.title.lower(), results))
-
-    #         # convert courses back to course_listings
-    #         results = models.Course_Listing.objects.filter(course__in=results)
-
-    # # convert course_listings to course to output
-    # return models.Course.objects.filter(course_listing_set__in=results)
+    # sort so courses that match first query show up first (matching num query is not necessary)
+    query = queries[0]
+    # is department
+    if(len(query.upper()) == 3 and query.upper().isalpha()):
+        course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
+    # check if it matches title
+    else:
+        course_info_list = sorted(course_info_list, key=lambda course: not (course['title'].lower().startswith(query.lower())))
+    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 
-    # populate with all of semester's courses and convert to course_listings
-    results = models.Course.objects.prefetch_related('course_listing_set')
-    results = [course.course_listing_set.all() for course in results]
-    models.Course_Listing.objects.select_related('course');
+# returns list of courses filtered by query
+def filter_courses(queries):
+    results = models.Course.objects.all()
     for query in queries:
         if(query == ''):
             continue
 
         # is department
         if(len(query.upper()) == 3 and query.upper().isalpha()):
-            results = list(filter(lambda x_listing: query.upper() in [listing.dept for listing in x_listing], results))
+            results = list(filter(lambda course: query.upper() in course.cross_listings, results))
 
         # is course number
         elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
-            results = list(filter(lambda x_listing: any([str(listing.number).startswith(query) for listing in x_listing]), results))
+            results = list(filter(lambda course: any([course_num.startswith(query) for course_num in re.split('\D+', course.cross_listings)]), results))
 
         # check if it matches title
         else:
-            results = list(filter(lambda x_listing: query.lower() in x_listing[0].course.title.lower(), results))
+            results = list(filter(lambda course: query.lower() in course.title.lower(), results))
+
     return results
 
 

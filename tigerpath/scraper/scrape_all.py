@@ -7,7 +7,7 @@ from .scrape_dist_areas import scrape_all_courses
 from ..models import Course
 
 def get_all_courses():
-     we can generate these given settings.CURR_TERM
+    # we can generate these given settings.CURR_TERM
     term_codes = settings.ACTIVE_TERMS
      for term_code in term_codes:
          try:
@@ -27,6 +27,12 @@ def get_all_courses():
                  fetch_course.save()
          except Exception as e:
              raise e
+
+    # combine crosslistings and populate crosslisting field in course
+    all_courses = Course.objects.all()
+    for course in all_courses:
+        course.cross_listings = ' / '.join([listing.dept + listing.number for listing in course.course_listing_set.all()])
+        course.save()
 
     # update master list
     all_courses = Course.objects.all()

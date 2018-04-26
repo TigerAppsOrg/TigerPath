@@ -47,6 +47,7 @@ class Course(models.Model):
     dist_area = models.TextField(default="")
     semesters = models.TextField(default="")
     is_master = models.BooleanField(default=False)
+    cross_listings = models.TextField(default="")
 
     def course_listings(self):
         # + ' ' + ': ' + self.title
