@@ -1,7 +1,7 @@
 # Major and Certificate Requirements
 
 
-##### NEW: Form to help in the creation of Major/Certificate JSONs:
+##### Form to help in the creation of Major/Certificate JSONs:
 
 <https://preview.c9users.io/bnehoran/majors-and-certificates/JSON_creator.html>
 
