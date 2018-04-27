@@ -106,9 +106,10 @@ def get_courses(request, search_query):
         course_info['id'] = course.registrar_id
         course_info['listing'] = course.cross_listings
         # tag semester
-        if('f' in ''.join(course.all_semesters) and 's' in ''.join(course.all_semesters)):
+        all_semesters = ''.join(course.all_semesters)
+        if 'f' in all_semesters and 's' in all_semesters:
             course_info['semester'] = 'both'
-        elif('f' in ''.join(course.all_semesters)):
+        elif 'f' in all_semesters:
             course_info['semester'] = 'fall'
         else:
             course_info['semester'] = 'spring'
@@ -118,7 +119,7 @@ def get_courses(request, search_query):
     course_info_list = sorted(course_info_list, key=lambda course: course["listing"])
     # show searched dept first
     for query in queries:
-        if(len(query) == 3 and query.isalpha()):
+        if len(query) == 3 and query.isalpha():
             course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
@@ -127,15 +128,15 @@ def get_courses(request, search_query):
 def filter_courses(queries):
     results = models.Course.objects.all()
     for query in queries:
-        if(query == ''):
+        if query == '':
             continue
 
         # is department
-        if(len(query) == 3 and query.isalpha()):
+        if len(query) == 3 and query.isalpha():
             results = list(filter(lambda course: query.upper() in course.cross_listings, results))
 
         # is course number
-        elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
+        elif len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
             results = list(filter(lambda course: any([listing[3:].startswith(query.upper()) for listing in re.split(' / ', course.cross_listings)]), results))
 
         # check if it matches title
