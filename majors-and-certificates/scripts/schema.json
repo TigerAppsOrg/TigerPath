@@ -290,8 +290,9 @@
             "type": "array",
             "title": "Requirement List",
             "items": {
-              "#$ref": "#/properties/req_list/items",
-              "$ref": "/properties/req_list/items"
+              "$ref": "#/properties/req_list/items",
+              "#$ref": "/properties/req_list/items",
+              "#note": "switch the # on the above lines if get an error"
             }
           },
           "course_list": {
