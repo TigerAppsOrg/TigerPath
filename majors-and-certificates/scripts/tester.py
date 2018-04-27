@@ -14,7 +14,8 @@ def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
 def main():
-    for filename in os.listdir(tests_location):
+    test_failed = None
+    for filename in sorted(os.listdir(tests_location)):
         if filename.endswith(".test"): 
             print("Testing: " + filename)
             file_path = os.path.join(tests_location, filename)
@@ -28,8 +29,12 @@ def main():
                 f.write("\n")
                 f.write(_json_format(major))
             # check if output is correct
-            if not filecmp.cmp(file_path+".out", file_path+".d"):
+            if not filecmp.cmp(file_path+".d", file_path+".out"):
                 print("--- Failed")
+                if test_failed == None:
+                    test_failed = "echo 'Failed test:' %s; colordiff %s %s | head -10" % (file_path, file_path+".d", file_path+".out")
+    if test_failed:
+        os.system(test_failed)
 
 if __name__ == "__main__":
     main()
