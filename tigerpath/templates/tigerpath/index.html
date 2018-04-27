@@ -20,7 +20,7 @@
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
         <div>
         <a class="btn" href="#" id="settings-btn">Settings</a>
-        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScSQkZ7-XPofxzRO3N7Pm4ezuYUtN5vqK9aqx-CLNNTiWnFew/viewform?usp=sf_link" target="_blank">Feedback</a>
+        <a class="btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
         <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
         <a class="btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
         </div>

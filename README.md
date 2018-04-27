@@ -10,7 +10,7 @@ You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
 
 2. Install the [Docker Community Edition](https://www.docker.com/community-edition). Make sure you also have [Docker Compose](https://docs.docker.com/compose/install) installed (should be automatically installed on Windows and Mac).
 
-3. Rename the `.env-example` file to `.env` and set your environment variables. Specifically, you should replace `DATABASE_URL=postgres://username:password@localhost:port/name` with the proper database url for your Postgres server.
+3. Rename the `.env-example` file to `.env` and set your environment variables. Specifically, you should replace `DATABASE_URL=postgres://username:password@localhost:port/name` with the proper database url for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields (you can get an API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
 
 3. Use the following commands to build your project and run it on a local server:
     ```
@@ -27,9 +27,11 @@ You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
 
 3. Navigate to the folder "frontend" and run `npm install` to install the necessary node modules for React to work.
 
-4. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings by running `python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend".
+4. Rename the `.env-example` file to `.env` and set your environment variables. Specifically, you should replace `DATABASE_URL=postgres://username:password@localhost:port/name` with the proper database url for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields (you can get an API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
 
-5. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server (Running the webpack (React) server will no longer be necessary). Then run `python manage.py runserver --settings=config.settings.production`
+5. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings and with the environment variables in the file `.env` by running `pipenv run python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend".
+
+6. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server. This means that running the webpack (React) server will no longer be necessary. Then run `pipenv run python manage.py runserver --settings=config.settings.production`
 
 ## Development
 

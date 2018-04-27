@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Courses.css';
-import $ from 'jquery'
-import jQuery from 'jquery'
-import styles from 'dragula/dist/dragula.css';
+import $ from 'jquery';
+import jQuery from 'jquery';
+import 'dragula/dist/dragula.css';
 
 var dragula = require('react-dragula');
 var current_request = null;
+
 
 // setting up ajax request with csrf
 function getCookie(name) {
@@ -115,7 +116,7 @@ class Search extends Component {
       added_courses.forEach(function (semester){
         courses_taken.push([]);
         semester.childNodes.forEach(function(course){
-          if(typeof course.innerHTML != 'undefined'){
+          if(typeof course.innerHTML !== 'undefined'){
             let course_entry = {}
             course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
             course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
@@ -205,4 +206,3 @@ class Search extends Component {
 }
 
 export default Search;
-

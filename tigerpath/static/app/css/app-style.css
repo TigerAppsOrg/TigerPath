@@ -145,7 +145,7 @@ thead.semester-header {
   margin-left:0;
 }
 
-/* get rid of rounded corners and highlighed box on focus */
+/* for search box, get rid of rounded corners and highlighted box on focus */
 #search-courses .form-control{
   border-radius:0rem;
   border:solid white;
