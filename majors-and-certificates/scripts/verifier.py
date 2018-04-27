@@ -37,7 +37,6 @@ def check_major(major_name, courses, year=2018, user_info=None):
     """
     major_filename = major_name + "_" + str(year)  + ".json"
     major_filepath = os.path.join(majors_location, major_filename)
-    major = {}
     with open(major_filepath, 'r') as f:
         major = json.load(f)
     with open(schema_location, 'r') as s:
@@ -70,6 +69,9 @@ def validate(data,schema):
         return False
 
 def _format_output(major):
+    '''
+    Enforce the type and order of fields in the major output
+    '''
     output = collections.OrderedDict()
     if ("name" not in major) or (major["name"] == '') or (major["name"] == None):
         return None
@@ -93,16 +95,17 @@ def _format_output(major):
     return output
 
 def _process_courses(courses):
-    courses = [[course_object["name"] for course_object in semester] for semester in courses]
-    courses = [[{
-        "name": c.split(':')[0],
-        "used": False,
-        "reqs_satisfied": []
-    } for c in sem] for sem in courses]
+    for semester in courses:
+        for course in semester:
+            course["name"] = course["name"].split(':')[0]
+            course["used"] = False
+            course["reqs_satisfied"] = []
     return courses
     
 def _format_output_courses(courses):
-    # enforce the order of fields in output
+    '''
+    Enforce the type and order of fields in the courses output
+    '''
     output = []
     for i,sem in enumerate(courses):
         output.append([])
@@ -121,19 +124,15 @@ def _init_counts(major):
     max_counted exist.
     """
     major["count"] = 0
-    if "min_needed" not in major:
+    if "min_needed" not in major or major["min_needed"] == None:
         if "type" in major: # check for root
             major["min_needed"] = "ALL"
         else:
             major["min_needed"] = 0
-    if major["min_needed"] == None:
-        major["min_needed"] = 0
     if "max_counted" not in major:
         major["max_counted"] = None
     if "req_list" in major:
-        num_subreqs = 0
         for req in major["req_list"]:
-            num_subreqs += 1
             _init_counts(req)
     return major
 
@@ -171,6 +170,8 @@ def _update_paths(major, courses):
             newly_satisfied += _update_paths(req, courses)
     elif "course_list" in major:
         newly_satisfied = _mark_courses(major["path_to"],major["course_list"],courses)
+    elif "dist_req" in major:
+        newly_satisfied = _mark_dist(major["path_to"],major["dist_req"],courses)
     major["count"] += newly_satisfied
     new_deficit = major["min_needed"] - major["count"]
     # new_available = major["max_counted"] - major["count"]
@@ -222,6 +223,17 @@ def _mark_courses(path_to, course_list, courses):
                     c["used"] = True
                     break
     return num_marked
+
+def _mark_dist(path_to, dist_req, courses):
+    for sem in courses:
+        for c in sem:
+            if path_to in c["reqs_satisfied"]: # already used
+                continue
+            if c["dist_area"] == dist_req:
+                c["reqs_satisfied"].append(path_to)
+                c["used"] = True
+                return 1
+    return 0
 
 def _course_match(course_name, pattern):
     pattern = pattern.split(':')[0] # remove course title
