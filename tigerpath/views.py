@@ -114,21 +114,8 @@ def get_onboarding_initial_values(username):
 
 
 # filters courses with query from react and sends back a list of filtered courses to display
+@login_required
 def get_courses(request, search_query):
-    course_info_list = []
-    course_list = filter_courses(search_query);
-    models.Course.objects.prefetch_related('course_listing_set');
-    for course in course_list:
-        course_info = {}
-        course_info['title'] = course.title
-        course_info['id'] = course.registrar_id
-        course_info['listing'] = ' / '.join([listing.dept + listing.number for listing in course.course_listing_set.all()])
-        course_info_list.append(course_info)
-    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
-
-
-# returns list of courses filterd by query
-def filter_courses(search_query):
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
     split_query = re.split('(\d.*)', search_query)
     queries = []
@@ -136,40 +123,69 @@ def filter_courses(search_query):
     for query in split_query:
         queries = queries + query.split(" ")
 
-    # populate with all of semester's courses and convert to course_listings
-    results = models.Semester.objects.get(term_code=max(settings.ACTIVE_TERMS)).course_set.prefetch_related('course_listing_set')
-    results = models.Course_Listing.objects.filter(course__in=results)
+    course_info_list = []
+    course_list = filter_courses(queries)
+    for course in course_list:
+        course_info = {}
+        course_info['title'] = course.title
+        course_info['id'] = course.registrar_id
+        course_info['listing'] = course.cross_listings
+        # tag semester
+        all_semesters = ''.join(course.all_semesters)
+        if 'f' in all_semesters and 's' in all_semesters:
+            course_info['semester'] = 'both'
+        elif 'f' in all_semesters:
+            course_info['semester'] = 'fall'
+        else:
+            course_info['semester'] = 'spring'
+        course_info_list.append(course_info)
 
+    # sort list by dept and code
+    course_info_list = sorted(course_info_list, key=lambda course: course["listing"])
+    # show searched dept first
     for query in queries:
-        if(query == ''):
+        if len(query) == 3 and query.isalpha():
+            course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
+    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
+
+
+# returns list of courses filtered by query
+def filter_courses(queries):
+    results = models.Course.objects.all()
+    for query in queries:
+        if query == '':
             continue
-        query = query.upper()
 
         # is department
-        if(len(query) <= 3 and query.isalpha()):
-            results = list(filter(lambda x: x.dept == query, results))
+        if len(query) == 3 and query.isalpha():
+            results = list(filter(lambda course: query.upper() in course.cross_listings, results))
 
         # is course number
-        elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
-            results = list(filter(lambda x: x.number.startswith(query), results))
+        elif len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
+            results = list(filter(lambda course: any([listing[3:].startswith(query.upper()) for listing in re.split(' / ', course.cross_listings)]), results))
 
         # check if it matches title
         else:
-            # convert course_listings to courses to filter
-            results = models.Course.objects.filter(course_listing_set__in=results)
-            results = list(filter(lambda x: query.lower() in x.title.lower(), results))
+            results = list(filter(lambda course: query.lower() in course.title.lower(), results))
 
-            # convert courses back to course_listings
-            results = models.Course_Listing.objects.filter(course__in=results)
-
-    # convert course_listings to course to output
-    return models.Course.objects.filter(course_listing_set__in=results)
+    return results
 
 
-# updates users schedules with added courses
+
+# updates user's schedules with added courses
+@login_required
 def update_schedule(request):
-    print(request.POST)
+    current_user = models.UserProfile.objects.get(user=request.user)
+    current_user.user_schedule = ujson.loads(list(request.POST)[0])
+    current_user.save()
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
+
+
+# returns user's existing schedule
+@login_required
+def get_schedule(request):
+    schedule = models.UserProfile.objects.get(user=request.user).user_schedule
+    return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 

@@ -5,9 +5,7 @@
   width: 96%;
   margin-left: 2%;
   padding: 5px;
-  background-color: #ffc0cb;
   list-style-type: none;
-  color: #DB7093;
   margin-top: 5px;
 }
 
@@ -58,6 +56,16 @@ li:hover{
   background-color: #ffc0cb;
   list-style-type: none;
   color: #DB7093;
+}
+
+.course-display.spring {
+  background-color: #ADD8E6;
+  color: #7BA6B4;
+}
+
+.course-display.both {
+  background-color: #9999FF;
+  color: #9370DB;
 }
 
 .delete-course {

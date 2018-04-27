@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import JSONField
 import uuid
+from django.contrib.postgres.fields import ArrayField
 
 
 class Semester(models.Model):
@@ -36,7 +37,7 @@ class Professor(models.Model):
 
 class Course(models.Model):
     # relationships
-    semester = models.ForeignKey(Semester, on_delete=models.PROTECT)
+    semester = models.ForeignKey(Semester, on_delete=models.CASCADE)
     professors = models.ManyToManyField(Professor)
 
     # fields
@@ -44,6 +45,14 @@ class Course(models.Model):
     rating = models.FloatField(default=0)
     description = models.TextField()
     registrar_id = models.CharField(max_length=20)
+    dist_area = models.TextField(default="")
+    all_semesters = ArrayField(
+        models.CharField(max_length=4),
+        default=list,
+        blank=True,
+    )
+    is_master = models.BooleanField(default=False)
+    cross_listings = models.TextField(default="")
 
     def course_listings(self):
         # + ' ' + ': ' + self.title
@@ -91,7 +100,7 @@ class Section(models.Model):
     )
 
     # relationships
-    course = models.ForeignKey(Course, related_name="sections", on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, related_name="sections", on_delete=models.CASCADE)
 
     # fields
     name = models.CharField(max_length=100, default='')
@@ -111,7 +120,7 @@ class Section(models.Model):
 
 
 class Meeting(models.Model):
-    section = models.ForeignKey(Section, related_name="meetings", on_delete=models.PROTECT)
+    section = models.ForeignKey(Section, related_name="meetings", on_delete=models.CASCADE)
     start_time = models.CharField(max_length=20)
     end_time = models.CharField(max_length=20)
     days = models.CharField(max_length=10)
@@ -122,7 +131,7 @@ class Meeting(models.Model):
 
 
 class Course_Listing(models.Model):
-    course = models.ForeignKey(Course, related_name="course_listing_set", on_delete=models.PROTECT)
+    course = models.ForeignKey(Course, related_name="course_listing_set", on_delete=models.CASCADE)
     # Even though the max_length should be 3~4, there are extreme cases.
     dept = models.CharField(max_length=10)
     number = models.CharField(max_length=10)
@@ -148,6 +157,7 @@ class UserProfile(models.Model):
     major = models.CharField(max_length=7, null=True)
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
+    user_schedule = JSONField(null=True, blank=True)
 
 
 @receiver(post_save, sender=User)

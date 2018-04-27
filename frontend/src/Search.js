@@ -6,6 +6,8 @@ import jQuery from 'jquery';
 import 'dragula/dist/dragula.css';
 
 var dragula = require('react-dragula');
+var current_request = null;
+
 
 // setting up ajax request with csrf
 function getCookie(name) {
@@ -43,6 +45,36 @@ class Search extends Component {
       search: '',
       data: []
     };
+
+    // get existing schedule and populate semesters
+    $.ajax({
+        url: "/api/v1/get_schedule/",
+        datatype: 'json',
+        type: 'GET',
+        cache: true,
+        success: function(data) {
+          let index = 1
+            data.map((semester)=> {
+              ReactDOM.render(semester.map((course)=> {
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
+                <span className="course-name">{course["name"]}</span><span className='delete-course'>✖</span><br />
+                <span className='course-title'>{course["title"]}</span>
+                </li>
+              }), document.getElementById('sem' + index))
+              semester.map((course) => {
+                addToolTip(document.getElementById(course["id"]));
+              })
+              index++;
+            })
+            // assign delete listeners
+            $(".delete-course").click(function(){
+              $(this).parent().remove();
+              updateSchedule();
+              // gets rid of lingering tooltips
+              $('.tooltip').tooltip('hide');
+            });
+        }.bind(this)
+    });
 
     // select containers to make items draggable
     let draggableItems = $(".semester").get();
@@ -86,9 +118,10 @@ class Search extends Component {
         semester.childNodes.forEach(function(course){
           if(typeof course.innerHTML !== 'undefined'){
             let course_entry = {}
-            course_entry["course_name"] = course.getElementsByClassName("course-name")[0].innerHTML;
-            course_entry["course_title"] = course.getElementsByClassName("course-title")[0].innerHTML;
-            course_entry["course_id"] = course.id;
+            course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
+            course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
+            course_entry["id"] = course.id;
+            course_entry["semester"] = course.className.split(" ")[1]
             courses_taken[i].push(course_entry);
             addToolTip(course);
           }
@@ -129,18 +162,25 @@ class Search extends Component {
     // makes sure that there is always an argument after load_courses, $ is dummy arg
     if(search_query === '') search_query = "$"
     // get request, renders list of courses received
-    $.ajax({
+    
+    current_request = $.ajax({
         url: "/api/v1/get_courses/" + search_query,
         datatype: 'json',
         type: 'GET',
         cache: true,
+        beforeSend : function() {           
+          // 4 checks if the request is already finished
+          if(current_request != null && current_request.readyState != 4) {
+              current_request.abort();
+          }
+        },
         success: function(data) {
           if(search_query === this.state.search || search_query === '$')
           {
             this.setState({data: data});
             ReactDOM.render(
               data.map((course)=> {
-              return <li key={course["id"]} id={course["id"]} className='course-display' data-placement="top" data-toggle="tooltip">
+              return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
               <span className="course-name">{course["listing"]}</span><span className='delete-course'>✖</span><br />
               <span className='course-title'>{course["title"]}</span>
               </li>
@@ -148,7 +188,7 @@ class Search extends Component {
             document.getElementById('display-courses')
             )
           }
-        }.bind(this)
+        }.bind(this),
     })
   }
   render()
