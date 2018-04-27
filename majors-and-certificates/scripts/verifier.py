@@ -1,10 +1,56 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import json
 from pprint import pprint
 import jsonschema # must be installed via pip
+import os
+import sys
+import collections
 
-schemalocation = "schema.json" # specify the requirements JSON schema
+schema_location = "schema.json" # path to the requirements JSON schema
+majors_location = "../majors/" # path to folder conatining the major requirements JSONs
+certificates_location = "../certificates/" # path to folder conatining the certificate requirements JSONs
+AB_requirements_location = "../degrees/AB_2018.json" # path to the AB requirements JSON
+BSE_requirements_location = "../degrees/BSE_2018.json" # path to the BSE requirements JSON
 
+LANGs = [ # language departments
+    "ARA","BCS","SLA","CHI","CZE","FRE","GER","MOG","CLG","HEB","HIN","ITA",
+    "JPN","KOR","LAT","PER","PLS","POR","RUS","SPA","SWA","TUR","TWI","URD",
+]
+
+def check_major(major_name, courses, year=2018, user_info=None):
+    """
+    Returns information about the major requirements satisfied by the courses
+    given in courses.
+    
+    :param major_name: the name of the major
+    :param courses: a list of course-listings
+    :param year: the year for which to pull the requirements
+    :param user_info: supplementary information about the user
+    :type major_name: string
+    :type courses: 1D array, 2D array
+    :type year: int
+    :type user_info: dict
+    :returns: Whether the major requirements are satisfied
+    :returns: The list of courses with info about the requirements they satisfy
+    :returns: A simplified json with info about how much of each requirement is satisfied
+    :rtype: (bool, dict, dict)
+    """
+    major_filename = major_name + "_" + str(year)  + ".json"
+    major_filepath = os.path.join(majors_location, major_filename)
+    major = {}
+    with open(major_filepath, 'r') as f:
+        major = json.load(f)
+    with open(schema_location, 'r') as s:
+        schema = json.load(s)
+    validate(major,schema)
+    _init_counts(major)
+    _init_min_ALL(major)
+    _init_path_to(major)
+    courses = _process_courses(courses)
+    _update_paths(major, courses)
+    courses = _format_output_courses(courses)
+    formatted_major = _format_output(major)
+    return formatted_major["satisfied"], courses, formatted_major
 
 def validate(data,schema):
     """
@@ -23,44 +69,51 @@ def validate(data,schema):
     except():
         return False
 
-def check_major(major_filename, courses, user_info=None):
-    """
-    Returns information about the major requirements satisfied by the courses
-    given in courses.
-    
-    :param major_filename: the name of the major requirements JSON
-    :param courses: a list of course-listing strings (if 2D, the first \
-    dimension is taken to be the semester from 0 to 7)
-    :param user_info: supplementary information about the user
-    :type major_filename: string
-    :type courses: 1D array, 2D array
-    :type user_info: dict
-    :returns: Whether the major requirements are satisfied
-    :rtype: bool, dict
-    """
-    major = {}
-    with open(major_filename, 'r') as f:
-        major = json.load(f)
-        with open(schemalocation, 'r') as s:
-            schema = json.load(s)
-    validate(major,schema)
-    # for req in major["req_list"]:
-    #     print (req["name"])
-    #     print (req["explanation"])
-        # pprint(major)
-    _init_counts(major)
-    _init_min_ALL(major)
-    _init_path_to(major)
+def _format_output(major):
+    output = collections.OrderedDict()
+    if ("name" not in major) or (major["name"] == '') or (major["name"] == None):
+        return None
+    output["name"] = major["name"]
+    output["path_to"] = major["path_to"]
+    output["satisfied"] = (major["min_needed"]-major["count"] <= 0)
+    for key in ["count", "min_needed", "max_counted"]:
+        output[key] = major[key]
+    if "req_list" in major: # internal node. recursively call on children
+        req_list = []
+        for req in major["req_list"]:
+            child = _format_output(req)
+            if (child != None):
+                req_list.append(_format_output(req))
+        if req_list:
+            output["req_list"] = req_list
+    # elif "course_list" in major:
+    #     output["course_list"] = ["..."]
+    #     # for course in major["course_list"]:
+    #     #     print(course)
+    return output
+
+def _process_courses(courses):
+    courses = [[course_object["name"] for course_object in semester] for semester in courses]
     courses = [[{
         "name": c.split(':')[0],
         "used": False,
         "reqs_satisfied": []
     } for c in sem] for sem in courses]
-    _update_paths(major, courses)
-    pprint(courses)
-    print("\n")
-    print(json.dumps(major, sort_keys=False, indent=2, separators=(',', ': ')))
-    return (major["min_needed"]-major["count"] <= 0)
+    return courses
+    
+def _format_output_courses(courses):
+    # enforce the order of fields in output
+    output = []
+    for i,sem in enumerate(courses):
+        output.append([])
+        for j,course in enumerate(sem):
+            output[i].append(collections.OrderedDict())
+            for key in ["name", "used", "reqs_satisfied"]:
+                output[i][j][key] = course[key]
+    return output
+
+def _json_format(obj):
+   return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
 def _init_counts(major):
     """
@@ -131,16 +184,30 @@ def _update_paths(major, courses):
             return newly_satisfied
         else:
             return min(old_available,newly_satisfied) # cut off at old_available
-        pass
     else: # requirement still not satisfied
         return 0
 
-def _init_path_to(major, path_to_parent = ''):
-    major["path_to"] = str(path_to_parent) + "::" + str(major["name"])
+def _init_path_to(major):
+    '''
+    Assign a path identifier to each node/subrequirement in the requirements 
+    tree with the properties:
+    1. The path is unique (no two nodes in the tree have the same path) as long 
+        as no two subrequirements in the same subtree have the same name.
+    2. The path gives the traversal of the tree needed to reach that node.
+    '''
+    separator = '//'
+    if "path_to" not in major: # only for root of the tree
+        major["path_to"] = major["name"]
     if "req_list" in major:
-        for req in major["req_list"]:
-           _init_path_to(req, major["path_to"])
-    pass
+        for i,req in enumerate(major["req_list"]):
+            # the identifier is the major name if present, or otherwise, an identifying number
+            identifier = ''
+            if ("name" not in req) or (req["name"] == '') or (req["name"] == None):
+                identifier = "%03d" % i
+            else:
+                identifier = req["name"]
+            req["path_to"] = major["path_to"] + separator + str(identifier)
+            _init_path_to(req)
 
 def _mark_courses(path_to, course_list, courses):
     num_marked = 0
@@ -157,40 +224,51 @@ def _mark_courses(path_to, course_list, courses):
     return num_marked
 
 def _course_match(course_name, pattern):
-    pattern = pattern.split(':')[0]
-    pattern = pattern.split('/')
-    if course_name in pattern:
-        return True
+    pattern = pattern.split(':')[0] # remove course title
+    pattern = ["".join(p.split()).upper() for p in pattern.split('/')] # split by '/' and
+    course = ["".join(c.split()).upper() for c in course_name.split('/')] # remove spaces
+    for c in course:
+        for p in pattern:
+            if c == p: # exact name matched
+                return True
+            if p[:4] == 'LANG' and c[:3] in LANGs: # language course
+                if c[3:] == p[4:]: # course numbers match
+                    return True
+                if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'
+                    return True
+                if (len(c)>4 and len(p)>5 and 
+                    p[5] == '*' and c[3:4] == p[4:5]): # 'LANG1*' or 'LANG1**'
+                    return True
+                if (len(c)>5 and len(p)>6 and 
+                    p[6] == '*' and c[3:5] == p[4:6]): # 'LANG12*'
+                    return True
+                if (len(c)>6 and len(p)>7 and 
+                    p[7] == '*' and c[3:6] == p[4:7]): # 'LANG123*'
+                    return True
+            # non-language course
+            if (len(c)>3 and len(p)>3 and 
+                    p[3] == '*' and c[:3] == p[:3]): # 'AAA*' or 'AAA***'
+                return True
+            if (len(c)>4 and len(p)>4 and 
+                    p[4] == '*' and c[:4] == p[:4]): # 'AAA1*' or 'AAA1**'
+                return True
+            if (len(c)>5 and len(p)>5 and 
+                    p[5] == '*' and c[:5] == p[:5]): # 'AAA12*'  Note: not currently in format spec
+                return True
+            if (len(c)>6 and len(p)>6 and 
+                    p[6] == '*' and c[:6] == p[:6]): # 'AAA123*' matches to 'AAA123C'
+                return True
     return False
 
 def main():
-    courses = [
-        [
-            "COS 126",
-            "COS 226",
-            "COS 217",
-        ],
-        [
-            "COS 340",
-            "COS 333",
-        ],
-        [
-            "COS 398",
-            "COS 306",
-            "MUS 314",
-            "COS 423",
-            "COS 436",
-        ],
-        [
-            "ABC 123",
-            "NEU 437",
-            "COS 498",
-        ]
-    ]
-    major_filename = "../majors/COS-BSE_2018.json"
-    satisfied = check_major(major_filename,courses)
-    print (satisfied)
-    pass
+    with open ("verifier_tests/1.test", "r") as f:
+        major_name = f.readline()[:-1]
+        year = int(f.readline())
+        courses = json.loads(f.read())
+    satisfied,courses,major = check_major(major_name,courses)
+    print(_json_format(courses)),
+    print("\n"),
+    print(_json_format(major)),
 
 if __name__ == "__main__":
     main()
