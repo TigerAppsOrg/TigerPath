@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import JSONField
 import uuid
+from django.contrib.postgres.fields import ArrayField
 
 
 class Semester(models.Model):
@@ -45,7 +46,11 @@ class Course(models.Model):
     description = models.TextField()
     registrar_id = models.CharField(max_length=20)
     dist_area = models.TextField(default="")
-    semesters = models.TextField(default="")
+    all_semesters = ArrayField(
+        models.CharField(max_length=4),
+        default=list,
+        blank=True,
+    )
     is_master = models.BooleanField(default=False)
     cross_listings = models.TextField(default="")
 

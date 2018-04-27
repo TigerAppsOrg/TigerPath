@@ -60,6 +60,9 @@ class Search extends Component {
                 <span className='course-title'>{course["title"]}</span>
                 </li>
               }), document.getElementById('sem' + index))
+              semester.map((course) => {
+                addToolTip(document.getElementById(course["id"]));
+              })
               index++;
             })
             // assign delete listeners
@@ -165,6 +168,7 @@ class Search extends Component {
         type: 'GET',
         cache: true,
         beforeSend : function() {           
+          // 4 checks if the request is already finished
           if(current_request != null && current_request.readyState != 4) {
               current_request.abort();
           }

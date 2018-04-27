@@ -106,22 +106,20 @@ def get_courses(request, search_query):
         course_info['id'] = course.registrar_id
         course_info['listing'] = course.cross_listings
         # tag semester
-        if('f' in course.semesters and 's' in course.semesters):
+        if('f' in ''.join(course.all_semesters) and 's' in ''.join(course.all_semesters)):
             course_info['semester'] = 'both'
-        elif('f' in course.semesters):
+        elif('f' in ''.join(course.all_semesters)):
             course_info['semester'] = 'fall'
         else:
             course_info['semester'] = 'spring'
         course_info_list.append(course_info)
 
-    # sort so courses that match first query show up first (matching num query is not necessary)
-    query = queries[0]
-    # is department
-    if(len(query.upper()) == 3 and query.upper().isalpha()):
-        course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
-    # check if it matches title
-    else:
-        course_info_list = sorted(course_info_list, key=lambda course: not (course['title'].lower().startswith(query.lower())))
+    # sort list by dept and code
+    course_info_list = sorted(course_info_list, key=lambda course: course["listing"])
+    # show searched dept first
+    for query in queries:
+        if(len(query) == 3 and query.isalpha()):
+            course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 
@@ -133,12 +131,12 @@ def filter_courses(queries):
             continue
 
         # is department
-        if(len(query.upper()) == 3 and query.upper().isalpha()):
+        if(len(query) == 3 and query.isalpha()):
             results = list(filter(lambda course: query.upper() in course.cross_listings, results))
 
         # is course number
         elif(len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit()):
-            results = list(filter(lambda course: any([course_num.startswith(query) for course_num in re.split('\D+', course.cross_listings)]), results))
+            results = list(filter(lambda course: any([listing[3:].startswith(query.upper()) for listing in re.split(' / ', course.cross_listings)]), results))
 
         # check if it matches title
         else:
