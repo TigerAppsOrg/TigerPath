@@ -5,6 +5,7 @@ import jsonschema # must be installed via pip
 import os
 import sys
 import collections
+import time
 
 schema_location = "schema.json" # path to the requirements JSON schema
 majors_location = "../majors/" # path to folder conatining the major requirements JSONs
@@ -35,40 +36,43 @@ def check_major(major_name, courses, year=2018, user_info=None):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
+    timer = collections.OrderedDict()
+    timer[0] = time.time()
     major_filename = major_name + "_" + str(year)  + ".json"
     major_filepath = os.path.join(majors_location, major_filename)
     with open(major_filepath, 'r') as f:
         major = json.load(f)
     with open(schema_location, 'r') as s:
         schema = json.load(s)
-    validate(major,schema)
+    jsonschema.validate(major,schema)
+    timer["loading"] = time.time() - timer[0]
+    _init_courses(courses)
+    timer["_init_courses"] = time.time() - timer[0]
+    _init_major(major)
+    timer["_init_major"] = time.time() - timer[0]
+    _assign_courses_to_reqs(major, courses)
+    timer["_assign_courses_to_reqs"] = time.time() - timer[0]
+    formatted_courses = _format_courses_output(courses)
+    timer["_format_courses_output"] = time.time() - timer[0]
+    formatted_major = _format_major_output(major)
+    timer["_format_major_output"] = time.time() - timer[0]
+    
+    # prev = 0
+    # for function in timer:
+    #     if function == 0:
+    #         pass
+    #     else:
+    #         print("%.5f seconds: %s()" % (timer[function] - prev, function))
+    #         prev = timer[function]
+    
+    return formatted_major["satisfied"], formatted_courses, formatted_major
+
+def _init_major(major):
     _init_counts(major)
     _init_min_ALL(major)
     _init_path_to(major)
-    courses = _process_courses(courses)
-    _update_paths(major, courses)
-    courses = _format_output_courses(courses)
-    formatted_major = _format_output(major)
-    return formatted_major["satisfied"], courses, formatted_major
 
-def validate(data,schema):
-    """
-    Validates the JSON stored in data based on the JSON schema stored in schema
-    
-    :param data: the requirements JSON to be validated
-    :param schema: the JSON schema
-    :type data: dict (representing a requirements JSON)
-    :type schema: dict (representing a JSON schema)
-    :returns: true if the data conforms to the JSON schema specified
-    :rtype: bool
-    """
-    try:
-        jsonschema.validate(data,schema)
-        return True
-    except():
-        return False
-
-def _format_output(major):
+def _format_major_output(major):
     '''
     Enforce the type and order of fields in the major output
     '''
@@ -83,9 +87,9 @@ def _format_output(major):
     if "req_list" in major: # internal node. recursively call on children
         req_list = []
         for req in major["req_list"]:
-            child = _format_output(req)
+            child = _format_major_output(req)
             if (child != None):
-                req_list.append(_format_output(req))
+                req_list.append(_format_major_output(req))
         if req_list:
             output["req_list"] = req_list
     # elif "course_list" in major:
@@ -94,15 +98,15 @@ def _format_output(major):
     #     #     print(course)
     return output
 
-def _process_courses(courses):
-    for semester in courses:
+def _init_courses(courses):
+    for sem_num,semester in enumerate(courses):
         for course in semester:
             course["name"] = course["name"].split(':')[0]
             course["used"] = False
             course["reqs_satisfied"] = []
-    return courses
+            course["semester_number"] = sem_num
     
-def _format_output_courses(courses):
+def _format_courses_output(courses):
     '''
     Enforce the type and order of fields in the courses output
     '''
@@ -147,6 +151,9 @@ def _init_min_ALL(major):
     elif "course_list" in major: # written as loop in case other actions neeed later
         for _ in major["course_list"]: 
             num_counted_from_below += 1
+    elif "dist_req" in major or "num_courses" in major:
+        if (major["max_counted"]):
+            num_counted_from_below += major["max_counted"]
     if major["min_needed"] == "ALL":
         major["min_needed"] = num_counted_from_below
     if major["max_counted"] == None:
@@ -154,7 +161,7 @@ def _init_min_ALL(major):
     else:
         return min(major["max_counted"], num_counted_from_below)
 
-def _update_paths(major, courses):
+def _assign_courses_to_reqs(major, courses):
     """
     Finds augmenting paths from leaves to the root, and updates those paths. 
     """
@@ -167,7 +174,7 @@ def _update_paths(major, courses):
     newly_satisfied = 0
     if "req_list" in major: # recursively check subrequirements
         for req in major["req_list"]:
-            newly_satisfied += _update_paths(req, courses)
+            newly_satisfied += _assign_courses_to_reqs(req, courses)
     elif "course_list" in major:
         newly_satisfied = _mark_courses(major["path_to"],major["course_list"],courses)
     elif "dist_req" in major:
