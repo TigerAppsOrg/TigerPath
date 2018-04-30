@@ -23,7 +23,7 @@ def main():
                 major_name = f.readline()[:-1]
                 year = int(f.readline())
                 courses = json.loads(f.read())
-            satisfied,courses,major = verifier.check_major(major_name,courses)
+            satisfied,courses,major = verifier.check_major(major_name,courses,year)
             with open (file_path+".out", "w") as f:
                 f.write(_json_format(courses))
                 f.write("\n")

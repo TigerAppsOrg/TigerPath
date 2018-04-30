@@ -1,36 +1,35 @@
 #!/usr/bin/env python3
 import json
 from pprint import pprint
-import jsonschema # must be installed via pip
+# import jsonschema # must be installed via pip
 import os
 import sys
 import collections
 import time
 
 schema_location = "schema.json" # path to the requirements JSON schema
-majors_location = "../majors/" # path to folder conatining the major requirements JSONs
-certificates_location = "../certificates/" # path to folder conatining the certificate requirements JSONs
+majors_location = "../majors/" # path to folder containing the major requirements JSONs
+certificates_location = "../certificates/" # path to folder containing the certificate requirements JSONs
 AB_requirements_location = "../degrees/AB_2018.json" # path to the AB requirements JSON
 BSE_requirements_location = "../degrees/BSE_2018.json" # path to the BSE requirements JSON
 
-LANGs = [ # language departments
+LANGS = [ # language departments
     "ARA","BCS","SLA","CHI","CZE","FRE","GER","MOG","CLG","HEB","HIN","ITA",
     "JPN","KOR","LAT","PER","PLS","POR","RUS","SPA","SWA","TUR","TWI","URD",
 ]
 
-def check_major(major_name, courses, year=2018, user_info=None):
+def check_major(major_name, courses, year):
     """
     Returns information about the major requirements satisfied by the courses
     given in courses.
     
     :param major_name: the name of the major
     :param courses: a list of course-listings
-    :param year: the year for which to pull the requirements
-    :param user_info: supplementary information about the user
+    :param year: the year for which to pull the requirements \
+    (by spring semester, so 2018 means 2017-2018 school year)
     :type major_name: string
-    :type courses: 1D array, 2D array
+    :type courses: 2D array
     :type year: int
-    :type user_info: dict
     :returns: Whether the major requirements are satisfied
     :returns: The list of courses with info about the requirements they satisfy
     :returns: A simplified json with info about how much of each requirement is satisfied
@@ -40,9 +39,9 @@ def check_major(major_name, courses, year=2018, user_info=None):
     major_filepath = os.path.join(majors_location, major_filename)
     with open(major_filepath, 'r') as f:
         major = json.load(f)
-    with open(schema_location, 'r') as s:
-        schema = json.load(s)
-    jsonschema.validate(major,schema)
+    # with open(schema_location, 'r') as s:
+    #     schema = json.load(s)
+    # jsonschema.validate(major,schema)
     _init_courses(courses)
     _init_major(major)
     _assign_courses_to_reqs(major, courses)
@@ -234,7 +233,7 @@ def _course_match(course_name, pattern):
         for p in pattern:
             if c == p: # exact name matched
                 return True
-            if p[:4] == 'LANG' and c[:3] in LANGs: # language course
+            if p[:4] == 'LANG' and c[:3] in LANGS: # language course
                 if c[3:] == p[4:]: # course numbers match
                     return True
                 if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'
@@ -268,10 +267,9 @@ def main():
         major_name = f.readline()[:-1]
         year = int(f.readline())
         courses = json.loads(f.read())
-    satisfied,courses,major = check_major(major_name,courses)
-    print(_json_format(courses)),
-    print("\n"),
-    print(_json_format(major)),
+    satisfied,courses,major = check_major(major_name,courses,year)
+    print(_json_format(courses))
+    print(_json_format(major))
 
 if __name__ == "__main__":
     main()
