@@ -36,8 +36,6 @@ def check_major(major_name, courses, year=2018, user_info=None):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    timer = collections.OrderedDict()
-    timer[0] = time.time()
     major_filename = major_name + "_" + str(year)  + ".json"
     major_filepath = os.path.join(majors_location, major_filename)
     with open(major_filepath, 'r') as f:
@@ -45,25 +43,11 @@ def check_major(major_name, courses, year=2018, user_info=None):
     with open(schema_location, 'r') as s:
         schema = json.load(s)
     jsonschema.validate(major,schema)
-    timer["loading"] = time.time() - timer[0]
     _init_courses(courses)
-    timer["_init_courses"] = time.time() - timer[0]
     _init_major(major)
-    timer["_init_major"] = time.time() - timer[0]
     _assign_courses_to_reqs(major, courses)
-    timer["_assign_courses_to_reqs"] = time.time() - timer[0]
     formatted_courses = _format_courses_output(courses)
-    timer["_format_courses_output"] = time.time() - timer[0]
     formatted_major = _format_major_output(major)
-    timer["_format_major_output"] = time.time() - timer[0]
-    
-    # prev = 0
-    # for function in timer:
-    #     if function == 0:
-    #         pass
-    #     else:
-    #         print("%.5f seconds: %s()" % (timer[function] - prev, function))
-    #         prev = timer[function]
     
     return formatted_major["satisfied"], formatted_courses, formatted_major
 
