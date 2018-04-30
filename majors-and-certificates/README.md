@@ -1,7 +1,7 @@
 # Major and Certificate Requirements
 
 
-##### NEW: Form to help in the creation of Major/Certificate JSONs:
+##### Form to help in the creation of Major/Certificate JSONs:
 
 <https://preview.c9users.io/bnehoran/majors-and-certificates/JSON_creator.html>
 
@@ -21,10 +21,15 @@
 ```javascript
 {
   "type": "Major", //* Major, Certificate, or Degree
-  "name": "Name Studies", //* major/certificate name
-  "code": "NST", //* three-letter dept code
+  "name": "Name Studies", //* major/certificate name (If separate JSONs for same program, specify AB/BSE. For instance, "Computer Science - BSE")
+  "code": "NST", //* Three-letter dept code. Not required for certificates. For Spanish/Portuguese and French/Italian, use SPO and FIT, respectively.
   "degree": "AB", //* AB or BSE for majors, or null otherwise
-  "year": 2018, //* year in which the requirements apply
+  "year": 2018, //* year in which the requirements apply (2018 means the 2017-2018 school year)
+  "description": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source.",
+  "allowed_majors": [ // only relevant for certificates
+    "NST", // list of majors that are allowed to take the certificate
+    ... // default if empty or not present is that all majors are allowed
+  ],
   "urls": [ //* links to requirements pages
     "https://ua.princeton.edu/academic-units/name-studies", 
     ... // every source of information on the listed requirements should be included
@@ -44,6 +49,7 @@
       "description": "Prerequisites", // medium length description. usually redundant
       "explanation": "Long text\nfrom dept website", //* long human readable description
       "double_counting_allowed": false, // whether courses may count for multiple subrequirements
+                                        // should only be enabled for the root of such subtree
       "max_common_with_major": 0, // number of courses that can be in common with major
                                   // only relevant for certificates
       "pdfs_allowed": false, // whether student is allowed to take the courses SPDF (pass/D/fail)
