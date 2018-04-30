@@ -24,8 +24,8 @@
   "name": "Name Studies", //* major/certificate name (If separate JSONs for same program, specify AB/BSE. For instance, "Computer Science - BSE")
   "code": "NST", //* Three-letter dept code. Not required for certificates. For Spanish/Portuguese and French/Italian, use SPO and FIT, respectively.
   "degree": "AB", //* AB or BSE for majors, or null otherwise
-  "year": 2018, //* year in which the requirements apply
-  "description": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an offical source.",
+  "year": 2018, //* year in which the requirements apply (2018 means the 2017-2018 school year)
+  "description": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source.",
   "allowed_majors": [ // only relevant for certificates
     "NST", // list of majors that are allowed to take the certificate
     ... // default if empty or not present is that all majors are allowed

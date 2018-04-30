@@ -70,6 +70,19 @@
       "minimum": 2000,
       "maximum": 2100
     },
+    "description": {
+      "$id": "/properties/description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Description (optional)",
+      "description": "Long human readable description.",
+      "default": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source.",
+      "examples": [
+        "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source."
+      ]
+    },
     "urls": {
       "$id": "/properties/urls",
       "type": "array",
