@@ -23,6 +23,13 @@ def main():
                 major_name = f.readline()[:-1]
                 year = int(f.readline())
                 courses = json.loads(f.read())
+            major_filename = major_name + "_" + str(year)  + ".json"
+            major_filepath = os.path.join(verifier.majors_location, major_filename)
+            with open(major_filepath, 'r') as f:
+                major = json.load(f)
+            with open(verifier.schema_location, 'r') as s:
+                schema = json.load(s)
+            jsonschema.validate(major,schema)
             satisfied,courses,major = verifier.check_major(major_name,courses,year)
             with open (file_path+".out", "w") as f:
                 f.write(_json_format(courses))
