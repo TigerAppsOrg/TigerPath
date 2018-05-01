@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import json
 from pprint import pprint
-# import jsonschema # must be installed via pip
 import os
 import sys
 import collections
@@ -39,9 +38,6 @@ def check_major(major_name, courses, year):
     major_filepath = os.path.join(majors_location, major_filename)
     with open(major_filepath, 'r') as f:
         major = json.load(f)
-    # with open(schema_location, 'r') as s:
-    #     schema = json.load(s)
-    # jsonschema.validate(major,schema)
     _init_courses(courses)
     _init_major(major)
     _assign_courses_to_reqs(major, courses)
