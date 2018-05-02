@@ -36,7 +36,7 @@ def main():
                 f.write("\n")
                 f.write(_json_format(major))
             # check if output is correct
-            if not filecmp.cmp(file_path+".d", file_path+".out"):
+            if not filecmp.cmp(file_path+".expected", file_path+".out"):
                 print("--- Failed")
                 if test_failed == None:
                     test_failed = "echo 'Failed test:' %s; colordiff %s %s | head -10" % (file_path, file_path+".d", file_path+".out")
