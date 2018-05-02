@@ -81,17 +81,17 @@ li:hover{
   font-size: 11px;
 }
 
-.course-info {
+.course-info, .course-eval {
   display: none;
   float: right;
-  color: #666;
 }
 
-.course-info:hover {
+.course-info:hover, .course-eval:hover {
   color: #333;
 }
 
-#display-courses .course-display:hover .course-info {
+#display-courses .course-display:hover .course-info,
+#display-courses .course-display:hover .course-eval {
   display: block;
 }
 

@@ -80,7 +80,7 @@ table.semesters {
 }
 
 table td {
-  border: 1.5px solid white; 
+  border: 2px solid white; 
 }
 table tr:first-child td {
   border-top: 0;
@@ -96,12 +96,11 @@ table tr td:last-child {
 }
 
 .semester {
-  background-color: #ebebeb;
+  background-color: #eee;
   vertical-align: top;
   height: 250px;
   width: 25%;
   list-style-type: none;
-  color: #DB7093;
 }
 thead.semester-header {
   color: #FFFFFF;
