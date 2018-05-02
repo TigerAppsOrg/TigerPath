@@ -59,7 +59,7 @@ def get_all_courses():
             fetch_master = fetch_master[0]
             
             if add_semester not in fetch_master.semesters:
-                    fetch_master.all_semesters.append(add_semester)
+                fetch_master.all_semesters.append(add_semester)
             fetch_master.save()
             # delete duplicate course
             course.delete()

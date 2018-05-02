@@ -53,19 +53,20 @@ class Search extends Component {
         type: 'GET',
         cache: true,
         success: function(data) {
-          let index = 1
+          if (data !== null) {
+            let index = 1;
             data.map((semester)=> {
               ReactDOM.render(semester.map((course)=> {
                 return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
-                <span className="course-name">{course["name"]}</span><span className='delete-course'>✖</span><br />
-                <span className='course-title'>{course["title"]}</span>
+                <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
+                <p className="course-title">{course["title"]}</p>
                 </li>
               }), document.getElementById('sem' + index))
               semester.map((course) => {
                 addToolTip(document.getElementById(course["id"]));
               })
               index++;
-            })
+            });
             // assign delete listeners
             $(".delete-course").click(function(){
               $(this).parent().remove();
@@ -73,7 +74,8 @@ class Search extends Component {
               // gets rid of lingering tooltips
               $('.tooltip').tooltip('hide');
             });
-        }.bind(this)
+          }
+        }
     });
 
     // select containers to make items draggable
@@ -168,9 +170,9 @@ class Search extends Component {
         datatype: 'json',
         type: 'GET',
         cache: true,
-        beforeSend : function() {           
+        beforeSend : function() {
           // 4 checks if the request is already finished
-          if(current_request != null && current_request.readyState != 4) {
+          if(current_request !== null && current_request.readyState !== 4) {
               current_request.abort();
           }
         },
@@ -181,8 +183,11 @@ class Search extends Component {
             ReactDOM.render(
               data.map((course)=> {
               return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
-              <span className="course-name">{course["listing"]}</span><span className='delete-course'>✖</span><br />
-              <span className='course-title'>{course["title"]}</span>
+              <p className="course-name">{course["listing"]}</p>
+              <i className="fas fa-times-circle delete-course"></i>
+              <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term="} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
+              <p className="course-title">{course["title"]}</p>
+              <p className="course-semester">{course["semester"] === "both" ? "Fall/Spring" : course["semester"].charAt(0).toUpperCase() + course["semester"].slice(1)}</p>
               </li>
             }),
             document.getElementById('display-courses')
@@ -199,7 +204,8 @@ class Search extends Component {
           placeholder = 'Search Courses'
           value={this.state.search}
           onChange={this.updateSearch.bind(this)}
-          className="form-control"/>
+          className="form-control"
+          autoFocus/>
         </div>
       )
   }

@@ -18,14 +18,14 @@
 	white-space:nowrap;
 }
 
-.semesters .course-title{
-	/* deletes title */
-	display:none;
+/* delete title and semester for courses in semesters */
+.semesters .course-title, .semesters .course-semester{
+	display: none;
 }
 
-.semesters .delete-course {
-	/* adds delete button */
-	display: inline;
+/* add delete button on course hover in semesters */
+.semesters .course-display:hover .delete-course {
+	display: block;
 }
 
 /* styles course while it's being dragged (opaque) */
@@ -37,8 +37,8 @@
   padding: 5px !important;
 }
 
-.gu-mirror .course-title{
-	/* deletes title*/
+.gu-mirror .course-title, .gu-mirror .course-semester{
+	/* deletes title and semester */
 	display:none;
 }
 
@@ -46,30 +46,62 @@ li:hover{
   cursor: pointer;
 }
 
-/* courses in search results*/
+/* courses in search results */
 .course-display {
   font-size: 13px;
   padding-left: 2px;
   width: 100%;
   height: auto;
   padding: 5px;
-  background-color: #ffc0cb;
   list-style-type: none;
-  color: #DB7093;
+  margin-bottom: 3px;
+}
+
+.course-display.fall {
+  background-color: #ffc0cb;
+  color: #690012;
 }
 
 .course-display.spring {
   background-color: #ADD8E6;
-  color: #7BA6B4;
+  color: #004a63;
 }
 
 .course-display.both {
-  background-color: #9999FF;
-  color: #9370DB;
+  background: #D0EBCF;
+  color: #045d00;
+}
+
+.course-display p {
+  margin-bottom: 0;
+}
+
+/* smaller font size for semester in search results */
+#display-courses .course-semester {
+  font-size: 11px;
+}
+
+.course-info {
+  display: none;
+  float: right;
+  color: #666;
+}
+
+.course-info:hover {
+  color: #333;
+}
+
+#display-courses .course-display:hover .course-info {
+  display: block;
 }
 
 .delete-course {
-	/* gets rid of delete button */
-	display:none;
-	float:right;
+	display: none; /* gets rid of delete button */
+	float: right;
+  margin-top: 4px;
+  color: #666;
+}
+
+.delete-course:hover {
+  color: #e74c3c;
 }

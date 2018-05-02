@@ -104,9 +104,14 @@ table tr td:last-child {
   color: #DB7093;
 }
 thead.semester-header {
-  background-color: #3d8af7;
   color: #FFFFFF;
   text-align: center;
+}
+.fall-sem {
+  background-color: #ff647f;
+}
+.spring-sem {
+  background-color: #3aaed4;
 }
 .hidden {
   display:none;
@@ -120,6 +125,11 @@ thead.semester-header {
 
 .btn {
   color: white;
+}
+
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+    color: #fff;
+    background-color: #3d8af7;
 }
 
 .foot-text {
@@ -148,11 +158,13 @@ thead.semester-header {
 /* for search box, get rid of rounded corners and highlighted box on focus */
 #search-courses .form-control{
   border-radius:0rem;
-  border:solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 #search-courses .form-control:focus{
-  border-color: rgba(255, 255, 255, 0);
+  border-color: #aaa;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
   outline: 0 none;
 }
