@@ -4,10 +4,92 @@ import './Courses.css';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import 'dragula/dist/dragula.css';
+import 'react-treeview/react-treeview.css';
+import TreeView from 'react-treeview/lib/react-treeview.js';
 
 var dragula = require('react-dragula');
 var current_request = null;
 
+const reqData = [
+  {
+    "name": "Computer Science - BSE",
+    "path_to": "Computer Science - BSE",
+    "satisfied": true,
+    "count": 3,
+    "min_needed": 3,
+    "max_counted": null,
+    "req_list": [
+      {
+        "name": "Prerequisites",
+        "path_to": "Computer Science - BSE//Prerequisites",
+        "satisfied": true,
+        "count": 3,
+        "min_needed": 3,
+        "max_counted": 1,
+        "req_list": [
+          {
+            "name": "Computer Science Prerequisites",
+            "path_to": "Computer Science - BSE//Prerequisites//Computer Science Prerequisites",
+            "satisfied": true,
+            "count": 3,
+            "min_needed": 3,
+            "max_counted": 3
+          }
+        ]
+      },
+      {
+        "name": "Core Courses",
+        "path_to": "Computer Science - BSE//Core Courses",
+        "satisfied": true,
+        "count": 4,
+        "min_needed": 4,
+        "max_counted": 1,
+        "req_list": [
+          {
+            "name": "Theory",
+            "path_to": "Computer Science - BSE//Core Courses//Theory",
+            "satisfied": true,
+            "count": 2,
+            "min_needed": 2,
+            "max_counted": 1
+          },
+          {
+            "name": "Systems",
+            "path_to": "Computer Science - BSE//Core Courses//Systems",
+            "satisfied": true,
+            "count": 2,
+            "min_needed": 2,
+            "max_counted": 1
+          },
+          {
+            "name": "Applications",
+            "path_to": "Computer Science - BSE//Core Courses//Applications",
+            "satisfied": true,
+            "count": 2,
+            "min_needed": 2,
+            "max_counted": 1
+          },
+          {
+            "name": "General",
+            "path_to": "Computer Science - BSE//Core Courses//General",
+            "satisfied": true,
+            "count": 10,
+            "min_needed": 2,
+            "max_counted": 1
+          }
+        ]
+      },
+      {
+        "name": "Independent Work",
+        "path_to": "Computer Science - BSE//Independent Work",
+        "satisfied": true,
+        "count": 2,
+        "min_needed": 1,
+        "max_counted": 1
+      }
+    ]
+  }
+];
 
 // setting up ajax request with csrf
 function getCookie(name) {
@@ -45,6 +127,24 @@ class Search extends Component {
       search: '',
       data: []
     };
+
+    // traverses req tree to display when updating reqlist
+      let populateReqTree = function(reqTree){
+        return(reqTree['req_list'].map((requirement)=>{
+            if('req_list' in requirement) { 
+              return(<TreeView nodeLabel={requirement['name']}>{populateReqTree(requirement)}</TreeView>);
+            }
+            else {
+              return (<li>{requirement['name']}</li>);
+            }
+          })
+        );
+      };
+
+    // render data on startup
+
+    // update requirements display
+    ReactDOM.render(<TreeView nodeLabel="Degree Requirements">{populateReqTree(reqData[0])}</TreeView>, document.getElementById('requirements'));
 
     // get existing schedule and populate semesters
     $.ajax({
@@ -134,6 +234,9 @@ class Search extends Component {
         type: 'POST',
         data: courses_taken
       });
+
+      // update requirements display
+      ReactDOM.render(<TreeView nodeLabel="Degree Requirements">{populateReqTree(reqData[0])}</TreeView>, document.getElementById('requirements'));
     };
 
     // tells react to post updated course schedule when an item is dropped
@@ -156,6 +259,7 @@ class Search extends Component {
 
   // is called whenever search query is modified
   updateSearch(event) {
+    // clear search before loading new courses
     ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
     this.setState({search: event.target.value});
     let search_query = event.target.value;
@@ -175,9 +279,9 @@ class Search extends Component {
           }
         },
         success: function(data) {
-          if(search_query === this.state.search || search_query === '$')
-          {
+          if(search_query === this.state.search || search_query === '$') {
             this.setState({data: data});
+            // Render search results
             ReactDOM.render(
               data.map((course)=> {
               return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
