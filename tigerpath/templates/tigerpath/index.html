@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
   </head>
@@ -43,10 +45,10 @@
           <thead class="semester-header">
             <tr>
               {% with year=request.user.profile.year %}
-                <td>Fall {{ year|add:"-4"|default:"20XX" }}</td>
-                <td>Spring {{ year|add:"-3"|default:"20XX" }}</td>
-                <td>Fall {{ year|add:"-3"|default:"20XX" }}</td>
-                <td>Spring {{ year|add:"-2"|default:"20XX" }}</td>
+                <td class="fall-sem">Fall {{ year|add:"-4"|default:"20XX" }}</td>
+                <td class="spring-sem">Spring {{ year|add:"-3"|default:"20XX" }}</td>
+                <td class="fall-sem">Fall {{ year|add:"-3"|default:"20XX" }}</td>
+                <td class="spring-sem">Spring {{ year|add:"-2"|default:"20XX" }}</td>
               {% endwith %}
             </tr>
           </thead>
@@ -66,10 +68,10 @@
           <thead class="semester-header">
             <tr>
               {% with year=request.user.profile.year %}
-                <td>Fall {{ year|add:"-2"|default:"20XX" }}</td>
-                <td>Spring {{ year|add:"-1"|default:"20XX" }}</td>
-                <td>Fall {{ year|add:"-1"|default:"20XX" }}</td>
-                <td>Spring {{ year|default:"20XX" }}</td>
+                <td class="fall-sem">Fall {{ year|add:"-2"|default:"20XX" }}</td>
+                <td class="spring-sem">Spring {{ year|add:"-1"|default:"20XX" }}</td>
+                <td class="fall-sem">Fall {{ year|add:"-1"|default:"20XX" }}</td>
+                <td class="spring-sem">Spring {{ year|default:"20XX" }}</td>
               {% endwith %}
             </tr>
           </thead>

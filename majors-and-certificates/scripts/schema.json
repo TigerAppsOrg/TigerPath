@@ -1,0 +1,374 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "Create a Major/Certificate JSON",
+  "properties": {
+    "type": {
+      "$id": "/properties/type",
+      "type": "string",
+      "title": "Type",
+      "description": "Major, Certificate, or Degree",
+      "default": "Major",
+      "examples": [
+        "Major"
+      ],
+      "enum": [
+        "Major",
+        "Certificate",
+        "Degree"
+      ]
+    },
+    "name": {
+      "$id": "/properties/name",
+      "type": "string",
+      "title": "Name",
+      "description": "The major or certificate's name.",
+      "default": "Name Studies",
+      "examples": [
+        "Name Studies"
+      ]
+    },
+    "code": {
+      "$id": "/properties/code",
+      "type": "string",
+      "title": "Code",
+      "description": "The three-letter department code.",
+      "default": "NST",
+      "examples": [
+        "NST"
+      ],
+      "minLength": 2,
+      "maxLength": 7
+    },
+    "degree": {
+      "$id": "/properties/degree",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Degree",
+      "description": "AB or BSE for majors, or null otherwise.",
+      "default": "AB",
+      "examples": [
+        "AB"
+      ],
+      "enum": [
+        "AB",
+        "BSE",
+        null
+      ]
+    },
+    "year": {
+      "$id": "/properties/year",
+      "type": "integer",
+      "title": "Year",
+      "description": "Year in which the requirements apply.",
+      "default": 2018,
+      "examples": [
+        2018
+      ],
+      "minimum": 2000,
+      "maximum": 2100
+    },
+    "description": {
+      "$id": "/properties/description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "title": "Description (optional)",
+      "description": "Long human readable description.",
+      "default": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source.",
+      "examples": [
+        "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is optional and should be copied from an official source."
+      ]
+    },
+    "urls": {
+      "$id": "/properties/urls",
+      "type": "array",
+      "title": "Source Urls",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$id": "/properties/urls/items",
+        "type": "string",
+        "description": "",
+        "default": "https://ua.princeton.edu/academic-units/[your-dept-name]",
+        "examples": [
+          "https://ua.princeton.edu/academic-units/name-studies"
+        ],
+        "pattern": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+      }
+    },
+    "allowed_majors": {
+      "$id": "/properties/allowed_majors",
+      "type": "array",
+      "title": "Allowed Majors (only relevant for certificates)",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$id": "/properties/allowed_majors/items",
+        "type": "string",
+        "description": "",
+        "default": "ABC",
+        "examples": [
+          "ELE"
+        ],
+        "minLength": 3,
+        "maxLength": 3
+      }
+    },
+    "contacts": {
+      "$id": "/properties/contacts",
+      "type": "array",
+      "title": "Contacts",
+      "uniqueItems": true,
+      "items": {
+        "$id": "/properties/contacts/items",
+        "type": "object",
+        "properties": {
+          "type": {
+            "$id": "/properties/contacts/items/properties/type",
+            "type": "string",
+            "title": "Type",
+            "description": "role of the contact",
+            "default": "Departmental Representative",
+            "examples": [
+              "Departmental Representative"
+            ]
+          },
+          "name": {
+            "$id": "/properties/contacts/items/properties/name",
+            "type": "string",
+            "title": "Name",
+            "default": "Dr. Professor",
+            "examples": [
+              "Dr. Professor"
+            ]
+          },
+          "email": {
+            "$id": "/properties/contacts/items/properties/email",
+            "type": "string",
+            "title": "Email",
+            "default": "dprof@princeton.edu",
+            "examples": [
+              "dprof@princeton.edu"
+            ],
+            "pattern": "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
+          }
+        },
+        "required": [
+          "type",
+          "name",
+          "email"
+        ]
+      }
+    },
+    "req_list": {
+      "$id": "/properties/req_list",
+      "type": "array",
+      "title": "Requirement List",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$id": "/properties/req_list/items",
+        "type": "object",
+        "properties": {
+          "name": {
+            "$id": "/properties/req_list/items/properties/name",
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Name",
+            "description": "requirement name",
+            "default": "Requirement",
+            "examples": [
+              "Prerequisites"
+            ],
+            "maxLength": 60
+          },
+          "max_counted": {
+            "$id": "/properties/req_list/items/properties/max_counted",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "title": "max_counted",
+            "description": "Max passed up to parent. Unlimited if null/nonexistent.",
+            "default": 1,
+            "examples": [
+              1
+            ],
+            "minimum": 0
+          },
+          "min_needed": {
+            "$id": "/properties/req_list/items/properties/min_needed",
+            "oneOf": [
+              {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              {
+                "type": [
+                  "string"
+                ],
+                "enum": [
+                  "ALL"
+                ]
+              }
+            ],
+            "title": "min_needed",
+            "description": "Minimum demanded of children (subrequirements). Must be >= 0 or \"ALL\"",
+            "default": "ALL",
+            "examples": [
+              "ALL",
+              1
+            ]
+          },
+          "description": {
+            "$id": "/properties/req_list/items/properties/description",
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Description",
+            "description": "Medium length description. Optional and usually redundant.",
+            "default": "",
+            "examples": [
+              "Prerequisites"
+            ]
+          },
+          "explanation": {
+            "$id": "/properties/req_list/items/properties/explanation",
+            "type": [
+              "string",
+              "null"
+            ],
+            "title": "Explanation",
+            "description": "Long human readable description.",
+            "default": "Long text from department website.\nShould be possible to copy/paste the text as is, with little modification.",
+            "examples": [
+              "Long text from department website.\nShould be possible to copy/paste the text as is, with little modification."
+            ]
+          },
+          "double_counting_allowed": {
+            "$id": "/properties/req_list/items/properties/double_counting_allowed",
+            "type": "boolean",
+            "title": "double_counting_allowed",
+            "description": "Whether courses may simultaneously count for multiple subrequirements.",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "max_common_with_major": {
+            "$id": "/properties/req_list/items/properties/max_common_with_major",
+            "type": "integer",
+            "title": "max_common_with_major",
+            "description": "Number of courses that can be in common with major. Only relevant for certificates.",
+            "default": null,
+            "examples": [
+              0
+            ]
+          },
+          "pdfs_allowed": {
+            "$id": "/properties/req_list/items/properties/pdfs_allowed",
+            "type": [
+              "boolean",
+              "number"
+            ],
+            "title": "pdfs_allowed",
+            "description": "Whether student is allowed to take the courses SPDF (pass/D/fail). Can be false, true, or a number indicating how many SPDF courses are allowed.",
+            "default": false,
+            "examples": [
+              false,
+              2
+            ]
+          },
+          "completed_by_semester": {
+            "$id": "/properties/req_list/items/properties/completed_by_semester",
+            "type": "integer",
+            "title": "completed_by_semester",
+            "description": "1-8: semester by which the requirement must be complete",
+            "default": 8,
+            "minimum": 1,
+            "maximum": 8
+          },
+          "req_list": {
+            "$id": "/properties/req_list/items/properties/req_list",
+            "type": "array",
+            "title": "Requirement List",
+            "items": {
+              "$ref": "#/properties/req_list/items",
+              "#$ref": "/properties/req_list/items",
+              "#note": "switch the # on the above lines if get an error"
+            }
+          },
+          "course_list": {
+            "$id": "/properties/req_list/items/properties/course_list",
+            "type": "array",
+            "title": "Course List",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "$id": "/properties/req_list/items/properties/course_list/items",
+              "type": "string",
+              "title": "",
+              "default": "NST 100",
+              "examples": [
+                "NST 100",
+                "NST 2**",
+                "NST 312C",
+                "NST 96",
+                "NST 487\tThe Study of Modern Names"
+              ]
+            }
+          },
+          "no_req": {
+            "$id": "/properties/req_list/items/properties/no_req",
+            "type": "null",
+            "title": "no_req",
+            "description": "used for requirements that cannot be checked",
+            "default": null
+          }
+        },
+        "required": [
+          "name",
+          "max_counted",
+          "min_needed",
+          "explanation"
+        ],
+        "oneOf": [
+          {
+            "required": [
+                "req_list"
+            ]
+          },
+          {
+            "required": [
+                "course_list"
+            ]
+          },
+          {
+            "required": [
+                "no_req"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "type",
+    "name",
+    "degree",
+    "year",
+    "urls",
+    "contacts",
+    "req_list"
+  ]
+}

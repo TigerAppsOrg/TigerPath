@@ -31,7 +31,10 @@ def get_all_courses():
     # combine crosslistings and populate crosslisting field in course
     all_courses = Course.objects.all()
     for course in all_courses:
-        course.cross_listings = ' / '.join([listing.dept + listing.number for listing in course.course_listing_set.all()])
+        listings = []
+        listings.append(course.course_listing_set.all().filter(is_primary=True)[0])
+        listings.extend(list(course.course_listing_set.all().filter(is_primary=False)))
+        course.cross_listings = ' / '.join([listing.dept + listing.number for listing in listings])
         course.save()
 
     # update master list
@@ -56,7 +59,7 @@ def get_all_courses():
             fetch_master = fetch_master[0]
             
             if add_semester not in fetch_master.semesters:
-                    fetch_master.all_semesters.append(add_semester)
+                fetch_master.all_semesters.append(add_semester)
             fetch_master.save()
             # delete duplicate course
             course.delete()
