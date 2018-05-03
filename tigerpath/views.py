@@ -130,6 +130,7 @@ def get_courses(request, search_query):
         course_info['title'] = course.title
         course_info['id'] = course.registrar_id
         course_info['listing'] = course.cross_listings
+        course_info['semester_list'] = course.all_semesters
         # tag semester
         all_semesters = ''.join(course.all_semesters)
         if 'f' in all_semesters and 's' in all_semesters:
