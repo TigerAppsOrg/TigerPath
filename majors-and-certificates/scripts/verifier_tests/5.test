@@ -26,19 +26,13 @@ COS-BSE
       "name": "COS340",
       "title": "Reasoning about Computation",
       "id": "1184010455",
-      "dist_area": "QR",
-      "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
-      ]
+      "dist_area": "QR"
     },
     {
       "name": "COS 333",
       "title": "Advanced Programming Techniques",
       "id": "1184002065",
-      "dist_area": null,
-      "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
-      ]
+      "dist_area": null
     }
   ],
   [
@@ -46,46 +40,31 @@ COS-BSE
       "name": "COS 398",
       "title": "Junior Independent Work (B.S.E. candidates only)",
       "id": "1184002069",
-      "dist_area": null,
-      "settled": [
-        "Computer Science - BSE//Independent Work"
-      ]
+      "dist_area": null
     },
     {
       "name": "ELE 206/COS 306",
       "title": "Contemporary Logic Design",
       "id": "1184022331",
-      "dist_area": "STL",
-      "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
-      ]
+      "dist_area": "STL"
     },
     {
       "name": "MUS314/COS314",
       "title": "Computer and Electronic Music",
       "id": "118421927",
-      "dist_area": "QR",
-      "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ]
+      "dist_area": "QR"
     },
     {
       "name": "COS 423",
       "title": "Theory of Algorithms",
       "id": "1184002071",
-      "dist_area": null,
-      "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
-      ]
+      "dist_area": null
     },
     {
       "name": "COS 436",
       "title": "Human-Computer Interface Technology",
       "id": "1184021337",
-      "dist_area": null,
-      "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ]
+      "dist_area": null
     }
   ],
   [
@@ -105,10 +84,7 @@ COS-BSE
       "name": "COS 498",
       "title": "Senior Independent Work (B.S.E. candidates only)",
       "id": "1184002087",
-      "dist_area": null,
-      "settled": [
-        "Computer Science - BSE//Core Courses//General"
-      ]
+      "dist_area": null
     }
   ]
 ]

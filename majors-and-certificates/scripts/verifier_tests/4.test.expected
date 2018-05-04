@@ -48,12 +48,7 @@
         "Computer Science - BSE//Core Courses//Theory//000",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Theory//000"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
-      ]
+      "reqs_satisfied": []
     },
     {
       "name": "COS 333",
@@ -62,12 +57,7 @@
         "Computer Science - BSE//Core Courses//Systems//000",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Systems//000"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
-      ]
+      "reqs_satisfied": []
     }
   ],
   [
@@ -93,12 +83,7 @@
         "Computer Science - BSE//Core Courses//Systems//000",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Systems//000"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
-      ]
+      "reqs_satisfied": []
     },
     {
       "name": "MUS314/COS314",
@@ -107,12 +92,7 @@
         "Computer Science - BSE//Core Courses//Applications",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ]
+      "reqs_satisfied": []
     },
     {
       "name": "COS 423",
@@ -121,12 +101,7 @@
         "Computer Science - BSE//Core Courses//Theory//000",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Theory//000"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
-      ]
+      "reqs_satisfied": []
     },
     {
       "name": "COS 436",
@@ -135,12 +110,7 @@
         "Computer Science - BSE//Core Courses//Applications",
         "Computer Science - BSE//Core Courses//General//000"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
-      ]
+      "reqs_satisfied": []
     }
   ],
   [
@@ -171,12 +141,7 @@
         "Computer Science - BSE//Core Courses//General//001",
         "Computer Science - BSE//Independent Work"
       ],
-      "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//General//000"
-      ],
-      "settled": [
-        "Computer Science - BSE//Core Courses//General"
-      ]
+      "reqs_satisfied": []
     }
   ]
 ]
@@ -184,8 +149,8 @@
 {
   "name": "Computer Science - BSE",
   "path_to": "Computer Science - BSE",
-  "satisfied": true,
-  "count": 3,
+  "satisfied": false,
+  "count": 2,
   "min_needed": 3,
   "max_counted": null,
   "req_list": [
@@ -216,62 +181,69 @@
     {
       "name": "Core Courses",
       "path_to": "Computer Science - BSE//Core Courses",
-      "satisfied": true,
-      "count": 4,
+      "satisfied": false,
+      "count": 0,
       "min_needed": 4,
       "max_counted": 1,
       "req_list": [
         {
           "name": "Theory",
           "path_to": "Computer Science - BSE//Core Courses//Theory",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [
+          "settled": [],
+          "unsettled": [
             "COS340",
             "COS 423"
-          ],
-          "unsettled": []
+          ]
         },
         {
           "name": "Systems",
           "path_to": "Computer Science - BSE//Core Courses//Systems",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [
+          "settled": [],
+          "unsettled": [
             "COS 333",
             "ELE 206/COS 306"
-          ],
-          "unsettled": []
+          ]
         },
         {
           "name": "Applications",
           "path_to": "Computer Science - BSE//Core Courses//Applications",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [
+          "settled": [],
+          "unsettled": [
             "MUS314/COS314",
             "COS 436"
-          ],
-          "unsettled": []
+          ]
         },
         {
           "name": "General",
           "path_to": "Computer Science - BSE//Core Courses//General",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 1,
           "min_needed": 2,
           "max_counted": 1,
           "settled": [
-            "NEU 330 / PSY 330",
-            "COS 498"
+            "NEU 330 / PSY 330"
           ],
-          "unsettled": []
+          "unsettled": [
+            "COS340",
+            "COS 333",
+            "ELE 206/COS 306",
+            "MUS314/COS314",
+            "COS 423",
+            "COS 436",
+            "COS 498"
+          ]
         }
       ]
     },
@@ -285,7 +257,9 @@
       "settled": [
         "COS 398"
       ],
-      "unsettled": []
+      "unsettled": [
+        "COS 498"
+      ]
     }
   ]
 }
