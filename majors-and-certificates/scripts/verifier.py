@@ -103,7 +103,7 @@ def check_requirements(req_file, courses, year):
         req = json.load(f)
     courses = _init_courses(courses, req["name"])
     req = _init_req(req)
-    _mark_all_reqs_on_courses(req, courses)
+    _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
     _add_course_lists_to_req(req, courses)
     formatted_courses = _format_courses_output(courses)
@@ -221,6 +221,8 @@ def _init_req_fields(req):
     if "req_list" in req:
         for subreq in req["req_list"]:
             _init_req_fields(subreq)
+    elif "num_courses" in req and req["name"] == None and "completed_by_semester" in req:
+        req["name"] = str(req["num_courses"]) + " completed by semester " + str(req["completed_by_semester"])
     return req
 
 def _init_min_ALL(req):
@@ -269,13 +271,13 @@ def _init_path_to(req):
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
-def _mark_all_reqs_on_courses(req, courses):
+def _mark_possible_reqs(req, courses):
     """
     Finds all the requirements that each course can satisfy.
     """
     if "req_list" in req: # recursively check subrequirements
         for subreq in req["req_list"]:
-            _mark_all_reqs_on_courses(subreq, courses)
+            _mark_possible_reqs(subreq, courses)
     elif "course_list" in req:
         _mark_courses(req["path_to"],req["course_list"],courses)
     elif "dist_req" in req:
@@ -297,14 +299,13 @@ def _assign_settled_courses_to_reqs(req, courses):
         for subreq in req["req_list"]:
             newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
     elif "course_list" in req:
-        # newly_satisfied = _mark_courses(req["path_to"],req["course_list"], courses)
         newly_satisfied = _mark_settled(req["path_to"], courses)
     elif "dist_req" in req:
-        # newly_satisfied = _mark_dist(req["path_to"],req["dist_req"],courses)
         newly_satisfied = _mark_settled(req["path_to"], courses)
+    elif "num_courses" in req:
+        newly_satisfied = _check_degree_progress(courses, req["num_courses"], req["completed_by_semester"])
     req["count"] += newly_satisfied
     new_deficit = req["min_needed"] - req["count"]
-    # new_available = req["max_counted"] - req["count"]
     if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
         if req["max_counted"] == None: # unlimited
             return req["count"]
@@ -366,6 +367,22 @@ def _mark_settled(path_to, courses):
                 c["settled"].append(path_to)
                 c["used"] = True
     return num_marked
+
+def _check_degree_progress(courses, num_needed, by_semester = None):
+    """
+    Checks whether the correct number of courses have been completed by the 
+    semester number 'by_semester' (1-8)
+    """
+    num_courses = 0
+    for i,sem in enumerate(courses):
+        for _ in sem:
+            num_courses += 1
+        if i+1 == by_semester: # i ranges 0-7 while by_semester ranges 1-8
+            break
+    if num_courses >= num_needed:
+        return 1
+    else:
+        return 0
 
 def _course_match(course_name, pattern):
     pattern = pattern.split(':')[0] # remove course title
