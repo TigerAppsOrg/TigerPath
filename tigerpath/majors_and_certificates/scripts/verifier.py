@@ -35,7 +35,8 @@ def check_major(major_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     major_filename = major_name + "_" + str(year)  + ".json"
-    major_filepath = os.path.join(majors_location, major_filename)
+    major_filepath = os.path.join(os.path.dirname(__file__), os.path.join(majors_location, major_filename))
+
     with open(major_filepath, 'r') as f:
         major = json.load(f)
     _init_courses(courses)

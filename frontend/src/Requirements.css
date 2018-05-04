@@ -1,0 +1,40 @@
+/* items in semester columns */
+#requirements li{
+  list-style-type: none;
+  background-color: #ADD8E6;
+  padding-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  color: #2B547E;
+  border-radius: 2px;
+}
+#requirements .unsettled{
+  background-color: #DCDCDC;
+}
+
+/* styles root */
+#requirements .tree-root{
+  margin-bottom: 3px;
+  background-color: #DB7093;
+  color: white;
+}
+
+/* style everything except main roots and leaves*/
+#requirements .tree-sub-reqs .tree-view_item {
+  border-radius: 2px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  background-color: #F7CAC9;
+  color: #C71585;
+}
+
+#requirements .tree-sub-reqs .tree-leaf-req {
+  background-color: #d1dcff;
+  color: #8153DC;
+}
+
+#requirements {
+  height: calc(100vh - 60px);
+  overflow: auto;
+  background-color: #fff4f4;
+}
