@@ -2,7 +2,6 @@
   [
     {
       "name": "COS 126",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
       ],
@@ -15,7 +14,6 @@
     },
     {
       "name": "COS 226",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
       ],
@@ -28,7 +26,6 @@
     },
     {
       "name": "COS 217",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
       ],
@@ -43,7 +40,6 @@
   [
     {
       "name": "COS340",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Theory//000",
         "Computer Science - BSE//Core Courses//General//000"
@@ -52,7 +48,6 @@
     },
     {
       "name": "COS 333",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Systems//000",
         "Computer Science - BSE//Core Courses//General//000"
@@ -63,7 +58,6 @@
   [
     {
       "name": "COS 398",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//General//000",
         "Computer Science - BSE//Core Courses//General//001",
@@ -73,7 +67,6 @@
     },
     {
       "name": "ELE 206/COS 306",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Systems//000",
         "Computer Science - BSE//Core Courses//General//000"
@@ -82,7 +75,6 @@
     },
     {
       "name": "MUS314/COS314",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Applications",
         "Computer Science - BSE//Core Courses//General//000"
@@ -91,7 +83,6 @@
     },
     {
       "name": "COS 423",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Theory//000",
         "Computer Science - BSE//Core Courses//General//000"
@@ -100,7 +91,6 @@
     },
     {
       "name": "COS 436",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//Applications",
         "Computer Science - BSE//Core Courses//General//000"
@@ -111,13 +101,11 @@
   [
     {
       "name": "ART 213",
-      "used": false,
       "possible_reqs": [],
       "reqs_satisfied": []
     },
     {
       "name": "NEU 330 / PSY 330",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//General//000"
       ],
@@ -130,7 +118,6 @@
     },
     {
       "name": "COS 498",
-      "used": true,
       "possible_reqs": [
         "Computer Science - BSE//Core Courses//General//000",
         "Computer Science - BSE//Core Courses//General//001",

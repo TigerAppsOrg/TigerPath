@@ -2,7 +2,6 @@
   [
     {
       "name": "COS 126",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ],
@@ -15,7 +14,6 @@
     },
     {
       "name": "COS 226",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ],
@@ -28,7 +26,6 @@
     },
     {
       "name": "COS 217",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ],
@@ -43,7 +40,6 @@
   [
     {
       "name": "COS340",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Theory//000",
         "Computer Science - AB//Core Courses//General"
@@ -57,7 +53,6 @@
     },
     {
       "name": "COS 333",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Systems//000",
         "Computer Science - AB//Core Courses//General"
@@ -73,7 +68,6 @@
   [
     {
       "name": "COS 351/ SOC 353 /WWS351",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//General"
       ],
@@ -86,7 +80,6 @@
     },
     {
       "name": "ELE 206/COS 306",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Systems//000",
         "Computer Science - AB//Core Courses//General"
@@ -100,7 +93,6 @@
     },
     {
       "name": "MUS314/COS314",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"
@@ -114,7 +106,6 @@
     },
     {
       "name": "COS 423",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Theory//000",
         "Computer Science - AB//Core Courses//General"
@@ -128,7 +119,6 @@
     },
     {
       "name": "COS 436",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"
@@ -144,13 +134,11 @@
   [
     {
       "name": "ART 213",
-      "used": false,
       "possible_reqs": [],
       "reqs_satisfied": []
     },
     {
       "name": "NEU 330 / PSY 330",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//General"
       ],
@@ -163,7 +151,6 @@
     },
     {
       "name": "COS 401 / LIN 304 / TRA 301",
-      "used": true,
       "possible_reqs": [
         "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"

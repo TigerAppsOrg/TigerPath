@@ -2,7 +2,6 @@
   [
     {
       "name": "POL 345",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite"
@@ -10,7 +9,6 @@
     },
     {
       "name": "ECO 300",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
@@ -18,7 +16,6 @@
     },
     {
       "name": "HIS 382",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
       ]
@@ -27,7 +24,6 @@
   [
     {
       "name": "POL 230/WWS 325",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Core//Politics",
@@ -36,7 +32,6 @@
     },
     {
       "name": "WWS 354",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Core//Science Policy",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Gender, Sexuality, and Families",
@@ -49,45 +44,38 @@
   [
     {
       "name": "CHV 261",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
       ]
     },
     {
       "name": "AMS 364",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
       ]
     },
     {
       "name": "COS 432",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
       ]
     },
     {
       "name": "COS 436",
-      "used": false,
       "possible_reqs": []
     }
   ],
   [
     {
       "name": "ART 213",
-      "used": false,
       "possible_reqs": []
     },
     {
       "name": "SPA 101",
-      "used": false,
       "possible_reqs": []
     },
     {
       "name": "SPA 102",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//000",
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//001"
@@ -95,7 +83,6 @@
     },
     {
       "name": "POR 399",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
       ]
@@ -104,14 +91,12 @@
   [
     {
       "name": "WWS 401",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
       ]
     },
     {
       "name": "WWS 404",
-      "used": true,
       "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
       ]

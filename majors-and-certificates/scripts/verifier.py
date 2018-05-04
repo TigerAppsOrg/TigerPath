@@ -181,7 +181,6 @@ def _init_courses(courses, req_name = None):
     for sem_num,semester in enumerate(courses):
         for course in semester:
             course["name"] = course["name"].split(':')[0]
-            course["used"] = False
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
             course["semester_number"] = sem_num
@@ -202,7 +201,7 @@ def _format_courses_output(courses):
         output.append([])
         for j,course in enumerate(sem):
             output[i].append(collections.OrderedDict())
-            for key in ["name", "used", "possible_reqs", "reqs_satisfied"]:
+            for key in ["name", "possible_reqs", "reqs_satisfied"]:
                 output[i][j][key] = course[key]
             if len(course["settled"]) > 0: # only show if non-empty
                 output[i][j]["settled"] = course["settled"]
@@ -337,7 +336,6 @@ def _mark_courses(path_to, course_list, courses):
                 if _course_match(c["name"], pattern):
                     num_marked += 1
                     c["possible_reqs"].append(path_to)
-                    c["used"] = True
                     break
     return num_marked
 
@@ -348,7 +346,6 @@ def _mark_dist(path_to, dist_req, courses):
                 continue
             if c["dist_area"] == dist_req:
                 c["possible_reqs"].append(path_to)
-                c["used"] = True
                 return 1
     return 0
 
@@ -367,13 +364,11 @@ def _mark_settled(path_to, courses):
                     if p in path_to and path_to in c["possible_reqs"]: # c was settled into this requirement
                         num_marked += 1
                         c["reqs_satisfied"].append(path_to)
-                        c["used"] = True
                         break
             elif len(c["possible_reqs"]) == 1 and path_to in c["possible_reqs"]:
                 num_marked += 1
                 c["reqs_satisfied"].append(path_to)
                 c["settled"].append(path_to)
-                c["used"] = True
     return num_marked
 
 def _check_degree_progress(courses, num_needed, by_semester = None):
