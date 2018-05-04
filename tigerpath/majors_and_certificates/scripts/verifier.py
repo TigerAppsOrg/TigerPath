@@ -5,17 +5,14 @@ import os
 import sys
 import collections
 import time
+import copy
 
-schema_location = "schema.json" # path to the requirements JSON schema
+from university_info import LANG_DEPTS
+
 majors_location = "../majors/" # path to folder containing the major requirements JSONs
 certificates_location = "../certificates/" # path to folder containing the certificate requirements JSONs
 AB_requirements_location = "../degrees/AB_2018.json" # path to the AB requirements JSON
 BSE_requirements_location = "../degrees/BSE_2018.json" # path to the BSE requirements JSON
-
-LANGS = [ # language departments
-    "ARA","BCS","SLA","CHI","CZE","FRE","GER","MOG","CLG","HEB","HIN","ITA",
-    "JPN","KOR","LAT","PER","PLS","POR","RUS","SPA","SWA","TUR","TWI","URD",
-]
 
 def check_major(major_name, courses, year):
     """
@@ -35,56 +32,160 @@ def check_major(major_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     major_filename = major_name + "_" + str(year)  + ".json"
-    major_filepath = os.path.join(os.path.dirname(__file__), os.path.join(majors_location, major_filename))
+    major_filepath = os.path.join(majors_location, major_filename)
+    return check_requirements(major_filepath, courses, year)
 
-    with open(major_filepath, 'r') as f:
-        major = json.load(f)
-    _init_courses(courses)
-    _init_major(major)
-    _assign_courses_to_reqs(major, courses)
-    formatted_courses = _format_courses_output(courses)
-    formatted_major = _format_major_output(major)
+def check_degree(degree_name, courses, year):
+    """
+    Returns information about the degree requirements satisfied by the courses
+    given in courses.
+    :param degree_name: the name of the degree
+    :param courses: a list of course-listings
+    :param year: the year for which to pull the requirements \
+    (by spring semester, so 2018 means 2017-2018 school year)
+    :type degree_name: string
+    :type courses: 2D array
+    :type year: int
+    :returns: Whether the degree requirements are satisfied
+    :returns: The list of courses with info about the requirements they satisfy
+    :returns: A simplified json with info about how much of each requirement is satisfied
+    :rtype: (bool, dict, dict)
+    """
+    if degree_name.upper() == "AB":
+        degree_filepath = AB_requirements_location
+    elif degree_name.upper() == "BSE":
+        degree_filepath = BSE_requirements_location
+    return check_requirements(degree_filepath, courses, year)
+
+def check_certificate(certificate_name, courses, year):
+    """
+    NOTE: Not yet fully supported. Some certificate specific functionality may not 
+    be present, or may break.
     
-    return formatted_major["satisfied"], formatted_courses, formatted_major
+    Returns information about the certificate requirements satisfied by the courses
+    given in courses.
+    
+    :param certificate_name: the name of the certificate
+    :param courses: a list of course-listings
+    :param year: the year for which to pull the requirements \
+    (by spring semester, so 2018 means 2017-2018 school year)
+    :type certificate_name: string
+    :type courses: 2D array
+    :type year: int
+    :returns: Whether the certificate requirements are satisfied
+    :returns: The list of courses with info about the requirements they satisfy
+    :returns: A simplified json with info about how much of each requirement is satisfied
+    :rtype: (bool, dict, dict)
+    """
+    certificate_filename = certificate_name + "_" + str(year)  + ".json"
+    certificate_filepath = os.path.join(certificates_location, certificate_filename)
+    return check_requirements(certificate_filepath, courses, year)
 
-def _init_major(major):
-    _init_counts(major)
-    _init_min_ALL(major)
-    _init_path_to(major)
+def check_requirements(req_file, courses, year):
+    """
+    Returns information about the requirements satisfied by the courses
+    given in courses.
+    
+    :param req_file: the name of a file containing a requirements JSON
+    :param courses: a list of course-listings
+    :param year: the year for which to pull the requirements \
+    (by spring semester, so 2018 means 2017-2018 school year)
+    :type req_file: string
+    :type courses: 2D array
+    :type year: int
+    :returns: Whether the requirements are satisfied
+    :returns: The list of courses with info about the requirements they satisfy
+    :returns: A simplified json with info about how much of each requirement is satisfied
+    :rtype: (bool, dict, dict)
+    """
+    with open(req_file, 'r') as f:
+        req = json.load(f)
+    courses = _init_courses(courses, req["name"])
+    req = _init_req(req)
+    _mark_all_reqs_on_courses(req, courses)
+    _assign_settled_courses_to_reqs(req, courses)
+    _add_course_lists_to_req(req, courses)
+    formatted_courses = _format_courses_output(courses)
+    formatted_req = _format_req_output(req)
+    return formatted_req["satisfied"], formatted_courses, formatted_req
 
-def _format_major_output(major):
+def _init_req(req):
+    req = copy.deepcopy(req)
+    _init_req_fields(req)
+    _init_min_ALL(req)
+    _init_path_to(req)
+    return req
+
+def _format_req_output(req):
     '''
-    Enforce the type and order of fields in the major output
+    Enforce the type and order of fields in the req output
     '''
     output = collections.OrderedDict()
-    if ("name" not in major) or (major["name"] == '') or (major["name"] == None):
+    if req["name"] == None:
         return None
-    output["name"] = major["name"]
-    output["path_to"] = major["path_to"]
-    output["satisfied"] = (major["min_needed"]-major["count"] <= 0)
+    output["name"] = req["name"]
+    output["path_to"] = req["path_to"]
+    output["satisfied"] = (req["min_needed"]-req["count"] <= 0)
     for key in ["count", "min_needed", "max_counted"]:
-        output[key] = major[key]
-    if "req_list" in major: # internal node. recursively call on children
+        output[key] = req[key]
+    if "req_list" in req: # internal node. recursively call on children
         req_list = []
-        for req in major["req_list"]:
-            child = _format_major_output(req)
+        for subreq in req["req_list"]:
+            child = _format_req_output(subreq)
             if (child != None):
-                req_list.append(_format_major_output(req))
+                req_list.append(_format_req_output(subreq))
         if req_list:
             output["req_list"] = req_list
-    # elif "course_list" in major:
+    if "settled" in req:
+        output["settled"] = req["settled"]
+    if "unsettled" in req:
+        output["unsettled"] = req["unsettled"]
+    # elif "course_list" in req:
     #     output["course_list"] = ["..."]
-    #     # for course in major["course_list"]:
+    #     # for course in req["course_list"]:
     #     #     print(course)
     return output
+    
+def _add_course_lists_to_req(req, courses):
+    include_course_lists = False
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            if subreq["name"] == None:
+                include_course_lists = True
+            else: # recursively for all named requirements
+                _add_course_lists_to_req(subreq, courses)
+    else:
+        include_course_lists = True
+    if include_course_lists:
+        req["settled"] = []
+        req["unsettled"] = []
+        for sem in courses:
+            for course in sem:
+                if len(course["settled"]) > 0:
+                    for path in course["settled"]:
+                        if req["path_to"] in path:
+                            req["settled"].append(course["name"])
+                else:
+                    for path in course["possible_reqs"]:
+                        if course["name"] not in req["unsettled"] and req["path_to"] in path:
+                            req["unsettled"].append(course["name"])
 
-def _init_courses(courses):
+def _init_courses(courses, req_name = None):
+    courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
             course["name"] = course["name"].split(':')[0]
             course["used"] = False
+            course["possible_reqs"] = []
             course["reqs_satisfied"] = []
             course["semester_number"] = sem_num
+            if "settled" not in course or course["settled"] == None:
+                course["settled"] = []
+            elif req_name != None: # filter out irrelevant requirements from list
+                for path in course["settled"]:
+                    if req_name not in path:
+                        course["settled"].remove(path)
+    return courses
     
 def _format_courses_output(courses):
     '''
@@ -95,87 +196,54 @@ def _format_courses_output(courses):
         output.append([])
         for j,course in enumerate(sem):
             output[i].append(collections.OrderedDict())
-            for key in ["name", "used", "reqs_satisfied"]:
+            for key in ["name", "used", "possible_reqs", "reqs_satisfied"]:
                 output[i][j][key] = course[key]
+            if len(course["settled"]) > 0: # only show if non-empty
+                output[i][j]["settled"] = course["settled"]
     return output
 
-def _json_format(obj):
-   return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
-
-def _init_counts(major):
+def _init_req_fields(req):
     """
     Initializes all the counts to zero and ensures that min_needed and 
     max_counted exist.
     """
-    major["count"] = 0
-    if "min_needed" not in major or major["min_needed"] == None:
-        if "type" in major: # check for root
-            major["min_needed"] = "ALL"
+    req["count"] = 0
+    if ("name" not in req) or (req["name"] == '') or (req["name"] == None):
+        req["name"] = None
+    if "min_needed" not in req or req["min_needed"] == None:
+        if "type" in req: # check for root
+            req["min_needed"] = "ALL"
         else:
-            major["min_needed"] = 0
-    if "max_counted" not in major:
-        major["max_counted"] = None
-    if "req_list" in major:
-        for req in major["req_list"]:
-            _init_counts(req)
-    return major
+            req["min_needed"] = 0
+    if "max_counted" not in req:
+        req["max_counted"] = None
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            _init_req_fields(subreq)
+    return req
 
-def _init_min_ALL(major):
+def _init_min_ALL(req):
     """
     Replaces every instance of min_needed="ALL" with the actual number.
     """
     num_counted_from_below = 0
-    if "req_list" in major:
-        for req in major["req_list"]:
-            num_counted_from_below += _init_min_ALL(req)
-    elif "course_list" in major: # written as loop in case other actions neeed later
-        for _ in major["course_list"]: 
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            num_counted_from_below += _init_min_ALL(subreq)
+    elif "course_list" in req: # written as loop in case other actions neeed later
+        for _ in req["course_list"]: 
             num_counted_from_below += 1
-    elif "dist_req" in major or "num_courses" in major:
-        if (major["max_counted"]):
-            num_counted_from_below += major["max_counted"]
-    if major["min_needed"] == "ALL":
-        major["min_needed"] = num_counted_from_below
-    if major["max_counted"] == None:
+    elif "dist_req" in req or "num_courses" in req:
+        if (req["max_counted"]):
+            num_counted_from_below += req["max_counted"]
+    if req["min_needed"] == "ALL":
+        req["min_needed"] = num_counted_from_below
+    if req["max_counted"] == None:
         return num_counted_from_below
     else:
-        return min(major["max_counted"], num_counted_from_below)
+        return min(req["max_counted"], num_counted_from_below)
 
-def _assign_courses_to_reqs(major, courses):
-    """
-    Finds augmenting paths from leaves to the root, and updates those paths. 
-    """
-    old_deficit = major["min_needed"] - major["count"]
-    if (major["max_counted"] != None):
-        old_available = major["max_counted"] - major["count"]
-        if old_available <= 0: # already saturated, nothing to update
-            return 0
-    was_satisfied = (old_deficit <= 0)
-    newly_satisfied = 0
-    if "req_list" in major: # recursively check subrequirements
-        for req in major["req_list"]:
-            newly_satisfied += _assign_courses_to_reqs(req, courses)
-    elif "course_list" in major:
-        newly_satisfied = _mark_courses(major["path_to"],major["course_list"],courses)
-    elif "dist_req" in major:
-        newly_satisfied = _mark_dist(major["path_to"],major["dist_req"],courses)
-    major["count"] += newly_satisfied
-    new_deficit = major["min_needed"] - major["count"]
-    # new_available = major["max_counted"] - major["count"]
-    if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
-        if major["max_counted"] == None: # unlimited
-            return major["count"]
-        else:
-            return min(major["max_counted"],major["count"]) # cut off at max
-    elif (was_satisfied) and (new_deficit <= 0): # this requirement was already satisfied, but added more
-        if major["max_counted"] == None: # unlimited
-            return newly_satisfied
-        else:
-            return min(old_available,newly_satisfied) # cut off at old_available
-    else: # requirement still not satisfied
-        return 0
-
-def _init_path_to(major):
+def _init_path_to(req):
     '''
     Assign a path identifier to each node/subrequirement in the requirements 
     tree with the properties:
@@ -184,29 +252,81 @@ def _init_path_to(major):
     2. The path gives the traversal of the tree needed to reach that node.
     '''
     separator = '//'
-    if "path_to" not in major: # only for root of the tree
-        major["path_to"] = major["name"]
-    if "req_list" in major:
-        for i,req in enumerate(major["req_list"]):
-            # the identifier is the major name if present, or otherwise, an identifying number
+    if "path_to" not in req: # only for root of the tree
+        req["path_to"] = req["name"]
+    if "req_list" in req:
+        for i,subreq in enumerate(req["req_list"]):
+            # the identifier is the req name if present, or otherwise, an identifying number
             identifier = ''
-            if ("name" not in req) or (req["name"] == '') or (req["name"] == None):
+            if ("name" not in subreq) or (subreq["name"] == '') or (subreq["name"] == None):
                 identifier = "%03d" % i
             else:
-                identifier = req["name"]
-            req["path_to"] = major["path_to"] + separator + str(identifier)
-            _init_path_to(req)
+                identifier = subreq["name"]
+            subreq["path_to"] = req["path_to"] + separator + str(identifier)
+            _init_path_to(subreq)
+
+def _json_format(obj):
+   return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
+
+def _mark_all_reqs_on_courses(req, courses):
+    """
+    Finds all the requirements that each course can satisfy.
+    """
+    if "req_list" in req: # recursively check subrequirements
+        for subreq in req["req_list"]:
+            _mark_all_reqs_on_courses(subreq, courses)
+    elif "course_list" in req:
+        _mark_courses(req["path_to"],req["course_list"],courses)
+    elif "dist_req" in req:
+        _mark_dist(req["path_to"],req["dist_req"],courses)
+
+def _assign_settled_courses_to_reqs(req, courses):
+    """
+    Assigns only settled courses and those that can only satify one requirement,
+    and updates the appropriate counts.
+    """
+    old_deficit = req["min_needed"] - req["count"]
+    if (req["max_counted"] != None):
+        old_available = req["max_counted"] - req["count"]
+        if old_available <= 0: # already saturated, nothing to update
+            return 0
+    was_satisfied = (old_deficit <= 0)
+    newly_satisfied = 0
+    if "req_list" in req: # recursively check subrequirements
+        for subreq in req["req_list"]:
+            newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
+    elif "course_list" in req:
+        # newly_satisfied = _mark_courses(req["path_to"],req["course_list"], courses)
+        newly_satisfied = _mark_settled(req["path_to"], courses)
+    elif "dist_req" in req:
+        # newly_satisfied = _mark_dist(req["path_to"],req["dist_req"],courses)
+        newly_satisfied = _mark_settled(req["path_to"], courses)
+    req["count"] += newly_satisfied
+    new_deficit = req["min_needed"] - req["count"]
+    # new_available = req["max_counted"] - req["count"]
+    if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
+        if req["max_counted"] == None: # unlimited
+            return req["count"]
+        else:
+            return min(req["max_counted"],req["count"]) # cut off at max
+    elif (was_satisfied) and (new_deficit <= 0): # this requirement was already satisfied, but added more
+        if req["max_counted"] == None: # unlimited
+            return newly_satisfied
+        else:
+            return min(old_available,newly_satisfied) # cut off at old_available
+    else: # requirement still not satisfied
+        return 0
 
 def _mark_courses(path_to, course_list, courses):
     num_marked = 0
     for sem in courses:
         for c in sem:
-            if path_to in c["reqs_satisfied"]: # already used
+            if path_to in c["possible_reqs"]: # already used
                 continue
             for pattern in course_list:
                 if _course_match(c["name"], pattern):
                     num_marked += 1
-                    c["reqs_satisfied"].append(path_to)
+                    c["possible_reqs"].append(path_to)
                     c["used"] = True
                     break
     return num_marked
@@ -214,13 +334,39 @@ def _mark_courses(path_to, course_list, courses):
 def _mark_dist(path_to, dist_req, courses):
     for sem in courses:
         for c in sem:
-            if path_to in c["reqs_satisfied"]: # already used
+            if path_to in c["possible_reqs"]: # already used
                 continue
             if c["dist_area"] == dist_req:
-                c["reqs_satisfied"].append(path_to)
+                c["possible_reqs"].append(path_to)
                 c["used"] = True
                 return 1
     return 0
+
+def _mark_settled(path_to, courses):
+    """
+    Finds and marks all courses in 'courses' that have been settled to 
+    this requirement.
+    Note that settled courses are forced into the requirement
+    regardless of whether the requirement explicitly allows it.
+    """
+    num_marked = 0
+    for sem in courses:
+        for c in sem:
+            if len(c["reqs_satisfied"]) > 0: # already used in some subreq
+                continue
+            if len(c["settled"])>0:
+                for p in c["settled"]: # go through the settled paths
+                    if p in path_to: # c was settled into this requirement
+                        num_marked += 1
+                        c["reqs_satisfied"].append(path_to)
+                        c["used"] = True
+                        break
+            elif len(c["possible_reqs"]) == 1 and path_to in c["possible_reqs"]:
+                num_marked += 1
+                c["reqs_satisfied"].append(path_to)
+                c["settled"].append(path_to)
+                c["used"] = True
+    return num_marked
 
 def _course_match(course_name, pattern):
     pattern = pattern.split(':')[0] # remove course title
@@ -230,7 +376,7 @@ def _course_match(course_name, pattern):
         for p in pattern:
             if c == p: # exact name matched
                 return True
-            if p[:4] == 'LANG' and c[:3] in LANGS: # language course
+            if p[:4] == 'LANG' and c[:3] in LANG_DEPTS: # language course
                 if c[3:] == p[4:]: # course numbers match
                     return True
                 if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'

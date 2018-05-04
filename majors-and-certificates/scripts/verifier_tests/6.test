@@ -78,7 +78,10 @@ WWS
       "name": "SPA 102",
       "title": "Intermediate Spanish",
       "id": "",
-      "dist_area": ""
+      "dist_area": "",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
+      ]
     },
     {
       "name": "POR 399",

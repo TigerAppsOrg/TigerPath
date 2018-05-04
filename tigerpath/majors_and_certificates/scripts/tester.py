@@ -8,7 +8,8 @@ import filecmp
 
 import verifier
 
-tests_location = "verifier_tests"
+schema_location = "schema.json" # path to the requirements JSON schema
+tests_location = "verifier_tests" # folder where the test files are stored
 
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
@@ -27,7 +28,7 @@ def main():
             major_filepath = os.path.join(verifier.majors_location, major_filename)
             with open(major_filepath, 'r') as f:
                 major = json.load(f)
-            with open(verifier.schema_location, 'r') as s:
+            with open(schema_location, 'r') as s:
                 schema = json.load(s)
             jsonschema.validate(major,schema)
             satisfied,courses,major = verifier.check_major(major_name,courses,year)
@@ -36,10 +37,10 @@ def main():
                 f.write("\n")
                 f.write(_json_format(major))
             # check if output is correct
-            if not filecmp.cmp(file_path+".d", file_path+".out"):
+            if not filecmp.cmp(file_path+".expected", file_path+".out"):
                 print("--- Failed")
                 if test_failed == None:
-                    test_failed = "echo 'Failed test:' %s; colordiff %s %s | head -10" % (file_path, file_path+".d", file_path+".out")
+                    test_failed = "echo 'Failed test:' %s; colordiff %s %s | head -10" % (file_path, file_path+".expected", file_path+".out")
     if test_failed:
         os.system(test_failed)
 
