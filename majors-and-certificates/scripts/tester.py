@@ -8,27 +8,27 @@ import filecmp
 
 import verifier
 
-schema_location = "schema.json" # path to the requirements JSON schema
-tests_location = "verifier_tests" # folder where the test files are stored
+SCHEMA_LOCATION = "schema.json" # path to the requirements JSON schema
+TESTS_LOCATION = "verifier_tests" # folder where the test files are stored
 
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
 def main():
     test_failed = None
-    for filename in sorted(os.listdir(tests_location)):
+    for filename in sorted(os.listdir(TESTS_LOCATION)):
         if filename.endswith(".test"): 
             print("Testing: " + filename)
-            file_path = os.path.join(tests_location, filename)
+            file_path = os.path.join(TESTS_LOCATION, filename)
             with open (file_path, "r") as f:
                 major_name = f.readline()[:-1]
                 year = int(f.readline())
                 courses = json.loads(f.read())
             major_filename = major_name + "_" + str(year)  + ".json"
-            major_filepath = os.path.join(verifier.majors_location, major_filename)
+            major_filepath = os.path.join(verifier.MAJORS_LOCATION, major_filename)
             with open(major_filepath, 'r') as f:
                 major = json.load(f)
-            with open(schema_location, 'r') as s:
+            with open(SCHEMA_LOCATION, 'r') as s:
                 schema = json.load(s)
             jsonschema.validate(major,schema)
             satisfied,courses,major = verifier.check_major(major_name,courses,year)

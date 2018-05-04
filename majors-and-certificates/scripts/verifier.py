@@ -9,10 +9,10 @@ import copy
 
 from university_info import LANG_DEPTS
 
-majors_location = "../majors/" # path to folder containing the major requirements JSONs
-certificates_location = "../certificates/" # path to folder containing the certificate requirements JSONs
-AB_requirements_location = "../degrees/AB_2018.json" # path to the AB requirements JSON
-BSE_requirements_location = "../degrees/BSE_2018.json" # path to the BSE requirements JSON
+MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
+CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
+AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB requirements JSON
+BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
 
 def check_major(major_name, courses, year):
     """
@@ -31,8 +31,8 @@ def check_major(major_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    major_filename = major_name + "_" + str(year)  + ".json"
-    major_filepath = os.path.join(majors_location, major_filename)
+    major_filename = major_name + "_" + str(year) + ".json"
+    major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
@@ -53,10 +53,10 @@ def check_degree(degree_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     if degree_name.upper() == "AB":
-        degree_filepath = AB_requirements_location
+        degree_filepath = AB_REQUIREMENTS_LOCATION
     elif degree_name.upper() == "BSE":
-        degree_filepath = BSE_requirements_location
-    return check_requirements(degree_filepath, courses, year)
+        degree_filepath = BSE_REQUIREMENTS_LOCATION
+    return check_requirements(_get_dir_path(),degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
     """
@@ -78,8 +78,8 @@ def check_certificate(certificate_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    certificate_filename = certificate_name + "_" + str(year)  + ".json"
-    certificate_filepath = os.path.join(certificates_location, certificate_filename)
+    certificate_filename = certificate_name + "_" + str(year) + ".json"
+    certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, year)
 
 def check_requirements(req_file, courses, year):
@@ -148,6 +148,11 @@ def _format_req_output(req):
     return output
     
 def _add_course_lists_to_req(req, courses):
+    """
+    Add course lists for each requirement that either
+    (a) has no subrequirements, or
+    (b) has hidden subrequirements
+    """
     include_course_lists = False
     if "req_list" in req:
         for subreq in req["req_list"]:
@@ -270,6 +275,9 @@ def _init_path_to(req):
 
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
+
+def _get_dir_path():
+    return os.path.dirname(os.path.realpath(__file__))
 
 def _mark_possible_reqs(req, courses):
     """
