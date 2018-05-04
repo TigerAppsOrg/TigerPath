@@ -347,8 +347,6 @@ def _mark_settled(path_to, courses):
     """
     Finds and marks all courses in 'courses' that have been settled to 
     this requirement.
-    Note that settled courses are forced into the requirement
-    regardless of whether the requirement explicitly allows it.
     """
     num_marked = 0
     for sem in courses:
@@ -357,7 +355,7 @@ def _mark_settled(path_to, courses):
                 continue
             if len(c["settled"])>0:
                 for p in c["settled"]: # go through the settled paths
-                    if p in path_to: # c was settled into this requirement
+                    if p in path_to and path_to in c["possible_reqs"]: # c was settled into this requirement
                         num_marked += 1
                         c["reqs_satisfied"].append(path_to)
                         c["used"] = True
