@@ -6,13 +6,20 @@ WWS
       "name": "POL 345",
       "title": "",
       "id": "",
-      "dist_area": ""
+      "dist_area": "",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite"
+      ]
     },
     {
       "name": "ECO 300",
       "title": "",
       "id": "",
-      "dist_area": "SA"
+      "dist_area": "SA",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
+      ]
     },
     {
       "name": "HIS 382",
@@ -26,13 +33,20 @@ WWS
       "name": "POL 230/WWS 325",
       "title": "",
       "id": "",
-      "dist_area": ""
+      "dist_area": "",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Politics"
+      ]
     },
     {
       "name": "WWS 354",
       "title": "",
       "id": "",
-      "dist_area": null
+      "dist_area": null,
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Science Policy"
+      ]
     }
   ],
   [
@@ -78,7 +92,10 @@ WWS
       "name": "SPA 102",
       "title": "Intermediate Spanish",
       "id": "",
-      "dist_area": ""
+      "dist_area": "",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
+      ]
     },
     {
       "name": "POR 399",

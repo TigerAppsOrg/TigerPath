@@ -69,15 +69,20 @@ class Search extends Component {
     let populateReqTree = function(reqTree){
       return(reqTree['req_list'].map((requirement)=>{
           if('req_list' in requirement) { 
-            return(<TreeView nodeLabel={requirement['name']}>{populateReqTree(requirement)}</TreeView>);
+            let parentReqLabel = <span>
+                                    <div className='my-arrow'></div>
+                                    {requirement['name']}
+                                 </span>
+            return(<TreeView nodeLabel={parentReqLabel}>{populateReqTree(requirement)}</TreeView>);
           }
           else {
             let finished = '';
             if(requirement['settled'].length >= requirement['min_needed']) finished=' req_done';
             let reqLabel = <span>
+                              <div className='my-arrow'></div>
                               <span className='reqName'>{requirement['name']}</span>
                               <span className='reqCount'>{requirement['settled'].length + '/' + requirement['min_needed']}</span>
-                            </span>;
+                           </span>;
             return (<TreeView itemClassName={"tree-leaf-req" + finished}  nodeLabel={reqLabel}>
               {requirement['settled'].map((course)=>{
                 return(<li className='settled' onClick={(e)=>{toggleSettle(course, requirement['path_to'], false)}}>{course}</li>);
@@ -139,8 +144,11 @@ class Search extends Component {
                       }),
                       document.getElementById('requirements')
                     );
-                    
+              
                     // makes the entire node (not just the arrow) clickable to collapse/uncollapse a node
+                    // removes arrows added by library (their listeners cause bugs) and readd them
+                    $('.tree-view_arrow').remove()
+                    $('.my-arrow').attr('class', 'tree-view_arrow')
                     $('.tree-view_item').each(function(){
                       $(this).click(function(){
                         let arrowCollapsedClass = 'tree-view_arrow-collapsed'

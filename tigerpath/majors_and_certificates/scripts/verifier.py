@@ -9,10 +9,10 @@ import copy
 
 from .university_info import LANG_DEPTS
 
-majors_location = "../majors/" # path to folder containing the major requirements JSONs
-certificates_location = "../certificates/" # path to folder containing the certificate requirements JSONs
-AB_requirements_location = "../degrees/AB_2018.json" # path to the AB requirements JSON
-BSE_requirements_location = "../degrees/BSE_2018.json" # path to the BSE requirements JSON
+MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
+CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
+AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB requirements JSON
+BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
 
 def check_major(major_name, courses, year):
     """
@@ -31,14 +31,15 @@ def check_major(major_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    major_filename = major_name + "_" + str(year)  + ".json"
-    major_filepath = os.path.join(os.path.dirname(__file__), os.path.join(majors_location, major_filename))
+    major_filename = major_name + "_" + str(year) + ".json"
+    major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
     """
     Returns information about the degree requirements satisfied by the courses
     given in courses.
+    
     :param degree_name: the name of the degree
     :param courses: a list of course-listings
     :param year: the year for which to pull the requirements \
@@ -52,9 +53,9 @@ def check_degree(degree_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     if degree_name.upper() == "AB":
-        degree_filepath = os.path.join(os.path.dirname(__file__), AB_requirements_location)
+        degree_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
     elif degree_name.upper() == "BSE":
-        degree_filepath = os.path.join(os.path.dirname(__file__), BSE_requirements_location)
+        degree_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
     return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
@@ -77,8 +78,8 @@ def check_certificate(certificate_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    certificate_filename = certificate_name + "_" + str(year)  + ".json"
-    certificate_filepath = os.path.join(certificates_location, certificate_filename)
+    certificate_filename = certificate_name + "_" + str(year) + ".json"
+    certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, year)
 
 def check_requirements(req_file, courses, year):
@@ -102,7 +103,7 @@ def check_requirements(req_file, courses, year):
         req = json.load(f)
     courses = _init_courses(courses, req["name"])
     req = _init_req(req)
-    _mark_all_reqs_on_courses(req, courses)
+    _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
     _add_course_lists_to_req(req, courses)
     formatted_courses = _format_courses_output(courses)
@@ -147,6 +148,11 @@ def _format_req_output(req):
     return output
     
 def _add_course_lists_to_req(req, courses):
+    """
+    Add course lists for each requirement that either
+    (a) has no subrequirements, or
+    (b) has hidden subrequirements
+    """
     include_course_lists = False
     if "req_list" in req:
         for subreq in req["req_list"]:
@@ -175,7 +181,6 @@ def _init_courses(courses, req_name = None):
     for sem_num,semester in enumerate(courses):
         for course in semester:
             course["name"] = course["name"].split(':')[0]
-            course["used"] = False
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
             course["semester_number"] = sem_num
@@ -196,7 +201,7 @@ def _format_courses_output(courses):
         output.append([])
         for j,course in enumerate(sem):
             output[i].append(collections.OrderedDict())
-            for key in ["name", "used", "possible_reqs", "reqs_satisfied"]:
+            for key in ["name", "possible_reqs", "reqs_satisfied"]:
                 output[i][j][key] = course[key]
             if len(course["settled"]) > 0: # only show if non-empty
                 output[i][j]["settled"] = course["settled"]
@@ -220,6 +225,8 @@ def _init_req_fields(req):
     if "req_list" in req:
         for subreq in req["req_list"]:
             _init_req_fields(subreq)
+    elif "num_courses" in req and req["name"] == None and "completed_by_semester" in req:
+        req["name"] = str(req["num_courses"]) + " completed by semester " + str(req["completed_by_semester"])
     return req
 
 def _init_min_ALL(req):
@@ -268,13 +275,16 @@ def _init_path_to(req):
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
-def _mark_all_reqs_on_courses(req, courses):
+def _get_dir_path():
+    return os.path.dirname(os.path.realpath(__file__))
+
+def _mark_possible_reqs(req, courses):
     """
     Finds all the requirements that each course can satisfy.
     """
     if "req_list" in req: # recursively check subrequirements
         for subreq in req["req_list"]:
-            _mark_all_reqs_on_courses(subreq, courses)
+            _mark_possible_reqs(subreq, courses)
     elif "course_list" in req:
         _mark_courses(req["path_to"],req["course_list"],courses)
     elif "dist_req" in req:
@@ -296,14 +306,13 @@ def _assign_settled_courses_to_reqs(req, courses):
         for subreq in req["req_list"]:
             newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
     elif "course_list" in req:
-        # newly_satisfied = _mark_courses(req["path_to"],req["course_list"], courses)
         newly_satisfied = _mark_settled(req["path_to"], courses)
     elif "dist_req" in req:
-        # newly_satisfied = _mark_dist(req["path_to"],req["dist_req"],courses)
         newly_satisfied = _mark_settled(req["path_to"], courses)
+    elif "num_courses" in req:
+        newly_satisfied = _check_degree_progress(courses, req["num_courses"], req["completed_by_semester"])
     req["count"] += newly_satisfied
     new_deficit = req["min_needed"] - req["count"]
-    # new_available = req["max_counted"] - req["count"]
     if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
         if req["max_counted"] == None: # unlimited
             return req["count"]
@@ -327,7 +336,6 @@ def _mark_courses(path_to, course_list, courses):
                 if _course_match(c["name"], pattern):
                     num_marked += 1
                     c["possible_reqs"].append(path_to)
-                    c["used"] = True
                     break
     return num_marked
 
@@ -338,7 +346,6 @@ def _mark_dist(path_to, dist_req, courses):
                 continue
             if c["dist_area"] == dist_req:
                 c["possible_reqs"].append(path_to)
-                c["used"] = True
                 return 1
     return 0
 
@@ -346,8 +353,6 @@ def _mark_settled(path_to, courses):
     """
     Finds and marks all courses in 'courses' that have been settled to 
     this requirement.
-    Note that settled courses are forced into the requirement
-    regardless of whether the requirement explicitly allows it.
     """
     num_marked = 0
     for sem in courses:
@@ -356,17 +361,30 @@ def _mark_settled(path_to, courses):
                 continue
             if len(c["settled"])>0:
                 for p in c["settled"]: # go through the settled paths
-                    if p in path_to: # c was settled into this requirement
+                    if p in path_to and path_to in c["possible_reqs"]: # c was settled into this requirement
                         num_marked += 1
                         c["reqs_satisfied"].append(path_to)
-                        c["used"] = True
                         break
             elif len(c["possible_reqs"]) == 1 and path_to in c["possible_reqs"]:
                 num_marked += 1
                 c["reqs_satisfied"].append(path_to)
                 c["settled"].append(path_to)
-                c["used"] = True
     return num_marked
+
+def _check_degree_progress(courses, num_needed, by_semester = None):
+    """
+    Checks whether the correct number of courses have been completed by the 
+    end of semester number 'by_semester' (1-8)
+    """
+    num_courses = 0
+    if by_semester == None:
+        by_semester = len(courses)
+    for i in range(by_semester):
+        num_courses += len(courses[i])
+    if num_courses >= num_needed:
+        return 1
+    else:
+        return 0
 
 def _course_match(course_name, pattern):
     pattern = pattern.split(':')[0] # remove course title

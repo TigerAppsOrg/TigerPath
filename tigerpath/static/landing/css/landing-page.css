@@ -124,6 +124,11 @@ footer.footer {
   color: white;
 }
 
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+    color: #fff;
+    background-color: #3d8af7;
+}
+
 .foot-text {
   color: white;
 }
