@@ -147,6 +147,7 @@ class Course_Listing(models.Model):
 class Major(models.Model):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=7)
+    degree = models.CharField(max_length=3)
 
 
 class UserProfile(models.Model):
