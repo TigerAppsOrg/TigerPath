@@ -4,7 +4,8 @@
     "pk": 1,
     "fields": {
       "name": "African American Studies",
-      "code": "AAS"
+      "code": "AAS",
+      "degree": "AB"
     }
   },
   {
@@ -12,7 +13,8 @@
     "pk": 2,
     "fields": {
       "name": "Anthropology",
-      "code": "ANT"
+      "code": "ANT",
+      "degree": "AB"
     }
   },
   {
@@ -20,7 +22,8 @@
     "pk": 3,
     "fields": {
       "name": "Architecture",
-      "code": "ARC"
+      "code": "ARC",
+      "degree": "AB"
     }
   },
   {
@@ -28,7 +31,8 @@
     "pk": 4,
     "fields": {
       "name": "Art and Archaeology",
-      "code": "ART"
+      "code": "ART",
+      "degree": "AB"
     }
   },
   {
@@ -36,7 +40,8 @@
     "pk": 5,
     "fields": {
       "name": "Astrophysical Sciences",
-      "code": "AST"
+      "code": "AST",
+      "degree": "AB"
     }
   },
   {
@@ -44,7 +49,8 @@
     "pk": 6,
     "fields": {
       "name": "Chemistry",
-      "code": "CHM"
+      "code": "CHM",
+      "degree": "AB"
     }
   },
   {
@@ -52,7 +58,8 @@
     "pk": 7,
     "fields": {
       "name": "Classics",
-      "code": "CLA"
+      "code": "CLA",
+      "degree": "AB"
     }
   },
   {
@@ -60,7 +67,8 @@
     "pk": 8,
     "fields": {
       "name": "Comparative Literature",
-      "code": "COM"
+      "code": "COM",
+      "degree": "AB"
     }
   },
   {
@@ -68,7 +76,8 @@
     "pk": 9,
     "fields": {
       "name": "Computer Science - A.B.",
-      "code": "COS-AB"
+      "code": "COS-AB",
+      "degree": "AB"
     }
   },
   {
@@ -76,7 +85,8 @@
     "pk": 10,
     "fields": {
       "name": "East Asian Studies",
-      "code": "EAS"
+      "code": "EAS",
+      "degree": "AB"
     }
   },
   {
@@ -84,7 +94,8 @@
     "pk": 11,
     "fields": {
       "name": "Ecology and Evolutionary Biology",
-      "code": "EEB"
+      "code": "EEB",
+      "degree": "AB"
     }
   },
   {
@@ -92,7 +103,8 @@
     "pk": 12,
     "fields": {
       "name": "Economics",
-      "code": "ECO"
+      "code": "ECO",
+      "degree": "AB"
     }
   },
   {
@@ -100,7 +112,8 @@
     "pk": 13,
     "fields": {
       "name": "English",
-      "code": "ENG"
+      "code": "ENG",
+      "degree": "AB"
     }
   },
   {
@@ -108,7 +121,8 @@
     "pk": 14,
     "fields": {
       "name": "French and Italian",
-      "code": "FIT"
+      "code": "FIT",
+      "degree": "AB"
     }
   },
   {
@@ -116,7 +130,8 @@
     "pk": 15,
     "fields": {
       "name": "Geosciences",
-      "code": "GEO"
+      "code": "GEO",
+      "degree": "AB"
     }
   },
   {
@@ -124,7 +139,8 @@
     "pk": 16,
     "fields": {
       "name": "German",
-      "code": "GER"
+      "code": "GER",
+      "degree": "AB"
     }
   },
   {
@@ -132,7 +148,8 @@
     "pk": 17,
     "fields": {
       "name": "History",
-      "code": "HIS"
+      "code": "HIS",
+      "degree": "AB"
     }
   },
   {
@@ -140,7 +157,8 @@
     "pk": 18,
     "fields": {
       "name": "Mathematics",
-      "code": "MAT"
+      "code": "MAT",
+      "degree": "AB"
     }
   },
   {
@@ -148,7 +166,8 @@
     "pk": 19,
     "fields": {
       "name": "Molecular Biology",
-      "code": "MOL"
+      "code": "MOL",
+      "degree": "AB"
     }
   },
   {
@@ -156,7 +175,8 @@
     "pk": 20,
     "fields": {
       "name": "Music",
-      "code": "MUS"
+      "code": "MUS",
+      "degree": "AB"
     }
   },
   {
@@ -164,7 +184,8 @@
     "pk": 21,
     "fields": {
       "name": "Near Eastern Studies",
-      "code": "NES"
+      "code": "NES",
+      "degree": "AB"
     }
   },
   {
@@ -172,7 +193,8 @@
     "pk": 22,
     "fields": {
       "name": "Neuroscience",
-      "code": "NEU"
+      "code": "NEU",
+      "degree": "AB"
     }
   },
   {
@@ -180,7 +202,8 @@
     "pk": 23,
     "fields": {
       "name": "Philosophy",
-      "code": "PHI"
+      "code": "PHI",
+      "degree": "AB"
     }
   },
   {
@@ -188,7 +211,8 @@
     "pk": 24,
     "fields": {
       "name": "Physics",
-      "code": "PHY"
+      "code": "PHY",
+      "degree": "AB"
     }
   },
   {
@@ -196,7 +220,8 @@
     "pk": 25,
     "fields": {
       "name": "Politics",
-      "code": "POL"
+      "code": "POL",
+      "degree": "AB"
     }
   },
   {
@@ -204,7 +229,8 @@
     "pk": 26,
     "fields": {
       "name": "Psychology",
-      "code": "PSY"
+      "code": "PSY",
+      "degree": "AB"
     }
   },
   {
@@ -212,7 +238,8 @@
     "pk": 27,
     "fields": {
       "name": "Religion",
-      "code": "REL"
+      "code": "REL",
+      "degree": "AB"
     }
   },
   {
@@ -220,7 +247,8 @@
     "pk": 28,
     "fields": {
       "name": "Slavic Languages and Literatures",
-      "code": "SLA"
+      "code": "SLA",
+      "degree": "AB"
     }
   },
   {
@@ -228,7 +256,8 @@
     "pk": 29,
     "fields": {
       "name": "Sociology",
-      "code": "SOC"
+      "code": "SOC",
+      "degree": "AB"
     }
   },
   {
@@ -236,7 +265,8 @@
     "pk": 30,
     "fields": {
       "name": "Spanish and Portuguese",
-      "code": "SPO"
+      "code": "SPO",
+      "degree": "AB"
     }
   },
   {
@@ -244,7 +274,8 @@
     "pk": 31,
     "fields": {
       "name": "Woodrow Wilson School of Public and International Affairs",
-      "code": "WWS"
+      "code": "WWS",
+      "degree": "AB"
     }
   },
   {
@@ -252,7 +283,8 @@
     "pk": 32,
     "fields": {
       "name": "Chemical and Biological Engineering",
-      "code": "CBE"
+      "code": "CBE",
+      "degree": "BSE"
     }
   },
   {
@@ -260,7 +292,8 @@
     "pk": 33,
     "fields": {
       "name": "Civil and Environmental Engineering",
-      "code": "CEE"
+      "code": "CEE",
+      "degree": "BSE"
     }
   },
   {
@@ -268,7 +301,8 @@
     "pk": 34,
     "fields": {
       "name": "Computer Science - B.S.E.",
-      "code": "COS-BSE"
+      "code": "COS-BSE",
+      "degree": "BSE"
     }
   },
   {
@@ -276,7 +310,8 @@
     "pk": 35,
     "fields": {
       "name": "Electrical Engineering",
-      "code": "ELE"
+      "code": "ELE",
+      "degree": "BSE"
     }
   },
   {
@@ -284,7 +319,8 @@
     "pk": 36,
     "fields": {
       "name": "Mechanical and Aerospace Engineering",
-      "code": "MAE"
+      "code": "MAE",
+      "degree": "BSE"
     }
   },
   {
@@ -292,7 +328,8 @@
     "pk": 37,
     "fields": {
       "name": "Operations Research and Financial Engineering",
-      "code": "ORF"
+      "code": "ORF",
+      "degree": "BSE"
     }
   }
 ]
