@@ -8,9 +8,9 @@ import filecmp
 
 import verifier
 
-dir_path = os.path.dirname(os.path.realpath(__file__)) # the directory containing this file
-SCHEMA_LOCATION = os.path.join(dir_path, "schema.json") # path to the requirements JSON schema
-TESTS_LOCATION = os.path.join(dir_path, "verifier_tests") # folder where the test files are stored
+DIR_PATH = os.path.dirname(os.path.realpath(__file__)) # the directory containing this file
+SCHEMA_LOCATION = os.path.join(DIR_PATH, "schema.json") # path to the requirements JSON schema
+TESTS_LOCATION = os.path.join(DIR_PATH, "verifier_tests") # folder where the test files are stored
 
 def _json_format(obj):
    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
@@ -26,7 +26,7 @@ def main():
                 year = int(f.readline())
                 courses = json.loads(f.read())
             major_filename = major_name + "_" + str(year)  + ".json"
-            major_filepath = os.path.join(dir_path, verifier.MAJORS_LOCATION, major_filename)
+            major_filepath = os.path.join(DIR_PATH, verifier.MAJORS_LOCATION, major_filename)
             with open(major_filepath, 'r') as f:
                 major = json.load(f)
             with open(SCHEMA_LOCATION, 'r') as s:

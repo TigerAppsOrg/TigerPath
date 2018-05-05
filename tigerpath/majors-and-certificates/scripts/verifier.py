@@ -53,10 +53,10 @@ def check_degree(degree_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     if degree_name.upper() == "AB":
-        degree_filepath = AB_REQUIREMENTS_LOCATION
+        degree_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
     elif degree_name.upper() == "BSE":
-        degree_filepath = BSE_REQUIREMENTS_LOCATION
-    return check_requirements(_get_dir_path(),degree_filepath, courses, year)
+        degree_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
+    return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
     """
@@ -374,14 +374,13 @@ def _mark_settled(path_to, courses):
 def _check_degree_progress(courses, num_needed, by_semester = None):
     """
     Checks whether the correct number of courses have been completed by the 
-    semester number 'by_semester' (1-8)
+    end of semester number 'by_semester' (1-8)
     """
     num_courses = 0
-    for i,sem in enumerate(courses):
-        for _ in sem:
-            num_courses += 1
-        if i+1 == by_semester: # i ranges 0-7 while by_semester ranges 1-8
-            break
+    if by_semester == None:
+        by_semester = len(courses)
+    for i in range(by_semester):
+        num_courses += len(courses[i])
     if num_courses >= num_needed:
         return 1
     else:
