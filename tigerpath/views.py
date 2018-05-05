@@ -195,8 +195,8 @@ def get_schedule(request):
 def get_requirements(request):
     curr_user = models.UserProfile.objects.get(user=request.user)
     requirements = []
-    requirements.append(check_major(curr_user.major, curr_user.user_schedule, 2018))
-    requirements.append(check_degree('BSE', curr_user.user_schedule, 2018))
+    requirements.append(check_major(curr_user.major, curr_user.user_schedule, curr_user.year))
+    requirements.append(check_degree(curr_user.degree, curr_user.user_schedule, curr_user.year))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 
