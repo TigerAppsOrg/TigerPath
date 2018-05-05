@@ -1,0 +1,108 @@
+{
+    "type": "Certificate",
+    "name": "Applications of Computing",
+    "code": "PAC",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Applications of Computing is an interdisciplinary program designed for Princeton undergraduates who want to combine the study of computing and computers beyond an introductory level with another academic concentration, but who are not majoring in Computer Science. The program welcomes students in all disciplines, including both areas traditionally making heavy use of computation (such as engineering, the physical sciences, economics, and mathematics) and emerging application areas (such as biology, cognitive science, graphic arts, music, history, philosophy, politics, sociology, literature, and so on). Many students have found this program an effective way to apply computer science to their own specialties, and to understand how computing concepts and technology are changing our world.",
+    "urls": [
+        "http://www.cs.princeton.edu/ugrad/certificate-program"
+    ],
+    "contacts": [
+        {
+            "type": "Program Coordinator",
+            "name": "Colleen Kenny",
+            "email": "ckenny@cs.princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Prerequisite",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "COS 126 or permission from placement officer.",
+            "double_counting_allowed": true,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "COS 126",
+                "ISC 231",
+                "ISC 232",
+                "ISC 233",
+                "ISC 234"
+            ]
+        },
+        {
+            "name": "Intermediate",
+            "max_counted": 2,
+            "min_needed": 2,
+            "explanation": "Two courses from among the following four: COS 217, COS 226, COS 323 (cross listed as ORF 363)  and/or COS 324.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 1,
+            "course_list": [
+                "COS 324",
+                "COS 323",
+                "COS 226",
+                "COS 217"
+            ]
+        },
+        {
+            "name": "Substantial Computing Content",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "This may be either a second COS departmental, or an outside course.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "COS 3**",
+                "COS 4**",
+                "APC 524",
+                "ARC 374",
+                "CBE 422",
+                "CBE 442",
+                "CBE 448",
+                "ECO 326",
+                "ELE 375",
+                "ELE 381",
+                "ELE 396",
+                "ELE 463",
+                "ELE 481",
+                "ELE 482",
+                "ELE 475",
+                "MAT 305",
+                "MAE 345",
+                "MAE 412",
+                "MAE 433",
+                "MOL 457",
+                "NEU 314",
+                "NEU 437",
+                "ORF 307",
+                "ORF 301",
+                "MUS 315",
+                "ORF 350",
+                "ORF 417",
+                "ORF 523",
+                "ORF 467",
+                "ORF 311",
+                "ORF 309",
+                "PSY 322",
+                "WWS 357"
+            ]
+        },
+        {
+            "name": "Depth",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "One COS departmental at the 300- or 400-level, not including COS 397, COS 398, COS 497, COS 498, COS 323 (ORF 363) or COS 324. That is, if requirement (2) is satisfied with COS 217 and 226, then COS 323 (ORF 363) or COS 324 cannot count towards satisfying this requirement.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "COS 3**",
+                "COS 4**"
+            ]
+        }
+    ]
+}
