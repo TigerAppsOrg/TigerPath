@@ -1,0 +1,710 @@
+[
+  [
+    {
+      "name": "POL 345",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite"
+      ]
+    },
+    {
+      "name": "ECO 300",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
+      ]
+    },
+    {
+      "name": "HIS 382",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "POL 230/WWS 325",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Politics",
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Political Systems"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
+        "Woodrow Wilson School of Public and International Affairs//Core//Politics"
+      ]
+    },
+    {
+      "name": "WWS 354",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Science Policy",
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Gender, Sexuality, and Families",
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Health and Well Being",
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Race, Ethnicity, and Discrimination",
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Science and Technology"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Science Policy"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Science Policy"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "CHV 261",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
+      ]
+    },
+    {
+      "name": "AMS 364",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
+      ]
+    },
+    {
+      "name": "COS 432",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
+      ]
+    },
+    {
+      "name": "COS 436",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "SPA 101",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "SPA 102",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//000",
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//001"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//000"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
+      ]
+    },
+    {
+      "name": "POR 399",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "WWS 401",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
+      ]
+    },
+    {
+      "name": "WWS 404",
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
+      ]
+    }
+  ]
+]
+
+{
+  "name": "Woodrow Wilson School of Public and International Affairs",
+  "path_to": "Woodrow Wilson School of Public and International Affairs",
+  "satisfied": false,
+  "count": 3,
+  "min_needed": 4,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites",
+      "satisfied": true,
+      "count": 4,
+      "min_needed": 4,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Statistics Prerequisite",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "POL 345"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Microeconomics Prerequisite",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "ECO 300"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "History Prerequisite",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "HIS 382"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Politics, Sociology or Psychology Prerequisite",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "POL 230/WWS 325"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Core",
+      "path_to": "Woodrow Wilson School of Public and International Affairs//Core",
+      "satisfied": false,
+      "count": 2,
+      "min_needed": 9,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Microeconomics",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "ECO 300"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Politics",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Politics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "POL 230/WWS 325"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Sociology or Psychology",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Sociology or Psychology",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Science Policy",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Science Policy",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "WWS 354"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Ethics",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Ethics",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "CHV 261"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Elective Courses",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses",
+          "satisfied": false,
+          "count": 2,
+          "min_needed": 4,
+          "max_counted": 4,
+          "req_list": [
+            {
+              "name": "Human Welfare and Social Policy",
+              "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": null,
+              "req_list": [
+                {
+                  "name": "Education",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Education",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Gender, Sexuality, and Families",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Gender, Sexuality, and Families",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Health and Well Being",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Health and Well Being",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Housing and Urban Issues",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Housing and Urban Issues",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Human Rights",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Human Rights",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Immigration",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Immigration",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Poverty, Inequality, Income, and Social Mobility",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Poverty, Inequality, Income, and Social Mobility",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Race, Ethnicity, and Discrimination",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Race, Ethnicity, and Discrimination",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                }
+              ]
+            },
+            {
+              "name": "Security and Sustainability",
+              "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability",
+              "satisfied": true,
+              "count": 2,
+              "min_needed": 0,
+              "max_counted": null,
+              "req_list": [
+                {
+                  "name": "Conflict and Cooperation",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Conflict and Cooperation",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Development",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Development",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Environment, Climate, and Energy",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [
+                    "AMS 364"
+                  ],
+                  "unsettled": []
+                },
+                {
+                  "name": "Technology and Security",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [
+                    "COS 432"
+                  ],
+                  "unsettled": []
+                },
+                {
+                  "name": "Trade and Finance",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Trade and Finance",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                }
+              ]
+            },
+            {
+              "name": "Institutions and Networks",
+              "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": null,
+              "req_list": [
+                {
+                  "name": "Communications and Media Influence",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Communications and Media Influence",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "International Organizations and Global Governance",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//International Organizations and Global Governance",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Law and Legal Systems",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Law and Legal Systems",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Political Systems",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Political Systems",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Science and Technology",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Science and Technology",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Social Networks",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Social Networks",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                }
+              ]
+            },
+            {
+              "name": "Methodology and Decision Making",
+              "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Methodology and Decision Making",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": null,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Regional Studies",
+              "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": null,
+              "req_list": [
+                {
+                  "name": "Africa",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//Africa",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "East Asia",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//East Asia",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Europe",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//Europe",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Latin America",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//Latin America",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "Middle East",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//Middle East",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "South Asia",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//South Asia",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                },
+                {
+                  "name": "United States of America",
+                  "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Regional Studies//United States of America",
+                  "satisfied": true,
+                  "count": 0,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "path_to": "Woodrow Wilson School of Public and International Affairs//Independent Work",
+      "satisfied": true,
+      "count": 2,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Policy Task Force",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "WWS 401"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Policy Research Seminar",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "WWS 404"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Senior Thesis",
+          "path_to": "Woodrow Wilson School of Public and International Affairs//Independent Work//Senior Thesis",
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": null,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Language Requirement",
+      "path_to": "Woodrow Wilson School of Public and International Affairs//Language Requirement",
+      "satisfied": true,
+      "count": 1,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [
+        "SPA 102",
+        "POR 399"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Field Experience",
+      "path_to": "Woodrow Wilson School of Public and International Affairs//Field Experience",
+      "satisfied": true,
+      "count": 0,
+      "min_needed": 0,
+      "max_counted": null,
+      "settled": [],
+      "unsettled": []
+    }
+  ]
+}

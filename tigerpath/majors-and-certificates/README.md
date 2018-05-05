@@ -54,7 +54,7 @@
                                   // only relevant for certificates
       "pdfs_allowed": false, // whether student is allowed to take the courses SPDF (pass/D/fail)
                              // can be false, true, or a number indicating how many courses
-      "completed_by_semester": 4, // 1-8: semester by which the requirement must be complete
+      "completed_by_semester": 4, // 1-8: semester by the end of which the requirement must be complete
       "req_list": [ //* may be a course_list, a req_list, a dist_req, or a num_courses
         {
           "name": "First Prerequisite", //* a subreq. is only revealed to user if its name is non-null

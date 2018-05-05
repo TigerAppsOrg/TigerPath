@@ -2,22 +2,37 @@
   [
     {
       "name": "COS 126",
-      "used": true,
+      "possible_reqs": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
       "reqs_satisfied": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 226",
-      "used": true,
+      "possible_reqs": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
       "reqs_satisfied": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 217",
-      "used": true,
+      "possible_reqs": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
       "reqs_satisfied": [
+        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
         "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
       ]
     }
@@ -25,81 +40,92 @@
   [
     {
       "name": "COS340",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Theory//000",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "COS 333",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Systems//000",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     }
   ],
   [
     {
-      "name": "COS 398",
-      "used": true,
+      "name": "COS 351/ SOC 353 /WWS351",
+      "possible_reqs": [
+        "Computer Science - AB//Core Courses//General"
+      ],
       "reqs_satisfied": [
+        "Computer Science - AB//Core Courses//General"
+      ],
+      "settled": [
         "Computer Science - AB//Core Courses//General"
       ]
     },
     {
       "name": "ELE 206/COS 306",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Systems//000",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "MUS314/COS314",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "COS 423",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Theory//000",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "COS 436",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     }
   ],
   [
     {
       "name": "ART 213",
-      "used": false,
+      "possible_reqs": [],
       "reqs_satisfied": []
     },
     {
       "name": "NEU 330 / PSY 330",
-      "used": true,
+      "possible_reqs": [
+        "Computer Science - AB//Core Courses//General"
+      ],
       "reqs_satisfied": [
+        "Computer Science - AB//Core Courses//General"
+      ],
+      "settled": [
         "Computer Science - AB//Core Courses//General"
       ]
     },
     {
-      "name": "COS 498",
-      "used": true,
-      "reqs_satisfied": [
+      "name": "COS 401 / LIN 304 / TRA 301",
+      "possible_reqs": [
+        "Computer Science - AB//Core Courses//Applications",
         "Computer Science - AB//Core Courses//General"
-      ]
+      ],
+      "reqs_satisfied": []
     }
   ]
 ]
@@ -108,7 +134,7 @@
   "name": "Computer Science - AB",
   "path_to": "Computer Science - AB",
   "satisfied": false,
-  "count": 1,
+  "count": 0,
   "min_needed": 2,
   "max_counted": null,
   "req_list": [
@@ -126,7 +152,9 @@
           "satisfied": false,
           "count": 0,
           "min_needed": 2,
-          "max_counted": 2
+          "max_counted": 2,
+          "settled": [],
+          "unsettled": []
         },
         {
           "name": "Linear Algebra",
@@ -134,7 +162,9 @@
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
         },
         {
           "name": "Computer Science Prerequisites",
@@ -142,49 +172,84 @@
           "satisfied": true,
           "count": 3,
           "min_needed": 3,
-          "max_counted": 3
+          "max_counted": 3,
+          "settled": [
+            "COS 126",
+            "COS 226",
+            "COS 217"
+          ],
+          "unsettled": []
         }
       ]
     },
     {
       "name": "Core Courses",
       "path_to": "Computer Science - AB//Core Courses",
-      "satisfied": true,
-      "count": 4,
+      "satisfied": false,
+      "count": 1,
       "min_needed": 4,
       "max_counted": 1,
       "req_list": [
         {
           "name": "Theory",
           "path_to": "Computer Science - AB//Core Courses//Theory",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "COS340",
+            "COS 423"
+          ]
         },
         {
           "name": "Systems",
           "path_to": "Computer Science - AB//Core Courses//Systems",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "COS 333",
+            "ELE 206/COS 306"
+          ]
         },
         {
           "name": "Applications",
           "path_to": "Computer Science - AB//Core Courses//Applications",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 2,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "MUS314/COS314",
+            "COS 436",
+            "COS 401 / LIN 304 / TRA 301"
+          ]
         },
         {
           "name": "General",
           "path_to": "Computer Science - AB//Core Courses//General",
           "satisfied": true,
-          "count": 9,
+          "count": 2,
           "min_needed": 2,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [
+            "COS 351/ SOC 353 /WWS351",
+            "NEU 330 / PSY 330"
+          ],
+          "unsettled": [
+            "COS340",
+            "COS 333",
+            "ELE 206/COS 306",
+            "MUS314/COS314",
+            "COS 423",
+            "COS 436",
+            "COS 401 / LIN 304 / TRA 301"
+          ]
         }
       ]
     },
@@ -194,7 +259,9 @@
       "satisfied": true,
       "count": 0,
       "min_needed": 0,
-      "max_counted": null
+      "max_counted": null,
+      "settled": [],
+      "unsettled": []
     }
   ]
 }

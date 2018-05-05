@@ -2,24 +2,29 @@
   [
     {
       "name": "POL 345",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "ECO 300",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "HIS 382",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//History Prerequisite"
       ]
     }
@@ -27,76 +32,101 @@
   [
     {
       "name": "POL 230/WWS 325",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
         "Woodrow Wilson School of Public and International Affairs//Core//Politics",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Political Systems"
-      ]
+      ],
+      "reqs_satisfied": []
     },
     {
       "name": "WWS 354",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Core//Science Policy",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Gender, Sexuality, and Families",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Health and Well Being",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Race, Ethnicity, and Discrimination",
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Science and Technology"
-      ]
+      ],
+      "reqs_satisfied": []
     }
   ],
   [
     {
       "name": "CHV 261",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Core//Ethics"
       ]
     },
     {
       "name": "AMS 364",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Environment, Climate, and Energy"
       ]
     },
     {
       "name": "COS 432",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Security and Sustainability//Technology and Security"
       ]
     },
     {
       "name": "COS 436",
-      "used": false,
+      "possible_reqs": [],
       "reqs_satisfied": []
     }
   ],
   [
     {
       "name": "ART 213",
-      "used": false,
+      "possible_reqs": [],
       "reqs_satisfied": []
     },
     {
       "name": "SPA 101",
-      "used": false,
+      "possible_reqs": [],
       "reqs_satisfied": []
     },
     {
       "name": "SPA 102",
-      "used": true,
-      "reqs_satisfied": [
+      "possible_reqs": [
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//000",
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//001"
+      ],
+      "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//001//000"
+      ],
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
       ]
     },
     {
       "name": "POR 399",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Language Requirement//000"
       ]
     }
@@ -104,15 +134,25 @@
   [
     {
       "name": "WWS 401",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Task Force"
       ]
     },
     {
       "name": "WWS 404",
-      "used": true,
+      "possible_reqs": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
+      ],
       "reqs_satisfied": [
+        "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
+      ],
+      "settled": [
         "Woodrow Wilson School of Public and International Affairs//Independent Work//Policy Research Seminar"
       ]
     }
@@ -123,33 +163,41 @@
   "name": "Woodrow Wilson School of Public and International Affairs",
   "path_to": "Woodrow Wilson School of Public and International Affairs",
   "satisfied": false,
-  "count": 3,
+  "count": 2,
   "min_needed": 4,
   "max_counted": null,
   "req_list": [
     {
       "name": "Prerequisites",
       "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites",
-      "satisfied": true,
-      "count": 4,
+      "satisfied": false,
+      "count": 1,
       "min_needed": 4,
       "max_counted": 1,
       "req_list": [
         {
           "name": "Statistics Prerequisite",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite",
-          "satisfied": true,
-          "count": 1,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "POL 345"
+          ]
         },
         {
           "name": "Microeconomics Prerequisite",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
-          "satisfied": true,
-          "count": 1,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "ECO 300"
+          ]
         },
         {
           "name": "History Prerequisite",
@@ -157,15 +205,24 @@
           "satisfied": true,
           "count": 1,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [
+            "HIS 382"
+          ],
+          "unsettled": []
         },
         {
           "name": "Politics, Sociology or Psychology Prerequisite",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
-          "satisfied": true,
-          "count": 2,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "POL 345",
+            "POL 230/WWS 325"
+          ]
         }
       ]
     },
@@ -173,25 +230,33 @@
       "name": "Core",
       "path_to": "Woodrow Wilson School of Public and International Affairs//Core",
       "satisfied": false,
-      "count": 8,
+      "count": 1,
       "min_needed": 9,
       "max_counted": 1,
       "req_list": [
         {
           "name": "Microeconomics",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics",
-          "satisfied": true,
-          "count": 1,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "ECO 300"
+          ]
         },
         {
           "name": "Politics",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Politics",
-          "satisfied": true,
-          "count": 1,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "POL 230/WWS 325"
+          ]
         },
         {
           "name": "Sociology or Psychology",
@@ -199,15 +264,21 @@
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
         },
         {
           "name": "Science Policy",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Science Policy",
-          "satisfied": true,
-          "count": 1,
+          "satisfied": false,
+          "count": 0,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "WWS 354"
+          ]
         },
         {
           "name": "Ethics",
@@ -215,13 +286,17 @@
           "satisfied": true,
           "count": 1,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [
+            "CHV 261"
+          ],
+          "unsettled": []
         },
         {
           "name": "Elective Courses",
           "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses",
-          "satisfied": true,
-          "count": 7,
+          "satisfied": false,
+          "count": 2,
           "min_needed": 4,
           "max_counted": 4,
           "req_list": [
@@ -229,7 +304,7 @@
               "name": "Human Welfare and Social Policy",
               "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy",
               "satisfied": true,
-              "count": 3,
+              "count": 0,
               "min_needed": 0,
               "max_counted": null,
               "req_list": [
@@ -239,23 +314,33 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Gender, Sexuality, and Families",
                   "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Gender, Sexuality, and Families",
                   "satisfied": true,
-                  "count": 1,
+                  "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": [
+                    "WWS 354"
+                  ]
                 },
                 {
                   "name": "Health and Well Being",
                   "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Health and Well Being",
                   "satisfied": true,
-                  "count": 1,
+                  "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": [
+                    "WWS 354"
+                  ]
                 },
                 {
                   "name": "Housing and Urban Issues",
@@ -263,7 +348,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Human Rights",
@@ -271,7 +358,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Immigration",
@@ -279,7 +368,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Poverty, Inequality, Income, and Social Mobility",
@@ -287,15 +378,21 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Race, Ethnicity, and Discrimination",
                   "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Human Welfare and Social Policy//Race, Ethnicity, and Discrimination",
                   "satisfied": true,
-                  "count": 1,
+                  "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": [
+                    "WWS 354"
+                  ]
                 }
               ]
             },
@@ -313,7 +410,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Development",
@@ -321,7 +420,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Environment, Climate, and Energy",
@@ -329,7 +430,11 @@
                   "satisfied": true,
                   "count": 1,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [
+                    "AMS 364"
+                  ],
+                  "unsettled": []
                 },
                 {
                   "name": "Technology and Security",
@@ -337,7 +442,11 @@
                   "satisfied": true,
                   "count": 1,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [
+                    "COS 432"
+                  ],
+                  "unsettled": []
                 },
                 {
                   "name": "Trade and Finance",
@@ -345,7 +454,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 }
               ]
             },
@@ -353,7 +464,7 @@
               "name": "Institutions and Networks",
               "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks",
               "satisfied": true,
-              "count": 2,
+              "count": 0,
               "min_needed": 0,
               "max_counted": null,
               "req_list": [
@@ -363,7 +474,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "International Organizations and Global Governance",
@@ -371,7 +484,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Law and Legal Systems",
@@ -379,23 +494,33 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Political Systems",
                   "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Political Systems",
                   "satisfied": true,
-                  "count": 1,
+                  "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": [
+                    "POL 230/WWS 325"
+                  ]
                 },
                 {
                   "name": "Science and Technology",
                   "path_to": "Woodrow Wilson School of Public and International Affairs//Core//Elective Courses//Institutions and Networks//Science and Technology",
                   "satisfied": true,
-                  "count": 1,
+                  "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": [
+                    "WWS 354"
+                  ]
                 },
                 {
                   "name": "Social Networks",
@@ -403,7 +528,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 }
               ]
             },
@@ -413,7 +540,9 @@
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
-              "max_counted": null
+              "max_counted": null,
+              "settled": [],
+              "unsettled": []
             },
             {
               "name": "Regional Studies",
@@ -429,7 +558,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "East Asia",
@@ -437,7 +568,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Europe",
@@ -445,7 +578,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Latin America",
@@ -453,7 +588,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "Middle East",
@@ -461,7 +598,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "South Asia",
@@ -469,7 +608,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 },
                 {
                   "name": "United States of America",
@@ -477,7 +618,9 @@
                   "satisfied": true,
                   "count": 0,
                   "min_needed": 0,
-                  "max_counted": null
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
                 }
               ]
             }
@@ -499,7 +642,11 @@
           "satisfied": true,
           "count": 1,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [
+            "WWS 401"
+          ],
+          "unsettled": []
         },
         {
           "name": "Policy Research Seminar",
@@ -507,7 +654,11 @@
           "satisfied": true,
           "count": 1,
           "min_needed": 1,
-          "max_counted": 1
+          "max_counted": 1,
+          "settled": [
+            "WWS 404"
+          ],
+          "unsettled": []
         },
         {
           "name": "Senior Thesis",
@@ -515,7 +666,9 @@
           "satisfied": true,
           "count": 0,
           "min_needed": 0,
-          "max_counted": null
+          "max_counted": null,
+          "settled": [],
+          "unsettled": []
         }
       ]
     },
@@ -523,9 +676,14 @@
       "name": "Language Requirement",
       "path_to": "Woodrow Wilson School of Public and International Affairs//Language Requirement",
       "satisfied": true,
-      "count": 2,
+      "count": 1,
       "min_needed": 1,
-      "max_counted": 1
+      "max_counted": 1,
+      "settled": [
+        "SPA 102",
+        "POR 399"
+      ],
+      "unsettled": []
     },
     {
       "name": "Field Experience",
@@ -533,7 +691,9 @@
       "satisfied": true,
       "count": 0,
       "min_needed": 0,
-      "max_counted": null
+      "max_counted": null,
+      "settled": [],
+      "unsettled": []
     }
   ]
 }

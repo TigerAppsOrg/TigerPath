@@ -1,0 +1,247 @@
+[
+  [
+    {
+      "name": "COS 126",
+      "possible_reqs": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "reqs_satisfied": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ]
+    },
+    {
+      "name": "COS 226",
+      "possible_reqs": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "reqs_satisfied": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ]
+    },
+    {
+      "name": "COS 217",
+      "possible_reqs": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "reqs_satisfied": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ],
+      "settled": [
+        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "COS340",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Theory//000",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "COS 333",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Systems//000",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    }
+  ],
+  [
+    {
+      "name": "COS 398",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//General//000",
+        "Computer Science - BSE//Core Courses//General//001",
+        "Computer Science - BSE//Independent Work"
+      ],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Systems//000",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "MUS314/COS314",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Applications",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "COS 423",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Theory//000",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "COS 436",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//Applications",
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": []
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "NEU 330 / PSY 330",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "reqs_satisfied": [
+        "Computer Science - BSE//Core Courses//General//000"
+      ],
+      "settled": [
+        "Computer Science - BSE//Core Courses//General//000"
+      ]
+    },
+    {
+      "name": "COS 498",
+      "possible_reqs": [
+        "Computer Science - BSE//Core Courses//General//000",
+        "Computer Science - BSE//Core Courses//General//001",
+        "Computer Science - BSE//Independent Work"
+      ],
+      "reqs_satisfied": []
+    }
+  ]
+]
+
+{
+  "name": "Computer Science - BSE",
+  "path_to": "Computer Science - BSE",
+  "satisfied": false,
+  "count": 1,
+  "min_needed": 3,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "path_to": "Computer Science - BSE//Prerequisites",
+      "satisfied": true,
+      "count": 3,
+      "min_needed": 3,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Computer Science Prerequisites",
+          "path_to": "Computer Science - BSE//Prerequisites//Computer Science Prerequisites",
+          "satisfied": true,
+          "count": 3,
+          "min_needed": 3,
+          "max_counted": 3,
+          "settled": [
+            "COS 126",
+            "COS 226",
+            "COS 217"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Core Courses",
+      "path_to": "Computer Science - BSE//Core Courses",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 4,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Theory",
+          "path_to": "Computer Science - BSE//Core Courses//Theory",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "COS340",
+            "COS 423"
+          ]
+        },
+        {
+          "name": "Systems",
+          "path_to": "Computer Science - BSE//Core Courses//Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "COS 333",
+            "ELE 206/COS 306"
+          ]
+        },
+        {
+          "name": "Applications",
+          "path_to": "Computer Science - BSE//Core Courses//Applications",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": [
+            "MUS314/COS314",
+            "COS 436"
+          ]
+        },
+        {
+          "name": "General",
+          "path_to": "Computer Science - BSE//Core Courses//General",
+          "satisfied": false,
+          "count": 1,
+          "min_needed": 2,
+          "max_counted": 1,
+          "settled": [
+            "NEU 330 / PSY 330"
+          ],
+          "unsettled": [
+            "COS340",
+            "COS 333",
+            "COS 398",
+            "ELE 206/COS 306",
+            "MUS314/COS314",
+            "COS 423",
+            "COS 436",
+            "COS 498"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "path_to": "Computer Science - BSE//Independent Work",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": [
+        "COS 398",
+        "COS 498"
+      ]
+    }
+  ]
+}

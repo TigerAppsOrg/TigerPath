@@ -1,0 +1,107 @@
+WWS
+2018
+[
+  [
+    {
+      "name": "POL 345",
+      "title": "",
+      "id": "",
+      "dist_area": ""
+    },
+    {
+      "name": "ECO 300",
+      "title": "",
+      "id": "",
+      "dist_area": "SA"
+    },
+    {
+      "name": "HIS 382",
+      "title": "History of Very Real Things",
+      "id": "",
+      "dist_area": "HA"
+    }
+  ],
+  [
+    {
+      "name": "POL 230/WWS 325",
+      "title": "",
+      "id": "",
+      "dist_area": ""
+    },
+    {
+      "name": "WWS 354",
+      "title": "",
+      "id": "",
+      "dist_area": null
+    }
+  ],
+  [
+    {
+      "name": "CHV 261",
+      "title": "",
+      "id": "",
+      "dist_area": null
+    },
+    {
+      "name": "AMS 364",
+      "title": "",
+      "id": "",
+      "dist_area": ""
+    },
+    {
+      "name": "COS 432",
+      "title": "Information Security",
+      "id": "1184012171",
+      "dist_area": null
+    },
+    {
+      "name": "COS 436",
+      "title": "Human-Computer Interface Technology",
+      "id": "1184021337",
+      "dist_area": null
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "title": "Modernist Art: 1900 to 1950",
+      "id": "1184021312",
+      "dist_area": "LA"
+    },
+    {
+      "name": "SPA 101",
+      "title": "Beginners Spanish",
+      "id": "",
+      "dist_area": ""
+    },
+    {
+      "name": "SPA 102",
+      "title": "Intermediate Spanish",
+      "id": "",
+      "dist_area": "",
+      "settled": [
+        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
+      ]
+    },
+    {
+      "name": "POR 399",
+      "title": "Portuguese",
+      "id": "",
+      "dist_area": null
+    }
+  ],
+  [
+    {
+      "name": "WWS 401",
+      "title": "Policy Seminars",
+      "id": "",
+      "dist_area": ""
+    },
+    {
+      "name": "WWS 404",
+      "title": "Policy Research Seminar",
+      "id": "",
+      "dist_area": ""
+    }
+  ]
+]
