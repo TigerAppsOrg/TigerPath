@@ -250,7 +250,11 @@ class Search extends Component {
                   })
                   ReactDOM.render(
                    data.map((mainReq)=>{
-                      return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReq.name}>{populateReqTree(mainReq)}</TreeView>
+                      let mainReqLabel = <span>
+                                            <div className='my-arrow'></div>
+                                            {mainReq.name}
+                                         </span>
+                      return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
                     }),
                     document.getElementById('requirements')
                   );
