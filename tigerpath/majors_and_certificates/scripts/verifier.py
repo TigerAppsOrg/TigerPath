@@ -7,7 +7,7 @@ import collections
 import time
 import copy
 
-from university_info import LANG_DEPTS
+from .university_info import LANG_DEPTS
 
 majors_location = "../majors/" # path to folder containing the major requirements JSONs
 certificates_location = "../certificates/" # path to folder containing the certificate requirements JSONs
@@ -32,7 +32,7 @@ def check_major(major_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     major_filename = major_name + "_" + str(year)  + ".json"
-    major_filepath = os.path.join(majors_location, major_filename)
+    major_filepath = os.path.join(os.path.dirname(__file__), os.path.join(majors_location, major_filename))
     return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
@@ -52,9 +52,9 @@ def check_degree(degree_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     if degree_name.upper() == "AB":
-        degree_filepath = AB_requirements_location
+        degree_filepath = os.path.join(os.path.dirname(__file__), AB_requirements_location)
     elif degree_name.upper() == "BSE":
-        degree_filepath = BSE_requirements_location
+        degree_filepath = os.path.join(os.path.dirname(__file__), BSE_requirements_location)
     return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):

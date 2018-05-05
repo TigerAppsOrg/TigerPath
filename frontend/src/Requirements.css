@@ -1,4 +1,4 @@
-/* items in semester columns */
+/* items in requirement column */
 #requirements li{
   list-style-type: none;
   background-color: #ADD8E6;
@@ -7,7 +7,16 @@
   margin-bottom: 3px;
   color: #2B547E;
   border-radius: 2px;
+  cursor: pointer;
 }
+
+/* styles all levels */
+#requirements .tree-view_item {
+  padding-left: 3px;
+  cursor: pointer;
+}
+
+/* greyed out unsettled reqs*/
 #requirements .unsettled{
   background-color: #DCDCDC;
 }
@@ -28,9 +37,28 @@
   color: #C71585;
 }
 
+/* styles reqs that are >= min needed*/
+#requirements .tree-sub-reqs .tree-view_item.req_done {
+  background-color: #c4f0c4;
+  color: #228B22;
+}
+
+/* styles levels that have a counter*/
 #requirements .tree-sub-reqs .tree-leaf-req {
   background-color: #d1dcff;
   color: #8153DC;
+  display: flow-root;
+}
+
+/* count of courses*/
+#requirements .tree-sub-reqs .tree-leaf-req .reqCount {
+  float: right;
+  padding-right: 5px;
+}
+
+/* count of courses*/
+#requirements .tree-sub-reqs .tree-leaf-req .reqName {
+  font-size:;
 }
 
 #requirements {

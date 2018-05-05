@@ -11,191 +11,6 @@ import TreeView from 'react-treeview/lib/react-treeview.js';
 var dragula = require('react-dragula');
 var current_request = null;
 
-const reqData = [
-  {
-    "name": "Computer Science - BSE",
-    "path_to": "Computer Science - BSE",
-    "satisfied": true,
-    "count": 3,
-    "min_needed": 3,
-    "max_counted": null,
-    "req_list": [
-      {
-        "name": "Prerequisites",
-        "path_to": "Computer Science - BSE//Prerequisites",
-        "satisfied": true,
-        "count": 3,
-        "min_needed": 3,
-        "max_counted": 1,
-        "req_list": [
-          {
-            "name": "Computer Science Prerequisites",
-            "path_to": "Computer Science - BSE//Prerequisites//Computer Science Prerequisites",
-            "satisfied": true,
-            "count": 3,
-            "min_needed": 3,
-            "max_counted": 3,
-            "settled": [],
-            "unsettled": ["COS340"]
-          }
-        ]
-      },
-      {
-        "name": "Core Courses",
-        "path_to": "Computer Science - BSE//Core Courses",
-        "satisfied": true,
-        "count": 4,
-        "min_needed": 4,
-        "max_counted": 1,
-        "req_list": [
-          {
-            "name": "Theory",
-            "path_to": "Computer Science - BSE//Core Courses//Theory",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": ["COS340"]
-          },
-          {
-            "name": "Systems",
-            "path_to": "Computer Science - BSE//Core Courses//Systems",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": ["COS318"],
-            "unsettled": ["COS333"]
-          },
-          {
-            "name": "Applications",
-            "path_to": "Computer Science - BSE//Core Courses//Applications",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": ["COS340"]
-          },
-          {
-            "name": "General",
-            "path_to": "Computer Science - BSE//Core Courses//General",
-            "satisfied": true,
-            "count": 10,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": []
-
-          }
-        ]
-      },
-      {
-        "name": "Independent Work",
-        "path_to": "Computer Science - BSE//Independent Work",
-        "satisfied": true,
-        "count": 2,
-        "min_needed": 1,
-        "max_counted": 1,
-        "settled": [],
-        "unsettled": ["COS340"]
-      }
-    ]
-  },
-  {
-    "name": "Computer Science - BSE",
-    "path_to": "Computer Science - BSE",
-    "satisfied": true,
-    "count": 3,
-    "min_needed": 3,
-    "max_counted": null,
-    "req_list": [
-      {
-        "name": "Prerequisites",
-        "path_to": "Computer Science - BSE//Prerequisites",
-        "satisfied": true,
-        "count": 3,
-        "min_needed": 3,
-        "max_counted": 1,
-        "req_list": [
-          {
-            "name": "Computer Science Prerequisites",
-            "path_to": "Computer Science - BSE//Prerequisites//Computer Science Prerequisites",
-            "satisfied": true,
-            "count": 3,
-            "min_needed": 3,
-            "max_counted": 3,
-            "settled": [],
-            "unsettled": ["COS340"]
-          }
-        ]
-      },
-      {
-        "name": "Core Courses",
-        "path_to": "Computer Science - BSE//Core Courses",
-        "satisfied": true,
-        "count": 4,
-        "min_needed": 4,
-        "max_counted": 1,
-        "req_list": [
-          {
-            "name": "Theory",
-            "path_to": "Computer Science - BSE//Core Courses//Theory",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": ["COS340"]
-          },
-          {
-            "name": "Systems",
-            "path_to": "Computer Science - BSE//Core Courses//Systems",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": ["COS318"],
-            "unsettled": ["COS333"]
-          },
-          {
-            "name": "Applications",
-            "path_to": "Computer Science - BSE//Core Courses//Applications",
-            "satisfied": true,
-            "count": 2,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": ["COS340"]
-          },
-          {
-            "name": "General",
-            "path_to": "Computer Science - BSE//Core Courses//General",
-            "satisfied": true,
-            "count": 10,
-            "min_needed": 2,
-            "max_counted": 1,
-            "settled": [],
-            "unsettled": []
-
-          }
-        ]
-      },
-      {
-        "name": "Independent Work",
-        "path_to": "Computer Science - BSE//Independent Work",
-        "satisfied": true,
-        "count": 2,
-        "min_needed": 1,
-        "max_counted": 1,
-        "settled": [],
-        "unsettled": ["COS340"]
-      }
-    ]
-  }
-];
-
 // setting up ajax request with csrf
 function getCookie(name) {
     var cookieValue = null;
@@ -238,14 +53,10 @@ class Search extends Component {
       let courseOnReq = $("#requirements").find("li:contains(\'" + course + "\')");
       let courseOnSchedule = $(".semesters").find("p:contains(\'" + course + "\')").parent();
       if(settle){
-        // change class of req element to settled
-        courseOnReq.attr('class', 'settled')
         // find course in schedule, attach req path to the course, and update schedule
         courseOnSchedule.attr('reqs', courseOnSchedule.attr('reqs') + "," + path_to);
       }
       else{
-        // change class of req element to unsettled
-        courseOnReq.attr('class', 'unsettled text-muted')
         // find course in schedule, remove req path to the course, and update schedule
         let pathList = courseOnSchedule.attr('reqs').split(',');
         let pathListRemoved = courseOnSchedule.attr('reqs').split(',').splice(pathList.indexOf(path_to), 1).join()
@@ -261,8 +72,13 @@ class Search extends Component {
             return(<TreeView nodeLabel={requirement['name']}>{populateReqTree(requirement)}</TreeView>);
           }
           else {
-            let counter = requirement['settled'].length + '/' + requirement['min_needed'];
-            return (<TreeView itemClassName="tree-leaf-req" nodeLabel={requirement['name'] + " " + counter}>
+            let finished = '';
+            if(requirement['settled'].length >= requirement['min_needed']) finished=' req_done';
+            let reqLabel = <span>
+                              <span className='reqName'>{requirement['name']}</span>
+                              <span className='reqCount'>{requirement['settled'].length + '/' + requirement['min_needed']}</span>
+                            </span>;
+            return (<TreeView itemClassName={"tree-leaf-req" + finished}  nodeLabel={reqLabel}>
               {requirement['settled'].map((course)=>{
                 return(<li className='settled' onClick={(e)=>{toggleSettle(course, requirement['path_to'], false)}}>{course}</li>);
               })}
@@ -276,26 +92,6 @@ class Search extends Component {
     };
 
     // render data on startup
-
-    // update requirements display
-    // get requirements from existing schedule
-    $.ajax({
-        url: "/api/v1/get_requirements/",
-        datatype: 'json',
-        type: 'GET',
-        cache: true,
-        success: function(data) {
-          if (data !== null) {
-            ReactDOM.render(
-             reqData.map((mainReq)=>{
-                return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReq.name}>{populateReqTree(mainReq)}</TreeView>
-              }),
-              document.getElementById('requirements')
-            );
-          }
-        }
-    });
-
     // get existing schedule and populate semesters
     $.ajax({
         url: "/api/v1/get_schedule/",
@@ -307,7 +103,8 @@ class Search extends Component {
             let index = 1;
             data.map((semester)=> {
               ReactDOM.render(semester.map((course)=> {
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
+                // add , in front for reqs to match format
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip" dist_area={course["dist_area"]} reqs={"," + course['settled'].join(',')}>
                 <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
                 <p className="course-title">{course["title"]}</p>
                 </li>
@@ -323,6 +120,44 @@ class Search extends Component {
               updateSchedule();
               // gets rid of lingering tooltips
               $('.tooltip').tooltip('hide');
+            });
+            // update requirements display, note: requirements depends on schedule shown so we update requirements after schedule is loaded
+            // get requirements from existing schedule
+            $.ajax({
+                url: "/api/v1/get_requirements/",
+                datatype: 'json',
+                type: 'GET',
+                cache: true,
+                success: function(data) {
+                  if (data !== null) {
+                    data = data.map((mainReq)=>{
+                      return mainReq[2]
+                    })
+                    ReactDOM.render(
+                     data.map((mainReq)=>{
+                        return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReq.name}>{populateReqTree(mainReq)}</TreeView>
+                      }),
+                      document.getElementById('requirements')
+                    );
+                    
+                    // makes the entire node (not just the arrow) clickable to collapse/uncollapse a node
+                    $('.tree-view_item').each(function(){
+                      $(this).click(function(){
+                        let arrowCollapsedClass = 'tree-view_arrow-collapsed'
+                        let treeCollapsedClass = 'tree-view_children-collapsed'
+                        let arrowItem = $(this).find('.tree-view_arrow');
+                        if(arrowItem.hasClass(arrowCollapsedClass)){ 
+                          arrowItem.removeClass(arrowCollapsedClass);
+                          $(this).parent().find('.tree-view_children').removeClass(treeCollapsedClass);
+                        }
+                        else {
+                          arrowItem.addClass(arrowCollapsedClass);
+                          $(this).parent().find('.tree-view_children').addClass(treeCollapsedClass);
+                        }
+                      })
+                    });
+                  }
+                }
             });
           }
         }
@@ -374,7 +209,7 @@ class Search extends Component {
             course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
             course_entry["id"] = course.id;
             course_entry["semester"] = course.className.split(" ")[1];
-            course_entry["area"] = course.getAttribute('dist_area');
+            course_entry["dist_area"] = course.getAttribute('dist_area');
             // slice the first element out because it's an empty string: format is ",x,y,z"
             course_entry["settled"] = course.getAttribute('reqs').split(',').slice(1);
             courses_taken[i].push(course_entry);
@@ -387,21 +222,32 @@ class Search extends Component {
       $.ajax({
         url: "/api/v1/update_schedule/",
         type: 'POST',
-        data: courses_taken
+        data: courses_taken,
+        success: function(){
+          // update requirements display
+          // get requirements from existing schedule
+          $.ajax({
+              url: "/api/v1/get_requirements/",
+              datatype: 'json',
+              type: 'GET',
+              cache: true,
+              success: function(data) {
+                if (data !== null) {
+                  data = data.map((mainReq)=>{
+                    return mainReq[2]
+                  })
+                  ReactDOM.render(
+                   data.map((mainReq)=>{
+                      return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReq.name}>{populateReqTree(mainReq)}</TreeView>
+                    }),
+                    document.getElementById('requirements')
+                  );
+                }
+              }
+          });
+        }
       });
 
-      // get requirements from existing schedule
-      $.ajax({
-          url: "/api/v1/get_requirements/",
-          datatype: 'json',
-          type: 'GET',
-          cache: true,
-          success: function(data) {
-            if (data !== null) {
-              ReactDOM.render(<TreeView className="TreeView" nodeLabel={data[2].name}>{populateReqTree(reqData[0])}</TreeView>, document.getElementById('requirements'));
-            }
-          }
-      });
     };
 
     // tells react to post updated course schedule when an item is dropped
@@ -450,7 +296,7 @@ class Search extends Component {
             ReactDOM.render(
               data.map((course)=> {
                 let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip" dist_area={course["area"]} reqs="">
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip" dist_area={course["dist_area"]} reqs="">
                 <p className="course-name">{course["listing"]}</p>
                 <i className="fas fa-times-circle delete-course"></i>
                 <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>

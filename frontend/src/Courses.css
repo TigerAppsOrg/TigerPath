@@ -43,7 +43,7 @@
 }
 
 li:hover{
-  cursor: pointer;
+  cursor: grab;
 }
 
 /* courses in search results */
@@ -104,4 +104,5 @@ li:hover{
 
 .delete-course:hover {
   color: #e74c3c;
+  cursor: pointer;
 }
