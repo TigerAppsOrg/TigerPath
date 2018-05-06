@@ -130,8 +130,8 @@ export function populateReqTree(reqTree){
 // makes the entire node (not just the arrow) clickable to collapse/uncollapse a node
 // removes arrows added by library (their listeners cause bugs) and readd them
 export function makeNodesClickable(){
-  // root arrows kept getting deleted when updating for some reason, this makes sure they stay
-  $('.tree-view_arrow').not('.root-arrow').remove()
+  // arrows kept getting deleted when updating for some reason, this makes sure they stay
+  $('.tree-view_arrow').not('.my-arrow').remove()
   $('.my-arrow').addClass('tree-view_arrow')
   $('.tree-view_item').each(function(){
     $(this).unbind().click(function(){
