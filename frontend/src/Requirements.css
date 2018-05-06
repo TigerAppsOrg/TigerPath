@@ -1,11 +1,11 @@
 /* items in requirement column */
 #requirements li{
   list-style-type: none;
-  background-color: #ADD8E6;
+  background-color: #d1dcff;
   padding-left: 3px;
   margin-right: 3px;
   margin-bottom: 3px;
-  color: #2B547E;
+  color: #4B0082;
   border-radius: 2px;
   cursor: pointer;
 }
@@ -14,6 +14,7 @@
 #requirements .tree-view_item {
   padding-left: 3px;
   cursor: pointer;
+  display: flow-root;
 }
 
 /* greyed out unsettled reqs*/
@@ -28,41 +29,38 @@
   color: white;
 }
 
-/* style everything except main roots and leaves*/
+/* style everything except main roots*/
 #requirements .tree-sub-reqs .tree-view_item {
   border-radius: 2px;
   margin-right: 3px;
   margin-bottom: 3px;
-  background-color: #F7CAC9;
-  color: #C71585;
+  background-color: #ffc0cb;
+  color: #690012;
 }
 
 /* styles reqs that are >= min needed*/
-#requirements .tree-sub-reqs .tree-view_item.req_done {
-  background-color: #c4f0c4;
-  color: #228B22;
-}
-
-/* styles levels that have a counter*/
-#requirements .tree-sub-reqs .tree-leaf-req {
-  background-color: #d1dcff;
-  color: #8153DC;
-  display: flow-root;
+#requirements .tree-sub-reqs .tree-view_item.req-done {
+  background-color: #D0EBCF;
+  color: #045d00;
 }
 
 /* count of courses*/
-#requirements .tree-sub-reqs .tree-leaf-req .reqCount {
+#requirements .tree-sub-reqs .reqCount {
   float: right;
   padding-right: 5px;
 }
 
-/* count of courses*/
-#requirements .tree-sub-reqs .tree-leaf-req .reqName {
+/* reqs with 0 min_needed */
+#requirements .tree-sub-reqs .tree-view_item.null-req .reqCount {
+  display: none;
+}
+
+/* name of courses next to count*/
+#requirements .tree-sub-reqs .reqName {
   font-size:;
 }
 
 #requirements {
   height: calc(100vh - 60px);
   overflow: auto;
-  background-color: #fff4f4;
 }

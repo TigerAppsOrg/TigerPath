@@ -8,6 +8,10 @@ import 'dragula/dist/dragula.css';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
 
+import {toggleSettle} from './Requirements';
+import {populateReqTree} from './Requirements';
+import {makeNodesClickable} from './Requirements';
+
 var dragula = require('react-dragula');
 var current_request = null;
 
@@ -40,60 +44,95 @@ $.ajaxSetup({
     }
 });
 
+// check for duplicates to add tooltip
+let addToolTip = function(course){
+  let added_courses = $('.semester').find('[id=' + course.id +']');
+  let search_list_course = $('#display-courses').find('[id=' + course.id +']');
+  if(added_courses.length > 1){
+    // add tip to course on search list
+    search_list_course.attr('data-original-title', 'Note: class already added');
+    search_list_course.tooltip('enable');
+    added_courses.attr('data-original-title', 'Note: class already added');
+    added_courses.tooltip('enable')
+  }
+  else{
+    search_list_course.attr('data-original-title', '');
+    search_list_course.tooltip('disable');
+    added_courses.each(function(course){
+      $(this).attr('data-original-title', '');
+      $(this).tooltip('disable');
+      });
+    // get rid of lingering toolltips
+    $('.tooltip').tooltip('hide');
+  }
+};
+
+// gets current enrolled courses and sends post request
+export function updateSchedule(){
+  let added_courses = document.querySelectorAll(".semester");
+  let courses_taken = [];
+  let i = 0;
+  added_courses.forEach(function (semester){
+    courses_taken.push([]);
+    semester.childNodes.forEach(function(course){
+      if(typeof course.innerHTML !== 'undefined'){
+        let course_entry = {}
+        course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
+        course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
+        course_entry["id"] = course.id;
+        course_entry["semester"] = course.className.split(" ")[1];
+        course_entry["dist_area"] = course.getAttribute('dist_area');
+        // slice the first element out because it's an empty string: format is ",x,y,z"
+        course_entry["settled"] = course.getAttribute('reqs').split(',').slice(1);
+        courses_taken[i].push(course_entry);
+        addToolTip(course);
+      }
+    })
+    i++;
+  });
+  courses_taken = JSON.stringify(courses_taken);
+  $.ajax({
+    url: "/api/v1/update_schedule/",
+    type: 'POST',
+    data: courses_taken,
+    success: function(){
+      // update requirements display
+      // get requirements from existing schedule
+      $.ajax({
+          url: "/api/v1/get_requirements/",
+          datatype: 'json',
+          type: 'GET',
+          cache: true,
+          success: function(data) {
+            if (data !== null) {
+              // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
+              data = data.map((mainReq)=>{
+                return mainReq[2];
+              });
+              ReactDOM.render(
+               data.map((mainReq, index)=>{
+                  let mainReqLabel = <span>
+                                        <div className='my-arrow root-arrow'></div>
+                                        {mainReq.name}
+                                     </span>
+                  return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+                }),
+                document.getElementById('requirements')
+              );
+              makeNodesClickable();
+            }
+          }
+      });
+    }
+  });
+}
+
 class Search extends Component {
   constructor() {
     super();
     this.state = {
       search: '',
       data: []
-    };
-
-    // settles course and runs verifier to update
-    let toggleSettle = function(course, path_to, settle){
-      let courseOnReq = $("#requirements").find("li:contains(\'" + course + "\')");
-      let courseOnSchedule = $(".semesters").find("p:contains(\'" + course + "\')").parent();
-      if(settle){
-        // find course in schedule, attach req path to the course, and update schedule
-        courseOnSchedule.attr('reqs', courseOnSchedule.attr('reqs') + "," + path_to);
-      }
-      else{
-        // find course in schedule, remove req path to the course, and update schedule
-        let pathList = courseOnSchedule.attr('reqs').split(',');
-        let pathListRemoved = courseOnSchedule.attr('reqs').split(',').splice(pathList.indexOf(path_to), 1).join()
-        courseOnSchedule.attr('reqs', pathListRemoved);
-      }
-      updateSchedule();
-    }
-
-    // traverses req tree to display when updating reqlist
-    let populateReqTree = function(reqTree){
-      return(reqTree['req_list'].map((requirement)=>{
-          if('req_list' in requirement) { 
-            let parentReqLabel = <span>
-                                    <div className='my-arrow'></div>
-                                    {requirement['name']}
-                                 </span>
-            return(<TreeView nodeLabel={parentReqLabel}>{populateReqTree(requirement)}</TreeView>);
-          }
-          else {
-            let finished = '';
-            if(requirement['settled'].length >= requirement['min_needed']) finished=' req_done';
-            let reqLabel = <span>
-                              <div className='my-arrow'></div>
-                              <span className='reqName'>{requirement['name']}</span>
-                              <span className='reqCount'>{requirement['settled'].length + '/' + requirement['min_needed']}</span>
-                           </span>;
-            return (<TreeView itemClassName={"tree-leaf-req" + finished}  nodeLabel={reqLabel}>
-              {requirement['settled'].map((course)=>{
-                return(<li className='settled' onClick={(e)=>{toggleSettle(course, requirement['path_to'], false)}}>{course}</li>);
-              })}
-              {requirement['unsettled'].map((course)=>{
-                return(<li className='unsettled text-muted' onClick={(e)=>{toggleSettle(course, requirement['path_to'], true)}}>{course}</li>);
-              })}
-            </TreeView>);
-          }
-        })
-      );
     };
 
     // render data on startup
@@ -126,51 +165,8 @@ class Search extends Component {
               // gets rid of lingering tooltips
               $('.tooltip').tooltip('hide');
             });
-            // update requirements display, note: requirements depends on schedule shown so we update requirements after schedule is loaded
             // get requirements from existing schedule
-            $.ajax({
-                url: "/api/v1/get_requirements/",
-                datatype: 'json',
-                type: 'GET',
-                cache: true,
-                success: function(data) {
-                  if (data !== null) {
-                    data = data.map((mainReq)=>{
-                      return mainReq[2]
-                    })
-                    ReactDOM.render(
-                     data.map((mainReq)=>{
-                        let mainReqLabel = <span>
-                                              <div className='my-arrow'></div>
-                                              {mainReq.name}
-                                           </span>
-                        return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
-                      }),
-                      document.getElementById('requirements')
-                    );
-              
-                    // makes the entire node (not just the arrow) clickable to collapse/uncollapse a node
-                    // removes arrows added by library (their listeners cause bugs) and readd them
-                    $('.tree-view_arrow').remove()
-                    $('.my-arrow').attr('class', 'tree-view_arrow')
-                    $('.tree-view_item').each(function(){
-                      $(this).click(function(){
-                        let arrowCollapsedClass = 'tree-view_arrow-collapsed'
-                        let treeCollapsedClass = 'tree-view_children-collapsed'
-                        let arrowItem = $(this).find('.tree-view_arrow');
-                        if(arrowItem.hasClass(arrowCollapsedClass)){ 
-                          arrowItem.removeClass(arrowCollapsedClass);
-                          $(this).parent().find('.tree-view_children').removeClass(treeCollapsedClass);
-                        }
-                        else {
-                          arrowItem.addClass(arrowCollapsedClass);
-                          $(this).parent().find('.tree-view_children').addClass(treeCollapsedClass);
-                        }
-                      })
-                    });
-                  }
-                }
-            });
+            updateSchedule();
           }
         }
     });
@@ -183,88 +179,6 @@ class Search extends Component {
       accepts: function(el, target){
         return target.className === "semester";}
     });
-
-    // check for duplicates to add tooltip
-    let addToolTip = function(course){
-      let added_courses = $('.semester').find('[id=' + course.id +']');
-      let search_list_course = $('#display-courses').find('[id=' + course.id +']');
-      if(added_courses.length > 1){
-        // add tip to course on search list
-        search_list_course.attr('data-original-title', 'Note: class already added');
-        search_list_course.tooltip('enable');
-        added_courses.attr('data-original-title', 'Note: class already added');
-        added_courses.tooltip('enable')
-      }
-      else{
-        search_list_course.attr('data-original-title', '');
-        search_list_course.tooltip('disable');
-        added_courses.each(function(course){
-          $(this).attr('data-original-title', '');
-          $(this).tooltip('disable');
-          });
-        // get rid of lingering toolltips
-        $('.tooltip').tooltip('hide');
-      }
-    };
-
-    // gets current enrolled courses and sends post request
-    let updateSchedule = function(){
-      let added_courses = document.querySelectorAll(".semester");
-      let courses_taken = [];
-      let i = 0;
-      added_courses.forEach(function (semester){
-        courses_taken.push([]);
-        semester.childNodes.forEach(function(course){
-          if(typeof course.innerHTML !== 'undefined'){
-            let course_entry = {}
-            course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
-            course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
-            course_entry["id"] = course.id;
-            course_entry["semester"] = course.className.split(" ")[1];
-            course_entry["dist_area"] = course.getAttribute('dist_area');
-            // slice the first element out because it's an empty string: format is ",x,y,z"
-            course_entry["settled"] = course.getAttribute('reqs').split(',').slice(1);
-            courses_taken[i].push(course_entry);
-            addToolTip(course);
-          }
-        })
-        i++;
-      });
-      courses_taken = JSON.stringify(courses_taken);
-      $.ajax({
-        url: "/api/v1/update_schedule/",
-        type: 'POST',
-        data: courses_taken,
-        success: function(){
-          // update requirements display
-          // get requirements from existing schedule
-          $.ajax({
-              url: "/api/v1/get_requirements/",
-              datatype: 'json',
-              type: 'GET',
-              cache: true,
-              success: function(data) {
-                if (data !== null) {
-                  data = data.map((mainReq)=>{
-                    return mainReq[2]
-                  })
-                  ReactDOM.render(
-                   data.map((mainReq)=>{
-                      let mainReqLabel = <span>
-                                            <div className='my-arrow'></div>
-                                            {mainReq.name}
-                                         </span>
-                      return <TreeView itemClassName="tree-root" childrenClassName="tree-sub-reqs"nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
-                    }),
-                    document.getElementById('requirements')
-                  );
-                }
-              }
-          });
-        }
-      });
-
-    };
 
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
@@ -282,7 +196,6 @@ class Search extends Component {
       updateSchedule();
     });
   }
-
 
   // is called whenever search query is modified
   updateSearch(event) {

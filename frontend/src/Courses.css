@@ -42,8 +42,14 @@
 	display:none;
 }
 
-li:hover{
+#display-courses li:hover,
+.semesters li:hover{
   cursor: grab;
+}
+
+#display-courses li:active,
+.semesters li:active{
+  cursor: grabbing !important;
 }
 
 /* courses in search results */
@@ -58,8 +64,8 @@ li:hover{
 }
 
 .course-display.fall {
-  background-color: #ffc0cb;
-  color: #690012;
+  background-color: #ffc993;
+  color: #753a00;
 }
 
 .course-display.spring {
@@ -68,8 +74,8 @@ li:hover{
 }
 
 .course-display.both {
-  background: #D0EBCF;
-  color: #045d00;
+  background: #d1dcff;
+  color: #4B0082;
 }
 
 .course-display p {
