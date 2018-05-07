@@ -35,6 +35,7 @@
   height: auto !important;
   margin: 5px !important;
   padding: 5px !important;
+  cursor: grabbing !important;
 }
 
 .gu-mirror .course-title, .gu-mirror .course-semester{
@@ -43,7 +44,11 @@
 }
 
 li:hover{
-  cursor: pointer;
+  cursor: grab;
+}
+
+li:active {
+  cursor: grabbing;
 }
 
 /* courses in search results */
@@ -103,5 +108,9 @@ li:hover{
 }
 
 .delete-course:hover {
+  color: #e74c3c;
+}
+
+.popover-warning {
   color: #e74c3c;
 }

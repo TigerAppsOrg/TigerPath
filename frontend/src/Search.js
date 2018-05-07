@@ -57,22 +57,22 @@ class Search extends Component {
             let index = 1;
             data.map((semester)=> {
               ReactDOM.render(semester.map((course)=> {
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]}>
                 <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
                 <p className="course-title">{course["title"]}</p>
                 </li>
               }), document.getElementById('sem' + index))
               semester.map((course) => {
-                addToolTip(document.getElementById(course["id"]));
+                addPopover(course["id"]);
               })
               index++;
             });
             // assign delete listeners
-            $(".delete-course").click(function(){
-              $(this).parent().remove();
+            $(".delete-course").click(function() {
+              let course = $(this).parent();
+              course.popover("hide");
+              course.remove();
               updateSchedule();
-              // gets rid of lingering tooltips
-              $('.tooltip').tooltip('hide');
             });
           }
         }
@@ -87,28 +87,37 @@ class Search extends Component {
         return target.className === "semester";}
     });
 
-    // check for duplicates to add tooltip
-    let addToolTip = function(course){
-      let added_courses = $('.semester').find('[id=' + course.id +']');
-      let search_list_course = $('#display-courses').find('[id=' + course.id +']');
-      if(added_courses.length > 1){
-        // add tip to course on search list
-        search_list_course.attr('data-original-title', 'Note: class already added');
-        search_list_course.tooltip('enable');
-        added_courses.attr('data-original-title', 'Note: class already added');
-        added_courses.tooltip('enable')
-      }
-      else{
-        search_list_course.attr('data-original-title', '');
-        search_list_course.tooltip('disable');
-        added_courses.each(function(course){
-          $(this).attr('data-original-title', '');
-          $(this).tooltip('disable');
-          });
-        // get rid of lingering toolltips
-        $('.tooltip').tooltip('hide');
-      }
-    };
+    let addPopover = function(courseId) {
+      let addedCourses = $(".semester").find("[id=" + courseId +"]");
+      addedCourses.each(function() {
+        // Add content to the popover
+        let courseName = $(this).find(".course-name").text();
+        let courseTitle = $(this).find(".course-title").text();
+        $(this).attr("title", courseName);
+        $(this).attr("data-html", "true");
+        if (addedCourses.length > 1) {
+          $(this).attr("data-content", courseTitle + "<br><span class='popover-warning'>Note: course already added</span>");
+        } else {
+          $(this).attr("data-content", courseTitle);
+        }
+        // Show the popover when it's hovered over
+        $(this).popover({ trigger: "manual" , html: true, animation: true})
+        .on("mouseenter", function() {
+            var _this = this;
+            $(this).popover("show");
+            $(".popover").on("mouseleave", function() {
+                $(_this).popover("hide");
+            });
+        }).on("mouseleave", function() {
+            var _this = this;
+            setTimeout(function() {
+                if (!$(".popover:hover").length) {
+                    $(_this).popover("hide");
+                }
+            }, 100);
+        });
+      });
+    }
 
     // gets current enrolled courses and sends post request
     let updateSchedule = function(){
@@ -125,7 +134,7 @@ class Search extends Component {
             course_entry["id"] = course.id;
             course_entry["semester"] = course.className.split(" ")[1]
             courses_taken[i].push(course_entry);
-            addToolTip(course);
+            addPopover(course.id);
           }
         })
         i++;
@@ -141,13 +150,13 @@ class Search extends Component {
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
       // assigns delete listener to dropped item
-      $('[id=' + el.id + ']').each(function(course){
+      $('[id=' + el.id + ']').each(function() {
+        let course = $(this);
         if($(this).parent().hasClass('semester')){
-          $(this).find(".delete-course").click(function(){
-            $(this).parent().remove();
+          course.find(".delete-course").click(function(){
+            course.popover("hide");
+            course.remove();
             updateSchedule();
-            // gets rid of lingering tooltips
-            $('.tooltip').tooltip('hide');
           });
         }
       });
@@ -183,7 +192,7 @@ class Search extends Component {
             ReactDOM.render(
               data.map((course)=> {
                 let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} data-placement="top" data-toggle="tooltip">
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]}>
                 <p className="course-name">{course["listing"]}</p>
                 <i className="fas fa-times-circle delete-course"></i>
                 <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
