@@ -173,8 +173,8 @@ def _add_course_lists_to_req(req, courses):
                         for path in course["reqs_double_counted"]:
                             if req["path_to"] in path:
                                 req["settled"].append(course["name"])
-                                course["reqs_satisfied"].append(req["path_to"]) ## add to these lists because couldn't
-                                course["settled"].append(req["path_to"]) ## be added in _assign_settled_courses_to_reqs()
+                                ## add to reqs_satisfied because couldn't be added in _assign_settled_courses_to_reqs()
+                                course["reqs_satisfied"].append(req["path_to"])
                 elif len(course["settled"]) > 0:
                     for path in course["settled"]:
                         if req["path_to"] in path:
