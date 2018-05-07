@@ -193,7 +193,7 @@ def _init_courses(courses, req_name = None):
             course["reqs_satisfied"] = []
             course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
             course["semester_number"] = sem_num
-            course["num_settlable"] = 0 # number of reqs to which can be settled. autosettled if 1
+            course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
             elif req_name != None: # filter out irrelevant requirements from list
@@ -359,7 +359,7 @@ def _mark_courses(req, courses):
                     num_marked += 1
                     c["possible_reqs"].append(req["path_to"])
                     if not req["double_counting_allowed"]:
-                        c["num_settlable"] += 1
+                        c["num_settleable"] += 1
                     break
     return num_marked
 
@@ -390,7 +390,7 @@ def _mark_settled(req, courses):
                         num_marked += 1
                         c["reqs_satisfied"].append(req["path_to"])
                         break
-            elif c["num_settlable"] == 1 and req["path_to"] in c["possible_reqs"]:
+            elif c["num_settleable"] == 1 and req["path_to"] in c["possible_reqs"]:
                 num_marked += 1
                 c["reqs_satisfied"].append(req["path_to"])
                 c["settled"].append(req["path_to"])
