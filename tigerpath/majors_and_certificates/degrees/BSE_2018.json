@@ -254,7 +254,7 @@
       "pdfs_allowed": true,
       "req_list": [
         {
-          "name": null,
+          "name": "Four Areas",
           "max_counted": 1,
           "min_needed": 4,
           "description": "Humanities and social science courses in 4 areas",
@@ -318,7 +318,7 @@
           ]
         },
         {
-          "name": null,
+          "name": "7 Courses Total",
           "max_counted": 1,
           "min_needed": 7,
           "description": "7 total courses in humanities and social science",

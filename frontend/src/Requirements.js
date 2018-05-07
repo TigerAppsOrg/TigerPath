@@ -30,7 +30,9 @@ export function populateReqTree(reqTree){
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
         let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
         let finished = '';
-        if(requirement['count'] >= requirement['min_needed']) finished='req-done ';
+        if((requirement['min_needed'] == 0 && requirement['count'] >= requirement['max_counted']) || 
+          (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
+            finished='req-done ';
         let tag = '';
         if(requirement['min_needed'] == 0) tag = requirement['count'];
         else tag = requirement['count'] + '/' + requirement['min_needed'];
@@ -45,7 +47,9 @@ export function populateReqTree(reqTree){
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
         let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
         let finished = '';
-        if(requirement['count'] >= requirement['min_needed']) finished='req-done ';
+        if((requirement['min_needed'] == 0 && requirement['count'] >= requirement['max_counted']) || 
+          (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
+            finished='req-done ';
         let tag = '';
         if(requirement['min_needed'] == 0) tag = requirement['count'];
         else tag = requirement['count'] + '/' + requirement['min_needed'];
