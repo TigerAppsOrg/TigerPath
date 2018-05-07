@@ -67,7 +67,7 @@
       "pdfs_allowed": 0,
       "req_list": [
         {
-          "name": "NULL",
+          "name": null,
           "max_counted": 1,
           "min_needed": 0,
           "explanation": "A course from another department",
@@ -86,7 +86,7 @@
           ]
         },
         {
-          "name": "NULL",
+          "name": null,
           "max_counted": 1,
           "min_needed": 2,
           "explanation": "Both PHY 208 and PHY 305 count as a single course. ",
@@ -148,14 +148,13 @@
       "max_counted": 1,
       "min_needed": 8,
       "explanation": "ELE students must take at least two upperclass technical courses in each of the last four semesters. These\n300-level-or-higher courses are called Departmental courses. Of the eight Departmental courses, at least five\nmust be ELE courses. The remaining three courses can be taken in CEE, CHM, CBE, COS, EEB, ELE,\nMAE, MAT, MOL, MSE, ORF or PHY. Courses outside electrical engineering counted towards this\nrequirement must be closely related to the student’s academic program.",
-      "double_counting_allowed": false,
+      "double_counting_allowed": true,
       "pdfs_allowed": 0,
       "req_list": [
         {
-          "name": "NULL",
+          "name": "At least 5 ELE",
           "min_needed": 0,
           "explanation": "At least 5 departmentals must be ELE courses.",
-          "double_counting_allowed": false,
           "pdfs_allowed": 0,
           "course_list": [
             "ELE 3**",
@@ -164,11 +163,10 @@
           ]
         },
         {
-          "name": "NULL",
+          "name": "At most 3 from other departments",
           "max_counted": 3,
           "min_needed": 0,
-          "explanation": "At most 3 departmentals may be from other departments, but these departments must be closely related to the student's program. ",
-          "double_counting_allowed": false,
+          "explanation": "At most 3 departmentals may be from other departments, but these departments must be closely related to the student's program.",
           "pdfs_allowed": 0,
           "course_list": [
             "CEE 3**",
