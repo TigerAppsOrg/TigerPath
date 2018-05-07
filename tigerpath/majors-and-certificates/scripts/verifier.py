@@ -7,7 +7,7 @@ import collections
 import time
 import copy
 
-from university_info import LANG_DEPTS
+from .university_info import LANG_DEPTS
 
 MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
 CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
