@@ -23,96 +23,37 @@ export function toggleSettle(course, path_to, settle){
   updateSchedule();
 }
 
-function getReqsSatisfied(requirement){
-  return requirement['req_list'].map((req)=>{
-    if('req_list' in req) {
-      return getReqsSatisfied(req) >= req['min_needed'];
-    }
-    else {
-      return req['settled'].length >= req['min_needed'];
-    }
-  }).filter(x => x).length;
-}
-
-function getCoursesSatisfied(yearIndex){
-  let numCourses = 0;
-  let sem1 = document.getElementById('sem1').childElementCount;
-  let sem2 = document.getElementById('sem2').childElementCount;
-  let sem3 = document.getElementById('sem3').childElementCount;
-  let sem4 = document.getElementById('sem4').childElementCount;
-  let sem5 = document.getElementById('sem5').childElementCount;
-  let sem6 = document.getElementById('sem6').childElementCount;
-  let sem7 = document.getElementById('sem7').childElementCount;
-  let sem8 = document.getElementById('sem8').childElementCount;
-  let totalCourses = sem1 + sem2 + sem3 + sem4 + sem5 + sem6 + sem7 + sem8;
-  if(yearIndex == 0) numCourses = sem1
-  else if (yearIndex == 1) numCourses = sem1 + sem2 + sem3 + sem4
-  else if (yearIndex == 2) numCourses = sem1 + sem2 + sem3 + sem4 + sem5 + sem6
-  else if (yearIndex == 3) numCourses = totalCourses
-  return numCourses;
-}
-
-function displayDegreeProgress(degreeReqs){
-  return(degreeReqs['req_list'].map((year, index)=>{
-    // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
-    let treeHash = year['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
-    let satisfied = getCoursesSatisfied(index);
-    let finished = '';
-    let minNeeded = parseInt(year['name'].split(' ')[0]);
-    if(satisfied >= minNeeded) finished='req-done ';
-    let yearReqLabel = <span>
-                            <span className='reqName'>{year['name']}</span>
-                            <span className='reqCount'>{satisfied + '/' + minNeeded}</span>
-                        </span>
-    return <TreeView key={treeHash} nodeLabel={yearReqLabel} itemClassName={finished}></TreeView>
-  }));
-}
-
 // traverses req tree to display when updating reqlist
 export function populateReqTree(reqTree){
   return(reqTree['req_list'].map((requirement)=>{
-      if(requirement['name'] == 'Degree Progress'){
-        // 3 is last year index so it gets total courses
-        let finished = ''
-        let totalCourses = getCoursesSatisfied(3);
-        let satisfied = 0;
-        if(totalCourses >= requirement['req_list'][0]['name'].split(' ')[0]) satisfied = 1;
-        if(totalCourses >= requirement['req_list'][1]['name'].split(' ')[0]) satisfied = 2;
-        if(totalCourses >= requirement['req_list'][2]['name'].split(' ')[0]) satisfied = 3;
-        if(totalCourses >= requirement['req_list'][3]['name'].split(' ')[0]) satisfied = 4;
-        if(satisfied >= requirement['min_needed']) finished='req-done';
-        let degreeLabel = <span>
-                          <div className='my-arrow'></div>
-                          <span className='reqName'>{requirement['name']}</span>
-                          <span className='reqCount'>{satisfied + '/' + requirement['min_needed']}</span>
-                          </span>;
-        return <TreeView nodeLabel={degreeLabel} itemClassName={finished}>{displayDegreeProgress(requirement)}</TreeView>
-      }
       if('req_list' in requirement) { 
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
         let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
-        let satisfied = getReqsSatisfied(requirement);
         let finished = '';
-        if(satisfied >= requirement['min_needed']) finished='req-done ';
-        if(requirement['min_needed'] == 0) finished+='null-req ';
+        if(requirement['count'] >= requirement['min_needed']) finished='req-done ';
+        let tag = '';
+        if(requirement['min_needed'] == 0) tag = requirement['count'];
+        else tag = requirement['count'] + '/' + requirement['min_needed'];
         let parentReqLabel = <span>
-                                <div className='my-arrow'></div>
-                                <span className='reqName'>{requirement['name']}</span>
-                                <span className='reqCount'>{satisfied + '/' + requirement['min_needed']}</span>
-                             </span>
+                                  <div className='my-arrow'></div>
+                                  <span className='reqName'>{requirement['name']}</span>
+                                  <span className='reqCount'>{tag}</span>
+                               </span>
         return(<TreeView key={treeHash} nodeLabel={parentReqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
       }
       else {
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
         let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
         let finished = '';
-        if(requirement['settled'].length >= requirement['min_needed']) finished='req-done ';
-        if(requirement['min_needed'] == 0) finished+='null-req ';
+        if(requirement['count'] >= requirement['min_needed']) finished='req-done ';
+        let tag = '';
+        if(requirement['min_needed'] == 0) tag = requirement['count'];
+        else tag = requirement['count'] + '/' + requirement['min_needed'];
         let reqLabel = <span>
-                          <div className='my-arrow'></div>
-                          <span className='reqName'>{requirement['name']}</span>
-                          <span className='reqCount'>{requirement['settled'].length + '/' + requirement['min_needed']}</span>
-                       </span>;
+                            <div className='my-arrow'></div>
+                            <span className='reqName'>{requirement['name']}</span>
+                            <span className='reqCount'>{tag}</span>
+                         </span>;
         return (
                 <TreeView key={treeHash} itemClassName={finished}  nodeLabel={reqLabel}>
                 {requirement['settled'].map((course, index)=>{

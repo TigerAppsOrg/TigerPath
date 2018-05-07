@@ -50,11 +50,6 @@
   padding-right: 5px;
 }
 
-/* reqs with 0 min_needed */
-#requirements .tree-sub-reqs .tree-view_item.null-req .reqCount {
-  display: none;
-}
-
 /* name of courses next to count*/
 #requirements .tree-sub-reqs .reqName {
   font-size:;
