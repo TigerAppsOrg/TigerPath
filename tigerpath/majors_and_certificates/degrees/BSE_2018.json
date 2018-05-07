@@ -318,14 +318,15 @@
           ]
         },
         {
-          "name": "7 Courses Total",
+          "name": "Seven Total Courses",
           "max_counted": 1,
           "min_needed": 7,
           "description": "7 total courses in humanities and social science",
           "explanation": "Candidates for the B.S.E. degree must take a minimum of seven courses in the humanities and social sciences.",
+          "double_counting_allowed": true,
           "req_list": [
             {
-              "name": "Epistemology and Cognition",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Epistemology and Cognition (EC)",
@@ -333,7 +334,7 @@
               "dist_req": "EC"
             },
             {
-              "name": "Ethical Thought and Moral Values",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Ethical Thought and Moral Values (EM)",
@@ -341,7 +342,7 @@
               "dist_req": "EM"
             },
             {
-              "name": "Foreign Language",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Foreign Language — a language course at the 107/108 level or above",
@@ -356,7 +357,7 @@
               ]
             },
             {
-              "name": "Historical Analysis",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Historical Analysis (HA)",
@@ -364,7 +365,7 @@
               "dist_req": "HA"
             },
             {
-              "name": "Literature and the Arts",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Literature and the Arts (LA)",
@@ -372,7 +373,7 @@
               "dist_req": "LA"
             },
             {
-              "name": "Social Analysis",
+              "name": null,
               "max_counted": null,
               "min_needed": null,
               "description": "Social Analysis (SA)",

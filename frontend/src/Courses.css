@@ -35,6 +35,7 @@
   height: auto !important;
   margin: 5px !important;
   padding: 5px !important;
+  cursor: grabbing !important;
 }
 
 .gu-mirror .course-title, .gu-mirror .course-semester{
@@ -42,14 +43,12 @@
 	display:none;
 }
 
-#display-courses li:hover,
-.semesters li:hover{
+li:hover{
   cursor: grab;
 }
 
-#display-courses li:active,
-.semesters li:active{
-  cursor: grabbing !important;
+li:active {
+  cursor: grabbing;
 }
 
 /* courses in search results */
@@ -111,4 +110,8 @@
 .delete-course:hover {
   color: #e74c3c;
   cursor: pointer;
+}
+
+.popover-warning {
+  color: #e74c3c;
 }
