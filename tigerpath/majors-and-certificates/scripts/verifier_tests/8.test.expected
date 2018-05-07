@@ -18,8 +18,7 @@
         "Electrical Engineering//Departmentals//At most 3 from other departments"
       ],
       "settled": [
-        "Electrical Engineering//Mathematics",
-        "Electrical Engineering//Departmentals//At most 3 from other departments"
+        "Electrical Engineering//Mathematics"
       ]
     },
     {
@@ -33,8 +32,7 @@
         "Electrical Engineering//Departmentals//At most 3 from other departments"
       ],
       "settled": [
-        "Electrical Engineering//Breadth",
-        "Electrical Engineering//Departmentals//At most 3 from other departments"
+        "Electrical Engineering//Breadth"
       ]
     }
   ],
@@ -46,10 +44,11 @@
         "Electrical Engineering//Senior Thesis//000"
       ],
       "reqs_satisfied": [
+        "Electrical Engineering//Senior Thesis//000",
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "settled": [
-        "Electrical Engineering//Departmentals//At least 5 ELE"
+        "Electrical Engineering//Senior Thesis//000"
       ]
     },
     {
@@ -63,8 +62,7 @@
         "Electrical Engineering//Departmentals//At most 3 from other departments"
       ],
       "settled": [
-        "Electrical Engineering//Foundation",
-        "Electrical Engineering//Departmentals//At most 3 from other departments"
+        "Electrical Engineering//Foundation"
       ]
     },
     {
@@ -78,8 +76,7 @@
         "Electrical Engineering//Departmentals//At most 3 from other departments"
       ],
       "settled": [
-        "Electrical Engineering//Engineering Science",
-        "Electrical Engineering//Departmentals//At most 3 from other departments"
+        "Electrical Engineering//Engineering Science"
       ]
     },
     {
@@ -89,10 +86,11 @@
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "reqs_satisfied": [
+        "Electrical Engineering//Core",
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "settled": [
-        "Electrical Engineering//Departmentals//At least 5 ELE"
+        "Electrical Engineering//Core"
       ]
     },
     {
@@ -102,10 +100,11 @@
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "reqs_satisfied": [
+        "Electrical Engineering//Core",
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "settled": [
-        "Electrical Engineering//Departmentals//At least 5 ELE"
+        "Electrical Engineering//Core"
       ]
     },
     {
@@ -134,10 +133,11 @@
         "Electrical Engineering//Senior Thesis//001"
       ],
       "reqs_satisfied": [
+        "Electrical Engineering//Senior Thesis//001",
         "Electrical Engineering//Departmentals//At least 5 ELE"
       ],
       "settled": [
-        "Electrical Engineering//Departmentals//At least 5 ELE"
+        "Electrical Engineering//Senior Thesis//001"
       ]
     }
   ]
@@ -147,7 +147,7 @@
   "name": "Electrical Engineering",
   "path_to": "Electrical Engineering",
   "satisfied": false,
-  "count": 2,
+  "count": 4,
   "min_needed": 9,
   "max_counted": null,
   "req_list": [
@@ -166,17 +166,16 @@
     {
       "name": "Core",
       "path_to": "Electrical Engineering//Core",
-      "satisfied": false,
-      "count": 1,
+      "satisfied": true,
+      "count": 3,
       "min_needed": 3,
       "max_counted": 1,
       "settled": [
+        "ELE 301",
+        "ELE 302",
         "ELE 208"
       ],
-      "unsettled": [
-        "ELE 301",
-        "ELE 302"
-      ]
+      "unsettled": []
     },
     {
       "name": "Mathematics",
@@ -517,15 +516,15 @@
     {
       "name": "Senior Thesis",
       "path_to": "Electrical Engineering//Senior Thesis",
-      "satisfied": false,
-      "count": 0,
+      "satisfied": true,
+      "count": 2,
       "min_needed": 2,
       "max_counted": 1,
-      "settled": [],
-      "unsettled": [
+      "settled": [
         "ELE 497",
         "ELE 498"
-      ]
+      ],
+      "unsettled": []
     }
   ]
 }
