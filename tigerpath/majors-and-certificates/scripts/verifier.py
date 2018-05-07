@@ -191,8 +191,9 @@ def _init_courses(courses, req_name = None):
             course["name"] = course["name"].split(':')[0]
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
-            course["reqs_double_counted"] = []
+            course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
             course["semester_number"] = sem_num
+            course["num_settlable"] = 0 # number of reqs to which can be settled. autosettled if 1
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
             elif req_name != None: # filter out irrelevant requirements from list
@@ -305,9 +306,9 @@ def _mark_possible_reqs(req, courses):
         for subreq in req["req_list"]:
             _mark_possible_reqs(subreq, courses)
     elif "course_list" in req:
-        _mark_courses(req["path_to"],req["course_list"],courses)
+        _mark_courses(req, courses)
     elif "dist_req" in req:
-        _mark_dist(req["path_to"],req["dist_req"],courses)
+        _mark_dist(req, courses)
 
 def _assign_settled_courses_to_reqs(req, courses):
     """
@@ -325,13 +326,13 @@ def _assign_settled_courses_to_reqs(req, courses):
         for subreq in req["req_list"]:
             newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
     elif req["double_counting_allowed"]:
-        newly_satisfied = _mark_all(req["path_to"], courses)
+        newly_satisfied = _mark_all(req, courses)
     elif "course_list" in req:
-        newly_satisfied = _mark_settled(req["path_to"], courses)
+        newly_satisfied = _mark_settled(req, courses)
     elif "dist_req" in req:
-        newly_satisfied = _mark_settled(req["path_to"], courses)
+        newly_satisfied = _mark_settled(req, courses)
     elif "num_courses" in req:
-        newly_satisfied = _check_degree_progress(courses, req["num_courses"], req["completed_by_semester"])
+        newly_satisfied = _check_degree_progress(req, courses)
     req["count"] += newly_satisfied
     new_deficit = req["min_needed"] - req["count"]
     if (not was_satisfied) and (new_deficit <= 0): # this req just became satisfied
@@ -347,31 +348,33 @@ def _assign_settled_courses_to_reqs(req, courses):
     else: # requirement still not satisfied
         return 0
 
-def _mark_courses(path_to, course_list, courses):
+def _mark_courses(req, courses):
     num_marked = 0
     for sem in courses:
         for c in sem:
-            if path_to in c["possible_reqs"]: # already used
+            if req["path_to"] in c["possible_reqs"]: # already used
                 continue
-            for pattern in course_list:
+            for pattern in req["course_list"]:
                 if _course_match(c["name"], pattern):
                     num_marked += 1
-                    c["possible_reqs"].append(path_to)
+                    c["possible_reqs"].append(req["path_to"])
+                    if not req["double_counting_allowed"]:
+                        c["num_settlable"] += 1
                     break
     return num_marked
 
-def _mark_dist(path_to, dist_req, courses):
+def _mark_dist(req, courses):
     num_marked = 0
     for sem in courses:
         for c in sem:
-            if path_to in c["possible_reqs"]: # already used
+            if req["path_to"] in c["possible_reqs"]: # already used
                 continue
-            if c["dist_area"] == dist_req:
+            if c["dist_area"] == req["dist_req"]:
                 num_marked += 1
-                c["possible_reqs"].append(path_to)
+                c["possible_reqs"].append(req["path_to"])
     return num_marked
 
-def _mark_settled(path_to, courses):
+def _mark_settled(req, courses):
     """
     Finds and marks all courses in 'courses' that have been settled to 
     this requirement.
@@ -383,17 +386,17 @@ def _mark_settled(path_to, courses):
                 continue
             if len(c["settled"])>0:
                 for p in c["settled"]: # go through the settled paths
-                    if p in path_to and path_to in c["possible_reqs"]: # c was settled into this requirement
+                    if p in req["path_to"] and req["path_to"] in c["possible_reqs"]: # c was settled into this requirement
                         num_marked += 1
-                        c["reqs_satisfied"].append(path_to)
+                        c["reqs_satisfied"].append(req["path_to"])
                         break
-            elif len(c["possible_reqs"]) == 1 and path_to in c["possible_reqs"]:
+            elif c["num_settlable"] == 1 and req["path_to"] in c["possible_reqs"]:
                 num_marked += 1
-                c["reqs_satisfied"].append(path_to)
-                c["settled"].append(path_to)
+                c["reqs_satisfied"].append(req["path_to"])
+                c["settled"].append(req["path_to"])
     return num_marked
 
-def _mark_all(path_to, courses):
+def _mark_all(req, courses):
     """
     Finds and marks all courses in 'courses' that satisfy a requirement where
     double counting is allowed.
@@ -401,22 +404,23 @@ def _mark_all(path_to, courses):
     num_marked = 0
     for sem in courses:
         for c in sem:
-            if path_to in c["possible_reqs"]:
+            if req["path_to"] in c["possible_reqs"]:
                 num_marked += 1
-                c["reqs_double_counted"].append(path_to)
+                c["reqs_double_counted"].append(req["path_to"])
     return num_marked
 
-def _check_degree_progress(courses, num_needed, by_semester = None):
+def _check_degree_progress(req, courses):
     """
     Checks whether the correct number of courses have been completed by the 
     end of semester number 'by_semester' (1-8)
     """
+    by_semester = req["completed_by_semester"]
     num_courses = 0
     if by_semester == None:
         by_semester = len(courses)
     for i in range(by_semester):
         num_courses += len(courses[i])
-    if num_courses >= num_needed:
+    if num_courses >= req["num_courses"]:
         return 1
     else:
         return 0
