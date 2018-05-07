@@ -80,7 +80,7 @@ table.semesters {
 }
 
 table td {
-  border: 2px solid white;
+  border: 0px solid white;
 }
 table tr:first-child td {
   border-top: 0;
@@ -94,17 +94,33 @@ table tr:last-child td {
 table tr td:last-child {
   border-right: 0;
 }
+table {
+  width: 100vw;
+}
+thead, tbody, tr, td, th {
+  display: inline-block;
+  white-space: nowrap;
+  overflow : hidden;
+  vertical-align : top;
+}
+tbody td {
+  height: calc(50vh - 60px);
+  overflow-y: auto;
+}
 
 .semester {
   background-color: #eee;
   vertical-align: top;
   height: calc(50vh - 60px);
-  width: 25%;
+  width: calc(25vw - 93px);
   list-style-type: none;
 }
 thead.semester-header {
   color: #FFFFFF;
   text-align: center;
+}
+thead.semester-header td {
+  width: calc(25vw - 93px);
 }
 .fall-sem {
   background-color: #ff647f;
