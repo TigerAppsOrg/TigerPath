@@ -26,7 +26,7 @@ def main():
                 year = int(f.readline())
                 courses = json.loads(f.read())
             major_filename = major_name + "_" + str(year)  + ".json"
-            major_filepath = os.path.join("scripts", verifier.MAJORS_LOCATION, major_filename)
+            major_filepath = os.path.join(DIR_PATH, "scripts", verifier.MAJORS_LOCATION, major_filename)
             with open(major_filepath, 'r') as f:
                 major = json.load(f)
             with open(SCHEMA_LOCATION, 'r') as s:
