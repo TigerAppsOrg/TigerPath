@@ -114,6 +114,7 @@ def _init_req(req):
     req = copy.deepcopy(req)
     _init_req_fields(req)
     _init_min_ALL(req)
+    _init_double_counting_allowed(req)
     _init_path_to(req)
     return req
 
@@ -167,7 +168,14 @@ def _add_course_lists_to_req(req, courses):
         req["unsettled"] = []
         for sem in courses:
             for course in sem:
-                if len(course["settled"]) > 0:
+                if req["double_counting_allowed"]: 
+                    if len(course["reqs_double_counted"]) > 0:
+                        for path in course["reqs_double_counted"]:
+                            if req["path_to"] in path:
+                                req["settled"].append(course["name"])
+                                course["reqs_satisfied"].append(req["path_to"]) ## add to these lists because couldn't
+                                course["settled"].append(req["path_to"]) ## be added in _assign_settled_courses_to_reqs()
+                elif len(course["settled"]) > 0:
                     for path in course["settled"]:
                         if req["path_to"] in path:
                             req["settled"].append(course["name"])
@@ -183,6 +191,7 @@ def _init_courses(courses, req_name = None):
             course["name"] = course["name"].split(':')[0]
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
+            course["reqs_double_counted"] = []
             course["semester_number"] = sem_num
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
@@ -250,6 +259,16 @@ def _init_min_ALL(req):
     else:
         return min(req["max_counted"], num_counted_from_below)
 
+def _init_double_counting_allowed(req, from_parent=False):
+    """
+    Initializes the double_counting_allowed field in all subtrees
+    """
+    if "double_counting_allowed" not in req:
+        req["double_counting_allowed"] = from_parent
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            _init_double_counting_allowed(subreq, req["double_counting_allowed"])
+
 def _init_path_to(req):
     '''
     Assign a path identifier to each node/subrequirement in the requirements 
@@ -305,6 +324,8 @@ def _assign_settled_courses_to_reqs(req, courses):
     if "req_list" in req: # recursively check subrequirements
         for subreq in req["req_list"]:
             newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
+    elif req["double_counting_allowed"]:
+        newly_satisfied = _mark_all(req["path_to"], courses)
     elif "course_list" in req:
         newly_satisfied = _mark_settled(req["path_to"], courses)
     elif "dist_req" in req:
@@ -370,6 +391,19 @@ def _mark_settled(path_to, courses):
                 num_marked += 1
                 c["reqs_satisfied"].append(path_to)
                 c["settled"].append(path_to)
+    return num_marked
+
+def _mark_all(path_to, courses):
+    """
+    Finds and marks all courses in 'courses' that satisfy a requirement where
+    double counting is allowed.
+    """
+    num_marked = 0
+    for sem in courses:
+        for c in sem:
+            if path_to in c["possible_reqs"]:
+                num_marked += 1
+                c["reqs_double_counted"].append(path_to)
     return num_marked
 
 def _check_degree_progress(courses, num_needed, by_semester = None):
