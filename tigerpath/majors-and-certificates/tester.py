@@ -9,7 +9,7 @@ import filecmp
 from scripts import verifier
 
 DIR_PATH = os.path.dirname(os.path.realpath(__file__)) # the directory containing this file
-SCHEMA_LOCATION = os.path.join(DIR_PATH, "scripts/schema.json") # path to the requirements JSON schema
+SCHEMA_LOCATION = os.path.join(DIR_PATH, "schema.json") # path to the requirements JSON schema
 TESTS_LOCATION = os.path.join(DIR_PATH, "verifier_tests") # folder where the test files are stored
 
 def _json_format(obj):
