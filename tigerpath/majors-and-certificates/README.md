@@ -12,7 +12,6 @@
 | AAA \*\*\*<br>AAA \*                              | any course in department AAA                                                      |
 | AAA 2\*\*<br>AAA 2\*                              | any 200 level course in department AAA                                            |
 | **LANG** 101                                      | the 101 course in any language department                                         |
-| **LANG**                                          | the distribution requirements for any one language                                |
 | **STL**<br>**STN**<br>**EC**, **EM**, **HA**, etc | Distribution requirements                                                         |
 | AAA 101: Intro to Aardvarks                       | course listing with title <br>(title is ignored and only for human readability)   |
 
