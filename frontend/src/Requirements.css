@@ -3,11 +3,16 @@
   list-style-type: none;
   background-color: #d1dcff;
   padding-left: 3px;
+  padding-right: 3px;
   margin-right: 3px;
   margin-bottom: 3px;
   color: #4B0082;
   border-radius: 2px;
   cursor: pointer;
+
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 /* styles all levels */
