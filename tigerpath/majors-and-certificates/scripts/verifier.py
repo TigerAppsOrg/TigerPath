@@ -340,14 +340,15 @@ def _mark_courses(path_to, course_list, courses):
     return num_marked
 
 def _mark_dist(path_to, dist_req, courses):
+    num_marked = 0
     for sem in courses:
         for c in sem:
             if path_to in c["possible_reqs"]: # already used
                 continue
             if c["dist_area"] == dist_req:
+                num_marked += 1
                 c["possible_reqs"].append(path_to)
-                return 1
-    return 0
+    return num_marked
 
 def _mark_settled(path_to, courses):
     """
