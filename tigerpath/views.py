@@ -11,6 +11,7 @@ from .majors_and_certificates.scripts.verifier import check_major, check_degree
 import django_cas_ng.views
 import ujson
 import re
+import requests
 
 
 # cas auth login
@@ -66,18 +67,27 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-# onboarding page
+# save the info on the onboarding page
 @login_required
-def onboarding(request):
+def save_onboarding(request):
     update_profile(request, forms.OnboardingForm)
     return redirect('index')
 
 
-# user settings page
+# save the info on the user settings page
 @login_required
-def user_settings(request):
+def save_user_settings(request):
     update_profile(request, forms.SettingsForm)
     return redirect('index')
+
+
+def transcript(request):
+    ticket = request.GET.get('ticket', None)
+    if ticket:
+        print(ticket)
+        r = requests.get('https://transcriptapi.tigerapps.org/transcript?ticket=' + ticket)
+        r.json() if r.status_code == 200 else None
+    return HttpResponse(request)
 
 
 # checks whether the form data is valid and returns the updated user profile

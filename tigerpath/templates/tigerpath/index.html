@@ -44,11 +44,11 @@
       <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
         <div>
-        <a class="btn" href="#" id="settings-btn">Settings</a>
-        <a class="btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
-        <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
-        <a class="btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
-        <a class="btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
+        <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
+        <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
+        <a class="btn nav-btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
+        <a class="btn nav-btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
+        <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
         </div>
       </div>
     </nav>

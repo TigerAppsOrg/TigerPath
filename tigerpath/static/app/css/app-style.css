@@ -122,11 +122,11 @@ thead.semester-header {
    padding-left: 0 !important;
 }
 
-.btn {
+.nav-btn {
   color: white;
 }
 
-.btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+.nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
     color: #fff;
     background-color: #3d8af7;
 }

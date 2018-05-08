@@ -6,8 +6,9 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('landing', views.landing, name='landing'),
     path('about', views.about, name='about'),
-    path('onboarding', views.onboarding, name='onboarding'),
-    path('settings', views.user_settings, name='settings'),
+    path('onboarding/save', views.save_onboarding, name='save_onboarding'),
+    path('settings/save', views.save_user_settings, name='save_settings'),
+    path('transcript', views.transcript, name='transcript'),
     # cas auth
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),

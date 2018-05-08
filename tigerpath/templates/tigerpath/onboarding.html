@@ -1,14 +1,21 @@
 <div class="modal fade in" id="onboarding-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="onboarding-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <form method="post" action="{% url 'onboarding' %}" class="modal-content" id="onboarding-form">
+    <form method="post" action="{% url 'save_onboarding' %}" class="modal-content" id="onboarding-form">
       <div class="modal-header">
         <h5 class="modal-title" id="onboarding-modal-label">Welcome to TigerPath!</h5>
       </div>
       <div class="modal-body">
         <div class="container">
-          <p>Before we get started, please answer a few questions about yourself. Then you'll be on your way to creating your four-year course plan!</p>
+          <p>Before we get started, there's a few things we need to take care of. Then you'll be on your way to creating your four-year course schedule!
+          <h6>Confirm your info</h6>
+          <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
           {% csrf_token %}
           {% include 'includes/bs4_form.html' with form=onboarding_form %}
+          <h6 class="mt-4">Prepopulate your course schedule (Optional)</h6>
+          <p>If you're interested in prepopulating your four-year course schedule with courses you've already taken, then you can upload your official transcript to the TigerApps Transcript Service:</p>
+          <a class="btn btn-outline-primary" href="https://transcriptapi.tigerapps.org?redirect={{request.META.HTTP_HOST}}{% url 'transcript' %}" target="_blank">Go to TigerApps Transcript Service</a>
+          <p class="mt-3">Check "Share Courses", upload your official transcript as a PDF file, and click the submit button. The service will extract the courses you've taken, and we'll automatically put them into your schedule.</p>
+          <p>Using the Transcript Service is optional. If you'd like, you can click "Done" below and populate your schedule manually.</p>
         </div>
       </div>
       <div class="modal-footer">
