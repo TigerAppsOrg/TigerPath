@@ -5,6 +5,7 @@ import jsonschema # must be installed via pip
 import os
 import collections
 import filecmp
+import shutil
 
 import verifier
 
@@ -40,11 +41,18 @@ def main():
                 f.write(_json_format(courses))
                 f.write("\n")
                 f.write(_json_format(req_tree))
+            # use the most informative diff output
+            if shutil.which("colordiff"):
+                diff = "colordiff"
+            elif shutil.which("diff"):
+                diff = "diff"
+            else:
+                diff = "cmp"
             # check if output is correct
             if not filecmp.cmp(file_path+".expected", file_path+".out"):
                 print("--- Failed")
                 if test_failed == None:
-                    test_failed = "echo 'Failed test:' %s; colordiff %s %s | head -10" % (file_path, file_path+".expected", file_path+".out")
+                    test_failed = "echo 'Failed test:' %s; %s %s %s | head -10" % (file_path, diff, file_path+".expected", file_path+".out")
     if test_failed:
         os.system(test_failed)
 
