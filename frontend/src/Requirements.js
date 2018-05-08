@@ -14,19 +14,15 @@ export function toggleSettle(course, path_to, settle){
   let courseOnScheduleNotAssigned = '';
   // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
   allCoursesOnSchedule.each(function(){
-    if($(this).attr('reqs').indexOf(path_to) === -1) courseOnScheduleNotAssigned = $(this);
+    if($(this).data('reqs').indexOf(path_to) === -1) courseOnScheduleNotAssigned = $(this);
     else courseOnScheduleAssigned = $(this);
   });
   if(settle){
     // find course in schedule, attach req path to the course, and update schedule
-    courseOnScheduleNotAssigned.attr('reqs', courseOnScheduleNotAssigned.attr('reqs') + path_to + '$');
+    courseOnScheduleNotAssigned.data('reqs').push(path_to);
   }
   else{
-    // find course in schedule, remove req path to the course, and update schedule
-    let pathList = courseOnScheduleAssigned.attr('reqs').split('$');
-    pathList.splice(pathList.indexOf(path_to), 1).join()
-    let pathListRemoved = pathList;
-    courseOnScheduleAssigned.attr('reqs', pathListRemoved);
+    courseOnScheduleAssigned.data('reqs').splice(courseOnScheduleAssigned.data('reqs').indexOf(path_to), 1)
   }
   updateSchedule();
 }
