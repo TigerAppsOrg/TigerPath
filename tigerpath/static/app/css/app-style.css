@@ -80,7 +80,7 @@ table.semesters {
 }
 
 table td {
-  border: 2px solid white;
+  border: 0px solid white;
 }
 table tr:first-child td {
   border-top: 0;
@@ -111,7 +111,7 @@ tbody td {
   background-color: #eee;
   vertical-align: top;
   height: calc(50vh - 60px);
-  width: 17vw;
+  width: 16.2vw;
   list-style-type: none;
 }
 thead.semester-header {
@@ -119,14 +119,14 @@ thead.semester-header {
   text-align: center;
 }
 thead.semester-header td {
-  width: 17vw;
+  width: 16.2vw;
 }
 @media (max-width: 50rem) {
   .semester {
-    width: 25vw;
+    width: 24.3vw;
   }
   thead.semester-header td {
-    width: 25vw;
+    width: 24.3vw;
   }
 }
 .fall-sem {
