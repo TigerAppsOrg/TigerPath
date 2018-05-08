@@ -110,9 +110,9 @@ export function updateSchedule(){
   let added_courses = document.querySelectorAll(".semester");
   let courses_taken = [];
   let i = 0;
-  added_courses.forEach(function (semester){
+  added_courses.forEach(function (semester, sem_num){
     courses_taken.push([]);
-    semester.childNodes.forEach(function(course){
+    semester.childNodes.forEach(function(course, course_index){
       if(typeof course.innerHTML !== 'undefined'){
         let course_entry = {}
         course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
@@ -120,8 +120,7 @@ export function updateSchedule(){
         course_entry["id"] = course.id;
         course_entry["semester"] = course.className.split(" ")[1];
         course_entry["dist_area"] = course.getAttribute('dist_area');
-        // slice the last element out because it's an empty string: format is "x,y,z,"
-        course_entry["settled"] = course.getAttribute('reqs').split(',').slice(0, -1);
+        course_entry["settled"] = $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs');
         courses_taken[i].push(course_entry);
         addPopover(course.id);
       }
@@ -158,21 +157,19 @@ class Search extends Component {
         success: function(data) {
           if (data !== null) {
             let index = 1;
-            data.map((semester)=> {
+            data.map((semester, sem_num)=> {
               ReactDOM.render(semester.map((course)=> {
-                let courseReqs = ''
-                if(course['settled'].length > 0) courseReqs = course['settled'].join(',') + ',';
-                return (
-                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs={courseReqs}>
+                return(
+                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
                   <span className="grip-dots"></span>
                   <div className="course-content">
-                  <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
-                  <p className="course-title">{course["title"]}</p>
+                    <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
+                    <p className="course-title">{course["title"]}</p>
                   </div>
-                </li>
-                )
+                </li>)
               }), document.getElementById('sem' + index))
-              semester.map((course) => {
+              semester.map((course, course_index) => {
+                $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs', course['settled'])
                 addPopover(course["id"]);
               })
               index++;
@@ -186,7 +183,7 @@ class Search extends Component {
             });
           }
           // get requirements from existing schedule
-          renderRequirements();
+          updateSchedule();
         }
     });
 
@@ -204,6 +201,8 @@ class Search extends Component {
       // assigns delete listener to dropped item
       $('.semesters').find('[id=' + el.id + ']').each(function(index) {
         let course = $(this);
+        // initializes req list for each dropped item
+        course.data('reqs', [])
         if($(this).parent().hasClass('semester')){
           course.find(".delete-course").click(function(){
             course.popover("hide");
@@ -245,17 +244,18 @@ class Search extends Component {
               data.map((course)=> {
                 let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
                 return (
-                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs="">
-                <span className="grip-dots"></span>
-                <div className="course-content">
-                  <p className="course-name">{course["listing"]}</p>
-                  <i className="fas fa-times-circle delete-course"></i>
-                  <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
-                  <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
-                  <p className="course-title">{course["title"]}</p>
-                  <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
-                </div>
-                </li>)
+                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
+                  <span className="grip-dots"></span>
+                  <div className="course-content">
+                    <p className="course-name">{course["listing"]}</p>
+                    <i className="fas fa-times-circle delete-course"></i>
+                    <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
+                    <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
+                    <p className="course-title">{course["title"]}</p>
+                    <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
+                  </div>
+                </li>
+                )
             }),
             document.getElementById('display-courses')
             )
