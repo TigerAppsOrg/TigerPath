@@ -198,7 +198,7 @@ class Search extends Component {
       $('.semesters').find('[id=' + el.id + ']').each(function(index) {
         let course = $(this);
         // initializes req list for each dropped item
-        course.data('reqs', [])
+        if(course.data('reqs') === undefined) course.data('reqs', [])
         if($(this).parent().hasClass('semester')){
           course.find(".delete-course").click(function(){
             course.popover("hide");
