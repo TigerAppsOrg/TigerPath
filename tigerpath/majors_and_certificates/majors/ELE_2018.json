@@ -61,17 +61,16 @@
     {
       "name": "Breadth",
       "max_counted": 1,
-      "min_needed": 1,
+      "min_needed": 2,
       "explanation": "At least one department elective course, 300-level or above, in an area distinct from your area of\nconcentration. The following courses are also possible: COS 318, 320, 333, 402, 426, 429, 432, 441, 461;\nPHY 208/305 – must take both PHY208 and PHY 305 (counts as one). Note: ORF309 cannot be used to\nsatisfy this requirement. Of special note: TigerHub states you need one course each in two areas. One of\nyour concentration courses will serve as one of the two needed. This means you need one course outside of\nconcentration and the other course will naturally fall into your concentration. The departmental\nrepresentative is the final authority on whether or not a course can fulfill a requirement.",
-      "double_counting_allowed": false,
+      "double_counting_allowed": true,
       "pdfs_allowed": 0,
       "req_list": [
         {
-          "name": null,
+          "name": "A course from another department",
           "max_counted": 1,
           "min_needed": 0,
           "explanation": "A course from another department",
-          "double_counting_allowed": false,
           "pdfs_allowed": 0,
           "course_list": [
             "COS 318",
@@ -86,15 +85,199 @@
           ]
         },
         {
-          "name": null,
+          "name": "PHY 208 and PHY 305",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Both PHY 208 and PHY 305 count as a single course. ",
-          "double_counting_allowed": false,
+          "explanation": "Both PHY 208 and PHY 305 count as a single course.",
           "pdfs_allowed": 0,
           "course_list": [
             "PHY 208",
             "PHY 305"
+          ]
+        },
+        {
+          "name": "Circuits and Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required:\nELE304 Electronic Circuits: Devices to ICs (S)\nTwo courses from:\n ELE341 Solid State Devices (F)\n COS/ELE375 Computer Architecture and Organization (S)\n ELE382 Statistical Signal Processing (F)\n ELE461* Design with Nanotechnologies\n ELE462 Design of VLSI (F)\n ELE464 Embedded Computing (S)\n ELE475 Computer Architecture (S)\n ELE481 Power Electronics (S)\n ELE482 Digital Signal Processing (S)\n * ELE461 no longer offered, but past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 341",
+            "ELE 375",
+            "ELE 382",
+            "ELE 461",
+            "ELE 462",
+            "ELE 464",
+            "ELE 475",
+            "ELE 481",
+            "ELE 482"
+          ]
+        },
+        {
+          "name": "Data and Information",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required:\nORF309* Probability and Stochastic Systems (F & S)\nTwo courses from:\n ELE364** Machine Learning for Predictive Data Analysis (F)\n ELE381 Networks: Friends, Money and Bytes (F)\n ELE382 Statistical Signal Processing (F)\n ELE477** Kernel Methods in Machine Learning (F)\n ELE482 Digital Signal Processing (S)\n ELE486 Transmission and Compression of Information (S)\n ELE488***Image Processing\n ELE435** Machine Learning and Pattern Recognition (F)\n COS324**Introduction to Machine Learning (F)\n COS402 **Artificial Intelligence\n COS424** Fundamentals of Machine Learning (S)\n COS429 Computer Vision (F)\n *To concentrate in Data and Information, a student must take\nORF309. It can be used to fulfill the concentration or upper level\nmath requirement, but not both\n**Only one Machine Learning course may be applied to this\nconcentration\n***ELE488 no longer offered, but past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ORF 309",
+            "ELE 381",
+            "ELE 382",
+            "ELE 482",
+            "ELE 486",
+            "ELE 488",
+            "COS 429",
+            "ELE 364",
+            "ELE 477",
+            "ELE 435",
+            "COS 324",
+            "COS 402",
+            "COS 424"
+          ]
+        },
+        {
+          "name": "Computer Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: COS/ELE375 Computer Architecture and Organization (S) Two courses from: ELE461* Design with Nanotechnologies ELE462 Design of VLSI (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) ELE475 Computer Architecture (S) COS318 Operating Systems (F) COS320 Compiling Techniques (S) COS461 Computer Networks (S) * No longer offered, but past students may use it for this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 375",
+            "ELE 461",
+            "ELE 462",
+            "ELE 464",
+            "ELE 470",
+            "ELE 475",
+            "COS 318",
+            "COS 320",
+            "COS 461"
+          ]
+        },
+        {
+          "name": "Security and Privacy",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: COS/ELE432 Information Security (F & S) Two courses from: COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) COS324**Introduction to Machine Learning (F) COS402**Artificial Intelligence COS424** Fundamentals of Machine Learning (S) COS433 Cryptography (S) COS461 Computer Networks (S) ** Only one Machine Learning course may be applied towards thisconcentraiton",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "COS 432",
+            "COS 375",
+            "ELE 464",
+            "ELE 470",
+            "COS 433",
+            "COS 461",
+            "ELE 364",
+            "ELE 435",
+            "COS 324",
+            "COS 402",
+            "COS 424"
+          ]
+        },
+        {
+          "name": "Electronic Devices and Materials",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: ELE341 Solid State Devices (F) Two courses from: ELE304* Electronic Circuits: Devices to ICs (S) ELE342 Principles of Quantum Engineering (S) ELE431 Solar Energy Conversion (F) ELE441 Solid-State Physics I (F) ELE481* Power Electronics (S) MAE324 Structure and Properties of Materials (F) MAE424 Energy Storage Systems (S) MSE301 Materials Science and Engineering (S) MSE302 Laboratory Techniques in Materials Science (F) MSE505 Characterization of Materials (S) * Only one circuits (304 or 481) course may be applied towards this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 341",
+            "ELE 342",
+            "ELE 431",
+            "ELE 441",
+            "MAE 324",
+            "MAE 424",
+            "MSE 301",
+            "MSE 302",
+            "MSE 505",
+            "ELE 304",
+            "ELE 481"
+          ]
+        },
+        {
+          "name": "Biomedical Engineering",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Biomedical Engineering\nThree courses from:\n ELE304 Electronic Circuits: Devices to ICs (S)\n ELE452 Biomedical Imaging (F)\n ELE455* Mid--IR Tech. for Health & Environment\n ELE480 fMRI Decoding: Reading Minds (F)\n ELE488* Image Processing\n COS429 Computer Vision (F)\n COS455 Genomics & Computational Molecular Biology (F)\n MAE344 Biomechanics and Biomaterials (S)\n NEU427 Systems Neuroscience (S)\n NEU437 Computational Neuroscience (S)\n *ELE455 and 488 no longer offered. Past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 452",
+            "ELE 455",
+            "ELE 480",
+            "ELE 488",
+            "COS 429",
+            "COS 455",
+            "MAE 344",
+            "NEU 427",
+            "NEU 437"
+          ]
+        },
+        {
+          "name": "Robotics and Cyber-physical Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Robotics and Cyber-physical Systems Three courses from: ELE304 Electronic Circuits: Devices to ICs (S) COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE488*** Image Processing COS324**Introduction to Machine Learning (F) COS402** Artificial Intelligence  COS429 Computer Vision (F)  MAE345 Robotics and Intelligent Systems (F)  MAE433 Automatic Control Systems (F) ** Only one Machine Learning course may be used for this concentration *** No longer offered, but past students may use it for this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 375",
+            "ELE 464",
+            "ELE 488",
+            "COS 429",
+            "MAE 345",
+            "MAE 433",
+            "ELE 364",
+            "ELE 435",
+            "COS 324",
+            "COS 402"
+          ]
+        },
+        {
+          "name": "Quantum Information and Applied Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Quantum Information and Applied Physics: ELE342** Principles of Quantum Engineering (S) Two courses from:  ELE396 Introduction to Quantum Computing (F)  ELE441 Solid-State Physics I (F)  ELE453 Optical Electronics (F)  ELE456 Quantum Optics (S)  ELE568 Implementations of Quantum Information (F) ** PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 342",
+            "ELE 396",
+            "ELE 441",
+            "ELE 453",
+            "ELE 456",
+            "ELE 568"
+          ]
+        },
+        {
+          "name": "Optics and Photonics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Optics and Photonics  Required: ELE 351 Electromagnetic Field Theory and Optics (S)Two courses from: ELE 342 Principles of Quantum Engineering (S) ELE 452 Biomedical Imaging (F) ELE 453 Optical Electronics (F) ELE 454 Photonics and Light Wave Communications (S)  ELE455* Mid--IR Tech. for Health & Environment  ELE 456 Quantum Optics (S)  MAE521 Optics and Lasers (F) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 351",
+            "ELE 342",
+            "ELE 452",
+            "ELE 453",
+            "ELE 454",
+            "ELE 455",
+            "ELE 456",
+            "MAE 521"
+          ]
+        },
+        {
+          "name": "Energy and the Environment",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Energy and the Environment: Three courses from: ELE 341 Solid State Devices (F) ELE 431 Solar Energy Conversion (F) ELE455* Mid--IR Tech. for Health & Environment ELE481 Power Electronics (S) ELE 557 Solar Cells: Physics, Materials, and Technology (F) MAE 424 Energy Storage Systems (S) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 341",
+            "ELE 431",
+            "ELE 455",
+            "ELE 481",
+            "ELE 557",
+            "MAE 424"
           ]
         }
       ]
@@ -248,7 +431,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -259,7 +442,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -288,7 +471,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -299,7 +482,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "req_list": [
@@ -351,7 +534,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -362,7 +545,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -390,7 +573,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -401,7 +584,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "req_list": [
@@ -451,7 +634,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "completed_by_semester": 8,
@@ -463,7 +646,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "req_list": [
@@ -574,7 +757,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "req_list": [
@@ -607,7 +790,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -632,7 +815,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course. ",
+              "explanation": "One required course.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [
@@ -643,7 +826,7 @@
               "name": "Two courses from",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two courses from this list. ",
+              "explanation": "Two courses from this list.",
               "double_counting_allowed": false,
               "pdfs_allowed": 0,
               "course_list": [

@@ -139,6 +139,21 @@
       "settled": [
         "Electrical Engineering//Senior Thesis//001"
       ]
+    },
+    {
+      "name": "ELE 470",
+      "possible_reqs": [
+        "Electrical Engineering//Breadth//Computer Systems",
+        "Electrical Engineering//Breadth//Security and Privacy",
+        "Electrical Engineering//Departmentals//At least 5 ELE",
+        "Electrical Engineering//Concentration//Computer Systems//Two courses from",
+        "Electrical Engineering//Concentration//Security and Privacy//Two courses from//000"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Breadth//Computer Systems",
+        "Electrical Engineering//Breadth//Security and Privacy",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ]
     }
   ]
 ]
@@ -147,7 +162,7 @@
   "name": "Electrical Engineering",
   "path_to": "Electrical Engineering",
   "satisfied": false,
-  "count": 3,
+  "count": 5,
   "min_needed": 9,
   "max_counted": null,
   "req_list": [
@@ -192,8 +207,8 @@
     {
       "name": "Breadth",
       "path_to": "Electrical Engineering//Breadth",
-      "satisfied": false,
-      "count": 1,
+      "satisfied": true,
+      "count": 3,
       "min_needed": 2,
       "max_counted": 1,
       "req_list": [
@@ -242,21 +257,25 @@
         {
           "name": "Computer Systems",
           "path_to": "Electrical Engineering//Breadth//Computer Systems",
-          "satisfied": false,
-          "count": 0,
+          "satisfied": true,
+          "count": 1,
           "min_needed": 1,
           "max_counted": 1,
-          "settled": [],
+          "settled": [
+            "ELE 470"
+          ],
           "unsettled": []
         },
         {
           "name": "Security and Privacy",
           "path_to": "Electrical Engineering//Breadth//Security and Privacy",
-          "satisfied": false,
-          "count": 0,
+          "satisfied": true,
+          "count": 1,
           "min_needed": 1,
           "max_counted": 1,
-          "settled": [],
+          "settled": [
+            "ELE 470"
+          ],
           "unsettled": []
         },
         {
@@ -336,8 +355,8 @@
     {
       "name": "Departmentals",
       "path_to": "Electrical Engineering//Departmentals",
-      "satisfied": false,
-      "count": 7,
+      "satisfied": true,
+      "count": 8,
       "min_needed": 8,
       "max_counted": 1,
       "req_list": [
@@ -345,14 +364,15 @@
           "name": "At least 5 ELE",
           "path_to": "Electrical Engineering//Departmentals//At least 5 ELE",
           "satisfied": true,
-          "count": 4,
+          "count": 5,
           "min_needed": 0,
           "max_counted": null,
           "settled": [
             "ELE 497",
             "ELE 301",
             "ELE 302",
-            "ELE 498"
+            "ELE 498",
+            "ELE 470"
           ],
           "unsettled": []
         },
@@ -477,7 +497,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [
+                "ELE 470"
+              ]
             }
           ]
         },
@@ -507,7 +529,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [
+                "ELE 470"
+              ]
             }
           ]
         },
