@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    <!-- Intro JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
     <!-- Custom styles for this template -->
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
     <!-- Google Tag Manager -->
@@ -46,6 +48,7 @@
         <a class="btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
         <a class="btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
         <a class="btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
+        <a class="btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
         </div>
       </div>
     </nav>
@@ -62,7 +65,7 @@
       </div>
 
       <div class="col-lg-8 no-padding-left no-padding-right">
-        <table class="semesters">
+        <table id="semesters">
           <thead class="semester-header">
             <tr>
               {% with year=request.user.profile.year %}
@@ -114,8 +117,32 @@
       </div>
     </div>
 
+    <!-- external scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+
+    <!-- onboarding and tutorial -->
+    <script src="{% static 'app/js/tutorial.js' %}"></script>
+    {% if onboarding_form %}
+      {% include 'tigerpath/onboarding.html' %}
+      <script src="{% static 'app/js/onboarding.js' %}"></script>
+    {% elif show_tutorial %}
+      <script>
+        $(function() {
+          // start the intro
+          startIntro();
+        });
+      </script>
+    {% endif %}
+
+    <!-- react webpack -->
+    {% render_bundle 'main' %}
+
+    <!-- settings -->
+    {% include 'tigerpath/settings.html' %}
+    <script src="{% static 'app/js/settings.js' %}"></script>
+
     <script>
       function toggler(divId)
       {
@@ -131,18 +158,5 @@
         });
       }
     </script>
-
-    <!-- onboarding -->
-    {% if onboarding_form %}
-      {% include 'tigerpath/onboarding.html' %}
-      <script src="{% static 'app/js/onboarding.js' %}"></script>
-    {% endif %}
-
-    <!-- react webpack -->
-    {% render_bundle 'main' %}
-
-    <!-- settings -->
-    {% include 'tigerpath/settings.html' %}
-    <script src="{% static 'app/js/settings.js' %}"></script>
   </body>
 </html>
