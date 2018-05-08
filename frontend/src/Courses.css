@@ -125,15 +125,15 @@ span.grip-dots {
   position: absolute;
   overflow: hidden;
   top: 10%;
-  width: 10px;
+  width: 8px;
   height: 80%;
   display: inline-block;
   line-height: 5px;
   vertical-align: -webkit-baseline-middle;
-  font-size: 7px;
+  font-size: 6px;
   font-family: sans-serif;
   letter-spacing: -1px;
-  opacity: 0.5;
+  opacity: 0.35;
 }
 
 /* more dots show when course is longer (overflow hidden covers the rest)*/
