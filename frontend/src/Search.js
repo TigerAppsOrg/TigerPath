@@ -175,9 +175,9 @@ class Search extends Component {
               course.remove();
               updateSchedule();
             });
-            // get requirements from existing schedule
-            updateSchedule();
           }
+          // get requirements from existing schedule
+          updateSchedule();
         }
     });
 
@@ -192,9 +192,12 @@ class Search extends Component {
 
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
+      let droppedCourse = $('.semesters').find('[id=' + el.id + ']');
       // assigns delete listener to dropped item
-      $('[id=' + el.id + ']').each(function() {
+      droppedCourse.each(function(index) {
         let course = $(this);
+        // makes sure duplicates have unique indicators
+        if(droppedCourse.length > 0) course.attr('duplicate', index);
         if($(this).parent().hasClass('semester')){
           course.find(".delete-course").click(function(){
             course.popover("hide");

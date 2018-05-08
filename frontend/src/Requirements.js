@@ -9,7 +9,12 @@ import {updateSchedule} from './Search';
 
 // settles course and runs verifier to update
 export function toggleSettle(course, path_to, settle){
-  let courseOnSchedule = $(".semesters").find("p:contains('" + course + "')").parent();
+  let allCoursesOnSchedule = $(".semesters").find("p:contains('" + course + "')").parent();
+  let courseOnSchedule = '';
+  // checks for duplicates on course schedule and assigns to the one that doesn't include the path yet
+  allCoursesOnSchedule.each(function(){
+    if($(this).attr('reqs').indexOf(path_to) === -1) courseOnSchedule = $(this);
+  });
   if(settle){
     // find course in schedule, attach req path to the course, and update schedule
     courseOnSchedule.attr('reqs', courseOnSchedule.attr('reqs') + "," + path_to);
@@ -23,18 +28,22 @@ export function toggleSettle(course, path_to, settle){
   updateSchedule();
 }
 
+function getHash(stringName) {
+  return stringName.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+}
+
 // traverses req tree to display when updating reqlist
 export function populateReqTree(reqTree){
   return(reqTree['req_list'].map((requirement)=>{
       if('req_list' in requirement) { 
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
-        let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+        let treeHash = getHash(requirement['name'])
         let finished = '';
-        if((requirement['min_needed'] == 0 && requirement['count'] >= requirement['max_counted']) || 
+        if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
           (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
             finished='req-done ';
         let tag = '';
-        if(requirement['min_needed'] == 0) tag = requirement['count'];
+        if(requirement['min_needed'] === 0) tag = requirement['count'];
         else tag = requirement['count'] + '/' + requirement['min_needed'];
         let parentReqLabel = <span>
                                   <div className='my-arrow'></div>
@@ -45,13 +54,13 @@ export function populateReqTree(reqTree){
       }
       else {
         // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
-        let treeHash = requirement['name'].split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+        let treeHash = getHash(requirement['name'])
         let finished = '';
-        if((requirement['min_needed'] == 0 && requirement['count'] >= requirement['max_counted']) || 
+        if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
           (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
             finished='req-done ';
         let tag = '';
-        if(requirement['min_needed'] == 0) tag = requirement['count'];
+        if(requirement['min_needed'] === 0) tag = requirement['count'];
         else tag = requirement['count'] + '/' + requirement['min_needed'];
         let reqLabel = <span>
                             <div className='my-arrow'></div>
