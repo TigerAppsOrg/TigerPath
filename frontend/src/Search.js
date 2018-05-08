@@ -91,8 +91,8 @@ export function updateSchedule(){
         course_entry["id"] = course.id;
         course_entry["semester"] = course.className.split(" ")[1];
         course_entry["dist_area"] = course.getAttribute('dist_area');
-        // slice the first element out because it's an empty string: format is ",x,y,z"
-        course_entry["settled"] = course.getAttribute('reqs').split(',').slice(1);
+        // slice the last element out because it's an empty string: format is "x,y,z,"
+        course_entry["settled"] = course.getAttribute('reqs').split(',').slice(0, -1);
         courses_taken[i].push(course_entry);
         addPopover(course.id);
       }
@@ -157,8 +157,9 @@ class Search extends Component {
             let index = 1;
             data.map((semester)=> {
               ReactDOM.render(semester.map((course)=> {
-                // add , in front for reqs to match format
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs={"," + course['settled'].join(',')}>
+                let courseReqs = ''
+                if(course['settled'].length > 0) courseReqs = course['settled'].join(',') + ',';
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs={courseReqs}>
                 <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
                 <p className="course-title">{course["title"]}</p>
                 </li>

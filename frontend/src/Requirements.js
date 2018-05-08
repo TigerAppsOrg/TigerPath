@@ -10,20 +10,23 @@ import {updateSchedule} from './Search';
 // settles course and runs verifier to update
 export function toggleSettle(course, path_to, settle){
   let allCoursesOnSchedule = $(".semesters").find("p:contains('" + course + "')").parent();
-  let courseOnSchedule = '';
-  // checks for duplicates on course schedule and assigns to the one that doesn't include the path yet
+  let courseOnScheduleAssigned = '';
+  let courseOnScheduleNotAssigned = '';
+  // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
   allCoursesOnSchedule.each(function(){
-    if($(this).attr('reqs').indexOf(path_to) === -1) courseOnSchedule = $(this);
+    if($(this).attr('reqs').indexOf(path_to) === -1) courseOnScheduleNotAssigned = $(this);
+    else courseOnScheduleAssigned = $(this);
   });
   if(settle){
     // find course in schedule, attach req path to the course, and update schedule
-    courseOnSchedule.attr('reqs', courseOnSchedule.attr('reqs') + "," + path_to);
+    courseOnScheduleNotAssigned.attr('reqs', courseOnScheduleNotAssigned.attr('reqs') + path_to + ',');
   }
   else{
     // find course in schedule, remove req path to the course, and update schedule
-    let pathList = courseOnSchedule.attr('reqs').split(',');
-    let pathListRemoved = pathList.splice(pathList.indexOf(path_to), 1).join();
-    courseOnSchedule.attr('reqs', pathListRemoved);
+    let pathList = courseOnScheduleAssigned.attr('reqs').split(',');
+    pathList.splice(pathList.indexOf(path_to), 1).join()
+    let pathListRemoved = pathList;
+    courseOnScheduleAssigned.attr('reqs', pathListRemoved);
   }
   updateSchedule();
 }
