@@ -120,8 +120,7 @@ export function updateSchedule(){
         course_entry["id"] = course.id;
         course_entry["semester"] = course.className.split(" ")[1];
         course_entry["dist_area"] = course.getAttribute('dist_area');
-        // slice the last element out because it's an empty string: format is "x,y,z,"
-        course_entry["settled"] = $('.semester').slice(sem_num, sem_num + 1).find('li').slice(course_index, course_index + 1).data('reqs');
+        course_entry["settled"] = $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs');
         courses_taken[i].push(course_entry);
         addPopover(course.id);
       }
@@ -166,7 +165,7 @@ class Search extends Component {
                 </li>
               }), document.getElementById('sem' + index))
               semester.map((course, course_index) => {
-                $('.semester').slice(sem_num, sem_num + 1).find('li').slice(course_index, course_index + 1).data('reqs', course['settled'])
+                $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs', course['settled'])
                 addPopover(course["id"]);
               })
               index++;
