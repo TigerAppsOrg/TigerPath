@@ -94,17 +94,40 @@ table tr:last-child td {
 table tr td:last-child {
   border-right: 0;
 }
-
+table {
+  width: 100vw;
+}
+thead, tbody, tr, td, th {
+  display: inline-block;
+  white-space: nowrap;
+  overflow : hidden;
+  vertical-align : top;
+}
+tbody td {
+  height: calc(50vh - 60px);
+  overflow-y: auto;
+}
 .semester {
   background-color: #eee;
   vertical-align: top;
   height: calc(50vh - 60px);
-  width: 25%;
+  width: 17vw;
   list-style-type: none;
 }
 thead.semester-header {
   color: #FFFFFF;
   text-align: center;
+}
+thead.semester-header td {
+  width: 17vw;
+}
+@media (max-width: 50rem) {
+  .semester {
+    width: 25vw;
+  }
+  thead.semester-header td {
+    width: 25vw;
+  }
 }
 .fall-sem {
   background-color: #ff9933;
