@@ -84,7 +84,11 @@
         "B.S.E.//Humanities and Social Sciences//Seven Total Courses//004"
       ],
       "reqs_satisfied": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
         "B.S.E.//Humanities and Social Sciences//Seven Total Courses"
+      ],
+      "settled": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts"
       ]
     },
     {
@@ -286,7 +290,7 @@
           "name": "Four Areas",
           "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas",
           "satisfied": false,
-          "count": 0,
+          "count": 1,
           "min_needed": 4,
           "max_counted": 1,
           "req_list": [
@@ -334,13 +338,13 @@
               "name": "Literature and the Arts",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
               "satisfied": true,
-              "count": 0,
+              "count": 1,
               "min_needed": 0,
               "max_counted": 1,
-              "settled": [],
-              "unsettled": [
+              "settled": [
                 "ART 213"
-              ]
+              ],
+              "unsettled": []
             },
             {
               "name": "Social Analysis",

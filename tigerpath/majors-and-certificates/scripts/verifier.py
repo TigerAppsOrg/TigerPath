@@ -373,6 +373,8 @@ def _mark_dist(req, courses):
             if c["dist_area"] == req["dist_req"]:
                 num_marked += 1
                 c["possible_reqs"].append(req["path_to"])
+                if not req["double_counting_allowed"]:
+                    c["num_settleable"] += 1
     return num_marked
 
 def _mark_settled(req, courses):
