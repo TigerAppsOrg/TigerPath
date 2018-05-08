@@ -180,7 +180,7 @@ class Search extends Component {
             });
           }
           // get requirements from existing schedule
-          renderRequirements();
+          updateSchedule();
         }
     });
 
