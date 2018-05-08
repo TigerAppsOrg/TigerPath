@@ -57,10 +57,12 @@ li:active {
 .course-display {
   position: relative;
   font-size: 13px;
-  padding-left: 2px;
   width: 100%;
   height: auto;
-  padding: 5px;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 3px;
   list-style-type: none;
   margin-bottom: 3px;
 }
@@ -122,22 +124,21 @@ li:active {
 span.grip-dots {
   position: absolute;
   overflow: hidden;
-  top: 25%;
+  top: 10%;
   width: 10px;
-  height: 50%;
+  height: 80%;
   display: inline-block;
   line-height: 5px;
   vertical-align: -webkit-baseline-middle;
-  font-size: 12px;
+  font-size: 7px;
   font-family: sans-serif;
-  letter-spacing: 2px;
-  color: #cccccc;
-  text-shadow: 1px 0 1px black;
+  letter-spacing: -1px;
+  opacity: 0.5;
 }
 
 /* more dots show when course is longer (overflow hidden covers the rest)*/
 span.grip-dots::after {
-  content: '.. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..';
+  content: '■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■';
 }
 
 div.course-content{
