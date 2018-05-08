@@ -416,7 +416,7 @@ def _check_degree_progress(req, courses):
     """
     by_semester = req["completed_by_semester"]
     num_courses = 0
-    if by_semester == None:
+    if by_semester == None or by_semester > len(courses):
         by_semester = len(courses)
     for i in range(by_semester):
         num_courses += len(courses[i])
