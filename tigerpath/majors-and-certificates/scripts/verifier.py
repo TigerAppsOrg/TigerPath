@@ -181,8 +181,9 @@ def _add_course_lists_to_req(req, courses):
                             req["settled"].append(course["name"])
                 else:
                     for path in course["possible_reqs"]:
-                        if course["name"] not in req["unsettled"] and req["path_to"] in path:
+                        if req["path_to"] in path:
                             req["unsettled"].append(course["name"])
+                            break
 
 def _init_courses(courses, req_name = None):
     courses = copy.deepcopy(courses)
