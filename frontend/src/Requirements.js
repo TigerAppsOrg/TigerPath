@@ -14,7 +14,9 @@ export function toggleSettle(course, path_to, settle){
   let courseOnScheduleNotAssigned = '';
   // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
   allCoursesOnSchedule.each(function(){
-    if($(this).data('reqs').indexOf(path_to) === -1) courseOnScheduleNotAssigned = $(this);
+    if($(this).data('reqs').map((path)=>{
+      return path.split('//')[0]
+    }).indexOf(path_to.split('//')[0]) === -1) courseOnScheduleNotAssigned = $(this);
     else courseOnScheduleAssigned = $(this);
   });
   if(settle){
