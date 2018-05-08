@@ -76,6 +76,35 @@ let addPopover = function(courseId) {
   });
 }
 
+// get requirements from existing schedule
+function renderRequirements(){
+  $.ajax({
+      url: "/api/v1/get_requirements/",
+      datatype: 'json',
+      type: 'GET',
+      cache: true,
+      success: function(data) {
+        if (data !== null) {
+          // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
+          data = data.map((mainReq)=>{
+            return mainReq[2];
+          });
+          ReactDOM.render(
+           data.map((mainReq, index)=>{
+              let mainReqLabel = <span>
+                                    <div className='my-arrow root-arrow'></div>
+                                    {mainReq.name}
+                                 </span>
+              return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+            }),
+            document.getElementById('requirements')
+          );
+          makeNodesClickable();
+        }
+      }
+  });
+}
+
 // gets current enrolled courses and sends post request
 export function updateSchedule(){
   let added_courses = document.querySelectorAll(".semester");
@@ -106,33 +135,7 @@ export function updateSchedule(){
     data: courses_taken,
     success: function(){
       // update requirements display
-      // get requirements from existing schedule
-      $.ajax({
-          url: "/api/v1/get_requirements/",
-          datatype: 'json',
-          type: 'GET',
-          cache: true,
-          success: function(data) {
-            console.info(data)
-            if (data !== null) {
-              // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
-              data = data.map((mainReq)=>{
-                return mainReq[2];
-              });
-              ReactDOM.render(
-               data.map((mainReq, index)=>{
-                  let mainReqLabel = <span>
-                                        <div className='my-arrow root-arrow'></div>
-                                        {mainReq.name}
-                                     </span>
-                  return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
-                }),
-                document.getElementById('requirements')
-              );
-              makeNodesClickable();
-            }
-          }
-      });
+      renderRequirements();
     }
   });
 }
@@ -178,7 +181,7 @@ class Search extends Component {
             });
           }
           // get requirements from existing schedule
-          updateSchedule();
+          renderRequirements();
         }
     });
 

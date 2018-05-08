@@ -38,38 +38,24 @@ function getHash(stringName) {
 // traverses req tree to display when updating reqlist
 export function populateReqTree(reqTree){
   return(reqTree['req_list'].map((requirement)=>{
+      // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
+      let treeHash = getHash(requirement['name'])
+      let finished = '';
+      if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
+        (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
+          finished='req-done ';
+      let tag = '';
+      if(requirement['min_needed'] === 0) tag = requirement['count'];
+      else tag = requirement['count'] + '/' + requirement['min_needed'];
+      let reqLabel = <span>
+                          <div className='my-arrow'></div>
+                          <span className='reqName'>{requirement['name']}</span>
+                          <span className='reqCount'>{tag}</span>
+                       </span>;
       if('req_list' in requirement) { 
-        // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
-        let treeHash = getHash(requirement['name'])
-        let finished = '';
-        if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
-          (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
-            finished='req-done ';
-        let tag = '';
-        if(requirement['min_needed'] === 0) tag = requirement['count'];
-        else tag = requirement['count'] + '/' + requirement['min_needed'];
-        let parentReqLabel = <span>
-                                  <div className='my-arrow'></div>
-                                  <span className='reqName'>{requirement['name']}</span>
-                                  <span className='reqCount'>{tag}</span>
-                               </span>
-        return(<TreeView key={treeHash} nodeLabel={parentReqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
+        return(<TreeView key={treeHash} nodeLabel={reqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
       }
       else {
-        // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
-        let treeHash = getHash(requirement['name'])
-        let finished = '';
-        if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
-          (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
-            finished='req-done ';
-        let tag = '';
-        if(requirement['min_needed'] === 0) tag = requirement['count'];
-        else tag = requirement['count'] + '/' + requirement['min_needed'];
-        let reqLabel = <span>
-                            <div className='my-arrow'></div>
-                            <span className='reqName'>{requirement['name']}</span>
-                            <span className='reqCount'>{tag}</span>
-                         </span>;
         return (
                 <TreeView key={treeHash} itemClassName={finished}  nodeLabel={reqLabel}>
                 {requirement['settled'].map((course, index)=>{
