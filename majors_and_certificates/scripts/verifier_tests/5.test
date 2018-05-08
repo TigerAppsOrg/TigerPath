@@ -1,0 +1,90 @@
+COS-BSE
+2018
+[
+  [
+    {
+      "name": "COS 126",
+      "title": "Computer Science: An Interdisciplinary Approach",
+      "id": "1184002051",
+      "dist_area": "QR"
+    },
+    {
+      "name": "COS 226",
+      "title": "Algorithms and Data Structures",
+      "id": "1184002054",
+      "dist_area": "QR"
+    },
+    {
+      "name": "COS 217",
+      "title": "Introduction to Programming Systems",
+      "id": "1184002053",
+      "dist_area": "QR"
+    }
+  ],
+  [
+    {
+      "name": "COS340",
+      "title": "Reasoning about Computation",
+      "id": "1184010455",
+      "dist_area": "QR"
+    },
+    {
+      "name": "COS 333",
+      "title": "Advanced Programming Techniques",
+      "id": "1184002065",
+      "dist_area": null
+    }
+  ],
+  [
+    {
+      "name": "COS 398",
+      "title": "Junior Independent Work (B.S.E. candidates only)",
+      "id": "1184002069",
+      "dist_area": null
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "title": "Contemporary Logic Design",
+      "id": "1184022331",
+      "dist_area": "STL"
+    },
+    {
+      "name": "MUS314/COS314",
+      "title": "Computer and Electronic Music",
+      "id": "118421927",
+      "dist_area": "QR"
+    },
+    {
+      "name": "COS 423",
+      "title": "Theory of Algorithms",
+      "id": "1184002071",
+      "dist_area": null
+    },
+    {
+      "name": "COS 436",
+      "title": "Human-Computer Interface Technology",
+      "id": "1184021337",
+      "dist_area": null
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "title": "Modernist Art: 1900 to 1950",
+      "id": "1184021312",
+      "dist_area": "LA"
+    },
+    {
+      "name": "NEU 330 / PSY 330",
+      "title": "Computational Modeling of Psychological Function",
+      "id": "1184005628",
+      "dist_area": "STL"
+    },
+    {
+      "name": "COS 498",
+      "title": "Senior Independent Work (B.S.E. candidates only)",
+      "id": "1184002087",
+      "dist_area": null
+    }
+  ]
+]

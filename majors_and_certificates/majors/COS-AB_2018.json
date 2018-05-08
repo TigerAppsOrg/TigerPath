@@ -1,0 +1,240 @@
+{
+  "type": "Major",
+  "name": "Computer Science - AB",
+  "code": "COS-AB",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-computer-science-ab",
+    "https://www.cs.princeton.edu/ugrad/becoming-cs-major/requirements"
+  ],
+  "contacts": [
+    {
+      "type": "Program Coordinator",
+      "name": "Colleen Kenny",
+      "email": "ckenny@cs.princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Brian Kernighan",
+      "email": "bwk@cs.princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Andrea LaPaugh",
+      "email": "aslp@cs.princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "description": "Prerequisites",
+      "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": false,
+      "completed_by_semester": 4,
+      "req_list": [
+        {
+          "name": "Calculus",
+          "max_counted": 2,
+          "min_needed": 2,
+          "description": null,
+          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
+          "course_list": [
+            "MAT 103",
+            "MAT 104"
+          ]
+        },
+        {
+          "name": "Linear Algebra",
+          "max_counted": 1,
+          "min_needed": 1,
+          "description": null,
+          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
+          "course_list": [
+            "MAT 202",
+            "MAT 204"
+          ]
+        },
+        {
+          "name": "Computer Science Prerequisites",
+          "max_counted": 3,
+          "min_needed": 3,
+          "description": null,
+          "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field. ",
+          "course_list": [
+            "COS 126",
+            "COS 217",
+            "COS 226"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core Courses",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "description": "Departmental Requirements",
+      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
+      "double_counting_allowed": false,
+      "pdfs_allowed": false,
+      "req_list": [
+        {
+          "name": "Theory",
+          "max_counted": 1,
+          "min_needed": 2,
+          "description": "Theoretical computer science",
+          "explanation": null,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "description": null,
+              "explanation": null,
+              "course_list": [
+                "COS 340: Reasoning about Computation",
+                "COS 423: Theory of Algorithms",
+                "COS 445: Networks, Economics and Computing",
+                "COS 451: Computational Geometry",
+                "COS 487: Theory of Computation",
+                "COS 488: Introduction to Analytic Combinatorics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "description": null,
+              "explanation": "If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.",
+              "course_list": [
+                "COS 510: Programming Languages",
+                "COS 441: Programming Languages",
+                "COS 516: Reasoning About Software"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "description": null,
+              "explanation": "If you take COS 433 and COS 533 only one will count as a theory requirement.",
+              "course_list": [
+                "COS 433: Cryptography",
+                "COS 533: Advanced Cryptography"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Systems",
+          "max_counted": 1,
+          "min_needed": 2,
+          "description": "Systems",
+          "explanation": null,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "description": null,
+              "explanation": null,
+              "course_list": [
+                "COS 306/ELE 206: Introduction to Logic Design",
+                "COS 318: Operating Systems",
+                "COS 320: Compiling Techniques",
+                "COS 333: Advanced Programming Techniques",
+                "COS 375/ELE 375: Computer Architecture and Organization",
+                "COS 425: Database and Information Management Systems",
+                "COS 463: Wireless Networks",
+                "COS 475/ELE 475: Computer Architecture"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "description": null,
+              "explanation": "If you take COS 461 and  COS 561 only one will count as a systems requirement.",
+              "course_list": [
+                "COS 461: Computer Networks",
+                "COS 561: Advanced Computer Networks"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "description": null,
+              "explanation": "If you take COS 418 and  COS 518 only one will count as a systems requirement.",
+              "course_list": [
+                "COS 418: Distributed Systems",
+                "COS 518: Advanced Computer Systems"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Applications",
+          "max_counted": 1,
+          "min_needed": 2,
+          "description": "Applications",
+          "explanation": null,
+          "course_list": [
+            "COS 314/MUS 314: Computer and Electronic Music through Programming, Performance, and Composition",
+            "COS 323/ORF 363: Computing and Optimization for the Physical and Social Sciences",
+            "COS 324: Introduction to Machine Learning",
+            "COS 325/MUS 315: Transforming Reality by Computer",
+            "COS 326: Functional Programming",
+            "COS 401/TRA 301: Introduction to Machine Translation ",
+            "COS 402: Machine Learning and  Artificial Intelligence",
+            "COS 424: Fundamentals of Machine Learning",
+            "COS 426: Computer Graphics",
+            "COS 429: Computer Vision",
+            "COS 432: Information Security",
+            "COS 435: Information Retrieval, Discovery, and Delivery",
+            "COS 436: Human-Computer Interface Technology",
+            "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
+            "COS 485: Neural Networks"
+          ]
+        },
+        {
+          "name": "General",
+          "max_counted": 1,
+          "min_needed": 2,
+          "description": "General",
+          "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nAny 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303, ECO 312, MOL 437/NEU 437, NEU 330, and ECO 326 – Economics of the Internet count as departmentals.",
+          "course_list": [
+            "COS 3**",
+            "COS 4**",
+            "MAT 3**",
+            "MAT 4**",
+            "ELE 3**",
+            "ELE 4**",
+            "PHY 3**",
+            "PHY 4**",
+            "ORF 3**",
+            "ORF 4**",
+            "PHI 312",
+            "MAE 345",
+            "CHM 303",
+            "ECO 312",
+            "MOL 437/NEU 437",
+            "NEU 330",
+            "ECO 326"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "description": "Independent Work",
+      "explanation": "All A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.",
+      "no_req": null
+    }
+  ]
+}
