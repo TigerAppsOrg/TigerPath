@@ -19,11 +19,11 @@ export function toggleSettle(course, path_to, settle){
   });
   if(settle){
     // find course in schedule, attach req path to the course, and update schedule
-    courseOnScheduleNotAssigned.attr('reqs', courseOnScheduleNotAssigned.attr('reqs') + path_to + ',');
+    courseOnScheduleNotAssigned.attr('reqs', courseOnScheduleNotAssigned.attr('reqs') + path_to + '$');
   }
   else{
     // find course in schedule, remove req path to the course, and update schedule
-    let pathList = courseOnScheduleAssigned.attr('reqs').split(',');
+    let pathList = courseOnScheduleAssigned.attr('reqs').split('$');
     pathList.splice(pathList.indexOf(path_to), 1).join()
     let pathListRemoved = pathList;
     courseOnScheduleAssigned.attr('reqs', pathListRemoved);
