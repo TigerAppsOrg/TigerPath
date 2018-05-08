@@ -236,7 +236,7 @@ def _init_req_fields(req):
         for subreq in req["req_list"]:
             _init_req_fields(subreq)
     elif "num_courses" in req and req["name"] == None and "completed_by_semester" in req:
-        req["name"] = str(req["num_courses"]) + " completed by semester " + str(req["completed_by_semester"])
+        req["name"] = "Complete " + str(req["num_courses"]) + " courses by Semester " + str(req["completed_by_semester"])
     return req
 
 def _init_min_ALL(req):
