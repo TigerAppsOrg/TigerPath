@@ -65,6 +65,7 @@ li:active {
   padding-left: 3px;
   list-style-type: none;
   margin-bottom: 3px;
+  display: grid;
 }
 
 .course-display.fall {
@@ -127,13 +128,18 @@ span.grip-dots {
   top: 10%;
   width: 8px;
   height: 80%;
-  display: inline-block;
+  display: none;
   line-height: 5px;
   vertical-align: -webkit-baseline-middle;
   font-size: 6px;
   font-family: sans-serif;
   letter-spacing: -1px;
   opacity: 0.35;
+  margin-left: 3px;
+}
+
+li:hover span.grip-dots{
+  display:inline-block;
 }
 
 /* more dots show when course is longer (overflow hidden covers the rest)*/
