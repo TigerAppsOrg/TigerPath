@@ -1,0 +1,340 @@
+[
+  [
+    {
+      "name": "COS 126 / EGR 126",
+      "possible_reqs": [
+        "B.S.E.//Computer Science//000"
+      ],
+      "reqs_satisfied": [
+        "B.S.E.//Computer Science//000"
+      ],
+      "settled": [
+        "B.S.E.//Computer Science//000"
+      ]
+    },
+    {
+      "name": "PHI 203",
+      "possible_reqs": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Epistemology and Cognition",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses//000"
+      ],
+      "reqs_satisfied": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Epistemology and Cognition",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses"
+      ],
+      "settled": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Epistemology and Cognition"
+      ]
+    },
+    {
+      "name": "CWR 203",
+      "possible_reqs": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses//004"
+      ],
+      "reqs_satisfied": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses"
+      ],
+      "settled": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts"
+      ]
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "name": "CWR 203",
+      "possible_reqs": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses//004"
+      ],
+      "reqs_satisfied": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+        "B.S.E.//Humanities and Social Sciences//Seven Total Courses"
+      ],
+      "settled": [
+        "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts"
+      ]
+    }
+  ],
+  []
+]
+
+{
+  "name": "B.S.E.",
+  "path_to": "B.S.E.",
+  "satisfied": false,
+  "count": 1,
+  "min_needed": 7,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "Degree Progress",
+      "path_to": "B.S.E.//Degree Progress",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 4,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Complete 4 courses by Semester 1",
+          "path_to": "B.S.E.//Degree Progress//Complete 4 courses by Semester 1",
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Complete 17 courses by Semester 4",
+          "path_to": "B.S.E.//Degree Progress//Complete 17 courses by Semester 4",
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Complete 26 courses by Semester 6",
+          "path_to": "B.S.E.//Degree Progress//Complete 26 courses by Semester 6",
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Complete 36 courses by Semester 8",
+          "path_to": "B.S.E.//Degree Progress//Complete 36 courses by Semester 8",
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Mathematics",
+      "path_to": "B.S.E.//Mathematics",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 4,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "First Term Math",
+          "path_to": "B.S.E.//Mathematics//First Term Math",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Second Term Math",
+          "path_to": "B.S.E.//Mathematics//Second Term Math",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Third Term Math",
+          "path_to": "B.S.E.//Mathematics//Third Term Math",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Fourth Term Math",
+          "path_to": "B.S.E.//Mathematics//Fourth Term Math",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Physics",
+      "path_to": "B.S.E.//Physics",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Mechanics",
+          "path_to": "B.S.E.//Physics//Mechanics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Electromagnetism",
+          "path_to": "B.S.E.//Physics//Electromagnetism",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ],
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Chemistry",
+      "path_to": "B.S.E.//Chemistry",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Computer Science",
+      "path_to": "B.S.E.//Computer Science",
+      "satisfied": true,
+      "count": 1,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [
+        "COS 126 / EGR 126"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Writing Seminar",
+      "path_to": "B.S.E.//Writing Seminar",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Humanities and Social Sciences",
+      "path_to": "B.S.E.//Humanities and Social Sciences",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Four Areas",
+          "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas",
+          "satisfied": false,
+          "count": 2,
+          "min_needed": 4,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Epistemology and Cognition",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Epistemology and Cognition",
+              "satisfied": true,
+              "count": 1,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [
+                "PHI 203"
+              ],
+              "unsettled": []
+            },
+            {
+              "name": "Ethical Thought and Moral Values",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Ethical Thought and Moral Values",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Foreign Language",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Foreign Language",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Historical Analysis",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Historical Analysis",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Literature and the Arts",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+              "satisfied": true,
+              "count": 2,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [
+                "CWR 203",
+                "CWR 203"
+              ],
+              "unsettled": []
+            },
+            {
+              "name": "Social Analysis",
+              "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Social Analysis",
+              "satisfied": true,
+              "count": 0,
+              "min_needed": 0,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Seven Total Courses",
+          "path_to": "B.S.E.//Humanities and Social Sciences//Seven Total Courses",
+          "satisfied": false,
+          "count": 3,
+          "min_needed": 7,
+          "max_counted": 1,
+          "settled": [
+            "PHI 203",
+            "CWR 203",
+            "CWR 203"
+          ],
+          "unsettled": []
+        }
+      ]
+    }
+  ]
+}

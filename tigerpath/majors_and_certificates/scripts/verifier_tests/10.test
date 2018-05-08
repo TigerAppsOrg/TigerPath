@@ -1,0 +1,38 @@
+BSE
+2018
+[
+  [
+    {
+      "name": "COS 126 / EGR 126",
+      "title": "General Computer Science",
+      "id": "1184042286",
+      "dist_area": "QR"
+    },
+    {
+      "name": "PHI 203",
+      "title": "Introduction to Metaphysics and Epistemology",
+      "id": "1184042326",
+      "dist_area": "EC"
+    },
+    {
+      "name": "CWR 203",
+      "title": "Creative Writing (Fiction)",
+      "id": "1184021696",
+      "dist_area": "LA"
+    }
+  ],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [
+    {
+      "name": "CWR 203",
+      "title": "Creative Writing (Fiction)",
+      "id": "1184021696",
+      "dist_area": "LA"
+    }
+  ],
+  []
+]
