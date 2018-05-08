@@ -181,8 +181,9 @@ def _add_course_lists_to_req(req, courses):
                             req["settled"].append(course["name"])
                 else:
                     for path in course["possible_reqs"]:
-                        if course["name"] not in req["unsettled"] and req["path_to"] in path:
+                        if req["path_to"] in path:
                             req["unsettled"].append(course["name"])
+                            break
 
 def _init_courses(courses, req_name = None):
     courses = copy.deepcopy(courses)
@@ -372,6 +373,8 @@ def _mark_dist(req, courses):
             if c["dist_area"] == req["dist_req"]:
                 num_marked += 1
                 c["possible_reqs"].append(req["path_to"])
+                if not req["double_counting_allowed"]:
+                    c["num_settleable"] += 1
     return num_marked
 
 def _mark_settled(req, courses):
@@ -416,7 +419,7 @@ def _check_degree_progress(req, courses):
     """
     by_semester = req["completed_by_semester"]
     num_courses = 0
-    if by_semester == None:
+    if by_semester == None or by_semester > len(courses):
         by_semester = len(courses)
     for i in range(by_semester):
         num_courses += len(courses[i])
