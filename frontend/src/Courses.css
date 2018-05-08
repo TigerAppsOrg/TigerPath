@@ -7,10 +7,12 @@
   padding: 5px;
   list-style-type: none;
   margin-top: 5px;
+  display: grid;
 }
 
 /* for courses with long names */
 .semesters .course-name{
+  padding-left: 15px;
 	width: 90%;
 	overflow: hidden;
 	float: left;
@@ -53,6 +55,7 @@ li:active {
 
 /* courses in search results */
 .course-display {
+  position: relative;
   font-size: 13px;
   padding-left: 2px;
   width: 100%;
@@ -114,4 +117,36 @@ li:active {
 
 .popover-warning {
   color: #e74c3c;
+}
+
+span.grip-dots {
+  position: absolute;
+  overflow: hidden;
+  top: 25%;
+  width: 10px;
+  height: 50%;
+  display: inline-block;
+  line-height: 5px;
+  vertical-align: -webkit-baseline-middle;
+  font-size: 12px;
+  font-family: sans-serif;
+  letter-spacing: 2px;
+  color: #cccccc;
+  text-shadow: 1px 0 1px black;
+}
+
+/* more dots show when course is longer (overflow hidden covers the rest)*/
+span.grip-dots::after {
+  content: '.. .. .. .. .. .. .. .. .. .. .. .. .. .. .. ..';
+}
+
+div.course-content{
+  display:inline-table;
+  padding-left: 15px;
+}
+
+.semesters span.grip-dots {
+  top: 15%;
+  height: 70%;
+  margin-left: 5px;
 }
