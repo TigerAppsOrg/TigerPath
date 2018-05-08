@@ -63,8 +63,8 @@ li:active {
 }
 
 .course-display.fall {
-  background-color: #ffc0cb;
-  color: #690012;
+  background-color: #ffc993;
+  color: #753a00;
 }
 
 .course-display.spring {
@@ -73,8 +73,8 @@ li:active {
 }
 
 .course-display.both {
-  background: #D0EBCF;
-  color: #045d00;
+  background: #d1dcff;
+  color: #4B0082;
 }
 
 .course-display p {
@@ -109,6 +109,7 @@ li:active {
 
 .delete-course:hover {
   color: #e74c3c;
+  cursor: pointer;
 }
 
 .popover-warning {

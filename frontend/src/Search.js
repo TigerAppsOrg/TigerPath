@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './Courses.css';
+import './Requirements.css';
 import $ from 'jquery';
 import jQuery from 'jquery';
 import 'dragula/dist/dragula.css';
+import 'react-treeview/react-treeview.css';
+import TreeView from 'react-treeview/lib/react-treeview.js';
+
+import {toggleSettle} from './Requirements';
+import {populateReqTree} from './Requirements';
+import {makeNodesClickable} from './Requirements';
 
 var dragula = require('react-dragula');
 var current_request = null;
-
 
 // setting up ajax request with csrf
 function getCookie(name) {
@@ -38,6 +44,102 @@ $.ajaxSetup({
     }
 });
 
+let addPopover = function(courseId) {
+  let addedCourses = $(".semester").find("[id=" + courseId +"]");
+  addedCourses.each(function() {
+    // Add content to the popover
+    let courseName = $(this).find(".course-name").text();
+    let courseTitle = $(this).find(".course-title").text();
+    $(this).attr("title", courseName);
+    $(this).attr("data-html", "true");
+    if (addedCourses.length > 1) {
+      $(this).attr("data-content", courseTitle + "<br><span class='popover-warning'>Note: course already added</span>");
+    } else {
+      $(this).attr("data-content", courseTitle);
+    }
+    // Show the popover when it's hovered over
+    $(this).popover({ trigger: "manual" , html: true, animation: true})
+    .on("mouseenter", function() {
+        var _this = this;
+        $(this).popover("show");
+        $(".popover").on("mouseleave", function() {
+            $(_this).popover("hide");
+        });
+    }).on("mouseleave", function() {
+        var _this = this;
+        setTimeout(function() {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide");
+            }
+        }, 100);
+    });
+  });
+}
+
+// get requirements from existing schedule
+function renderRequirements(){
+  $.ajax({
+      url: "/api/v1/get_requirements/",
+      datatype: 'json',
+      type: 'GET',
+      cache: true,
+      success: function(data) {
+        if (data !== null) {
+          // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
+          data = data.map((mainReq)=>{
+            return mainReq[2];
+          });
+          ReactDOM.render(
+           data.map((mainReq, index)=>{
+              let mainReqLabel = <span>
+                                    <div className='my-arrow root-arrow'></div>
+                                    {mainReq.name}
+                                 </span>
+              return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+            }),
+            document.getElementById('requirements')
+          );
+          makeNodesClickable();
+        }
+      }
+  });
+}
+
+// gets current enrolled courses and sends post request
+export function updateSchedule(){
+  let added_courses = document.querySelectorAll(".semester");
+  let courses_taken = [];
+  let i = 0;
+  added_courses.forEach(function (semester){
+    courses_taken.push([]);
+    semester.childNodes.forEach(function(course){
+      if(typeof course.innerHTML !== 'undefined'){
+        let course_entry = {}
+        course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
+        course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
+        course_entry["id"] = course.id;
+        course_entry["semester"] = course.className.split(" ")[1];
+        course_entry["dist_area"] = course.getAttribute('dist_area');
+        // slice the last element out because it's an empty string: format is "x,y,z,"
+        course_entry["settled"] = course.getAttribute('reqs').split(',').slice(0, -1);
+        courses_taken[i].push(course_entry);
+        addPopover(course.id);
+      }
+    })
+    i++;
+  });
+  courses_taken = JSON.stringify(courses_taken);
+  $.ajax({
+    url: "/api/v1/update_schedule/",
+    type: 'POST',
+    data: courses_taken,
+    success: function(){
+      // update requirements display
+      renderRequirements();
+    }
+  });
+}
+
 class Search extends Component {
   constructor() {
     super();
@@ -46,6 +148,7 @@ class Search extends Component {
       data: []
     };
 
+    // render data on startup
     // get existing schedule and populate semesters
     $.ajax({
         url: "/api/v1/get_schedule/",
@@ -57,7 +160,9 @@ class Search extends Component {
             let index = 1;
             data.map((semester)=> {
               ReactDOM.render(semester.map((course)=> {
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]}>
+                let courseReqs = ''
+                if(course['settled'].length > 0) courseReqs = course['settled'].join(',') + ',';
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs={courseReqs}>
                 <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
                 <p className="course-title">{course["title"]}</p>
                 </li>
@@ -75,6 +180,8 @@ class Search extends Component {
               updateSchedule();
             });
           }
+          // get requirements from existing schedule
+          renderRequirements();
         }
     });
 
@@ -87,70 +194,10 @@ class Search extends Component {
         return target.className === "semester";}
     });
 
-    let addPopover = function(courseId) {
-      let addedCourses = $(".semester").find("[id=" + courseId +"]");
-      addedCourses.each(function() {
-        // Add content to the popover
-        let courseName = $(this).find(".course-name").text();
-        let courseTitle = $(this).find(".course-title").text();
-        $(this).attr("title", courseName);
-        $(this).attr("data-html", "true");
-        if (addedCourses.length > 1) {
-          $(this).attr("data-content", courseTitle + "<br><span class='popover-warning'>Note: course already added</span>");
-        } else {
-          $(this).attr("data-content", courseTitle);
-        }
-        // Show the popover when it's hovered over
-        $(this).popover({ trigger: "manual" , html: true, animation: true})
-        .on("mouseenter", function() {
-            var _this = this;
-            $(this).popover("show");
-            $(".popover").on("mouseleave", function() {
-                $(_this).popover("hide");
-            });
-        }).on("mouseleave", function() {
-            var _this = this;
-            setTimeout(function() {
-                if (!$(".popover:hover").length) {
-                    $(_this).popover("hide");
-                }
-            }, 100);
-        });
-      });
-    }
-
-    // gets current enrolled courses and sends post request
-    let updateSchedule = function(){
-      let added_courses = document.querySelectorAll(".semester");
-      let courses_taken = [];
-      let i = 0;
-      added_courses.forEach(function (semester){
-        courses_taken.push([]);
-        semester.childNodes.forEach(function(course){
-          if(typeof course.innerHTML !== 'undefined'){
-            let course_entry = {}
-            course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
-            course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
-            course_entry["id"] = course.id;
-            course_entry["semester"] = course.className.split(" ")[1]
-            courses_taken[i].push(course_entry);
-            addPopover(course.id);
-          }
-        })
-        i++;
-      });
-      courses_taken = JSON.stringify(courses_taken);
-      $.ajax({
-        url: "/api/v1/update_schedule/",
-        type: 'POST',
-        data: courses_taken
-      });
-    };
-
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
       // assigns delete listener to dropped item
-      $('[id=' + el.id + ']').each(function() {
+      $('.semesters').find('[id=' + el.id + ']').each(function(index) {
         let course = $(this);
         if($(this).parent().hasClass('semester')){
           course.find(".delete-course").click(function(){
@@ -164,9 +211,9 @@ class Search extends Component {
     });
   }
 
-
   // is called whenever search query is modified
   updateSearch(event) {
+    // clear search before loading new courses
     ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
     this.setState({search: event.target.value});
     let search_query = event.target.value;
@@ -186,13 +233,13 @@ class Search extends Component {
           }
         },
         success: function(data) {
-          if(search_query === this.state.search || search_query === '$')
-          {
+          if(search_query === this.state.search || search_query === '$') {
             this.setState({data: data});
+            // Render search results
             ReactDOM.render(
               data.map((course)=> {
                 let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]}>
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]} reqs="">
                 <p className="course-name">{course["listing"]}</p>
                 <i className="fas fa-times-circle delete-course"></i>
                 <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>

@@ -1,0 +1,66 @@
+/* items in requirement column */
+#requirements li{
+  list-style-type: none;
+  background-color: #d1dcff;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  color: #4B0082;
+  border-radius: 2px;
+  cursor: pointer;
+
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* styles all levels */
+#requirements .tree-view_item {
+  padding-left: 3px;
+  cursor: pointer;
+  display: flow-root;
+}
+
+/* greyed out unsettled reqs*/
+#requirements .unsettled{
+  background-color: #DCDCDC;
+}
+
+/* styles root */
+#requirements .tree-root{
+  margin-bottom: 3px;
+  background-color: #DB7093;
+  color: white;
+}
+
+/* style everything except main roots*/
+#requirements .tree-sub-reqs .tree-view_item {
+  border-radius: 2px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  background-color: #ffc0cb;
+  color: #690012;
+}
+
+/* styles reqs that are >= min needed*/
+#requirements .tree-sub-reqs .tree-view_item.req-done {
+  background-color: #D0EBCF;
+  color: #045d00;
+}
+
+/* count of courses*/
+#requirements .tree-sub-reqs .reqCount {
+  float: right;
+  padding-right: 5px;
+}
+
+/* name of courses next to count*/
+#requirements .tree-sub-reqs .reqName {
+  font-size:;
+}
+
+#requirements {
+  height: calc(100vh - 60px);
+  overflow: auto;
+}

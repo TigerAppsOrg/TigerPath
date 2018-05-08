@@ -107,7 +107,7 @@ thead.semester-header {
   text-align: center;
 }
 .fall-sem {
-  background-color: #ff647f;
+  background-color: #ff9933;
 }
 .spring-sem {
   background-color: #3aaed4;
@@ -143,7 +143,7 @@ thead.semester-header {
   overflow:auto;
 }
 
-.col-lg-3{
+.col-lg-2{
   padding-left: 0;
   padding-right: 0;
   overflow: hidden;

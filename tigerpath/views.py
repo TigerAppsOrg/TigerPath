@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
+from .majors_and_certificates.scripts.verifier import check_major, check_degree
 
 import django_cas_ng.views
 import ujson
@@ -131,6 +132,7 @@ def get_courses(request, search_query):
         course_info['id'] = course.registrar_id
         course_info['listing'] = course.cross_listings
         course_info['semester_list'] = course.all_semesters
+        course_info['dist_area'] = course.dist_area
         # tag semester
         all_semesters = ''.join(course.all_semesters)
         if 'f' in all_semesters and 's' in all_semesters:
@@ -187,6 +189,15 @@ def update_schedule(request):
 def get_schedule(request):
     schedule = models.UserProfile.objects.get(user=request.user).user_schedule
     return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
+
+# returns requirements satisfied
+@login_required
+def get_requirements(request):
+    curr_user = models.UserProfile.objects.get(user=request.user)
+    requirements = []
+    requirements.append(check_major(curr_user.major, curr_user.user_schedule, 2018))
+    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, 2018))
+    return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 
 # course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
