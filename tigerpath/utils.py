@@ -63,14 +63,14 @@ def convert_transcript_courses_to_schedule(sem_to_courses):
             # get dept and code from course_name
             dept, code = course_name.split(' ')
             if not dept or not code:
-                courses_not_imported.push(course_name)
+                courses_not_imported.append(course_name)
                 continue
 
             # get the course from the database
             try:
                 course_id = course_listings.filter(dept=dept).get(number=code).course_id
             except models.Course_Listing.DoesNotExist:
-                courses_not_imported.push(course_name)
+                courses_not_imported.append(course_name)
                 continue
             db_course = db_courses.get(id=course_id)
 
