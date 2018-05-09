@@ -69,6 +69,11 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
+# privacy policy page
+def privacy_policy(request):
+    return render(request, 'tigerpath/privacy.html', None)
+
+
 # save the info on the onboarding page
 @login_required
 def save_onboarding(request):
