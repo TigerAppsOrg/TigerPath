@@ -15,11 +15,6 @@ class OnboardingForm(forms.ModelForm):
         # model and fields used for the form
         model = UserProfile
         fields = ['nickname', 'year', 'major']
-        # set up the form
-        labels = {
-            'year': ('What year are you in?'),
-            'major': ('What is your major, or what major are you planning on declaring?')
-        }
         widgets = {
             'nickname': forms.HiddenInput(),
             'year': forms.Select(choices=YEAR_CHOICES),
