@@ -91,11 +91,15 @@ function renderRequirements(){
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
+              let finished = ''
+              if((mainReq['min_needed'] === 0 && mainReq['count'] >= mainReq['max_counted']) || 
+                (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
+                  finished='req-done ';
               let mainReqLabel = <span>
                                     <div className='my-arrow root-arrow'></div>
                                     {mainReq.name}
                                  </span>
-              return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+              return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
             }),
             document.getElementById('requirements')
           );
@@ -146,6 +150,8 @@ class Search extends Component {
       search: '',
       data: []
     };
+    // initializes search result number (indicates to user that they can search)
+    ReactDOM.render(<span>0 Search Results</span>,document.getElementById('search-count'))
 
     // render data on startup
     // get existing schedule and populate semesters
@@ -250,6 +256,7 @@ class Search extends Component {
             }),
             document.getElementById('display-courses')
             )
+            ReactDOM.render(<span>{data.length} Search Results</span>,document.getElementById('search-count'))
           }
         }.bind(this),
     });

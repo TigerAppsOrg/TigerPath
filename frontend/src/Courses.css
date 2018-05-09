@@ -115,3 +115,7 @@ li:active {
 .popover-warning {
   color: #e74c3c;
 }
+
+#search-count {
+  padding: 5px;
+}

@@ -44,6 +44,7 @@
 }
 
 /* styles reqs that are >= min needed*/
+#requirements .req-done,
 #requirements .tree-sub-reqs .tree-view_item.req-done {
   background-color: #D0EBCF;
   color: #045d00;
