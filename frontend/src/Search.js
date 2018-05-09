@@ -87,10 +87,12 @@ function renderRequirements(){
         if (data !== null) {
           // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
           data = data.map((mainReq)=>{
+            if(!Array.isArray(mainReq)) return mainReq
             return mainReq[2];
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
+              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>{mainReq} major not supported yet. Please come back later.</div>)
               let finished = ''
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= mainReq['max_counted']) || 
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
