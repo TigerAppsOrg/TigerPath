@@ -87,16 +87,17 @@ function renderRequirements(){
         if (data !== null) {
           // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
           data = data.map((mainReq)=>{
+            // if mainReq is not an array, then it is just the name of the major
             if(!Array.isArray(mainReq)) return mainReq
             return mainReq[2];
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
-              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>{mainReq} major not supported yet. Please come back later.</div>)
+              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>{mainReq} major not supported yet.</div>)
               let finished = ''
-              if((mainReq['min_needed'] === 0 && mainReq['count'] >= mainReq['max_counted']) || 
+              if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
-                  finished='req-done ';
+                  finished='req-done';
               let mainReqLabel = <span>
                                     <div className='my-arrow root-arrow'></div>
                                     {mainReq.name}
@@ -153,7 +154,7 @@ class Search extends Component {
       data: []
     };
     // initializes search result number (indicates to user that they can search)
-    ReactDOM.render(<span>0 Search Results</span>,document.getElementById('search-count'))
+    ReactDOM.render(<span id='search-count'>0 Search Results</span>,document.getElementById('search-count'))
 
     // render data on startup
     // get existing schedule and populate semesters
@@ -255,10 +256,10 @@ class Search extends Component {
                 <p className="course-title">{course["title"]}</p>
                 <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
                 </li>
-            }),
+              }),
             document.getElementById('display-courses')
             )
-            ReactDOM.render(<span>{data.length} Search Results</span>,document.getElementById('search-count'))
+            ReactDOM.render(<span key={data.length} id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
           }
         }.bind(this),
     });
