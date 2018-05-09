@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('landing', views.landing, name='landing'),
     path('about', views.about, name='about'),
+    path('privacy', views.privacy_policy, name='privacy_policy'),
     path('onboarding', views.onboarding, name='onboarding'),
     path('settings', views.user_settings, name='settings'),
     # cas auth

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>TigerPath - Plan Out Your Four-Year Course Schedule</title>
+    <title>TigerPath - Privacy Policy</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -45,19 +45,36 @@
     {% include '../includes/navigation.html' %}
 
     <!-- Masthead -->
-    <header class="masthead text-white text-center">
+    <header class="about-masthead text-white text-center">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">TigerPath helps Princeton University students plan out their four-year course schedules.</h1>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a class="btn btn-primary" href="{% url 'login' %}">Login to manage your schedule</a>
+            <h1 class="mb-3">Privacy Policy</h1>
           </div>
         </div>
       </div>
     </header>
+
+    <section class="text-container">
+      <div class="container">
+        <div>
+          <p>We are committed to protecting your privacy. We will never sell your data to third parties, and we do our utmost to prevent other people from gaining access to your data.</p>
+          <p>We protect the entire application underneath CAS authentication, which is the same system you use to sign into other Princeton services, like TigerHub.</p>
+          <h6>Data</h6>
+          <p>We only store the data that we need to in order to provide you with the best experience. This data includes your nickname, class year, major, and four-year course schedule.</p>
+          <p>We collect the course listings data from the OIT Web Feed API and the Course Offerings webpage, and we compile the requirements information from the Princeton University Undergraduate Announcement website and the official Princeton University department websites.</p>
+          <h6>Third-Party Services</h6>
+          <p>We are using some third-party services in order to provide you with the best experience possible:<p>
+          <ul>
+            <li>TigerBook API, to automatically populate your name, class year, and major.</li>
+            <li>TigerApps Transcript API, to help you prepopulate your course schedule with courses you've already taken.</li>
+            <li>Google Analytics, to collect metadata on how you use the app so we can continually improve it.</li>
+          </ul>
+          <p>Thank you for using TigerPath!</p>
+        </div>
+      </div>
+    </section>
 
     {% include '../includes/footer.html' %}
   </body>

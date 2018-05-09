@@ -66,6 +66,11 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
+# privacy policy page
+def privacy_policy(request):
+    return render(request, 'tigerpath/privacy.html', None)
+
+
 # onboarding page
 @login_required
 def onboarding(request):
