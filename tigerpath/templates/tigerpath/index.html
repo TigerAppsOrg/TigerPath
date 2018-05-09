@@ -43,7 +43,7 @@
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
-        <div class="dropdown-container inline">
+        <div class="dropdown-container btn-group inline">
         <a class="btn" href="#" id="settings-btn">Settings</a>
         <a class="btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
           <a class="btn dropdown-toggle" href="#" role="button" id="netid-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.profile.nickname|default:request.user.username }}</a>
