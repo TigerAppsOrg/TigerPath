@@ -47,7 +47,7 @@
     {
       "name": "Mathematics",
       "max_counted": 1,
-      "min_needed": "ALL",
+      "min_needed": 1,
       "explanation": "At least one additional upperclass (300 level or higher) math course. Examples include: MAE305/MAT301,\nMAE306/MAT302, ORF309*/MAT309, COS 340. This may not count towards the concentration\nrequirement, the breadth requirement or as a Departmental requirement (See 3.6). Additional upperclass\nmath courses may be used for that purpose.",
       "double_counting_allowed": false,
       "pdfs_allowed": 0,
