@@ -131,8 +131,8 @@ thead.semester-header {
 
 .dropdown-menu {
   position: absolute;
-  margin-left: 130px;
-  text-align: center;
+  margin-left: -60px;
+  text-align: left;
 }
 div.inline {
   float:left;
