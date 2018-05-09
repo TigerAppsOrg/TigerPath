@@ -98,7 +98,7 @@ table tr td:last-child {
 .semester {
   background-color: #eee;
   vertical-align: top;
-  height: calc(50vh - 58px);
+  height: calc(50vh - 60px);
   width: 25%;
   list-style-type: none;
 }
@@ -130,7 +130,6 @@ thead.semester-header {
 .dropdown-container {
   position: relative;
 }
-
 .dropdown-menu {
   position: absolute;
   margin-left: -60px;
@@ -152,7 +151,7 @@ div.inline {
   background-color: #464e56!important;
 }
 #display-courses {
-  height: calc(100vh - 127px);
+  height: calc(100vh - 95px);
   overflow:auto;
 }
 
