@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
@@ -12,6 +13,7 @@ import django_cas_ng.views
 import ujson
 import re
 import requests
+import itertools
 
 
 # cas auth login
@@ -81,13 +83,21 @@ def save_user_settings(request):
     return redirect('index')
 
 
-def transcript(request):
+def save_transcript_courses(request):
     ticket = request.GET.get('ticket', None)
     if ticket:
-        print(ticket)
-        r = requests.get('https://transcriptapi.tigerapps.org/transcript?ticket=' + ticket)
-        r.json() if r.status_code == 200 else None
-    return HttpResponse(request)
+        courses = utils.get_transcript_courses(ticket)
+        if courses:
+            # save courses into schedule
+            current_user = models.UserProfile.objects.get(user=request.user)
+            current_user.user_schedule = utils.convert_transcript_courses_to_schedule(courses)
+            current_user.save()
+            messages.success(request, 'The courses from your transcript were successfully added to the schedule.')
+        else:
+            messages.error(request, 'Unfortunately, we weren\'t able to add the courses from your transcript to the schedule. Please add them manually.')
+    else:
+        raise Http404
+    return redirect('index')
 
 
 # checks whether the form data is valid and returns the updated user profile
@@ -151,14 +161,7 @@ def get_courses(request, search_query):
         course_info['listing'] = course.cross_listings
         course_info['semester_list'] = course.all_semesters
         course_info['dist_area'] = course.dist_area
-        # tag semester
-        all_semesters = ''.join(course.all_semesters)
-        if 'f' in all_semesters and 's' in all_semesters:
-            course_info['semester'] = 'both'
-        elif 'f' in all_semesters:
-            course_info['semester'] = 'fall'
-        else:
-            course_info['semester'] = 'spring'
+        course_info['semester'] = get_semester_type(course.all_semesters)
         course_info_list.append(course_info)
 
     # sort list by dept and code
@@ -192,6 +195,30 @@ def filter_courses(queries):
     return results
 
 
+# returns 'fall', 'spring', or 'both' depending on the list of semesters
+def get_semester_type(all_semesters):
+    all_semesters = ''.join(all_semesters)
+    if 'f' in all_semesters and 's' in all_semesters:
+        return 'both'
+    elif 'f' in all_semesters:
+        return 'fall'
+    else:
+        return 'spring'
+
+
+# populate the courses in the user schedule with metadata from database
+def populate_user_schedule(schedule):
+    if not schedule:
+        return None
+    db_courses = models.Course.objects.all()
+    for course in list(itertools.chain(*schedule)):
+        db_course = db_courses.get(registrar_id=course['id'])
+        course['name'] = db_course.cross_listings
+        course['title'] = db_course.title
+        course['dist_area'] = db_course.dist_area
+        course['semester'] = get_semester_type(db_course.all_semesters)
+    return schedule
+
 
 # updates user's schedules with added courses
 @login_required
@@ -205,13 +232,16 @@ def update_schedule(request):
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    schedule = models.UserProfile.objects.get(user=request.user).user_schedule
+    curr_user = models.UserProfile.objects.get(user=request.user)
+    schedule = populate_user_schedule(curr_user.user_schedule)
     return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
+
 
 # returns requirements satisfied
 @login_required
 def get_requirements(request):
     curr_user = models.UserProfile.objects.get(user=request.user)
+    schedule = populate_user_schedule(curr_user.user_schedule)
     requirements = []
     requirements.append(check_major(curr_user.major, curr_user.user_schedule, 2018))
     requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, 2018))

@@ -8,7 +8,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('onboarding/save', views.save_onboarding, name='save_onboarding'),
     path('settings/save', views.save_user_settings, name='save_settings'),
-    path('transcript', views.transcript, name='transcript'),
+    path('transcript/save', views.save_transcript_courses, name='save_transcript'),
     # cas auth
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
