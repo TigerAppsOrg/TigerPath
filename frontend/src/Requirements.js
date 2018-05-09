@@ -9,7 +9,7 @@ import {updateSchedule} from './Search';
 
 // settles course and runs verifier to update
 export function toggleSettle(course, path_to, settle){
-  let allCoursesOnSchedule = $(".semesters").find("p:contains('" + course + "')").parent();
+  let allCoursesOnSchedule = $("#semesters").find("p:contains('" + course + "')").parent();
   let courseOnScheduleAssigned = '';
   let courseOnScheduleNotAssigned = '';
   // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
@@ -39,9 +39,10 @@ export function populateReqTree(reqTree){
       // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
       let treeHash = getHash(requirement['name'])
       let finished = '';
-      if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
+      if((requirement['min_needed'] === 0 && requirement['count'] >= 0) || 
         (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
-          finished='req-done ';
+          finished='req-done';
+      if(requirement['count'] === 0 && requirement['min_needed'] === 0) finished='req-neutral'
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];

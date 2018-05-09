@@ -87,15 +87,22 @@ function renderRequirements(){
         if (data !== null) {
           // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
           data = data.map((mainReq)=>{
+            // if mainReq is not an array, then it is just the name of the major
+            if(!Array.isArray(mainReq)) return mainReq
             return mainReq[2];
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
+              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
+              let finished = ''
+              if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
+                (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
+                  finished='req-done';
               let mainReqLabel = <span>
                                     <div className='my-arrow root-arrow'></div>
                                     {mainReq.name}
                                  </span>
-              return <TreeView key={index} itemClassName="tree-root" childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+              return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
             }),
             document.getElementById('requirements')
           );
@@ -146,6 +153,8 @@ class Search extends Component {
       search: '',
       data: []
     };
+    // initializes search result number (indicates to user that they can search)
+    ReactDOM.render(<span id='search-count'>0 Search Results</span>,document.getElementById('search-count'))
 
     // render data on startup
     // get existing schedule and populate semesters
@@ -195,7 +204,7 @@ class Search extends Component {
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
       // assigns delete listener to dropped item
-      $('.semesters').find('[id=' + el.id + ']').each(function(index) {
+      $('#semesters').find('[id=' + el.id + ']').each(function(index) {
         let course = $(this);
         // initializes req list for each dropped item
         if(course.data('reqs') === undefined) course.data('reqs', [])
@@ -247,9 +256,10 @@ class Search extends Component {
                 <p className="course-title">{course["title"]}</p>
                 <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
                 </li>
-            }),
+              }),
             document.getElementById('display-courses')
             )
+            ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
           }
         }.bind(this),
     });
