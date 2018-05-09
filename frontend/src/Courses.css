@@ -1,5 +1,5 @@
 /* items in semester columns */
-.semesters li{
+#semesters li{
   font-size: large;
   height: 36px;
   width: 96%;
@@ -10,7 +10,7 @@
 }
 
 /* for courses with long names */
-.semesters .course-name{
+#semesters .course-name{
 	width: 90%;
 	overflow: hidden;
 	float: left;
@@ -19,12 +19,12 @@
 }
 
 /* delete title and semester for courses in semesters */
-.semesters .course-title, .semesters .course-semester{
+#semesters .course-title, #semesters .course-semester{
 	display: none;
 }
 
 /* add delete button on course hover in semesters */
-.semesters .course-display:hover .delete-course {
+#semesters .course-display:hover .delete-course {
 	display: block;
 }
 

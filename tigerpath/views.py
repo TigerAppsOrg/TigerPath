@@ -35,11 +35,22 @@ def index(request):
         # add settings form
         settings_form = forms.SettingsForm(instance=instance)
         context = {'settings_form': settings_form}
-        # add onboarding form
-        if not request.user.profile.user_state['onboarding_complete']:
-            initial_values = get_onboarding_initial_values(request.user.username)
-            onboarding_form = forms.OnboardingForm(initial=initial_values)
-            context['onboarding_form'] = onboarding_form
+
+        # check user state
+        user_state = request.user.profile.user_state
+        if 'onboarding_complete' not in user_state or not user_state['onboarding_complete']:
+            # the user has completed the onboarding form but not the tutorial
+            if not request.user.profile.major:
+                # add onboarding form
+                initial_values = get_onboarding_initial_values(request.user.username)
+                onboarding_form = forms.OnboardingForm(initial=initial_values)
+                context['onboarding_form'] = onboarding_form
+            else:
+                # show tutorial
+                context['show_tutorial'] = True
+                user_state['onboarding_complete'] = True
+                request.user.profile.save()
+
         return render(request, 'tigerpath/index.html', context)
     else:
         return landing(request)
@@ -58,17 +69,14 @@ def about(request):
 # onboarding page
 @login_required
 def onboarding(request):
-    profile = update_profile(request, forms.OnboardingForm)
-    profile.user_state['onboarding_complete'] = True
-    profile.save()
+    update_profile(request, forms.OnboardingForm)
     return redirect('index')
 
 
 # user settings page
 @login_required
 def user_settings(request):
-    profile = update_profile(request, forms.SettingsForm)
-    profile.save()
+    update_profile(request, forms.SettingsForm)
     return redirect('index')
 
 
@@ -84,7 +92,7 @@ def update_profile(request, profile_form):
             # save data to database and redirect to app
             profile = form.save(commit=False)
             profile.user = request.user
-            return profile
+            profile.save()
     # if it's any other request, we raise a 404 error
     else:
         raise Http404
