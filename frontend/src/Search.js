@@ -159,10 +159,14 @@ class Search extends Component {
             let index = 1;
             data.map((semester, sem_num)=> {
               ReactDOM.render(semester.map((course)=> {
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
-                <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
-                <p className="course-title">{course["title"]}</p>
-                </li>
+                return(
+                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
+                  <span className="grip-dots"></span>
+                  <div className="course-content">
+                    <p className="course-name">{course["name"]}</p><i className="fas fa-times-circle delete-course"></i>
+                    <p className="course-title">{course["title"]}</p>
+                  </div>
+                </li>)
               }), document.getElementById('sem' + index))
               semester.map((course, course_index) => {
                 $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs', course['settled'])
@@ -239,14 +243,19 @@ class Search extends Component {
             ReactDOM.render(
               data.map((course)=> {
                 let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
-                <p className="course-name">{course["listing"]}</p>
-                <i className="fas fa-times-circle delete-course"></i>
-                <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
-                <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
-                <p className="course-title">{course["title"]}</p>
-                <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
+                return (
+                <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
+                  <span className="grip-dots"></span>
+                  <div className="course-content">
+                    <p className="course-name">{course["listing"]}</p>
+                    <i className="fas fa-times-circle delete-course"></i>
+                    <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
+                    <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
+                    <p className="course-title">{course["title"]}</p>
+                    <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
+                  </div>
                 </li>
+                )
             }),
             document.getElementById('display-courses')
             )
