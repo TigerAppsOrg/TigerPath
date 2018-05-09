@@ -9,7 +9,7 @@ import {updateSchedule} from './Search';
 
 // settles course and runs verifier to update
 export function toggleSettle(course, path_to, settle){
-  let allCoursesOnSchedule = $(".semesters").find("p:contains('" + course + "')").parent();
+  let allCoursesOnSchedule = $("#semesters").find("p:contains('" + course + "')").parent();
   let courseOnScheduleAssigned = '';
   let courseOnScheduleNotAssigned = '';
   // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
