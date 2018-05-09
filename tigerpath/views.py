@@ -196,7 +196,7 @@ def get_requirements(request):
     curr_user = models.UserProfile.objects.get(user=request.user)
     requirements = []
     try:
-        requirements.append(check_major(curr_user.major, curr_user.user_schedule, curr_user.year))
+        requirements.append(check_major('COS-AB', curr_user.user_schedule, 2018))
     except:
         requirements.append(curr_user.major)
     requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, curr_user.year))

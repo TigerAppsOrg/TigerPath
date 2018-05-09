@@ -42,6 +42,7 @@ export function populateReqTree(reqTree){
       if((requirement['min_needed'] === 0 && requirement['count'] >= requirement['max_counted']) || 
         (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
           finished='req-done ';
+      if(requirement['count'] === 0 && requirement['min_needed'] === 0) finished='req-neutral'
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
