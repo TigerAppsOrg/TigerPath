@@ -59,6 +59,8 @@ def convert_transcript_courses_to_schedule(sem_to_courses):
         for course_name in course_list:
             # get dept and code from course_name
             dept, code = course_name.split(' ')
+            if not dept or not code:
+                continue
             # get the course from the database
             course_id = course_listings.filter(dept=dept).get(number=code).course_id
             db_course = db_courses.get(id=course_id)

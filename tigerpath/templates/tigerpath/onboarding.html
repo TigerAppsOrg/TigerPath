@@ -23,7 +23,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="next-btn">Next</button>
-        <a class="btn btn-outline-primary hidden" href="https://transcriptapi.tigerapps.org/?redirect={{request.META.HTTP_HOST}}{% url 'save_transcript' %}" id="transcript-btn">Continue with Transcript Service</a>
+        <a class="btn btn-outline-primary hidden" href="https://transcriptapi.tigerapps.org/?redirect=http://{{request.META.HTTP_HOST}}{% url 'save_transcript' %}" id="transcript-btn">Continue with Transcript Service</a>
         <button type="submit" class="btn btn-primary hidden" id="finish-btn">Finish</button>
       </div>
     </form>
