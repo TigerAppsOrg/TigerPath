@@ -127,7 +127,18 @@ thead.semester-header {
 .nav-btn {
   color: white;
 }
+.dropdown-container {
+  position: relative;
+}
 
+.dropdown-menu {
+  position: absolute;
+  margin-left: 130px;
+  text-align: center;
+}
+div.inline {
+  float:left;
+}
 .nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
     color: #fff;
     background-color: #3d8af7;
