@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
@@ -11,6 +12,8 @@ from .majors_and_certificates.scripts.verifier import check_major, check_degree
 import django_cas_ng.views
 import ujson
 import re
+import requests
+import itertools
 
 
 # cas auth login
@@ -66,17 +69,37 @@ def about(request):
     return render(request, 'tigerpath/about.html', None)
 
 
-# onboarding page
+# save the info on the onboarding page
 @login_required
-def onboarding(request):
+def save_onboarding(request):
     update_profile(request, forms.OnboardingForm)
     return redirect('index')
 
 
-# user settings page
+# save the info on the user settings page
 @login_required
-def user_settings(request):
+def save_user_settings(request):
     update_profile(request, forms.SettingsForm)
+    return redirect('index')
+
+
+def save_transcript_courses(request):
+    ticket = request.GET.get('ticket', None)
+    if ticket:
+        courses = utils.get_transcript_courses(ticket)
+        if courses:
+            # save courses into schedule
+            current_user = models.UserProfile.objects.get(user=request.user)
+            current_user.user_schedule, courses_not_imported = utils.convert_transcript_courses_to_schedule(courses)
+            current_user.save()
+            success_msg = 'The courses from your transcript were successfully added to the schedule.'
+            if courses_not_imported:
+                success_msg += '<br>However, we were not able to add the following courses: ' + ', '.join(courses_not_imported)
+            messages.success(request, success_msg, extra_tags='safe')
+        else:
+            messages.error(request, 'Unfortunately, we weren\'t able to add the courses from your transcript to the schedule. Please add them manually.')
+    else:
+        raise Http404
     return redirect('index')
 
 
@@ -141,14 +164,7 @@ def get_courses(request, search_query):
         course_info['listing'] = course.cross_listings
         course_info['semester_list'] = course.all_semesters
         course_info['dist_area'] = course.dist_area
-        # tag semester
-        all_semesters = ''.join(course.all_semesters)
-        if 'f' in all_semesters and 's' in all_semesters:
-            course_info['semester'] = 'both'
-        elif 'f' in all_semesters:
-            course_info['semester'] = 'fall'
-        else:
-            course_info['semester'] = 'spring'
+        course_info['semester'] = get_semester_type(course.all_semesters)
         course_info_list.append(course_info)
 
     # sort list by dept and code
@@ -182,6 +198,30 @@ def filter_courses(queries):
     return results
 
 
+# returns 'fall', 'spring', or 'both' depending on the list of semesters
+def get_semester_type(all_semesters):
+    all_semesters = ''.join(all_semesters)
+    if 'f' in all_semesters and 's' in all_semesters:
+        return 'both'
+    elif 'f' in all_semesters:
+        return 'fall'
+    else:
+        return 'spring'
+
+
+# populate the courses in the user schedule with metadata from database
+def populate_user_schedule(schedule):
+    if not schedule:
+        return None
+    db_courses = models.Course.objects.all()
+    for course in list(itertools.chain(*schedule)):
+        db_course = db_courses.get(registrar_id=course['id'])
+        course['name'] = db_course.cross_listings
+        course['title'] = db_course.title
+        course['dist_area'] = db_course.dist_area
+        course['semester'] = get_semester_type(db_course.all_semesters)
+    return schedule
+
 
 # updates user's schedules with added courses
 @login_required
@@ -195,13 +235,16 @@ def update_schedule(request):
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    schedule = models.UserProfile.objects.get(user=request.user).user_schedule
+    curr_user = models.UserProfile.objects.get(user=request.user)
+    schedule = populate_user_schedule(curr_user.user_schedule)
     return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
+
 
 # returns requirements satisfied
 @login_required
 def get_requirements(request):
     curr_user = models.UserProfile.objects.get(user=request.user)
+    schedule = populate_user_schedule(curr_user.user_schedule)
     requirements = []
     try:
         requirements.append(check_major(curr_user.major, curr_user.user_schedule, settings.ACTIVE_YEAR))

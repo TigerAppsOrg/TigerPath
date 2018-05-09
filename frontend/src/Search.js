@@ -122,11 +122,7 @@ export function updateSchedule(){
     semester.childNodes.forEach(function(course, course_index){
       if(typeof course.innerHTML !== 'undefined'){
         let course_entry = {}
-        course_entry["name"] = course.getElementsByClassName("course-name")[0].innerHTML;
-        course_entry["title"] = course.getElementsByClassName("course-title")[0].innerHTML;
         course_entry["id"] = course.id;
-        course_entry["semester"] = course.className.split(" ")[1];
-        course_entry["dist_area"] = course.getAttribute('dist_area');
         course_entry["settled"] = $('.semester').eq(sem_num).find('li').eq(course_index).data('reqs');
         courses_taken[i].push(course_entry);
         addPopover(course.id);
