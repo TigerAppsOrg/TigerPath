@@ -9,7 +9,7 @@ from collections import OrderedDict
 from . import models
 
 TIGERBOOK_BASE_URL = 'https://tigerbook.herokuapp.com/api/v1/undergraduates/'
-TRANSCRIPT_BASE_URL = 'https://transcriptapi.tigerapps.org/transcript?ticket='
+TRANSCRIPT_BASE_URL = 'https://transcriptapi.tigerapps.org/transcript/?ticket='
 
 
 # Get information about the student with the specified netid from Tigerbook
@@ -41,9 +41,7 @@ def get_transcript_courses(ticket):
     r = requests.get(TRANSCRIPT_BASE_URL + ticket)
     if r.status_code == 200:
         transcript_data = r.json()
-        if ('transcript' in transcript_data and
-                'courses' in transcript_data['transcript'] and
-                transcript_data['transcript']['courses']):
+        if 'transcript' in transcript_data and 'courses' in transcript_data['transcript']:
             return transcript_data['transcript']['courses']
     return None
 
