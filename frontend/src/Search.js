@@ -93,7 +93,7 @@ function renderRequirements(){
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
-              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>{mainReq} major not supported yet.</div>)
+              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
               let finished = ''
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
@@ -259,7 +259,7 @@ class Search extends Component {
               }),
             document.getElementById('display-courses')
             )
-            ReactDOM.render(<span key={data.length} id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+            ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
           }
         }.bind(this),
     });

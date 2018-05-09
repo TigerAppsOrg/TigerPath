@@ -200,7 +200,7 @@ def get_requirements(request):
     except:
         # appends user major so we can display error message 
         requirements.append(curr_user.major)
-    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, curr_user.year))
+    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 
