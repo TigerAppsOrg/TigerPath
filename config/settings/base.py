@@ -142,3 +142,4 @@ LOGIN_URL = 'login'
 # Note: generally, limit this to three terms. This defines the terms that are
 #   scraped and the default terms displayed on schedules.
 ACTIVE_TERMS = [1182, 1184]
+ACTIVE_YEAR = 2018

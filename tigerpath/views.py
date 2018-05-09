@@ -203,8 +203,12 @@ def get_schedule(request):
 def get_requirements(request):
     curr_user = models.UserProfile.objects.get(user=request.user)
     requirements = []
-    requirements.append(check_major(curr_user.major, curr_user.user_schedule, 2018))
-    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, 2018))
+    try:
+        requirements.append(check_major(curr_user.major, curr_user.user_schedule, settings.ACTIVE_YEAR))
+    except:
+        # appends user major so we can display error message 
+        requirements.append(curr_user.major)
+    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 
