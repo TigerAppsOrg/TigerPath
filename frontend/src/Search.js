@@ -195,7 +195,7 @@ class Search extends Component {
     // tells react to post updated course schedule when an item is dropped
     drake.on('drop', function(el){
       // assigns delete listener to dropped item
-      $('.semesters').find('[id=' + el.id + ']').each(function(index) {
+      $('#semesters').find('[id=' + el.id + ']').each(function(index) {
         let course = $(this);
         // initializes req list for each dropped item
         if(course.data('reqs') === undefined) course.data('reqs', [])
