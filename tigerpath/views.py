@@ -90,9 +90,12 @@ def save_transcript_courses(request):
         if courses:
             # save courses into schedule
             current_user = models.UserProfile.objects.get(user=request.user)
-            current_user.user_schedule = utils.convert_transcript_courses_to_schedule(courses)
+            current_user.user_schedule, courses_not_imported = utils.convert_transcript_courses_to_schedule(courses)
             current_user.save()
-            messages.success(request, 'The courses from your transcript were successfully added to the schedule.')
+            success_msg = 'The courses from your transcript were successfully added to the schedule.'
+            if courses_not_imported:
+                success_msg += '<br>However, we were not able to add the following courses: ' + ', '.join(courses_not_imported)
+            messages.success(request, success_msg, extra_tags='safe')
         else:
             messages.error(request, 'Unfortunately, we weren\'t able to add the courses from your transcript to the schedule. Please add them manually.')
     else:

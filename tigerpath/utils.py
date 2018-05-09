@@ -49,9 +49,12 @@ def get_transcript_courses(ticket):
 # Convert Transcript API courses to the format for a user schedule
 def convert_transcript_courses_to_schedule(sem_to_courses):
     courses_taken = []
+    courses_not_imported = []
+
     # get all course listings and courses from database
     course_listings = models.Course_Listing.objects.all()
     db_courses = models.Course.objects.all()
+
     # iterate through transcript api courses
     sem_to_courses = OrderedDict(sorted(sem_to_courses.items(), key=get_sem_to_courses_key))
     for i, (sem, course_list) in enumerate(sem_to_courses.items()):
@@ -60,19 +63,24 @@ def convert_transcript_courses_to_schedule(sem_to_courses):
             # get dept and code from course_name
             dept, code = course_name.split(' ')
             if not dept or not code:
+                courses_not_imported.push(course_name)
                 continue
+
             # get the course from the database
             try:
                 course_id = course_listings.filter(dept=dept).get(number=code).course_id
             except models.Course_Listing.DoesNotExist:
+                courses_not_imported.push(course_name)
                 continue
             db_course = db_courses.get(id=course_id)
+
             # populate course_entry with course data
             course_entry = {}
             course_entry['id'] = db_course.registrar_id
             course_entry["settled"] = []
             courses_taken[i].append(course_entry)
-    return courses_taken
+
+    return (courses_taken, courses_not_imported)
 
 
 # Key function used to sort the courses in the transcript data by order of semester

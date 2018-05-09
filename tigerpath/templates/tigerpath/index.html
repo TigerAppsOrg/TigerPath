@@ -167,7 +167,7 @@
       {% for message in messages %}
         <div class="messages panel alert alert-info alert-dismissable" id="updates-popup">
           <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
-          <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</span>
+          <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}</span>
         </div>
       {% endfor %}
     {% endif %}
