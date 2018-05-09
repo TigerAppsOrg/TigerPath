@@ -13,7 +13,9 @@ function startIntro() {
       },
       {
         element: '#display-courses',
-        intro: "Search results will appear here. You can drag courses from the search results to any semester in your schedule."
+        intro: `Search results will appear here.
+        Fall courses appear in orange, Spring courses appear in blue, and courses that are offered in both semesters appear in purple.
+        You can drag courses from the search results to any semester in your schedule.`
       },
       {
         element: '#semesters',
@@ -22,7 +24,7 @@ function startIntro() {
       {
         element: '#requirements',
         intro: `Each course that you've added to your schedule will automatically show up underneath the requirements that it can satisfy.
-        If a course can satisfy multiple requirements, it will show up underneath each of those requirements and be grayed out.
+        If a course can only satisfy one of multiple requirements, it will show up underneath each of those requirements and be grayed out.
         You can click on a grayed out course to make it count for that requirement.`
       },
       {
