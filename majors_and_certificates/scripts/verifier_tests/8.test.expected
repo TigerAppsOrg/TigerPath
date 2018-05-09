@@ -1,0 +1,650 @@
+[
+  [
+    {
+      "name": "COS 126",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    }
+  ],
+  [
+    {
+      "name": "COS340",
+      "possible_reqs": [
+        "Electrical Engineering//Mathematics",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Mathematics",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "settled": [
+        "Electrical Engineering//Mathematics"
+      ]
+    },
+    {
+      "name": "COS 333",
+      "possible_reqs": [
+        "Electrical Engineering//Breadth//A course from another department",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Breadth//A course from another department",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "settled": [
+        "Electrical Engineering//Breadth"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ELE 497",
+      "possible_reqs": [
+        "Electrical Engineering//Departmentals//At least 5 ELE",
+        "Electrical Engineering//Senior Thesis//000"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Senior Thesis//000",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "settled": [
+        "Electrical Engineering//Senior Thesis//000"
+      ]
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "possible_reqs": [
+        "Electrical Engineering//Foundation",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Foundation",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "settled": [
+        "Electrical Engineering//Foundation"
+      ]
+    },
+    {
+      "name": "COS 423",
+      "possible_reqs": [
+        "Electrical Engineering//Engineering Science",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Engineering Science",
+        "Electrical Engineering//Departmentals//At most 3 from other departments"
+      ],
+      "settled": [
+        "Electrical Engineering//Engineering Science"
+      ]
+    },
+    {
+      "name": "ELE 301",
+      "possible_reqs": [
+        "Electrical Engineering//Core",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Core",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "settled": [
+        "Electrical Engineering//Core"
+      ]
+    },
+    {
+      "name": "ELE 302",
+      "possible_reqs": [
+        "Electrical Engineering//Core",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Core",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "settled": [
+        "Electrical Engineering//Core"
+      ]
+    },
+    {
+      "name": "ELE 208",
+      "possible_reqs": [
+        "Electrical Engineering//Core"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Core"
+      ],
+      "settled": [
+        "Electrical Engineering//Core"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "ELE 498",
+      "possible_reqs": [
+        "Electrical Engineering//Departmentals//At least 5 ELE",
+        "Electrical Engineering//Senior Thesis//001"
+      ],
+      "reqs_satisfied": [
+        "Electrical Engineering//Senior Thesis//001",
+        "Electrical Engineering//Departmentals//At least 5 ELE"
+      ],
+      "settled": [
+        "Electrical Engineering//Senior Thesis//001"
+      ]
+    }
+  ]
+]
+
+{
+  "name": "Electrical Engineering",
+  "path_to": "Electrical Engineering",
+  "satisfied": false,
+  "count": 3,
+  "min_needed": 9,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "Foundation",
+      "path_to": "Electrical Engineering//Foundation",
+      "satisfied": false,
+      "count": 1,
+      "min_needed": 3,
+      "max_counted": 1,
+      "settled": [
+        "ELE 206/COS 306"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Core",
+      "path_to": "Electrical Engineering//Core",
+      "satisfied": true,
+      "count": 3,
+      "min_needed": 3,
+      "max_counted": 1,
+      "settled": [
+        "ELE 301",
+        "ELE 302",
+        "ELE 208"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Mathematics",
+      "path_to": "Electrical Engineering//Mathematics",
+      "satisfied": false,
+      "count": 1,
+      "min_needed": 4,
+      "max_counted": 1,
+      "settled": [
+        "COS340"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Breadth",
+      "path_to": "Electrical Engineering//Breadth",
+      "satisfied": false,
+      "count": 1,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "A course from another department",
+          "path_to": "Electrical Engineering//Breadth//A course from another department",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [
+            "COS 333"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "PHY 208 and PHY 305",
+          "path_to": "Electrical Engineering//Breadth//PHY 208 and PHY 305",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Circuits and Systems",
+          "path_to": "Electrical Engineering//Breadth//Circuits and Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Data and Information",
+          "path_to": "Electrical Engineering//Breadth//Data and Information",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Computer Systems",
+          "path_to": "Electrical Engineering//Breadth//Computer Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Security and Privacy",
+          "path_to": "Electrical Engineering//Breadth//Security and Privacy",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Electronic Devices and Materials",
+          "path_to": "Electrical Engineering//Breadth//Electronic Devices and Materials",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Biomedical Engineering",
+          "path_to": "Electrical Engineering//Breadth//Biomedical Engineering",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Robotics and Cyber-physical Systems",
+          "path_to": "Electrical Engineering//Breadth//Robotics and Cyber-physical Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Quantum Information and Applied Physics",
+          "path_to": "Electrical Engineering//Breadth//Quantum Information and Applied Physics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Optics and Photonics",
+          "path_to": "Electrical Engineering//Breadth//Optics and Photonics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Energy and the Environment",
+          "path_to": "Electrical Engineering//Breadth//Energy and the Environment",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Engineering Science",
+      "path_to": "Electrical Engineering//Engineering Science",
+      "satisfied": true,
+      "count": 1,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [
+        "COS 423"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Departmentals",
+      "path_to": "Electrical Engineering//Departmentals",
+      "satisfied": false,
+      "count": 7,
+      "min_needed": 8,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "At least 5 ELE",
+          "path_to": "Electrical Engineering//Departmentals//At least 5 ELE",
+          "satisfied": true,
+          "count": 4,
+          "min_needed": 0,
+          "max_counted": null,
+          "settled": [
+            "ELE 497",
+            "ELE 301",
+            "ELE 302",
+            "ELE 498"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "At most 3 from other departments",
+          "path_to": "Electrical Engineering//Departmentals//At most 3 from other departments",
+          "satisfied": true,
+          "count": 4,
+          "min_needed": 0,
+          "max_counted": 3,
+          "settled": [
+            "COS340",
+            "COS 333",
+            "ELE 206/COS 306",
+            "COS 423"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Design",
+      "path_to": "Electrical Engineering//Design",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Concentration",
+      "path_to": "Electrical Engineering//Concentration",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Circuits and Systems",
+          "path_to": "Electrical Engineering//Concentration//Circuits and Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Circuits and Systems//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Circuits and Systems//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Data and Information",
+          "path_to": "Electrical Engineering//Concentration//Data and Information",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Data and Information//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Data and Information//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Computer Systems",
+          "path_to": "Electrical Engineering//Concentration//Computer Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Computer Systems//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Computer Systems//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Security and Privacy",
+          "path_to": "Electrical Engineering//Concentration//Security and Privacy",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Security and Privacy//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Security and Privacy//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Electronic Devices and Materials",
+          "path_to": "Electrical Engineering//Concentration//Electronic Devices and Materials",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Electronic Devices and Materials//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Electronic Devices and Materials//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Biomedical Engineering",
+          "path_to": "Electrical Engineering//Concentration//Biomedical Engineering",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Robotics and Cyber-physical Systems",
+          "path_to": "Electrical Engineering//Concentration//Robotics and Cyber-physical Systems",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Quantum Information and Applied Physics",
+          "path_to": "Electrical Engineering//Concentration//Quantum Information and Applied Physics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Quantum Information and Applied Physics//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Quantum Information and Applied Physics//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Optics and Photonics",
+          "path_to": "Electrical Engineering//Concentration//Optics and Photonics",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 2,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Required",
+              "path_to": "Electrical Engineering//Concentration//Optics and Photonics//Required",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            },
+            {
+              "name": "Two courses from",
+              "path_to": "Electrical Engineering//Concentration//Optics and Photonics//Two courses from",
+              "satisfied": false,
+              "count": 0,
+              "min_needed": 2,
+              "max_counted": 1,
+              "settled": [],
+              "unsettled": []
+            }
+          ]
+        },
+        {
+          "name": "Energy and the Environment",
+          "path_to": "Electrical Engineering//Concentration//Energy and the Environment",
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Senior Thesis",
+      "path_to": "Electrical Engineering//Senior Thesis",
+      "satisfied": true,
+      "count": 2,
+      "min_needed": 2,
+      "max_counted": 1,
+      "settled": [
+        "ELE 497",
+        "ELE 498"
+      ],
+      "unsettled": []
+    }
+  ]
+}
