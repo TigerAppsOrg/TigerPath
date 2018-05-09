@@ -338,7 +338,6 @@
         },
         "required": [
           "name",
-          "max_counted",
           "min_needed",
           "explanation"
         ],

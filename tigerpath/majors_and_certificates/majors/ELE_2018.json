@@ -1,0 +1,895 @@
+{
+  "type": "Major",
+  "name": "Electrical Engineering",
+  "code": "ELE",
+  "degree": "BSE",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-electrical-engineering",
+    "http://ee.princeton.edu/sites/default/files/UG_Handbook.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Departmental Representative",
+      "name": "James C. Sturm",
+      "email": "sturm@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Foundation",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "All ELE majors are required to take:\n- ELE 201 Information and Signals\n- ELE 203 Electronic Circuit Design, Analysis and Implementation\n- ELE 206 Contemporary Logic Design\n- ELE 208 Electronic and Photonic Devices (ELE 208 is now a junior year requirement, ELE\n308 for class of 2021. The course number for Fall 2018 registration may still say ELE208.\nSophomores and/or freshman are encouraged to take the course if schedule and interest\npermit.)\nThis requirement is normally satisfied by the end of the sophomore year. In some instances, students\nwith prior exposure to similar material may test out of one or more of these courses. In such cases, an\nupperlevel ELE course in the same general area must be substituted for the course before graduation.\nThe substituted course cannot be used to satisfy any other requirement.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "completed_by_semester": 4,
+      "course_list": [
+        "ELE 201",
+        "ELE 203",
+        "ELE 206"
+      ]
+    },
+    {
+      "name": "Core",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Three upperclass courses are required of all ELE majors:\n- ELE 301 Designing Real Systems\n- ELE 302 Building Real Systems\n- ELE 308 Electronic and Photonic Devices (beginning with class of 2021)\nThis requirement is normally satisfied by the end of the junior year, although sophomores are especially\nencouraged to take ELE 308 in their sophomore year if interest and schedule permit. (The course number for\nFall 2018 registration may still say ELE 208).",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "completed_by_semester": 6,
+      "course_list": [
+        "ELE 301",
+        "ELE 302",
+        "ELE 308 / ELE 208"
+      ]
+    },
+    {
+      "name": "Mathematics",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "At least one additional upperclass (300 level or higher) math course. Examples include: MAE305/MAT301,\nMAE306/MAT302, ORF309*/MAT309, COS 340. This may not count towards the concentration\nrequirement, the breadth requirement or as a Departmental requirement (See 3.6). Additional upperclass\nmath courses may be used for that purpose.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "course_list": [
+        "MAT 3**",
+        "MAT 4**",
+        "MAT 5**",
+        "COS 340"
+      ]
+    },
+    {
+      "name": "Breadth",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "At least one department elective course, 300-level or above, in an area distinct from your area of\nconcentration. The following courses are also possible: COS 318, 320, 333, 402, 426, 429, 432, 441, 461;\nPHY 208/305 – must take both PHY208 and PHY 305 (counts as one). Note: ORF309 cannot be used to\nsatisfy this requirement. Of special note: TigerHub states you need one course each in two areas. One of\nyour concentration courses will serve as one of the two needed. This means you need one course outside of\nconcentration and the other course will naturally fall into your concentration. The departmental\nrepresentative is the final authority on whether or not a course can fulfill a requirement.",
+      "double_counting_allowed": true,
+      "pdfs_allowed": 0,
+      "req_list": [
+        {
+          "name": "A course from another department",
+          "max_counted": 1,
+          "min_needed": 0,
+          "explanation": "A course from another department",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "COS 318",
+            "COS 320",
+            "COS 333",
+            "COS 402",
+            "COS 426",
+            "COS 429",
+            "COS 432",
+            "COS 441",
+            "COS 461"
+          ]
+        },
+        {
+          "name": "PHY 208 and PHY 305",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Both PHY 208 and PHY 305 count as a single course.",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "PHY 208",
+            "PHY 305"
+          ]
+        },
+        {
+          "name": "Circuits and Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required:\nELE304 Electronic Circuits: Devices to ICs (S)\nTwo courses from:\n ELE341 Solid State Devices (F)\n COS/ELE375 Computer Architecture and Organization (S)\n ELE382 Statistical Signal Processing (F)\n ELE461* Design with Nanotechnologies\n ELE462 Design of VLSI (F)\n ELE464 Embedded Computing (S)\n ELE475 Computer Architecture (S)\n ELE481 Power Electronics (S)\n ELE482 Digital Signal Processing (S)\n * ELE461 no longer offered, but past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 341",
+            "ELE 375",
+            "ELE 382",
+            "ELE 461",
+            "ELE 462",
+            "ELE 464",
+            "ELE 475",
+            "ELE 481",
+            "ELE 482"
+          ]
+        },
+        {
+          "name": "Data and Information",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required:\nORF309* Probability and Stochastic Systems (F & S)\nTwo courses from:\n ELE364** Machine Learning for Predictive Data Analysis (F)\n ELE381 Networks: Friends, Money and Bytes (F)\n ELE382 Statistical Signal Processing (F)\n ELE477** Kernel Methods in Machine Learning (F)\n ELE482 Digital Signal Processing (S)\n ELE486 Transmission and Compression of Information (S)\n ELE488***Image Processing\n ELE435** Machine Learning and Pattern Recognition (F)\n COS324**Introduction to Machine Learning (F)\n COS402 **Artificial Intelligence\n COS424** Fundamentals of Machine Learning (S)\n COS429 Computer Vision (F)\n *To concentrate in Data and Information, a student must take\nORF309. It can be used to fulfill the concentration or upper level\nmath requirement, but not both\n**Only one Machine Learning course may be applied to this\nconcentration\n***ELE488 no longer offered, but past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ORF 309",
+            "ELE 381",
+            "ELE 382",
+            "ELE 482",
+            "ELE 486",
+            "ELE 488",
+            "COS 429",
+            "ELE 364",
+            "ELE 477",
+            "ELE 435",
+            "COS 324",
+            "COS 402",
+            "COS 424"
+          ]
+        },
+        {
+          "name": "Computer Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: COS/ELE375 Computer Architecture and Organization (S) Two courses from: ELE461* Design with Nanotechnologies ELE462 Design of VLSI (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) ELE475 Computer Architecture (S) COS318 Operating Systems (F) COS320 Compiling Techniques (S) COS461 Computer Networks (S) * No longer offered, but past students may use it for this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 375",
+            "ELE 461",
+            "ELE 462",
+            "ELE 464",
+            "ELE 470",
+            "ELE 475",
+            "COS 318",
+            "COS 320",
+            "COS 461"
+          ]
+        },
+        {
+          "name": "Security and Privacy",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: COS/ELE432 Information Security (F & S) Two courses from: COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) COS324**Introduction to Machine Learning (F) COS402**Artificial Intelligence COS424** Fundamentals of Machine Learning (S) COS433 Cryptography (S) COS461 Computer Networks (S) ** Only one Machine Learning course may be applied towards thisconcentraiton",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "COS 432",
+            "COS 375",
+            "ELE 464",
+            "ELE 470",
+            "COS 433",
+            "COS 461",
+            "ELE 364",
+            "ELE 435",
+            "COS 324",
+            "COS 402",
+            "COS 424"
+          ]
+        },
+        {
+          "name": "Electronic Devices and Materials",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Required: ELE341 Solid State Devices (F) Two courses from: ELE304* Electronic Circuits: Devices to ICs (S) ELE342 Principles of Quantum Engineering (S) ELE431 Solar Energy Conversion (F) ELE441 Solid-State Physics I (F) ELE481* Power Electronics (S) MAE324 Structure and Properties of Materials (F) MAE424 Energy Storage Systems (S) MSE301 Materials Science and Engineering (S) MSE302 Laboratory Techniques in Materials Science (F) MSE505 Characterization of Materials (S) * Only one circuits (304 or 481) course may be applied towards this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 341",
+            "ELE 342",
+            "ELE 431",
+            "ELE 441",
+            "MAE 324",
+            "MAE 424",
+            "MSE 301",
+            "MSE 302",
+            "MSE 505",
+            "ELE 304",
+            "ELE 481"
+          ]
+        },
+        {
+          "name": "Biomedical Engineering",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Biomedical Engineering\nThree courses from:\n ELE304 Electronic Circuits: Devices to ICs (S)\n ELE452 Biomedical Imaging (F)\n ELE455* Mid--IR Tech. for Health & Environment\n ELE480 fMRI Decoding: Reading Minds (F)\n ELE488* Image Processing\n COS429 Computer Vision (F)\n COS455 Genomics & Computational Molecular Biology (F)\n MAE344 Biomechanics and Biomaterials (S)\n NEU427 Systems Neuroscience (S)\n NEU437 Computational Neuroscience (S)\n *ELE455 and 488 no longer offered. Past students may use it for this\nconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 452",
+            "ELE 455",
+            "ELE 480",
+            "ELE 488",
+            "COS 429",
+            "COS 455",
+            "MAE 344",
+            "NEU 427",
+            "NEU 437"
+          ]
+        },
+        {
+          "name": "Robotics and Cyber-physical Systems",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Robotics and Cyber-physical Systems Three courses from: ELE304 Electronic Circuits: Devices to ICs (S) COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE488*** Image Processing COS324**Introduction to Machine Learning (F) COS402** Artificial Intelligence  COS429 Computer Vision (F)  MAE345 Robotics and Intelligent Systems (F)  MAE433 Automatic Control Systems (F) ** Only one Machine Learning course may be used for this concentration *** No longer offered, but past students may use it for this concentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 375",
+            "ELE 464",
+            "ELE 488",
+            "COS 429",
+            "MAE 345",
+            "MAE 433",
+            "ELE 364",
+            "ELE 435",
+            "COS 324",
+            "COS 402"
+          ]
+        },
+        {
+          "name": "Quantum Information and Applied Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Quantum Information and Applied Physics: ELE342** Principles of Quantum Engineering (S) Two courses from:  ELE396 Introduction to Quantum Computing (F)  ELE441 Solid-State Physics I (F)  ELE453 Optical Electronics (F)  ELE456 Quantum Optics (S)  ELE568 Implementations of Quantum Information (F) ** PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 342",
+            "ELE 396",
+            "ELE 441",
+            "ELE 453",
+            "ELE 456",
+            "ELE 568"
+          ]
+        },
+        {
+          "name": "Optics and Photonics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Optics and Photonics  Required: ELE 351 Electromagnetic Field Theory and Optics (S)Two courses from: ELE 342 Principles of Quantum Engineering (S) ELE 452 Biomedical Imaging (F) ELE 453 Optical Electronics (F) ELE 454 Photonics and Light Wave Communications (S)  ELE455* Mid--IR Tech. for Health & Environment  ELE 456 Quantum Optics (S)  MAE521 Optics and Lasers (F) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 351",
+            "ELE 342",
+            "ELE 452",
+            "ELE 453",
+            "ELE 454",
+            "ELE 455",
+            "ELE 456",
+            "MAE 521"
+          ]
+        },
+        {
+          "name": "Energy and the Environment",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Energy and the Environment: Three courses from: ELE 341 Solid State Devices (F) ELE 431 Solar Energy Conversion (F) ELE455* Mid--IR Tech. for Health & Environment ELE481 Power Electronics (S) ELE 557 Solar Cells: Physics, Materials, and Technology (F) MAE 424 Energy Storage Systems (S) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 341",
+            "ELE 431",
+            "ELE 455",
+            "ELE 481",
+            "ELE 557",
+            "MAE 424"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Engineering Science",
+      "max_counted": 1,
+      "min_needed": 1,
+      "description": "Other courses are possible; consult departmental representative.",
+      "explanation": "An engineering course with a significant scientific component must be taken outside of ELE to satisfy this\nrequirement. Many courses can be used to satisfy this requirement; note, however, that a course comprised\nlargely of mathematics or applied mathematics does not satisfy the requirement. The course used to satisfy\nthe Engineering Science requirement cannot also be used to satisfy the concentration requirement or the\nbreadth requirement, nor can it be counted as a Departmental requirement. The following is a non-exhaustive\nlist of possibilities: COS 217, 226, 320, 402, 423, 425, 444, 451, 487; MAE 206, 221, 222, 324, 328, 344,\n345, 433, 434; CEE 205, 303, 305, 471; MSE 301, 302; CBE 245, 246, 341, 415, 445, 447; ORF 307, 311,\n405, 406, 417",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "course_list": [
+        "COS 217",
+        "COS 226",
+        "COS 320",
+        "COS 402",
+        "COS 423",
+        "COS 425",
+        "COS 444",
+        "COS 451",
+        "COS 487",
+        "MAE 206",
+        "MAE 221",
+        "MAE 222",
+        "MAE 324",
+        "MAE 328",
+        "MAE 344",
+        "MAE 345",
+        "MAE 433",
+        "MAE 434",
+        "CEE 205",
+        "CEE 303",
+        "CEE 305",
+        "CEE 471",
+        "CBE 245",
+        "CBE 246",
+        "CBE 341",
+        "CBE 415",
+        "CBE 445",
+        "CBE 447",
+        "ORF 307",
+        "ORF 311",
+        "ORF 405",
+        "ORF 406",
+        "ORF 417"
+      ]
+    },
+    {
+      "name": "Departmentals",
+      "max_counted": 1,
+      "min_needed": 8,
+      "explanation": "ELE students must take at least two upperclass technical courses in each of the last four semesters. These\n300-level-or-higher courses are called Departmental courses. Of the eight Departmental courses, at least five\nmust be ELE courses. The remaining three courses can be taken in CEE, CHM, CBE, COS, EEB, ELE,\nMAE, MAT, MOL, MSE, ORF or PHY. Courses outside electrical engineering counted towards this\nrequirement must be closely related to the student’s academic program.",
+      "double_counting_allowed": true,
+      "pdfs_allowed": 0,
+      "req_list": [
+        {
+          "name": "At least 5 ELE",
+          "min_needed": 0,
+          "explanation": "At least 5 departmentals must be ELE courses.",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 3**",
+            "ELE 4**",
+            "ELE 5**"
+          ]
+        },
+        {
+          "name": "At most 3 from other departments",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "At most 3 departmentals may be from other departments, but these departments must be closely related to the student's program.",
+          "pdfs_allowed": 0,
+          "course_list": [
+            "CEE 3**",
+            "CEE 4**",
+            "CEE 5**",
+            "CHM 3**",
+            "CHM 4**",
+            "CHM 5**",
+            "CBE 3**",
+            "CBE 4**",
+            "CBE 5**",
+            "COS 3**",
+            "COS 4**",
+            "COS 5**",
+            "EEB 3**",
+            "EEB 4**",
+            "EEB 5**",
+            "MAE 3**",
+            "MAE 4**",
+            "MAE 5**",
+            "MAT 3**",
+            "MAT 4**",
+            "MAT 5**",
+            "MOL 3**",
+            "MOL 4**",
+            "MOL 5**",
+            "MSE 3**",
+            "MSE 4**",
+            "MSE 5**",
+            "ORF 3**",
+            "ORF 4**",
+            "ORF 5**",
+            "PHY 3**",
+            "PHY 4**",
+            "PHY 5**"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Design",
+      "max_counted": 1,
+      "min_needed": 1,
+      "description": "Independent work may satisfy this requirement, if it contains significant design components.",
+      "explanation": "In the junior year, ELE 302 takes each student through all phases of a design project, emphasizing hands-on\nexperience while providing classroom guidance. In addition, at least one upperclass ELE course with\nsubstantial engineering design content must be selected from the following: ELE 352, 375, 404, 454, 462,\n465, 475, 482, COS 426, 436. This requirement may also be satisfied with junior or senior independent work,\nif that work contains a substantial design component.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "completed_by_semester": 6,
+      "course_list": [
+        "ELE 352",
+        "ELE 375",
+        "ELE 404",
+        "ELE 454",
+        "ELE 462",
+        "ELE 465",
+        "ELE 475",
+        "ELE 482",
+        "COS 426",
+        "COS 436"
+      ]
+    },
+    {
+      "name": "Concentration",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Each student must develop depth in a coherent area of concentration in the department by completing three\ncourses in one concentration area. The ten possible concentrations span the core disciplines within ELE as\nwell as important applications areas. While many concentrations are interdisciplinary, two of the three\ncourses must be listed in ELE (crosslisted is OK). ORF 309/MAT 309 may be used to satisfy either the\nupperclass mathematics requirement or the concentration requirement, but not both.\n6\nGraduate courses (500 level) are open to undergraduates after the completion of a permission form\ncontaining the signatures of instructor and departmental representative. The permission form is available\nfrom the undergraduate coordinator or you can download at http://registrar.princeton.edu/student-services/.\nGraduate courses can be included in a concentration with departmental representative permission.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "req_list": [
+        {
+          "name": "Circuits and Systems",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Required:\nELE304 Electronic Circuits: Devices to ICs (S)\nTwo courses from:\n ELE341 Solid State Devices (F)\n COS/ELE375 Computer Architecture and Organization (S)\n ELE382 Statistical Signal Processing (F)\n ELE461* Design with Nanotechnologies\n ELE462 Design of VLSI (F)\n ELE464 Embedded Computing (S)\n ELE475 Computer Architecture (S)\n ELE481 Power Electronics (S)\n ELE482 Digital Signal Processing (S)\n * ELE461 no longer offered, but past students may use it for this\nconcentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 304"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 341",
+                "ELE 375",
+                "ELE 382",
+                "ELE 461",
+                "ELE 462",
+                "ELE 464",
+                "ELE 475",
+                "ELE 481",
+                "ELE 482"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Data and Information",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Required:\nORF309* Probability and Stochastic Systems (F & S)\nTwo courses from:\n ELE364** Machine Learning for Predictive Data Analysis (F)\n ELE381 Networks: Friends, Money and Bytes (F)\n ELE382 Statistical Signal Processing (F)\n ELE477** Kernel Methods in Machine Learning (F)\n ELE482 Digital Signal Processing (S)\n ELE486 Transmission and Compression of Information (S)\n ELE488***Image Processing\n ELE435** Machine Learning and Pattern Recognition (F)\n COS324**Introduction to Machine Learning (F)\n COS402 **Artificial Intelligence\n COS424** Fundamentals of Machine Learning (S)\n COS429 Computer Vision (F)\n *To concentrate in Data and Information, a student must take\nORF309. It can be used to fulfill the concentration or upper level\nmath requirement, but not both\n**Only one Machine Learning course may be applied to this\nconcentration\n***ELE488 no longer offered, but past students may use it for this\nconcentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ORF 309"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 381",
+                    "ELE 382",
+                    "ELE 482",
+                    "ELE 486",
+                    "ELE 488",
+                    "COS 429"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "Only one Machine Learning course may be applied to this concentration",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 364",
+                    "ELE 477",
+                    "ELE 435",
+                    "COS 324",
+                    "COS 402",
+                    "COS 424"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Computer Systems",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Required: COS/ELE375 Computer Architecture and Organization (S) Two courses from: ELE461* Design with Nanotechnologies ELE462 Design of VLSI (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) ELE475 Computer Architecture (S) COS318 Operating Systems (F) COS320 Compiling Techniques (S) COS461 Computer Networks (S) * No longer offered, but past students may use it for this concentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 375"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 461",
+                "ELE 462",
+                "ELE 464",
+                "ELE 470",
+                "ELE 475",
+                "COS 318",
+                "COS 320",
+                "COS 461"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Security and Privacy",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Required: COS/ELE432 Information Security (F & S) Two courses from: COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE470 Smartphone Security and Architecture (F) COS324**Introduction to Machine Learning (F) COS402**Artificial Intelligence COS424** Fundamentals of Machine Learning (S) COS433 Cryptography (S) COS461 Computer Networks (S) ** Only one Machine Learning course may be applied towards thisconcentraiton",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "COS 432"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "COS 375",
+                    "ELE 464",
+                    "ELE 470",
+                    "COS 433",
+                    "COS 461"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "Only one Machine Learning course may be applied towards this concentraiton",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 364",
+                    "ELE 435",
+                    "COS 324",
+                    "COS 402",
+                    "COS 424"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Electronic Devices and Materials",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Required: ELE341 Solid State Devices (F) Two courses from: ELE304* Electronic Circuits: Devices to ICs (S) ELE342 Principles of Quantum Engineering (S) ELE431 Solar Energy Conversion (F) ELE441 Solid-State Physics I (F) ELE481* Power Electronics (S) MAE324 Structure and Properties of Materials (F) MAE424 Energy Storage Systems (S) MSE301 Materials Science and Engineering (S) MSE302 Laboratory Techniques in Materials Science (F) MSE505 Characterization of Materials (S) * Only one circuits (304 or 481) course may be applied towards this concentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "completed_by_semester": 8,
+              "course_list": [
+                "ELE 341"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 342",
+                    "ELE 431",
+                    "ELE 441",
+                    "MAE 324",
+                    "MAE 424",
+                    "MSE 301",
+                    "MSE 302",
+                    "MSE 505"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "Only one circuits (304 or 481) course may be applied towards this concentration",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 304",
+                    "ELE 481"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Biomedical Engineering",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Biomedical Engineering\nThree courses from:\n ELE304 Electronic Circuits: Devices to ICs (S)\n ELE452 Biomedical Imaging (F)\n ELE455* Mid--IR Tech. for Health & Environment\n ELE480 fMRI Decoding: Reading Minds (F)\n ELE488* Image Processing\n COS429 Computer Vision (F)\n COS455 Genomics & Computational Molecular Biology (F)\n MAE344 Biomechanics and Biomaterials (S)\n NEU427 Systems Neuroscience (S)\n NEU437 Computational Neuroscience (S)\n *ELE455 and 488 no longer offered. Past students may use it for this\nconcentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 304",
+            "ELE 452",
+            "ELE 455",
+            "ELE 480",
+            "ELE 488",
+            "COS 429",
+            "COS 455",
+            "MAE 344",
+            "NEU 427",
+            "NEU 437"
+          ]
+        },
+        {
+          "name": "Robotics and Cyber-physical Systems",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Robotics and Cyber-physical Systems Three courses from: ELE304 Electronic Circuits: Devices to ICs (S) COS/ELE375 Computer Architecture and Organization (S) ELE364** Machine Learning for Predictive Data Analysis (F) ELE435** Machine Learning and Pattern Recognition (F) ELE464 Embedded Computing (S) ELE488*** Image Processing COS324**Introduction to Machine Learning (F) COS402** Artificial Intelligence  COS429 Computer Vision (F)  MAE345 Robotics and Intelligent Systems (F)  MAE433 Automatic Control Systems (F) ** Only one Machine Learning course may be used for this concentration *** No longer offered, but past students may use it for this concentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": "",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 304",
+                "ELE 375",
+                "ELE 464",
+                "ELE 488",
+                "COS 429",
+                "MAE 345",
+                "MAE 433"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": "Only one Machine Learning course may be used for this concentration",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 364",
+                "ELE 435",
+                "COS 324",
+                "COS 402"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Quantum Information and Applied Physics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Quantum Information and Applied Physics: ELE342** Principles of Quantum Engineering (S) Two courses from:  ELE396 Introduction to Quantum Computing (F)  ELE441 Solid-State Physics I (F)  ELE453 Optical Electronics (F)  ELE456 Quantum Optics (S)  ELE568 Implementations of Quantum Information (F) ** PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "ELE 342"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": "PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement",
+                  "double_counting_allowed": false,
+                  "pdfs_allowed": 0,
+                  "course_list": [
+                    "PHY 208",
+                    "PHY 305"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 396",
+                "ELE 441",
+                "ELE 453",
+                "ELE 456",
+                "ELE 568"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Optics and Photonics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Optics and Photonics  Required: ELE 351 Electromagnetic Field Theory and Optics (S)Two courses from: ELE 342 Principles of Quantum Engineering (S) ELE 452 Biomedical Imaging (F) ELE 453 Optical Electronics (F) ELE 454 Photonics and Light Wave Communications (S)  ELE455* Mid--IR Tech. for Health & Environment  ELE 456 Quantum Optics (S)  MAE521 Optics and Lasers (F) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "req_list": [
+            {
+              "name": "Required",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "One required course.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 351"
+              ]
+            },
+            {
+              "name": "Two courses from",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from this list.",
+              "double_counting_allowed": false,
+              "pdfs_allowed": 0,
+              "course_list": [
+                "ELE 342",
+                "ELE 452",
+                "ELE 453",
+                "ELE 454",
+                "ELE 455",
+                "ELE 456",
+                "MAE 521"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Energy and the Environment",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Energy and the Environment: Three courses from: ELE 341 Solid State Devices (F) ELE 431 Solar Energy Conversion (F) ELE455* Mid--IR Tech. for Health & Environment ELE481 Power Electronics (S) ELE 557 Solar Cells: Physics, Materials, and Technology (F) MAE 424 Energy Storage Systems (S) *ELE455 no longer offered. Past students may use it for thisconcentration",
+          "double_counting_allowed": false,
+          "pdfs_allowed": 0,
+          "course_list": [
+            "ELE 341",
+            "ELE 431",
+            "ELE 455",
+            "ELE 481",
+            "ELE 557",
+            "MAE 424"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "description": "",
+      "explanation": "A two-term senior thesis is required. Students must enroll in ELE 497 (Fall) and ELE 498 (Spring). A grade will be given at the end of each term. A senior thesis must include an oral presentation to the faculty at a senior thesis presentation at the end of the spring term.",
+      "double_counting_allowed": false,
+      "pdfs_allowed": 0,
+      "completed_by_semester": 8,
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 0,
+          "explanation": "",
+          "completed_by_semester": 7,
+          "course_list": [
+            "ELE 497"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 0,
+          "explanation": "",
+          "completed_by_semester": 8,
+          "course_list": [
+            "ELE 498"
+          ]
+        }
+      ]
+    }
+  ]
+}
