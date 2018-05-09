@@ -128,13 +128,13 @@ span.grip-dots {
   top: 10%;
   width: 8px;
   height: 80%;
-  display: none;
+  display: inline-block;
   line-height: 5px;
   vertical-align: -webkit-baseline-middle;
   font-size: 6px;
   font-family: sans-serif;
   letter-spacing: -1px;
-  opacity: 0.35;
+  opacity: 0.25;
   margin-left: 3px;
 }
 
@@ -144,7 +144,7 @@ li:hover span.grip-dots{
 
 /* more dots show when course is longer (overflow hidden covers the rest)*/
 span.grip-dots::after {
-  content: '■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■';
+  content: '■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■';
 }
 
 div.course-content{
