@@ -45,15 +45,15 @@
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
         <div>
         <div class="dropdown-container inline">
-        <a class="btn" href="#" id="settings-btn">Settings</a>
-        <a class="btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
+        <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
+        <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
         <div class="btn-group">
-        <a class="btn dropdown-toggle" href="#" role="button" id="netid-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.profile.nickname|default:request.user.username }}</a>
+        <a class="btn nav-btn dropdown-toggle" href="#" role="button" id="netid-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ request.user.profile.nickname|default:request.user.username }}</a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
           </div>
         </div>
-        <a class="btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
+        <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
         </div>
       </div>
     </nav>
