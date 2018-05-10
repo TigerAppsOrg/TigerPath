@@ -63,8 +63,8 @@ li:active {
 }
 
 .course-display.fall {
-  background-color: #ffc993;
-  color: #753a00;
+  background: #eaccff;
+  color: #53008f;
 }
 
 .course-display.spring {
@@ -73,8 +73,8 @@ li:active {
 }
 
 .course-display.both {
-  background: #d1dcff;
-  color: #4B0082;
+  background-color: #f3be89a1;
+  color: #753a00;
 }
 
 .course-display p {
