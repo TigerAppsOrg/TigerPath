@@ -1,18 +1,30 @@
 <div class="modal fade in" id="onboarding-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="onboarding-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <form method="post" action="{% url 'onboarding' %}" class="modal-content" id="onboarding-form">
+    <form method="post" action="{% url 'save_onboarding' %}" class="modal-content" id="onboarding-form">
       <div class="modal-header">
         <h5 class="modal-title" id="onboarding-modal-label">Welcome to TigerPath!</h5>
       </div>
       <div class="modal-body">
         <div class="container">
-          <p>Before we get started, please answer a few questions about yourself. Then you'll be on your way to creating your four-year course plan!</p>
-          {% csrf_token %}
-          {% include 'includes/bs4_form.html' with form=onboarding_form %}
+          <div id="page-1">
+            <p>Before we get started, there are a few things we need to take care of. Then you'll be on your way to creating your four-year course schedule!</p>
+            <h6>Confirm your info</h6>
+            <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
+            {% csrf_token %}
+            {% include 'includes/bs4_form.html' with form=onboarding_form %}
+          </div>
+          <div id="page-2" class="hidden animated">
+            <h6>Prepopulate your course schedule (Optional)</h6>
+            <p>If you're interested in prepopulating your four-year course schedule with courses you've already taken, then you can upload your unofficial transcript to the TigerApps Transcript Service.</p>
+            <p>Once you click on "Continue with Transcript Service" below, you will be redirected to the TigerApps Transcript Service webpage. Check "Share Courses", upload your transcript as a PDF file, and click the submit button. The service will extract the courses you've taken, and we'll automatically put them into your schedule.</p>
+            <p>Using the Transcript Service is optional. If you'd like, you can click "Finish" below and populate your schedule manually.</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary" id="done-btn">Done</button>
+        <button type="button" class="btn btn-primary" id="next-btn">Next</button>
+        <a class="btn btn-outline-primary hidden" href="https://transcriptapi.tigerapps.org/?redirect=http://{{request.META.HTTP_HOST}}{% url 'save_transcript' %}" id="transcript-btn">Continue with Transcript Service</a>
+        <button type="submit" class="btn btn-primary hidden" id="finish-btn">Finish</button>
       </div>
     </form>
   </div>

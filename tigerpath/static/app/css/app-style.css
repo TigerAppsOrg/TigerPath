@@ -122,9 +122,10 @@ thead.semester-header {
    padding-left: 0 !important;
 }
 
-.btn {
+.nav-btn {
   color: white;
 }
+
 .dropdown-container {
   position: relative;
 }
@@ -196,4 +197,32 @@ div.inline {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+/* popup on bottom of page */
+#updates-popup {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgb(224, 255, 255);
+  border-color: rgb(194, 232, 232);
+  right: 15px;
+  bottom: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  padding: .75rem .75rem .75rem 1.25rem;
+}
+
+@media (min-width: 767px) {
+  #updates-popup {
+    width: 25%;
+  }
+}
+
+.close {
+  color: inherit;
+  margin-left: 20px;
+}
+
+.warning-text {
+  color: #e74c3c;
 }
