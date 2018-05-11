@@ -33,7 +33,7 @@ button.custom-toggler.navbar-toggler {
 header.masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../img/header-background.jpg") no-repeat center center;
+  background: url("../img/header_background.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -56,10 +56,10 @@ header.masthead h1 {
   font-size: 2rem;
 }
 
-header.about-masthead {
+header.small-masthead {
   position: relative;
   background-color: #343a40;
-  background: url("../img/header-background.jpg") no-repeat center center;
+  background: url("../img/header_background.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -68,7 +68,7 @@ header.about-masthead {
   padding-bottom: 4rem;
 }
 
-header.about-masthead .overlay {
+header.small-masthead .overlay {
   position: absolute;
   background-color: #212529;
   height: 100%;
