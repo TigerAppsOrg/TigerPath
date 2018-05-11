@@ -501,7 +501,8 @@ def get_all_courses_and_dist_reqs(req):
     
 def find_requirement(req_name, path_to, year):
     '''
-    Returns the subrequirement of req that is pointed to by path_to
+    Returns the subrequirement of the json corresponding to req_name that
+    is pointed to by path_to
     '''
     if req_name.upper() == "AB":
         req_file = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
