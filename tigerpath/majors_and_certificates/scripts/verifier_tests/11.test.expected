@@ -162,7 +162,7 @@
   "name": "Electrical Engineering",
   "path_to": "Electrical Engineering",
   "satisfied": false,
-  "count": 5,
+  "count": 6,
   "min_needed": 9,
   "max_counted": null,
   "req_list": [
@@ -195,9 +195,9 @@
     {
       "name": "Mathematics",
       "path_to": "Electrical Engineering//Mathematics",
-      "satisfied": false,
+      "satisfied": true,
       "count": 1,
-      "min_needed": 4,
+      "min_needed": 1,
       "max_counted": 1,
       "settled": [
         "COS340"
