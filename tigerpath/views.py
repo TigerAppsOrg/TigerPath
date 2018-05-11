@@ -128,6 +128,7 @@ def update_profile(request, profile_form):
 
 # get onboarding initial values from tigerbook
 def get_onboarding_initial_values(username):
+    majors = models.Major.objects.all()
     initial_values = {}
     student_json = utils.get_student_info(username)
     if student_json:
@@ -139,14 +140,17 @@ def get_onboarding_initial_values(username):
             initial_values['year'] = student_json['class_year']
         # get major code
         if student_json['major_code']:
-            initial_values['major'] = student_json['major_code']
+            tigerbook_major_code = student_json['major_code']
             # handle the way tigerbook stores major codes
-            if initial_values['major'] == 'COS':
-                initial_values['major'] += '-' + student_json['major_type']
-            elif initial_values['major'] == 'FRE ITA':
-                initial_values['major'] = 'FIT'
-            elif initial_values['major'] == 'SPA POR':
-                initial_values['major'] = 'SPO'
+            if tigerbook_major_code == 'COS':
+                major_code = tigerbook_major_code + '-' + student_json['major_type']
+                initial_values['major'] = majors.get(code=major_code).pk
+            elif tigerbook_major_code == 'FRE ITA':
+                initial_values['major'] = majors.get(code='FIT').pk
+            elif tigerbook_major_code == 'SPA POR':
+                initial_values['major'] = majors.get(code='SPO').pk
+            else:
+                initial_values['major'] = majors.get(code=tigerbook_major_code)
     return initial_values
 
 
@@ -252,11 +256,11 @@ def get_requirements(request):
     schedule = populate_user_schedule(curr_user.user_schedule)
     requirements = []
     try:
-        requirements.append(check_major(curr_user.major, curr_user.user_schedule, settings.ACTIVE_YEAR))
+        requirements.append(check_major(curr_user.major.code, curr_user.user_schedule, settings.ACTIVE_YEAR))
     except:
-        # appends user major so we can display error message 
-        requirements.append(curr_user.major)
-    requirements.append(check_degree(models.Major.objects.get(code=curr_user.major).degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
+        # appends user major name so we can display error message
+        requirements.append(curr_user.major.name)
+    requirements.append(check_degree(curr_user.major.degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 

@@ -78,6 +78,7 @@ li:active {
 }
 
 .course-display p {
+  padding-right: 50px;
   margin-bottom: 0;
 }
 
