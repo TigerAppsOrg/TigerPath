@@ -149,19 +149,8 @@ def get_onboarding_initial_values(username):
                 initial_values['major'] = 'SPO'
     return initial_values
 
-
-# filters courses with query from react and sends back a list of filtered courses to display
-@login_required
-def get_courses(request, search_query):
-    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
-    split_query = re.split('(\d.*)', search_query)
-    queries = []
-    # split again by spaces
-    for query in split_query:
-        queries = queries + query.split(" ")
-
+def convertCourses(course_list, queries):
     course_info_list = []
-    course_list = filter_courses(queries)
     for course in course_list:
         course_info = {}
         course_info['title'] = course.title
@@ -178,8 +167,51 @@ def get_courses(request, search_query):
     for query in queries:
         if len(query) == 3 and query.isalpha():
             course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
+    return course_info_list
+
+# filters courses with query from react and sends back a list of filtered courses to display
+@login_required
+def get_courses(request, search_query):
+    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
+    split_query = re.split('(\d.*)', search_query)
+    queries = []
+    # split again by spaces
+    for query in split_query:
+        queries = queries + query.split(" ")
+
+    course_list = filter_courses(queries)
+    course_info_list = convertCourses(course_list, queries)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
+
+# returns list of courses that match a requirement
+@login_required
+def get_req_courses(request, req_path):
+    # prevents duplicate courses to be added in search results
+    search_results = set([])
+    course_list = [
+                "COS 3**",
+                "COS 4**",
+                "MAT 3**",
+                "MAT 4**",
+                "ELE 3**",
+                "ELE 4**",
+                "PHY 3**",
+                "PHY 4**",
+                "ORF 3**",
+                "ORF 4**",
+                "PHI 312",
+                "MAE 345",
+                "CHM 303",
+                "ECO 312",
+                "MOL 437/NEU 437",
+                "NEU 330",
+                "ECO 326"
+              ]
+    for course in course_list:
+        search_results.union(set(filter_courses(course.replace('*', ''))))
+    course_info_list = convertCourses(list(search_results), course_list)
+    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 # returns list of courses filtered by query
 def filter_courses(queries):

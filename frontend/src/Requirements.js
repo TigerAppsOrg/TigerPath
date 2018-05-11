@@ -6,6 +6,7 @@ import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
 
 import {updateSchedule} from './Search';
+import {returnSearchList} from './Search';
 
 // settles course and runs verifier to update
 export function toggleSettle(course, path_to, settle){
@@ -33,6 +34,21 @@ function getHash(stringName) {
   return stringName.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
 }
 
+function getReqCourses(req_path){
+  $.ajax({
+      // the slashes messes up the url 
+      url: "/api/v1/get_req_courses/" + req_path.replace(/\/\//g, '$'),
+      datatype: 'json',
+      type: 'GET',
+      cache: true,
+      success: function(data) {
+        console.info(data)
+//        ReactDOM.render(returnSearchList(data), document.getElementById('display-courses'))
+//        ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+      }
+    });
+}
+
 // traverses req tree to display when updating reqlist
 export function populateReqTree(reqTree){
   return(reqTree['req_list'].map((requirement)=>{
@@ -49,6 +65,7 @@ export function populateReqTree(reqTree){
       let reqLabel = <span>
                           <div className='my-arrow'></div>
                           <span className='reqName'>{requirement['name']}</span>
+                          <i className="fa fa-search" onClick={(e)=>{getReqCourses(requirement['path_to'])}}></i>
                           <span className='reqCount'>{tag}</span>
                        </span>;
       if('req_list' in requirement) { 

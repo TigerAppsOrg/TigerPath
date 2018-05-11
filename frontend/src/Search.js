@@ -84,6 +84,7 @@ function renderRequirements(){
       type: 'GET',
       cache: true,
       success: function(data) {
+        console.info(data)
         if (data !== null) {
           // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
           data = data.map((mainReq)=>{
@@ -110,6 +111,60 @@ function renderRequirements(){
         }
       }
   });
+}
+
+/* Converts semester to term code */
+function convertSemToTermCode(sem) {
+  let code = "1";
+  if (sem[0] === "f") {
+    code += (parseInt(sem.slice(1)) + 1).toString() + "2";
+  } else {
+    code += sem.slice(1) + "4";
+  }
+  return code;
+}
+
+/* Converts semester list to human readable form, using the two most recent semesters */
+function convertSemListToReadableForm(semList) {
+  // Sort semester list according to when they happened
+  semList.sort(function(sem1, sem2){
+    let yearCmp = parseInt(sem1.slice(1)) - parseInt(sem2.slice(1));
+    if (yearCmp !== 0) return yearCmp;
+    else if (sem1[0] === "s" && sem2[0] === "f") return -1;
+    else if (sem1[0] === "f" && sem2[0] === "s") return 1;
+    else return 0;
+  });
+
+  // Convert to readable form
+  let result = "";
+  for (let index = Math.max(0, semList.length - 2); index < semList.length; index++) {
+    result += convertSemToReadableForm(semList[index]);
+    if (index !== semList.length - 1) result += ", ";
+  }
+  return result;
+}
+
+/* Helper function to convert a semester into readable form */
+function convertSemToReadableForm(sem) {
+  if (sem[0] === "f") {
+    return "Fall 20" + sem.slice(1);
+  } else {
+    return "Spring 20" + sem.slice(1);
+  }
+}
+
+export function returnSearchList(data){
+  return data.map((course)=> {
+                let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
+                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
+                <p className="course-name">{course["listing"]}</p>
+                <i className="fas fa-times-circle delete-course"></i>
+                <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
+                <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
+                <p className="course-title">{course["title"]}</p>
+                <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
+                </li>
+              })
 }
 
 // gets current enrolled courses and sends post request
@@ -241,64 +296,12 @@ class Search extends Component {
           if(search_query === this.state.search || search_query === '$') {
             this.setState({data: data});
             // Render search results
-            ReactDOM.render(
-              data.map((course)=> {
-                let termCode = convertSemToTermCode(course["semester_list"][course["semester_list"].length - 1]);
-                return <li key={course["id"]} id={course["id"]} className={"course-display " + course["semester"]} dist_area={course["dist_area"]}>
-                <p className="course-name">{course["listing"]}</p>
-                <i className="fas fa-times-circle delete-course"></i>
-                <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
-                <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
-                <p className="course-title">{course["title"]}</p>
-                <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
-                </li>
-              }),
-            document.getElementById('display-courses')
-            )
+            ReactDOM.render(returnSearchList(data), document.getElementById('display-courses'))
             ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
           }
         }.bind(this),
     });
 
-    /* Converts semester to term code */
-    function convertSemToTermCode(sem) {
-      let code = "1";
-      if (sem[0] === "f") {
-        code += (parseInt(sem.slice(1)) + 1).toString() + "2";
-      } else {
-        code += sem.slice(1) + "4";
-      }
-      return code;
-    }
-
-    /* Converts semester list to human readable form, using the two most recent semesters */
-    function convertSemListToReadableForm(semList) {
-      // Sort semester list according to when they happened
-      semList.sort(function(sem1, sem2){
-        let yearCmp = parseInt(sem1.slice(1)) - parseInt(sem2.slice(1));
-        if (yearCmp !== 0) return yearCmp;
-        else if (sem1[0] === "s" && sem2[0] === "f") return -1;
-        else if (sem1[0] === "f" && sem2[0] === "s") return 1;
-        else return 0;
-      });
-
-      // Convert to readable form
-      let result = "";
-      for (let index = Math.max(0, semList.length - 2); index < semList.length; index++) {
-        result += convertSemToReadableForm(semList[index]);
-        if (index !== semList.length - 1) result += ", ";
-      }
-      return result;
-    }
-
-    /* Helper function to convert a semester into readable form */
-    function convertSemToReadableForm(sem) {
-      if (sem[0] === "f") {
-        return "Fall 20" + sem.slice(1);
-      } else {
-        return "Spring 20" + sem.slice(1);
-      }
-    }
   }
   render()
   { 
