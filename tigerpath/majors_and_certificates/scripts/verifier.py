@@ -465,6 +465,55 @@ def _course_match(course_name, pattern):
                 return True
     return False
 
+def _get_req_by_path(req, path_to):
+    '''
+    Returns the subrequirement of req that is pointed to by path_to
+    '''
+    if "path_to" not in req:
+        _init_path_to(req)
+    if req["path_to"] == path_to:
+        return req
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            if _get_req_by_path(subreq, path_to):
+                return subreq
+    return None
+
+def get_all_courses_and_dist_reqs(req):
+    '''
+    Returns a list of all courses and a list of distribution requirements
+    in req's subtree.
+    '''
+    if "course_list" in req:
+        return (req["course_list"], None)
+    if "dist_req" in req:
+        return (None, [req["dist_req"]])
+    total_course_list = []
+    total_dist_req_list = []
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            course_list, dist_req_list = get_all_courses_and_dist_reqs(subreq)
+            if course_list:
+                total_course_list += course_list
+            if dist_req_list:
+                total_dist_req_list += dist_req_list
+    return (total_course_list,total_dist_req_list)
+    
+def find_requirement(req_name, path_to, year):
+    '''
+    Returns the subrequirement of req that is pointed to by path_to
+    '''
+    if req_name.upper() == "AB":
+        req_file = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
+    elif req_name.upper() == "BSE":
+        req_file = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
+    else:
+        major_filename = req_name + "_" + str(year) + ".json"
+        req_file = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
+    with open(req_file, 'r') as f:
+        req = json.load(f)
+    return _get_req_by_path(req, path_to)
+
 def main():
     with open ("verifier_tests/1.test", "r") as f:
         major_name = f.readline()[:-1]
