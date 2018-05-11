@@ -14,7 +14,7 @@ function startIntro() {
       {
         element: '#display-courses',
         intro: `Search results will appear here.
-        Fall courses appear in orange, Spring courses appear in blue, and courses that are offered in both semesters appear in purple.
+        Fall courses appear in purple, Spring courses appear in blue, and courses that are offered in both semesters appear in orange.
         You can drag courses from the search results to any semester in your schedule.`
       },
       {
