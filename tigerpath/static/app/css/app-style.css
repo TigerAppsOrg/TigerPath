@@ -107,9 +107,11 @@ thead.semester-header {
   text-align: center;
 }
 .fall-sem {
+  /* Should change description in tutorial.js whenever color is modified. */
   background-color: #ad79d4;
 }
 .spring-sem {
+  /* Should change description in tutorial.js whenever color is modified. */
   background-color: #3aaed4;
 }
 .hidden {
