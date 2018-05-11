@@ -8,6 +8,7 @@ from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
 from .majors_and_certificates.scripts.verifier import check_major, check_degree
+from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 
 import django_cas_ng.views
 import ujson
@@ -210,10 +211,21 @@ def get_req_courses(request, req_path):
                 "ECO 312",
                 "MOL 437/NEU 437",
                 "NEU 330",
-                "ECO 326"
+                "ECO 326",
+ #               "LANG 107"
               ]
     for course in course_list:
-        search_results.union(set(filter_courses(course.replace('*', ''))))
+        if('LANG' in course):
+            for lang in list(LANG_DEPTS.keys()):
+                search_results.update(set(filter_courses(course.replace('*', '').replace('LANG', lang).split(' '))))
+        if('*' not in course):
+            course = course.split('/')[0]
+            try:
+                search_results.add(models.Course_Listing.objects.get(dept=course.split(' ')[0], number=course.split(' ')[1]).course)
+            except:
+                pass
+        else:
+            search_results.update(set(filter_courses(course.replace('*', '').split(' '))))
     course_info_list = convertCourses(list(search_results), course_list)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
