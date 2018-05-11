@@ -3,9 +3,9 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.contrib.postgres.fields import JSONField
+from django.contrib.postgres.fields import JSONField, ArrayField
+
 import uuid
-from django.contrib.postgres.fields import ArrayField
 
 
 class Semester(models.Model):
@@ -155,7 +155,7 @@ class UserProfile(models.Model):
                                 on_delete=models.CASCADE,
                                 related_name='profile')
     nickname = models.CharField(max_length=50, null=True, blank=True)
-    major = models.CharField(max_length=7, null=True)
+    major = models.ForeignKey(Major, related_name="+", on_delete=models.CASCADE, null=True)
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
     user_schedule = JSONField(null=True, blank=True)
