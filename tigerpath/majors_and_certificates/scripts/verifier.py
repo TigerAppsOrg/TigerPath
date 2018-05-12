@@ -123,13 +123,17 @@ def _format_req_output(req):
     Enforce the type and order of fields in the req output
     '''
     output = collections.OrderedDict()
-    if req["name"] == None:
+    if req["name"] == None: # hidden requirement. Do not show.
         return None
-    output["name"] = req["name"]
-    output["path_to"] = req["path_to"]
+    for key in ["name",
+            "code", "degree", "urls", "contacts",
+            "path_to"]:
+        if key in req:
+            output[key] = req[key]
     output["satisfied"] = (req["min_needed"]-req["count"] <= 0)
     for key in ["count", "min_needed", "max_counted"]:
-        output[key] = req[key]
+        if key in req:
+            output[key] = req[key]
     if "req_list" in req: # internal node. recursively call on children
         req_list = []
         for subreq in req["req_list"]:
@@ -142,10 +146,9 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    # elif "course_list" in req:
-    #     output["course_list"] = ["..."]
-    #     # for course in req["course_list"]:
-    #     #     print(course)
+    collapsed_course_list, collapsed_dist_list = _get_all_courses_and_dist_reqs(req)
+    output["collapsed_course_list"] = sorted(list(collapsed_course_list))
+    output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
     
 def _add_course_lists_to_req(req, courses):
@@ -479,25 +482,32 @@ def _get_req_by_path(req, path_to):
                 return subreq
     return None
 
-def get_all_courses_and_dist_reqs(req):
+def _get_all_courses_and_dist_reqs(req):
     '''
-    Returns a list of all courses and a list of distribution requirements
+    Returns sets of all courses and of all distribution requirements
     in req's subtree.
+    Note: Sets may contain duplicate courses if a course is listed in multiple
+    different ways
     '''
     if "course_list" in req:
-        return (req["course_list"], None)
+        course_set = set()
+        for course in req["course_list"]:
+            course = course.split(':')[0] # strip course name
+            # course = "".join(course.split()).upper() # remove spaces
+            course_set.add(course)
+        return (course_set, set())
     if "dist_req" in req:
-        return (None, [req["dist_req"]])
-    total_course_list = []
-    total_dist_req_list = []
+        return (set(), set([req["dist_req"]]))
+    total_course_set = set()
+    total_dist_req_set = set()
     if "req_list" in req:
         for subreq in req["req_list"]:
-            course_list, dist_req_list = get_all_courses_and_dist_reqs(subreq)
-            if course_list:
-                total_course_list += course_list
-            if dist_req_list:
-                total_dist_req_list += dist_req_list
-    return (total_course_list,total_dist_req_list)
+            course_set, dist_req_set = _get_all_courses_and_dist_reqs(subreq)
+            if course_set:
+                total_course_set |= course_set
+            if dist_req_set:
+                total_dist_req_set |= dist_req_set
+    return (total_course_set,total_dist_req_set)
     
 def find_requirement(req_name, path_to, year):
     '''
