@@ -501,8 +501,9 @@ def _get_req_by_path(req, path_to):
 
 def _get_collapsed_course_and_dist_req_sets(req):
     '''
-    Returns sets of all courses and of all distribution requirements
-    in req's subtree.
+    Returns the sets of all courses and all distribution requirements
+    in req's subtree as a tuple:
+    (course_set, dist_req_set)
     Note: Sets may contain duplicate courses if a course is listed in multiple
     different ways
     '''
@@ -510,7 +511,6 @@ def _get_collapsed_course_and_dist_req_sets(req):
         course_set = set()
         for course in req["course_list"]:
             course = course.split(':')[0] # strip course name
-            # course = "".join(course.split()).upper() # remove spaces
             course_set.add(course)
         return (course_set, set())
     if "dist_req" in req:
@@ -521,9 +521,9 @@ def _get_collapsed_course_and_dist_req_sets(req):
         for subreq in req["req_list"]:
             course_set, dist_req_set = _get_collapsed_course_and_dist_req_sets(subreq)
             if course_set:
-                total_course_set |= course_set
+                total_course_set |= course_set # union of both sets
             if dist_req_set:
-                total_dist_req_set |= dist_req_set
+                total_dist_req_set |= dist_req_set # union of both sets
     return (total_course_set,total_dist_req_set)
 
 def main():
