@@ -524,7 +524,7 @@ def _get_collapsed_course_and_dist_req_sets(req):
                 total_course_set |= course_set # union of both sets
             if dist_req_set:
                 total_dist_req_set |= dist_req_set # union of both sets
-    return (total_course_set,total_dist_req_set)
+    return (total_course_set, total_dist_req_set)
 
 def main():
     with open ("verifier_tests/1.test", "r") as f:
