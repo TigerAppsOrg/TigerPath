@@ -526,22 +526,6 @@ def _get_all_courses_and_dist_reqs(req):
             if dist_req_set:
                 total_dist_req_set |= dist_req_set
     return (total_course_set,total_dist_req_set)
-    
-def find_requirement(req_name, path_to, year):
-    '''
-    Returns the subrequirement of the json corresponding to req_name that
-    is pointed to by path_to
-    '''
-    if req_name.upper() == "AB":
-        req_file = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
-    elif req_name.upper() == "BSE":
-        req_file = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
-    else:
-        major_filename = req_name + "_" + str(year) + ".json"
-        req_file = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
-    with open(req_file, 'r') as f:
-        req = json.load(f)
-    return _get_req_by_path(req, path_to)
 
 def main():
     with open ("verifier_tests/1.test", "r") as f:
