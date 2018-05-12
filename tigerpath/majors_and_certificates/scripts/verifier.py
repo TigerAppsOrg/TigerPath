@@ -150,8 +150,7 @@ def _format_req_output(req):
             output[key] = req[key]
     output["satisfied"] = (req["min_needed"]-req["count"] <= 0)
     for key in ["count", "min_needed", "max_counted"]:
-        if key in req:
-            output[key] = req[key]
+        output[key] = req[key]
     if "req_list" in req: # internal node. recursively call on children
         req_list = []
         for subreq in req["req_list"]:
@@ -164,7 +163,7 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    collapsed_course_list, collapsed_dist_list = _get_all_courses_and_dist_reqs(req)
+    collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
     output["collapsed_course_list"] = sorted(list(collapsed_course_list))
     output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
@@ -500,7 +499,7 @@ def _get_req_by_path(req, path_to):
                 return subreq
     return None
 
-def _get_all_courses_and_dist_reqs(req):
+def _get_collapsed_course_and_dist_req_sets(req):
     '''
     Returns sets of all courses and of all distribution requirements
     in req's subtree.
@@ -520,7 +519,7 @@ def _get_all_courses_and_dist_reqs(req):
     total_dist_req_set = set()
     if "req_list" in req:
         for subreq in req["req_list"]:
-            course_set, dist_req_set = _get_all_courses_and_dist_reqs(subreq)
+            course_set, dist_req_set = _get_collapsed_course_and_dist_req_sets(subreq)
             if course_set:
                 total_course_set |= course_set
             if dist_req_set:
