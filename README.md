@@ -39,12 +39,14 @@ To run a command in a Docker container, do `docker exec -it [CONTAINER_NAME_OR_I
 
 #### Make migrations and update database
 
-If you're using Docker, then once you make the migration files, you should copy them from the container to the host (your local computer) by running `docker cp <containerId>:/file/path/within/container /host/path/target`. You should then push the migration files to Git.
+You can do this by running the following commands:
 
 ```
 python manage.py makemigrations                             # Makes migrations based on models.py
 python manage.py migrate                                    # Migrates the database
 ```
+
+If you're using Docker, then once you make the migration files, you should copy them from the container to the host (your local computer) by running `docker cp <containerId>:/file/path/within/container /host/path/target`. You should then push the migration files to Git.
 
 #### Custom django-admin commands
 
@@ -52,9 +54,33 @@ python manage.py migrate                                    # Migrates the datab
 python manage.py tigerpath_get_courses                      # Scrapes courses and puts them in the database
 ```
 
+#### Load static data
+
+To load the major mappings fixture, which populates the major table in the database, run the following command:
+
+```
+python manage.py loaddata major_mappings
+```
+
 ## Deployment
 
-You shouldn't need to deploy manually, as deploys are set up to happen automatically based on the code in GitHub. The development server tracks the `dev` branch, and the production server tracks the `master` branch.
+#### To push a release to master
+
+When pushing a release to master, you can make a pull request to merge dev into master. However, once it is approved, please DO NOT rebase or merge with GitHub! Instead, in your terminal, type the following commands:
+
+```
+git checkout master
+git rebase dev
+git push
+```
+
+There should be no conflicts at all, since master is only updated from the dev branch. Doing it this way ensures that GitHub doesn't say that the master branch is "X commits ahead, Y commits behind" dev.
+
+After you do this, Heroku will automatically build the production website from the master branch, and it will be live.
+
+#### Deploying to Heroku manually
+
+You shouldn't need to deploy manually, as deploys are set up to happen automatically based on the code in GitHub. The development server tracks the dev branch, and the production server tracks the master branch.
 
 However, if you do need to push your changes manually, then run the following command:
 ```

@@ -250,7 +250,7 @@ class Search extends Component {
                 <a href={"https://registrar.princeton.edu/course-offerings/course_details.xml?courseid=" + course["id"] + "&term=" + termCode} target="_blank"><i className="fas fa-info-circle fa-lg fa-fw course-info"></i></a>
                 <a href={"https://reg-captiva.princeton.edu/chart/index.php?terminfo=" + termCode + "&courseinfo=" + course["id"]} target="_blank"><i className="fas fa-chart-bar fa-lg fa-fw course-eval"></i></a>
                 <p className="course-title">{course["title"]}</p>
-                <p className="course-semester">{"Previously offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
+                <p className="course-semester">{"Offered in " + convertSemListToReadableForm(course["semester_list"])}</p>
                 </li>
               }),
             document.getElementById('display-courses')
