@@ -125,9 +125,27 @@ def _format_req_output(req):
     output = collections.OrderedDict()
     if req["name"] == None: # hidden requirement. Do not show.
         return None
-    for key in ["name",
-            "code", "degree", "urls", "contacts",
-            "path_to"]:
+    for key in [
+        "name",
+        "code",
+        "degree",
+        "path_to",
+        "urls"
+    ]:
+        if key in req:
+            output[key] = req[key]
+    if "contacts" in req:
+        output["contacts"] = []
+        for contact in req["contacts"]:
+            contact_copy = collections.OrderedDict()
+            for key in ["type", "name", "email"]:
+                contact_copy[key] = contact[key]
+            output["contacts"].append(contact_copy)
+    for key in [
+        "explanation",
+        "pdfs_allowed",
+        "completed_by_semester"
+    ]:
         if key in req:
             output[key] = req[key]
     output["satisfied"] = (req["min_needed"]-req["count"] <= 0)
