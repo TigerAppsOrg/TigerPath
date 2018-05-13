@@ -258,3 +258,19 @@ thead.semester-header {
 .warning-text {
   color: #e74c3c;
 }
+
+#search-info{
+  display: -webkit-box;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+#spinner{
+  display: none;
+  font-size: inherit;
+  margin-left: 2px;
+}
+
+#search-count-num{
+  margin-right: 3px;
+}
