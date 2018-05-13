@@ -22,9 +22,13 @@ def get_all_courses():
 
             # add dist_area to models
             for course in scrape_all_courses(term_code):
-                fetch_course = Course.objects.get(registrar_id = str(term_code) + str(course["courseid"]))
-                fetch_course.dist_area = course["area"]
-                fetch_course.save()
+                try:
+                    fetch_course = Course.objects.get(registrar_id = str(term_code) + str(course["courseid"]))
+                    fetch_course.dist_area = course["area"]
+                    fetch_course.save()
+                except:
+                    print(course)
+                    print(str(term_code) + str(course['courseid']))
         except Exception as e:
             raise e
 
@@ -58,7 +62,7 @@ def get_all_courses():
             # get course from queryset
             fetch_master = fetch_master[0]
             
-            if add_semester not in fetch_master.semesters:
+            if add_semester not in fetch_master.all_semesters:
                 fetch_master.all_semesters.append(add_semester)
             fetch_master.save()
             # delete duplicate course

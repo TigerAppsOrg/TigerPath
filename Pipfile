@@ -24,6 +24,7 @@ lxml = "==4.2.1"
 django-widget-tweaks = "==1.4.2"
 django-webpack-loader = "==0.6.0"
 ujson = "*"
+jsonschema = "*"
 
 [dev-packages]
 
