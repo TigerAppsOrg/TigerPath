@@ -107,6 +107,12 @@
 {
   "name": "B.S.E.",
   "path_to": "B.S.E.",
+  "urls": [
+    "https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering",
+    "https://ua.princeton.edu/contents/general-education-requirements",
+    "https://lsi.princeton.edu/integratedscience/freshman-year",
+    "https://writing.princeton.edu/seminars/fall-seminars"
+  ],
   "satisfied": false,
   "count": 1,
   "min_needed": 7,
@@ -115,6 +121,7 @@
     {
       "name": "Degree Progress",
       "path_to": "B.S.E.//Degree Progress",
+      "explanation": "B.S.E. students enroll in four courses for the first term of the freshman year and in four or five courses in each succeeding term, following a sequence appropriate to their individual programs. The school requirement for the B.S.E. degree is at least 36 courses in the four years of study. Sophomores, juniors, and seniors must complete at least four courses each term, with a minimum of 17 courses by the start of junior year and 26 courses by the start of senior year.",
       "satisfied": false,
       "count": 0,
       "min_needed": 4,
@@ -123,48 +130,68 @@
         {
           "name": "Complete 4 courses by Semester 1",
           "path_to": "B.S.E.//Degree Progress//Complete 4 courses by Semester 1",
+          "explanation": null,
+          "completed_by_semester": 1,
           "satisfied": true,
           "count": 0,
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [],
+          "collapsed_dist_list": []
         },
         {
           "name": "Complete 17 courses by Semester 4",
           "path_to": "B.S.E.//Degree Progress//Complete 17 courses by Semester 4",
+          "explanation": null,
+          "completed_by_semester": 4,
           "satisfied": true,
           "count": 0,
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [],
+          "collapsed_dist_list": []
         },
         {
           "name": "Complete 26 courses by Semester 6",
           "path_to": "B.S.E.//Degree Progress//Complete 26 courses by Semester 6",
+          "explanation": null,
+          "completed_by_semester": 6,
           "satisfied": true,
           "count": 0,
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [],
+          "collapsed_dist_list": []
         },
         {
           "name": "Complete 36 courses by Semester 8",
           "path_to": "B.S.E.//Degree Progress//Complete 36 courses by Semester 8",
+          "explanation": null,
+          "completed_by_semester": 8,
           "satisfied": true,
           "count": 0,
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [],
+          "collapsed_dist_list": []
         }
-      ]
+      ],
+      "collapsed_course_list": [],
+      "collapsed_dist_list": []
     },
     {
       "name": "Mathematics",
       "path_to": "B.S.E.//Mathematics",
+      "explanation": null,
+      "pdfs_allowed": false,
       "satisfied": false,
       "count": 0,
       "min_needed": 4,
@@ -173,48 +200,92 @@
         {
           "name": "First Term Math",
           "path_to": "B.S.E.//Mathematics//First Term Math",
+          "explanation": null,
+          "completed_by_semester": 2,
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "MAT 103"
+          ],
+          "collapsed_dist_list": []
         },
         {
           "name": "Second Term Math",
           "path_to": "B.S.E.//Mathematics//Second Term Math",
+          "explanation": null,
+          "completed_by_semester": 2,
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "MAT 104"
+          ],
+          "collapsed_dist_list": []
         },
         {
           "name": "Third Term Math",
           "path_to": "B.S.E.//Mathematics//Third Term Math",
+          "explanation": "201 Multivariable Calculus, 203 Advanced Multivariable Calculus, 218 Analysis in Several Variables, or EGR 192 Integrated Introduction to Engineering, Mathematics, Physics",
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "EGR 192",
+            "MAT 201",
+            "MAT 203",
+            "MAT 216",
+            "MAT 218"
+          ],
+          "collapsed_dist_list": []
         },
         {
           "name": "Fourth Term Math",
           "path_to": "B.S.E.//Mathematics//Fourth Term Math",
+          "explanation": "202 Linear Algebra with Applications, 204 Advanced Linear Algebra with Applications, or 217 Honors Linear Algebra, or equivalent",
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "MAT 202",
+            "MAT 204",
+            "MAT 217"
+          ],
+          "collapsed_dist_list": []
         }
-      ]
+      ],
+      "collapsed_course_list": [
+        "EGR 192",
+        "MAT 103",
+        "MAT 104",
+        "MAT 201",
+        "MAT 202",
+        "MAT 203",
+        "MAT 204",
+        "MAT 216",
+        "MAT 217",
+        "MAT 218"
+      ],
+      "collapsed_dist_list": []
     },
     {
       "name": "Physics",
       "path_to": "B.S.E.//Physics",
+      "explanation": null,
+      "pdfs_allowed": false,
+      "completed_by_semester": 2,
       "satisfied": false,
       "count": 0,
       "min_needed": 2,
@@ -223,40 +294,84 @@
         {
           "name": "Mechanics",
           "path_to": "B.S.E.//Physics//Mechanics",
+          "explanation": "103 General Physics, 105 Advanced Physics, or EGR 191 Integrated Introduction to Engineering, Mathematics, Physics",
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "EGR 191",
+            "PHY 103",
+            "PHY 105"
+          ],
+          "collapsed_dist_list": []
         },
         {
           "name": "Electromagnetism",
           "path_to": "B.S.E.//Physics//Electromagnetism",
+          "explanation": "104 General Physics or 106 Advanced Physics, or equivalent",
           "satisfied": false,
           "count": 0,
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "EGR 193",
+            "PHY 104",
+            "PHY 106"
+          ],
+          "collapsed_dist_list": []
         }
       ],
       "settled": [],
-      "unsettled": []
+      "unsettled": [],
+      "collapsed_course_list": [
+        "EGR 191",
+        "EGR 193",
+        "ISC 231",
+        "ISC 232",
+        "ISC 233",
+        "ISC 234",
+        "PHY 103",
+        "PHY 104",
+        "PHY 105",
+        "PHY 106"
+      ],
+      "collapsed_dist_list": []
     },
     {
       "name": "Chemistry",
       "path_to": "B.S.E.//Chemistry",
+      "explanation": null,
+      "pdfs_allowed": false,
+      "completed_by_semester": 2,
       "satisfied": false,
       "count": 0,
       "min_needed": 1,
       "max_counted": 1,
       "settled": [],
-      "unsettled": []
+      "unsettled": [],
+      "collapsed_course_list": [
+        "CHM 201",
+        "CHM 201A",
+        "CHM 203",
+        "CHM 207",
+        "ISC 231",
+        "ISC 232",
+        "ISC 233",
+        "ISC 234"
+      ],
+      "collapsed_dist_list": []
     },
     {
       "name": "Computer Science",
       "path_to": "B.S.E.//Computer Science",
+      "explanation": "Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
+      "pdfs_allowed": false,
+      "completed_by_semester": 4,
       "satisfied": true,
       "count": 1,
       "min_needed": 1,
@@ -266,21 +381,40 @@
         "COS 226",
         "COS 217"
       ],
-      "unsettled": []
+      "unsettled": [],
+      "collapsed_course_list": [
+        "COS 126",
+        "COS 217",
+        "COS 226",
+        "ISC 231",
+        "ISC 232",
+        "ISC 233",
+        "ISC 234"
+      ],
+      "collapsed_dist_list": []
     },
     {
       "name": "Writing Seminar",
       "path_to": "B.S.E.//Writing Seminar",
+      "explanation": "All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You\u2019ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nEnrollment process:\nhttps://writing.princeton.edu/seminars/how-enroll",
+      "pdfs_allowed": false,
+      "completed_by_semester": 2,
       "satisfied": false,
       "count": 0,
       "min_needed": 1,
       "max_counted": 1,
       "settled": [],
-      "unsettled": []
+      "unsettled": [],
+      "collapsed_course_list": [
+        "WRI 1**"
+      ],
+      "collapsed_dist_list": []
     },
     {
       "name": "Humanities and Social Sciences",
       "path_to": "B.S.E.//Humanities and Social Sciences",
+      "explanation": null,
+      "pdfs_allowed": true,
       "satisfied": false,
       "count": 0,
       "min_needed": 2,
@@ -289,6 +423,7 @@
         {
           "name": "Four Areas",
           "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas",
+          "explanation": "The humanities and social science courses must include one course in four of the six areas listed below:\n\nEpistemology and Cognition (EC)\n\nEthical Thought and Moral Values (EM)\n\nForeign Language (at the 107/108 level or above)\n\nHistorical Analysis (HA)\n\nLiterature and the Arts (LA)\n\nSocial Analysis (SA)",
           "satisfied": false,
           "count": 1,
           "min_needed": 4,
@@ -297,46 +432,72 @@
             {
               "name": "Epistemology and Cognition",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Epistemology and Cognition",
+              "explanation": "The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [],
+              "collapsed_dist_list": [
+                "EC"
+              ]
             },
             {
               "name": "Ethical Thought and Moral Values",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Ethical Thought and Moral Values",
+              "explanation": "The requirement in ethical thought and moral values is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [],
+              "collapsed_dist_list": [
+                "EM"
+              ]
             },
             {
               "name": "Foreign Language",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Foreign Language",
+              "explanation": "When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [
+                "LANG 107",
+                "LANG 108",
+                "LANG 2**",
+                "LANG 3**",
+                "LANG 4**",
+                "LANG 5**"
+              ],
+              "collapsed_dist_list": []
             },
             {
               "name": "Historical Analysis",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Historical Analysis",
+              "explanation": "Historical analysis begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [],
+              "collapsed_dist_list": [
+                "HA"
+              ]
             },
             {
               "name": "Literature and the Arts",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Literature and the Arts",
+              "explanation": "The requirement in literature and the arts allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
               "satisfied": true,
               "count": 1,
               "min_needed": 0,
@@ -344,23 +505,48 @@
               "settled": [
                 "ART 213"
               ],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [],
+              "collapsed_dist_list": [
+                "LA"
+              ]
             },
             {
               "name": "Social Analysis",
               "path_to": "B.S.E.//Humanities and Social Sciences//Four Areas//Social Analysis",
+              "explanation": "The requirement in social analysis is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
               "satisfied": true,
               "count": 0,
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": []
+              "unsettled": [],
+              "collapsed_course_list": [],
+              "collapsed_dist_list": [
+                "SA"
+              ]
             }
+          ],
+          "collapsed_course_list": [
+            "LANG 107",
+            "LANG 108",
+            "LANG 2**",
+            "LANG 3**",
+            "LANG 4**",
+            "LANG 5**"
+          ],
+          "collapsed_dist_list": [
+            "EC",
+            "EM",
+            "HA",
+            "LA",
+            "SA"
           ]
         },
         {
           "name": "Seven Total Courses",
           "path_to": "B.S.E.//Humanities and Social Sciences//Seven Total Courses",
+          "explanation": "Candidates for the B.S.E. degree must take a minimum of seven courses in the humanities and social sciences.",
           "satisfied": false,
           "count": 1,
           "min_needed": 7,
@@ -368,9 +554,82 @@
           "settled": [
             "ART 213"
           ],
-          "unsettled": []
+          "unsettled": [],
+          "collapsed_course_list": [
+            "LANG 107",
+            "LANG 108",
+            "LANG 2**",
+            "LANG 3**",
+            "LANG 4**",
+            "LANG 5**"
+          ],
+          "collapsed_dist_list": [
+            "EC",
+            "EM",
+            "HA",
+            "LA",
+            "SA"
+          ]
         }
+      ],
+      "collapsed_course_list": [
+        "LANG 107",
+        "LANG 108",
+        "LANG 2**",
+        "LANG 3**",
+        "LANG 4**",
+        "LANG 5**"
+      ],
+      "collapsed_dist_list": [
+        "EC",
+        "EM",
+        "HA",
+        "LA",
+        "SA"
       ]
     }
+  ],
+  "collapsed_course_list": [
+    "CHM 201",
+    "CHM 201A",
+    "CHM 203",
+    "CHM 207",
+    "COS 126",
+    "COS 217",
+    "COS 226",
+    "EGR 191",
+    "EGR 192",
+    "EGR 193",
+    "ISC 231",
+    "ISC 232",
+    "ISC 233",
+    "ISC 234",
+    "LANG 107",
+    "LANG 108",
+    "LANG 2**",
+    "LANG 3**",
+    "LANG 4**",
+    "LANG 5**",
+    "MAT 103",
+    "MAT 104",
+    "MAT 201",
+    "MAT 202",
+    "MAT 203",
+    "MAT 204",
+    "MAT 216",
+    "MAT 217",
+    "MAT 218",
+    "PHY 103",
+    "PHY 104",
+    "PHY 105",
+    "PHY 106",
+    "WRI 1**"
+  ],
+  "collapsed_dist_list": [
+    "EC",
+    "EM",
+    "HA",
+    "LA",
+    "SA"
   ]
 }
