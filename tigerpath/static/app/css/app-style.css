@@ -226,9 +226,10 @@ thead.semester-header {
 
 #spinner{
   display: none;
-  width: 30px;
+  font-size: inherit;
+  margin-left: 2px;
 }
 
 #search-count-num{
-  margin-left: 3px;
+  margin-right: 3px;
 }
