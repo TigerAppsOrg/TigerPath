@@ -112,6 +112,31 @@ def check_requirements(req_file, courses, year):
     formatted_req = _format_req_output(req)
     return formatted_req["satisfied"], formatted_courses, formatted_req
 
+def get_courses_by_path(path):
+    '''
+    Returns the sets of all courses and all distribution requirements
+    in the subtree specified by path as a tuple:
+    (course_set, dist_req_set)
+    Note: Sets may contain duplicate courses if a course is listed in multiple
+    different ways
+    Note: Implementation is sensitive to the path format, which must start with
+    <type>//<year>//<dept_code>
+    where the <>'s are replaced with the appropriate values.
+    '''
+    req_type, year, major_name = path.split('//')[:3]
+    if req_type in ["Major", "Certificate"]:
+        major_filename = major_name + "_" + str(year) + ".json"
+        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
+    elif  req_type == "Degree":
+        if degree_name.upper() == "AB":
+            req_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
+        elif degree_name.upper() == "BSE":
+            req_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
+    with open(req_filepath, 'r') as f:
+        req = json.load(f)
+    subreq = _get_req_by_path(req, path)
+    return _get_collapsed_course_and_dist_req_sets(req)
+
 def _init_req(req):
     req = copy.deepcopy(req)
     _init_req_fields(req)
@@ -165,9 +190,6 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    # collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
-    # output["collapsed_course_list"] = sorted(list(collapsed_course_list))
-    # output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
     
 def _add_course_lists_to_req(req, courses):
