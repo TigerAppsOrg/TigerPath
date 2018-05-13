@@ -61,12 +61,18 @@ def get_all_courses():
         if fetch_master.exists():
             # get course from queryset
             fetch_master = fetch_master[0]
-            
             if add_semester not in fetch_master.all_semesters:
                 fetch_master.all_semesters.append(add_semester)
+            # update all information of master with new course info
+            fetch_master.title = course.title
+            fetch_master.rating = course.rating
+            fetch_master.description = course.description
+            fetch_master.dist_area = course.dist_area
+            fetch_master.cross_listings = course.cross_listings
             fetch_master.save()
             # delete duplicate course
             course.delete()
+
         # convert course to master model
         else:
             course.all_semesters.append(add_semester)
