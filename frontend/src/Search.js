@@ -150,7 +150,7 @@ class Search extends Component {
       data: []
     };
     // initializes search result number (indicates to user that they can search)
-    ReactDOM.render(<span id='search-count'>0 Search Results</span>,document.getElementById('search-count'))
+    ReactDOM.render(<span id='search-count-num'>0</span>,document.getElementById('search-count'))
 
     // render data on startup
     // get existing schedule and populate semesters
@@ -220,6 +220,7 @@ class Search extends Component {
   updateSearch(event) {
     // clear search before loading new courses
     ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
+    $('#spinner').css('display', 'inline-block');
     this.setState({search: event.target.value});
     let search_query = event.target.value;
     // makes sure that there is always an argument after load_courses, $ is dummy arg
@@ -255,9 +256,10 @@ class Search extends Component {
               }),
             document.getElementById('display-courses')
             )
-            ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+            ReactDOM.render(<span id='search-count-num'>{data.length}</span>, document.getElementById('search-count'))
+            $('#spinner').css('display', 'none');
           }
-        }.bind(this),
+        }.bind(this)
     });
 
     /* Converts semester to term code */
