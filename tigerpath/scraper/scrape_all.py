@@ -65,9 +65,7 @@ def get_all_courses():
                 fetch_master.all_semesters.append(add_semester)
             # update all information of master with new course info
             fetch_master.title = course.title
-            fetch_master.rating = course.rating
             fetch_master.description = course.description
-            fetch_master.dist_area = course.dist_area
             fetch_master.cross_listings = course.cross_listings
             fetch_master.save()
             # delete duplicate course
