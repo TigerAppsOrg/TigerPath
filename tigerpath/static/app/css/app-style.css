@@ -182,7 +182,7 @@ thead.semester-header {
   background-color: #464e56!important;
 }
 #display-courses {
-  height: calc(100vh - 95px);
+  height: calc(100vh - 127px);
   overflow:auto;
 }
 
