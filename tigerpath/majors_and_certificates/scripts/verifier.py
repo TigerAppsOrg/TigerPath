@@ -123,10 +123,31 @@ def _format_req_output(req):
     Enforce the type and order of fields in the req output
     '''
     output = collections.OrderedDict()
-    if req["name"] == None:
+    if req["name"] == None: # hidden requirement. Do not show.
         return None
-    output["name"] = req["name"]
-    output["path_to"] = req["path_to"]
+    for key in [
+        "name",
+        "code",
+        "degree",
+        "path_to",
+        "urls"
+    ]:
+        if key in req:
+            output[key] = req[key]
+    if "contacts" in req:
+        output["contacts"] = []
+        for contact in req["contacts"]:
+            contact_copy = collections.OrderedDict()
+            for key in ["type", "name", "email"]:
+                contact_copy[key] = contact[key]
+            output["contacts"].append(contact_copy)
+    for key in [
+        "explanation",
+        "pdfs_allowed",
+        "completed_by_semester"
+    ]:
+        if key in req:
+            output[key] = req[key]
     output["satisfied"] = (req["min_needed"]-req["count"] <= 0)
     for key in ["count", "min_needed", "max_counted"]:
         output[key] = req[key]
@@ -142,10 +163,9 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    # elif "course_list" in req:
-    #     output["course_list"] = ["..."]
-    #     # for course in req["course_list"]:
-    #     #     print(course)
+    collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
+    output["collapsed_course_list"] = sorted(list(collapsed_course_list))
+    output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
     
 def _add_course_lists_to_req(req, courses):
@@ -464,6 +484,47 @@ def _course_match(course_name, pattern):
                     p[6] == '*' and c[:6] == p[:6]): # 'AAA123*' matches to 'AAA123C'
                 return True
     return False
+
+def _get_req_by_path(req, path_to):
+    '''
+    Returns the subrequirement of req that is pointed to by path_to
+    '''
+    if "path_to" not in req:
+        _init_path_to(req)
+    if req["path_to"] == path_to:
+        return req
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            if _get_req_by_path(subreq, path_to):
+                return subreq
+    return None
+
+def _get_collapsed_course_and_dist_req_sets(req):
+    '''
+    Returns the sets of all courses and all distribution requirements
+    in req's subtree as a tuple:
+    (course_set, dist_req_set)
+    Note: Sets may contain duplicate courses if a course is listed in multiple
+    different ways
+    '''
+    if "course_list" in req:
+        course_set = set()
+        for course in req["course_list"]:
+            course = course.split(':')[0] # strip course name
+            course_set.add(course)
+        return (course_set, set())
+    if "dist_req" in req:
+        return (set(), set([req["dist_req"]]))
+    total_course_set = set()
+    total_dist_req_set = set()
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            course_set, dist_req_set = _get_collapsed_course_and_dist_req_sets(subreq)
+            if course_set:
+                total_course_set |= course_set # union of both sets
+            if dist_req_set:
+                total_dist_req_set |= dist_req_set # union of both sets
+    return (total_course_set, total_dist_req_set)
 
 def main():
     with open ("verifier_tests/1.test", "r") as f:
