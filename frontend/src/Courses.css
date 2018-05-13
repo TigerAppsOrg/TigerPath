@@ -78,8 +78,11 @@ li:active {
 }
 
 .course-display p {
-  padding-right: 50px;
   margin-bottom: 0;
+}
+
+#display-courses .course-display p {
+  padding-right: 50px;
 }
 
 /* smaller font size for semester in search results */
@@ -115,8 +118,4 @@ li:active {
 
 .popover-warning {
   color: #e74c3c;
-}
-
-#search-count {
-  padding: 5px;
 }
