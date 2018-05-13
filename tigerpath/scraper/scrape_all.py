@@ -64,7 +64,8 @@ def get_all_courses():
             fetch_master = fetch_master[0]
             if add_semester not in fetch_master.all_semesters:
                 course.all_semesters = deepcopy(fetch_master.all_semesters)
-                course.all_semesters.append(add_semester)
+                if add_semester not in course.all_semesters:
+                    course.all_semesters.append(add_semester)
             course.is_master = True
             course.save()
             # delete duplicate course
