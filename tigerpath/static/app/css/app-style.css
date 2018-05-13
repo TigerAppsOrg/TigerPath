@@ -127,17 +127,48 @@ thead.semester-header {
 .nav-btn {
   color: white;
 }
-.dropdown-container {
-  position: relative;
+
+.dropbtn {
+    background-color: #464e56;
+    color: white;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
 }
-.dropdown-menu {
-  position: absolute;
-  margin-left: -60px;
-  text-align: left;
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
 }
-div.inline {
-  float:left;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 100px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 3px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
+
 .nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
     color: #fff;
     background-color: #3d8af7;
