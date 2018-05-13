@@ -14,6 +14,8 @@ CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing 
 AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB requirements JSON
 BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
 
+REQ_PATH_SEPARATOR = '//'
+
 def check_major(major_name, courses, year):
     """
     Returns information about the major requirements satisfied by the courses
@@ -101,7 +103,7 @@ def check_requirements(req_file, courses, year):
     """
     with open(req_file, 'r') as f:
         req = json.load(f)
-    courses = _init_courses(courses, req["name"])
+    courses = _init_courses(courses, req)
     req = _init_req(req)
     _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
@@ -205,7 +207,7 @@ def _add_course_lists_to_req(req, courses):
                             req["unsettled"].append(course["name"])
                             break
 
-def _init_courses(courses, req_name = None):
+def _init_courses(courses, req = None):
     courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
@@ -217,9 +219,13 @@ def _init_courses(courses, req_name = None):
             course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
-            elif req_name != None: # filter out irrelevant requirements from list
+            elif req["type"] in ["Major", "Degree"] and req["code"] != None: # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if req_name not in path:
+                    if REQ_PATH_SEPARATOR + str(req["year"]) + REQ_PATH_SEPARATOR + req["code"] + REQ_PATH_SEPARATOR not in path:
+                        course["settled"].remove(path)
+            else:
+                for path in course["settled"]:
+                    if REQ_PATH_SEPARATOR + str(req["year"]) + REQ_PATH_SEPARATOR + req["name"] + REQ_PATH_SEPARATOR not in path:
                         course["settled"].remove(path)
     return courses
     
@@ -299,9 +305,13 @@ def _init_path_to(req):
         as no two subrequirements in the same subtree have the same name.
     2. The path gives the traversal of the tree needed to reach that node.
     '''
-    separator = '//'
+    separator = REQ_PATH_SEPARATOR
     if "path_to" not in req: # only for root of the tree
-        req["path_to"] = req["name"]
+        req["path_to"] = req["type"] + separator + str(req["year"])
+        if req["type"] in ["Major", "Degree"]:
+            req["path_to"] += separator + req["code"]
+        else:
+            req["path_to"] += separator + req["name"]
     if "req_list" in req:
         for i,subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number

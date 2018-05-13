@@ -3,37 +3,37 @@
     {
       "name": "COS 126",
       "possible_reqs": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 226",
       "possible_reqs": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 217",
       "possible_reqs": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - AB//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
       ]
     }
   ],
@@ -41,27 +41,27 @@
     {
       "name": "COS340",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Theory//000",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Theory//000",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Theory//000"
+        "Major//2018//COS-AB//Core Courses//Theory//000"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Theory"
+        "Major//2018//COS-AB//Core Courses//Theory"
       ]
     },
     {
       "name": "COS 333",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Systems//000",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Systems//000",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Systems//000"
+        "Major//2018//COS-AB//Core Courses//Systems//000"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Systems"
+        "Major//2018//COS-AB//Core Courses//Systems"
       ]
     }
   ],
@@ -69,65 +69,65 @@
     {
       "name": "COS 351/ SOC 353 /WWS351",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ]
     },
     {
       "name": "ELE 206/COS 306",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Systems//000",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Systems//000",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Systems//000"
+        "Major//2018//COS-AB//Core Courses//Systems//000"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Systems"
+        "Major//2018//COS-AB//Core Courses//Systems"
       ]
     },
     {
       "name": "MUS314/COS314",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Applications",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Applications",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Applications"
+        "Major//2018//COS-AB//Core Courses//Applications"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Applications"
+        "Major//2018//COS-AB//Core Courses//Applications"
       ]
     },
     {
       "name": "COS 423",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Theory//000",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Theory//000",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Theory//000"
+        "Major//2018//COS-AB//Core Courses//Theory//000"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Theory"
+        "Major//2018//COS-AB//Core Courses//Theory"
       ]
     },
     {
       "name": "COS 436",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Applications",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Applications",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//Applications"
+        "Major//2018//COS-AB//Core Courses//Applications"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//Applications"
+        "Major//2018//COS-AB//Core Courses//Applications"
       ]
     }
   ],
@@ -140,26 +140,26 @@
     {
       "name": "NEU 330 / PSY 330",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ]
     },
     {
       "name": "COS 401 / LIN 304 / TRA 301",
       "possible_reqs": [
-        "Computer Science - AB//Core Courses//Applications",
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//Applications",
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "reqs_satisfied": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ],
       "settled": [
-        "Computer Science - AB//Core Courses//General"
+        "Major//2018//COS-AB//Core Courses//General"
       ]
     }
   ]
@@ -169,7 +169,7 @@
   "name": "Computer Science - AB",
   "code": "COS-AB",
   "degree": "AB",
-  "path_to": "Computer Science - AB",
+  "path_to": "Major//2018//COS-AB",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-computer-science-ab",
     "https://www.cs.princeton.edu/ugrad/becoming-cs-major/requirements"
@@ -198,7 +198,7 @@
   "req_list": [
     {
       "name": "Prerequisites",
-      "path_to": "Computer Science - AB//Prerequisites",
+      "path_to": "Major//2018//COS-AB//Prerequisites",
       "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "pdfs_allowed": false,
       "completed_by_semester": 4,
@@ -209,7 +209,7 @@
       "req_list": [
         {
           "name": "Calculus",
-          "path_to": "Computer Science - AB//Prerequisites//Calculus",
+          "path_to": "Major//2018//COS-AB//Prerequisites//Calculus",
           "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
           "satisfied": false,
           "count": 0,
@@ -220,7 +220,7 @@
         },
         {
           "name": "Linear Algebra",
-          "path_to": "Computer Science - AB//Prerequisites//Linear Algebra",
+          "path_to": "Major//2018//COS-AB//Prerequisites//Linear Algebra",
           "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
           "satisfied": false,
           "count": 0,
@@ -231,7 +231,7 @@
         },
         {
           "name": "Computer Science Prerequisites",
-          "path_to": "Computer Science - AB//Prerequisites//Computer Science Prerequisites",
+          "path_to": "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites",
           "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field. ",
           "satisfied": true,
           "count": 3,
@@ -248,7 +248,7 @@
     },
     {
       "name": "Core Courses",
-      "path_to": "Computer Science - AB//Core Courses",
+      "path_to": "Major//2018//COS-AB//Core Courses",
       "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
       "pdfs_allowed": false,
       "satisfied": true,
@@ -258,7 +258,7 @@
       "req_list": [
         {
           "name": "Theory",
-          "path_to": "Computer Science - AB//Core Courses//Theory",
+          "path_to": "Major//2018//COS-AB//Core Courses//Theory",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -272,7 +272,7 @@
         },
         {
           "name": "Systems",
-          "path_to": "Computer Science - AB//Core Courses//Systems",
+          "path_to": "Major//2018//COS-AB//Core Courses//Systems",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -286,7 +286,7 @@
         },
         {
           "name": "Applications",
-          "path_to": "Computer Science - AB//Core Courses//Applications",
+          "path_to": "Major//2018//COS-AB//Core Courses//Applications",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -300,7 +300,7 @@
         },
         {
           "name": "General",
-          "path_to": "Computer Science - AB//Core Courses//General",
+          "path_to": "Major//2018//COS-AB//Core Courses//General",
           "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nAny 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303, ECO 312, MOL 437/NEU 437, NEU 330, and ECO 326 \u2013 Economics of the Internet count as departmentals.",
           "satisfied": true,
           "count": 3,
@@ -317,7 +317,7 @@
     },
     {
       "name": "Independent Work",
-      "path_to": "Computer Science - AB//Independent Work",
+      "path_to": "Major//2018//COS-AB//Independent Work",
       "explanation": "All A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.",
       "satisfied": true,
       "count": 0,

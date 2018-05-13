@@ -16,7 +16,7 @@ ELE
       "id": "1184010455",
       "dist_area": "QR",
       "settled": [
-        "Electrical Engineering//Mathematics"
+        "Major//2018//ELE//Mathematics"
       ]
     },
     {
@@ -25,7 +25,7 @@ ELE
       "id": "1184002065",
       "dist_area": null,
       "settled": [
-        "Electrical Engineering//Breadth"
+        "Major//2018//ELE//Breadth"
       ]
     }
   ],
@@ -42,7 +42,7 @@ ELE
       "id": "1184022331",
       "dist_area": "STL",
       "settled": [
-        "Electrical Engineering//Foundation"
+        "Major//2018//ELE//Foundation"
       ]
     },
     {
@@ -51,7 +51,7 @@ ELE
       "id": "1184002071",
       "dist_area": null,
       "settled": [
-        "Electrical Engineering//Engineering Science"
+        "Major//2018//ELE//Engineering Science"
       ]
     },
     {
