@@ -150,7 +150,7 @@ class Search extends Component {
       data: []
     };
     // initializes search result number (indicates to user that they can search)
-    ReactDOM.render(<span id='search-count'>0 Search Results</span>,document.getElementById('search-count'))
+    ReactDOM.render(<span id='search-count-num'>0</span>,document.getElementById('search-count'))
 
     // render data on startup
     // get existing schedule and populate semesters
@@ -257,7 +257,7 @@ class Search extends Component {
               }),
             document.getElementById('display-courses')
             )
-            ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+            ReactDOM.render(<span id='search-count-num'>{data.length}</span>, document.getElementById('search-count'))
             $('#search-count').show();
             $('#spinner').hide();
           }

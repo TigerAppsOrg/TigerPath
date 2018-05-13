@@ -218,7 +218,17 @@ thead.semester-header {
   color: #e74c3c;
 }
 
-#spinner {
+#search-info{
+  display: -webkit-box;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+#spinner{
   display: none;
-  width: 40px;
+  width: 30px;
+}
+
+#search-count-num{
+  margin-left: 3px;
 }
