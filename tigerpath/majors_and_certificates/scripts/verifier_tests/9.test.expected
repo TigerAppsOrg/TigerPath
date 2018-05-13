@@ -137,9 +137,7 @@
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Complete 17 courses by Semester 4",
@@ -151,9 +149,7 @@
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Complete 26 courses by Semester 6",
@@ -165,9 +161,7 @@
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Complete 36 courses by Semester 8",
@@ -179,13 +173,9 @@
           "min_needed": 0,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Mathematics",
@@ -207,11 +197,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "MAT 103"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Second Term Math",
@@ -223,11 +209,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "MAT 104"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Third Term Math",
@@ -238,15 +220,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "EGR 192",
-            "MAT 201",
-            "MAT 203",
-            "MAT 216",
-            "MAT 218"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Fourth Term Math",
@@ -257,28 +231,9 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "MAT 202",
-            "MAT 204",
-            "MAT 217"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "EGR 192",
-        "MAT 103",
-        "MAT 104",
-        "MAT 201",
-        "MAT 202",
-        "MAT 203",
-        "MAT 204",
-        "MAT 216",
-        "MAT 217",
-        "MAT 218"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Physics",
@@ -300,13 +255,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "EGR 191",
-            "PHY 103",
-            "PHY 105"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Electromagnetism",
@@ -317,30 +266,11 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "EGR 193",
-            "PHY 104",
-            "PHY 106"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
       ],
       "settled": [],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "EGR 191",
-        "EGR 193",
-        "ISC 231",
-        "ISC 232",
-        "ISC 233",
-        "ISC 234",
-        "PHY 103",
-        "PHY 104",
-        "PHY 105",
-        "PHY 106"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Chemistry",
@@ -353,18 +283,7 @@
       "min_needed": 1,
       "max_counted": 1,
       "settled": [],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "CHM 201",
-        "CHM 201A",
-        "CHM 203",
-        "CHM 207",
-        "ISC 231",
-        "ISC 232",
-        "ISC 233",
-        "ISC 234"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Computer Science",
@@ -381,17 +300,7 @@
         "COS 226",
         "COS 217"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "COS 126",
-        "COS 217",
-        "COS 226",
-        "ISC 231",
-        "ISC 232",
-        "ISC 233",
-        "ISC 234"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Writing Seminar",
@@ -404,11 +313,7 @@
       "min_needed": 1,
       "max_counted": 1,
       "settled": [],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "WRI 1**"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Humanities and Social Sciences",
@@ -438,11 +343,7 @@
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [],
-              "collapsed_dist_list": [
-                "EC"
-              ]
+              "unsettled": []
             },
             {
               "name": "Ethical Thought and Moral Values",
@@ -453,11 +354,7 @@
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [],
-              "collapsed_dist_list": [
-                "EM"
-              ]
+              "unsettled": []
             },
             {
               "name": "Foreign Language",
@@ -468,16 +365,7 @@
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "LANG 107",
-                "LANG 108",
-                "LANG 2**",
-                "LANG 3**",
-                "LANG 4**",
-                "LANG 5**"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Historical Analysis",
@@ -488,11 +376,7 @@
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [],
-              "collapsed_dist_list": [
-                "HA"
-              ]
+              "unsettled": []
             },
             {
               "name": "Literature and the Arts",
@@ -505,11 +389,7 @@
               "settled": [
                 "ART 213"
               ],
-              "unsettled": [],
-              "collapsed_course_list": [],
-              "collapsed_dist_list": [
-                "LA"
-              ]
+              "unsettled": []
             },
             {
               "name": "Social Analysis",
@@ -520,27 +400,8 @@
               "min_needed": 0,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [],
-              "collapsed_dist_list": [
-                "SA"
-              ]
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "LANG 107",
-            "LANG 108",
-            "LANG 2**",
-            "LANG 3**",
-            "LANG 4**",
-            "LANG 5**"
-          ],
-          "collapsed_dist_list": [
-            "EC",
-            "EM",
-            "HA",
-            "LA",
-            "SA"
           ]
         },
         {
@@ -554,82 +415,9 @@
           "settled": [
             "ART 213"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "LANG 107",
-            "LANG 108",
-            "LANG 2**",
-            "LANG 3**",
-            "LANG 4**",
-            "LANG 5**"
-          ],
-          "collapsed_dist_list": [
-            "EC",
-            "EM",
-            "HA",
-            "LA",
-            "SA"
-          ]
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "LANG 107",
-        "LANG 108",
-        "LANG 2**",
-        "LANG 3**",
-        "LANG 4**",
-        "LANG 5**"
-      ],
-      "collapsed_dist_list": [
-        "EC",
-        "EM",
-        "HA",
-        "LA",
-        "SA"
       ]
     }
-  ],
-  "collapsed_course_list": [
-    "CHM 201",
-    "CHM 201A",
-    "CHM 203",
-    "CHM 207",
-    "COS 126",
-    "COS 217",
-    "COS 226",
-    "EGR 191",
-    "EGR 192",
-    "EGR 193",
-    "ISC 231",
-    "ISC 232",
-    "ISC 233",
-    "ISC 234",
-    "LANG 107",
-    "LANG 108",
-    "LANG 2**",
-    "LANG 3**",
-    "LANG 4**",
-    "LANG 5**",
-    "MAT 103",
-    "MAT 104",
-    "MAT 201",
-    "MAT 202",
-    "MAT 203",
-    "MAT 204",
-    "MAT 216",
-    "MAT 217",
-    "MAT 218",
-    "PHY 103",
-    "PHY 104",
-    "PHY 105",
-    "PHY 106",
-    "WRI 1**"
-  ],
-  "collapsed_dist_list": [
-    "EC",
-    "EM",
-    "HA",
-    "LA",
-    "SA"
   ]
 }

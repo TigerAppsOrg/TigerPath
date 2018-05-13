@@ -177,13 +177,7 @@
       "settled": [
         "ELE 206/COS 306"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "ELE 201",
-        "ELE 203",
-        "ELE 206"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Core",
@@ -200,13 +194,7 @@
         "ELE 302",
         "ELE 208"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "ELE 301",
-        "ELE 302",
-        "ELE 308 / ELE 208"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Mathematics",
@@ -220,14 +208,7 @@
       "settled": [
         "COS340"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "COS 340",
-        "MAT 3**",
-        "MAT 4**",
-        "MAT 5**"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Breadth",
@@ -251,19 +232,7 @@
           "settled": [
             "COS 333"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 318",
-            "COS 320",
-            "COS 333",
-            "COS 402",
-            "COS 426",
-            "COS 429",
-            "COS 432",
-            "COS 441",
-            "COS 461"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "PHY 208 and PHY 305",
@@ -275,12 +244,7 @@
           "min_needed": 2,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "PHY 208",
-            "PHY 305"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Circuits and Systems",
@@ -292,20 +256,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 304",
-            "ELE 341",
-            "ELE 375",
-            "ELE 382",
-            "ELE 461",
-            "ELE 462",
-            "ELE 464",
-            "ELE 475",
-            "ELE 481",
-            "ELE 482"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Data and Information",
@@ -317,23 +268,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 402",
-            "COS 424",
-            "COS 429",
-            "ELE 364",
-            "ELE 381",
-            "ELE 382",
-            "ELE 435",
-            "ELE 477",
-            "ELE 482",
-            "ELE 486",
-            "ELE 488",
-            "ORF 309"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Computer Systems",
@@ -345,19 +280,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 318",
-            "COS 320",
-            "COS 461",
-            "ELE 375",
-            "ELE 461",
-            "ELE 462",
-            "ELE 464",
-            "ELE 470",
-            "ELE 475"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Security and Privacy",
@@ -369,21 +292,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 375",
-            "COS 402",
-            "COS 424",
-            "COS 432",
-            "COS 433",
-            "COS 461",
-            "ELE 364",
-            "ELE 435",
-            "ELE 464",
-            "ELE 470"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Electronic Devices and Materials",
@@ -395,21 +304,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 304",
-            "ELE 341",
-            "ELE 342",
-            "ELE 431",
-            "ELE 441",
-            "ELE 481",
-            "MAE 324",
-            "MAE 424",
-            "MSE 301",
-            "MSE 302",
-            "MSE 505"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Biomedical Engineering",
@@ -421,20 +316,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 429",
-            "COS 455",
-            "ELE 304",
-            "ELE 452",
-            "ELE 455",
-            "ELE 480",
-            "ELE 488",
-            "MAE 344",
-            "NEU 427",
-            "NEU 437"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Robotics and Cyber-physical Systems",
@@ -446,21 +328,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 402",
-            "COS 429",
-            "ELE 304",
-            "ELE 364",
-            "ELE 375",
-            "ELE 435",
-            "ELE 464",
-            "ELE 488",
-            "MAE 345",
-            "MAE 433"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Quantum Information and Applied Physics",
@@ -472,16 +340,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 342",
-            "ELE 396",
-            "ELE 441",
-            "ELE 453",
-            "ELE 456",
-            "ELE 568"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Optics and Photonics",
@@ -493,18 +352,7 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 342",
-            "ELE 351",
-            "ELE 452",
-            "ELE 453",
-            "ELE 454",
-            "ELE 455",
-            "ELE 456",
-            "MAE 521"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Energy and the Environment",
@@ -516,79 +364,9 @@
           "min_needed": 1,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 341",
-            "ELE 431",
-            "ELE 455",
-            "ELE 481",
-            "ELE 557",
-            "MAE 424"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "COS 318",
-        "COS 320",
-        "COS 324",
-        "COS 333",
-        "COS 375",
-        "COS 402",
-        "COS 424",
-        "COS 426",
-        "COS 429",
-        "COS 432",
-        "COS 433",
-        "COS 441",
-        "COS 455",
-        "COS 461",
-        "ELE 304",
-        "ELE 341",
-        "ELE 342",
-        "ELE 351",
-        "ELE 364",
-        "ELE 375",
-        "ELE 381",
-        "ELE 382",
-        "ELE 396",
-        "ELE 431",
-        "ELE 435",
-        "ELE 441",
-        "ELE 452",
-        "ELE 453",
-        "ELE 454",
-        "ELE 455",
-        "ELE 456",
-        "ELE 461",
-        "ELE 462",
-        "ELE 464",
-        "ELE 470",
-        "ELE 475",
-        "ELE 477",
-        "ELE 480",
-        "ELE 481",
-        "ELE 482",
-        "ELE 486",
-        "ELE 488",
-        "ELE 557",
-        "ELE 568",
-        "MAE 324",
-        "MAE 344",
-        "MAE 345",
-        "MAE 424",
-        "MAE 433",
-        "MAE 521",
-        "MSE 301",
-        "MSE 302",
-        "MSE 505",
-        "NEU 427",
-        "NEU 437",
-        "ORF 309",
-        "PHY 208",
-        "PHY 305"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Engineering Science",
@@ -602,43 +380,7 @@
       "settled": [
         "COS 423"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "CBE 245",
-        "CBE 246",
-        "CBE 341",
-        "CBE 415",
-        "CBE 445",
-        "CBE 447",
-        "CEE 205",
-        "CEE 303",
-        "CEE 305",
-        "CEE 471",
-        "COS 217",
-        "COS 226",
-        "COS 320",
-        "COS 402",
-        "COS 423",
-        "COS 425",
-        "COS 444",
-        "COS 451",
-        "COS 487",
-        "MAE 206",
-        "MAE 221",
-        "MAE 222",
-        "MAE 324",
-        "MAE 328",
-        "MAE 344",
-        "MAE 345",
-        "MAE 433",
-        "MAE 434",
-        "ORF 307",
-        "ORF 311",
-        "ORF 405",
-        "ORF 406",
-        "ORF 417"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Departmentals",
@@ -665,13 +407,7 @@
             "ELE 302",
             "ELE 498"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 3**",
-            "ELE 4**",
-            "ELE 5**"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "At most 3 from other departments",
@@ -688,84 +424,9 @@
             "ELE 206/COS 306",
             "COS 423"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "CBE 3**",
-            "CBE 4**",
-            "CBE 5**",
-            "CEE 3**",
-            "CEE 4**",
-            "CEE 5**",
-            "CHM 3**",
-            "CHM 4**",
-            "CHM 5**",
-            "COS 3**",
-            "COS 4**",
-            "COS 5**",
-            "EEB 3**",
-            "EEB 4**",
-            "EEB 5**",
-            "MAE 3**",
-            "MAE 4**",
-            "MAE 5**",
-            "MAT 3**",
-            "MAT 4**",
-            "MAT 5**",
-            "MOL 3**",
-            "MOL 4**",
-            "MOL 5**",
-            "MSE 3**",
-            "MSE 4**",
-            "MSE 5**",
-            "ORF 3**",
-            "ORF 4**",
-            "ORF 5**",
-            "PHY 3**",
-            "PHY 4**",
-            "PHY 5**"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "CBE 3**",
-        "CBE 4**",
-        "CBE 5**",
-        "CEE 3**",
-        "CEE 4**",
-        "CEE 5**",
-        "CHM 3**",
-        "CHM 4**",
-        "CHM 5**",
-        "COS 3**",
-        "COS 4**",
-        "COS 5**",
-        "EEB 3**",
-        "EEB 4**",
-        "EEB 5**",
-        "ELE 3**",
-        "ELE 4**",
-        "ELE 5**",
-        "MAE 3**",
-        "MAE 4**",
-        "MAE 5**",
-        "MAT 3**",
-        "MAT 4**",
-        "MAT 5**",
-        "MOL 3**",
-        "MOL 4**",
-        "MOL 5**",
-        "MSE 3**",
-        "MSE 4**",
-        "MSE 5**",
-        "ORF 3**",
-        "ORF 4**",
-        "ORF 5**",
-        "PHY 3**",
-        "PHY 4**",
-        "PHY 5**"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Design",
@@ -778,20 +439,7 @@
       "min_needed": 1,
       "max_counted": 1,
       "settled": [],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "COS 426",
-        "COS 436",
-        "ELE 352",
-        "ELE 375",
-        "ELE 404",
-        "ELE 454",
-        "ELE 462",
-        "ELE 465",
-        "ELE 475",
-        "ELE 482"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     },
     {
       "name": "Concentration",
@@ -823,11 +471,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 304"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -839,34 +483,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 341",
-                "ELE 375",
-                "ELE 382",
-                "ELE 461",
-                "ELE 462",
-                "ELE 464",
-                "ELE 475",
-                "ELE 481",
-                "ELE 482"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "ELE 304",
-            "ELE 341",
-            "ELE 375",
-            "ELE 382",
-            "ELE 461",
-            "ELE 462",
-            "ELE 464",
-            "ELE 475",
-            "ELE 481",
-            "ELE 482"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Data and Information",
@@ -888,11 +507,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ORF 309"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -904,40 +519,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "COS 324",
-                "COS 402",
-                "COS 424",
-                "COS 429",
-                "ELE 364",
-                "ELE 381",
-                "ELE 382",
-                "ELE 435",
-                "ELE 477",
-                "ELE 482",
-                "ELE 486",
-                "ELE 488"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 402",
-            "COS 424",
-            "COS 429",
-            "ELE 364",
-            "ELE 381",
-            "ELE 382",
-            "ELE 435",
-            "ELE 477",
-            "ELE 482",
-            "ELE 486",
-            "ELE 488",
-            "ORF 309"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Computer Systems",
@@ -959,11 +543,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 375"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -975,32 +555,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "COS 318",
-                "COS 320",
-                "COS 461",
-                "ELE 461",
-                "ELE 462",
-                "ELE 464",
-                "ELE 470",
-                "ELE 475"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "COS 318",
-            "COS 320",
-            "COS 461",
-            "ELE 375",
-            "ELE 461",
-            "ELE 462",
-            "ELE 464",
-            "ELE 470",
-            "ELE 475"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Security and Privacy",
@@ -1022,11 +579,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "COS 432"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -1038,36 +591,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "COS 324",
-                "COS 375",
-                "COS 402",
-                "COS 424",
-                "COS 433",
-                "COS 461",
-                "ELE 364",
-                "ELE 435",
-                "ELE 464",
-                "ELE 470"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 375",
-            "COS 402",
-            "COS 424",
-            "COS 432",
-            "COS 433",
-            "COS 461",
-            "ELE 364",
-            "ELE 435",
-            "ELE 464",
-            "ELE 470"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Electronic Devices and Materials",
@@ -1090,11 +616,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 341"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -1106,36 +628,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 304",
-                "ELE 342",
-                "ELE 431",
-                "ELE 441",
-                "ELE 481",
-                "MAE 324",
-                "MAE 424",
-                "MSE 301",
-                "MSE 302",
-                "MSE 505"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "ELE 304",
-            "ELE 341",
-            "ELE 342",
-            "ELE 431",
-            "ELE 441",
-            "ELE 481",
-            "MAE 324",
-            "MAE 424",
-            "MSE 301",
-            "MSE 302",
-            "MSE 505"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Biomedical Engineering",
@@ -1147,20 +642,7 @@
           "min_needed": 3,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 429",
-            "COS 455",
-            "ELE 304",
-            "ELE 452",
-            "ELE 455",
-            "ELE 480",
-            "ELE 488",
-            "MAE 344",
-            "NEU 427",
-            "NEU 437"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Robotics and Cyber-physical Systems",
@@ -1172,21 +654,7 @@
           "min_needed": 3,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 324",
-            "COS 402",
-            "COS 429",
-            "ELE 304",
-            "ELE 364",
-            "ELE 375",
-            "ELE 435",
-            "ELE 464",
-            "ELE 488",
-            "MAE 345",
-            "MAE 433"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Quantum Information and Applied Physics",
@@ -1208,13 +676,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 342",
-                "PHY 208",
-                "PHY 305"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -1226,28 +688,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 396",
-                "ELE 441",
-                "ELE 453",
-                "ELE 456",
-                "ELE 568"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "ELE 342",
-            "ELE 396",
-            "ELE 441",
-            "ELE 453",
-            "ELE 456",
-            "ELE 568",
-            "PHY 208",
-            "PHY 305"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Optics and Photonics",
@@ -1269,11 +712,7 @@
               "min_needed": 1,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 351"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             },
             {
               "name": "Two courses from",
@@ -1285,30 +724,9 @@
               "min_needed": 2,
               "max_counted": 1,
               "settled": [],
-              "unsettled": [],
-              "collapsed_course_list": [
-                "ELE 342",
-                "ELE 452",
-                "ELE 453",
-                "ELE 454",
-                "ELE 455",
-                "ELE 456",
-                "MAE 521"
-              ],
-              "collapsed_dist_list": []
+              "unsettled": []
             }
-          ],
-          "collapsed_course_list": [
-            "ELE 342",
-            "ELE 351",
-            "ELE 452",
-            "ELE 453",
-            "ELE 454",
-            "ELE 455",
-            "ELE 456",
-            "MAE 521"
-          ],
-          "collapsed_dist_list": []
+          ]
         },
         {
           "name": "Energy and the Environment",
@@ -1320,76 +738,9 @@
           "min_needed": 3,
           "max_counted": 1,
           "settled": [],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "ELE 341",
-            "ELE 431",
-            "ELE 455",
-            "ELE 481",
-            "ELE 557",
-            "MAE 424"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "COS 318",
-        "COS 320",
-        "COS 324",
-        "COS 375",
-        "COS 402",
-        "COS 424",
-        "COS 429",
-        "COS 432",
-        "COS 433",
-        "COS 455",
-        "COS 461",
-        "ELE 304",
-        "ELE 341",
-        "ELE 342",
-        "ELE 351",
-        "ELE 364",
-        "ELE 375",
-        "ELE 381",
-        "ELE 382",
-        "ELE 396",
-        "ELE 431",
-        "ELE 435",
-        "ELE 441",
-        "ELE 452",
-        "ELE 453",
-        "ELE 454",
-        "ELE 455",
-        "ELE 456",
-        "ELE 461",
-        "ELE 462",
-        "ELE 464",
-        "ELE 470",
-        "ELE 475",
-        "ELE 477",
-        "ELE 480",
-        "ELE 481",
-        "ELE 482",
-        "ELE 486",
-        "ELE 488",
-        "ELE 557",
-        "ELE 568",
-        "MAE 324",
-        "MAE 344",
-        "MAE 345",
-        "MAE 424",
-        "MAE 433",
-        "MAE 521",
-        "MSE 301",
-        "MSE 302",
-        "MSE 505",
-        "NEU 427",
-        "NEU 437",
-        "ORF 309",
-        "PHY 208",
-        "PHY 305"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Senior Thesis",
@@ -1405,149 +756,7 @@
         "ELE 497",
         "ELE 498"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "ELE 497",
-        "ELE 498"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     }
-  ],
-  "collapsed_course_list": [
-    "CBE 245",
-    "CBE 246",
-    "CBE 3**",
-    "CBE 341",
-    "CBE 4**",
-    "CBE 415",
-    "CBE 445",
-    "CBE 447",
-    "CBE 5**",
-    "CEE 205",
-    "CEE 3**",
-    "CEE 303",
-    "CEE 305",
-    "CEE 4**",
-    "CEE 471",
-    "CEE 5**",
-    "CHM 3**",
-    "CHM 4**",
-    "CHM 5**",
-    "COS 217",
-    "COS 226",
-    "COS 3**",
-    "COS 318",
-    "COS 320",
-    "COS 324",
-    "COS 333",
-    "COS 340",
-    "COS 375",
-    "COS 4**",
-    "COS 402",
-    "COS 423",
-    "COS 424",
-    "COS 425",
-    "COS 426",
-    "COS 429",
-    "COS 432",
-    "COS 433",
-    "COS 436",
-    "COS 441",
-    "COS 444",
-    "COS 451",
-    "COS 455",
-    "COS 461",
-    "COS 487",
-    "COS 5**",
-    "EEB 3**",
-    "EEB 4**",
-    "EEB 5**",
-    "ELE 201",
-    "ELE 203",
-    "ELE 206",
-    "ELE 3**",
-    "ELE 301",
-    "ELE 302",
-    "ELE 304",
-    "ELE 308 / ELE 208",
-    "ELE 341",
-    "ELE 342",
-    "ELE 351",
-    "ELE 352",
-    "ELE 364",
-    "ELE 375",
-    "ELE 381",
-    "ELE 382",
-    "ELE 396",
-    "ELE 4**",
-    "ELE 404",
-    "ELE 431",
-    "ELE 435",
-    "ELE 441",
-    "ELE 452",
-    "ELE 453",
-    "ELE 454",
-    "ELE 455",
-    "ELE 456",
-    "ELE 461",
-    "ELE 462",
-    "ELE 464",
-    "ELE 465",
-    "ELE 470",
-    "ELE 475",
-    "ELE 477",
-    "ELE 480",
-    "ELE 481",
-    "ELE 482",
-    "ELE 486",
-    "ELE 488",
-    "ELE 497",
-    "ELE 498",
-    "ELE 5**",
-    "ELE 557",
-    "ELE 568",
-    "MAE 206",
-    "MAE 221",
-    "MAE 222",
-    "MAE 3**",
-    "MAE 324",
-    "MAE 328",
-    "MAE 344",
-    "MAE 345",
-    "MAE 4**",
-    "MAE 424",
-    "MAE 433",
-    "MAE 434",
-    "MAE 5**",
-    "MAE 521",
-    "MAT 3**",
-    "MAT 4**",
-    "MAT 5**",
-    "MOL 3**",
-    "MOL 4**",
-    "MOL 5**",
-    "MSE 3**",
-    "MSE 301",
-    "MSE 302",
-    "MSE 4**",
-    "MSE 5**",
-    "MSE 505",
-    "NEU 427",
-    "NEU 437",
-    "ORF 3**",
-    "ORF 307",
-    "ORF 309",
-    "ORF 311",
-    "ORF 4**",
-    "ORF 405",
-    "ORF 406",
-    "ORF 417",
-    "ORF 5**",
-    "PHY 208",
-    "PHY 3**",
-    "PHY 305",
-    "PHY 4**",
-    "PHY 5**"
-  ],
-  "collapsed_dist_list": []
+  ]
 }

@@ -222,21 +222,9 @@
             "COS 226",
             "COS 217"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 126",
-            "COS 217",
-            "COS 226"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "COS 126",
-        "COS 217",
-        "COS 226"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Core Courses",
@@ -260,21 +248,7 @@
             "COS340",
             "COS 423"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 340",
-            "COS 423",
-            "COS 433",
-            "COS 441",
-            "COS 445",
-            "COS 451",
-            "COS 487",
-            "COS 488",
-            "COS 510",
-            "COS 516",
-            "COS 533"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Systems",
@@ -288,22 +262,7 @@
             "COS 333",
             "ELE 206/COS 306"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 306/ELE 206",
-            "COS 318",
-            "COS 320",
-            "COS 333",
-            "COS 375/ELE 375",
-            "COS 418",
-            "COS 425",
-            "COS 461",
-            "COS 463",
-            "COS 475/ELE 475",
-            "COS 518",
-            "COS 561"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Applications",
@@ -317,25 +276,7 @@
             "MUS314/COS314",
             "COS 436"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 314/MUS 314",
-            "COS 323/ORF 363",
-            "COS 324",
-            "COS 325/MUS 315",
-            "COS 326",
-            "COS 401/TRA 301",
-            "COS 402",
-            "COS 424",
-            "COS 426",
-            "COS 429",
-            "COS 432",
-            "COS 435",
-            "COS 436",
-            "COS 455/MOL 455",
-            "COS 485"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "General",
@@ -349,95 +290,9 @@
             "NEU 330 / PSY 330",
             "COS 498"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "CHM 303",
-            "COS 3**",
-            "COS 397",
-            "COS 398",
-            "COS 4**",
-            "COS 497",
-            "COS 498",
-            "ECO 312",
-            "ECO 326",
-            "ELE 3**",
-            "ELE 4**",
-            "MAE 345",
-            "MAT 3**",
-            "MAT 4**",
-            "MOL 437/NEU 437",
-            "NEU 330",
-            "ORF 3**",
-            "ORF 4**",
-            "PHI 312",
-            "PHY 3**",
-            "PHY 4**"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "CHM 303",
-        "COS 3**",
-        "COS 306/ELE 206",
-        "COS 314/MUS 314",
-        "COS 318",
-        "COS 320",
-        "COS 323/ORF 363",
-        "COS 324",
-        "COS 325/MUS 315",
-        "COS 326",
-        "COS 333",
-        "COS 340",
-        "COS 375/ELE 375",
-        "COS 397",
-        "COS 398",
-        "COS 4**",
-        "COS 401/TRA 301",
-        "COS 402",
-        "COS 418",
-        "COS 423",
-        "COS 424",
-        "COS 425",
-        "COS 426",
-        "COS 429",
-        "COS 432",
-        "COS 433",
-        "COS 435",
-        "COS 436",
-        "COS 441",
-        "COS 445",
-        "COS 451",
-        "COS 455/MOL 455",
-        "COS 461",
-        "COS 463",
-        "COS 475/ELE 475",
-        "COS 485",
-        "COS 487",
-        "COS 488",
-        "COS 497",
-        "COS 498",
-        "COS 510",
-        "COS 516",
-        "COS 518",
-        "COS 533",
-        "COS 561",
-        "ECO 312",
-        "ECO 326",
-        "ELE 3**",
-        "ELE 4**",
-        "MAE 345",
-        "MAT 3**",
-        "MAT 4**",
-        "MOL 437/NEU 437",
-        "NEU 330",
-        "ORF 3**",
-        "ORF 4**",
-        "PHI 312",
-        "PHY 3**",
-        "PHY 4**"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Independent Work",
@@ -451,79 +306,7 @@
       "settled": [
         "COS 398"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "COS 397",
-        "COS 398",
-        "COS 497",
-        "COS 498"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     }
-  ],
-  "collapsed_course_list": [
-    "CHM 303",
-    "COS 126",
-    "COS 217",
-    "COS 226",
-    "COS 3**",
-    "COS 306/ELE 206",
-    "COS 314/MUS 314",
-    "COS 318",
-    "COS 320",
-    "COS 323/ORF 363",
-    "COS 324",
-    "COS 325/MUS 315",
-    "COS 326",
-    "COS 333",
-    "COS 340",
-    "COS 375/ELE 375",
-    "COS 397",
-    "COS 398",
-    "COS 4**",
-    "COS 401/TRA 301",
-    "COS 402",
-    "COS 418",
-    "COS 423",
-    "COS 424",
-    "COS 425",
-    "COS 426",
-    "COS 429",
-    "COS 432",
-    "COS 433",
-    "COS 435",
-    "COS 436",
-    "COS 441",
-    "COS 445",
-    "COS 451",
-    "COS 455/MOL 455",
-    "COS 461",
-    "COS 463",
-    "COS 475/ELE 475",
-    "COS 485",
-    "COS 487",
-    "COS 488",
-    "COS 497",
-    "COS 498",
-    "COS 510",
-    "COS 516",
-    "COS 518",
-    "COS 533",
-    "COS 561",
-    "ECO 312",
-    "ECO 326",
-    "ELE 3**",
-    "ELE 4**",
-    "MAE 345",
-    "MAT 3**",
-    "MAT 4**",
-    "MOL 437/NEU 437",
-    "NEU 330",
-    "ORF 3**",
-    "ORF 4**",
-    "PHI 312",
-    "PHY 3**",
-    "PHY 4**"
-  ],
-  "collapsed_dist_list": []
+  ]
 }
