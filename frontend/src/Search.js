@@ -220,7 +220,6 @@ class Search extends Component {
   updateSearch(event) {
     // clear search before loading new courses
     ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
-    $('#spinner').show();
     $('#spinner').css('display', 'inline-block');
     this.setState({search: event.target.value});
     let search_query = event.target.value;
@@ -258,9 +257,9 @@ class Search extends Component {
             document.getElementById('display-courses')
             )
             ReactDOM.render(<span id='search-count-num'>{data.length}</span>, document.getElementById('search-count'))
-            $('#spinner').hide();
+            $('#spinner').css('display', 'none');
           }
-        }.bind(this),
+        }.bind(this)
     });
 
     /* Converts semester to term code */
