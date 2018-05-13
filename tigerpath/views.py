@@ -157,7 +157,7 @@ def get_onboarding_initial_values(username):
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query='$'):
-    print(search_query)
+    # search query defaults to '$' which is an indicator to output nothing
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
     split_query = re.split('(\d.*)', search_query)
     queries = []
