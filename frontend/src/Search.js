@@ -228,7 +228,7 @@ class Search extends Component {
     // get request, renders list of courses received
     
     current_request = $.ajax({
-        url: "/api/v1/get_courses/" + search_query,
+        url: "/api/v1/get_courses/" + encodeURIComponent(search_query),
         datatype: 'json',
         type: 'GET',
         cache: true,
