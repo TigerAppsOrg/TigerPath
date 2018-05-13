@@ -220,6 +220,8 @@ class Search extends Component {
   updateSearch(event) {
     // clear search before loading new courses
     ReactDOM.unmountComponentAtNode(document.getElementById('display-courses'));
+    $('#spinner').show();
+    $('#search-count').hide();
     this.setState({search: event.target.value});
     let search_query = event.target.value;
     // makes sure that there is always an argument after load_courses, $ is dummy arg
@@ -256,6 +258,8 @@ class Search extends Component {
             document.getElementById('display-courses')
             )
             ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+            $('#search-count').show();
+            $('#spinner').hide();
           }
         }.bind(this),
     });
