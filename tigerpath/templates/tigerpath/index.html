@@ -50,7 +50,7 @@
           <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
           <div class="btn-group">
             <div class="dropdown">
-            <button onclick="dropFunction()" class="btn nav-btn dropbtn">{{ request.user.profile.nickname|default:request.user.username }}</button>
+            <button onclick="dropFunction()" class="btn nav-btn dropbtn">{{ request.user.profile.nickname|default:request.user.username }} &#9662; </button>
               <div id="netid-btn" class="dropdown-content">
                 <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
               </div>
