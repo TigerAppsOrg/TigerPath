@@ -40,17 +40,23 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PVVZFT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
-        <div>
-        <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
-        <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
-        <a class="btn nav-btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
-        <a class="btn nav-btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
-        <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
+          <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
+          <div>
+          <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
+          <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
+          <div class="btn-group">
+            <div class="dropdown">
+            <button onclick="dropFunction()" class="btn nav-btn dropbtn">{{ request.user.profile.nickname|default:request.user.username }}</button>
+              <div id="netid-btn" class="dropdown-content">
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              </div>
+            </div>
+          </div>
+          <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
         </div>
       </div>
     </nav>
@@ -152,21 +158,8 @@
     {% include 'tigerpath/settings.html' %}
     <script src="{% static 'app/js/settings.js' %}"></script>
 
-    <script>
-      function toggler(divId)
-      {
-        var isLogoutHidden = $("#logout-btn").is(":hidden");
-        if ($("#logout-btn").is(":hidden")) {
-          $("#logout-btn").toggle();
-          $("#netid-btn").toggle();
-        }
-      }
-      function treeexp () {
-        $('label.tree-toggler').click(function () {
-            $(this).parent().children('ul.tree').toggle(300);
-        });
-      }
-    </script>
+    <!-- dropdown menu -->
+    <script src="{% static 'app/js/dropdown.js' %}"></script>
 
     <!-- show messages to the user -->
     {% if messages %}
