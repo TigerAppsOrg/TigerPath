@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
-from .majors_and_certificates.scripts.verifier import check_major, check_degree
+from .majors_and_certificates.scripts.verifier import check_major, check_degree, get_courses_by_path
 from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 
 import django_cas_ng.views
@@ -192,28 +192,11 @@ def get_courses(request, search_query):
 # returns list of courses that match a requirement
 @login_required
 def get_req_courses(request, req_path):
+    # put the slashes back in
+    req_path = req_path.replace('$', '//')
     # prevents duplicate courses to be added in search results
     search_results = set([])
-    course_list = [
-                "COS 3**",
-                "COS 4**",
-                "MAT 3**",
-                "MAT 4**",
-                "ELE 3**",
-                "ELE 4**",
-                "PHY 3**",
-                "PHY 4**",
-                "ORF 3**",
-                "ORF 4**",
-                "PHI 312",
-                "MAE 345",
-                "CHM 303",
-                "ECO 312",
-                "MOL 437/NEU 437",
-                "NEU 330",
-                "ECO 326",
- #               "LANG 107"
-              ]
+    course_list, dist_list = get_courses_by_path(req_path)
     for course in course_list:
         if('LANG' in course):
             for lang in list(LANG_DEPTS.keys()):
@@ -226,6 +209,8 @@ def get_req_courses(request, req_path):
                 pass
         else:
             search_results.update(set(filter_courses(course.replace('*', '').split(' '))))
+    for dist in dist_list:
+        search_results.update(set(models.Course.objects.filter(dist_area=dist)))
     course_info_list = convertCourses(list(search_results), course_list)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
