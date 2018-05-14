@@ -64,17 +64,14 @@ def get_all_courses():
             fetch_master = fetch_master[0]
             if add_semester not in fetch_master.all_semesters:
                 course.all_semesters = deepcopy(fetch_master.all_semesters)
-                if add_semester not in course.all_semesters:
-                    course.all_semesters.append(add_semester)
-            course.is_master = True
-            course.save()
+                course.all_semesters.append(add_semester)
             # delete duplicate course
             fetch_master.delete()
-
+            
         # convert course to master model
         else:
             course.all_semesters.append(add_semester)
-            # strip semester off id
-            course.registrar_id = course.registrar_id[4:]
-            course.is_master = True
-            course.save()
+        # strip semester off id
+        course.registrar_id = course.registrar_id[4:]
+        course.is_master = True
+        course.save()

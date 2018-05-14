@@ -263,3 +263,4 @@ def get_requirements(request):
         requirements.append(curr_user.major.name)
     requirements.append(check_degree(curr_user.major.degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
+    
