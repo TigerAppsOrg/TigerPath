@@ -8,7 +8,8 @@ function startIntro() {
       },
       {
         element: '#search-courses',
-        intro: 'You can search for courses you want to add to your schedule here.',
+        intro: `You can search for courses you want to add to your schedule here.
+        Go ahead and search your department code and press enter.`,
         position: 'right'
       },
       {
