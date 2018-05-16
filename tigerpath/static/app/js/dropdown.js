@@ -1,18 +1,14 @@
-function dropFunction() {
-    document.getElementById("netid-btn").classList.toggle("show");
-}
+// wait for DOM to load first
+$(function() {
+  // onclick listener for netid button
+  $('#netid-btn').click(function() {
+    $('#netid-dropdown').toggle();
+  });
+});
 
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
+$(window).click(function(e) {
+  if (!$(e.target).is('#netid-btn')) {
+    $("#netid-dropdown").hide();
   }
-}
+});
