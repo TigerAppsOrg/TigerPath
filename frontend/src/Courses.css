@@ -51,9 +51,8 @@
   height: auto;
   padding: 5px;
   list-style-type: none;
-  margin-left: 3px;
-  margin-right: 3px;
-  margin-bottom: 3px;
+  margin: 0 3px 3px 3px;
+  border-radius: 2px;
 }
 
 .course-display.fall {
