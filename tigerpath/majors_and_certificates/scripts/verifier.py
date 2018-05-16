@@ -35,7 +35,7 @@ def check_major(major_name, courses, year):
     """
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
-        raise Exception("Major code not recognized.")
+        raise ValueError("Major code not recognized.")
     major_filename = major_name + "_" + str(int(year)) + ".json"
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, int(year))
@@ -84,7 +84,7 @@ def check_certificate(certificate_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     if (certificate_name not in university_info.CERTIFICATES):
-        raise Exception("Certificate not recognized.")
+        raise ValueError("Certificate not recognized.")
     certificate_filename = certificate_name + "_" + str(int(year)) + ".json"
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, int(year))
@@ -107,7 +107,7 @@ def check_requirements(req_file, courses, year):
     :rtype: (bool, dict, dict)
     """
     if int(year) < 2000 or int(year) > 3000:
-        raise Exception("Year is invalid.")
+        raise ValueError("Year is invalid.")
     with open(req_file, 'r') as f:
         req = json.load(f)
     courses = _init_courses(courses, req)
@@ -132,10 +132,10 @@ def get_courses_by_path(path):
     '''
     req_type, year, req_name = path.split('//')[:3]
     if int(year) < 2000 or int(year) > 3000:
-        raise Exception("Path malformatted.")
+        raise ValueError("Path malformatted.")
     if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.CERTIFICATES
             and req_name not in university_info.BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
-        raise Exception("Path malformatted.")
+        raise ValueError("Path malformatted.")
     if req_type in ["Major", "Certificate"]:
         major_filename = req_name + "_" + str(int(year)) + ".json"
         req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
@@ -145,12 +145,12 @@ def get_courses_by_path(path):
         elif req_name.upper() == "BSE":
             req_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
     else:
-        raise Exception("Path malformatted.")
+        raise ValueError("Path malformatted.")
     with open(req_filepath, 'r') as f:
         req = json.load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
-        raise Exception("Path malformatted.")
+        raise ValueError("Path malformatted.")
     return _get_collapsed_course_and_dist_req_sets(subreq)
 
 def _init_req(req):
