@@ -7,7 +7,7 @@ import collections
 import time
 import copy
 
-from .university_info import *
+from . import university_info
 
 MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
 CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
@@ -33,8 +33,8 @@ def check_major(major_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    if (major_name not in AB_CONCENTRATIONS
-            and major_name not in BSE_CONCENTRATIONS):
+    if (major_name not in university_info.AB_CONCENTRATIONS
+            and major_name not in university_info.BSE_CONCENTRATIONS):
         raise Exception("Major code not recognized.")
     major_filename = major_name + "_" + str(int(year)) + ".json"
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
@@ -83,7 +83,7 @@ def check_certificate(certificate_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    if (certificate_name not in CERTIFICATES):
+    if (certificate_name not in university_info.CERTIFICATES):
         raise Exception("Certificate not recognized.")
     certificate_filename = certificate_name + "_" + str(int(year)) + ".json"
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
@@ -133,8 +133,8 @@ def get_courses_by_path(path):
     req_type, year, req_name = path.split('//')[:3]
     if int(year) < 2000 or int(year) > 3000:
         raise Exception("Path malformatted.")
-    if (req_name not in AB_CONCENTRATIONS and req_name not in CERTIFICATES
-            and req_name not in BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
+    if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.CERTIFICATES
+            and req_name not in university_info.BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
         raise Exception("Path malformatted.")
     if req_type in ["Major", "Certificate"]:
         major_filename = req_name + "_" + str(int(year)) + ".json"
@@ -504,7 +504,7 @@ def _course_match(course_name, pattern):
         for p in pattern:
             if c == p: # exact name matched
                 return True
-            if p[:4] == 'LANG' and c[:3] in LANG_DEPTS: # language course
+            if p[:4] == 'LANG' and c[:3] in university_info.LANG_DEPTS: # language course
                 if c[3:] == p[4:]: # course numbers match
                     return True
                 if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'
