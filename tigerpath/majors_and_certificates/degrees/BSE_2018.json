@@ -19,7 +19,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "description": null,
           "explanation": null,
           "completed_by_semester": 1,
@@ -28,7 +28,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "description": null,
           "explanation": null,
           "completed_by_semester": 4,
@@ -37,7 +37,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "description": null,
           "explanation": null,
           "completed_by_semester": 6,
@@ -46,7 +46,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "description": null,
           "explanation": null,
           "completed_by_semester": 8,
