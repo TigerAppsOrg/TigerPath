@@ -27,6 +27,8 @@ def login(request):
 
 # cas auth logout
 def logout(request):
+    success_msg = 'You have been successfully logged out.'
+    messages.success(request, success_msg)
     return django_cas_ng.views.logout(request)
 
 
