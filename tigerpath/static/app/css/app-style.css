@@ -37,8 +37,8 @@ h6 {
   color: #FFFFFF;
 }
 .nav-tabs {
-    display: block;
-    padding: 10px;
+  display: block;
+  padding: 10px;
 }
 .requirements-list {
   background-color: #7e7f82;
@@ -121,57 +121,44 @@ thead.semester-header {
   padding-right: 0 !important;
 }
 .no-padding-left {
-   padding-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .nav-btn {
   color: white;
 }
 
-.dropbtn {
-    background-color: #464e56;
-    color: white;
-    font-weight: 400;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+#netid-dropdown a:hover {
+  background-color: #ddd;
 }
 
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 100px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    margin-top: 3px;
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 100px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: 3px;
+  z-index: 1;
 }
 
 .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
 }
 
-.dropdown a:hover {background-color: #ddd}
-
-.show {display:block;}
-
 .nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
-    color: #fff;
-    background-color: #3d8af7;
+  color: #fff;
+  background-color: #3d8af7;
 }
 
 .foot-text {
@@ -213,22 +200,22 @@ thead.semester-header {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 /* popup on bottom of page */

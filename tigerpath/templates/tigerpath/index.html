@@ -53,16 +53,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
-          <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
-          <div>
+        <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
+        <div>
           <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
           <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
-          <div class="btn-group">
-            <div class="dropdown">
-            <button onclick="dropFunction()" class="btn nav-btn dropbtn">{{ request.user.profile.nickname|default:request.user.username }} <i class="fas fa-caret-down"></i> </button>
-              <div id="netid-btn" class="dropdown-content">
-                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-              </div>
+          <div class="dropdown">
+            <a id="netid-btn" class="btn nav-btn dropdown-toggle" href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
+            <div id="netid-dropdown" class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             </div>
           </div>
           <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
@@ -73,16 +71,13 @@
     <div class="row">
       <div class="col-lg-2">
         <!-- search bar -->
-        <div id="search-courses">
-        </div>
+        <div id="search-courses"></div>
         <div id='search-info'>
-          <div id="search-count">
-          </div>
+          <div id="search-count"></div>
           <span>Search Results</span>
           <i id="spinner" class="fas fa-circle-notch fa-spin"></i>
         </div>
-        <div id="display-courses">
-        </div>
+        <div id="display-courses"></div>
       </div>
 
       <div class="col-lg-8 no-padding-left no-padding-right">
@@ -133,8 +128,7 @@
 
       <div class="col-lg-2">
         <!-- requirements -->
-        <div id="requirements">
-        </div>
+        <div id="requirements"></div>
       </div>
     </div>
 
