@@ -86,16 +86,16 @@
             "pdfs_allowed": 0,
             "req_list": [
                 {
-                "name": null,
-                "max_counted": 1,
-                "min_needed": "ALL",
-                "explanation": null,
-                "double_counting_allowed": false,
-                "pdfs_allowed": 0,
-                "course_list": [
-                    "CHM 201",
-                    "CHM 207"
-                ]
+                    "name": null,
+                    "max_counted": 1,
+                    "min_needed": "ALL",
+                    "explanation": null,
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "CHM 201",
+                        "CHM 207"
+                    ]
                 },
                 {
                     "name": null,
