@@ -15,6 +15,8 @@ AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB r
 BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
 
 REQ_PATH_SEPARATOR = '//'
+# Limit the type to 12 characters and the code/name to 100 characters
+REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.100s"
 
 def check_major(major_name, courses, year):
     """
@@ -249,7 +251,7 @@ def _add_course_lists_to_req(req, courses):
                             req["unsettled"].append(course["name"])
                             break
 
-def _init_courses(courses, req = None):
+def _init_courses(courses, req):
     courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
@@ -261,13 +263,13 @@ def _init_courses(courses, req = None):
             course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
-            elif req["type"] in ["Major", "Degree"] and req["code"] != None: # filter out irrelevant requirements from list
+            elif req["type"] in ["Major", "Degree"]: # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if REQ_PATH_SEPARATOR + str(req["year"]) + REQ_PATH_SEPARATOR + req["code"] + REQ_PATH_SEPARATOR not in path:
+                    if REQ_PATH_PREFIX % (req["type"], req["year"], req["code"]) not in path:
                         course["settled"].remove(path)
-            else:
+            else: # type must be "Certificate"
                 for path in course["settled"]:
-                    if REQ_PATH_SEPARATOR + str(req["year"]) + REQ_PATH_SEPARATOR + req["name"] + REQ_PATH_SEPARATOR not in path:
+                    if REQ_PATH_PREFIX % (req["type"], req["year"], req["name"]) not in path:
                         course["settled"].remove(path)
     return courses
     
@@ -348,11 +350,10 @@ def _init_path_to(req):
     2. The path gives the traversal of the tree needed to reach that node.
     '''
     if "path_to" not in req: # only for root of the tree
-        req["path_to"] = req["type"] + REQ_PATH_SEPARATOR + str(req["year"])
         if req["type"] in ["Major", "Degree"]:
-            req["path_to"] += REQ_PATH_SEPARATOR + req["code"]
-        else:
-            req["path_to"] += REQ_PATH_SEPARATOR + req["name"]
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["code"])
+        else: # type must be "Certificate"
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["name"])
     if "req_list" in req:
         for i,subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number
