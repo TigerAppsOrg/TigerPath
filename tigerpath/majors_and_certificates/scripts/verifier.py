@@ -11,8 +11,7 @@ from . import university_info
 
 MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
 CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
-AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB requirements JSON
-BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
+DEGREES_LOCATION = "../degrees/" # relative path to the AB/BSE requirements JSONs
 
 REQ_PATH_SEPARATOR = '//'
 # REQ_PATH_PREFIX := <type>//<year>//<dept_code or degree_code or certificate_name>
@@ -64,12 +63,13 @@ def check_degree(degree_name, courses, year):
     :rtype: (bool, dict, dict)
     """
     year = int(year)
+    degree_name = degree_name.upper()
     if year < 2000 or year > 3000:
         raise ValueError("Year is invalid.")
-    if degree_name.upper() == "AB":
-        degree_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
-    elif degree_name.upper() == "BSE":
-        degree_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
+    if degree_name not in ["AB", "BSE"]:
+        raise ValueError("Invalid degree name: %s" % degree_name)
+    degree_filename = "%s_%d.json" % (degree_name, year)
+    degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
     return check_requirements(degree_filepath, courses)
 
 def check_certificate(certificate_name, courses, year):
@@ -157,16 +157,15 @@ def get_courses_by_path(path):
     if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.CERTIFICATES
             and req_name not in university_info.BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
         raise ValueError("Path malformatted.")
-    if req_type in ["Major", "Certificate"]:
-        filename = "%s_%d.json" % (req_name, year)
+    filename = "%s_%d.json" % (req_name, year)
+    if req_type == "Major":
         req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
+    elif req_type == "Certificate":
+        req_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, filename)
     elif req_type == "Degree":
-        if req_name.upper() == "AB":
-            req_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
-        elif req_name.upper() == "BSE":
-            req_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
-        else:
+        if req_name not in ["AB", "BSE"]:
             raise ValueError("Path malformatted.")
+        req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
     with open(req_filepath, 'r') as f:
