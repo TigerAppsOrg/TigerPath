@@ -33,12 +33,14 @@ def check_major(major_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
+    if int(year) < 2000 or int(year) > 3000:
+        raise ValueError("Year is invalid.")
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
         raise ValueError("Major code not recognized.")
     major_filename = major_name + "_" + str(int(year)) + ".json"
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
-    return check_requirements(major_filepath, courses, int(year))
+    return check_requirements(major_filepath, courses)
 
 def check_degree(degree_name, courses, year):
     """
@@ -57,11 +59,13 @@ def check_degree(degree_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
+    if int(year) < 2000 or int(year) > 3000:
+        raise ValueError("Year is invalid.")
     if degree_name.upper() == "AB":
         degree_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
     elif degree_name.upper() == "BSE":
         degree_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
-    return check_requirements(degree_filepath, courses, int(year))
+    return check_requirements(degree_filepath, courses)
 
 def check_certificate(certificate_name, courses, year):
     """
@@ -83,13 +87,15 @@ def check_certificate(certificate_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
+    if int(year) < 2000 or int(year) > 3000:
+        raise ValueError("Year is invalid.")
     if (certificate_name not in university_info.CERTIFICATES):
         raise ValueError("Certificate not recognized.")
     certificate_filename = certificate_name + "_" + str(int(year)) + ".json"
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
-    return check_requirements(certificate_filepath, courses, int(year))
+    return check_requirements(certificate_filepath, courses)
 
-def check_requirements(req_file, courses, year):
+def check_requirements(req_file, courses):
     """
     Returns information about the requirements satisfied by the courses
     given in courses.
@@ -106,8 +112,6 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    if int(year) < 2000 or int(year) > 3000:
-        raise ValueError("Year is invalid.")
     with open(req_file, 'r') as f:
         req = json.load(f)
     courses = _init_courses(courses, req)
