@@ -11,7 +11,7 @@ from . import university_info
 
 MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
 CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
-DEGREES_LOCATION = "../degrees/" # relative path to the AB/BSE requirements JSONs
+DEGREES_LOCATION = "../degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
 
 REQ_PATH_SEPARATOR = '//'
 # REQ_PATH_PREFIX := <type>//<year>//<dept_code or degree_code or certificate_name>
@@ -136,7 +136,9 @@ def get_courses_by_path(path):
     (course_set, dist_req_set)
     Note: Sets may contain duplicate courses if a course is listed in multiple
     different ways
-    Note: Implementation is sensitive to the path format, which must start with
+    Note: the path parameter must be a requirement path string that was generated
+    through calling _init_path_to()
+    Implementation is sensitive to the path format, which must start with
     <type>//<year>//<dept_code>
     where the <>'s are replaced with the appropriate values.
     
