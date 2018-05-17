@@ -2,13 +2,13 @@
     "type": "Major",
     "name": "Chemical and Biological Engineering",
     "code": "CBE",
+    "degree": "BSE",
     "year": 2018,
     "description": "In order to qualify for the B.S.E. degree in the Department of Chemical and Biological Engineering, a student must satisfy the requirements of the School of Engineering and Applied Science and must choose courses during the sophomore, junior, and senior years to provide a core knowledge of chemical engineering and advanced knowledge in an area of concentration. The advanced science and core chemical engineering courses in the sophomore and junior years provide the fundamental tools of thermodynamics, transport processes, and reactor analysis. In the spring semester of the junior year, students take a laboratory-based course that utilizes core chemical engineering knowledge. In the senior year, students undertake an in-depth design analysis with state-of-the-art design and optimization tools. Students can tailor their specific interests in chemical and biological engineering by pursuing an area of concentration that culminates with a senior thesis project. The areas of concentration, reflective of the practice of modern chemical engineering, include bioengineering and biotechnology; materials and product engineering; energy and environmental engineering; optimization, dynamics, and information technology; entrepreneurship and management; and science and engineering for new technologies. The chemical engineering program is accredited by the Engineering Accreditation Commission of ABET, http://www.abet.org (link is external). Students with special interests should consult the section on special programs and options. Total courses: 36.",
     "urls": [
         "https://ua.princeton.edu/academic-units/department-chemical-and-biological-engineering",
         "https://www.princeton.edu/cbe/undergrad/requirements/"
     ],
-    "allowed_majors": [],
     "contacts": [
         {
             "type": "Departmental Representative",
@@ -20,12 +20,11 @@
         {
             "name": "Chemical and Biological Engineering Core",
             "max_counted": 1,
-            "min_needed": 99,
+            "min_needed": "ALL",
             "explanation": "The nine courses listed below are required of all chemical and biological engineering majors:\n\nMost students carry out a two-term senior thesis. Students must complete a two-term thesis for departmental honors. Students who elect one term of independent work are required to take an additional chemical and biological engineering elective at the 300 level or above.",
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "completed_by_semester": 8,
-            "req_list": [],
             "course_list": [
                 "CBE 245",
                 "CBE 246",
@@ -41,23 +40,60 @@
         {
             "name": "Chemistry Requirement",
             "max_counted": 1,
-            "min_needed": 99,
+            "min_needed": "ALL",
             "explanation": "None",
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "completed_by_semester": 8,
-            "req_list": [],
-            "course_list": []
+            "req_list": [
+                {
+                "name": null,
+                "max_counted": 1,
+                "min_needed": "ALL",
+                "explanation": "None",
+                "double_counting_allowed": false,
+                "pdfs_allowed": 0,
+                "completed_by_semester": 8,
+                "course_list": [
+                    "CHM 201",
+                    "CHM 207"
+                ]
+                },
+                {
+                    "name": null,
+                    "max_counted": 1,
+                    "min_needed": "ALL",
+                    "explanation": "None",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 8,
+                    "course_list": [
+                        "CHM 202",
+                        "CHM 215"
+                    ]
+                },
+                {
+                    "name": null,
+                    "max_counted": 1,
+                    "min_needed": "ALL",
+                    "explanation": "None",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 8,
+                    "course_list": [
+                        "CHM 303"
+                    ]
+                }
+            ]
         },
         {
             "name": "Mathematics Requirement",
             "max_counted": 1,
-            "min_needed": 99,
+            "min_needed": "ALL",
             "explanation": "None",
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "completed_by_semester": 8,
-            "req_list": [],
             "course_list": [
                 "MAE 305"
             ]
@@ -69,7 +105,6 @@
             "explanation": "None",
             "double_counting_allowed": false,
             "completed_by_semester": 8,
-            "req_list": [],
             "course_list": [
                 "MOL 214",
                 "MOL 215"
@@ -87,12 +122,11 @@
                 {
                     "name": "Advanced Chemistry",
                     "max_counted": 1,
-                    "min_needed": 99,
+                    "min_needed": "ALL",
                     "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CHM 3**",
                         "CHM 4**",
@@ -102,20 +136,18 @@
                 {
                     "name": "Advanced Chemical Engineering",
                     "max_counted": 1,
-                    "min_needed": 99,
+                    "min_needed": "ALL",
                     "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 3**",
                         "CBE 4**",
                         "CBE 5**"
                     ]
                 }
-            ],
-            "course_list": []
+            ]
         },
         {
             "name": "Societal Impact Requirement",
@@ -124,10 +156,7 @@
             "explanation": "Of the seven required Humanities and Social Science electives, undergraduates in chemical and biological engineering must take at least one course in the Ethical Thought and Moral Values area (EM)",
             "double_counting_allowed": false,
             "completed_by_semester": 8,
-            "req_list": [],
-            "course_list": [
-                "EM"
-            ]
+            "dist_req]": "EM"
         },
         {
             "name": "Concentration",
@@ -146,7 +175,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 419",
                         "CBE 423",
@@ -202,7 +230,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 260/EGR 260",
                         "CEE 334/WWS 452/ENV 334/ENE 334",
@@ -233,7 +260,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
@@ -285,7 +311,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 415/CHM 415",
                         "CBE 422",
@@ -317,7 +342,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 422",
                         "CBE 448",
@@ -350,7 +374,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 342",
                         "MAE 306",
@@ -378,8 +401,7 @@
                         "ELE 442"
                     ]
                 }
-            ],
-            "course_list": []
+            ]
         },
         {
             "name": "Technical Diversity",
@@ -398,7 +420,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 419",
                         "CBE 423",
@@ -454,7 +475,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 260/EGR 260",
                         "CEE 334/WWS 452/ENV 334/ENE 334",
@@ -485,7 +505,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
@@ -537,7 +556,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 415/CHM 415",
                         "CBE 422",
@@ -569,7 +587,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 422",
                         "CBE 448",
@@ -602,7 +619,6 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CBE 342",
                         "MAE 306",
@@ -630,8 +646,7 @@
                         "ELE 442"
                     ]
                 }
-            ],
-            "course_list": []
+            ]
         }
     ]
 }
