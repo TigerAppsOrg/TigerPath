@@ -28,7 +28,7 @@ BSE
       "id": "1184010455",
       "dist_area": "QR",
       "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
+        "Major//2018//COS-BSE//Core Courses//Theory"
       ]
     },
     {
@@ -37,7 +37,7 @@ BSE
       "id": "1184002065",
       "dist_area": null,
       "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
+        "Major//2018//COS-BSE//Core Courses//Systems"
       ]
     }
   ],
@@ -48,7 +48,7 @@ BSE
       "id": "1184002069",
       "dist_area": null,
       "settled": [
-        "Computer Science - BSE//Independent Work"
+        "Major//2018//COS-BSE//Independent Work"
       ]
     },
     {
@@ -57,7 +57,7 @@ BSE
       "id": "1184022331",
       "dist_area": "STL",
       "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
+        "Major//2018//COS-BSE//Core Courses//Systems"
       ]
     },
     {
@@ -66,7 +66,7 @@ BSE
       "id": "118421927",
       "dist_area": "QR",
       "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ]
     },
     {
@@ -75,7 +75,7 @@ BSE
       "id": "1184002071",
       "dist_area": null,
       "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
+        "Major//2018//COS-BSE//Core Courses//Theory"
       ]
     },
     {
@@ -84,7 +84,7 @@ BSE
       "id": "1184021337",
       "dist_area": null,
       "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ]
     }
   ],
@@ -107,7 +107,7 @@ BSE
       "id": "1184002087",
       "dist_area": null,
       "settled": [
-        "Computer Science - BSE//Core Courses//General"
+        "Major//2018//COS-BSE//Core Courses//General"
       ]
     }
   ]

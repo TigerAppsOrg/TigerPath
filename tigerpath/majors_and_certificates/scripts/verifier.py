@@ -7,12 +7,16 @@ import collections
 import time
 import copy
 
-from .university_info import LANG_DEPTS
+from . import university_info
 
 MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
 CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
-AB_REQUIREMENTS_LOCATION = "../degrees/AB_2018.json" # relative path to the AB requirements JSON
-BSE_REQUIREMENTS_LOCATION = "../degrees/BSE_2018.json" # relative path to the BSE requirements JSON
+DEGREES_LOCATION = "../degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
+
+REQ_PATH_SEPARATOR = '//'
+# REQ_PATH_PREFIX := <type>//<year>//<dept_code or degree_code or certificate_name>
+# Limit the type to 12 characters and the code/name to 100 characters
+REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.100s"
 
 def check_major(major_name, courses, year):
     """
@@ -31,9 +35,15 @@ def check_major(major_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    major_filename = major_name + "_" + str(year) + ".json"
+    year = int(year)
+    if year < 2000 or year > 3000:
+        raise ValueError("Year is invalid.")
+    if (major_name not in university_info.AB_CONCENTRATIONS
+            and major_name not in university_info.BSE_CONCENTRATIONS):
+        raise ValueError("Major code not recognized.")
+    major_filename = "%s_%d.json" % (major_name, year)
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
-    return check_requirements(major_filepath, courses, year)
+    return check_requirements(major_filepath, courses)
 
 def check_degree(degree_name, courses, year):
     """
@@ -52,11 +62,15 @@ def check_degree(degree_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    if degree_name.upper() == "AB":
-        degree_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
-    elif degree_name.upper() == "BSE":
-        degree_filepath = os.path.join(_get_dir_path(), BSE_REQUIREMENTS_LOCATION)
-    return check_requirements(degree_filepath, courses, year)
+    year = int(year)
+    degree_name = degree_name.upper()
+    if year < 2000 or year > 3000:
+        raise ValueError("Year is invalid.")
+    if degree_name not in ["AB", "BSE"]:
+        raise ValueError("Invalid degree name: %s" % degree_name)
+    degree_filename = "%s_%d.json" % (degree_name, year)
+    degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
+    return check_requirements(degree_filepath, courses)
 
 def check_certificate(certificate_name, courses, year):
     """
@@ -78,11 +92,16 @@ def check_certificate(certificate_name, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    certificate_filename = certificate_name + "_" + str(year) + ".json"
+    year = int(year)
+    if year < 2000 or year > 3000:
+        raise ValueError("Year is invalid.")
+    if (certificate_name not in university_info.CERTIFICATES):
+        raise ValueError("Certificate not recognized.")
+    certificate_filename = "%s_%d.json" % (certificate_name, year)
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
-    return check_requirements(certificate_filepath, courses, year)
+    return check_requirements(certificate_filepath, courses)
 
-def check_requirements(req_file, courses, year):
+def check_requirements(req_file, courses):
     """
     Returns information about the requirements satisfied by the courses
     given in courses.
@@ -101,7 +120,7 @@ def check_requirements(req_file, courses, year):
     """
     with open(req_file, 'r') as f:
         req = json.load(f)
-    courses = _init_courses(courses, req["name"])
+    courses = _init_courses(courses, req)
     req = _init_req(req)
     _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
@@ -109,6 +128,55 @@ def check_requirements(req_file, courses, year):
     formatted_courses = _format_courses_output(courses)
     formatted_req = _format_req_output(req)
     return formatted_req["satisfied"], formatted_courses, formatted_req
+
+def get_courses_by_path(path):
+    '''
+    Returns the sets of all courses and all distribution requirements
+    in the subtree specified by path as a tuple:
+    (course_set, dist_req_set)
+    Note: Sets may contain duplicate courses if a course is listed in multiple
+    different ways
+    Note: the path parameter must be a requirement path string that was generated
+    through calling _init_path_to()
+    Implementation is sensitive to the path format, which must start with
+    <type>//<year>//<dept_code>
+    where the <>'s are replaced with the appropriate values.
+    
+    :param path: the path identifier of a requirement as generated by _init_path_to()
+    :type path: string
+    :raises: ValueError - if the path was not generated by _init_path_to()
+    :returns: the tuple (course_set, dist_req_set)
+    :rtype: (set, set)
+    '''
+    req_type, year, req_name = path.split(REQ_PATH_SEPARATOR)[:3]
+    year = int(year)
+    if year < 2000 or year > 3000:
+        raise ValueError("Path malformatted.")
+    if not path.startswith(REQ_PATH_PREFIX % (req_type, year, req_name)):
+        raise ValueError("Path malformatted.")
+    if "/" in req_type or "/" in req_name:
+        raise ValueError("Path malformatted.")
+    filename = "%s_%d.json" % (req_name, year)
+    if req_type == "Major":
+        if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.BSE_CONCENTRATIONS):
+            raise ValueError("Path malformatted.")
+        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
+    elif req_type == "Certificate":
+        if req_name not in university_info.CERTIFICATES:
+            raise ValueError("Path malformatted.")
+        req_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, filename)
+    elif req_type == "Degree":
+        if req_name not in ["AB", "BSE"]:
+            raise ValueError("Path malformatted.")
+        req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
+    else:
+        raise ValueError("Path malformatted.")
+    with open(req_filepath, 'r') as f:
+        req = json.load(f)
+    subreq = _get_req_by_path(req, path)
+    if not subreq:
+        raise ValueError("Path malformatted.")
+    return _get_collapsed_course_and_dist_req_sets(subreq)
 
 def _init_req(req):
     req = copy.deepcopy(req)
@@ -163,9 +231,6 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    # collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
-    # output["collapsed_course_list"] = sorted(list(collapsed_course_list))
-    # output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
     
 def _add_course_lists_to_req(req, courses):
@@ -191,21 +256,21 @@ def _add_course_lists_to_req(req, courses):
                 if req["double_counting_allowed"]: 
                     if len(course["reqs_double_counted"]) > 0:
                         for path in course["reqs_double_counted"]:
-                            if req["path_to"] in path:
+                            if path.startswith(req["path_to"]):
                                 req["settled"].append(course["name"])
                                 ## add to reqs_satisfied because couldn't be added in _assign_settled_courses_to_reqs()
                                 course["reqs_satisfied"].append(req["path_to"])
                 elif len(course["settled"]) > 0:
                     for path in course["settled"]:
-                        if req["path_to"] in path:
+                        if path.startswith(req["path_to"]):
                             req["settled"].append(course["name"])
                 else:
                     for path in course["possible_reqs"]:
-                        if req["path_to"] in path:
+                        if path.startswith(req["path_to"]):
                             req["unsettled"].append(course["name"])
                             break
 
-def _init_courses(courses, req_name = None):
+def _init_courses(courses, req):
     courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
@@ -217,9 +282,13 @@ def _init_courses(courses, req_name = None):
             course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
-            elif req_name != None: # filter out irrelevant requirements from list
+            elif req["type"] in ["Major", "Degree"]: # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if req_name not in path:
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["code"])):
+                        course["settled"].remove(path)
+            else: # type must be "Certificate"
+                for path in course["settled"]:
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["name"])):
                         course["settled"].remove(path)
     return courses
     
@@ -299,9 +368,11 @@ def _init_path_to(req):
         as no two subrequirements in the same subtree have the same name.
     2. The path gives the traversal of the tree needed to reach that node.
     '''
-    separator = '//'
     if "path_to" not in req: # only for root of the tree
-        req["path_to"] = req["name"]
+        if req["type"] in ["Major", "Degree"]:
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["code"])
+        else: # type must be "Certificate"
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["name"])
     if "req_list" in req:
         for i,subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number
@@ -310,7 +381,7 @@ def _init_path_to(req):
                 identifier = "%03d" % i
             else:
                 identifier = subreq["name"]
-            subreq["path_to"] = req["path_to"] + separator + str(identifier)
+            subreq["path_to"] = req["path_to"] + REQ_PATH_SEPARATOR + str(identifier)
             _init_path_to(subreq)
 
 def _json_format(obj):
@@ -456,7 +527,7 @@ def _course_match(course_name, pattern):
         for p in pattern:
             if c == p: # exact name matched
                 return True
-            if p[:4] == 'LANG' and c[:3] in LANG_DEPTS: # language course
+            if p[:4] == 'LANG' and c[:3] in university_info.LANG_DEPTS: # language course
                 if c[3:] == p[4:]: # course numbers match
                     return True
                 if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'
@@ -495,8 +566,9 @@ def _get_req_by_path(req, path_to):
         return req
     if "req_list" in req:
         for subreq in req["req_list"]:
-            if _get_req_by_path(subreq, path_to):
-                return subreq
+            result = _get_req_by_path(subreq, path_to)
+            if result:
+                return result
     return None
 
 def _get_collapsed_course_and_dist_req_sets(req):

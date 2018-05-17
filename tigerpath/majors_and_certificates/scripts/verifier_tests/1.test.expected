@@ -3,37 +3,37 @@
     {
       "name": "COS 126",
       "possible_reqs": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 226",
       "possible_reqs": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ]
     },
     {
       "name": "COS 217",
       "possible_reqs": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ],
       "settled": [
-        "Computer Science - BSE//Prerequisites//Computer Science Prerequisites"
+        "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites"
       ]
     }
   ],
@@ -41,27 +41,27 @@
     {
       "name": "COS340",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Theory//000",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Theory//000",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Theory//000"
+        "Major//2018//COS-BSE//Core Courses//Theory//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
+        "Major//2018//COS-BSE//Core Courses//Theory"
       ]
     },
     {
       "name": "COS 333",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Systems//000",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Systems//000",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Systems//000"
+        "Major//2018//COS-BSE//Core Courses//Systems//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
+        "Major//2018//COS-BSE//Core Courses//Systems"
       ]
     }
   ],
@@ -69,67 +69,67 @@
     {
       "name": "COS 398",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//General//000",
-        "Computer Science - BSE//Core Courses//General//001",
-        "Computer Science - BSE//Independent Work"
+        "Major//2018//COS-BSE//Core Courses//General//000",
+        "Major//2018//COS-BSE//Core Courses//General//001",
+        "Major//2018//COS-BSE//Independent Work"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Independent Work"
+        "Major//2018//COS-BSE//Independent Work"
       ],
       "settled": [
-        "Computer Science - BSE//Independent Work"
+        "Major//2018//COS-BSE//Independent Work"
       ]
     },
     {
       "name": "ELE 206/COS 306",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Systems//000",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Systems//000",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Systems//000"
+        "Major//2018//COS-BSE//Core Courses//Systems//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Systems"
+        "Major//2018//COS-BSE//Core Courses//Systems"
       ]
     },
     {
       "name": "MUS314/COS314",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Applications",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Applications",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ]
     },
     {
       "name": "COS 423",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Theory//000",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Theory//000",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Theory//000"
+        "Major//2018//COS-BSE//Core Courses//Theory//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Theory"
+        "Major//2018//COS-BSE//Core Courses//Theory"
       ]
     },
     {
       "name": "COS 436",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//Applications",
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//Applications",
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//Applications"
+        "Major//2018//COS-BSE//Core Courses//Applications"
       ]
     }
   ],
@@ -142,27 +142,27 @@
     {
       "name": "NEU 330 / PSY 330",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ]
     },
     {
       "name": "COS 498",
       "possible_reqs": [
-        "Computer Science - BSE//Core Courses//General//000",
-        "Computer Science - BSE//Core Courses//General//001",
-        "Computer Science - BSE//Independent Work"
+        "Major//2018//COS-BSE//Core Courses//General//000",
+        "Major//2018//COS-BSE//Core Courses//General//001",
+        "Major//2018//COS-BSE//Independent Work"
       ],
       "reqs_satisfied": [
-        "Computer Science - BSE//Core Courses//General//000"
+        "Major//2018//COS-BSE//Core Courses//General//000"
       ],
       "settled": [
-        "Computer Science - BSE//Core Courses//General"
+        "Major//2018//COS-BSE//Core Courses//General"
       ]
     }
   ]
@@ -172,7 +172,7 @@
   "name": "Computer Science - BSE",
   "code": "COS-BSE",
   "degree": "BSE",
-  "path_to": "Computer Science - BSE",
+  "path_to": "Major//2018//COS-BSE",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-computer-science-bse",
     "https://www.cs.princeton.edu/ugrad/becoming-cs-major/requirements"
@@ -201,7 +201,7 @@
   "req_list": [
     {
       "name": "Prerequisites",
-      "path_to": "Computer Science - BSE//Prerequisites",
+      "path_to": "Major//2018//COS-BSE//Prerequisites",
       "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements(link is external). Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites(link is external) for all later computer science courses.",
       "pdfs_allowed": false,
       "satisfied": true,
@@ -211,7 +211,7 @@
       "req_list": [
         {
           "name": "Computer Science Prerequisites",
-          "path_to": "Computer Science - BSE//Prerequisites//Computer Science Prerequisites",
+          "path_to": "Major//2018//COS-BSE//Prerequisites//Computer Science Prerequisites",
           "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field. ",
           "satisfied": true,
           "count": 3,
@@ -222,25 +222,13 @@
             "COS 226",
             "COS 217"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 126",
-            "COS 217",
-            "COS 226"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "COS 126",
-        "COS 217",
-        "COS 226"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Core Courses",
-      "path_to": "Computer Science - BSE//Core Courses",
+      "path_to": "Major//2018//COS-BSE//Core Courses",
       "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
       "pdfs_allowed": false,
       "satisfied": true,
@@ -250,7 +238,7 @@
       "req_list": [
         {
           "name": "Theory",
-          "path_to": "Computer Science - BSE//Core Courses//Theory",
+          "path_to": "Major//2018//COS-BSE//Core Courses//Theory",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -260,25 +248,11 @@
             "COS340",
             "COS 423"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 340",
-            "COS 423",
-            "COS 433",
-            "COS 441",
-            "COS 445",
-            "COS 451",
-            "COS 487",
-            "COS 488",
-            "COS 510",
-            "COS 516",
-            "COS 533"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Systems",
-          "path_to": "Computer Science - BSE//Core Courses//Systems",
+          "path_to": "Major//2018//COS-BSE//Core Courses//Systems",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -288,26 +262,11 @@
             "COS 333",
             "ELE 206/COS 306"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 306/ELE 206",
-            "COS 318",
-            "COS 320",
-            "COS 333",
-            "COS 375/ELE 375",
-            "COS 418",
-            "COS 425",
-            "COS 461",
-            "COS 463",
-            "COS 475/ELE 475",
-            "COS 518",
-            "COS 561"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "Applications",
-          "path_to": "Computer Science - BSE//Core Courses//Applications",
+          "path_to": "Major//2018//COS-BSE//Core Courses//Applications",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -317,29 +276,11 @@
             "MUS314/COS314",
             "COS 436"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "COS 314/MUS 314",
-            "COS 323/ORF 363",
-            "COS 324",
-            "COS 325/MUS 315",
-            "COS 326",
-            "COS 401/TRA 301",
-            "COS 402",
-            "COS 424",
-            "COS 426",
-            "COS 429",
-            "COS 432",
-            "COS 435",
-            "COS 436",
-            "COS 455/MOL 455",
-            "COS 485"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         },
         {
           "name": "General",
-          "path_to": "Computer Science - BSE//Core Courses//General",
+          "path_to": "Major//2018//COS-BSE//Core Courses//General",
           "explanation": null,
           "satisfied": true,
           "count": 2,
@@ -349,99 +290,13 @@
             "NEU 330 / PSY 330",
             "COS 498"
           ],
-          "unsettled": [],
-          "collapsed_course_list": [
-            "CHM 303",
-            "COS 3**",
-            "COS 397",
-            "COS 398",
-            "COS 4**",
-            "COS 497",
-            "COS 498",
-            "ECO 312",
-            "ECO 326",
-            "ELE 3**",
-            "ELE 4**",
-            "MAE 345",
-            "MAT 3**",
-            "MAT 4**",
-            "MOL 437/NEU 437",
-            "NEU 330",
-            "ORF 3**",
-            "ORF 4**",
-            "PHI 312",
-            "PHY 3**",
-            "PHY 4**"
-          ],
-          "collapsed_dist_list": []
+          "unsettled": []
         }
-      ],
-      "collapsed_course_list": [
-        "CHM 303",
-        "COS 3**",
-        "COS 306/ELE 206",
-        "COS 314/MUS 314",
-        "COS 318",
-        "COS 320",
-        "COS 323/ORF 363",
-        "COS 324",
-        "COS 325/MUS 315",
-        "COS 326",
-        "COS 333",
-        "COS 340",
-        "COS 375/ELE 375",
-        "COS 397",
-        "COS 398",
-        "COS 4**",
-        "COS 401/TRA 301",
-        "COS 402",
-        "COS 418",
-        "COS 423",
-        "COS 424",
-        "COS 425",
-        "COS 426",
-        "COS 429",
-        "COS 432",
-        "COS 433",
-        "COS 435",
-        "COS 436",
-        "COS 441",
-        "COS 445",
-        "COS 451",
-        "COS 455/MOL 455",
-        "COS 461",
-        "COS 463",
-        "COS 475/ELE 475",
-        "COS 485",
-        "COS 487",
-        "COS 488",
-        "COS 497",
-        "COS 498",
-        "COS 510",
-        "COS 516",
-        "COS 518",
-        "COS 533",
-        "COS 561",
-        "ECO 312",
-        "ECO 326",
-        "ELE 3**",
-        "ELE 4**",
-        "MAE 345",
-        "MAT 3**",
-        "MAT 4**",
-        "MOL 437/NEU 437",
-        "NEU 330",
-        "ORF 3**",
-        "ORF 4**",
-        "PHI 312",
-        "PHY 3**",
-        "PHY 4**"
-      ],
-      "collapsed_dist_list": []
+      ]
     },
     {
       "name": "Independent Work",
-      "path_to": "Computer Science - BSE//Independent Work",
+      "path_to": "Major//2018//COS-BSE//Independent Work",
       "explanation": "All B.S.E. concentrators engage in independent work supervised by a member of the department, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in a written report and poster session. B.S.E. students must elect one semester of independent work by enrolling in 397, 398, 497, or 498. One additional semester of independent work may be counted as one of the departmental courses.",
       "pdfs_allowed": false,
       "satisfied": true,
@@ -451,79 +306,7 @@
       "settled": [
         "COS 398"
       ],
-      "unsettled": [],
-      "collapsed_course_list": [
-        "COS 397",
-        "COS 398",
-        "COS 497",
-        "COS 498"
-      ],
-      "collapsed_dist_list": []
+      "unsettled": []
     }
-  ],
-  "collapsed_course_list": [
-    "CHM 303",
-    "COS 126",
-    "COS 217",
-    "COS 226",
-    "COS 3**",
-    "COS 306/ELE 206",
-    "COS 314/MUS 314",
-    "COS 318",
-    "COS 320",
-    "COS 323/ORF 363",
-    "COS 324",
-    "COS 325/MUS 315",
-    "COS 326",
-    "COS 333",
-    "COS 340",
-    "COS 375/ELE 375",
-    "COS 397",
-    "COS 398",
-    "COS 4**",
-    "COS 401/TRA 301",
-    "COS 402",
-    "COS 418",
-    "COS 423",
-    "COS 424",
-    "COS 425",
-    "COS 426",
-    "COS 429",
-    "COS 432",
-    "COS 433",
-    "COS 435",
-    "COS 436",
-    "COS 441",
-    "COS 445",
-    "COS 451",
-    "COS 455/MOL 455",
-    "COS 461",
-    "COS 463",
-    "COS 475/ELE 475",
-    "COS 485",
-    "COS 487",
-    "COS 488",
-    "COS 497",
-    "COS 498",
-    "COS 510",
-    "COS 516",
-    "COS 518",
-    "COS 533",
-    "COS 561",
-    "ECO 312",
-    "ECO 326",
-    "ELE 3**",
-    "ELE 4**",
-    "MAE 345",
-    "MAT 3**",
-    "MAT 4**",
-    "MOL 437/NEU 437",
-    "NEU 330",
-    "ORF 3**",
-    "ORF 4**",
-    "PHI 312",
-    "PHY 3**",
-    "PHY 4**"
-  ],
-  "collapsed_dist_list": []
+  ]
 }
