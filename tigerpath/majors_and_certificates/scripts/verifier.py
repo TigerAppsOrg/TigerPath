@@ -148,19 +148,20 @@ def get_courses_by_path(path):
     '''
     req_type, year, req_name = path.split(REQ_PATH_SEPARATOR)[:3]
     year = int(year)
+    if year < 2000 or year > 3000:
+        raise ValueError("Path malformatted.")
     if not path.startswith(REQ_PATH_PREFIX % (req_type, year, req_name)):
         raise ValueError("Path malformatted.")
     if "/" in req_type or "/" in req_name:
         raise ValueError("Path malformatted.")
-    if year < 2000 or year > 3000:
-        raise ValueError("Path malformatted.")
-    if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.CERTIFICATES
-            and req_name not in university_info.BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
-        raise ValueError("Path malformatted.")
     filename = "%s_%d.json" % (req_name, year)
     if req_type == "Major":
+        if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.BSE_CONCENTRATIONS):
+            raise ValueError("Path malformatted.")
         req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
     elif req_type == "Certificate":
+        if req_name not in university_info.CERTIFICATES:
+            raise ValueError("Path malformatted.")
         req_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, filename)
     elif req_type == "Degree":
         if req_name not in ["AB", "BSE"]:
