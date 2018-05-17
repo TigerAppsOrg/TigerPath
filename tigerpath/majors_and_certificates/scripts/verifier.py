@@ -163,9 +163,9 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
-    collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
-    output["collapsed_course_list"] = sorted(list(collapsed_course_list))
-    output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
+    # collapsed_course_list, collapsed_dist_list = _get_collapsed_course_and_dist_req_sets(req)
+    # output["collapsed_course_list"] = sorted(list(collapsed_course_list))
+    # output["collapsed_dist_list"] = sorted(list(collapsed_dist_list))
     return output
     
 def _add_course_lists_to_req(req, courses):

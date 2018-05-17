@@ -5,6 +5,7 @@ from .scrape_validate import validate_course
 from .scrape_import import scrape_import_course, ScrapeCounter
 from .scrape_dist_areas import scrape_all_courses
 from ..models import Course
+from copy import deepcopy
 
 def get_all_courses():
     # we can generate these given settings.CURR_TERM
@@ -61,16 +62,16 @@ def get_all_courses():
         if fetch_master.exists():
             # get course from queryset
             fetch_master = fetch_master[0]
-            
             if add_semester not in fetch_master.all_semesters:
-                fetch_master.all_semesters.append(add_semester)
-            fetch_master.save()
+                course.all_semesters = deepcopy(fetch_master.all_semesters)
+                course.all_semesters.append(add_semester)
             # delete duplicate course
-            course.delete()
+            fetch_master.delete()
+            
         # convert course to master model
         else:
             course.all_semesters.append(add_semester)
-            # strip semester off id
-            course.registrar_id = course.registrar_id[4:]
-            course.is_master = True
-            course.save()
+        # strip semester off id
+        course.registrar_id = course.registrar_id[4:]
+        course.is_master = True
+        course.save()

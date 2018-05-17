@@ -5,19 +5,28 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TigerPath helps Princeton University students plan out their four-year course schedules.">
+
     <title>TigerPath - Four-Year Course Planner</title>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
     <!-- Intro JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
+    
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -40,17 +49,21 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PVVZFT"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
       <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
         <div>
-        <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
-        <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
-        <a class="btn nav-btn" href="#" id="netid-btn" onclick="toggler('logout-btn');">{{ request.user.profile.nickname|default:request.user.username }}</a>
-        <a class="btn nav-btn hidden" href="{% url 'logout' %}" id="logout-btn">Logout</a>
-        <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
+          <a class="btn nav-btn" href="#" id="settings-btn">Settings</a>
+          <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
+          <div class="dropdown">
+            <a id="netid-btn" class="btn nav-btn dropdown-toggle" href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
+            <div id="netid-dropdown" class="dropdown-menu">
+              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            </div>
+          </div>
+          <a class="btn nav-btn" href="#" id="help-btn"><i class="far fa-question-circle"></i></a>
         </div>
       </div>
     </nav>
@@ -58,18 +71,13 @@
     <div class="row">
       <div class="col-lg-2">
         <!-- search bar -->
-        <div id="search-courses">
-        </div>
+        <div id="search-courses"></div>
         <div id='search-info'>
-          <div id="search-count">
-          </div>
+          <div id="search-count"></div>
           <span>Search Results</span>
           <i id="spinner" class="fas fa-circle-notch fa-spin"></i>
         </div>
-        <div id="display-courses">
-        </div>
-
-        <!-- Requirements -->
+        <div id="display-courses"></div>
       </div>
 
       <div class="col-lg-8 no-padding-left no-padding-right">
@@ -120,8 +128,7 @@
 
       <div class="col-lg-2">
         <!-- requirements -->
-        <div id="requirements">
-        </div>
+        <div id="requirements"></div>
       </div>
     </div>
 
@@ -152,21 +159,8 @@
     {% include 'tigerpath/settings.html' %}
     <script src="{% static 'app/js/settings.js' %}"></script>
 
-    <script>
-      function toggler(divId)
-      {
-        var isLogoutHidden = $("#logout-btn").is(":hidden");
-        if ($("#logout-btn").is(":hidden")) {
-          $("#logout-btn").toggle();
-          $("#netid-btn").toggle();
-        }
-      }
-      function treeexp () {
-        $('label.tree-toggler').click(function () {
-            $(this).parent().children('ul.tree').toggle(300);
-        });
-      }
-    </script>
+    <!-- dropdown menu -->
+    <script src="{% static 'app/js/dropdown.js' %}"></script>
 
     <!-- show messages to the user -->
     {% if messages %}
