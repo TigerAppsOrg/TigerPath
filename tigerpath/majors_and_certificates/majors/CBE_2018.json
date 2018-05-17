@@ -242,7 +242,7 @@
                     "name": "Energy and Environmental Technology",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "Noneervegrgergergerer",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -292,7 +292,7 @@
                     "name": "Materials and Product Engineering",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "Noneefafewfaweewgawegweafawefwefwae",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -322,7 +322,7 @@
                     "name": "Optimization, Dynamics, and Information Technology",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "Noneewfaefewfwegewgwegewgewgewfe",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -353,7 +353,7 @@
                     "name": "Science and Engineering for New Technologies",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "Noneewfdlkchweojfhnwesvjosdovojsevwioe",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -480,7 +480,7 @@
                     "name": "Energy and Environmental Technology",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "Noneervegrgergergerer",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -530,7 +530,7 @@
                     "name": "Materials and Product Engineering",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "Noneefafewfaweewgawegweafawefwefwae",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -560,7 +560,7 @@
                     "name": "Optimization, Dynamics, and Information Technology",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "Noneewfaefewfwegewgwegewgewgewfe",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -591,7 +591,7 @@
                     "name": "Science and Engineering for New Technologies",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "Noneewfdlkchweojfhnwesvjosdovojsevwioe",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
