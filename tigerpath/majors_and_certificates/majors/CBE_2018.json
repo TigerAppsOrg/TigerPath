@@ -40,7 +40,7 @@
             "name": "Chemistry Requirement",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explanation": "None",
+            "explanation": null,
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "req_list": [
@@ -48,7 +48,7 @@
                 "name": null,
                 "max_counted": 1,
                 "min_needed": "ALL",
-                "explanation": "None",
+                "explanation": null,
                 "double_counting_allowed": false,
                 "pdfs_allowed": 0,
                 "course_list": [
@@ -60,7 +60,7 @@
                     "name": null,
                     "max_counted": 1,
                     "min_needed": "ALL",
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": false,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -72,7 +72,7 @@
                     "name": null,
                     "max_counted": 1,
                     "min_needed": "ALL",
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": false,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -85,7 +85,7 @@
             "name": "Mathematics Requirement",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explanation": "None",
+            "explanation": null,
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "course_list": [
@@ -96,7 +96,7 @@
             "name": "Molecular Biology Requirement",
             "max_counted": 1,
             "min_needed": 1,
-            "explanation": "None",
+            "explanation": null,
             "double_counting_allowed": false,
             "course_list": [
                 "MOL 214",
@@ -159,7 +159,7 @@
                     "name": "Bioengineering and Biotechnology",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -213,7 +213,7 @@
                     "name": "Entrepreneurship and Management",
                     "max_counted": 1,
                     "min_needed": 3,
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -397,7 +397,7 @@
                     "name": "Bioengineering and Biotechnology",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
@@ -451,7 +451,7 @@
                     "name": "Entrepreneurship and Management",
                     "max_counted": 1,
                     "min_needed": 0,
-                    "explanation": "None",
+                    "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
                     "course_list": [
