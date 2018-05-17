@@ -143,7 +143,7 @@ def get_courses_by_path(path):
     if req_type in ["Major", "Certificate"]:
         major_filename = req_name + "_" + str(int(year)) + ".json"
         req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
-    elif  req_type == "Degree":
+    elif req_type == "Degree":
         if req_name.upper() == "AB":
             req_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
         elif req_name.upper() == "BSE":
@@ -347,13 +347,12 @@ def _init_path_to(req):
         as no two subrequirements in the same subtree have the same name.
     2. The path gives the traversal of the tree needed to reach that node.
     '''
-    separator = REQ_PATH_SEPARATOR
     if "path_to" not in req: # only for root of the tree
-        req["path_to"] = req["type"] + separator + str(req["year"])
+        req["path_to"] = req["type"] + REQ_PATH_SEPARATOR + str(req["year"])
         if req["type"] in ["Major", "Degree"]:
-            req["path_to"] += separator + req["code"]
+            req["path_to"] += REQ_PATH_SEPARATOR + req["code"]
         else:
-            req["path_to"] += separator + req["name"]
+            req["path_to"] += REQ_PATH_SEPARATOR + req["name"]
     if "req_list" in req:
         for i,subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number
@@ -362,7 +361,7 @@ def _init_path_to(req):
                 identifier = "%03d" % i
             else:
                 identifier = subreq["name"]
-            subreq["path_to"] = req["path_to"] + separator + str(identifier)
+            subreq["path_to"] = req["path_to"] + REQ_PATH_SEPARATOR + str(identifier)
             _init_path_to(subreq)
 
 def _json_format(obj):
