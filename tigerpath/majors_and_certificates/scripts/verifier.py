@@ -284,11 +284,11 @@ def _init_courses(courses, req):
                 course["settled"] = []
             elif req["type"] in ["Major", "Degree"]: # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if REQ_PATH_PREFIX % (req["type"], req["year"], req["code"]) not in path:
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["code"])):
                         course["settled"].remove(path)
             else: # type must be "Certificate"
                 for path in course["settled"]:
-                    if REQ_PATH_PREFIX % (req["type"], req["year"], req["name"]) not in path:
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["name"])):
                         course["settled"].remove(path)
     return courses
     
