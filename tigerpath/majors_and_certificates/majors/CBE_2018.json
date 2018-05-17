@@ -159,6 +159,7 @@
                     "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
+                    "note": "excluding CHM 303",
                     "course_list": [
                         "CHM 3**",
                         "CHM 4**",
@@ -172,6 +173,7 @@
                     "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
                     "double_counting_allowed": true,
                     "pdfs_allowed": 0,
+                    "note": "excluding IW, ie. CBE 451, 452, and 454",
                     "course_list": [
                         "CBE 3**",
                         "CBE 4**",
