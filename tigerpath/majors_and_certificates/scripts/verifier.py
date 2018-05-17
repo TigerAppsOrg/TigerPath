@@ -42,7 +42,7 @@ def check_major(major_name, courses, year):
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
         raise ValueError("Major code not recognized.")
-    major_filename = major_name + "_" + str(year) + ".json"
+    major_filename = "%s_%d.json" % (major_name, year)
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses)
 
@@ -97,7 +97,7 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Year is invalid.")
     if (certificate_name not in university_info.CERTIFICATES):
         raise ValueError("Certificate not recognized.")
-    certificate_filename = certificate_name + "_" + str(year) + ".json"
+    certificate_filename = "%s_%d.json" % (certificate_name, year)
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses)
 
@@ -158,8 +158,8 @@ def get_courses_by_path(path):
             and req_name not in university_info.BSE_CONCENTRATIONS and req_name not in ["AB", "BSE"]):
         raise ValueError("Path malformatted.")
     if req_type in ["Major", "Certificate"]:
-        major_filename = req_name + "_" + str(year) + ".json"
-        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
+        filename = "%s_%d.json" % (req_name, year)
+        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
     elif req_type == "Degree":
         if req_name.upper() == "AB":
             req_filepath = os.path.join(_get_dir_path(), AB_REQUIREMENTS_LOCATION)
