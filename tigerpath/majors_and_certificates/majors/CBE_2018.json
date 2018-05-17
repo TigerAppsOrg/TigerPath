@@ -185,9 +185,9 @@
         {
             "name": "Societal Impact Requirement",
             "max_counted": 1,
-            "min_needed": 0,
+            "min_needed": 1,
             "explanation": "Of the seven required Humanities and Social Science electives, undergraduates in chemical and biological engineering must take at least one course in the Ethical Thought and Moral Values area (EM)",
-            "double_counting_allowed": false,
+            "double_counting_allowed": true,
             "dist_req": "EM"
         },
         {
