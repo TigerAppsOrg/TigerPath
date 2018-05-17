@@ -81,14 +81,14 @@
             "name": "Chemistry Requirement",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explanation": null,
+            "explanation": "Chemistry Requirement\n\nCHM 201 General Chemistry I, or CHM 207 Advanced General Chemistry: Materials Chemistry\nCHM 202 General Chemistry II, or CHM 215 Advanced General Chemistry: Honors Course\nCHM 303 Organic Chemistry I: Biological Emphasis",
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "req_list": [
                 {
                     "name": null,
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 1,
                     "explanation": null,
                     "double_counting_allowed": false,
                     "pdfs_allowed": 0,
@@ -100,7 +100,7 @@
                 {
                     "name": null,
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 1,
                     "explanation": null,
                     "double_counting_allowed": false,
                     "pdfs_allowed": 0,
