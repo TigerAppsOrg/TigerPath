@@ -27,28 +27,10 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5PVVZFT');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118633124-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-118633124-1');
-    </script>
+    {% include 'includes/analytics/analytics_head.html' %}
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PVVZFT"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    {% include 'includes/analytics/analytics_body.html' %}
 
     <!-- Navigation -->
     <nav class="navbar navbar-dark nav-color-custom static-top">
@@ -163,13 +145,6 @@
     <script src="{% static 'app/js/dropdown.js' %}"></script>
 
     <!-- show messages to the user -->
-    {% if messages %}
-      {% for message in messages %}
-        <div class="messages panel alert alert-info alert-dismissable" id="updates-popup">
-          <button type="button" class="close" data-dismiss="alert" aria-label="close"><span aria-hidden="true">&times;</span></button>
-          <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>{% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}</span>
-        </div>
-      {% endfor %}
-    {% endif %}
+    {% include 'includes/messages.html' %}
   </body>
 </html>

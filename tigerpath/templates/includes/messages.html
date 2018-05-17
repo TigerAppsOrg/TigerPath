@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% if messages %}
+  <link href="{% static 'app/css/messages.css' %}" rel="stylesheet">
+  {% for message in messages %}
+    <div class="alert alert-info alert-dismissable fade show" id="updates-popup">
+      <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span {% if message.tags %} class="{{ message.tags }}"{% endif %}>{% if 'safe' in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}</span>
+    </div>
+  {% endfor %}
+{% endif %}
