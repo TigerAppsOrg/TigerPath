@@ -8,7 +8,7 @@ WWS
       "id": "",
       "dist_area": "",
       "settled": [
-        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Statistics Prerequisite"
+        "Major//2018//WWS//Prerequisites//Statistics Prerequisite"
       ]
     },
     {
@@ -17,8 +17,8 @@ WWS
       "id": "",
       "dist_area": "SA",
       "settled": [
-        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Microeconomics Prerequisite",
-        "Woodrow Wilson School of Public and International Affairs//Core//Microeconomics"
+        "Major//2018//WWS//Prerequisites//Microeconomics Prerequisite",
+        "Major//2018//WWS//Core//Microeconomics"
       ]
     },
     {
@@ -35,8 +35,8 @@ WWS
       "id": "",
       "dist_area": "",
       "settled": [
-        "Woodrow Wilson School of Public and International Affairs//Prerequisites//Politics, Sociology or Psychology Prerequisite",
-        "Woodrow Wilson School of Public and International Affairs//Core//Politics"
+        "Major//2018//WWS//Prerequisites//Politics, Sociology or Psychology Prerequisite",
+        "Major//2018//WWS//Core//Politics"
       ]
     },
     {
@@ -45,7 +45,7 @@ WWS
       "id": "",
       "dist_area": null,
       "settled": [
-        "Woodrow Wilson School of Public and International Affairs//Core//Science Policy"
+        "Major//2018//WWS//Core//Science Policy"
       ]
     }
   ],
@@ -94,7 +94,7 @@ WWS
       "id": "",
       "dist_area": "",
       "settled": [
-        "Woodrow Wilson School of Public and International Affairs//Language Requirement"
+        "Major//2018//WWS//Language Requirement"
       ]
     },
     {
