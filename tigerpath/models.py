@@ -148,6 +148,7 @@ class Major(models.Model):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=7)
     degree = models.CharField(max_length=3)
+    supported = models.BooleanField(default=False)
 
 
 class UserProfile(models.Model):

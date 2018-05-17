@@ -5,7 +5,8 @@
     "fields": {
       "name": "African American Studies",
       "code": "AAS",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "name": "Anthropology",
       "code": "ANT",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "name": "Architecture",
       "code": "ARC",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "name": "Art and Archaeology",
       "code": "ART",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "name": "Astrophysical Sciences",
       "code": "AST",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "name": "Chemistry",
       "code": "CHM",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "name": "Classics",
       "code": "CLA",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "name": "Comparative Literature",
       "code": "COM",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "name": "Computer Science - A.B.",
       "code": "COS-AB",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": true
     }
   },
   {
@@ -86,7 +95,8 @@
     "fields": {
       "name": "East Asian Studies",
       "code": "EAS",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -95,7 +105,8 @@
     "fields": {
       "name": "Ecology and Evolutionary Biology",
       "code": "EEB",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -104,7 +115,8 @@
     "fields": {
       "name": "Economics",
       "code": "ECO",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -113,7 +125,8 @@
     "fields": {
       "name": "English",
       "code": "ENG",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -122,7 +135,8 @@
     "fields": {
       "name": "French and Italian",
       "code": "FIT",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -131,7 +145,8 @@
     "fields": {
       "name": "Geosciences",
       "code": "GEO",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -140,7 +155,8 @@
     "fields": {
       "name": "German",
       "code": "GER",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -149,7 +165,8 @@
     "fields": {
       "name": "History",
       "code": "HIS",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -158,7 +175,8 @@
     "fields": {
       "name": "Mathematics",
       "code": "MAT",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -167,7 +185,8 @@
     "fields": {
       "name": "Molecular Biology",
       "code": "MOL",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -176,7 +195,8 @@
     "fields": {
       "name": "Music",
       "code": "MUS",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -185,7 +205,8 @@
     "fields": {
       "name": "Near Eastern Studies",
       "code": "NES",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -194,7 +215,8 @@
     "fields": {
       "name": "Neuroscience",
       "code": "NEU",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -203,7 +225,8 @@
     "fields": {
       "name": "Philosophy",
       "code": "PHI",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -212,7 +235,8 @@
     "fields": {
       "name": "Physics",
       "code": "PHY",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -221,7 +245,8 @@
     "fields": {
       "name": "Politics",
       "code": "POL",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -230,7 +255,8 @@
     "fields": {
       "name": "Psychology",
       "code": "PSY",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -239,7 +265,8 @@
     "fields": {
       "name": "Religion",
       "code": "REL",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -248,7 +275,8 @@
     "fields": {
       "name": "Slavic Languages and Literatures",
       "code": "SLA",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -257,7 +285,8 @@
     "fields": {
       "name": "Sociology",
       "code": "SOC",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -266,7 +295,8 @@
     "fields": {
       "name": "Spanish and Portuguese",
       "code": "SPO",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": false
     }
   },
   {
@@ -275,7 +305,8 @@
     "fields": {
       "name": "Woodrow Wilson School of Public and International Affairs",
       "code": "WWS",
-      "degree": "AB"
+      "degree": "AB",
+      "supported": true
     }
   },
   {
@@ -284,7 +315,8 @@
     "fields": {
       "name": "Chemical and Biological Engineering",
       "code": "CBE",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": false
     }
   },
   {
@@ -293,7 +325,8 @@
     "fields": {
       "name": "Civil and Environmental Engineering",
       "code": "CEE",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": false
     }
   },
   {
@@ -302,7 +335,8 @@
     "fields": {
       "name": "Computer Science - B.S.E.",
       "code": "COS-BSE",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": true
     }
   },
   {
@@ -311,7 +345,8 @@
     "fields": {
       "name": "Electrical Engineering",
       "code": "ELE",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": true
     }
   },
   {
@@ -320,7 +355,8 @@
     "fields": {
       "name": "Mechanical and Aerospace Engineering",
       "code": "MAE",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": false
     }
   },
   {
@@ -329,7 +365,8 @@
     "fields": {
       "name": "Operations Research and Financial Engineering",
       "code": "ORF",
-      "degree": "BSE"
+      "degree": "BSE",
+      "supported": false
     }
   }
 ]
