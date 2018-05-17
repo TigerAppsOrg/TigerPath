@@ -21,19 +21,60 @@
             "name": "Chemical and Biological Engineering Core",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explanation": "The nine courses listed below are required of all chemical and biological engineering majors:\n\nMost students carry out a two-term senior thesis. Students must complete a two-term thesis for departmental honors. Students who elect one term of independent work are required to take an additional chemical and biological engineering elective at the 300 level or above.",
+            "explanation": "These courses are required of all chemical and biological engineering majors.",
             "double_counting_allowed": false,
             "pdfs_allowed": 0,
-            "course_list": [
-                "CBE 245",
-                "CBE 246",
-                "CBE 250",
-                "CBE 341",
-                "CBE 346",
-                "CBE 441",
-                "CBE 442",
-                "CBE 451",
-                "CBE 452"
+            "req_list": [
+                {
+                    "name": "Seven Core Courses",
+                    "max_counted": null,
+                    "min_needed": "ALL",
+                    "explanation": "These courses are required of all chemical and biological engineering majors.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "CBE 245: Introduction to Chemical Engineering Principles",
+                        "CBE 246: Thermodynamics",
+                        "CBE 250: Separations in Chemical Engineering and Biotechnology",
+                        "CBE 341: Mass, Momentum, and Energy Transport",
+                        "CBE 346: Chemical Engineering Laboratory",
+                        "CBE 441: Chemical Reaction Engineering",
+                        "CBE 442: Design, Synthesis, and Optimization of Chemical Processes"
+                    ]
+                },
+                {
+                    "name": "Senior Independent Work",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Most students carry out a two-term senior thesis. Students must complete a two-term thesis for departmental honors. Students who elect one term of independent work are required to take an additional chemical and biological engineering elective at the 300 level or above.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": "ALL",
+                            "explanation": null,
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "course_list": [
+                                "CBE 451: Senior Independent Work (Fall)",
+                                "CBE 452: Senior Independent Work (Spring)"
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": "ALL",
+                            "explanation": null,
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "course_list": [
+                                "CBE 454: Senior Thesis"
+                            ]
+                        }
+                    ]
+                }
             ]
         },
         {
