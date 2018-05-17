@@ -261,3 +261,17 @@ thead.semester-header {
 #search-count-num{
   margin-right: 3px;
 }
+
+div#banner {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ADD8E6;
+  display: none;
+}
+
+div#banner-content {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
