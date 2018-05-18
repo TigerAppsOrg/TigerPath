@@ -23,7 +23,7 @@
             "min_needed": "ALL",
             "explanation": "These courses are required of all chemical and biological engineering majors.",
             "double_counting_allowed": false,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "req_list": [
                 {
                     "name": "Seven Core Courses",
@@ -31,7 +31,7 @@
                     "min_needed": "ALL",
                     "explanation": "These courses are required of all chemical and biological engineering majors.",
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 245: Introduction to Chemical Engineering Principles",
                         "CBE 246: Thermodynamics",
@@ -48,7 +48,7 @@
                     "min_needed": 1,
                     "explanation": "Most students carry out a two-term senior thesis. Students must complete a two-term thesis for departmental honors. Students who elect one term of independent work are required to take an additional chemical and biological engineering elective at the 300 level or above.",
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "req_list": [
                         {
                             "name": null,
@@ -56,7 +56,7 @@
                             "min_needed": "ALL",
                             "explanation": null,
                             "double_counting_allowed": false,
-                            "pdfs_allowed": 0,
+                            "pdfs_allowed": false,
                             "course_list": [
                                 "CBE 451: Senior Independent Work (Fall)",
                                 "CBE 452: Senior Independent Work (Spring)"
@@ -68,7 +68,7 @@
                             "min_needed": "ALL",
                             "explanation": null,
                             "double_counting_allowed": false,
-                            "pdfs_allowed": 0,
+                            "pdfs_allowed": false,
                             "course_list": [
                                 "CBE 454: Senior Thesis"
                             ]
@@ -83,7 +83,7 @@
             "min_needed": "ALL",
             "explanation": "Chemistry Requirement\n\nCHM 201 General Chemistry I, or CHM 207 Advanced General Chemistry: Materials Chemistry\nCHM 202 General Chemistry II, or CHM 215 Advanced General Chemistry: Honors Course\nCHM 303 Organic Chemistry I: Biological Emphasis",
             "double_counting_allowed": false,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "req_list": [
                 {
                     "name": null,
@@ -91,7 +91,7 @@
                     "min_needed": 1,
                     "explanation": null,
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CHM 201",
                         "CHM 207"
@@ -103,7 +103,7 @@
                     "min_needed": 1,
                     "explanation": null,
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CHM 202",
                         "CHM 215"
@@ -115,7 +115,7 @@
                     "min_needed": "ALL",
                     "explanation": null,
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CHM 303"
                     ]
@@ -128,7 +128,7 @@
             "min_needed": "ALL",
             "explanation": null,
             "double_counting_allowed": false,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "course_list": [
                 "MAE 305"
             ]
@@ -139,7 +139,7 @@
             "min_needed": 1,
             "explanation": null,
             "double_counting_allowed": false,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "course_list": [
                 "MOL 214",
                 "MOL 215"
@@ -151,7 +151,7 @@
             "min_needed": 2,
             "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.\n\nAdvanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
             "double_counting_allowed": false,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "req_list": [
                 {
                     "name": "Advanced Chemistry",
@@ -159,7 +159,7 @@
                     "min_needed": "ALL",
                     "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "note": "excluding CHM 303",
                     "course_list": [
                         "CHM 3**",
@@ -173,7 +173,7 @@
                     "min_needed": "ALL",
                     "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
                     "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "note": "excluding IW, ie. CBE 451, 452, and 454",
                     "course_list": [
                         "CBE 3**",
@@ -197,7 +197,7 @@
             "min_needed": 1,
             "explanation": "In addition to the requirements above, students are required to designate an area of concentration and take three courses from the approved lists below in that area of concentration. The senior independent work is usually undertaken within the area of concentration. In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity. (Note: An asterisk indicates one-time-only courses.)\n\nABET (link is external) requires chemical engineering students to complete a minimum of 12 engineering topic courses. This is satisfied by completing the nine CBE core courses (including the double credit thesis), plus the following: the required advanced chemical engineering course, and at least two program electives chosen from CBE, CEE, COS, EGR*,ELE, MAE, MSE, or ORF that are on the approved list of courses in the areas of concentration.\n\n*EGR courses that are non-credit do not count for this requirement.",
             "double_counting_allowed": true,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "req_list": [
                 {
                     "name": "Bioengineering and Biotechnology",
@@ -205,7 +205,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 419",
                         "CBE 423",
@@ -259,7 +259,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 260/EGR 260",
                         "CEE 334/WWS 452/ENV 334/ENE 334",
@@ -288,7 +288,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
@@ -338,7 +338,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 415/CHM 415",
                         "CBE 422",
@@ -368,7 +368,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 422",
                         "CBE 448",
@@ -399,7 +399,7 @@
                     "min_needed": 3,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 342",
                         "MAE 306",
@@ -436,7 +436,7 @@
             "min_needed": 3,
             "explanation": "In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity.\nNote that this is checked by requiring courses in 3 different concentrations.",
             "double_counting_allowed": true,
-            "pdfs_allowed": 0,
+            "pdfs_allowed": false,
             "req_list": [
                 {
                     "name": "Bioengineering and Biotechnology",
@@ -444,7 +444,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 419",
                         "CBE 423",
@@ -498,7 +498,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 260/EGR 260",
                         "CEE 334/WWS 452/ENV 334/ENE 334",
@@ -527,7 +527,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
@@ -577,7 +577,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 415/CHM 415",
                         "CBE 422",
@@ -607,7 +607,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 422",
                         "CBE 448",
@@ -638,7 +638,7 @@
                     "min_needed": 0,
                     "explanation": null,
                     "double_counting_allowed": true,
-                    "pdfs_allowed": 0,
+                    "pdfs_allowed": false,
                     "course_list": [
                         "CBE 342",
                         "MAE 306",
