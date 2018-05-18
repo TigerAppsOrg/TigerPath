@@ -237,3 +237,25 @@ thead.semester-header {
 #search-count-num{
   margin-right: 3px;
 }
+
+/* Mobile banner */
+div#banner {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ADD8E6;
+  display: none;
+}
+
+div#banner-content {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Show banner on medium devices (less than 992px) */
+@media (max-width: 991.98px) {
+  div#banner {
+    display: block;
+  }
+}
