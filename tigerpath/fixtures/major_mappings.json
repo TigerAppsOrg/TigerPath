@@ -316,7 +316,7 @@
       "name": "Chemical and Biological Engineering",
       "code": "CBE",
       "degree": "BSE",
-      "supported": false
+      "supported": true
     }
   },
   {
