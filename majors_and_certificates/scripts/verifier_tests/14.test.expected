@@ -1,0 +1,504 @@
+[
+  [
+    {
+      "name": "CBE 245",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "CBE 246",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 250",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "CBE 341",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 346",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 441",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 442",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "possible_reqs": [
+        "Major//2018//CBE//Concentration//Science and Engineering for New Technologies//000",
+        "Major//2018//CBE//Technical Diversity//Science and Engineering for New Technologies"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Concentration//Science and Engineering for New Technologies",
+        "Major//2018//CBE//Technical Diversity//Science and Engineering for New Technologies"
+      ]
+    },
+    {
+      "name": "COS 126 / EGR 126",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "CBE 451",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work//000",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work//000"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work"
+      ]
+    },
+    {
+      "name": "CBE 452",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work//000",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work//000"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work"
+      ]
+    },
+    {
+      "name": "COS 340",
+      "possible_reqs": [
+        "Major//2018//CBE//Concentration//Optimization, Dynamics, and Information Technology",
+        "Major//2018//CBE//Technical Diversity//Optimization, Dynamics, and Information Technology"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Concentration//Optimization, Dynamics, and Information Technology",
+        "Major//2018//CBE//Technical Diversity//Optimization, Dynamics, and Information Technology"
+      ]
+    },
+    {
+      "name": "CHM 304B",
+      "possible_reqs": [
+        "Major//2018//CBE//Chemistry Requirement//001",
+        "Major//2018//CBE//Advanced Science Requirement//Advanced Chemistry",
+        "Major//2018//CBE//Concentration//Science and Engineering for New Technologies//001"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//CBE//Chemistry Requirement//001"
+      ],
+      "settled": [
+        "Major//2018//CBE//Chemistry Requirement"
+      ]
+    }
+  ]
+]
+
+{
+  "name": "Chemical and Biological Engineering",
+  "code": "CBE",
+  "degree": "BSE",
+  "path_to": "Major//2018//CBE",
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-chemical-and-biological-engineering",
+    "https://www.princeton.edu/cbe/undergrad/requirements/",
+    "https://www.princeton.edu/cbe/undergrad/Undergrad_Handbook.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Departmental Representative",
+      "name": "A. James Link",
+      "email": "ajlink@princeton.edu"
+    }
+  ],
+  "satisfied": false,
+  "count": 1,
+  "min_needed": 8,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "Chemical and Biological Engineering Core",
+      "path_to": "Major//2018//CBE//Chemical and Biological Engineering Core",
+      "explanation": "These courses are required of all chemical and biological engineering majors.",
+      "pdfs_allowed": false,
+      "satisfied": true,
+      "count": 8,
+      "min_needed": 8,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Seven Core Courses",
+          "path_to": "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses",
+          "explanation": "These courses are required of all chemical and biological engineering majors.",
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 7,
+          "min_needed": 7,
+          "max_counted": null,
+          "settled": [
+            "CBE 245",
+            "CBE 246",
+            "CBE 250",
+            "CBE 341",
+            "CBE 346",
+            "CBE 441",
+            "CBE 442"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Senior Independent Work",
+          "path_to": "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work",
+          "explanation": "Most students carry out a two-term senior thesis. Students must complete a two-term thesis for departmental honors. Students who elect one term of independent work are required to take an additional chemical and biological engineering elective at the 300 level or above.",
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "CBE 451",
+            "CBE 452"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Chemistry Requirement",
+      "path_to": "Major//2018//CBE//Chemistry Requirement",
+      "explanation": "Chemical engineers are distinguished from other engineers by their knowledge of chemistry and life sciences. All chemical engineers are expected to supplement the one semester of chemistry with advanced chemistry and molecular biology. All chemical engineering majors must complete a full year of General Chemistry, at least one semester of Organic Chemistry, and one semester of Molecular Biology. Also, two separate approved advanced courses are required, one with advanced chemistry content and one with advanced chemical engineering content.",
+      "pdfs_allowed": false,
+      "satisfied": false,
+      "count": 1,
+      "min_needed": 2,
+      "max_counted": 1,
+      "settled": [
+        "CHM 304B"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Mathematics Requirement",
+      "path_to": "Major//2018//CBE//Mathematics Requirement",
+      "explanation": null,
+      "pdfs_allowed": false,
+      "completed_by_semester": 5,
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Molecular Biology Requirement",
+      "path_to": "Major//2018//CBE//Molecular Biology Requirement",
+      "explanation": "All chemical engineering majors must complete one semester of Molecular Biology.",
+      "pdfs_allowed": false,
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Advanced Science Requirement",
+      "path_to": "Major//2018//CBE//Advanced Science Requirement",
+      "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.\n\nAdvanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
+      "pdfs_allowed": false,
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Advanced Chemistry",
+          "path_to": "Major//2018//CBE//Advanced Science Requirement//Advanced Chemistry",
+          "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Advanced Chemical Engineering",
+          "path_to": "Major//2018//CBE//Advanced Science Requirement//Advanced Chemical Engineering",
+          "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Societal Impact Requirement",
+      "path_to": "Major//2018//CBE//Societal Impact Requirement",
+      "explanation": "Of the seven required Humanities and Social Science electives, undergraduates in chemical and biological engineering must take at least one course in the Ethical Thought and Moral Values area (EM)",
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [],
+      "unsettled": []
+    },
+    {
+      "name": "Concentration",
+      "path_to": "Major//2018//CBE//Concentration",
+      "explanation": "In addition to the requirements above, students are required to designate an area of concentration and take three courses from the approved lists below in that area of concentration. The senior independent work is usually undertaken within the area of concentration. In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity. (Note: An asterisk indicates one-time-only courses.)\n\nABET (link is external) requires chemical engineering students to complete a minimum of 12 engineering topic courses. This is satisfied by completing the nine CBE core courses (including the double credit thesis), plus the following: the required advanced chemical engineering course, and at least two program electives chosen from CBE, CEE, COS, EGR*,ELE, MAE, MSE, or ORF that are on the approved list of courses in the areas of concentration.\n\n*EGR courses that are non-credit do not count for this requirement.",
+      "pdfs_allowed": false,
+      "satisfied": false,
+      "count": 0,
+      "min_needed": 1,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Bioengineering and Biotechnology",
+          "path_to": "Major//2018//CBE//Concentration//Bioengineering and Biotechnology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Entrepreneurship and Management",
+          "path_to": "Major//2018//CBE//Concentration//Entrepreneurship and Management",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Energy and Environmental Technology",
+          "path_to": "Major//2018//CBE//Concentration//Energy and Environmental Technology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Materials and Product Engineering",
+          "path_to": "Major//2018//CBE//Concentration//Materials and Product Engineering",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 0,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Optimization, Dynamics, and Information Technology",
+          "path_to": "Major//2018//CBE//Concentration//Optimization, Dynamics, and Information Technology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 1,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [
+            "COS 340"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Science and Engineering for New Technologies",
+          "path_to": "Major//2018//CBE//Concentration//Science and Engineering for New Technologies",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": false,
+          "count": 1,
+          "min_needed": 3,
+          "max_counted": 1,
+          "settled": [
+            "ELE 206/COS 306"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Technical Diversity",
+      "path_to": "Major//2018//CBE//Technical Diversity",
+      "explanation": "In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity.\nNote that this is checked by requiring courses in 3 different concentrations.",
+      "pdfs_allowed": false,
+      "satisfied": false,
+      "count": 2,
+      "min_needed": 3,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Bioengineering and Biotechnology",
+          "path_to": "Major//2018//CBE//Technical Diversity//Bioengineering and Biotechnology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Entrepreneurship and Management",
+          "path_to": "Major//2018//CBE//Technical Diversity//Entrepreneurship and Management",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Energy and Environmental Technology",
+          "path_to": "Major//2018//CBE//Technical Diversity//Energy and Environmental Technology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Materials and Product Engineering",
+          "path_to": "Major//2018//CBE//Technical Diversity//Materials and Product Engineering",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 0,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [],
+          "unsettled": []
+        },
+        {
+          "name": "Optimization, Dynamics, and Information Technology",
+          "path_to": "Major//2018//CBE//Technical Diversity//Optimization, Dynamics, and Information Technology",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [
+            "COS 340"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Science and Engineering for New Technologies",
+          "path_to": "Major//2018//CBE//Technical Diversity//Science and Engineering for New Technologies",
+          "explanation": null,
+          "pdfs_allowed": false,
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 0,
+          "max_counted": 1,
+          "settled": [
+            "ELE 206/COS 306"
+          ],
+          "unsettled": []
+        }
+      ]
+    }
+  ]
+}

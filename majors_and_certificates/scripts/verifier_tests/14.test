@@ -1,0 +1,123 @@
+CBE
+2018
+[
+  [
+    {
+      "name": "CBE 245",
+      "title": "Introduction to Chemical Engineering Principles",
+      "id": "1184022794",
+      "dist_area": "STN"
+    }
+  ],
+  [
+    {
+      "name": "CBE 246",
+      "title": "Thermodynamics",
+      "id": "1184042768",
+      "dist_area": "STN"
+    },
+    {
+      "name": "CBE 250",
+      "title": "Separations in Chemical Engineering and Biotechnology",
+      "id": "1184022796",
+      "dist_area": "STN"
+    }
+  ],
+  [
+    {
+      "name": "CBE 341",
+      "title": "Mass, Momentum, and Energy Transport",
+      "id": "1184022797",
+      "dist_area": "STN",
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 346",
+      "title": "Chemical Engineering Laboratory",
+      "id": "1184042770",
+      "dist_area": "STL",
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 441",
+      "title": "Chemical Reaction Engineering",
+      "id": "1184042773",
+      "dist_area": "STN",
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "CBE 442",
+      "title": "Design, Synthesis, and Optimization of Chemical Processes",
+      "id": "1184022801",
+      "dist_area": "STN",
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Seven Core Courses"
+      ]
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "title": "Introduction to Logic Design",
+      "id": "1184042062",
+      "dist_area": "STL",
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "COS 126 / EGR 126",
+      "title": "General Computer Science",
+      "id": "1184042286",
+      "dist_area": "QR",
+      "settled": [
+        
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "title": "Modernist Art: 1900 to 1950",
+      "id": "1184021312",
+      "dist_area": "LA"
+    },
+    {
+      "name": "CBE 451",
+      "title": "Senior Independent Work",
+      "id": "1184044384",
+      "dist_area": null,
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work"
+      ]
+    },
+    {
+      "name": "CBE 452",
+      "title": "Senior Independent Work",
+      "id": "1184044385",
+      "dist_area": null,
+      "settled": [
+        "Major//2018//CBE//Chemical and Biological Engineering Core//Senior Independent Work"
+      ]
+    },
+    {
+      "name": "COS 340",
+      "title": "Reasoning about Computation",
+      "id": "1184010455",
+      "dist_area": "QR"
+    },
+    {
+      "name": "CHM 304B",
+      "title": "Organic Chemistry II:Biological Emphasis",
+      "id": "1184040533",
+      "dist_area": "STL",
+      "settled": [
+        "Major//2018//CBE//Chemistry Requirement"
+      ]
+    }
+  ]
+]
