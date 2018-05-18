@@ -139,6 +139,7 @@
             "min_needed": 1,
             "explanation": null,
             "double_counting_allowed": false,
+            "pdfs_allowed": 0,
             "course_list": [
                 "MOL 214",
                 "MOL 215"
@@ -149,7 +150,7 @@
             "max_counted": 1,
             "min_needed": 2,
             "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.\n\nAdvanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
-            "double_counting_allowed": true,
+            "double_counting_allowed": false,
             "pdfs_allowed": 0,
             "req_list": [
                 {
@@ -157,7 +158,7 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
-                    "double_counting_allowed": true,
+                    "double_counting_allowed": false,
                     "pdfs_allowed": 0,
                     "note": "excluding CHM 303",
                     "course_list": [
@@ -171,7 +172,7 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
-                    "double_counting_allowed": true,
+                    "double_counting_allowed": false,
                     "pdfs_allowed": 0,
                     "note": "excluding IW, ie. CBE 451, 452, and 454",
                     "course_list": [
@@ -406,6 +407,7 @@
                         "MAE 423",
                         "CBE 421",
                         "CHM 304",
+                        "CHM 304B",
                         "CHM 305",
                         "CHM 306",
                         "CHM 403",
@@ -430,10 +432,10 @@
         },
         {
             "name": "Technical Diversity",
-            "max_counted": 2,
-            "min_needed": 2,
-            "explanation": "In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity. (Note: An asterisk indicates one-time-only courses.)",
-            "double_counting_allowed": false,
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity.\nNote that this is checked by requiring courses in 3 different concentrations.",
+            "double_counting_allowed": true,
             "pdfs_allowed": 0,
             "req_list": [
                 {
@@ -484,7 +486,7 @@
                         "NEU 201/PSY 258",
                         "NEU 202/PSY 259",
                         "NEU 408/MOL 408/PSY 404",
-                        "NEU 437/MOL 437/ PSY 437",
+                        "NEU 437/MOL 437/PSY 437",
                         "PSY 406",
                         "PSY 407",
                         "QCB 511/CBE 511"
@@ -644,6 +646,7 @@
                         "MAE 423",
                         "CBE 421",
                         "CHM 304",
+                        "CHM 304B",
                         "CHM 305",
                         "CHM 306",
                         "CHM 403",
