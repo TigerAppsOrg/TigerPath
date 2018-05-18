@@ -7,7 +7,8 @@
     "description": "In order to qualify for the B.S.E. degree in the Department of Chemical and Biological Engineering, a student must satisfy the requirements of the School of Engineering and Applied Science and must choose courses during the sophomore, junior, and senior years to provide a core knowledge of chemical engineering and advanced knowledge in an area of concentration. The advanced science and core chemical engineering courses in the sophomore and junior years provide the fundamental tools of thermodynamics, transport processes, and reactor analysis. In the spring semester of the junior year, students take a laboratory-based course that utilizes core chemical engineering knowledge. In the senior year, students undertake an in-depth design analysis with state-of-the-art design and optimization tools. Students can tailor their specific interests in chemical and biological engineering by pursuing an area of concentration that culminates with a senior thesis project. The areas of concentration, reflective of the practice of modern chemical engineering, include bioengineering and biotechnology; materials and product engineering; energy and environmental engineering; optimization, dynamics, and information technology; entrepreneurship and management; and science and engineering for new technologies. The chemical engineering program is accredited by the Engineering Accreditation Commission of ABET, http://www.abet.org (link is external). Students with special interests should consult the section on special programs and options. Total courses: 36.",
     "urls": [
         "https://ua.princeton.edu/academic-units/department-chemical-and-biological-engineering",
-        "https://www.princeton.edu/cbe/undergrad/requirements/"
+        "https://www.princeton.edu/cbe/undergrad/requirements/",
+        "https://www.princeton.edu/cbe/undergrad/Undergrad_Handbook.pdf"
     ],
     "contacts": [
         {
@@ -81,22 +82,10 @@
             "name": "Chemistry Requirement",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explanation": "Chemistry Requirement\n\nCHM 201 General Chemistry I, or CHM 207 Advanced General Chemistry: Materials Chemistry\nCHM 202 General Chemistry II, or CHM 215 Advanced General Chemistry: Honors Course\nCHM 303 Organic Chemistry I: Biological Emphasis",
+            "explanation": "Chemical engineers are distinguished from other engineers by their knowledge of chemistry and life sciences. All chemical engineers are expected to supplement the one semester of chemistry with advanced chemistry and molecular biology. All chemical engineering majors must complete a full year of General Chemistry, at least one semester of Organic Chemistry, and one semester of Molecular Biology. Also, two separate approved advanced courses are required, one with advanced chemistry content and one with advanced chemical engineering content.",
             "double_counting_allowed": false,
             "pdfs_allowed": false,
             "req_list": [
-                {
-                    "name": null,
-                    "max_counted": 1,
-                    "min_needed": 1,
-                    "explanation": null,
-                    "double_counting_allowed": false,
-                    "pdfs_allowed": false,
-                    "course_list": [
-                        "CHM 201",
-                        "CHM 207"
-                    ]
-                },
                 {
                     "name": null,
                     "max_counted": 1,
@@ -112,12 +101,18 @@
                 {
                     "name": null,
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 1,
                     "explanation": null,
                     "double_counting_allowed": false,
                     "pdfs_allowed": false,
                     "course_list": [
-                        "CHM 303"
+                        "CHM 301",
+                        "CHM 302",
+                        "CHM 303",
+                        "CHM 304",
+                        "CHM 304B",
+                        "CHM 337",
+                        "CHM 403"
                     ]
                 }
             ]
@@ -125,19 +120,22 @@
         {
             "name": "Mathematics Requirement",
             "max_counted": 1,
-            "min_needed": "ALL",
+            "min_needed": 1,
             "explanation": null,
             "double_counting_allowed": false,
             "pdfs_allowed": false,
+            "completed_by_semester": 5,
             "course_list": [
-                "MAE 305"
+                "MAE 305",
+                "MAT 427",
+                "APC 350"
             ]
         },
         {
             "name": "Molecular Biology Requirement",
             "max_counted": 1,
             "min_needed": 1,
-            "explanation": null,
+            "explanation": "All chemical engineering majors must complete one semester of Molecular Biology.",
             "double_counting_allowed": false,
             "pdfs_allowed": false,
             "course_list": [
@@ -156,21 +154,24 @@
                 {
                     "name": "Advanced Chemistry",
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 1,
                     "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
                     "double_counting_allowed": false,
                     "pdfs_allowed": false,
-                    "note": "excluding CHM 303",
+                    "note": "excluding CHM 303 or other course used for organic chemistry requirement",
                     "course_list": [
                         "CHM 3**",
                         "CHM 4**",
-                        "CHM 5**"
+                        "CHM 5**",
+                        "CBE 415: Polymers",
+                        "CBE 421: Catalytic Chemistry",
+                        "GEO 418: Environmental Aqueous Geochemistry"
                     ]
                 },
                 {
                     "name": "Advanced Chemical Engineering",
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 1,
                     "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
                     "double_counting_allowed": false,
                     "pdfs_allowed": false,
@@ -216,12 +217,15 @@
                         "CBE 440",
                         "CBE 443",
                         "CBE 447",
+                        "CBE 573/ELE 573",
                         "CHM 412",
                         "CHM 440",
+                        "CHM 515",
                         "CHM 538",
                         "CHM 542",
                         "CHM 543",
                         "CHM 544/ENV 544",
+                        "EEB 309",
                         "EEB 320/MOL 330",
                         "EEB 325",
                         "EEB 327/MOL 327",
@@ -247,7 +251,7 @@
                         "NEU 201/PSY 258",
                         "NEU 202/PSY 259",
                         "NEU 408/MOL 408/PSY 404",
-                        "NEU 437/MOL 437/ PSY 437",
+                        "NEU 437/MOL 437/PSY 437",
                         "PSY 406",
                         "PSY 407",
                         "QCB 511/CBE 511"
@@ -278,8 +282,10 @@
                         "GEO 366/ENV 339/WWS 451/ENE 366",
                         "ORF 245",
                         "ORF 335",
+                        "ORF 360",
                         "ORF 435",
-                        "WWS 327/CHM 443"
+                        "WWS 327/CHM 443",
+                        "ECO 362"
                     ]
                 },
                 {
@@ -294,7 +300,7 @@
                         "CBE 335",
                         "CEE 207",
                         "CEE 304/ENE 304/ENV 300",
-                        "CEE 305/GEO 375/ ENE 305",
+                        "CEE 305/GEO 375/ENE 305",
                         "CEE 306",
                         "CEE 308",
                         "CEE 311/CHM 311/GEO 311",
@@ -315,13 +321,14 @@
                         "ENV 204",
                         "ENV 305",
                         "ENV 324",
-                        "ENV 531/GEO 531/ CEE 583",
+                        "ENV 531/GEO 531/CEE 583",
                         "GEO 220A",
                         "GEO 220B",
                         "GEO 322",
+                        "GEO 361/ENV 361/CEE 360",
                         "GEO 363/CHM 331/ENV 331",
                         "GEO 364/CHM 364",
-                        "GEO 366/ENV 339/ WWS 451/ENE 366",
+                        "GEO 366/ENV 339/WWS 451/ENE 366",
                         "GEO 418/CHM 418",
                         "GEO 423/CEE 423",
                         "GEO 424/CEE 424/ENE 425",
@@ -339,27 +346,49 @@
                     "explanation": null,
                     "double_counting_allowed": true,
                     "pdfs_allowed": false,
-                    "course_list": [
-                        "CBE 415/CHM 415",
-                        "CBE 422",
-                        "CBE 423",
-                        "CBE 433",
-                        "CBE 526/CHM 527/MSE 526",
-                        "CEE 364",
-                        "CHM 403",
-                        "CHM 409",
-                        "ELE 341",
-                        "ELE 342",
-                        "ELE 441/ENE 441",
-                        "ELE 442/ENE 442",
-                        "ELE 449",
-                        "GEO 378",
-                        "MAE 324",
-                        "MAE 334",
-                        "MSE 301",
-                        "MSE 302",
-                        "MSE 504/CHM 560/PHY 512/CBE 520",
-                        "MSE 531/ELE 531"
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": null,
+                            "explanation": null,
+                            "double_counting_allowed": true,
+                            "pdfs_allowed": false,
+                            "course_list": [
+                                "CBE 415/CHM 415",
+                                "CBE 422",
+                                "CBE 423",
+                                "CBE 425",
+                                "CBE 433",
+                                "CBE 526/CHM 527/MSE 526",
+                                "CEE 364",
+                                "CHM 409",
+                                "ELE 341",
+                                "ELE 342",
+                                "ELE 455/CEE 455/MAE 455/MSE 455",
+                                "ELE 441/ENE 441",
+                                "ELE 442/ENE 442",
+                                "ELE 449",
+                                "GEO 378",
+                                "MAE 324",
+                                "MAE 334",
+                                "MSE 301",
+                                "MSE 302",
+                                "MSE 504/CHM 560/PHY 512/CBE 520",
+                                "MSE 531/ELE 531"
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": null,
+                            "explanation": null,
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": false,
+                            "course_list": [
+                                "CHM 403"
+                            ]
+                        }
                     ]
                 },
                 {
@@ -371,6 +400,7 @@
                     "pdfs_allowed": false,
                     "course_list": [
                         "CBE 422",
+                        "CBE 445",
                         "CBE 448",
                         "CBE 520",
                         "CBE 527",
@@ -379,8 +409,10 @@
                         "COS 323",
                         "COS 333",
                         "COS 340",
+                        "COS 343",
                         "COS 402",
                         "COS 424",
+                        "ECO 317",
                         "EEB 355",
                         "ORF 245",
                         "ORF 307",
@@ -398,34 +430,56 @@
                     "max_counted": 1,
                     "min_needed": 3,
                     "explanation": null,
-                    "double_counting_allowed": true,
                     "pdfs_allowed": false,
-                    "course_list": [
-                        "CBE 342",
-                        "MAE 306",
-                        "MAE 336",
-                        "MAE 423",
-                        "CBE 421",
-                        "CHM 304",
-                        "CHM 304B",
-                        "CHM 305",
-                        "CHM 306",
-                        "CHM 403",
-                        "CHM 405",
-                        "CHM 406",
-                        "CHM 407",
-                        "CHM 408",
-                        "PHY 203",
-                        "PHY 208",
-                        "PHY 301",
-                        "PHY 304",
-                        "PHY 305",
-                        "ELE 206",
-                        "ELE 208",
-                        "ELE 341",
-                        "ELE 342",
-                        "ELE 441",
-                        "ELE 442"
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": null,
+                            "explanation": null,
+                            "double_counting_allowed": true,
+                            "pdfs_allowed": false,
+                            "course_list": [
+                                "CBE 342",
+                                "CBE 427",
+                                "MAE 306",
+                                "MAE 336",
+                                "MAE 423",
+                                "CBE 421",
+                                "CHM 305",
+                                "CHM 306",
+                                "CHM 405",
+                                "CHM 406",
+                                "CHM 407",
+                                "CHM 408",
+                                "PHY 203",
+                                "PHY 205",
+                                "PHY 208",
+                                "PHY 301",
+                                "PHY 304",
+                                "PHY 305",
+                                "ELE 206",
+                                "ELE 208",
+                                "ELE 341",
+                                "ELE 342",
+                                "ELE 441",
+                                "ELE 442"
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": null,
+                            "explanation": null,
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": false,
+                            "course_list": [
+                                "CHM 302",
+                                "CHM 304",
+                                "CHM 304B",
+                                "CHM 403"
+                            ]
+                        }
                     ]
                 }
             ]
@@ -455,12 +509,15 @@
                         "CBE 440",
                         "CBE 443",
                         "CBE 447",
+                        "CBE 573/ELE 573",
                         "CHM 412",
                         "CHM 440",
+                        "CHM 515",
                         "CHM 538",
                         "CHM 542",
                         "CHM 543",
                         "CHM 544/ENV 544",
+                        "EEB 309",
                         "EEB 320/MOL 330",
                         "EEB 325",
                         "EEB 327/MOL 327",
@@ -517,8 +574,10 @@
                         "GEO 366/ENV 339/WWS 451/ENE 366",
                         "ORF 245",
                         "ORF 335",
+                        "ORF 360",
                         "ORF 435",
-                        "WWS 327/CHM 443"
+                        "WWS 327/CHM 443",
+                        "ECO 362"
                     ]
                 },
                 {
@@ -533,7 +592,7 @@
                         "CBE 335",
                         "CEE 207",
                         "CEE 304/ENE 304/ENV 300",
-                        "CEE 305/GEO 375/ ENE 305",
+                        "CEE 305/GEO 375/ENE 305",
                         "CEE 306",
                         "CEE 308",
                         "CEE 311/CHM 311/GEO 311",
@@ -554,13 +613,14 @@
                         "ENV 204",
                         "ENV 305",
                         "ENV 324",
-                        "ENV 531/GEO 531/ CEE 583",
+                        "ENV 531/GEO 531/CEE 583",
                         "GEO 220A",
                         "GEO 220B",
                         "GEO 322",
+                        "GEO 361/ENV 361/CEE 360",
                         "GEO 363/CHM 331/ENV 331",
                         "GEO 364/CHM 364",
-                        "GEO 366/ENV 339/ WWS 451/ENE 366",
+                        "GEO 366/ENV 339/WWS 451/ENE 366",
                         "GEO 418/CHM 418",
                         "GEO 423/CEE 423",
                         "GEO 424/CEE 424/ENE 425",
@@ -582,13 +642,14 @@
                         "CBE 415/CHM 415",
                         "CBE 422",
                         "CBE 423",
+                        "CBE 425",
                         "CBE 433",
                         "CBE 526/CHM 527/MSE 526",
                         "CEE 364",
-                        "CHM 403",
                         "CHM 409",
                         "ELE 341",
                         "ELE 342",
+                        "ELE 455/CEE 455/MAE 455/MSE 455",
                         "ELE 441/ENE 441",
                         "ELE 442/ENE 442",
                         "ELE 449",
@@ -610,6 +671,7 @@
                     "pdfs_allowed": false,
                     "course_list": [
                         "CBE 422",
+                        "CBE 445",
                         "CBE 448",
                         "CBE 520",
                         "CBE 527",
@@ -618,8 +680,10 @@
                         "COS 323",
                         "COS 333",
                         "COS 340",
+                        "COS 343",
                         "COS 402",
                         "COS 424",
+                        "ECO 317",
                         "EEB 355",
                         "ORF 245",
                         "ORF 307",
@@ -641,20 +705,19 @@
                     "pdfs_allowed": false,
                     "course_list": [
                         "CBE 342",
+                        "CBE 427",
                         "MAE 306",
                         "MAE 336",
                         "MAE 423",
                         "CBE 421",
-                        "CHM 304",
-                        "CHM 304B",
                         "CHM 305",
                         "CHM 306",
-                        "CHM 403",
                         "CHM 405",
                         "CHM 406",
                         "CHM 407",
                         "CHM 408",
                         "PHY 203",
+                        "PHY 205",
                         "PHY 208",
                         "PHY 301",
                         "PHY 304",
