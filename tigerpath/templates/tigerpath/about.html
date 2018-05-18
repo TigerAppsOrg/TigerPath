@@ -35,118 +35,34 @@
       </div>
     </header>
 
-    <section class="text-container">
-      <div class="about-section container">
-        <div id="about-description">
-          <h4>Description</h4>
-          <p>TigerPath is a web application that helps Princeton University students plan out their four-year course schedules.</p>
-          <p>There is currently no good way for students to manage what courses they’re taking and when they're taking them beyond the current or upcoming semester. Many students try to manually do this by using an Excel spreadsheet or pen-and-paper, but any mistake can easily lead to an overloaded semester or a need to take summer classes in order to fulfill missed requirements.</p>
-          <p>TigerPath aims to solve this problem by providing a platform for students to manage what courses they're taking during each semester and giving them feedback on the major requirements their schedule fulfills and does not fulfill. Our goal is for TigerPath to become a useful, enduring tool that ensures Princeton students are able to stay on top of requirements and graduate on time.</p>
-        </div>
+    <section class="container mb-4">
+      <div class="text-section">
+        <h4>Description</h4>
+        <p>TigerPath is a web application that helps Princeton University students plan out their four-year course schedules.</p>
+        <p>There is currently no good way for students to manage what courses they’re taking and when they're taking them beyond the current or upcoming semester. Many students try to manually do this by using an Excel spreadsheet or pen-and-paper, but any mistake can easily lead to an overloaded semester or a need to take summer classes in order to fulfill missed requirements.</p>
+        <p>TigerPath aims to solve this problem by providing a platform for students to manage what courses they're taking during each semester and giving them feedback on the major requirements their schedule fulfills and does not fulfill. Our goal is for TigerPath to become a useful, enduring tool that ensures Princeton students are able to stay on top of requirements and graduate on time.</p>
+        <p>We currently fully support COS (AB and BSE), ELE, CBE, and Woody Woo, but we are continually adding more majors. If you'd like to be notified when your major is added to TigerPath, please fill out <a href="https://goo.gl/forms/pKxjmubIOSCOeR8L2">this form</a>!</p>
+      </div>
 
-        <div id="about-team">
-          <h4>Team Members</h4>
-          <p>Richard Chu (Project Leader) - rc11@</p>
-          <p>Barak Nehoran - bnehoran@</p>
-          <p>Adeniji Ogunlana - ogunlana@</p>
-          <p>Daniel Leung - dl13@</p>
-        </div>
+      <div class="text-section">
+        <h4>Team Members</h4>
+        <p class="mb-0">Richard Chu - rc11@</p>
+        <p class="mb-0">Barak Nehoran - bnehoran@</p>
+        <p class="mb-0">Adeniji Ogunlana - ogunlana@</p>
+        <p class="mb-0">Daniel Leung - dl13@</p>
+      </div>
 
-        <div id="about-mentor">
-          <h4>Mentor</h4>
-          <p>Jeremie Lumbroso</p>
-        </div>
+      <div class="text-section">
+        <h4>Acknowledgments</h4>
+        <p class="mb-0">Jérémie Lumbroso - COS 333 Spring 2018 Advisor</p>
+        <p class="mb-0">Brian Kernighan - COS 333 Spring 2018 Professor</p>
+      </div>
 
-        <div id="about-timeline">
-          <h4>Timeline</h4>
-          <p class="tl-section">March 18th:</p>
-          <ul><li><p>Design document submitted</p></li></ul>
-
-          <p class="tl-section">March 25th:</p>
-          <ul>
-            <li><p>Start a Git repository</p></li>
-            <li><p>Set up project website and link it to tigerpath.io</p></li>
-            <li><p>Develop elevator pitch</p></li>
-            <li><p>Server-side: Set up a Django app and connect it to the database</p></li>
-            <li><p>Hosting: Host the app on heroku</p></li>
-            <li><p>Client-side: Start working on searching for courses and adding them to different semesters</p></li>
-            <li><p>Database: Start parsing course data and storing it in the database</p></li>
-            <li><p>Database: Start parsing major requirements data and storing it in the database</p></li>
-          </ul>
-
-          <p class="tl-section">April 1st:</p>
-          <ul>
-            <li><p>Database: Have all of the course data stored in the database</p></li>
-            <li><p>Database: Have the requirements for our selected majors stored in the database</p></li>
-            <li><p>Client-side: Setup CAS authentication</p></li>
-            <li><p>Server-side: GET /api/courses is finished</p></li>
-            <li><p>Client-side: Finish being able to search for courses and drag-and-drop them into semesters</p></li>
-          </ul>
-
-          <p class="tl-section">April 8th:</p>
-          <ul>
-            <li><p>Server-side: GET /api/require/[USER_MAJOR] is finished</p></li>
-            <li><p>Client-side: Checks the user four-year schedule with the requirements to see which requirements have been satisfied and which have not</p></li>
-          </ul>
-
-          <p class="tl-section">April 13th: Prototype Finished</p>
-          <ul>
-            <li><p>By this time, we should have basic functionality of the app, including the following:</p></li>
-            <li><p>User can search for courses and add them to their four-year schedule</p></li>
-            <li><p>User can check what requirements are satisfied by their schedule, and what requirements have yet to be satisfied</p></li>
-            <li><p>User data is not yet stored in the database</p></li>
-            <li><p>Start propagating the app to friends for them to test</p></li>
-          </ul>
-
-          <p class="tl-section">April 15th:</p>
-          <ul>
-            <li><p>Server-side: GET /api/user/plan, POST /api/user/plan, GET /api/user/meta, POST /api/user/meta are finished</p></li>
-            <li><p>Client-side: Store the user plan in the database and retrieve it during new sessions, retrieve/store user metadata</p></li>
-          </ul>
-
-          <p class="tl-section">April 22nd:</p>
-          <ul>
-            <li><p>Clean up UI and make it look nicer, if it doesn’t already look good</p></li>
-            <li><p>Let the user customize requirements that they have fulfilled through other means (such as study abroad)</p></li>
-            <li><p>Inform the user of when courses are typically offered (such as how frequently the course is offered and which semester it is typically offered in)</p></li>
-            <li><p>Start putting in requirements for other majors</p></li>
-          </ul>
-
-          <p class="tl-section">April 27th: Alpha test</p>
-          <ul>
-            <li><p>By this time, we should have full basic functionality of the app, including the following:</p></li>
-            <li><p>Being able to retrieve saved user data during a later session</p></li>
-            <li><p>Having a presentable UI</p></li>
-            <li><p>Requirements customization and course time predictions</p></li>
-            <li><p>Continue propagating app for people to try out</p></li>
-          </ul>
-
-          <p class="tl-section">April 29th:</p>
-          <ul>
-            <li><p>Continue putting in requirements for other majors</p></li>
-            <li><p>Work on other additional features</p></li>
-            <li><p>Start working on presentation/final documentation</p></li>
-          </ul>
-
-          <p class="tl-section">May 3rd: Beta Test</p>
-          <ul>
-            <li><p>The app is fully usable and useful to a user that would want to use it</p></li>
-            <li><p>Do a beta test release to the Princeton community</p></li>
-          </ul>
-
-          <p class="tl-section">May 9th, 10th: Demo Days</p>
-          <ul><li><p>Finish presentation</p></li></ul>
-
-          <p class="tl-section">May 13th: Project Due</p>
-          <ul><li><p>Finish final documentation</p></li></ul>
-        </div>
-
-        <div id="about-res">
-          <h4>Resources</h4>
-          <a href="{% static 'res/tigerpath_design_doc.pdf' %}">Design Document</a>
-          <a href="https://github.com/churichard/tigerpath/raw/master/tigerpath/static/res/report.pdf">Report</a>
-          <a href="https://github.com/churichard/tigerpath/raw/master/tigerpath/static/res/productguide.pdf">Product Guide</a>
-        </div>
+      <div class="text-section">
+        <h4>Resources</h4>
+        <p class="mb-0"><a href="{% static 'res/tigerpath_design_doc.pdf' %}">Design Document</a></p>
+        <p class="mb-0"><a href="{% static 'res/report.pdf' %}">Report</a></p>
+        <p class="mb-0"><a href="{% static 'res/productguide.pdf' %}">Product Guide</a></p>
       </div>
     </section>
 
