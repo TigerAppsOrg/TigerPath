@@ -1,0 +1,105 @@
+CBE
+2018
+[
+  [
+    {
+      "name": "COS 126",
+      "title": "Computer Science: An Interdisciplinary Approach",
+      "id": "1184002051",
+      "dist_area": "QR"
+    }
+  ],
+  [
+    {
+      "name": "COS340",
+      "title": "Reasoning about Computation",
+      "id": "1184010455",
+      "dist_area": "QR",
+      "settled": [
+        "Major//2018//ELE//Mathematics"
+      ]
+    },
+    {
+      "name": "COS 333",
+      "title": "Advanced Programming Techniques",
+      "id": "1184002065",
+      "dist_area": null,
+      "settled": [
+        "Major//2018//ELE//Breadth"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ELE 497",
+      "title": "Senior Thesis",
+      "id": "1184001234",
+      "dist_area": null
+    },
+    {
+      "name": "ELE 206/COS 306",
+      "title": "Contemporary Logic Design",
+      "id": "1184022331",
+      "dist_area": "STL",
+      "settled": [
+        "Major//2018//ELE//Foundation"
+      ]
+    },
+    {
+      "name": "COS 423",
+      "title": "Theory of Algorithms",
+      "id": "1184002071",
+      "dist_area": null,
+      "settled": [
+        "Major//2018//ELE//Engineering Science"
+      ]
+    },
+    {
+      "name": "ELE 301",
+      "title": "Designing Real Systems",
+      "id": "1184012341",
+      "dist_area": null,
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "ELE 302",
+      "title": "Building Real Systems",
+      "id": "1184012341",
+      "dist_area": null,
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "ELE 208",
+      "title": "Electronic and Photonic Devices",
+      "id": "1184012341",
+      "dist_area": null,
+      "settled": [
+        
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "title": "Modernist Art: 1900 to 1950",
+      "id": "1184021312",
+      "dist_area": "LA"
+    },
+    {
+      "name": "ELE 498",
+      "title": "Senior Thesis",
+      "id": "1184002087",
+      "dist_area": null
+    },
+    {
+      "name": "ELE 470",
+      "title": "Smartphone Security and Architecture",
+      "id": "1184023335",
+      "dist_area": null
+    }
+  ]
+]
