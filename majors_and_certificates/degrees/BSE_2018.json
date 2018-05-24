@@ -7,7 +7,8 @@
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering",
     "https://ua.princeton.edu/contents/general-education-requirements",
     "https://lsi.princeton.edu/integratedscience/freshman-year",
-    "https://writing.princeton.edu/seminars/fall-seminars"
+    "https://writing.princeton.edu/seminars/fall-seminars",
+    "https://kellercenter.princeton.edu/learn/freshman-course-sequence"
   ],
   "req_list": [
     {
@@ -82,7 +83,8 @@
           "explanation": null,
           "completed_by_semester": 2,
           "course_list": [
-            "MAT 104"
+            "MAT 104",
+            "EGR 152"
           ]
         },
         {
@@ -96,7 +98,8 @@
             "MAT 203",
             "MAT 216",
             "MAT 218",
-            "EGR 192"
+            "EGR 192",
+            "EGR 156"
           ]
         },
         {
@@ -108,7 +111,8 @@
           "course_list": [
             "MAT 202",
             "MAT 204",
-            "MAT 217"
+            "MAT 217",
+            "EGR 154"
           ]
         }
       ]
@@ -131,7 +135,8 @@
           "course_list": [
             "PHY 103",
             "PHY 105",
-            "EGR 191"
+            "EGR 191",
+            "EGR 151"
           ]
         },
         {
@@ -143,7 +148,8 @@
           "course_list": [
             "PHY 104",
             "PHY 106",
-            "EGR 193"
+            "EGR 193",
+            "EGR 153"
           ]
         },
         {
