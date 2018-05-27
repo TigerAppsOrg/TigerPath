@@ -18,8 +18,6 @@ REQ_PATH_SEPARATOR = '//'
 # Limit the type to 12 characters and the code/name to 100 characters
 REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.100s"
 
-REQ_PATH_SEPARATOR = '//'
-
 def check_major(major_name, courses, year):
     """
     Returns information about the major requirements satisfied by the courses
@@ -120,8 +118,6 @@ def check_requirements(req_file, courses):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    if int(year) < 2000 or int(year) > 3000:
-        raise Exception("Year is invalid.")
     with open(req_file, 'r') as f:
         req = json.load(f)
     courses = _init_courses(courses, req)

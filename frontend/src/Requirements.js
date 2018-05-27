@@ -42,8 +42,9 @@ function getReqCourses(req_path){
       type: 'GET',
       cache: true,
       success: function(data) {
-        ReactDOM.render(returnSearchList(data), document.getElementById('display-courses'))
-        ReactDOM.render(<span id='search-count'>{data.length} Search Results</span>, document.getElementById('search-count'))
+        ReactDOM.render(returnSearchList(data), document.getElementById('display-courses'));
+        ReactDOM.render(<span id='search-count-num'>{data.length}</span>, document.getElementById('search-count'));
+        $('#spinner').css('display', 'none');
       }
     });
 }
