@@ -84,7 +84,6 @@ function renderRequirements(){
       type: 'GET',
       cache: true,
       success: function(data) {
-        console.info(data)
         if (data !== null) {
           // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
           data = data.map((mainReq)=>{
