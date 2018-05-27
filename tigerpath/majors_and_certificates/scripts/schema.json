@@ -334,6 +334,23 @@
             "title": "no_req",
             "description": "used for requirements that cannot be checked",
             "default": null
+          },
+          "dist_req": {
+            "$id": "/properties/req_list/items/properties/dist_req",
+            "type": "string",
+            "title": "dist_req",
+            "description": "distribution requirement (EC, EM, HA, etc)",
+            "default": "",
+            "enum": [
+              "EC",
+              "EM",
+              "HA",
+              "LA",
+              "QR",
+              "STL",
+              "STN",
+              "SA"
+            ]
           }
         },
         "required": [
@@ -355,6 +372,11 @@
           {
             "required": [
                 "no_req"
+            ]
+          },
+          {
+            "required": [
+                "dist_req"
             ]
           }
         ]

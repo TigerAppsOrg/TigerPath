@@ -8,7 +8,8 @@ function startIntro() {
       },
       {
         element: '#search-courses',
-        intro: 'You can search for courses you want to add to your schedule here.',
+        intro: `You can search for courses you want to add to your schedule here.
+        Go ahead and search your department code and press enter.`,
         position: 'right'
       },
       {
@@ -28,8 +29,8 @@ function startIntro() {
         You can click on a grayed out course to make it count for that requirement.`
       },
       {
-        element: '#settings-btn',
-        intro: "If you would like to change your major or modify other settings, you can do so here."
+        element: '#netid-btn',
+        intro: "If you would like to change your major or modify other settings, you can click here and then on \"Settings\"."
       },
       {
         element: '#help-btn',

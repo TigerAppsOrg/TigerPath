@@ -37,8 +37,8 @@ h6 {
   color: #FFFFFF;
 }
 .nav-tabs {
-    display: block;
-    padding: 10px;
+  display: block;
+  padding: 10px;
 }
 .requirements-list {
   background-color: #7e7f82;
@@ -98,7 +98,7 @@ table tr td:last-child {
 .semester {
   background-color: #eee;
   vertical-align: top;
-  height: calc(50vh - 58px);
+  height: calc(50vh - 60px);
   width: 25%;
   list-style-type: none;
 }
@@ -121,20 +121,44 @@ thead.semester-header {
   padding-right: 0 !important;
 }
 .no-padding-left {
-   padding-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .nav-btn {
   color: white;
 }
 
-.nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
-    color: #fff;
-    background-color: #3d8af7;
+#netid-dropdown a:hover {
+  background-color: #ddd;
 }
 
-.foot-text {
-  color: white;
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 100px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  margin-top: 3px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
+  color: #fff;
+  background-color: #3d8af7;
 }
 
 .nav-color-custom {
@@ -172,48 +196,62 @@ thead.semester-header {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* popup on bottom of page */
-#updates-popup {
-  position: fixed;
-  z-index: 1000;
-  background-color: rgb(224, 255, 255);
-  border-color: rgb(194, 232, 232);
-  right: 15px;
-  bottom: 10px;
-  margin-bottom: 10px;
-  margin-left: 15px;
-  padding: .75rem .75rem .75rem 1.25rem;
-}
-
-@media (min-width: 767px) {
-  #updates-popup {
-    width: 25%;
-  }
-}
-
-.close {
-  color: inherit;
-  margin-left: 20px;
+  background: #555;
 }
 
 .warning-text {
   color: #e74c3c;
+}
+
+#search-info{
+  display: -webkit-box;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+#spinner{
+  display: none;
+  font-size: inherit;
+  margin-left: 2px;
+}
+
+#search-count-num{
+  margin-right: 3px;
+}
+
+/* Mobile banner */
+div#banner {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ADD8E6;
+  display: none;
+}
+
+div#banner-content {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Show banner on medium devices (less than 992px) */
+@media (max-width: 991.98px) {
+  div#banner {
+    display: block;
+  }
 }

@@ -28,6 +28,8 @@ def login(request):
 
 # cas auth logout
 def logout(request):
+    success_msg = 'You have been successfully logged out.'
+    messages.success(request, success_msg)
     return django_cas_ng.views.logout(request)
 
 
@@ -291,68 +293,4 @@ def get_requirements(request):
         requirements.append(curr_user.major.name)
     requirements.append(check_degree(curr_user.major.degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
-
-
-# course scraper functions from recal, they are called in the base command tigerpath_get_courses, 
-# these functions may not be necessary, it seems recal uses these functions for memcache which we are not using
-def hydrate_meeting_dict(meeting):
-    return {
-        'days': meeting.days,
-        'start_time': meeting.start_time,
-        'end_time': meeting.end_time,
-        'location': meeting.location,
-        'id': meeting.id
-    }
-
-
-def hydrate_section_dict(section, course):
-    meetings = [hydrate_meeting_dict(meeting)
-                for meeting in section.meetings.all()]
-    return {
-        'id': section.id,
-        'name': section.name,
-        'section_type': section.section_type,
-        'section_capacity': section.section_capacity,
-        'section_enrollment': section.section_enrollment,
-        'course': "/course_selection/api/v1/course/" + str(course.id) + "/",
-        'meetings': meetings
-    }
-
-
-def hydrate_course_listing_dict(course_listing):
-    return {
-        'dept': course_listing.dept,
-        'number': course_listing.number,
-        'is_primary': course_listing.is_primary,
-    }
-
-
-def hydrate_semester(semester):
-    return {
-        'id': semester.id,
-        'start_date': str(semester.start_date),
-        'end_date': str(semester.end_date),
-        'name': str(semester),
-        'term_code': semester.term_code
-    }
-
-
-def hydrate_course_dict(course):
-    sections = [hydrate_section_dict(section, course)
-                for section in course.sections.all()]
-    course_listings = [hydrate_course_listing_dict(
-        cl) for cl in course.course_listing_set.all()]
-    return {
-        'course_listings': course_listings,
-        'description': course.description,
-        'id': course.id,
-        'registrar_id': course.registrar_id,
-        'title': course.title,
-        'sections': sections,
-        'semester': hydrate_semester(course.semester),
-    }
-
-
-def get_courses_by_term_code(term_code):
-    filtered = Course.objects.filter(Q(semester__term_code=term_code))
-    return [hydrate_course_dict(c) for c in filtered]
+    

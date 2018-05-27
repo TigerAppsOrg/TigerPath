@@ -36,6 +36,7 @@
   margin: 5px !important;
   padding: 5px !important;
   cursor: grabbing !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .gu-mirror .course-title, .gu-mirror .course-semester{
@@ -43,23 +44,15 @@
 	display:none;
 }
 
-li:hover{
-  cursor: grab;
-}
-
-li:active {
-  cursor: grabbing;
-}
-
-/* courses in search results */
+/* courses cards */
 .course-display {
   font-size: 13px;
   padding-left: 2px;
-  width: 100%;
   height: auto;
   padding: 5px;
   list-style-type: none;
-  margin-bottom: 3px;
+  margin: 0 3px 3px 3px;
+  border-radius: 2px;
 }
 
 .course-display.fall {
@@ -79,6 +72,18 @@ li:active {
 
 .course-display p {
   margin-bottom: 0;
+}
+
+.course-display:hover {
+  cursor: grab;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  z-index: 1;
+}
+
+.course-display:hover:active {
+  cursor: grabbing;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #display-courses .course-display p {
@@ -118,8 +123,4 @@ li:active {
 
 .popover-warning {
   color: #e74c3c;
-}
-
-#search-count {
-  padding: 5px;
 }

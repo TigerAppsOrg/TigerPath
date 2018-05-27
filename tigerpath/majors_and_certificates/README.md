@@ -99,6 +99,7 @@ Additional options available to Degree JSONs
 {
   "type": "Degree",
   "name": "A.B.", // "A.B." or "B.S.E."
+  "code": "AB", // "AB" or "BSE"
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-arts",
