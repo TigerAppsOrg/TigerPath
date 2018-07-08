@@ -75,3 +75,11 @@
   height: calc(100vh - 60px);
   overflow: auto;
 }
+
+.fa-search {
+  padding-left: 5px;
+}
+
+.fa-search:hover {
+  color: #e74c3c;
+}

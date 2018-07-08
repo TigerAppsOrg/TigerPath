@@ -15,16 +15,16 @@ export function toggleSettle(course, path_to, settle){
   let courseOnScheduleNotAssigned = '';
   // checks for duplicates on course schedule and grabs courses that do not have the path and courses that do have the path
   allCoursesOnSchedule.each(function(){
-    if($(this).data('reqs').map((path)=>{
-      return path.split('//')[2]
-    }).indexOf(path_to.split('//')[2]) === -1) courseOnScheduleNotAssigned = $(this);
-    else courseOnScheduleAssigned = $(this);
+    if($(this).data('reqs').indexOf(path_to) === -1)
+      courseOnScheduleNotAssigned = $(this);
+    else
+      courseOnScheduleAssigned = $(this);
   });
-  if(settle){
+  if(settle) {
     // find course in schedule, attach req path to the course, and update schedule
     courseOnScheduleNotAssigned.data('reqs').push(path_to);
   }
-  else{
+  else {
     courseOnScheduleAssigned.data('reqs').splice(courseOnScheduleAssigned.data('reqs').indexOf(path_to), 1)
   }
   updateSchedule();
@@ -35,6 +35,7 @@ function getHash(stringName) {
 }
 
 function getReqCourses(req_path){
+  $('#spinner').css('display', 'inline-block');
   $.ajax({
       // the slashes messes up the url 
       url: "/api/v1/get_req_courses/" + req_path.replace(/\/\//g, '$'),
