@@ -7,7 +7,8 @@ from django.contrib import messages
 from django.http import HttpResponse, Http404
 from django.urls import reverse
 from . import models, forms, utils
-from .majors_and_certificates.scripts.verifier import check_major, check_degree
+from .majors_and_certificates.scripts.verifier import check_major, check_degree, get_courses_by_path
+from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 
 import django_cas_ng.views
 import ujson
@@ -155,20 +156,8 @@ def get_onboarding_initial_values(username):
                 initial_values['major'] = majors.get(code=tigerbook_major_code)
     return initial_values
 
-
-# filters courses with query from react and sends back a list of filtered courses to display
-@login_required
-def get_courses(request, search_query='$'):
-    # search query defaults to '$' which is an indicator to output nothing
-    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
-    split_query = re.split('(\d.*)', search_query)
-    queries = []
-    # split again by spaces
-    for query in split_query:
-        queries = queries + query.split(" ")
-
+def convertCourses(course_list, queries):
     course_info_list = []
-    course_list = filter_courses(queries)
     for course in course_list:
         course_info = {}
         course_info['title'] = course.title
@@ -185,8 +174,47 @@ def get_courses(request, search_query='$'):
     for query in queries:
         if len(query) == 3 and query.isalpha():
             course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
+    return course_info_list
+
+# filters courses with query from react and sends back a list of filtered courses to display
+@login_required
+def get_courses(request, search_query):
+    # split only by first digit occurrance ex: cee102a -> [cee, 102a]
+    split_query = re.split('(\d.*)', search_query)
+    queries = []
+    # split again by spaces
+    for query in split_query:
+        queries = queries + query.split(" ")
+
+    course_list = filter_courses(queries)
+    course_info_list = convertCourses(course_list, queries)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
+
+# returns list of courses that match a requirement
+@login_required
+def get_req_courses(request, req_path):
+    # put the slashes back in
+    req_path = req_path.replace('$', '//')
+    # prevents duplicate courses to be added in search results
+    search_results = set([])
+    course_list, dist_list = get_courses_by_path(req_path)
+    for course in course_list:
+        if('LANG' in course):
+            for lang in list(LANG_DEPTS.keys()):
+                search_results.update(set(filter_courses(course.replace('*', '').replace('LANG', lang).split(' '))))
+        if('*' not in course):
+            course = course.split('/')[0]
+            try:
+                search_results.add(models.Course_Listing.objects.get(dept=course.split(' ')[0], number=course.split(' ')[1]).course)
+            except:
+                pass
+        else:
+            search_results.update(set(filter_courses(course.replace('*', '').split(' '))))
+    for dist in dist_list:
+        search_results.update(set(models.Course.objects.filter(dist_area=dist)))
+    course_info_list = convertCourses(list(search_results), course_list)
+    return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 # returns list of courses filtered by query
 def filter_courses(queries):
