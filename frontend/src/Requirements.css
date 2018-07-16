@@ -82,4 +82,14 @@
 
 .fa-search:hover {
   color: #e74c3c;
+  cursor: pointer;
+}
+
+.searchByReq:hover{
+  cursor: pointer;
+  color: #e74c3c;
+}
+
+.bs-popover-left{
+  left: -13% !important;
 }

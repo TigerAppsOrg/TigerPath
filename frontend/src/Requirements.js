@@ -35,7 +35,7 @@ function getHash(stringName) {
   return stringName.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
 }
 
-function getReqCourses(req_path){
+export function getReqCourses(req_path){
   $('#spinner').css('display', 'inline-block');
   $.ajax({
       // the slashes messes up the url 
@@ -64,7 +64,10 @@ export function populateReqTree(reqTree){
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
-      let reqLabel = <span>
+      let reqLabel = <span className='reqLabel' 
+                      reqPath={requirement['path_to']} 
+                      title={'<span>' + requirement['name'] + '<i class="searchByReq fa fa-search"></i><span>'} 
+                      data-content={'<span class="searchByReq">Search this requirement</span>'}>
                           <div className='my-arrow'></div>
                           <span className='reqName'>{requirement['name']}</span>
                           <i className="fa fa-search" onClick={(e)=>{getReqCourses(requirement['path_to'])}}></i>
@@ -108,5 +111,33 @@ export function makeNodesClickable(){
         $(this).parent().find('.tree-view_children').addClass(treeCollapsedClass);
       }
     })
+  });
+}
+// adds popovers to reqs
+export function addReqPopovers(){
+  $('.reqLabel').each(function(){
+    // show popover when it's hovered over
+    $(this).popover({ 
+      trigger: 'manual',
+      html: true,
+      animation: true,
+      placement: 'right',
+      container: 'body'
+    })
+    .on('mouseenter', function(){
+      var _this = this;
+      $(this).popover('show');
+      $('body').off('click', '.searchByReq').on('click', '.searchByReq', () => {getReqCourses($(this).attr('reqPath'))});
+      $('.popover').on('mouseleave', function(){
+        $(_this).popover('hide');
+      });
+    }).on('mouseleave', function(){
+      var _this = this;
+      setTimeout(function() {
+        if(!$('.popover:hover').length) {
+          $(_this).popover('hide');
+        }
+      }, 100);
+    });
   });
 }

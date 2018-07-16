@@ -11,6 +11,7 @@ import TreeView from 'react-treeview/lib/react-treeview.js';
 import {toggleSettle} from './Requirements';
 import {populateReqTree} from './Requirements';
 import {makeNodesClickable} from './Requirements';
+import {addReqPopovers} from './Requirements';
 
 var dragula = require('react-dragula');
 var current_request = null;
@@ -91,6 +92,7 @@ function renderRequirements(){
             if(!Array.isArray(mainReq)) return mainReq
             return mainReq[2];
           });
+          console.info(data);
           ReactDOM.render(
            data.map((mainReq, index)=>{
               if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
@@ -107,6 +109,7 @@ function renderRequirements(){
             document.getElementById('requirements')
           );
           makeNodesClickable();
+          addReqPopovers();
         }
       }
   });
