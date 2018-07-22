@@ -92,18 +92,32 @@ function renderRequirements(){
             if(!Array.isArray(mainReq)) return mainReq
             return mainReq[2];
           });
-          console.info(data);
           ReactDOM.render(
            data.map((mainReq, index)=>{
+              console.info(mainReq)
               if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
               let finished = ''
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
                   finished='req-done';
-              let mainReqLabel = <span>
+              let popoverContent = '<div className="popoverContentContainer">';
+              if(mainReq.contacts) {
+                mainReq.contacts.forEach(contact => {
+                  popoverContent += '<p>' + contact.name + ' ' + contact.email + ' ' + contact.type + '</p>';
+                });
+              }
+              if(mainReq.urls) {
+                mainReq.urls.forEach(url => {
+                  popoverContent += '<p><a href="' + url + '">' + url + '</a></p>'
+                });
+              }
+              popoverContent += '</div>'
+              let mainReqLabel = <div className='reqLabel' 
+                                  title={'<span>' + mainReq.name + '</span>'}
+                                  data-content={popoverContent}>
                                     <div className='my-arrow root-arrow'></div>
                                     {mainReq.name}
-                                 </span>
+                                 </div>
               return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
             }),
             document.getElementById('requirements')

@@ -64,15 +64,20 @@ export function populateReqTree(reqTree){
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
-      let reqLabel = <span className='reqLabel' 
-                      reqPath={requirement['path_to']} 
-                      title={'<span>' + requirement['name'] + '<i class="searchByReq fa fa-search"></i><span>'} 
-                      data-content={'<span class="searchByReq">Search this requirement</span>'}>
+      let popoverContent = '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Search Requirement</button>';
+      popoverContent += '<div class="popoverContentContainer">';
+      if(reqTree.explanation) {
+        popoverContent += '<p>' + reqTree.explanation + '</p>'
+      }
+      popoverContent += '</div>';
+      let reqLabel = <div className='reqLabel' 
+                      reqpath={requirement['path_to']} 
+                      title={'<span>' + requirement['name'] + '</span>'} 
+                      data-content={popoverContent}>
                           <div className='my-arrow'></div>
                           <span className='reqName'>{requirement['name']}</span>
-                          <i className="fa fa-search" onClick={(e)=>{getReqCourses(requirement['path_to'])}}></i>
                           <span className='reqCount'>{tag}</span>
-                       </span>;
+                       </div>;
       if('req_list' in requirement) { 
         return(<TreeView key={treeHash} nodeLabel={reqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
       }
@@ -127,7 +132,7 @@ export function addReqPopovers(){
     .on('mouseenter', function(){
       var _this = this;
       $(this).popover('show');
-      $('body').off('click', '.searchByReq').on('click', '.searchByReq', () => {getReqCourses($(this).attr('reqPath'))});
+      $('body').off('click', '.searchByReq').on('click', '.searchByReq', () => {getReqCourses($(this).attr('reqpath'))});
       $('.popover').on('mouseleave', function(){
         $(_this).popover('hide');
       });

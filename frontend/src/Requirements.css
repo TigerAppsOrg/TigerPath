@@ -77,19 +77,17 @@
 }
 
 .fa-search {
-  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.fa-search:hover {
-  color: #e74c3c;
-  cursor: pointer;
-}
-
-.searchByReq:hover{
-  cursor: pointer;
-  color: #e74c3c;
-}
-
+/* for the popover in the requirements, it is akwardly placed so need !important here */
 .bs-popover-left{
-  left: -13% !important;
+  left: -22% !important;
+  width: 20%;
+}
+
+.popoverContentContainer {
+  max-height: 200px;
+  overflow-y: scroll;
+  margin-top: 5px;
 }
