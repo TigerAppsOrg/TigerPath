@@ -94,7 +94,6 @@ function renderRequirements(){
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
-              console.info(mainReq)
               if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
               let finished = ''
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
