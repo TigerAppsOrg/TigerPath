@@ -1,0 +1,794 @@
+{
+    "type": "Major",
+    "name": "Mechanical and Aerospace Engineering",
+    "code": "MAE",
+    "year": 2018,
+    "urls": [
+        "https://ua.princeton.edu/academic-units/department-mechanical-and-aerospace-engineering-0#",
+        "https://mae.princeton.edu/undergraduate/programs"
+    ],
+    "contacts": [
+        {
+            "type": "Departmental Representative",
+            "name": "Michael G. Littman",
+            "email": "mlittman@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Prerequisites",
+            "max_counted": 1,
+            "min_needed": 420,
+            "explanation": "Students entering the Department are expected to meet the requirements for the freshman year established by the School of Engineering and Applied Science.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "req_list": [
+                {
+                    "name": "Introductory Courses",
+                    "max_counted": 3,
+                    "min_needed": 3,
+                    "explanation": "The required introductory courses that are prerequisites for the Departmental upper class courses are normally completed by the end of the sophomore year.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 8,
+                    "req_list": [
+                        {
+                            "name": "Introductory Departmental",
+                            "max_counted": 2,
+                            "min_needed": 2,
+                            "explanation": "The Sophomore Laboratory provides experiments associated with Thermodynamics (MAE 221),\nMechanics of Fluids (MAE 222) and Electronics. (Some of these courses may be satisfied by Advanced\nPlacement Credit).",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                {
+                                    "name": "Introductory - Single",
+                                    "max_counted": 4,
+                                    "min_needed": 4,
+                                    "explanation": "Introductory Courses",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 206",
+                                        "MAE 221",
+                                        "MAE 222",
+                                        "MAE 224"
+                                    ]
+                                },
+                                {
+                                    "name": "Introductory - Substitute",
+                                    "max_counted": 2,
+                                    "min_needed": 1,
+                                    "explanation": "Introductory Courses",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 223",
+                                        "CEE 205"
+                                    ]
+                                }
+                            ],
+                            "course_list": []
+                        },
+                        {
+                            "name": "Computer Programming",
+                            "max_counted": 1,
+                            "min_needed": 1,
+                            "explanation": "Computer Programming (School of Engineering & Applied Science requirement)\nAll BSE students must take COS 126 to satisfy the BSE computing requirement.",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [],
+                            "course_list": [
+                                "COS 126"
+                            ]
+                        },
+                        {
+                            "name": "Mathematics",
+                            "max_counted": 2,
+                            "min_needed": 1,
+                            "explanation": "Mathematics",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                {
+                                    "name": "Multivariable Calculus and Linear Algebra",
+                                    "max_counted": 2,
+                                    "min_needed": 2,
+                                    "explanation": "Multivariable Calculus and Linear Algebra",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAT 201",
+                                        "MAT 202"
+                                    ]
+                                },
+                                {
+                                    "name": "Advanced Multivariable Calculus and Linear Algebra",
+                                    "max_counted": 2,
+                                    "min_needed": 2,
+                                    "explanation": "Advanced Multivariable Calculus and Linear Algebra",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAT 203",
+                                        "MAT 204"
+                                    ]
+                                }
+                            ],
+                            "course_list": []
+                        }
+                    ],
+                    "course_list": []
+                }
+            ],
+            "course_list": []
+        },
+        {
+            "name": "Concentration",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Faculty\nProgram Information\nCourses\nInformation and Departmental Plan of Study\nThe Department of Mechanical and Aerospace Engineering (link is external) recognizes that students have a variety of career objectives. Some enter industry directly in an engineering capacity and some continue their studies in graduate school in engineering or applied science. Other MAE graduates pursue careers in business, law, or medicine. The Department offers sufficient flexibility to students planning an undergraduate program that meets any of these objectives and guides them to build fundamental knowledge in key engineering disciplines and develop practical skills in problem-solving and design. The subjects of solid and fluid mechanics, thermodynamics, dynamics, control systems, materials, and applied mathematics, combined with the experience of engineering design, are core to the department's curriculum. Both the mechanical and aerospace engineering programs are accredited by the Engineering Accreditation Commission of ABET (link is external).\n\nGeneral Requirements\nRequirements for study in the department follow the general requirements for the School of Engineering and Applied Science. In addition, the following four courses and one laboratory are normally completed by departmental students before entry into the junior year.\n\nMechanical and Aerospace Engineering\n\n206 Introduction to Engineering Dynamics\n221 Thermodynamics\n222 Mechanics of Fluids\n223 Modern Solid Mechanics\n224 Integrated Engineering Science Laboratory\n\nSome of the above can be satisfied by equivalent courses. For example, students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223; and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.\n\nEach departmental student will be introduced to instrumentation and computer-based data acquisition in the MAE 224 laboratory.\n\nDepartmental Requirements\nIn order to qualify for graduation each departmental student must satisfactorily complete the following:\n\nI. One upper-level course involving applications of mathematics:  MAE 305 Mathematics in Engineering I\n\nII. Eight upper-level departmental courses\n\nA. Among these are engineering science courses selected from the following list:\n\nDynamics and Control\n\n331 Aircraft Flight Dynamics\n341 Space Flight\n433 Automatic Control Systems\n434 Modern Control\n\nFluid Mechanics/Thermal Sciences\n\n328 Energy for a Greenhouse-Constrained World\n335 Fluid Dynamics\n336 Viscous Flows\n423 Heat Transfer\n426 Rocket and Air-Breathing Propulsion Technology\n427 Energy Conversion and the Environment: Transportation Applications\n552 Viscous Flows--Viscous Flows and Boundary Layers\n\nMaterials/Structures\n\n324 Structure and Properties of Materials\nMSE 301 Materials Science and Engineering\nCEE 312 Statics of Structures\nCEE 361 Structural Analysis and Introduction to Finite-Element Methods\n\nB. A minimum of three courses must be in the area of engineering design. At least two of these must be selected from the following list:\n\n321 Engineering Design (required for all students)\n322 Mechanical Design (required for mechanical engineering or 412)\n332 Aircraft Design (required for aerospace engineering or 342)\n342 Space System Design (required for aerospace engineering or 332)\n412 Microprocessors for Measurement and Control (required for mechanical engineering or 322)\n\nIII. All students are required to participate in a self-directed research or engineering project. (See Independent Work below.)\n\nThe remainder of the 36 courses required for the B.S.E. may be chosen from a wide variety of options. At least seven of these must be in the humanities or social sciences, as required by the School of Engineering and Applied Science. The rest of the courses may be used to pursue a specialty within the department, combine studies with another department, follow one of the topical program curricula, or further expand studies within the humanities or social sciences.\n\nEach student's program is planned individually in consultation with the class adviser. Suggested plans of study for each of the programs in the department are available from the departmental representative.\n\nProgram of Study\nThe department offers two programs of study: mechanical engineering and aerospace engineering. These programs draw on courses in the underlying fundamental sciences and mathematics during the first year, which lead to broad introductory engineering science courses during the second year, where students are introduced to the creative application of this knowledge to the solution of technical problems. Aspects of engineering design, the process of devising a system to meet a need, are introduced to the student through laboratories in the second year and continue through the upperclass years. During the third year all students take a two-semester design sequence as well as further engineering science courses dealing with analysis and application in the areas of energy sources and power systems, structures, aerodynamics and flow systems, and the dynamics of machines and their control. The introduction of design during the third year, combined with further depth in engineering science, enables students to undertake realistic design projects during their senior year. The programs are designed to prepare the graduate for an engineering career and give him or her the ability to continue to grow professionally.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "req_list": [
+                {
+                    "name": "Mechanical Engineering",
+                    "max_counted": 2,
+                    "min_needed": 2,
+                    "explanation": "Mechanical Engineering. This program deals with the analysis and design of machines, their motion, power sources, and control. The curriculum is based on dynamics, thermodynamics, and the study of the structure and behavior of fluid and solid materials; it is accredited by the Engineering Accreditation Commission of ABET.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 8,
+                    "req_list": [
+                        {
+                            "name": "Upperclass Courses (Junior and Senior Year)",
+                            "max_counted": 2,
+                            "min_needed": 2,
+                            "explanation": "Applications of Mathematics",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                {
+                                    "name": "Required",
+                                    "max_counted": 1,
+                                    "min_needed": 1,
+                                    "explanation": "Required",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 305"
+                                    ]
+                                },
+                                {
+                                    "name": "Additional",
+                                    "max_counted": 1,
+                                    "min_needed": 1,
+                                    "explanation": "Mathematics elective",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 306",
+                                        "ORF 245",
+                                        "ORF 307",
+                                        "ORF 309",
+                                        "COS 340",
+                                        "MAT 330",
+                                        "MAT 393",
+                                        "PHY 403"
+                                    ]
+                                }
+                            ],
+                            "course_list": []
+                        },
+                        {
+                            "name": "Departmental",
+                            "max_counted": 3,
+                            "min_needed": 3,
+                            "explanation": "A minimum of eight upper level Departmental courses are required.",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                {
+                                    "name": "Senior Independent Work",
+                                    "max_counted": 1,
+                                    "min_needed": 1,
+                                    "explanation": "All seniors are required to participate in a research or engineering project by completing at least one semester of independent work. A year-long senior thesis or senior project also meets this requirement. All projects must include engineering design (engineering design is the process of devising a system, component, or process to meet desired needs). The following courses satisfy this requirement: senior independent work (439) (one semester offered in fall); senior independent work (440) (one semester offered in spring); senior thesis (442) (year-long individual effort); senior project (444) (year-long team or group effort). Any of these courses may satisfy the third design requirement in either the Aerospace or Mechanical programs. Students are strongly encouraged to select the year-long thesis or project. For the senior thesis or project, a final grade is issued in the spring.",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 439",
+                                        "MAE 440",
+                                        "MAE 442",
+                                        "MAE 444"
+                                    ]
+                                },
+                                {
+                                    "name": "Engineering Science Courses",
+                                    "max_counted": 3,
+                                    "min_needed": 3,
+                                    "explanation": "A minimum of eight Departmental courses are required.",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [
+                                        {
+                                            "name": "Dynamics and Control",
+                                            "max_counted": 3,
+                                            "min_needed": 3,
+                                            "explanation": "DC",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Single",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Single",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 433"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Double",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 335",
+                                                        "MAE 423"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "Optional",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 331",
+                                                        "MAE 345",
+                                                        "MAE 434",
+                                                        "MAE 341"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Fluid Mechanics/Thermal Sciences",
+                                            "max_counted": 2,
+                                            "min_needed": 2,
+                                            "explanation": "FM/TS",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Triple",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Triple",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 335",
+                                                        "MAE 423",
+                                                        "CBE 341"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "Optional",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 328",
+                                                        "MAE 427",
+                                                        "MAE 336",
+                                                        "MAE 426"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Materials/Structures",
+                                            "max_counted": 4,
+                                            "min_needed": 4,
+                                            "explanation": "MS",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Double1",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double1",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 324",
+                                                        "MSE 301"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Double2",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double2",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "CEE 312",
+                                                        "CEE 361"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Required",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Required",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 325",
+                                                        "MAE 312"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. Requires the approval of the\nDepartment Representative.",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "CEE 362",
+                                                        "CEE 364"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        }
+                                    ],
+                                    "course_list": []
+                                },
+                                {
+                                    "name": "Engineering Design Courses",
+                                    "max_counted": 2,
+                                    "min_needed": 2,
+                                    "explanation": "There are three design requirements in each program. Two are\nsatisfied by completing courses appropriate to the program (core course requirements for each\nprogram are footnoted below). The third is satisfied by completing Senior Independent Work,\nSenior Thesis, or Senior Project.",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [
+                                        {
+                                            "name": "Required",
+                                            "max_counted": 2,
+                                            "min_needed": 2,
+                                            "explanation": "Required",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Single",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Single",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 321"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Substitute",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Substitute",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 322",
+                                                        "MAE 412"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Optional",
+                                            "max_counted": 0,
+                                            "min_needed": 0,
+                                            "explanation": "CEE 477 is an acceptable substitute only for Mechanical Engineers who are pursuing the Sustainable Energy\nCertificate Program",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [],
+                                            "course_list": [
+                                                "MAE 332",
+                                                "MAE 342",
+                                                "CEE 477"
+                                            ]
+                                        }
+                                    ],
+                                    "course_list": []
+                                }
+                            ],
+                            "course_list": []
+                        }
+                    ],
+                    "course_list": []
+                },
+                {
+                    "name": "Aerospace Engineering",
+                    "max_counted": 2,
+                    "min_needed": 2,
+                    "explanation": "Aerospace Engineering. This program deals with the analysis and design of aerospace vehicles. The curriculum is based on the applications of principles from dynamics, control, thermodynamics, fluid mechanics and solid mechanics; it is accredited by the Engineering Accreditation Commission of ABET.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 8,
+                    "req_list": [
+                        {
+                            "name": "Upperclass Courses (Junior and Senior Year)",
+                            "max_counted": 1,
+                            "min_needed": 1,
+                            "explanation": "Applications of Mathematics",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [],
+                            "course_list": [
+                                "MAE 305"
+                            ]
+                        },
+                        {
+                            "name": "Departmental Courses",
+                            "max_counted": 3,
+                            "min_needed": 3,
+                            "explanation": "A minimum of eight upper level Departmental courses are required.",
+                            "double_counting_allowed": false,
+                            "pdfs_allowed": 0,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                {
+                                    "name": "Senior Independent Work",
+                                    "max_counted": 1,
+                                    "min_needed": 1,
+                                    "explanation": "All seniors are required to participate in a research or engineering project by completing at least one semester of independent work. A year-long senior thesis or senior project also meets this requirement. All projects must include engineering design (engineering design is the process of devising a system, component, or process to meet desired needs). The following courses satisfy this requirement: senior independent work (439) (one semester offered in fall); senior independent work (440) (one semester offered in spring); senior thesis (442) (year-long individual effort); senior project (444) (year-long team or group effort). Any of these courses may satisfy the third design requirement in either the Aerospace or Mechanical programs. Students are strongly encouraged to select the year-long thesis or project. For the senior thesis or project, a final grade is issued in the spring.",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [],
+                                    "course_list": [
+                                        "MAE 439",
+                                        "MAE 440",
+                                        "MAE 442",
+                                        "MAE 444"
+                                    ]
+                                },
+                                {
+                                    "name": "Engineering Science Courses",
+                                    "max_counted": 3,
+                                    "min_needed": 3,
+                                    "explanation": "Required",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [
+                                        {
+                                            "name": "Dynamics and Control",
+                                            "max_counted": 2,
+                                            "min_needed": 2,
+                                            "explanation": "Dynamics and Control",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Required",
+                                                    "max_counted": 2,
+                                                    "min_needed": 2,
+                                                    "explanation": "Required",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [
+                                                        {
+                                                            "name": "Single",
+                                                            "max_counted": 1,
+                                                            "min_needed": 1,
+                                                            "explanation": "Single",
+                                                            "double_counting_allowed": false,
+                                                            "pdfs_allowed": 0,
+                                                            "completed_by_semester": 8,
+                                                            "req_list": [],
+                                                            "course_list": [
+                                                                "MAE 433"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "Double",
+                                                            "max_counted": 1,
+                                                            "min_needed": 1,
+                                                            "explanation": "Double",
+                                                            "double_counting_allowed": false,
+                                                            "pdfs_allowed": 0,
+                                                            "completed_by_semester": 8,
+                                                            "req_list": [],
+                                                            "course_list": [
+                                                                "MAE 331",
+                                                                "MAE 341"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "course_list": []
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "Optional",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 345",
+                                                        "MAE 434"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Fluid Mechanics/Thermal Sciences",
+                                            "max_counted": 2,
+                                            "min_needed": 2,
+                                            "explanation": "FM/TS",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Required",
+                                                    "max_counted": 2,
+                                                    "min_needed": 2,
+                                                    "explanation": "Required",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [
+                                                        {
+                                                            "name": "Single",
+                                                            "max_counted": 1,
+                                                            "min_needed": 1,
+                                                            "explanation": "Single",
+                                                            "double_counting_allowed": false,
+                                                            "pdfs_allowed": 0,
+                                                            "completed_by_semester": 8,
+                                                            "req_list": [],
+                                                            "course_list": [
+                                                                "MAE 335"
+                                                            ]
+                                                        },
+                                                        {
+                                                            "name": "Double",
+                                                            "max_counted": 1,
+                                                            "min_needed": 1,
+                                                            "explanation": "Double",
+                                                            "double_counting_allowed": false,
+                                                            "pdfs_allowed": 0,
+                                                            "completed_by_semester": 8,
+                                                            "req_list": [],
+                                                            "course_list": [
+                                                                "MAE 426",
+                                                                "MAE 427"
+                                                            ]
+                                                        }
+                                                    ],
+                                                    "course_list": []
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "Optional",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 328",
+                                                        "MAE 336",
+                                                        "MAE 423",
+                                                        "CBE 341"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Materials/Structures",
+                                            "max_counted": 3,
+                                            "min_needed": 3,
+                                            "explanation": "M/S",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Double1",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double1",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "CEE 361",
+                                                        "CEE 312"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Double2",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double2",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MSE 301",
+                                                        "MAE 324"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Optional",
+                                                    "max_counted": 0,
+                                                    "min_needed": 0,
+                                                    "explanation": "CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. Requires the approval of the\nDepartment Representative.",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "CEE 362",
+                                                        "CEE 364"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        }
+                                    ],
+                                    "course_list": []
+                                },
+                                {
+                                    "name": "Engineering Design Courses",
+                                    "max_counted": 2,
+                                    "min_needed": 2,
+                                    "explanation": "There are three design requirements in each program. Two are\nsatisfied by completing courses appropriate to the program (core course requirements for each\nprogram are footnoted below). The third is satisfied by completing Senior Independent Work,\nSenior Thesis, or Senior Project.",
+                                    "double_counting_allowed": false,
+                                    "pdfs_allowed": 0,
+                                    "completed_by_semester": 8,
+                                    "req_list": [
+                                        {
+                                            "name": "Required",
+                                            "max_counted": 2,
+                                            "min_needed": 2,
+                                            "explanation": "Required",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [
+                                                {
+                                                    "name": "Single",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Single",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 321"
+                                                    ]
+                                                },
+                                                {
+                                                    "name": "Double",
+                                                    "max_counted": 1,
+                                                    "min_needed": 1,
+                                                    "explanation": "Double",
+                                                    "double_counting_allowed": false,
+                                                    "pdfs_allowed": 0,
+                                                    "completed_by_semester": 8,
+                                                    "req_list": [],
+                                                    "course_list": [
+                                                        "MAE 332",
+                                                        "MAE 342"
+                                                    ]
+                                                }
+                                            ],
+                                            "course_list": []
+                                        },
+                                        {
+                                            "name": "Optional",
+                                            "max_counted": 0,
+                                            "min_needed": 0,
+                                            "explanation": "Optional",
+                                            "double_counting_allowed": false,
+                                            "pdfs_allowed": 0,
+                                            "completed_by_semester": 8,
+                                            "req_list": [],
+                                            "course_list": [
+                                                "MAE 322",
+                                                "MAE 412"
+                                            ]
+                                        }
+                                    ],
+                                    "course_list": []
+                                }
+                            ],
+                            "course_list": []
+                        }
+                    ],
+                    "course_list": []
+                }
+            ],
+            "course_list": []
+        }
+    ]
+}
