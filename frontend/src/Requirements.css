@@ -81,8 +81,8 @@
 }
 
 /* for the popover in the requirements, it is akwardly placed so need !important here */
-.bs-popover-left{
-  left: -22% !important;
+.req-popover{
+  left: -18% !important;
   width: 20%;
 }
 
