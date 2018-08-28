@@ -2,6 +2,7 @@
   "type": "Major",
   "name": "Mechanical and Aerospace Engineering",
   "code": "MAE",
+  "degree": "BSE",
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-mechanical-and-aerospace-engineering-0",
@@ -16,122 +17,46 @@
   ],
   "req_list": [
     {
-      "name": "Prerequisites",
+      "name": "General Requirements",
       "max_counted": 1,
-      "min_needed": 420,
-      "explanation": "Students entering the Department are expected to meet the requirements for the freshman year established by the School of Engineering and Applied Science.",
-      "double_counting_allowed": false,
-      "pdfs_allowed": 0,
+      "min_needed": "ALL",
+      "explanation": "Requirements for study in the department follow the general requirements for the School of Engineering and Applied Science. In addition, the following four courses and one laboratory are normally completed by departmental students before entry into the junior year.\nMechanical and Aerospace Engineering\n206 Introduction to Engineering Dynamics\n221 Thermodynamics\n222 Mechanics of Fluids\n223 Modern Solid Mechanics\n224 Integrated Engineering Science Laboratory\nSome of the above can be satisfied by equivalent courses. For example, students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223; and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.\nEach departmental student will be introduced to instrumentation and computer-based data acquisition in the MAE 224 laboratory.\n",
+      "completed_by_semester": 4,
+      "pdfs_allowed": false,
       "req_list": [
         {
-          "name": "Introductory Courses",
-          "max_counted": 3,
-          "min_needed": 3,
-          "explanation": "The required introductory courses that are prerequisites for the Departmental upper class courses are normally completed by the end of the sophomore year.",
-          "double_counting_allowed": false,
-          "pdfs_allowed": 0,
-          "completed_by_semester": 8,
-          "req_list": [
-            {
-              "name": "Introductory Departmental",
-              "max_counted": 2,
-              "min_needed": 2,
-              "explanation": "The Sophomore Laboratory provides experiments associated with Thermodynamics (MAE 221),\nMechanics of Fluids (MAE 222) and Electronics. (Some of these courses may be satisfied by Advanced\nPlacement Credit).",
-              "double_counting_allowed": false,
-              "pdfs_allowed": 0,
-              "completed_by_semester": 8,
-              "req_list": [
-                {
-                  "name": "Introductory - Single",
-                  "max_counted": 4,
-                  "min_needed": 4,
-                  "explanation": "Introductory Courses",
-                  "double_counting_allowed": false,
-                  "pdfs_allowed": 0,
-                  "completed_by_semester": 8,
-                  "req_list": [],
-                  "course_list": [
-                    "MAE 206",
-                    "MAE 221",
-                    "MAE 222",
-                    "MAE 224"
-                  ]
-                },
-                {
-                  "name": "Introductory - Substitute",
-                  "max_counted": 2,
-                  "min_needed": 1,
-                  "explanation": "Introductory Courses",
-                  "double_counting_allowed": false,
-                  "pdfs_allowed": 0,
-                  "completed_by_semester": 8,
-                  "req_list": [],
-                  "course_list": [
-                    "MAE 223",
-                    "CEE 205"
-                  ]
-                }
-              ],
-              "course_list": []
-            },
-            {
-              "name": "Computer Programming",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Computer Programming (School of Engineering & Applied Science requirement)\nAll BSE students must take COS 126 to satisfy the BSE computing requirement.",
-              "double_counting_allowed": false,
-              "pdfs_allowed": 0,
-              "completed_by_semester": 8,
-              "req_list": [],
-              "course_list": [
-                "COS 126"
-              ]
-            },
-            {
-              "name": "Mathematics",
-              "max_counted": 2,
-              "min_needed": 1,
-              "explanation": "Mathematics",
-              "double_counting_allowed": false,
-              "pdfs_allowed": 0,
-              "completed_by_semester": 8,
-              "req_list": [
-                {
-                  "name": "Multivariable Calculus and Linear Algebra",
-                  "max_counted": 2,
-                  "min_needed": 2,
-                  "explanation": "Multivariable Calculus and Linear Algebra",
-                  "double_counting_allowed": false,
-                  "pdfs_allowed": 0,
-                  "completed_by_semester": 8,
-                  "req_list": [],
-                  "course_list": [
-                    "MAT 201",
-                    "MAT 202"
-                  ]
-                },
-                {
-                  "name": "Advanced Multivariable Calculus and Linear Algebra",
-                  "max_counted": 2,
-                  "min_needed": 2,
-                  "explanation": "Advanced Multivariable Calculus and Linear Algebra",
-                  "double_counting_allowed": false,
-                  "pdfs_allowed": 0,
-                  "completed_by_semester": 8,
-                  "req_list": [],
-                  "course_list": [
-                    "MAT 203",
-                    "MAT 204"
-                  ]
-                }
-              ],
-              "course_list": []
-            }
-          ],
-          "course_list": []
+          "name": null,
+          "max_counted": null,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAE 221: Thermodynamics",
+            "MAE 222: Mechanics of Fluids",
+            "MAE 224: Integrated Engineering Science Laboratory"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "course_list": [
+            "MAE 223: Modern Solid Mechanics",
+            "CEE 205: Mechanics of Solids"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "course_list": [
+            "MAE 206: Introduction to Engineering Dynamics",
+            "PHY 205: Classical Mechanics",
+            "PHY 207: Mechanics and Waves"
+          ]
         }
-      ],
-      "course_list": []
+      ]
     },
     {
       "name": "Concentration",
