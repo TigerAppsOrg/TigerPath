@@ -10,9 +10,24 @@
   ],
   "contacts": [
     {
-      "type": "Departmental Representative",
+      "type": "Undergraduate Representative",
       "name": "Michael G. Littman",
       "email": "mlittman@princeton.edu"
+    },
+    {
+      "type": "Undergraduate Administrator",
+      "name": "Jo Ann Love",
+      "email": "jolove@princeton.edu"
+    },
+    {
+      "type": "Academic Program Assistant",
+      "name": "Theresa Russo",
+      "email": "tar3@princeton.edu"
+    },
+    {
+      "type": "Independent Work Advisor",
+      "name": "Luigi Martinelli",
+      "email": "gigi@phantom2.princeton.edu"
     }
   ],
   "req_list": [
