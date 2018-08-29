@@ -112,109 +112,168 @@
     {
       "name": "Departmental Courses",
       "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "A minimum of eight upper level Departmental courses are required.\n\nNone of the Department requirements can be taken on a pass/fail or audit basis. All\nrequests for substitution, other than those listed under the Engineering Physics Program, must be approved by the Departmental Representative in advance. ",
+      "min_needed": 1,
+      "explanation": "A minimum of eight upper level Departmental courses are required. This includes Senior Independent Work. \n\nNone of the Department requirements can be taken on a pass/fail or audit basis. All\nrequests for substitution, other than those listed under the Engineering Physics Program, must be approved by the Departmental Representative in advance. ",
       "pdfs_allowed": false,
       "req_list": [
         {
-          "name": "Engineering Science Courses",
-          "max_counted": 5,
-          "min_needed": 5,
-          "explanation": "",
+          "name": "Mechanical Engineering",
+          "max_counted": 1,
+          "min_needed": 7,
+          "explanation": "Mechanical Engineering. This program deals with the analysis and design of machines, their motion, power sources, and control. The curriculum is based on dynamics, thermodynamics, and the study of the structure and behavior of fluid and solid materials; it is accredited by the Engineering Accreditation Commission of ABET.",
           "req_list": [
             {
-              "name": "Dynamics and Control",
-              "max_counted": null,
-              "min_needed": null,
+              "name": "Engineering Science Courses",
+              "max_counted": 5,
+              "min_needed": 5,
               "explanation": "",
-              "course_list": [
-                "MAE 331: Aircraft Flight Dynamics",
-                "MAE 341: Space Flight",
-                "MAE 345: Robotics and Intelligent Systems",
-                "MAE 433: Automatic Control Systems",
-                "MAE 434: Modern Control"
+              "req_list": [
+                {
+                  "name": "Dynamics and Control",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 331: Aircraft Flight Dynamics",
+                    "MAE 341: Space Flight",
+                    "MAE 345: Robotics and Intelligent Systems",
+                    "MAE 433: Automatic Control Systems",
+                    "MAE 434: Modern Control"
+                  ]
+                },
+                {
+                  "name": "Fluid Mechanics/Thermal Sciences",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 328: Energy for a Greenhouse-Constrained World",
+                    "MAE 335: Fluid Dynamics",
+                    "MAE 336: Viscous Flows",
+                    "MAE 552: Viscous Flows and Boundary Layers",
+                    "MAE 423: Heat Transfer",
+                    "MAE 426: Rocket and Air-Breathing Propulsion Technology",
+                    "MAE 427: Energy Conversion and the Environment: Transportation Applications",
+                    "CBE 341: Mass, Momentum, and Energy Transport"
+                  ]
+                },
+                {
+                  "name": "Materials/Structures",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 324: Structure and Properties of Materials",
+                    "MSE 301: Materials Science and Engineering",
+                    "CEE 312: Statics of Structures",
+                    "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods",
+                    "CEE 362: Structural Dynamics and Earthquake Engineering",
+                    "CEE 364: Materials in Civil Engineering"
+                  ]
+                }
               ]
             },
             {
-              "name": "Fluid Mechanics/Thermal Sciences",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "",
+              "name": "Engineering Design Courses",
+              "max_counted": 2,
+              "min_needed": 2,
+              "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
               "course_list": [
-                "MAE 328: Energy for a Greenhouse-Constrained World",
-                "MAE 335: Fluid Dynamics",
-                "MAE 336: Viscous Flows",
-                "MAE 552: Viscous Flows and Boundary Layers",
-                "MAE 423: Heat Transfer",
-                "MAE 426: Rocket and Air-Breathing Propulsion Technology",
-                "MAE 427: Energy Conversion and the Environment: Transportation Applications",
-                "CBE 341: Mass, Momentum, and Energy Transport"
-              ]
-            },
-            {
-              "name": "Materials/Structures",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "",
-              "course_list": [
-                "MAE 324: Structure and Properties of Materials",
-                "MSE 301: Materials Science and Engineering",
-                "CEE 312: Statics of Structures",
-                "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods",
-                "CEE 362: Structural Dynamics and Earthquake Engineering",
-                "CEE 364: Materials in Civil Engineering"
+                "MAE 321: Engineering Design",
+                "MAE 322: Mechanical Design",
+                "MAE 332: Aircraft Design",
+                "MAE 342: Space System Design",
+                "MAE 412: Microprocessors for Measurement and Control",
+                "CEE 477: Engineering Design for Sustainable Development"
               ]
             }
           ]
         },
         {
-          "name": "Engineering Design Courses",
-          "max_counted": 2,
-          "min_needed": 2,
-          "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
-          "course_list": [
-            "MAE 321: Engineering Design",
-            "MAE 322: Mechanical Design",
-            "MAE 332: Aircraft Design",
-            "MAE 342: Space System Design",
-            "MAE 412: Microprocessors for Measurement and Control",
-            "CEE 477: Engineering Design for Sustainable Development"
-          ]
-        },
-        {
-          "name": "Senior Independent work",
+          "name": "Aerospace Engineering",
           "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Senior Independent work is the culminating experience for the mechanical and aerospace\nengineering programs. All seniors are required to participate in a research or engineering\nproject. All projects must include elements of engineering design (engineering design is the\nprocess of devising a system, component, or process to meet desired needs). The following\ncourses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);\nMAE 440 Senior Independent Work (one semester, spring); MAE 442 Senior Thesis (yearlong);\nMAE 444 Senior Project (year-long). Students are strongly encouraged to select\nthe year-long project or thesis option. Senior projects are intended for teams or groups\nwhile senior thesis is intended for individuals. For senior project or thesis, work begins in\nthe fall but enrollment is only in spring term when a double grade is awarded. Please note:\nIf a student has selected to participate in a year-long project or thesis and is enrolled in only\nthree courses during the fall semester, it is required that they will enroll in Senior Project or\nThesis during the spring semester. For these students, it will NOT be possible to drop-down\nto a one-semester course of Independent Work without incurring a failure for Independent\nWork in the fall term. In Spring term you must enroll in three courses plus senior thesis or\nsenior project (senior thesis and senior project count as two courses). Therefore your senior\nyear course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.\nThere are NO exceptions to this rule even if your total number of courses will exceed 36.",
-          "course_list": [
-            "MAE 439: Senior Independent Work (one semester, fall)",
-            "MAE 440: Senior Independent Work (one semester, spring)",
-            "MAE 442: Senior Thesis (year-long)",
-            "MAE 444: Senior Project (year-long)"
+          "min_needed": 7,
+          "explanation": "Aerospace Engineering. This program deals with the analysis and design of aerospace vehicles. The curriculum is based on the applications of principles from dynamics, control, thermodynamics, fluid mechanics and solid mechanics; it is accredited by the Engineering Accreditation Commission of ABET.",
+          "req_list": [
+            {
+              "name": "Engineering Science Courses",
+              "max_counted": 5,
+              "min_needed": 5,
+              "explanation": "",
+              "req_list": [
+                {
+                  "name": "Dynamics and Control",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 331: Aircraft Flight Dynamics",
+                    "MAE 341: Space Flight",
+                    "MAE 345: Robotics and Intelligent Systems",
+                    "MAE 433: Automatic Control Systems",
+                    "MAE 434: Modern Control"
+                  ]
+                },
+                {
+                  "name": "Fluid Mechanics/Thermal Sciences",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 328: Energy for a Greenhouse-Constrained World",
+                    "MAE 335: Fluid Dynamics",
+                    "MAE 336: Viscous Flows",
+                    "MAE 552: Viscous Flows and Boundary Layers",
+                    "MAE 423: Heat Transfer",
+                    "MAE 426: Rocket and Air-Breathing Propulsion Technology",
+                    "MAE 427: Energy Conversion and the Environment: Transportation Applications",
+                    "CBE 341: Mass, Momentum, and Energy Transport"
+                  ]
+                },
+                {
+                  "name": "Materials/Structures",
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": "",
+                  "course_list": [
+                    "MAE 324: Structure and Properties of Materials",
+                    "MSE 301: Materials Science and Engineering",
+                    "CEE 312: Statics of Structures",
+                    "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods",
+                    "CEE 362: Structural Dynamics and Earthquake Engineering",
+                    "CEE 364: Materials in Civil Engineering"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Engineering Design Courses",
+              "max_counted": 2,
+              "min_needed": 2,
+              "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
+              "course_list": [
+                "MAE 321: Engineering Design",
+                "MAE 322: Mechanical Design",
+                "MAE 332: Aircraft Design",
+                "MAE 342: Space System Design",
+                "MAE 412: Microprocessors for Measurement and Control",
+                "CEE 477: Engineering Design for Sustainable Development"
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "name": "Concentration",
+      "name": "Senior Independent work",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "Faculty\nProgram Information\nCourses\nInformation and Departmental Plan of Study\nThe Department of Mechanical and Aerospace Engineering (link is external) recognizes that students have a variety of career objectives. Some enter industry directly in an engineering capacity and some continue their studies in graduate school in engineering or applied science. Other MAE graduates pursue careers in business, law, or medicine. The Department offers sufficient flexibility to students planning an undergraduate program that meets any of these objectives and guides them to build fundamental knowledge in key engineering disciplines and develop practical skills in problem-solving and design. The subjects of solid and fluid mechanics, thermodynamics, dynamics, control systems, materials, and applied mathematics, combined with the experience of engineering design, are core to the department's curriculum. Both the mechanical and aerospace engineering programs are accredited by the Engineering Accreditation Commission of ABET (link is external).\n\nGeneral Requirements\nRequirements for study in the department follow the general requirements for the School of Engineering and Applied Science. In addition, the following four courses and one laboratory are normally completed by departmental students before entry into the junior year.\n\nMechanical and Aerospace Engineering\n\n206 Introduction to Engineering Dynamics\n221 Thermodynamics\n222 Mechanics of Fluids\n223 Modern Solid Mechanics\n224 Integrated Engineering Science Laboratory\n\nSome of the above can be satisfied by equivalent courses. For example, students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223; and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.\n\nEach departmental student will be introduced to instrumentation and computer-based data acquisition in the MAE 224 laboratory.\n\nDepartmental Requirements\nIn order to qualify for graduation each departmental student must satisfactorily complete the following:\n\nI. One upper-level course involving applications of mathematics:  MAE 305 Mathematics in Engineering I\n\nII. Eight upper-level departmental courses\n\nA. Among these are engineering science courses selected from the following list:\n\nDynamics and Control\n\n331 Aircraft Flight Dynamics\n341 Space Flight\n433 Automatic Control Systems\n434 Modern Control\n\nFluid Mechanics/Thermal Sciences\n\n328 Energy for a Greenhouse-Constrained World\n335 Fluid Dynamics\n336 Viscous Flows\n423 Heat Transfer\n426 Rocket and Air-Breathing Propulsion Technology\n427 Energy Conversion and the Environment: Transportation Applications\n552 Viscous Flows--Viscous Flows and Boundary Layers\n\nMaterials/Structures\n\n324 Structure and Properties of Materials\nMSE 301 Materials Science and Engineering\nCEE 312 Statics of Structures\nCEE 361 Structural Analysis and Introduction to Finite-Element Methods\n\nB. A minimum of three courses must be in the area of engineering design. At least two of these must be selected from the following list:\n\n321 Engineering Design (required for all students)\n322 Mechanical Design (required for mechanical engineering or 412)\n332 Aircraft Design (required for aerospace engineering or 342)\n342 Space System Design (required for aerospace engineering or 332)\n412 Microprocessors for Measurement and Control (required for mechanical engineering or 322)\n\nIII. All students are required to participate in a self-directed research or engineering project. (See Independent Work below.)\n\nThe remainder of the 36 courses required for the B.S.E. may be chosen from a wide variety of options. At least seven of these must be in the humanities or social sciences, as required by the School of Engineering and Applied Science. The rest of the courses may be used to pursue a specialty within the department, combine studies with another department, follow one of the topical program curricula, or further expand studies within the humanities or social sciences.\n\nEach student's program is planned individually in consultation with the class adviser. Suggested plans of study for each of the programs in the department are available from the departmental representative.\n\nProgram of Study\nThe department offers two programs of study: mechanical engineering and aerospace engineering. These programs draw on courses in the underlying fundamental sciences and mathematics during the first year, which lead to broad introductory engineering science courses during the second year, where students are introduced to the creative application of this knowledge to the solution of technical problems. Aspects of engineering design, the process of devising a system to meet a need, are introduced to the student through laboratories in the second year and continue through the upperclass years. During the third year all students take a two-semester design sequence as well as further engineering science courses dealing with analysis and application in the areas of energy sources and power systems, structures, aerodynamics and flow systems, and the dynamics of machines and their control. The introduction of design during the third year, combined with further depth in engineering science, enables students to undertake realistic design projects during their senior year. The programs are designed to prepare the graduate for an engineering career and give him or her the ability to continue to grow professionally.",
-      "req_list": [
-        {
-          "name": "Mechanical Engineering",
-          "max_counted": 2,
-          "min_needed": 2,
-          "explanation": "Mechanical Engineering. This program deals with the analysis and design of machines, their motion, power sources, and control. The curriculum is based on dynamics, thermodynamics, and the study of the structure and behavior of fluid and solid materials; it is accredited by the Engineering Accreditation Commission of ABET.",
-          "req_list": []
-        },
-        {
-          "name": "Aerospace Engineering",
-          "max_counted": 2,
-          "min_needed": 2,
-          "explanation": "Aerospace Engineering. This program deals with the analysis and design of aerospace vehicles. The curriculum is based on the applications of principles from dynamics, control, thermodynamics, fluid mechanics and solid mechanics; it is accredited by the Engineering Accreditation Commission of ABET.",
-          "req_list": []
-        }
+      "explanation": "Senior Independent work is the culminating experience for the mechanical and aerospace\nengineering programs. All seniors are required to participate in a research or engineering\nproject. All projects must include elements of engineering design (engineering design is the\nprocess of devising a system, component, or process to meet desired needs). The following\ncourses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);\nMAE 440 Senior Independent Work (one semester, spring); MAE 442 Senior Thesis (yearlong);\nMAE 444 Senior Project (year-long). Students are strongly encouraged to select\nthe year-long project or thesis option. Senior projects are intended for teams or groups\nwhile senior thesis is intended for individuals. For senior project or thesis, work begins in\nthe fall but enrollment is only in spring term when a double grade is awarded. Please note:\nIf a student has selected to participate in a year-long project or thesis and is enrolled in only\nthree courses during the fall semester, it is required that they will enroll in Senior Project or\nThesis during the spring semester. For these students, it will NOT be possible to drop-down\nto a one-semester course of Independent Work without incurring a failure for Independent\nWork in the fall term. In Spring term you must enroll in three courses plus senior thesis or\nsenior project (senior thesis and senior project count as two courses). Therefore your senior\nyear course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.\nThere are NO exceptions to this rule even if your total number of courses will exceed 36.",
+      "course_list": [
+        "MAE 439: Senior Independent Work (one semester, fall)",
+        "MAE 440: Senior Independent Work (one semester, spring)",
+        "MAE 442: Senior Thesis (year-long)",
+        "MAE 444: Senior Project (year-long)"
       ]
     }
   ]
