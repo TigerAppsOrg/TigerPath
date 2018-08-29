@@ -115,6 +115,7 @@
       "min_needed": 1,
       "explanation": "A minimum of eight upper level Departmental courses are required. This includes Senior Independent Work. \n\nNone of the Department requirements can be taken on a pass/fail or audit basis. All\nrequests for substitution, other than those listed under the Engineering Physics Program, must be approved by the Departmental Representative in advance. ",
       "pdfs_allowed": false,
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Mechanical Engineering",
