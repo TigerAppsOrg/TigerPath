@@ -126,19 +126,35 @@
               "name": "Engineering Science Courses",
               "max_counted": 5,
               "min_needed": 5,
-              "explanation": "",
+              "explanation": "Five Engineering Science courses are required",
               "req_list": [
                 {
                   "name": "Dynamics and Control",
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 331: Aircraft Flight Dynamics",
-                    "MAE 341: Space Flight",
-                    "MAE 345: Robotics and Intelligent Systems",
-                    "MAE 433: Automatic Control Systems",
-                    "MAE 434: Modern Control"
+                  "req_list": [
+                    {
+                      "name": "Core",
+                      "max_counted": null,
+                      "min_needed": "ALL",
+                      "explanation": "MAE 433 required for Mechanical and Aerospace Engineers",
+                      "course_list": [
+                        "MAE 433: Automatic Control Systems"
+                      ]
+                    },
+                    {
+                      "name": "Electives",
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": "",
+                      "course_list": [
+                        "MAE 331: Aircraft Flight Dynamics",
+                        "MAE 341: Space Flight",
+                        "MAE 345: Robotics and Intelligent Systems",
+                        "MAE 434: Modern Control"
+                      ]
+                    }
                   ]
                 },
                 {
@@ -146,15 +162,31 @@
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 328: Energy for a Greenhouse-Constrained World",
-                    "MAE 335: Fluid Dynamics",
-                    "MAE 336: Viscous Flows",
-                    "MAE 552: Viscous Flows and Boundary Layers",
-                    "MAE 423: Heat Transfer",
-                    "MAE 426: Rocket and Air-Breathing Propulsion Technology",
-                    "MAE 427: Energy Conversion and the Environment: Transportation Applications",
-                    "CBE 341: Mass, Momentum, and Energy Transport"
+                  "req_list": [
+                    {
+                      "name": "Core",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 335 or 336 or 423 required for Mechanical Engineers.",
+                      "course_list": [
+                        "MAE 335: Fluid Dynamics",
+                        "MAE 336: Viscous Flows",
+                        "MAE 552: Viscous Flows and Boundary Layers",
+                        "MAE 423: Heat Transfer"
+                      ]
+                    },
+                    {
+                      "name": "Electives",
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": "",
+                      "course_list": [
+                        "MAE 328: Energy for a Greenhouse-Constrained World",
+                        "MAE 426: Rocket and Air-Breathing Propulsion Technology",
+                        "MAE 427: Energy Conversion and the Environment: Transportation Applications",
+                        "CBE 341: Mass, Momentum, and Energy Transport"
+                      ]
+                    }
                   ]
                 },
                 {
@@ -162,13 +194,29 @@
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 324: Structure and Properties of Materials",
-                    "MSE 301: Materials Science and Engineering",
-                    "CEE 312: Statics of Structures",
-                    "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods",
-                    "CEE 362: Structural Dynamics and Earthquake Engineering",
-                    "CEE 364: Materials in Civil Engineering"
+                  "req_list": [
+                    {
+                      "name": "Materials",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 324 or MSE 301 required for Mechanical and Aerospace Engineers\n\nNote: CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. \nRequires the approval of the Department Representative.",
+                      "course_list": [
+                        "MAE 324: Structure and Properties of Materials",
+                        "MSE 301: Materials Science and Engineering",
+                        "CEE 362: Structural Dynamics and Earthquake Engineering",
+                        "CEE 364: Materials in Civil Engineering"
+                      ]
+                    },
+                    {
+                      "name": "Structures",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "course_list": [
+                        "CEE 312: Statics of Structures",
+                        "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -178,13 +226,27 @@
               "max_counted": 2,
               "min_needed": 2,
               "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
-              "course_list": [
-                "MAE 321: Engineering Design",
-                "MAE 322: Mechanical Design",
-                "MAE 332: Aircraft Design",
-                "MAE 342: Space System Design",
-                "MAE 412: Microprocessors for Measurement and Control",
-                "CEE 477: Engineering Design for Sustainable Development"
+              "req_list": [
+                {
+                  "name": "Core",
+                  "max_counted": null,
+                  "min_needed": "ALL",
+                  "explanation": "Required for Mechanical Engineers and Aerospace Engineers",
+                  "course_list": [
+                    "MAE 321: Engineering Design"
+                  ]
+                },
+                {
+                  "name": "Elective",
+                  "max_counted": null,
+                  "min_needed": 1,
+                  "explanation": "MAE 322 or MAE 412 required for Mechanical Engineers\n\nNote: CEE 477 is an acceptable substitute only for Mechanical Engineers who are pursuing the Sustainable Energy Certificate Program",
+                  "course_list": [
+                    "MAE 322: Mechanical Design",
+                    "MAE 412: Microprocessors for Measurement and Control",
+                    "CEE 477: Engineering Design for Sustainable Development"
+                  ]
+                }
               ]
             }
           ]
@@ -199,19 +261,43 @@
               "name": "Engineering Science Courses",
               "max_counted": 5,
               "min_needed": 5,
-              "explanation": "",
+              "explanation": "Five Engineering Science courses are required",
               "req_list": [
                 {
                   "name": "Dynamics and Control",
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 331: Aircraft Flight Dynamics",
-                    "MAE 341: Space Flight",
-                    "MAE 345: Robotics and Intelligent Systems",
-                    "MAE 433: Automatic Control Systems",
-                    "MAE 434: Modern Control"
+                  "req_list": [
+                    {
+                      "name": "Core 1",
+                      "max_counted": null,
+                      "min_needed": "ALL",
+                      "explanation": "MAE 433 required for Mechanical and Aerospace Engineers",
+                      "course_list": [
+                        "MAE 433: Automatic Control Systems"
+                      ]
+                    },
+                    {
+                      "name": "Core 2",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 331 or 341 required for Aerospace Engineers",
+                      "course_list": [
+                        "MAE 331: Aircraft Flight Dynamics",
+                        "MAE 341: Space Flight"
+                      ]
+                    },
+                    {
+                      "name": "Electives",
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": "",
+                      "course_list": [
+                        "MAE 345: Robotics and Intelligent Systems",
+                        "MAE 434: Modern Control"
+                      ]
+                    }
                   ]
                 },
                 {
@@ -219,15 +305,38 @@
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 328: Energy for a Greenhouse-Constrained World",
-                    "MAE 335: Fluid Dynamics",
-                    "MAE 336: Viscous Flows",
-                    "MAE 552: Viscous Flows and Boundary Layers",
-                    "MAE 423: Heat Transfer",
-                    "MAE 426: Rocket and Air-Breathing Propulsion Technology",
-                    "MAE 427: Energy Conversion and the Environment: Transportation Applications",
-                    "CBE 341: Mass, Momentum, and Energy Transport"
+                  "req_list": [
+                    {
+                      "name": "Core 1",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 335 required for Aerospace Engineers",
+                      "course_list": [
+                        "MAE 335: Fluid Dynamics"
+                      ]
+                    },
+                    {
+                      "name": "Core 2",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 427 or 426 required for Aerospace Engineers",
+                      "course_list": [
+                        "MAE 427: Energy Conversion and the Environment: Transportation Applications",
+                        "MAE 426: Rocket and Air-Breathing Propulsion Technology"
+                      ]
+                    },
+                    {
+                      "name": "Electives",
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": "",
+                      "course_list": [
+                        "MAE 336: Viscous Flows",
+                        "MAE 552: Viscous Flows and Boundary Layers",
+                        "MAE 423: Heat Transfer",
+                        "MAE 328: Energy for a Greenhouse-Constrained World"
+                      ]
+                    }
                   ]
                 },
                 {
@@ -235,13 +344,29 @@
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": "",
-                  "course_list": [
-                    "MAE 324: Structure and Properties of Materials",
-                    "MSE 301: Materials Science and Engineering",
-                    "CEE 312: Statics of Structures",
-                    "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods",
-                    "CEE 362: Structural Dynamics and Earthquake Engineering",
-                    "CEE 364: Materials in Civil Engineering"
+                  "req_list": [
+                    {
+                      "name": "Materials",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "MAE 324 or MSE 301 required for Mechanical and Aerospace Engineers\n\nNote: CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. \nRequires the approval of the Department Representative.",
+                      "course_list": [
+                        "MAE 324: Structure and Properties of Materials",
+                        "MSE 301: Materials Science and Engineering",
+                        "CEE 362: Structural Dynamics and Earthquake Engineering",
+                        "CEE 364: Materials in Civil Engineering"
+                      ]
+                    },
+                    {
+                      "name": "Structures",
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "course_list": [
+                        "CEE 312: Statics of Structures",
+                        "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -251,13 +376,26 @@
               "max_counted": 2,
               "min_needed": 2,
               "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
-              "course_list": [
-                "MAE 321: Engineering Design",
-                "MAE 322: Mechanical Design",
-                "MAE 332: Aircraft Design",
-                "MAE 342: Space System Design",
-                "MAE 412: Microprocessors for Measurement and Control",
-                "CEE 477: Engineering Design for Sustainable Development"
+              "req_list": [
+                {
+                  "name": "Core",
+                  "max_counted": null,
+                  "min_needed": "ALL",
+                  "explanation": "Required for Mechanical Engineers and Aerospace Engineers",
+                  "course_list": [
+                    "MAE 321: Engineering Design"
+                  ]
+                },
+                {
+                  "name": "Elective",
+                  "max_counted": null,
+                  "min_needed": 1,
+                  "explanation": "MAE 332 or MAE 342 required for Aerospace Engineers",
+                  "course_list": [
+                    "MAE 332: Aircraft Design",
+                    "MAE 342: Space System Design"
+                  ]
+                }
               ]
             }
           ]
