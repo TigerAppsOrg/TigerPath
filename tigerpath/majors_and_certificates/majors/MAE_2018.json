@@ -43,7 +43,7 @@
         {
           "name": null,
           "max_counted": null,
-          "min_needed": "ALL",
+          "min_needed": null,
           "explanation": "",
           "course_list": [
             "MAE 221: Thermodynamics",
