@@ -51,7 +51,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "ORF 311",
                         "ORF 350",
@@ -80,7 +79,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CEE 304",
                         "CEE 460"
@@ -93,7 +91,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "CHM 303",
                         "CHM 304"
@@ -106,7 +103,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "COS 226",
                         "COS 323",
@@ -123,7 +119,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "ECO 310",
                         "ECO 311",
@@ -149,7 +144,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "EEB 324"
                     ]
@@ -161,7 +155,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "ELE 301",
                         "ELE 381",
@@ -175,7 +168,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "ENV 302"
                     ]
@@ -187,7 +179,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "MAE 433"
                     ]
@@ -199,7 +190,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "MAT 320",
                         "MAT 322/APC 350",
@@ -221,7 +211,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "MOL 345"
                     ]
@@ -233,7 +222,6 @@
                     "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
                     "double_counting_allowed": false,
                     "completed_by_semester": 8,
-                    "req_list": [],
                     "course_list": [
                         "NEU 437",
                         "NEU 330"
