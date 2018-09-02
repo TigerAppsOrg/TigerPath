@@ -2,12 +2,13 @@
     "type": "Major",
     "name": "Operations Research and Financial Engineering",
     "code": "ORF",
+    "degree": "BSE",
     "year": 2018,
     "description": "Operations research and financial engineering (link is external)may be considered as the modern form of a liberal education: modern because it is based on science, mathematics, computing and technology, and liberal in the sense that it provides for broad intellectual development and can lead to many different types of careers. By choosing judiciously from courses in engineering, science, mathematics, economics, public policy, and liberal arts, each student may design a program adapted to his or her particular interests.",
     "urls": [
-        "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering#"
+        "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering#",
+        "https://orfe.princeton.edu/"
     ],
-    "allowed_majors": [],
     "contacts": [
         {
             "type": "Departmental Representative",
@@ -23,12 +24,11 @@
     "req_list": [
         {
             "name": "Core",
-            "max_counted": 4,
+            "max_counted": 1,
             "min_needed": 4,
             "explanation": "The core requirements (four courses). These form the intellectual foundation of the field and cover statistics, probability, stochastic processes, and optimization, along with more advanced courses in mathematical modeling.",
             "double_counting_allowed": false,
             "completed_by_semester": 8,
-            "req_list": [],
             "course_list": [
                 "ORF 245",
                 "ORF 307",
@@ -38,7 +38,7 @@
         },
         {
             "name": "Departmental Electives",
-            "max_counted": 10,
+            "max_counted": 1,
             "min_needed": 10,
             "explanation": "These are courses that either extend and broaden the core, or expose the student to a significant problem area or application closely related to the core program. \n1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
             "double_counting_allowed": false,
@@ -239,19 +239,18 @@
                         "NEU 330"
                     ]
                 }
-            ],
-            "course_list": []
+            ]
         },
         {
             "name": "Senior Independent Research",
             "max_counted": 1,
-            "min_needed": 1,
+            "min_needed": 2,
             "explanation": "A full-year thesis (or a one semester project plus an additional 400-level ORFE departmental) involving an application of the techniques in the program applied to a topic that the student chooses in consultation with a faculty adviser.",
             "double_counting_allowed": false,
             "completed_by_semester": 8,
-            "req_list": [],
             "course_list": [
-                "ORF 478"
+                "ORF 478",
+                "ORF 479"
             ]
         }
     ]

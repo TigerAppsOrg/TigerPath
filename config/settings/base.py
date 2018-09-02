@@ -92,7 +92,7 @@ USE_TZ = True
 SECRET_KEY = os.getenv('SECRET_KEY', 'no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a')
 
 DATABASES = {}
-DATABASES['default'] = dj_database_url.config()
+DATABASES['default'] = dj_database_url.config(default='postgresql://tigerpath:sQ1r8BZOjWYoRE9ldGyrgpMoU1WHWQWR7XD0Lfibri6jU9gDRqsnG7r2QKUIF9Hq5@167.99.236.185/tigerpath')
 
 
 # Static files (CSS, JavaScript, Images)
