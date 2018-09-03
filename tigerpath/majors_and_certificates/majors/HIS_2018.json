@@ -23,7 +23,7 @@
       "completed_by_semester":8,
       "req_list":[
         {
-          "name":"Standard History Major",
+          "name":"History Major",
           "max_counted":1,
           "min_needed":"ALL",
           "explanation":"Standard History Major Requirements.",
@@ -338,10 +338,11 @@
             },
             {
               "name":"Departmentals",
-              "max_counted":1,
+              "max_counted":11,
               "min_needed":9,
               "explanation":"Departmental regulations stipulate that undergraduates must pass at least 10 courses, including HIS 400, in order to receive the A.B. degree.",
               "completed_by_semester":8,
+              "double_counting_allowed":true,
               "course_list":[
                 "HIS *"
               ]
