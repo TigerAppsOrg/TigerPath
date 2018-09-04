@@ -7,13 +7,19 @@
       <div class="modal-body">
         <div class="container">
           <div id="page-1">
-            <p>Before we get started, there are a few things we need to take care of. Then you'll be on your way to creating your four-year course schedule!</p>
+            <h6>Before we get started...</h6>
+            <p>TigerPath is a tool, and is not a replacement for talking with your academic advisor. The official decision for whether or not a particular schedule fulfills your graduation requirements always rests with the university.</p>
+            <p>We recommend using TigerPath to plan out your schedule and then double-checking with your advisor to make sure that your schedule is reasonable and satisfies all of the requirements you want to satisfy.</p>
+            <p>TigerPath is currently in beta. If you find any bugs or have any suggestions, we would appreciate your <a href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">feedback</a>!</p>
+            <p>By continuing, you affirm that you have read and understood the terms outlined above and in our <a href="{% url 'privacy_policy' %}" target="_blank">privacy policy</a>.</p>
+          </div>
+          <div id="page-2" class="hidden animated">
             <h6>Confirm your info</h6>
             <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
             {% csrf_token %}
             {% include 'includes/bs4_form.html' with form=onboarding_form %}
           </div>
-          <div id="page-2" class="hidden animated">
+          <div id="page-3" class="hidden animated">
             <h6>Prepopulate your course schedule (Optional)</h6>
             <p>If you're interested in prepopulating your four-year course schedule with courses you've already taken, then you can upload your unofficial transcript to the TigerApps Transcript Service.</p>
             <p>Once you click on "Continue with Transcript Service" below, you will be redirected to the TigerApps Transcript Service webpage. Check "Share Courses", upload your transcript as a PDF file, and click the submit button. The service will extract the courses you've taken, and we'll automatically put them into your schedule.</p>
