@@ -309,6 +309,7 @@ class Search extends Component {
     return (
         <div>
         <input type = "text" 
+          name="search-text"
           placeholder = 'Search Courses'
           value={this.state.search}
           onChange={this.updateSearch.bind(this)}
