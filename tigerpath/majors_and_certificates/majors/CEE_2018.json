@@ -90,10 +90,9 @@
             {
               "name": "Independent Work",
               "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": 1,
               "explanation": "Independent Work (two courses)",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             },
@@ -227,11 +226,10 @@
             },
             {
               "name": "Independent Work",
-              "max_counted": 2,
-              "min_needed": 2,
+              "max_counted": 1,
+              "min_needed": 1,
               "explanation": "Long text from department website.\nIndependent Work (two courses)",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             },
@@ -354,10 +352,9 @@
             {
               "name": "Independent Work",
               "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": 1,
               "explanation": "Long text from department website.\nIndependent Work (two courses):",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             },
@@ -481,7 +478,6 @@
               "min_needed": 1,
               "explanation": "Independent Work (two courses)",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             },
@@ -569,10 +565,9 @@
             {
               "name": "Independent Work",
               "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": 1,
               "explanation": "Independent Work (two courses)",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             },
@@ -661,10 +656,9 @@
             {
               "name": "Independent Work",
               "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": 1,
               "explanation": "Independent Work (two courses):",
               "course_list": [
-                "CEE 478",
                 "CEE 478"
               ]
             }
