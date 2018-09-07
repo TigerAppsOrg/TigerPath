@@ -36,7 +36,8 @@ function getHash(stringName) {
 }
 
 function getReqCourses(req_path){
-  document.getElementsByName('search-text')[0].value='Filtered Search';
+  var filterText = req_path.substring(req_path.lastIndexOf("//")+2,req_path.length) + ' Requirement';
+  document.getElementsByName('search-text')[0].value=filterText;
   $('#spinner').css('display', 'inline-block');
   $.ajax({
       // the slashes messes up the url 
