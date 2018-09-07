@@ -4,7 +4,8 @@
   "code": "CEE",
   "degree": "BSE",
   "year": 2018,
-  "description": "The department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.",
+  "description": "The department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.\n\nThe department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.",
+  "min_needed": 1,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-civil-and-environmental-engineering",
     "http://www.princeton.edu/cee/forms/Yellow_Book_for_Class_of_2020_Mar.2017_3.7.pdf"
@@ -23,645 +24,637 @@
   ],
   "req_list": [
     {
-      "name": "Track",
+      "name": "Architecture and Engineering: Structural Focus",
       "max_counted": 1,
-      "min_needed": 1,
-      "explanation": "The department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.",
+      "min_needed": "ALL",
+      "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
       "req_list": [
         {
-          "name": "Architecture and Engineering: Structural Focus",
+          "name": "Engineering science requirements",
           "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
+          "min_needed": 3,
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": "Engineering science requirements",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Engineering science requirements (eight courses)",
-              "req_list": [
-                {
-                  "name": "Engineering science requirements",
-                  "max_counted": 1,
-                  "min_needed": 6,
-                  "explanation": "Engineering science requirements",
-                  "course_list": [
-                    "CEE 205",
-                    "CEE 262A",
-                    "CEE 312",
-                    "CEE 361",
-                    "CEE 364",
-                    "CEE 365"
-                  ]
-                },
-                {
-                  "name": "CEE 207, CEE 302, or CEE 306",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 207, CEE 302, or CEE 306",
-                  "course_list": [
-                    "CEE 207",
-                    "CEE 302",
-                    "CEE 306"
-                  ]
-                },
-                {
-                  "name": "ARC 374 or CEE 463",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "ARC 374 or CEE 463",
-                  "course_list": [
-                    "ARC 374",
-                    "CEE 463"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Engineering design requirements",
-              "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "Engineering design requirements (two courses):",
-              "course_list": [
-                "CEE 366",
-                "CEE 461"
-              ]
-            },
-            {
-              "name": "Independent Work",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Independent Work (two courses)",
-              "course_list": [
-                "CEE 478"
-              ]
-            },
-            {
-              "name": "Track Specific Requirements",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Track Specific Requirements (three courses)",
-              "course_list": [
-                "ARC 203",
-                "ARC 204",
-                "ARC 350"
-              ]
-            },
-            {
-              "name": "Program Electives",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Students in this sub-plan must take one more program elective and it must be an engineering course.",
-              "course_list": [
-                "CEE 439",
-                "CEE 460",
-                "CEE 463",
-                "CEE 467",
-                "CEE 477",
-                "CEE 540",
-                "CEE 566",
-                "CEE 568",
-                "ORF 307",
-                "ORF 309",
-                "ARC 201",
-                "ARC 202",
-                "ARC 302",
-                "ARC 304",
-                "ARC 305",
-                "ARC 308",
-                "ARC 401",
-                "ARC 406",
-                "ARC 492",
-                "ART 206",
-                "ART 230",
-                "ART 242",
-                "ART 250",
-                "ART 308",
-                "ART 315",
-                "ART 320",
-                "ART 332",
-                "ART 333",
-                "ART 337",
-                "ART 351",
-                "ART 443",
-                "ART 445",
-                "ART 458",
-                "URB 201"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Architecture and Engineering: Architecture Focus",
-          "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "In the architecture-focus option, the requirements include a strong emphasis on architecture theory, history, and practice. This track is designed for students planning to do graduate work in architecture or to practice engineering in consultation with architects and planners. Students choosing this option do a senior thesis under the direction of advisers from both the School of Architecture and the Department of Civil and Environmental Engineering.",
-          "req_list": [
-            {
-              "name": "Engineering science requirements (six courses)",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Engineering science requirements (six courses)",
-              "req_list": [
-                {
-                  "name": "Engineering science requirements",
-                  "max_counted": 1,
-                  "min_needed": 0,
-                  "explanation": "Engineering science requirements",
-                  "course_list": [
-                    "CEE 205",
-                    "CEE 262A",
-                    "CEE 364",
-                    "ARC 311"
-                  ]
-                },
-                {
-                  "name": "CEE 312 or CEE 361",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 312 or CEE 361",
-                  "course_list": [
-                    "CEE 312",
-                    "CEE 361"
-                  ]
-                },
-                {
-                  "name": "ARC 374 or CEE 463",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "ARC 374 or CEE 463",
-                  "course_list": [
-                    "ARC 374",
-                    "CEE 463"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Engineering design requirements",
-              "max_counted": 2,
-              "min_needed": 2,
-              "explanation": "Engineering design requirements (two courses)",
-              "req_list": [
-                {
-                  "name": "Engineering design requirements",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "Engineering design requirements",
-                  "course_list": [
-                    "CEE 366"
-                  ]
-                },
-                {
-                  "name": "CEE 461 or CEE 462",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 461 or CEE 462",
-                  "course_list": [
-                    "CEE 461",
-                    "CEE 462"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Independent Work",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Long text from department website.\nIndependent Work (two courses)",
-              "course_list": [
-                "CEE 478"
-              ]
-            },
-            {
-              "name": "Track specific requirements",
               "max_counted": 1,
               "min_needed": 6,
-              "explanation": "Track specific requirements (six courses):",
+              "explanation": "Engineering science requirements",
               "course_list": [
-                "ARC 203",
-                "ARC 204",
-                "ARC 403",
-                "ARC 404",
-                "ARC 350",
-                "ARC 351"
-              ]
-            },
-            {
-              "name": "Program Electives",
-              "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "Students in this program must take two or more program electives, normally selected from a pre-approved list of courses in CEE, architecture and art.",
-              "course_list": [
-                "CEE 439",
-                "CEE 460",
-                "CEE 463",
-                "CEE 467",
-                "CEE 477",
-                "CEE 540",
-                "CEE 566",
-                "CEE 568",
-                "ORF 307",
-                "ORF 309",
-                "ARC 201",
-                "ARC 202",
-                "ARC 302",
-                "ARC 304",
-                "ARC 305",
-                "ARC 308",
-                "ARC 401",
-                "ARC 406",
-                "ARC 492",
-                "ART 206",
-                "ART 230",
-                "ART 242",
-                "ART 250",
-                "ART 308",
-                "ART 315",
-                "ART 320",
-                "ART 332",
-                "ART 333",
-                "ART 337",
-                "ART 351",
-                "ART 443",
-                "ART 445",
-                "ART 458",
-                "URB 201"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Environmental Engineering",
-          "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Students normally take the following courses:",
-          "req_list": [
-            {
-              "name": "Engineering science requirements",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Engineering science requirements (eight courses):",
-              "req_list": [
-                {
-                  "name": "Engineering science requirements",
-                  "max_counted": 1,
-                  "min_needed": 6,
-                  "explanation": "Engineering science requirements",
-                  "course_list": [
-                    "CEE 205",
-                    "CEE 207",
-                    "CEE 302",
-                    "CEE 305",
-                    "CEE 308",
-                    "CEE 311"
-                  ]
-                },
-                {
-                  "name": "CEE 306 or CEE 307",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 306 or CEE 307",
-                  "course_list": [
-                    "CEE 306",
-                    "CEE 307"
-                  ]
-                },
-                {
-                  "name": "CEE 364 or CEE 365",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 364 or CEE 365",
-                  "course_list": [
-                    "CEE 364",
-                    "CEE 365"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Engineering design",
-              "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "Engineering design (two courses)",
-              "course_list": [
-                "CEE 471",
-                "CEE 477"
-              ]
-            },
-            {
-              "name": "Independent Work",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Long text from department website.\nIndependent Work (two courses):",
-              "course_list": [
-                "CEE 478"
-              ]
-            },
-            {
-              "name": "Program Electives",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "No more than one program elective can be at the 200 level. For the environmental engineering track, at least one of the program electives must be an engineering course.",
-              "course_list": [
-                "CEE 334",
+                "CEE 205",
+                "CEE 262A",
+                "CEE 312",
                 "CEE 361",
-                "CEE 460",
-                "CEE 487",
-                "CEE 566",
-                "MAE 328",
+                "CEE 364",
+                "CEE 365"
+              ]
+            },
+            {
+              "name": "CEE 207, CEE 302, or CEE 306",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 207, CEE 302, or CEE 306",
+              "course_list": [
+                "CEE 207",
+                "CEE 302",
+                "CEE 306"
+              ]
+            },
+            {
+              "name": "ARC 374 or CEE 463",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "ARC 374 or CEE 463",
+              "course_list": [
+                "ARC 374",
+                "CEE 463"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses):",
+          "course_list": [
+            "CEE 366",
+            "CEE 461"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (two courses)",
+          "course_list": [
+            "CEE 478"
+          ]
+        },
+        {
+          "name": "Track Specific Requirements",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Track Specific Requirements (three courses)",
+          "course_list": [
+            "ARC 203",
+            "ARC 204",
+            "ARC 350"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Students in this sub-plan must take one more program elective and it must be an engineering course.",
+          "course_list": [
+            "CEE 439",
+            "CEE 460",
+            "CEE 463",
+            "CEE 467",
+            "CEE 477",
+            "CEE 540",
+            "CEE 566",
+            "CEE 568",
+            "ORF 307",
+            "ORF 309",
+            "ARC 201",
+            "ARC 202",
+            "ARC 302",
+            "ARC 304",
+            "ARC 305",
+            "ARC 308",
+            "ARC 401",
+            "ARC 406",
+            "ARC 492",
+            "ART 206",
+            "ART 230",
+            "ART 242",
+            "ART 250",
+            "ART 308",
+            "ART 315",
+            "ART 320",
+            "ART 332",
+            "ART 333",
+            "ART 337",
+            "ART 351",
+            "ART 443",
+            "ART 445",
+            "ART 458",
+            "URB 201"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Architecture and Engineering: Architecture Focus",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "In the architecture-focus option, the requirements include a strong emphasis on architecture theory, history, and practice. This track is designed for students planning to do graduate work in architecture or to practice engineering in consultation with architects and planners. Students choosing this option do a senior thesis under the direction of advisers from both the School of Architecture and the Department of Civil and Environmental Engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements (six courses)",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Engineering science requirements (six courses)",
+          "req_list": [
+            {
+              "name": "Engineering science requirements",
+              "max_counted": 1,
+              "min_needed": 0,
+              "explanation": "Engineering science requirements",
+              "course_list": [
+                "CEE 205",
+                "CEE 262A",
+                "CEE 364",
+                "ARC 311"
+              ]
+            },
+            {
+              "name": "CEE 312 or CEE 361",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 312 or CEE 361",
+              "course_list": [
+                "CEE 312",
+                "CEE 361"
+              ]
+            },
+            {
+              "name": "ARC 374 or CEE 463",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "ARC 374 or CEE 463",
+              "course_list": [
+                "ARC 374",
+                "CEE 463"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 2,
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses)",
+          "req_list": [
+            {
+              "name": "Engineering design requirements",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Engineering design requirements",
+              "course_list": [
+                "CEE 366"
+              ]
+            },
+            {
+              "name": "CEE 461 or CEE 462",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 461 or CEE 462",
+              "course_list": [
+                "CEE 461",
+                "CEE 462"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Long text from department website.\nIndependent Work (two courses)",
+          "course_list": [
+            "CEE 478"
+          ]
+        },
+        {
+          "name": "Track specific requirements",
+          "max_counted": 1,
+          "min_needed": 6,
+          "explanation": "Track specific requirements (six courses):",
+          "course_list": [
+            "ARC 203",
+            "ARC 204",
+            "ARC 403",
+            "ARC 404",
+            "ARC 350",
+            "ARC 351"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Students in this program must take two or more program electives, normally selected from a pre-approved list of courses in CEE, architecture and art.",
+          "course_list": [
+            "CEE 439",
+            "CEE 460",
+            "CEE 463",
+            "CEE 467",
+            "CEE 477",
+            "CEE 540",
+            "CEE 566",
+            "CEE 568",
+            "ORF 307",
+            "ORF 309",
+            "ARC 201",
+            "ARC 202",
+            "ARC 302",
+            "ARC 304",
+            "ARC 305",
+            "ARC 308",
+            "ARC 401",
+            "ARC 406",
+            "ARC 492",
+            "ART 206",
+            "ART 230",
+            "ART 242",
+            "ART 250",
+            "ART 308",
+            "ART 315",
+            "ART 320",
+            "ART 332",
+            "ART 333",
+            "ART 337",
+            "ART 351",
+            "ART 443",
+            "ART 445",
+            "ART 458",
+            "URB 201"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Environmental Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Students normally take the following courses:",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Engineering science requirements (eight courses):",
+          "req_list": [
+            {
+              "name": "Engineering science requirements",
+              "max_counted": 1,
+              "min_needed": 6,
+              "explanation": "Engineering science requirements",
+              "course_list": [
+                "CEE 205",
+                "CEE 207",
+                "CEE 302",
+                "CEE 305",
+                "CEE 308",
+                "CEE 311"
+              ]
+            },
+            {
+              "name": "CEE 306 or CEE 307",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 306 or CEE 307",
+              "course_list": [
+                "CEE 306",
+                "CEE 307"
+              ]
+            },
+            {
+              "name": "CEE 364 or CEE 365",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 364 or CEE 365",
+              "course_list": [
+                "CEE 364",
+                "CEE 365"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Engineering design (two courses)",
+          "course_list": [
+            "CEE 471",
+            "CEE 477"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Long text from department website.\nIndependent Work (two courses):",
+          "course_list": [
+            "CEE 478"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "No more than one program elective can be at the 200 level. For the environmental engineering track, at least one of the program electives must be an engineering course.",
+          "course_list": [
+            "CEE 334",
+            "CEE 361",
+            "CEE 460",
+            "CEE 487",
+            "CEE 566",
+            "MAE 328",
+            "GEO 363",
+            "GEO 418",
+            "ORF 309",
+            "ELE 455",
+            "ELE 428"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geological Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. In addition to the general requirements of the School of Engineering and Applied Science, the following courses are required:",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Engineering science requirements (eight courses)",
+          "req_list": [
+            {
+              "name": "Engineering science requirements",
+              "max_counted": 1,
+              "min_needed": 6,
+              "explanation": "Engineering science requirements",
+              "course_list": [
+                "CEE 205",
+                "CEE 305/GEO 375",
+                "CEE 311/GEO 311"
+              ]
+            },
+            {
+              "name": "CEE 207 or CEE 302",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 207 or CEE 302",
+              "course_list": [
+                "CEE 207",
+                "CEE 302"
+              ]
+            },
+            {
+              "name": "CEE 306 or CEE 307",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 306 or CEE 307",
+              "course_list": [
+                "CEE 306",
+                "CEE 307"
+              ]
+            },
+            {
+              "name": "CEE 308 or GEO 300",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 308 or GEO 300",
+              "course_list": [
+                "CEE 308",
+                "GEO 300"
+              ]
+            },
+            {
+              "name": "CEE 365 or CEE 370/GEO 370",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 365 or CEE 370/GEO 370",
+              "course_list": [
+                "CEE 365",
+                "CEE 370/GEO 370"
+              ]
+            },
+            {
+              "name": "Engineering science requirement (1 from this list)",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Engineering science requirement (1 from this list)",
+              "course_list": [
+                "CEE 360/GEO 361",
                 "GEO 363",
+                "GEO 366",
+                "CEE 417/GEO 417",
                 "GEO 418",
-                "ORF 309",
-                "ELE 455",
-                "ELE 428"
+                "CEE 424/GEO 424",
+                "GEO 430",
+                "GEO 441",
+                "GEO 470",
+                "GEO 499"
               ]
             }
           ]
         },
         {
-          "name": "Geological Engineering",
+          "name": "Engineering design requirements",
           "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. In addition to the general requirements of the School of Engineering and Applied Science, the following courses are required:",
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses)",
+          "course_list": [
+            "CEE 471/GEO 471",
+            "CEE 477"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (two courses)",
+          "course_list": [
+            "CEE 478"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "No more than one program elective can be at the 200 level. For the geological engineering track, two of the three required program electives must be engineering courses.",
+          "course_list": [
+            "CEE 311",
+            "CEE 460",
+            "CEE 566",
+            "GEO 423/CEE423"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Structural Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering. Students normally take the following courses:",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": "Engineering science requirements",
               "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Engineering science requirements (eight courses)",
-              "req_list": [
-                {
-                  "name": "Engineering science requirements",
-                  "max_counted": 1,
-                  "min_needed": 6,
-                  "explanation": "Engineering science requirements",
-                  "course_list": [
-                    "CEE 205",
-                    "CEE 305/GEO 375",
-                    "CEE 311/GEO 311"
-                  ]
-                },
-                {
-                  "name": "CEE 207 or CEE 302",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 207 or CEE 302",
-                  "course_list": [
-                    "CEE 207",
-                    "CEE 302"
-                  ]
-                },
-                {
-                  "name": "CEE 306 or CEE 307",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 306 or CEE 307",
-                  "course_list": [
-                    "CEE 306",
-                    "CEE 307"
-                  ]
-                },
-                {
-                  "name": "CEE 308 or GEO 300",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 308 or GEO 300",
-                  "course_list": [
-                    "CEE 308",
-                    "GEO 300"
-                  ]
-                },
-                {
-                  "name": "CEE 365 or CEE 370/GEO 370",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 365 or CEE 370/GEO 370",
-                  "course_list": [
-                    "CEE 365",
-                    "CEE 370/GEO 370"
-                  ]
-                },
-                {
-                  "name": "Engineering science requirement (1 from this list)",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "Engineering science requirement (1 from this list)",
-                  "course_list": [
-                    "CEE 360/GEO 361",
-                    "GEO 363",
-                    "GEO 366",
-                    "CEE 417/GEO 417",
-                    "GEO 418",
-                    "CEE 424/GEO 424",
-                    "GEO 430",
-                    "GEO 441",
-                    "GEO 470",
-                    "GEO 499"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Engineering design requirements",
-              "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "Engineering design requirements (two courses)",
+              "min_needed": 4,
+              "explanation": "Engineering science requirements",
               "course_list": [
-                "CEE 471/GEO 471",
-                "CEE 477"
+                "CEE 205",
+                "CEE 262A",
+                "CEE 312",
+                "CEE 361"
               ]
             },
             {
-              "name": "Independent Work",
+              "name": "CEE 207 or  CEE 302",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "Independent Work (two courses)",
+              "explanation": "CEE 207 or  CEE 302",
               "course_list": [
-                "CEE 478"
+                "CEE 207",
+                "CEE 302"
               ]
             },
             {
-              "name": "Program Electives",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "No more than one program elective can be at the 200 level. For the geological engineering track, two of the three required program electives must be engineering courses.",
+              "name": "2 Courses from this list",
+              "max_counted": 2,
+              "min_needed": 2,
+              "explanation": "2 Courses from this list",
               "course_list": [
-                "CEE 311",
-                "CEE 460",
-                "CEE 566",
-                "GEO 423/CEE423"
+                "CEE 308",
+                "CEE 364",
+                "CEE 365"
+              ]
+            },
+            {
+              "name": "CEE 306 or  CEE 305",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CEE 306 or  CEE 305",
+              "course_list": [
+                "CEE 306",
+                "CEE 305"
               ]
             }
           ]
         },
         {
-          "name": "Structural Engineering",
+          "name": "Engineering design requirements",
           "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering. Students normally take the following courses:",
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses):",
+          "course_list": [
+            "CEE 366",
+            "CEE 461"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (two courses)",
+          "course_list": [
+            "CEE 478"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "For the structural engineering track, three program electives are required and at least one must be an engineering course.",
+          "course_list": [
+            "CEE 376",
+            "CEE 439",
+            "CEE 460",
+            "CEE 463",
+            "CEE 467",
+            "CEE 477",
+            "CEE 540",
+            "CEE 566",
+            "ORF 307",
+            "ORF 309"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Engineering and the Liberal Arts",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "This program is designed for students who wish to obtain an engineering background as a foundation for a wide range of careers, such as medicine, law, public policy, visual arts, or engineering studies in materials, ethics, or history. Course work in this track should integrate engineering courses in a coherent manner with the topic of interest to the student. The track is designed to be rigorous, yet allow for a wide degree of flexibility in the course of studies.\n\nAll students in engineering and the liberal arts are required to take a minimum of six courses in engineering sciences that stress design and analytical methods in civil and environmental engineering. The program electives should form a coherent sequence of at least four courses in the student's area of interest, and junior independent research is strongly recommended as a program elective. This is followed by the senior thesis. In the junior independent research and senior thesis, students should relate their topics of interest to engineering problems. Students normally take the following courses:",
+      "req_list": [
+        {
+          "name": "Engineering Science Requirement",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "A minimum of six CEE courses, of which at least three should be at the 300 level or above. At least one of the 300-level courses has to have a laboratory component.",
           "req_list": [
             {
-              "name": "Engineering science requirements",
+              "name": "3 CEE courses (300+ level)",
               "max_counted": 1,
               "min_needed": 3,
-              "explanation": "Engineering science requirements (eight courses)",
-              "req_list": [
-                {
-                  "name": "Engineering science requirements",
-                  "max_counted": 1,
-                  "min_needed": 4,
-                  "explanation": "Engineering science requirements",
-                  "course_list": [
-                    "CEE 205",
-                    "CEE 262A",
-                    "CEE 312",
-                    "CEE 361"
-                  ]
-                },
-                {
-                  "name": "CEE 207 or  CEE 302",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 207 or  CEE 302",
-                  "course_list": [
-                    "CEE 207",
-                    "CEE 302"
-                  ]
-                },
-                {
-                  "name": "2 Courses from this list",
-                  "max_counted": 2,
-                  "min_needed": 2,
-                  "explanation": "2 Courses from this list",
-                  "course_list": [
-                    "CEE 308",
-                    "CEE 364",
-                    "CEE 365"
-                  ]
-                },
-                {
-                  "name": "CEE 306 or  CEE 305",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": "CEE 306 or  CEE 305",
-                  "course_list": [
-                    "CEE 306",
-                    "CEE 305"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Engineering design requirements",
-              "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "Engineering design requirements (two courses):",
+              "explanation": "3 CEE courses (300+ level)",
               "course_list": [
-                "CEE 366",
-                "CEE 461"
+                "CEE 3**"
               ]
             },
             {
-              "name": "Independent Work",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Independent Work (two courses)",
-              "course_list": [
-                "CEE 478"
-              ]
-            },
-            {
-              "name": "Program Electives",
+              "name": "3 CEE courses (any level)",
               "max_counted": 1,
               "min_needed": 3,
-              "explanation": "For the structural engineering track, three program electives are required and at least one must be an engineering course.",
+              "explanation": "3 CEE courses (any level)",
               "course_list": [
-                "CEE 376",
-                "CEE 439",
-                "CEE 460",
-                "CEE 463",
-                "CEE 467",
-                "CEE 477",
-                "CEE 540",
-                "CEE 566",
-                "ORF 307",
-                "ORF 309"
+                "CEE 1**",
+                "CEE 2**",
+                "CEE 3**",
+                "CEE 4**",
+                "CEE 5**"
               ]
             }
           ]
         },
         {
-          "name": "Engineering and the Liberal Arts",
+          "name": "Program Electives",
           "max_counted": 1,
-          "min_needed": 0,
-          "explanation": "This program is designed for students who wish to obtain an engineering background as a foundation for a wide range of careers, such as medicine, law, public policy, visual arts, or engineering studies in materials, ethics, or history. Course work in this track should integrate engineering courses in a coherent manner with the topic of interest to the student. The track is designed to be rigorous, yet allow for a wide degree of flexibility in the course of studies.\n\nAll students in engineering and the liberal arts are required to take a minimum of six courses in engineering sciences that stress design and analytical methods in civil and environmental engineering. The program electives should form a coherent sequence of at least four courses in the student's area of interest, and junior independent research is strongly recommended as a program elective. This is followed by the senior thesis. In the junior independent research and senior thesis, students should relate their topics of interest to engineering problems. Students normally take the following courses:",
+          "min_needed": 2,
+          "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
           "req_list": [
             {
-              "name": "Engineering Science Requirement",
+              "name": "3 Courses (300+ level)",
               "max_counted": 1,
-              "min_needed": 2,
-              "explanation": "A minimum of six CEE courses, of which at least three should be at the 300 level or above. At least one of the 300-level courses has to have a laboratory component.",
-              "req_list": [
-                {
-                  "name": "3 CEE courses (300+ level)",
-                  "max_counted": 1,
-                  "min_needed": 3,
-                  "explanation": "3 CEE courses (300+ level)",
-                  "course_list": [
-                    "CEE 3**"
-                  ]
-                },
-                {
-                  "name": "3 CEE courses (any level)",
-                  "max_counted": 1,
-                  "min_needed": 3,
-                  "explanation": "3 CEE courses (any level)",
-                  "course_list": [
-                    "CEE 1**",
-                    "CEE 2**",
-                    "CEE 3**",
-                    "CEE 4**",
-                    "CEE 5**"
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Program Electives",
-              "max_counted": 1,
-              "min_needed": 2,
+              "min_needed": 3,
               "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
-              "req_list": [
-                {
-                  "name": "3 Courses (300+ level)",
-                  "max_counted": 1,
-                  "min_needed": 3,
-                  "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
-                  "course_list": [
-                    "CEE 3**"
-                  ]
-                },
-                {
-                  "name": "4 courses (any level)",
-                  "max_counted": 1,
-                  "min_needed": 4,
-                  "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
-                  "course_list": [
-                    "CEE ***"
-                  ]
-                }
+              "course_list": [
+                "CEE 3**"
               ]
             },
             {
-              "name": "Independent Work",
+              "name": "4 courses (any level)",
               "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "Independent Work (two courses):",
+              "min_needed": 4,
+              "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
               "course_list": [
-                "CEE 478"
+                "CEE ***"
               ]
             }
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (two courses):",
+          "course_list": [
+            "CEE 478"
           ]
         }
       ]
