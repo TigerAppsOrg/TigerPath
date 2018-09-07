@@ -62,8 +62,8 @@ def get_all_courses():
         if fetch_master.exists():
             # get course from queryset
             fetch_master = fetch_master[0]
+            course.all_semesters = deepcopy(fetch_master.all_semesters)
             if add_semester not in fetch_master.all_semesters:
-                course.all_semesters = deepcopy(fetch_master.all_semesters)
                 course.all_semesters.append(add_semester)
             # delete duplicate course
             fetch_master.delete()
