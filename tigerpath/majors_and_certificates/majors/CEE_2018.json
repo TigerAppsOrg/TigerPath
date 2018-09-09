@@ -801,34 +801,34 @@
       "name": "Engineering and the Liberal Arts",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "This program is designed for students who wish to obtain an engineering background as a foundation for a wide range of careers, such as medicine, law, public policy, visual arts, or engineering studies in materials, ethics, or history. Course work in this track should integrate engineering courses in a coherent manner with the topic of interest to the student. The track is designed to be rigorous, yet allow for a wide degree of flexibility in the course of studies.\n\nAll students in engineering and the liberal arts are required to take a minimum of six courses in engineering sciences that stress design and analytical methods in civil and environmental engineering. The program electives should form a coherent sequence of at least four courses in the student's area of interest, and junior independent research is strongly recommended as a program elective. This is followed by the senior thesis. In the junior independent research and senior thesis, students should relate their topics of interest to engineering problems. Students normally take the following courses:",
+      "explanation": "This program is designed for students who wish to obtain an engineering background as a foundation for a wide range of careers, such as medicine, law, public policy, visual arts, or engineering studies in materials, ethics, or history. Course work in this track should integrate engineering courses in a coherent manner with the topic of interest to the student. The track is designed to be rigorous, yet allow for a wide degree of flexibility in the course of studies.\n\nAll students in engineering and the liberal arts are required to take a minimum of six courses in engineering sciences that stress design and analytical methods in civil and environmental engineering. The program electives should form a coherent sequence of at least four courses in the student's area of interest, and junior independent research is strongly recommended as a program elective. This is followed by the senior thesis. In the junior independent research and senior thesis, students should relate their topics of interest to engineering problems.",
       "req_list": [
         {
           "name": "Engineering Science Requirement",
           "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "A minimum of six CEE courses, of which at least three should be at the 300 level or above. At least one of the 300-level courses has to have a laboratory component.",
+          "min_needed": 6,
+          "explanation": "A minimum of six CEE courses, of which at least 3 should be the 300 level or above. \nAt least one of the 300-level courses has to have a laboratory component.\n(Upon approval by the program advisor, this lab requirement may be satisfied by a 300-level course from another department, but is still necessary to take 6 CEE courses)",
+          "double_counting_allowed": false,
           "req_list": [
             {
-              "name": "3 CEE courses (300+ level)",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "3 CEE courses (300+ level)",
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 3**"
-              ]
-            },
-            {
-              "name": "3 CEE courses (any level)",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "3 CEE courses (any level)",
-              "course_list": [
-                "CEE 1**",
-                "CEE 2**",
                 "CEE 3**",
                 "CEE 4**",
                 "CEE 5**"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 1**",
+                "CEE 2**"
               ]
             }
           ]
@@ -836,36 +836,52 @@
         {
           "name": "Program Electives",
           "max_counted": 1,
-          "min_needed": 2,
+          "min_needed": 7,
           "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
+          "double_counting_allowed": false,
           "req_list": [
             {
-              "name": "3 Courses (300+ level)",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 3**"
+                "CEE 3**",
+                "CEE 4**",
+                "CEE 5**"
               ]
             },
             {
-              "name": "4 courses (any level)",
-              "max_counted": 1,
-              "min_needed": 4,
-              "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
+              "name": null,
+              "max_counted": 4,
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE ***"
+                "CEE 1**",
+                "CEE 2**"
               ]
             }
           ]
         },
         {
-          "name": "Independent Work",
+          "name": "Junior Independent Work",
+          "max_counted": 0,
+          "min_needed": 0,
+          "double_counting_allowed": true,
+          "explanation": "Junior Independent Research is strongly recommended as a program elective",
+          "course_list": [
+            "CEE 375: Independent Study (Fall)",
+            "CEE 376: Independent Study (Spring)"
+          ]
+        },
+        {
+          "name": "Senior Independent Work",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Independent Work (two courses):",
+          "explanation": "Senior Independent Work (counts as two courses):",
+          "double_counting_allowed": true,
           "course_list": [
-            "CEE 478"
+            "CEE 478: Senior Thesis (Counts as two courses)"
           ]
         }
       ]
