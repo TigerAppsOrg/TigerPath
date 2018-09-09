@@ -474,8 +474,7 @@
                   "explanation": null,
                   "course_list": [
                     "CEE 205: Mechanics of Solids",
-                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
-                    "CEE 311/GEO 311: Global Air Pollution"
+                    "CEE 304: Environmental Implications of Energy Technology"
                   ]
                 },
                 {
@@ -494,8 +493,18 @@
                   "min_needed": null,
                   "explanation": null,
                   "course_list": [
-                    "CEE 306: Hydrology",
-                    "CEE 307: Field Ecohydrology"
+                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
+                    "CEE 311/GEO 311: Global Air Pollution"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
+                    "CEE 311/GEO 311: Global Air Pollution"
                   ]
                 },
                 {
@@ -506,6 +515,16 @@
                   "course_list": [
                     "CEE 308: Environmental Engineering Laboratory",
                     "GEO 300: Summer Course in Geologic Field Methods"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 306: Hydrology",
+                    "CEE 307: Field Ecohydrology"
                   ]
                 },
                 {
@@ -569,6 +588,7 @@
               "name": "Recommended Courses",
               "max_counted": null,
               "min_needed": 2,
+              "double_counting_allowed": false,
               "explanation": "Civil and Environmental Engineering\n\nCourses in the CEE department that are not part of the current requirements. In particular, the following are\nrecommended for the environmental engineering track:\n● CEE 311 Global Air Pollution\n● CEE 460 Risk Assessment and Management\n● CEE 566 Wind Engineering and Structural Dynamics\n● GEO/CEE 423 Dynamic Meteorology",
               "course_list": [
                 "CEE 311: Global Air Pollution",
