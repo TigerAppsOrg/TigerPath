@@ -28,7 +28,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "double_counting_allowed": true,
-      "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
+      "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
@@ -309,7 +309,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "double_counting_allowed": true,
-      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering.",
+      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
@@ -452,7 +452,7 @@
       "name": "Geological Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering.",
+      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
@@ -647,7 +647,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "double_counting_allowed": true,
-      "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering.",
+      "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
