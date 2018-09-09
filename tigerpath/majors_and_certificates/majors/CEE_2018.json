@@ -120,6 +120,45 @@
             "ORF 307: Optimization",
             "ORF 309: Probability and Stochastic Systems"
           ]
+        },
+        {
+          "name": "Additional Math Requirements ",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
+          "course_list": [
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            " MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
+          ]
         }
       ]
     },
