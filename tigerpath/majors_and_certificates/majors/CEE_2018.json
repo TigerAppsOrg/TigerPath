@@ -452,6 +452,7 @@
       "name": "Geological Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
+      "double_counting_allowed": true,
       "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering.",
       "req_list": [
         {
