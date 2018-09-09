@@ -249,7 +249,7 @@
         {
           "name": "Track specific requirements",
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": "ALL",
           "explanation": "Track specific requirements (six courses):\nARC 203 Introduction to Architectural Thinking\nARC 204 Introduction to Architectural Design\nARC 403 Topics in the History and Theory of Architecture\nARC 404 Advanced Design Studio\nARC 350 Junior Studio (Fall)\nARC 351 Junior Studio (spring)",
           "course_list": [
             "ARC 203: Introduction to Architectural Thinking",
