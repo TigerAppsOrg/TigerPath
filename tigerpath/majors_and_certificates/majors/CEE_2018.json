@@ -27,6 +27,7 @@
       "name": "Architecture and Engineering: Structural Focus",
       "max_counted": 1,
       "min_needed": "ALL",
+      "double_counting_allowed": true,
       "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
       "req_list": [
         {
@@ -166,6 +167,7 @@
       "name": "Architecture and Engineering: Architecture Focus",
       "max_counted": 1,
       "min_needed": "ALL",
+      "double_counting_allowed": true,
       "explanation": "In the architecture-focus option, the requirements include a strong emphasis on architecture theory, history, and practice. This track is designed for students planning to do graduate work in architecture or to practice engineering in consultation with architects and planners. Students choosing this option do a senior thesis under the direction of advisers from both the School of Architecture and the Department of Civil and Environmental Engineering.",
       "req_list": [
         {
@@ -306,6 +308,7 @@
       "name": "Environmental Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
+      "double_counting_allowed": true,
       "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering.",
       "req_list": [
         {
@@ -642,6 +645,7 @@
       "name": "Structural Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
+      "double_counting_allowed": true,
       "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering.",
       "req_list": [
         {
@@ -807,8 +811,8 @@
           "name": "Engineering Science Requirement",
           "max_counted": 1,
           "min_needed": 6,
-          "explanation": "A minimum of six CEE courses, of which at least 3 should be the 300 level or above. \nAt least one of the 300-level courses has to have a laboratory component.\n(Upon approval by the program advisor, this lab requirement may be satisfied by a 300-level course from another department, but is still necessary to take 6 CEE courses)",
           "double_counting_allowed": false,
+          "explanation": "A minimum of six CEE courses, of which at least 3 should be the 300 level or above. \nAt least one of the 300-level courses has to have a laboratory component.\n(Upon approval by the program advisor, this lab requirement may be satisfied by a 300-level course from another department, but is still necessary to take 6 CEE courses)",
           "req_list": [
             {
               "name": null,
@@ -837,8 +841,8 @@
           "name": "Program Electives",
           "max_counted": 1,
           "min_needed": 7,
-          "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
           "double_counting_allowed": false,
+          "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
           "req_list": [
             {
               "name": null,
@@ -878,8 +882,8 @@
           "name": "Senior Independent Work",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Senior Independent Work (counts as two courses):",
           "double_counting_allowed": true,
+          "explanation": "Senior Independent Work (counts as two courses):",
           "course_list": [
             "CEE 478: Senior Thesis (Counts as two courses)"
           ]
