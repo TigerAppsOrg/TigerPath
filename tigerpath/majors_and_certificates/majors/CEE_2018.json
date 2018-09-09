@@ -449,81 +449,89 @@
       "name": "Geological Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. In addition to the general requirements of the School of Engineering and Applied Science, the following courses are required:",
+      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
           "max_counted": 1,
-          "min_needed": 3,
-          "explanation": "Engineering science requirements (eight courses)",
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)\n\nOne course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
           "req_list": [
             {
-              "name": "Engineering science requirements",
-              "max_counted": 1,
-              "min_needed": 6,
-              "explanation": "Engineering science requirements",
-              "course_list": [
-                "CEE 205",
-                "CEE 305/GEO 375",
-                "CEE 311/GEO 311"
-              ]
-            },
-            {
-              "name": "CEE 207 or CEE 302",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 207 or CEE 302",
-              "course_list": [
-                "CEE 207",
-                "CEE 302"
-              ]
-            },
-            {
-              "name": "CEE 306 or CEE 307",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 306 or CEE 307",
-              "course_list": [
-                "CEE 306",
-                "CEE 307"
-              ]
-            },
-            {
-              "name": "CEE 308 or GEO 300",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 308 or GEO 300",
-              "course_list": [
-                "CEE 308",
-                "GEO 300"
-              ]
-            },
-            {
-              "name": "CEE 365 or CEE 370/GEO 370",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 365 or CEE 370/GEO 370",
-              "course_list": [
-                "CEE 365",
-                "CEE 370/GEO 370"
+              "name": "Engineering science requirement (7 required courses)",
+              "max_counted": 7,
+              "min_needed": 7,
+              "explanation": "Engineering science requirement (7 required courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)",
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 205: Mechanics of Solids",
+                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
+                    "CEE 311/GEO 311: Global Air Pollution"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 207: Introduction to Environmental Engineering",
+                    "CEE 302: Practical Models for Environmental Systems"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 306: Hydrology",
+                    "CEE 307: Field Ecohydrology"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 308: Environmental Engineering Laboratory",
+                    "GEO 300: Summer Course in Geologic Field Methods"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 365: Soil Mechanics (lab)",
+                    "CEE 370/GEO 370: Sedimentology (field course)"
+                  ]
+                }
               ]
             },
             {
               "name": "Engineering science requirement (1 from this list)",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "Engineering science requirement (1 from this list)",
+              "explanation": "One course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
               "course_list": [
-                "CEE 360/GEO 361",
-                "GEO 363",
-                "GEO 366",
-                "CEE 417/GEO 417",
-                "GEO 418",
-                "CEE 424/GEO 424",
-                "GEO 430",
-                "GEO 441",
-                "GEO 470",
-                "GEO 499"
+                "CEE 360/GEO 361: Physics of the Ocean and Atmospher",
+                "GEO 363: Environmental Geochemistry",
+                "GEO 366: Current and Future Climate",
+                "CEE 417/GEO 417: Environmental Microbiology",
+                "GEO 418: Environmental Aqueous Geochemistry",
+                "CEE 424/GEO 424: Seismology",
+                "GEO 430: Climate and The Terrestrial Biosphere",
+                "GEO 441: Computational Geophysics",
+                "GEO 470: Environmental Chemistry of Soils",
+                "GEO 499: Environmental Change, Poverty and Conflict"
               ]
             }
           ]
@@ -532,31 +540,100 @@
           "name": "Engineering design requirements",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Engineering design requirements (two courses)",
+          "explanation": "Engineering design requirements (two courses):\nCEE 471 (GEO 471) Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
           "course_list": [
-            "CEE 471/GEO 471",
-            "CEE 477"
+            "CEE 471/GEO 471: Introduction to Water Pollution Technology",
+            "CEE 477: Engineering Design for Sustainable Development"
           ]
         },
         {
           "name": "Independent Work",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Independent Work (two courses)",
+          "explanation": "Independent Work (counts as two courses)",
           "course_list": [
-            "CEE 478"
+            "CEE 478: Senior Thesis (Counts as two courses)"
           ]
         },
         {
           "name": "Program Electives",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "No more than one program elective can be at the 200 level. For the geological engineering track, two of the three required program electives must be engineering courses.",
+          "explanation": "No more than one program elective can be at the 200 level. For the geological engineering track, two of the three required program electives must be engineering courses.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. For the geological engineering\ntrack, at least two of the program electives must be an engineering course. No more than one program elective can be at the 200\nlevel. The courses listed below are pre-approved. If a student would like to take a program elective not on the list, such as a onetime-only\ncourse or a graduate course, the student should make a compelling case for why this is consistent with the student’s\neducational objectives. Approval is based on agreement from the advisor and the departmental representative. ",
+          "req_list": [
+            {
+              "name": "Recommended Courses",
+              "max_counted": null,
+              "min_needed": 2,
+              "explanation": "Civil and Environmental Engineering\n\nCourses in the CEE department that are not part of the current requirements. In particular, the following are\nrecommended for the environmental engineering track:\n● CEE 311 Global Air Pollution\n● CEE 460 Risk Assessment and Management\n● CEE 566 Wind Engineering and Structural Dynamics\n● GEO/CEE 423 Dynamic Meteorology",
+              "course_list": [
+                "CEE 311: Global Air Pollution",
+                "CEE 460: Risk Assessment and Management",
+                "CEE 566: Wind Engineering and Structural Dynamics",
+                "GEO 423/CEE 423: Dynamic Meteorology"
+              ]
+            },
+            {
+              "name": "Other Engineering and Science Departments",
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": "Other Engineering and Science Departments \n\nCourses in mechanical engineering, chemical engineering, applied math (APC and ORF), geosciences, biology\n(EEB), chemistry. ",
+              "course_list": [
+                "MAE 3**",
+                "MAE 4**",
+                "CBE 3**",
+                "CBE 4**",
+                "APC 3**",
+                "APC 4**",
+                "ORF 3**",
+                "ORF 4**",
+                "GEO 3**",
+                "GEO 4**",
+                "EEB 3**",
+                "EEB 4**",
+                "CHM 3**",
+                "CHM 4**"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Math Requirements ",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
           "course_list": [
-            "CEE 311",
-            "CEE 460",
-            "CEE 566",
-            "GEO 423/CEE423"
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
           ]
         }
       ]
