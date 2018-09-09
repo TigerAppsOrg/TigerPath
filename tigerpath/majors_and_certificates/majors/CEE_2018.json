@@ -57,7 +57,8 @@
               "course_list": [
                 "CEE 207: Introduction to Environmental Engineering",
                 "CEE 302: Practical Models for Environmental Systems",
-                "CEE 306: Hydrology"
+                "CEE 306: Hydrology",
+                "CEE 304: Environmental Implications of Energy Technol."
               ]
             },
             {
@@ -106,42 +107,18 @@
           "name": "Program Electives",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Students in this sub-plan must take one more program elective and it must be an engineering course.",
+          "explanation": "Students in this sub-plan must take at least one more program elective and it must be an engineering course.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. No more than one program\nelective can be at the 200 level. The courses listed below are highly recommended for this program track. If a student would like\nto take a program elective not on the list, such as a one-time-only course or a graduate course, the student should make a\ncompelling case for why this is consistent with the student’s educational objectives. Approval of all program electives, including\nthose on the list below, is based on agreement from the advisor and the departmental representative. \n\n*** For the Architecture & Engineering - STR track, at least one of the program electives must be an engineering course",
           "course_list": [
-            "CEE 439",
-            "CEE 460",
-            "CEE 463",
-            "CEE 467",
-            "CEE 477",
-            "CEE 540",
-            "CEE 566",
-            "CEE 568",
-            "ORF 307",
-            "ORF 309",
-            "ARC 201",
-            "ARC 202",
-            "ARC 302",
-            "ARC 304",
-            "ARC 305",
-            "ARC 308",
-            "ARC 401",
-            "ARC 406",
-            "ARC 492",
-            "ART 206",
-            "ART 230",
-            "ART 242",
-            "ART 250",
-            "ART 308",
-            "ART 315",
-            "ART 320",
-            "ART 332",
-            "ART 333",
-            "ART 337",
-            "ART 351",
-            "ART 443",
-            "ART 445",
-            "ART 458",
-            "URB 201"
+            "CEE 439: Structural Health Monitoring ",
+            "CEE 460: Risk Assessment and Management",
+            "CEE 463: A social and Multi-dimensional exploration of Structures",
+            "CEE 467: Design and Behavior Steel Structures",
+            "CEE 477: Engineering Design for Sustainable Development",
+            "CEE 540: Special Topics in MMS: Elements of Conceptual Design and Analysis of Structures",
+            "CEE 566: Wind Engineering and Structural Dynamics",
+            "CEE 568: Adv. Design and Behavior Concrete Structures",
+            "ORF 307: Optimization",
+            "ORF 309: Probability and Stochastic Systems"
           ]
         }
       ]
