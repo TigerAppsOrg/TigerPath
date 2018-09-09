@@ -580,6 +580,7 @@
               "name": "Other Engineering and Science Departments",
               "max_counted": 1,
               "min_needed": null,
+              "double_counting_allowed": false,
               "explanation": "Other Engineering and Science Departments \n\nCourses in mechanical engineering, chemical engineering, applied math (APC and ORF), geosciences, biology\n(EEB), chemistry. ",
               "course_list": [
                 "MAE 3**",
@@ -746,6 +747,7 @@
               "name": "Other Engineering and Science Departments",
               "max_counted": 2,
               "min_needed": null,
+              "double_counting_allowed": false,
               "explanation": "Other Engineering and Science Departments\nCourses in mechanical engineering, applied math (APC and ORF), and geology.",
               "course_list": [
                 "MAE 3**",
