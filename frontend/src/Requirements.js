@@ -36,7 +36,7 @@ function getHash(stringName) {
 }
 
 function getReqCourses(req_path){
-  var filterText = req_path.substring(req_path.lastIndexOf("//")+2,req_path.length) + ' Requirement';
+  var filterText = 'Satisfying: ' + req_path.substring(req_path.lastIndexOf("//")+2,req_path.length);
   document.getElementsByName('search-text')[0].value=filterText;
   $('#spinner').css('display', 'inline-block');
   $.ajax({
