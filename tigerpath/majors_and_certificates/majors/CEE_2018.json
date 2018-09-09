@@ -156,7 +156,7 @@
           "course_list": [
             "GEO 203: Geology",
             "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
-            " MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
             "MOL 215: Quantitative Principles in Cell and Molecular Biology"
           ]
         }
@@ -306,46 +306,46 @@
       "name": "Environmental Engineering",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering. Students normally take the following courses:",
+      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org (link is external)) under the program in Civil Engineering.",
       "req_list": [
         {
           "name": "Engineering science requirements",
           "max_counted": 1,
-          "min_needed": 3,
-          "explanation": "Engineering science requirements (eight courses):",
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering\nCEE 302 Practical Models for Environmental Systems \nCEE 305 Environmental Fluid Mechanics\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Lab\nCEE 311 Global Air Pollution\nCEE 364 Materials in Civil Engineering or CEE 365 Soil Mechanics",
           "req_list": [
             {
-              "name": "Engineering science requirements",
-              "max_counted": 1,
-              "min_needed": 6,
-              "explanation": "Engineering science requirements",
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 205",
-                "CEE 207",
-                "CEE 302",
-                "CEE 305",
-                "CEE 308",
-                "CEE 311"
+                "CEE 205: Mechanics of Solids",
+                "CEE 207: Introduction to Environmental Engineering",
+                "CEE 302: Practical Models for Environmental Systems ",
+                "CEE 305: Environmental Fluid Mechanics",
+                "CEE 308: Environmental Engineering Lab",
+                "CEE 311: Global Air Pollution"
               ]
             },
             {
-              "name": "CEE 306 or CEE 307",
+              "name": null,
               "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 306 or CEE 307",
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 306",
-                "CEE 307"
+                "CEE 306: Hydrology",
+                "CEE 307: Field Ecohydrology"
               ]
             },
             {
-              "name": "CEE 364 or CEE 365",
+              "name": null,
               "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 364 or CEE 365",
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 364",
-                "CEE 365"
+                "CEE 364: Materials in Civil Engineering",
+                "CEE 365: Soil Mechanics"
               ]
             }
           ]
@@ -354,38 +354,93 @@
           "name": "Engineering design",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Engineering design (two courses)",
+          "explanation": "Engineering design (two courses):\n\nCEE 471 Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
           "course_list": [
-            "CEE 471",
-            "CEE 477"
+            "CEE 471: Introduction to Water Pollution Technology",
+            "CEE 477: Engineering Design for Sustainable Development"
           ]
         },
         {
           "name": "Independent Work",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Independent Work (two courses):",
+          "explanation": "Independent Work (counts as two courses):",
           "course_list": [
-            "CEE 478"
+            "CEE 478: Senior Thesis (Counts as two courses)"
           ]
         },
         {
           "name": "Program Electives",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "No more than one program elective can be at the 200 level. For the environmental engineering track, at least one of the program electives must be an engineering course.",
+          "explanation": "No more than one program elective can be at the 200 level. For the environmental engineering track, at least one of the program electives must be an engineering course.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. For the environmental\nengineering track, at least one of the program electives must be an engineering course. No more than one program elective can be\nat the 200 level. The courses listed below are highly recommended for this program track. If a student would like to take a\nprogram elective not on the list, such as a one-time-only course or a graduate course, the student should make a compelling case\nfor why this is consistent with the student’s educational objectives. Approval of all program electives, including those on the list\nbelow, is based on agreement from the advisor and the departmental representative.",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 334: Global Environmental Issues",
+                "CEE 361: Structural Analysis & Intro to Finite Elements",
+                "CEE 460: Risk Assessment and Management",
+                "CEE 487: Ecohydrology",
+                "CEE 566: Wind Engineering and Structural Dynamics",
+                "MAE 328: Energy for a Greenhouse-Constrained World",
+                "ORF 309: Probability and Stochastic Systems",
+                "ELE 455: Mid-Infrared Technologies for Health and the Environment",
+                "ELE 428: Cleaner Transport Fuels, Combustion Sensing and Emission Control"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "GEO 363: Environmental Geochemistry: Chemistry of the Natural Systems",
+                "GEO 418: Environmental Aqueous Geochemistry"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Math Requirements ",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
           "course_list": [
-            "CEE 334",
-            "CEE 361",
-            "CEE 460",
-            "CEE 487",
-            "CEE 566",
-            "MAE 328",
-            "GEO 363",
-            "GEO 418",
-            "ORF 309",
-            "ELE 455",
-            "ELE 428"
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
           ]
         }
       ]
