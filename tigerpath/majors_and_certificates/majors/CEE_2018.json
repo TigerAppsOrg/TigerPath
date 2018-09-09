@@ -32,42 +32,42 @@
         {
           "name": "Engineering science requirements",
           "max_counted": 1,
-          "min_needed": 3,
-          "explanation": "Engineering science requirements (eight courses)",
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 207 Introduction to Environmental Engineering, or CEE 302 Practical Models for Environmental Systems, or CEE 306 Hydrology\nCEE 312 Statics of Structures\nCEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\nCEE 364 Materials in Civil Engineering\nCEE 365 Soil Mechanics\nARC 374 Computational Design or CEE 463 A Social and Multi-Dimensional Exploration of Structures",
           "req_list": [
             {
-              "name": "Engineering science requirements",
-              "max_counted": 1,
-              "min_needed": 6,
-              "explanation": "Engineering science requirements",
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 205",
-                "CEE 262A",
-                "CEE 312",
-                "CEE 361",
-                "CEE 364",
-                "CEE 365"
+                "CEE 205: Mechanics of Solids",
+                "CEE 262A: Structures and the Urban Environment",
+                "CEE 312: Statics of Structures",
+                "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods",
+                "CEE 364: Materials in Civil Engineering",
+                "CEE 365: Soil Mechanics"
               ]
             },
             {
-              "name": "CEE 207, CEE 302, or CEE 306",
+              "name": null,
               "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "CEE 207, CEE 302, or CEE 306",
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "CEE 207",
-                "CEE 302",
-                "CEE 306"
+                "CEE 207: Introduction to Environmental Engineering",
+                "CEE 302: Practical Models for Environmental Systems",
+                "CEE 306: Hydrology"
               ]
             },
             {
-              "name": "ARC 374 or CEE 463",
+              "name": null,
               "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "ARC 374 or CEE 463",
+              "min_needed": null,
+              "explanation": null,
               "course_list": [
-                "ARC 374",
-                "CEE 463"
+                "ARC 374: Computational Design",
+                "CEE 463: A Social and Multi-Dimensional Exploration of Structures"
               ]
             }
           ]
@@ -75,31 +75,31 @@
         {
           "name": "Engineering design requirements",
           "max_counted": 1,
-          "min_needed": 2,
+          "min_needed": "ALL",
           "explanation": "Engineering design requirements (two courses):",
           "course_list": [
-            "CEE 366",
-            "CEE 461"
+            "CEE 366: Design of Reinforced Concrete Structures",
+            "CEE 461: Design of Large-Scale Structures: Buildings"
           ]
         },
         {
           "name": "Independent Work",
           "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Independent Work (two courses)",
+          "min_needed": "ALL",
+          "explanation": "Independent Work (counts as two courses)",
           "course_list": [
-            "CEE 478"
+            "CEE 478: Senior Thesis (Counts as two courses)"
           ]
         },
         {
           "name": "Track Specific Requirements",
           "max_counted": 1,
-          "min_needed": 3,
+          "min_needed": "ALL",
           "explanation": "Track Specific Requirements (three courses)",
           "course_list": [
-            "ARC 203",
-            "ARC 204",
-            "ARC 350"
+            "ARC 203: Introduction to Architectural Thinking",
+            "ARC 204: Introduction to Architectural Design",
+            "ARC 350: Junior Studio (Fall)"
           ]
         },
         {
