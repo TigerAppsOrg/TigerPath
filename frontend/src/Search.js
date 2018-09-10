@@ -95,7 +95,7 @@ function renderRequirements(){
            data.map((mainReq, index)=>{
               if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
               let finished = ''
-              if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
+              if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
                   finished='req-done';
               let mainReqLabel = <span>
@@ -280,7 +280,7 @@ class Search extends Component {
     // makes sure that there is always an argument after load_courses, $ is dummy arg
     if(search_query === '') search_query = "$"
     // get request, renders list of courses received
-    
+
     current_request = $.ajax({
         url: "/api/v1/get_courses/" + search_query,
         datatype: 'json',
@@ -305,10 +305,11 @@ class Search extends Component {
 
   }
   render()
-  { 
+  {
     return (
         <div>
-        <input type = "text" 
+        <input type = "text"
+          id="search-text"
           placeholder = 'Search Courses'
           value={this.state.search}
           onChange={this.updateSearch.bind(this)}
