@@ -64,10 +64,10 @@ export function populateReqTree(reqTree){
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
-      let popoverContent = '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Search Requirement</button>';
+      let popoverContent = '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
       popoverContent += '<div class="popoverContentContainer">';
-      if(reqTree.explanation) {
-        popoverContent += '<p>' + reqTree.explanation + '</p>'
+      if(requirement.explanation) {
+        popoverContent += '<p>' + requirement.explanation + '</p>'
       }
       popoverContent += '</div>';
       let reqLabel = <div className='reqLabel' 

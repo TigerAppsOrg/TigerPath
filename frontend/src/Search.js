@@ -100,6 +100,9 @@ function renderRequirements(){
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
                   finished='req-done';
               let popoverContent = '<div className="popoverContentContainer">';
+              if(mainReq.explanation) {
+                popoverContent += '<p>' + mainReq.explanation + '</p>';
+              }
               if(mainReq.contacts) {
                 mainReq.contacts.forEach(contact => {
                   popoverContent += '<p>' + contact.name + ' ' + contact.email + ' ' + contact.type + '</p>';
