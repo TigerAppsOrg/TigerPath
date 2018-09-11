@@ -82,7 +82,7 @@ export function populateReqTree(reqTree){
                   return(<li key={index} className='settled' onClick={(e)=>{toggleSettle(course, requirement['path_to'], false)}}>{course}</li>);
                 })}
                 {requirement['unsettled'].map((course, index)=>{
-                  return(<li key={index} className='unsettled text-muted' onClick={(e)=>{toggleSettle(course, requirement['path_to'], true)}}>{course} <i class="fa fa-exclamation-circle" title="This course could satisify multiple requirements. Click to settle it here."></i></li>);
+                  return(<li key={index} className='unsettled text-muted' onClick={(e)=>{toggleSettle(course, requirement['path_to'], true)}}>{course} <i className="fa fa-exclamation-circle" title="This course could satisify multiple requirements. Click to settle it here."></i></li>);
                 })}
                 </TreeView>
               );
