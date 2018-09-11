@@ -67,7 +67,7 @@ export function populateReqTree(reqTree){
       let popoverContent = '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
       popoverContent += '<div class="popoverContentContainer">';
       if(requirement.explanation) {
-        popoverContent += '<p>' + requirement.explanation + '</p>'
+        popoverContent += '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>'
       }
       popoverContent += '</div>';
       let reqLabel = <div className='reqLabel' 
