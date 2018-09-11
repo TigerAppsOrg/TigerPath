@@ -1,0 +1,672 @@
+[
+  [
+    {
+      "name": "MAE 221",
+      "possible_reqs": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "settled": [
+        "Major//2018//MAE//General Requirements//000"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MSE301",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Materials",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Materials"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Materials",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Materials"
+      ]
+    },
+    {
+      "name": "CEE312",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Structures",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Structures"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Structures",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Structures"
+      ]
+    },
+    {
+      "name": "MAE206",
+      "possible_reqs": [
+        "Major//2018//MAE//General Requirements//002"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//General Requirements//002"
+      ],
+      "settled": [
+        "Major//2018//MAE//General Requirements//002"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE335",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core 1"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core 1"
+      ]
+    },
+    {
+      "name": "MAE433",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 1"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 1"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE305 / CBE305 / EGR305 / MAT391",
+      "possible_reqs": [
+        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
+      ],
+      "settled": [
+        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
+      ]
+    },
+    {
+      "name": "MAE222 / CEE208",
+      "possible_reqs": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "settled": [
+        "Major//2018//MAE//General Requirements//000"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE341",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Electives",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 2"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Electives",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 2"
+      ]
+    },
+    {
+      "name": "MAE321",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Design Courses//Core"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Core",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Design Courses//Core"
+      ]
+    },
+    {
+      "name": "MAE223 / CEE323",
+      "possible_reqs": [
+        "Major//2018//MAE//General Requirements//001"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//General Requirements//001"
+      ],
+      "settled": [
+        "Major//2018//MAE//General Requirements//001"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "possible_reqs": [],
+      "reqs_satisfied": []
+    },
+    {
+      "name": "MAE322",
+      "possible_reqs": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Elective"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Elective"
+      ]
+    },
+    {
+      "name": "MAE224",
+      "possible_reqs": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//General Requirements//000"
+      ],
+      "settled": [
+        "Major//2018//MAE//General Requirements//000"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "COS 340",
+      "possible_reqs": [
+        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
+      ],
+      "settled": [
+        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE442",
+      "possible_reqs": [
+        "Major//2018//MAE//Senior Independent work"
+      ],
+      "reqs_satisfied": [
+        "Major//2018//MAE//Senior Independent work"
+      ],
+      "settled": [
+        "Major//2018//MAE//Senior Independent work"
+      ]
+    }
+  ]
+]
+
+{
+  "name": "Mechanical and Aerospace Engineering",
+  "code": "MAE",
+  "degree": "BSE",
+  "path_to": "Major//2018//MAE",
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-mechanical-and-aerospace-engineering-0",
+    "https://mae.princeton.edu/undergraduate/programs",
+    "http://mae.princeton.edu/sites/default/files/MAE-UG%20HANDBOOK%202017-2018-Class%202021-%20WEB%20Final.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Undergraduate Representative",
+      "name": "Michael G. Littman",
+      "email": "mlittman@princeton.edu"
+    },
+    {
+      "type": "Undergraduate Administrator",
+      "name": "Jo Ann Love",
+      "email": "jolove@princeton.edu"
+    },
+    {
+      "type": "Academic Program Assistant",
+      "name": "Theresa Russo",
+      "email": "tar3@princeton.edu"
+    },
+    {
+      "type": "Independent Work Advisor",
+      "name": "Luigi Martinelli",
+      "email": "gigi@phantom2.princeton.edu"
+    }
+  ],
+  "satisfied": true,
+  "count": 4,
+  "min_needed": 4,
+  "max_counted": null,
+  "req_list": [
+    {
+      "name": "General Requirements",
+      "path_to": "Major//2018//MAE//General Requirements",
+      "explanation": "Requirements for study in the department follow the general requirements for the School of Engineering and Applied Science. In addition, the following four courses and one laboratory are normally completed by departmental students before entry into the junior year.\nMechanical and Aerospace Engineering\n206 Introduction to Engineering Dynamics\n221 Thermodynamics\n222 Mechanics of Fluids\n223 Modern Solid Mechanics\n224 Integrated Engineering Science Laboratory\nSome of the above can be satisfied by equivalent courses. For example, students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223; and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.\nEach departmental student will be introduced to instrumentation and computer-based data acquisition in the MAE 224 laboratory.\n",
+      "pdfs_allowed": false,
+      "completed_by_semester": 4,
+      "satisfied": true,
+      "count": 5,
+      "min_needed": 5,
+      "max_counted": 1,
+      "settled": [
+        "MAE 221",
+        "MAE206",
+        "MAE222 / CEE208",
+        "MAE223 / CEE323",
+        "MAE224"
+      ],
+      "unsettled": []
+    },
+    {
+      "name": "Applications of Mathematics",
+      "path_to": "Major//2018//MAE//Applications of Mathematics",
+      "explanation": "Applications of Mathematics\n\nThe following course is required for both Mechanical and Aerospace Engineers. \nMAE 305 (MAT 301) Mathematics in Engineering I \n\nIn addition, all Mechanical Engineers must take a mathematics elective usually selected\nfrom the following list: \n\uf0b7 MAE 306 (MAT 392) Mathematics in Engineering II (strongly\nrecommended for those planning graduate work in engineering or applied\nscience) \n\uf0b7 ORF 245 Fundamentals of Engineering Statistics\n\uf0b7 ORF 307 Optimization \n\uf0b7 ORF 309 Probability and Stochastic Systems (MAT 380/ELE 380) \n\uf0b7 ORF 363 Computing and Optimization for the Physical and Social Sciences (COS\n323) \n\uf0b7 COS 340 Reasoning About Computation \n\uf0b7 MAT 330 Complex Analysis with Applications \n\uf0b7 MAT 393 Mathematical Programming \n\uf0b7 PHY 403 Mathematical Methods of Physics \n\n(Alternatives not on this list must be approved by the Departmental Representative in\nadvance).",
+      "pdfs_allowed": false,
+      "satisfied": true,
+      "count": 2,
+      "min_needed": 2,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Differential Equations",
+          "path_to": "Major//2018//MAE//Applications of Mathematics//Differential Equations",
+          "explanation": "",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": null,
+          "settled": [
+            "MAE305 / CBE305 / EGR305 / MAT391"
+          ],
+          "unsettled": []
+        },
+        {
+          "name": "Mathematics Elective",
+          "path_to": "Major//2018//MAE//Applications of Mathematics//Mathematics Elective",
+          "explanation": "",
+          "satisfied": true,
+          "count": 1,
+          "min_needed": 1,
+          "max_counted": 1,
+          "settled": [
+            "COS 340"
+          ],
+          "unsettled": []
+        }
+      ]
+    },
+    {
+      "name": "Departmental Concentration",
+      "path_to": "Major//2018//MAE//Departmental Concentration",
+      "explanation": "A minimum of eight upper level Departmental courses are required. This includes Senior Independent Work. \n\nNone of the Department requirements can be taken on a pass/fail or audit basis. All\nrequests for substitution, other than those listed under the Engineering Physics Program, must be approved by the Departmental Representative in advance. ",
+      "pdfs_allowed": false,
+      "satisfied": true,
+      "count": 1,
+      "min_needed": 1,
+      "max_counted": 1,
+      "req_list": [
+        {
+          "name": "Mechanical Engineering",
+          "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering",
+          "explanation": "Mechanical Engineering. This program deals with the analysis and design of machines, their motion, power sources, and control. The curriculum is based on dynamics, thermodynamics, and the study of the structure and behavior of fluid and solid materials; it is accredited by the Engineering Accreditation Commission of ABET.",
+          "satisfied": true,
+          "count": 7,
+          "min_needed": 7,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Engineering Science Courses",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses",
+              "explanation": "Five Engineering Science courses are required",
+              "satisfied": true,
+              "count": 5,
+              "min_needed": 5,
+              "max_counted": 5,
+              "req_list": [
+                {
+                  "name": "Dynamics and Control",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 2,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Core",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Core",
+                      "explanation": "MAE 433 required for Mechanical and Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE433"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Electives",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Dynamics and Control//Electives",
+                      "explanation": "",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 0,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE341"
+                      ],
+                      "unsettled": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Fluid Mechanics and Thermal Sciences",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Core",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core",
+                      "explanation": "MAE 335 or 336 or 423 required for Mechanical Engineers.",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE335"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Electives",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Electives",
+                      "explanation": "",
+                      "satisfied": true,
+                      "count": 0,
+                      "min_needed": 0,
+                      "max_counted": null,
+                      "settled": [],
+                      "unsettled": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Materials and Structures",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 2,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Materials",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Materials",
+                      "explanation": "MAE 324 or MSE 301 required for Mechanical and Aerospace Engineers\n\nNote: CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. \nRequires the approval of the Department Representative.",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MSE301"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Structures",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Science Courses//Materials and Structures//Structures",
+                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "CEE312"
+                      ],
+                      "unsettled": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Engineering Design Courses",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses",
+              "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
+              "satisfied": true,
+              "count": 2,
+              "min_needed": 2,
+              "max_counted": 2,
+              "req_list": [
+                {
+                  "name": "Core",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Core",
+                  "explanation": "Required for Mechanical Engineers and Aerospace Engineers",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 1,
+                  "max_counted": null,
+                  "settled": [
+                    "MAE321"
+                  ],
+                  "unsettled": []
+                },
+                {
+                  "name": "Elective",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Engineering Design Courses//Elective",
+                  "explanation": "MAE 322 or MAE 412 required for Mechanical Engineers\n\nNote: CEE 477 is an acceptable substitute only for Mechanical Engineers who are pursuing the Sustainable Energy Certificate Program",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 1,
+                  "max_counted": null,
+                  "settled": [
+                    "MAE322"
+                  ],
+                  "unsettled": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Aerospace Engineering",
+          "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering",
+          "explanation": "Aerospace Engineering. This program deals with the analysis and design of aerospace vehicles. The curriculum is based on the applications of principles from dynamics, control, thermodynamics, fluid mechanics and solid mechanics; it is accredited by the Engineering Accreditation Commission of ABET.",
+          "satisfied": false,
+          "count": 5,
+          "min_needed": 7,
+          "max_counted": 1,
+          "req_list": [
+            {
+              "name": "Engineering Science Courses",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses",
+              "explanation": "Five Engineering Science courses are required",
+              "satisfied": true,
+              "count": 5,
+              "min_needed": 5,
+              "max_counted": 5,
+              "req_list": [
+                {
+                  "name": "Dynamics and Control",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 2,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Core 1",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 1",
+                      "explanation": "MAE 433 required for Mechanical and Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE433"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Core 2",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Core 2",
+                      "explanation": "MAE 331 or 341 required for Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE341"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Electives",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Dynamics and Control//Electives",
+                      "explanation": "",
+                      "satisfied": true,
+                      "count": 0,
+                      "min_needed": 0,
+                      "max_counted": null,
+                      "settled": [],
+                      "unsettled": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Fluid Mechanics and Thermal Sciences",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Core 1",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core 1",
+                      "explanation": "MAE 335 required for Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MAE335"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Core 2",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Core 2",
+                      "explanation": "MAE 427 or 426 required for Aerospace Engineers",
+                      "satisfied": false,
+                      "count": 0,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Electives",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Fluid Mechanics and Thermal Sciences//Electives",
+                      "explanation": "",
+                      "satisfied": true,
+                      "count": 0,
+                      "min_needed": 0,
+                      "max_counted": null,
+                      "settled": [],
+                      "unsettled": []
+                    }
+                  ]
+                },
+                {
+                  "name": "Materials and Structures",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 2,
+                  "min_needed": 0,
+                  "max_counted": null,
+                  "req_list": [
+                    {
+                      "name": "Materials",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Materials",
+                      "explanation": "MAE 324 or MSE 301 required for Mechanical and Aerospace Engineers\n\nNote: CEE 362 or CEE 364 may be considered as substitutes for the materials requirement. \nRequires the approval of the Department Representative.",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "MSE301"
+                      ],
+                      "unsettled": []
+                    },
+                    {
+                      "name": "Structures",
+                      "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Science Courses//Materials and Structures//Structures",
+                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "satisfied": true,
+                      "count": 1,
+                      "min_needed": 1,
+                      "max_counted": null,
+                      "settled": [
+                        "CEE312"
+                      ],
+                      "unsettled": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Engineering Design Courses",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Design Courses",
+              "explanation": "There are three design requirements in each program. Two are satisfied by completing courses appropriate to the program. The third is satisfied by completing Senior Independent Work, Senior Thesis, or Senior Project.",
+              "satisfied": false,
+              "count": 1,
+              "min_needed": 2,
+              "max_counted": 2,
+              "req_list": [
+                {
+                  "name": "Core",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Design Courses//Core",
+                  "explanation": "Required for Mechanical Engineers and Aerospace Engineers",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 1,
+                  "max_counted": null,
+                  "settled": [
+                    "MAE321"
+                  ],
+                  "unsettled": []
+                },
+                {
+                  "name": "Elective",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Engineering Design Courses//Elective",
+                  "explanation": "MAE 332 or MAE 342 required for Aerospace Engineers",
+                  "satisfied": false,
+                  "count": 0,
+                  "min_needed": 1,
+                  "max_counted": null,
+                  "settled": [],
+                  "unsettled": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Senior Independent work",
+      "path_to": "Major//2018//MAE//Senior Independent work",
+      "explanation": "Senior Independent work is the culminating experience for the mechanical and aerospace\nengineering programs. All seniors are required to participate in a research or engineering\nproject. All projects must include elements of engineering design (engineering design is the\nprocess of devising a system, component, or process to meet desired needs). The following\ncourses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);\nMAE 440 Senior Independent Work (one semester, spring); MAE 442 Senior Thesis (yearlong);\nMAE 444 Senior Project (year-long). Students are strongly encouraged to select\nthe year-long project or thesis option. Senior projects are intended for teams or groups\nwhile senior thesis is intended for individuals. For senior project or thesis, work begins in\nthe fall but enrollment is only in spring term when a double grade is awarded. Please note:\nIf a student has selected to participate in a year-long project or thesis and is enrolled in only\nthree courses during the fall semester, it is required that they will enroll in Senior Project or\nThesis during the spring semester. For these students, it will NOT be possible to drop-down\nto a one-semester course of Independent Work without incurring a failure for Independent\nWork in the fall term. In Spring term you must enroll in three courses plus senior thesis or\nsenior project (senior thesis and senior project count as two courses). Therefore your senior\nyear course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.\nThere are NO exceptions to this rule even if your total number of courses will exceed 36.",
+      "satisfied": true,
+      "count": 1,
+      "min_needed": 1,
+      "max_counted": 1,
+      "settled": [
+        "MAE442"
+      ],
+      "unsettled": []
+    }
+  ]
+}
