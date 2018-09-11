@@ -93,7 +93,20 @@ function renderRequirements(){
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
-              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
+              if(!(typeof mainReq === "object")) {
+                let mainReqLabel = <div className='reqLabel'
+                                    title={'<span>' + mainReq + '</span>'}>
+                                      <div className='my-arrow root-arrow'></div>
+                                      {mainReq}
+                                   </div>
+                return (<TreeView key={index} itemClassName={"tree-root"} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>
+                          <div style={{padding: '5px'}}>
+                            The {mainReq} major is not supported yet. If you would like to request it, let us know&nbsp;
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe0s9SDBLDI24fHzb2hwNQu93BaSQjEKVMKtZsc7nM55px8Lg/viewform">here</a>.
+                          </div>
+                          <div style={{padding: '5px'}}>In the mean time, feel free to track your AB degree requirements below.</div>
+                        </TreeView>);
+              }
               let finished = ''
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
