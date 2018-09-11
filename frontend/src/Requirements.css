@@ -82,8 +82,8 @@
 
 /* for the popover in the requirements, it is akwardly placed so need !important here */
 .req-popover{
-  left: -18% !important;
-  width: 20%;
+  left: calc(-11vw - 70px) !important;
+  width: calc(11vw + 70px);
 }
 
 .popoverContentContainer {
