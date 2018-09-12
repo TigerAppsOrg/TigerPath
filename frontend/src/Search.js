@@ -117,7 +117,12 @@ function renderRequirements(){
               if(mainReq.urls) {
                 popoverContent += '<h6>Reference Links:</h6>';
                 mainReq.urls.forEach(url => {
-                  popoverContent += '<p><a href="' + url + '">' + url + '</a></p>'
+                  let displayLength = 30;
+                  let displayUrl = url;
+                  if(displayUrl.length > displayLength) {
+                    displayUrl = displayUrl.substring(0, displayLength - 3) + '...'
+                  }
+                  popoverContent += '<p><a href="' + url + '" class="link">' + displayUrl + '</a></p>'
                 });
               }
               popoverContent += '</div>'
