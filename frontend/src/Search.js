@@ -107,11 +107,15 @@ function renderRequirements(){
                 popoverContent += '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
               }
               if(mainReq.contacts) {
+                popoverContent += '<h6>Contacts:</h6>';
                 mainReq.contacts.forEach(contact => {
-                  popoverContent += '<p>' + contact.name + ' ' + contact.email + ' ' + contact.type + '</p>';
+                  popoverContent += ('<p>' + contact.type + ':<br>' + contact.name
+                    + ' (<a href="mailto:' + contact.email + '" target="_top">'
+                    + contact.email + '</a>)</p>');
                 });
               }
               if(mainReq.urls) {
+                popoverContent += '<h6>Reference Links:</h6>';
                 mainReq.urls.forEach(url => {
                   popoverContent += '<p><a href="' + url + '">' + url + '</a></p>'
                 });
