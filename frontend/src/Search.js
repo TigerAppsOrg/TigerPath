@@ -110,7 +110,7 @@ function renderRequirements(){
                 popoverContent += '<h6>Contacts:</h6>';
                 mainReq.contacts.forEach(contact => {
                   popoverContent += '<p>' + contact.type + ':<br>' + contact.name
-                    + ' <a href="mailto:' + contact.email + '">'
+                    + '<br><a href="mailto:' + contact.email + '">'
                     + contact.email + '</a></p>';
                 });
               }
