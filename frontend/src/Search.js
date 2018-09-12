@@ -101,7 +101,10 @@ function renderRequirements(){
                   finished='req-done';
               let popoverContent = '<div class="popoverContentContainer">';
               if(mainReq.explanation) {
-                popoverContent += '<p>' + mainReq.explanation + '</p>';
+                popoverContent += '<p>' + mainReq.explanation.split('\n').join('<br>') + '</p>';
+              }
+              else if(mainReq.description) {
+                popoverContent += '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
               }
               if(mainReq.contacts) {
                 mainReq.contacts.forEach(contact => {
@@ -115,6 +118,7 @@ function renderRequirements(){
               }
               popoverContent += '</div>'
               let mainReqLabel = <div className='reqLabel' 
+                                  reqpath={mainReq['path_to']}
                                   title={'<span>' + mainReq.name + '</span>'}
                                   data-content={popoverContent}>
                                     <div className='my-arrow root-arrow'></div>
