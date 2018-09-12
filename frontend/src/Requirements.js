@@ -122,12 +122,11 @@ export function makeNodesClickable(){
 export function addReqPopovers(){
   $('.reqLabel').each(function(){
     // show popover when it's hovered over
-    $(this).popover({ 
+    $(this).popover({
       trigger: 'manual',
       html: true,
       animation: true,
-      placement: 'right',
-      container: 'body',
+      boundary: 'viewport',
       template: '<div class="popover req-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
     })
     .on('mouseenter', function(){
