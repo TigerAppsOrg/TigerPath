@@ -175,7 +175,7 @@ def get_courses_by_path(path):
         req = json.load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
-        raise ValueError("Path malformatted.")
+        raise ValueError("Path malformatted: " + path)
     return _get_collapsed_course_and_dist_req_sets(subreq)
 
 def _init_req(req):
@@ -202,6 +202,8 @@ def _format_req_output(req):
     ]:
         if key in req:
             output[key] = req[key]
+    if "code" in req and "description" in req:
+        output["description"] = req["description"]
     if "contacts" in req:
         output["contacts"] = []
         for contact in req["contacts"]:

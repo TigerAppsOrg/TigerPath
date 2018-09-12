@@ -35,10 +35,12 @@ function getHash(stringName) {
   return stringName.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
 }
 
-function getReqCourses(req_path){
+export function getReqCourses(req_path){
+  var filterText = 'Satisfying: ' + req_path.split('//').pop();
+  $('#search-text').val(filterText);
   $('#spinner').css('display', 'inline-block');
   $.ajax({
-      // the slashes messes up the url 
+      // the slashes messes up the url
       url: "/api/v1/get_req_courses/" + req_path.replace(/\/\//g, '$'),
       datatype: 'json',
       type: 'GET',
@@ -57,20 +59,28 @@ export function populateReqTree(reqTree){
       // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
       let treeHash = getHash(requirement['name'])
       let finished = '';
-      if((requirement['min_needed'] === 0 && requirement['count'] >= 0) || 
+      if((requirement['min_needed'] === 0 && requirement['count'] >= 0) ||
         (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
           finished='req-done';
       if(requirement['count'] === 0 && requirement['min_needed'] === 0) finished='req-neutral'
       let tag = '';
       if(requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
-      let reqLabel = <span>
+      let popoverContent = '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
+      popoverContent += '<div class="popoverContentContainer">';
+      if(requirement.explanation) {
+        popoverContent += '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>'
+      }
+      popoverContent += '</div>';
+      let reqLabel = <div className='reqLabel' 
+                      reqpath={requirement['path_to']} 
+                      title={'<span>' + requirement['name'] + '</span>'} 
+                      data-content={popoverContent}>
                           <div className='my-arrow'></div>
                           <span className='reqName'>{requirement['name']}</span>
-                          <i className="fa fa-search" onClick={(e)=>{getReqCourses(requirement['path_to'])}}></i>
                           <span className='reqCount'>{tag}</span>
-                       </span>;
-      if('req_list' in requirement) { 
+                      </div>;
+      if ('req_list' in requirement) {
         return(<TreeView key={treeHash} nodeLabel={reqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
       }
       else {
@@ -99,7 +109,7 @@ export function makeNodesClickable(){
       let arrowCollapsedClass = 'tree-view_arrow-collapsed'
       let treeCollapsedClass = 'tree-view_children-collapsed'
       let arrowItem = $(this).find('.tree-view_arrow');
-      if(arrowItem.hasClass(arrowCollapsedClass)){ 
+      if(arrowItem.hasClass(arrowCollapsedClass)){
         arrowItem.removeClass(arrowCollapsedClass);
         $(this).parent().find('.tree-view_children').removeClass(treeCollapsedClass);
       }
@@ -108,5 +118,34 @@ export function makeNodesClickable(){
         $(this).parent().find('.tree-view_children').addClass(treeCollapsedClass);
       }
     })
+  });
+}
+
+// adds popovers to reqs
+export function addReqPopovers(){
+  $('.reqLabel').each(function(){
+    // show popover when it's hovered over
+    $(this).popover({
+      trigger: 'manual',
+      html: true,
+      animation: true,
+      boundary: 'viewport',
+      template: '<div class="popover req-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+    })
+    .on('mouseenter', function(){
+      var _this = this;
+      $(this).popover('show');
+      $('body').off('click', '.searchByReq').on('click', '.searchByReq', () => {getReqCourses($(this).attr('reqpath'))});
+      $('.popover').on('mouseleave', function(){
+        $(_this).popover('hide');
+      });
+    }).on('mouseleave', function(){
+      var _this = this;
+      setTimeout(function() {
+        if(!$('.popover:hover').length) {
+          $(_this).popover('hide');
+        }
+      }, 100);
+    });
   });
 }

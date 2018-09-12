@@ -77,9 +77,20 @@
 }
 
 .fa-search {
-  padding-left: 5px;
+  padding-right: 5px;
 }
 
-.fa-search:hover {
-  color: #e74c3c;
+.popoverContentContainer {
+  max-height: 200px;
+  overflow-y: scroll;
+  margin-top: 5px;
+}
+
+.ref-link {
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }

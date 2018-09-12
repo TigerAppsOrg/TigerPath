@@ -138,5 +138,5 @@ CAS_LOGOUT_COMPLETELY = False
 # Similarly, the Spring 2017 term is 1174 - the ending year is 2017.
 # Note: generally, limit this to three terms. This defines the terms that are
 #   scraped and the default terms displayed on schedules.
-ACTIVE_TERMS = [1182, 1184]
+ACTIVE_TERMS = [1162, 1164, 1172, 1174, 1182, 1184, 1192]
 ACTIVE_YEAR = 2018

@@ -1,0 +1,144 @@
+MAE
+2018
+[
+  [
+    {
+      "name": "MAE 221",
+      "title": "Thermodynamics",
+      "id": "1184022794",
+      "dist_area": "STN"
+    }
+  ],
+  [
+    {
+      "name": "MSE301",
+      "title": "Materials Science and Engineering",
+      "id": "1184042768",
+      "dist_area": "STN"
+    },
+    {
+      "name": "CEE312",
+      "title": "Statics of Structures",
+      "id": "1184022796",
+      "dist_area": "STN"
+    },
+    {
+      "name": "MAE206",
+      "title": "Introduction to Engineering Dynamics",
+      "id": "1184022790",
+      "dist_area": "STN"
+    }
+  ],
+  [
+    {
+      "name": "MAE335",
+      "title": "Fluid Dynamics",
+      "id": "1184022797",
+      "dist_area": "STN",
+      "settled": [
+      ]
+    },
+    {
+      "name": "MAE433",
+      "title": "Automatic Control Systems",
+      "id": "1184042770",
+      "dist_area": "STL",
+      "settled": [
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE305 / CBE305 / EGR305 / MAT391",
+      "title": "Mathematics in Engineering I",
+      "id": "1184042773",
+      "dist_area": "STN",
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "MAE222 / CEE208",
+      "title": "Mechanics of Fluids",
+      "id": "1184022801",
+      "dist_area": "STN",
+      "settled": [
+        
+      ]
+    }
+  ],
+  [
+    {
+      "name": "MAE341",
+      "title": "Space Flight",
+      "id": "1184042062",
+      "dist_area": "STN",
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "MAE321",
+      "title": "Engineering Design",
+      "id": "1184042286",
+      "dist_area": "STN",
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "MAE223 / CEE323",
+      "title": "Modern Solid Mechanics",
+      "id": "1184042286",
+      "dist_area": "STN",
+      "settled": [
+        
+      ]
+    }
+  ],
+  [
+    {
+      "name": "ART 213",
+      "title": "Modernist Art: 1900 to 1950",
+      "id": "1184021312",
+      "dist_area": "LA"
+    },
+    {
+      "name": "MAE322",
+      "title": "Mechanical Design",
+      "id": "1184044384",
+      "dist_area": null,
+      "settled": [
+        
+      ]
+    },
+    {
+      "name": "MAE224",
+      "title": "Integrated Engineering Science Laboratory",
+      "id": "1184044385",
+      "dist_area": "STL",
+      "settled": [
+        
+      ]
+    }
+  ],
+  [
+    {
+      "name": "COS 340",
+      "title": "Reasoning about Computation",
+      "id": "1184010455",
+      "dist_area": "QR"
+    }
+  ],
+  [
+    {
+      "name": "MAE442",
+      "title": "Senior Thesis",
+      "id": "1184040533",
+      "dist_area": "STL",
+      "settled": [
+        
+      ]
+    }
+  ]
+]

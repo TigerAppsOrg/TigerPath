@@ -9,3 +9,6 @@ WEBPACK_LOADER = {
 
 DEBUG = True
 ADMIN_ENABLED = DEBUG
+
+# redirect to index after logging in as admin
+LOGIN_REDIRECT_URL = 'index'

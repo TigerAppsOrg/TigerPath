@@ -1,0 +1,917 @@
+{
+  "type": "Major",
+  "name": "Civil and Environmental Engineering",
+  "code": "CEE",
+  "degree": "BSE",
+  "year": 2018,
+  "description": "The department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.\n\nThe department offers five sub-plan options: architecture and engineering, environmental engineering, geological engineering, structural engineering, and engineering and the liberal arts. In the freshman year, students should complete the mathematics basic science, computing, and writing requirements common to all B.S.E. programs. At the end of the freshman year, the student declares CEE as a major and selects one of the subplans. Course requirements include engineering science courses, engineering design courses, a senior thesis, and program electives. For all but the non-ABET accredited tracks, there are additional math and science requirements that are normally satisfied by taking MAE 305 Mathematics in Engineering, ORF 245 Fundamentals of Engineering Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, a student's program of study must include a minimum of fourteen engineering courses, with the exception of students in the non-ABET accredited tracks.",
+  "min_needed": 1,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-civil-and-environmental-engineering",
+    "http://www.princeton.edu/cee/forms/Yellow_Book_for_Class_of_2020_Mar.2017_3.7.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Departmental Representative",
+      "name": "Branko Glišić",
+      "email": "bglisic@princeton.edu"
+    },
+    {
+      "type": "Chair",
+      "name": "Catherine A. Peters",
+      "email": "cap@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Architecture and Engineering: Structural Focus",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "double_counting_allowed": true,
+      "explanation": "In the structures-focus option, the requirements include a strong emphasis on civil and environmental engineering. This track is designed for students who intend to become practicing engineers and may go to graduate school in architecture or engineering. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in civil engineering. This track has architecture course requirements beyond the normal requirements in civil and environmental engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 207 Introduction to Environmental Engineering, or CEE 302 Practical Models for Environmental Systems, or CEE 306 Hydrology\nCEE 312 Statics of Structures\nCEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\nCEE 364 Materials in Civil Engineering\nCEE 365 Soil Mechanics\nARC 374 Computational Design or CEE 463 A Social and Multi-Dimensional Exploration of Structures",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "CEE 262A: Structures and the Urban Environment",
+                "CEE 312: Statics of Structures",
+                "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods",
+                "CEE 364: Materials in Civil Engineering",
+                "CEE 365: Soil Mechanics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 207: Introduction to Environmental Engineering",
+                "CEE 302: Practical Models for Environmental Systems",
+                "CEE 306: Hydrology",
+                "CEE 304: Environmental Implications of Energy Technol."
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ARC 374: Computational Design",
+                "CEE 463: A Social and Multi-Dimensional Exploration of Structures"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Engineering design requirements (two courses):",
+          "course_list": [
+            "CEE 366: Design of Reinforced Concrete Structures",
+            "CEE 461: Design of Large-Scale Structures: Buildings"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Independent Work (counts as two courses)",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        },
+        {
+          "name": "Track Specific Requirements",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Track Specific Requirements (three courses)",
+          "course_list": [
+            "ARC 203: Introduction to Architectural Thinking",
+            "ARC 204: Introduction to Architectural Design",
+            "ARC 350: Junior Studio (Fall)"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Students in this sub-plan must take at least one more program elective and it must be an engineering course.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. No more than one program\nelective can be at the 200 level. The courses listed below are highly recommended for this program track. If a student would like\nto take a program elective not on the list, such as a one-time-only course or a graduate course, the student should make a\ncompelling case for why this is consistent with the student’s educational objectives. Approval of all program electives, including\nthose on the list, is based on agreement from the advisor and the departmental representative. \n\n*** For the Architecture & Engineering - STR track, at least one of the program electives must be an engineering course",
+          "course_list": [
+            "CEE 439: Structural Health Monitoring",
+            "CEE 460: Risk Assessment and Management",
+            "CEE 463: A social and Multi-dimensional exploration of Structures",
+            "CEE 467: Design and Behavior Steel Structures",
+            "CEE 477: Engineering Design for Sustainable Development",
+            "CEE 540: Special Topics in MMS: Elements of Conceptual Design and Analysis of Structures",
+            "CEE 566: Wind Engineering and Structural Dynamics",
+            "CEE 568: Adv. Design and Behavior Concrete Structures",
+            "ORF 307: Optimization",
+            "ORF 309: Probability and Stochastic Systems"
+          ]
+        },
+        {
+          "name": "Additional Math Requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
+          "course_list": [
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Architecture and Engineering: Architecture Focus",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "double_counting_allowed": true,
+      "explanation": "In the architecture-focus option, the requirements include a strong emphasis on architecture theory, history, and practice. This track is designed for students planning to do graduate work in architecture or to practice engineering in consultation with architects and planners. Students choosing this option do a senior thesis under the direction of advisers from both the School of Architecture and the Department of Civil and Environmental Engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 6,
+          "explanation": "Engineering science requirements (six courses):\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 312 Statics of Structures or CEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\nCEE 364 Materials in Civil Engineering\nARC 311 Building Science and Technology: Building Systems\nARC 374 Computational Design or CEE 463 A Social and Multi-Dimensional Exploration of Structures",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "CEE 262A: Structures and the Urban Environment",
+                "CEE 364: Materials in Civil Engineering",
+                "ARC 311: Building Science and Technology: Building Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 312: Statics of Structures",
+                "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ARC 374: Computational Design",
+                "CEE 463: A Social and Multi-Dimensional Exploration of Structures"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 2,
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses):\nCEE 366 Design of Reinforced Concrete Structures\nCEE 461 or 462 Design of Large Scale Structures: Buildings/Bridges",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 366: Design of Reinforced Concrete Structures"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 461: Design of Large Scale Structures: Buildings",
+                "CEE 462: Design of Large Scale Structures: Bridges"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (counts as two courses)",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        },
+        {
+          "name": "Track specific requirements",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Track specific requirements (six courses):\nARC 203 Introduction to Architectural Thinking\nARC 204 Introduction to Architectural Design\nARC 403 Topics in the History and Theory of Architecture\nARC 404 Advanced Design Studio\nARC 350 Junior Studio (Fall)\nARC 351 Junior Studio (spring)",
+          "course_list": [
+            "ARC 203: Introduction to Architectural Thinking",
+            "ARC 204: Introduction to Architectural Design",
+            "ARC 403: Topics in the History and Theory of Architecture",
+            "ARC 404: Advanced Design Studio",
+            "ARC 350: Junior Studio (Fall)",
+            "ARC 351: Junior Studio (spring)"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Students in this program must take two or more program electives, normally selected from a pre-approved list of courses in CEE, architecture and art.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. No more than one program\nelective can be at the 200 level. The courses listed below are highly recommended for this program track. If a student would like\nto take a program elective not on the list, such as a one-time-only course or a graduate course, the student should make a\ncompelling case for why this is consistent with the student’s educational objectives. Approval of all program electives, including\nthose on the list, is based on agreement from the advisor and the departmental representative.",
+          "course_list": [
+            "CEE 439",
+            "CEE 460",
+            "CEE 463",
+            "CEE 467",
+            "CEE 477",
+            "CEE 540",
+            "CEE 566",
+            "CEE 568",
+            "ORF 307",
+            "ORF 309",
+            "ARC 201",
+            "ARC 202",
+            "ARC 302",
+            "ARC 304",
+            "ARC 305",
+            "ARC 308",
+            "ARC 401",
+            "ARC 406",
+            "ARC 492",
+            "ART 206",
+            "ART 230",
+            "ART 242",
+            "ART 250",
+            "ART 308",
+            "ART 315",
+            "ART 320",
+            "ART 332",
+            "ART 333",
+            "ART 337",
+            "ART 351",
+            "ART 443",
+            "ART 445",
+            "ART 458",
+            "URB 201"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Environmental Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "double_counting_allowed": true,
+      "explanation": "This track is designed for students who wish to pursue a career related to the environment, whether in engineering, law, business, public policy, hydrological, or health and epidemiological sciences, and for students who wish to continue on to advanced graduate studies in environmental engineering (or a related earth science discipline). Course work in environmental engineering focuses on analysis of a large range of environmental problems as well as engineering design of innovative solutions to these problems. This is done through a combination of course work in hydrological sciences, environmental sciences, and geology, applied to different environmental settings, and environmental engineering design. The environmental engineering track is closely linked to the Environmental Studies Program of the Princeton Environmental Institute. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering\nCEE 302 Practical Models for Environmental Systems \nCEE 305 Environmental Fluid Mechanics\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Lab\nCEE 311 Global Air Pollution\nCEE 364 Materials in Civil Engineering or CEE 365 Soil Mechanics",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "CEE 207: Introduction to Environmental Engineering",
+                "CEE 302: Practical Models for Environmental Systems",
+                "CEE 305: Environmental Fluid Mechanics",
+                "CEE 308: Environmental Engineering Lab",
+                "CEE 311: Global Air Pollution"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 306: Hydrology",
+                "CEE 307: Field Ecohydrology"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 364: Materials in Civil Engineering",
+                "CEE 365: Soil Mechanics"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Engineering design (two courses):\n\nCEE 471 Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
+          "course_list": [
+            "CEE 471: Introduction to Water Pollution Technology",
+            "CEE 477: Engineering Design for Sustainable Development"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (counts as two courses):",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "No more than one program elective can be at the 200 level. For the environmental engineering track, at least one of the program electives must be an engineering course.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. For the environmental\nengineering track, at least one of the program electives must be an engineering course. No more than one program elective can be\nat the 200 level. The courses listed below are highly recommended for this program track. If a student would like to take a\nprogram elective not on the list, such as a one-time-only course or a graduate course, the student should make a compelling case\nfor why this is consistent with the student’s educational objectives. Approval of all program electives, including those on the list\nbelow, is based on agreement from the advisor and the departmental representative.",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 334: Global Environmental Issues",
+                "CEE 361: Structural Analysis & Intro to Finite Elements",
+                "CEE 460: Risk Assessment and Management",
+                "CEE 487: Ecohydrology",
+                "CEE 566: Wind Engineering and Structural Dynamics",
+                "MAE 328: Energy for a Greenhouse-Constrained World",
+                "ORF 309: Probability and Stochastic Systems",
+                "ELE 455: Mid-Infrared Technologies for Health and the Environment",
+                "ELE 428: Cleaner Transport Fuels, Combustion Sensing and Emission Control"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "GEO 363: Environmental Geochemistry: Chemistry of the Natural Systems",
+                "GEO 418: Environmental Aqueous Geochemistry"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Math Requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
+          "course_list": [
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geological Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "double_counting_allowed": true,
+      "explanation": "Geological engineering is the application of science to problems and projects involving Earth, its physical environment, Earth materials, and natural resources. The curriculum, offered in cooperation with the Department of Geosciences, is specially designed for the student who wishes to build upon the freshman and sophomore mathematics and engineering courses as a basis for studies in the earth sciences. Typical areas of concentration are water resources, engineering geology, earth resources, geotechnical engineering, geophysics, geochemistry, and atmospheres and oceans. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)\n\nOne course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
+          "req_list": [
+            {
+              "name": "Engineering science requirement (7 required courses)",
+              "max_counted": 7,
+              "min_needed": 7,
+              "explanation": "Engineering science requirement (7 required courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)",
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 205: Mechanics of Solids",
+                    "CEE 304: Environmental Implications of Energy Technology"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 207: Introduction to Environmental Engineering",
+                    "CEE 302: Practical Models for Environmental Systems"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
+                    "CEE 311/GEO 311: Global Air Pollution"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
+                    "CEE 311/GEO 311: Global Air Pollution"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 308: Environmental Engineering Laboratory",
+                    "GEO 300: Summer Course in Geologic Field Methods"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 306: Hydrology",
+                    "CEE 307: Field Ecohydrology"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 365: Soil Mechanics (lab)",
+                    "CEE 370/GEO 370: Sedimentology (field course)"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Engineering science requirement (1 from this list)",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "One course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
+              "course_list": [
+                "CEE 360/GEO 361: Physics of the Ocean and Atmospher",
+                "GEO 363: Environmental Geochemistry",
+                "GEO 366: Current and Future Climate",
+                "CEE 417/GEO 417: Environmental Microbiology",
+                "GEO 418: Environmental Aqueous Geochemistry",
+                "CEE 424/GEO 424: Seismology",
+                "GEO 430: Climate and The Terrestrial Biosphere",
+                "GEO 441: Computational Geophysics",
+                "GEO 470: Environmental Chemistry of Soils",
+                "GEO 499: Environmental Change, Poverty and Conflict"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses):\nCEE 471 (GEO 471) Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
+          "course_list": [
+            "CEE 471/GEO 471: Introduction to Water Pollution Technology",
+            "CEE 477: Engineering Design for Sustainable Development"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (counts as two courses)",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "No more than one program elective can be at the 200 level. For the geological engineering track, two of the three required program electives must be engineering courses.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. For the geological engineering\ntrack, at least two of the program electives must be an engineering course. No more than one program elective can be at the 200\nlevel. The courses listed below are pre-approved. If a student would like to take a program elective not on the list, such as a onetime-only\ncourse or a graduate course, the student should make a compelling case for why this is consistent with the student’s\neducational objectives. Approval is based on agreement from the advisor and the departmental representative.",
+          "req_list": [
+            {
+              "name": "Recommended Courses",
+              "max_counted": null,
+              "min_needed": 2,
+              "double_counting_allowed": false,
+              "explanation": "Civil and Environmental Engineering\n\nCourses in the CEE department that are not part of the current requirements. In particular, the following are\nrecommended for the environmental engineering track:\n● CEE 311 Global Air Pollution\n● CEE 460 Risk Assessment and Management\n● CEE 566 Wind Engineering and Structural Dynamics\n● GEO/CEE 423 Dynamic Meteorology",
+              "course_list": [
+                "CEE 311: Global Air Pollution",
+                "CEE 460: Risk Assessment and Management",
+                "CEE 566: Wind Engineering and Structural Dynamics",
+                "GEO 423/CEE 423: Dynamic Meteorology"
+              ]
+            },
+            {
+              "name": "Other Engineering and Science Departments",
+              "max_counted": 1,
+              "min_needed": null,
+              "double_counting_allowed": false,
+              "explanation": "Other Engineering and Science Departments \n\nCourses in mechanical engineering, chemical engineering, applied math (APC and ORF), geosciences, biology\n(EEB), chemistry.",
+              "course_list": [
+                "MAE 3**",
+                "MAE 4**",
+                "CBE 3**",
+                "CBE 4**",
+                "APC 3**",
+                "APC 4**",
+                "ORF 3**",
+                "ORF 4**",
+                "GEO 3**",
+                "GEO 4**",
+                "EEB 3**",
+                "EEB 4**",
+                "CHM 3**",
+                "CHM 4**"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Math Requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
+          "course_list": [
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Structural Engineering",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "double_counting_allowed": true,
+      "explanation": "Structural engineering is concerned with the analysis and design of civil engineering structures with an emphasis on buildings, bridges, stadiums, dams, and foundations. Particular emphasis is given to the design of these structures to resist earthquake and wind loads. The program is designed to meet the needs of students who are interested in continuing to advanced graduate studies or who plan to go into engineering practice and consulting. This track is accredited by the Engineering Commission of ABET (www.abet.org) under the program in Civil Engineering. Its basic aim is the preparation of flexible and innovative graduates who can address the novel problems of modern engineering. Students in this program have the chance to interact directly with some of the best design and consulting companies in structural engineering.",
+      "req_list": [
+        {
+          "name": "Engineering science requirements",
+          "max_counted": 1,
+          "min_needed": 8,
+          "explanation": "Engineering science requirements (eight courses):\n\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 207 Introduction to Environmental Engineering, or CEE 302 Practical Models for Environmental Systems\nCEE 306 Hydrology, or CEE 305 Environmental Fluid Mechanics\nCEE 312 Statics of Structures\nCEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\n\n\nAny two from:\n\nCEE 308 Environmental Engineering Laboratory, CEE 364 Materials in Civil Engineering, or CEE 365 Soil Mechanics",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "CEE 262A: Structures and the Urban Environment",
+                "CEE 312: Statics of Structures",
+                "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 207: Introduction to Environmental Engineering",
+                "CEE 302: Practical Models for Environmental Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 306: Hydrology",
+                "CEE 305: Environmental Fluid Mechanics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 2,
+              "min_needed": 2,
+              "explanation": null,
+              "course_list": [
+                "CEE 308: Environmental Engineering Laboratory",
+                "CEE 364: Materials in Civil Engineering",
+                "CEE 365: Soil Mechanics"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Engineering design requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Engineering design requirements (two courses):\nCEE 366 Design of Reinforced Concrete Structures\nCEE 461 Design of Large-Scale Structures: Buildings",
+          "course_list": [
+            "CEE 366: Design of Reinforced Concrete Structures",
+            "CEE 461: Design of Large-Scale Structures: Buildings"
+          ]
+        },
+        {
+          "name": "Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Independent Work (counts as two courses)",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "For the structural engineering track, three program electives are required and at least one must be an engineering course.\n\nA student’s program electives must provide a coherent sequence in the student’s area of interest. For the structural engineering\ntrack, at least one of the program electives must be an engineering course. No more than one program elective can be at the 200\nlevel. The courses listed below are highly recommended for this program track. If a student would like to take a program elective\nnot on the list, such as a one-time-only course or a graduate course, the student should make a compelling case for why this is\nconsistent with the student’s educational objectives. Approval of all program electives, including those on the list, is based\non agreement from the advisor and the departmental representative.",
+          "req_list": [
+            {
+              "name": "Recommended Courses",
+              "max_counted": null,
+              "min_needed": 1,
+              "explanation": "Civil and Environmental Engineering \nCourses in the CEE department that are not part of the current requirements. In particular, the following are\nrecommended for the structures track: \n● CEE 376 Independent Study \n● CEE 439 Structural Health Monitoring \n● CEE 460 Risk Analysis \n● CEE 463 A Social and Multi Dimensional Exploration of Structures \n● CEE 467 Design and Behavior Steel Structures \n● CEE 477 Engineering Design for Sustainable Development \n● CEE 540 Special Topics in MMS: Elements of Conceptual Design and Analysis of Structures \n● CEE 566 Wind Engineering and Structural Dynamics",
+              "course_list": [
+                "CEE 376: Independent Study",
+                "CEE 439: Structural Health Monitoring",
+                "CEE 460: Risk Analysis",
+                "CEE 463: A Social and Multi Dimensional Exploration of Structures",
+                "CEE 467: Design and Behavior Steel Structures",
+                "CEE 477: Engineering Design for Sustainable Development",
+                "CEE 540: Special Topics in MMS: Elements of Conceptual Design and Analysis of Structures",
+                "CEE 566: Wind Engineering and Structural Dynamics",
+                "ORF 307: Optimization",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": "Other Engineering and Science Departments",
+              "max_counted": 2,
+              "min_needed": null,
+              "double_counting_allowed": false,
+              "explanation": "Other Engineering and Science Departments\nCourses in mechanical engineering, applied math (APC and ORF), and geology.",
+              "course_list": [
+                "MAE 3**",
+                "MAE 4**",
+                "APC 3**",
+                "APC 4**",
+                "ORF 3**",
+                "ORF 4**",
+                "GEO 3**",
+                "GEO 4**"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Math Requirements",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Additional Math Requirements (2 courses)\n\n\nORF 245 Fundamentals of Eng. Statistics, or ORF 309 Probability\nand Stochastic Systems, or a suitable substitute course.\nThis requirement may be waived for students who scored 5 on\nAP STAT.\n\nMAE 305 Mathematics in Engineering I _E_",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ORF 245: Fundamentals of Eng. Statistics",
+                "ORF 309: Probability and Stochastic Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 305: Mathematics in Engineering I"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Additional Science Requirements",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Additional Science Requirements (1 course) \nGEO 203 Geology, \n or EEB 211 Life on Earth: Chaos and Clockwork of Biological\nDesign, \n or MOL 214 Introduction to Cellular and Molecular Biology, \n or MOL 215 Quantitative Principles in Cell and Molecular Biology \nThis requirement may be waived for students who scored 5 on AP BIO.",
+          "course_list": [
+            "GEO 203: Geology",
+            "EEB 211: Life on Earth: Chaos and Clockwork of Biological Design",
+            "MOL 214: Introduction to Cellular and Molecular Biology",
+            "MOL 215: Quantitative Principles in Cell and Molecular Biology"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Engineering and the Liberal Arts",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "This program is designed for students who wish to obtain an engineering background as a foundation for a wide range of careers, such as medicine, law, public policy, visual arts, or engineering studies in materials, ethics, or history. Course work in this track should integrate engineering courses in a coherent manner with the topic of interest to the student. The track is designed to be rigorous, yet allow for a wide degree of flexibility in the course of studies.\n\nAll students in engineering and the liberal arts are required to take a minimum of six courses in engineering sciences that stress design and analytical methods in civil and environmental engineering. The program electives should form a coherent sequence of at least four courses in the student's area of interest, and junior independent research is strongly recommended as a program elective. This is followed by the senior thesis. In the junior independent research and senior thesis, students should relate their topics of interest to engineering problems.",
+      "req_list": [
+        {
+          "name": "Engineering Science Requirement",
+          "max_counted": 1,
+          "min_needed": 6,
+          "double_counting_allowed": false,
+          "explanation": "A minimum of six CEE courses, of which at least 3 should be the 300 level or above. \nAt least one of the 300-level courses has to have a laboratory component.\n(Upon approval by the program advisor, this lab requirement may be satisfied by a 300-level course from another department, but is still necessary to take 6 CEE courses)",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 3**",
+                "CEE 4**",
+                "CEE 5**"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 1**",
+                "CEE 2**"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Program Electives",
+          "max_counted": 1,
+          "min_needed": 7,
+          "double_counting_allowed": false,
+          "explanation": "Seven program electives are required and these should include a coherent sequence of at least four courses in the student's area of interest, three of which should be at the 300 level or above.",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 3**",
+                "CEE 4**",
+                "CEE 5**"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 4,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 1**",
+                "CEE 2**"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Junior Independent Work",
+          "max_counted": 0,
+          "min_needed": 0,
+          "double_counting_allowed": true,
+          "explanation": "Junior Independent Research is strongly recommended as a program elective",
+          "course_list": [
+            "CEE 375: Independent Study (Fall)",
+            "CEE 376: Independent Study (Spring)"
+          ]
+        },
+        {
+          "name": "Senior Independent Work",
+          "max_counted": 1,
+          "min_needed": 1,
+          "double_counting_allowed": true,
+          "explanation": "Senior Independent Work (counts as two courses):",
+          "course_list": [
+            "CEE 478: Senior Thesis (Counts as two courses)"
+          ]
+        }
+      ]
+    }
+  ]
+}

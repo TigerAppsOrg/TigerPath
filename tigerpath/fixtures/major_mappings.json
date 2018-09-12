@@ -326,7 +326,7 @@
       "name": "Civil and Environmental Engineering",
       "code": "CEE",
       "degree": "BSE",
-      "supported": false
+      "supported": true
     }
   },
   {
@@ -356,7 +356,7 @@
       "name": "Mechanical and Aerospace Engineering",
       "code": "MAE",
       "degree": "BSE",
-      "supported": false
+      "supported": true
     }
   },
   {
