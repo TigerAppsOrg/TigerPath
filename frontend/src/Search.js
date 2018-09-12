@@ -109,20 +109,15 @@ function renderRequirements(){
               if(mainReq.contacts) {
                 popoverContent += '<h6>Contacts:</h6>';
                 mainReq.contacts.forEach(contact => {
-                  popoverContent += ('<p>' + contact.type + ':<br>' + contact.name
-                    + ' (<a href="mailto:' + contact.email + '" target="_top">'
-                    + contact.email + '</a>)</p>');
+                  popoverContent += '<p>' + contact.type + ':<br>' + contact.name
+                    + ' <a href="mailto:' + contact.email + '">'
+                    + contact.email + '</a></p>';
                 });
               }
               if(mainReq.urls) {
                 popoverContent += '<h6>Reference Links:</h6>';
                 mainReq.urls.forEach(url => {
-                  let displayLength = 30;
-                  let displayUrl = url;
-                  if(displayUrl.length > displayLength) {
-                    displayUrl = displayUrl.substring(0, displayLength - 3) + '...'
-                  }
-                  popoverContent += '<p><a href="' + url + '" class="link">' + displayUrl + '</a></p>'
+                  popoverContent += '<p><a href="' + url + '" class="ref-link" target="_blank">' + url + '</a></p>'
                 });
               }
               popoverContent += '</div>'
