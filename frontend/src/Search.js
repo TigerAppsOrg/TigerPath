@@ -143,7 +143,7 @@ function renderRequirements(){
                             <p style={{padding: '5px'}}>In the meantime, you can track your AB degree requirements below.
                             </p>
                           </div>;
-                popoverContent = name;
+                popoverContent = 'The ' + name + ' major is not supported yet.';
               }
 
               // render requirements
