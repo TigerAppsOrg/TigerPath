@@ -1,245 +1,245 @@
 {
-    "type": "Major",
-    "name": "Operations Research and Financial Engineering",
-    "code": "ORF",
-    "degree": "BSE",
-    "year": 2018,
-    "description": "Operations research and financial engineering (link is external)may be considered as the modern form of a liberal education: modern because it is based on science, mathematics, computing and technology, and liberal in the sense that it provides for broad intellectual development and can lead to many different types of careers. By choosing judiciously from courses in engineering, science, mathematics, economics, public policy, and liberal arts, each student may design a program adapted to his or her particular interests.",
-    "urls": [
-        "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering#",
-        "https://orfe.princeton.edu/"
-    ],
-    "contacts": [
+  "type": "Major",
+  "name": "Operations Research and Financial Engineering",
+  "code": "ORF",
+  "degree": "BSE",
+  "year": 2018,
+  "description": "Operations research and financial engineering (link is external)may be considered as the modern form of a liberal education: modern because it is based on science, mathematics, computing and technology, and liberal in the sense that it provides for broad intellectual development and can lead to many different types of careers. By choosing judiciously from courses in engineering, science, mathematics, economics, public policy, and liberal arts, each student may design a program adapted to his or her particular interests.",
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering#",
+    "https://orfe.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Departmental Representative",
+      "name": "Alain L. Kornhauser",
+      "email": "alaink@princeton.edu"
+    },
+    {
+      "type": " Chair",
+      "name": " K. Ronnie Sircar",
+      "email": "sircar@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Core",
+      "max_counted": 1,
+      "min_needed": 4,
+      "explanation": "The core requirements (four courses). These form the intellectual foundation of the field and cover statistics, probability, stochastic processes, and optimization, along with more advanced courses in mathematical modeling.",
+      "double_counting_allowed": false,
+      "completed_by_semester": 8,
+      "course_list": [
+        "ORF 245",
+        "ORF 307",
+        "ORF 309",
+        "ORF 335"
+      ]
+    },
+    {
+      "name": "Departmental Electives",
+      "max_counted": 1,
+      "min_needed": 10,
+      "explanation": "These are courses that either extend and broaden the core, or expose the student to a significant problem area or application closely related to the core program. \n1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+      "double_counting_allowed": false,
+      "completed_by_semester": 8,
+      "req_list": [
         {
-            "type": "Departmental Representative",
-            "name": "Alain L. Kornhauser",
-            "email": "alaink@princeton.edu"
+          "name": "ORF",
+          "max_counted": 10,
+          "min_needed": 4,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "ORF 311",
+            "ORF 350",
+            "ORF 360",
+            "ORF 363",
+            "ORF 375",
+            "ORF 401",
+            "ORF 405",
+            "ORF 406",
+            "ORF 407",
+            "ORF 409",
+            "ORF 411",
+            "ORF 417",
+            "ORF 418",
+            "ORF 435",
+            "ORF 455",
+            "ORF 467",
+            "ORF 473",
+            "ORF 474"
+          ]
         },
         {
-            "type": " Chair",
-            "name": " K. Ronnie Sircar",
-            "email": "sircar@princeton.edu"
+          "name": "CEE",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "CEE 304",
+            "CEE 460"
+          ]
+        },
+        {
+          "name": "CHM",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "CHM 303",
+            "CHM 304"
+          ]
+        },
+        {
+          "name": "COS",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "COS 226",
+            "COS 323",
+            "COS 340",
+            "COS 402",
+            "COS 423",
+            "COS 217"
+          ]
+        },
+        {
+          "name": "ECO",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "ECO 310",
+            "ECO 311",
+            "ECO 312",
+            "ECO 317",
+            "ECO 332",
+            "ECO 341",
+            "ECO 342",
+            "ECO 361",
+            "ECO 362",
+            "ECO 363",
+            "ECO 418",
+            "ECO 462",
+            "ECO 464",
+            "ECO 466",
+            "ECO 467"
+          ]
+        },
+        {
+          "name": "EEB",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "EEB 324"
+          ]
+        },
+        {
+          "name": "ELE",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "ELE 301",
+            "ELE 381",
+            "ELE 486"
+          ]
+        },
+        {
+          "name": "ENV",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "ENV 302"
+          ]
+        },
+        {
+          "name": "MAE",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "MAE 433"
+          ]
+        },
+        {
+          "name": "MAT",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "MAT 320",
+            "MAT 322/APC 350",
+            "MAT 375",
+            "MAT 377",
+            "MAT 378",
+            "MAT 385",
+            "MAT 391/MAE 305",
+            "MAT 392/MAE 306",
+            "MAT 427",
+            "MAT 486",
+            "MAT 522"
+          ]
+        },
+        {
+          "name": "MOL",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "MOL 345"
+          ]
+        },
+        {
+          "name": "NEU",
+          "max_counted": 3,
+          "min_needed": 0,
+          "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+          "double_counting_allowed": false,
+          "completed_by_semester": 8,
+          "course_list": [
+            "NEU 437",
+            "NEU 330"
+          ]
         }
-    ],
-    "req_list": [
-        {
-            "name": "Core",
-            "max_counted": 1,
-            "min_needed": 4,
-            "explanation": "The core requirements (four courses). These form the intellectual foundation of the field and cover statistics, probability, stochastic processes, and optimization, along with more advanced courses in mathematical modeling.",
-            "double_counting_allowed": false,
-            "completed_by_semester": 8,
-            "course_list": [
-                "ORF 245",
-                "ORF 307",
-                "ORF 309",
-                "ORF 335"
-            ]
-        },
-        {
-            "name": "Departmental Electives",
-            "max_counted": 1,
-            "min_needed": 10,
-            "explanation": "These are courses that either extend and broaden the core, or expose the student to a significant problem area or application closely related to the core program. \n1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-            "double_counting_allowed": false,
-            "completed_by_semester": 8,
-            "req_list": [
-                {
-                    "name": "ORF",
-                    "max_counted": 10,
-                    "min_needed": 4,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "ORF 311",
-                        "ORF 350",
-                        "ORF 360",
-                        "ORF 363",
-                        "ORF 375",
-                        "ORF 401",
-                        "ORF 405",
-                        "ORF 406",
-                        "ORF 407",
-                        "ORF 409",
-                        "ORF 411",
-                        "ORF 417",
-                        "ORF 418",
-                        "ORF 435",
-                        "ORF 455",
-                        "ORF 467",
-                        "ORF 473",
-                        "ORF 474"
-                    ]
-                },
-                {
-                    "name": "CEE",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "CEE 304",
-                        "CEE 460"
-                    ]
-                },
-                {
-                    "name": "CHM",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "CHM 303",
-                        "CHM 304"
-                    ]
-                },
-                {
-                    "name": "COS",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "COS 226",
-                        "COS 323",
-                        "COS 340",
-                        "COS 402",
-                        "COS 423",
-                        "COS 217"
-                    ]
-                },
-                {
-                    "name": "ECO",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "ECO 310",
-                        "ECO 311",
-                        "ECO 312",
-                        "ECO 317",
-                        "ECO 332",
-                        "ECO 341",
-                        "ECO 342",
-                        "ECO 361",
-                        "ECO 362",
-                        "ECO 363",
-                        "ECO 418",
-                        "ECO 462",
-                        "ECO 464",
-                        "ECO 466",
-                        "ECO 467"
-                    ]
-                },
-                {
-                    "name": "EEB",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "EEB 324"
-                    ]
-                },
-                {
-                    "name": "ELE",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "ELE 301",
-                        "ELE 381",
-                        "ELE 486"
-                    ]
-                },
-                {
-                    "name": "ENV",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "ENV 302"
-                    ]
-                },
-                {
-                    "name": "MAE",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "MAE 433"
-                    ]
-                },
-                {
-                    "name": "MAT",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "MAT 320",
-                        "MAT 322/APC 350",
-                        "MAT 375",
-                        "MAT 377",
-                        "MAT 378",
-                        "MAT 385",
-                        "MAT 391/MAE 305",
-                        "MAT 392/MAE 306",
-                        "MAT 427",
-                        "MAT 486",
-                        "MAT 522"
-                    ]
-                },
-                {
-                    "name": "MOL",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "MOL 345"
-                    ]
-                },
-                {
-                    "name": "NEU",
-                    "max_counted": 3,
-                    "min_needed": 0,
-                    "explanation": "1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
-                    "double_counting_allowed": false,
-                    "completed_by_semester": 8,
-                    "course_list": [
-                        "NEU 437",
-                        "NEU 330"
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Senior Independent Research",
-            "max_counted": 1,
-            "min_needed": 2,
-            "explanation": "A full-year thesis (or a one semester project plus an additional 400-level ORFE departmental) involving an application of the techniques in the program applied to a topic that the student chooses in consultation with a faculty adviser.",
-            "double_counting_allowed": false,
-            "completed_by_semester": 8,
-            "course_list": [
-                "ORF 478",
-                "ORF 479"
-            ]
-        }
-    ]
+      ]
+    },
+    {
+      "name": "Senior Independent Research",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "A full-year thesis (or a one semester project plus an additional 400-level ORFE departmental) involving an application of the techniques in the program applied to a topic that the student chooses in consultation with a faculty adviser.",
+      "double_counting_allowed": false,
+      "completed_by_semester": 8,
+      "course_list": [
+        "ORF 478",
+        "ORF 479"
+      ]
+    }
+  ]
 }
