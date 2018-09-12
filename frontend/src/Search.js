@@ -127,7 +127,6 @@ function renderRequirements(){
               }
               popoverContent += '</div>'
               let mainReqLabel = <div className='reqLabel' 
-                                  reqpath={mainReq['path_to']}
                                   title={'<span>' + mainReq.name + '</span>'}
                                   data-content={popoverContent}>
                                     <div className='my-arrow root-arrow'></div>
