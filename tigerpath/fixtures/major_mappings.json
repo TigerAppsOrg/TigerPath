@@ -366,7 +366,7 @@
       "name": "Operations Research and Financial Engineering",
       "code": "ORF",
       "degree": "BSE",
-      "supported": false
+      "supported": true
     }
   }
 ]
