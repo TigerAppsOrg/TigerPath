@@ -11,6 +11,7 @@ import TreeView from 'react-treeview/lib/react-treeview.js';
 import {toggleSettle} from './Requirements';
 import {populateReqTree} from './Requirements';
 import {makeNodesClickable} from './Requirements';
+import {addReqPopovers} from './Requirements';
 
 var dragula = require('react-dragula');
 var current_request = null;
@@ -96,14 +97,41 @@ function renderRequirements(){
               var name;
               var content;
               var finished = '';
+              var popoverContent;
 
               // major is supported
               if(typeof mainReq === "object") {
                 name = mainReq.name;
                 content = populateReqTree(mainReq);
+
+                // whether or not the major requirements have been satisfied
                 if ((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
                   (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
                     finished='req-done';
+
+                // popover
+                popoverContent = '<div class="popoverContentContainer">';
+                if(mainReq.explanation) {
+                  popoverContent += '<p>' + mainReq.explanation.split('\n').join('<br>') + '</p>';
+                }
+                else if(mainReq.description) {
+                  popoverContent += '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
+                }
+                if(mainReq.contacts) {
+                  popoverContent += '<h6>Contacts:</h6>';
+                  mainReq.contacts.forEach(contact => {
+                    popoverContent += '<p>' + contact.type + ':<br>' + contact.name
+                      + '<br><a href="mailto:' + contact.email + '">'
+                      + contact.email + '</a></p>';
+                  });
+                }
+                if(mainReq.urls) {
+                  popoverContent += '<h6>Reference Links:</h6>';
+                  mainReq.urls.forEach(url => {
+                    popoverContent += '<p><a href="' + url + '" class="ref-link" target="_blank">' + url + '</a></p>'
+                  });
+                }
+                popoverContent += '</div>'
               }
               // major is not supported yet
               else {
@@ -115,13 +143,16 @@ function renderRequirements(){
                             <p style={{padding: '5px'}}>In the meantime, you can track your AB degree requirements below.
                             </p>
                           </div>;
+                popoverContent = name;
               }
 
               // render requirements
-              let mainReqLabel = <span>
+              let mainReqLabel = <div className='reqLabel' 
+                                  title={'<span>' + name + '</span>'}
+                                  data-content={popoverContent}>
                                     <div className='my-arrow root-arrow'></div>
                                     {name}
-                                 </span>
+                                 </div>
               return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>
                         {content}
                       </TreeView>
@@ -129,6 +160,7 @@ function renderRequirements(){
             document.getElementById('requirements')
           );
           makeNodesClickable();
+          addReqPopovers();
         }
       }
   });
