@@ -202,6 +202,8 @@ def _format_req_output(req):
     ]:
         if key in req:
             output[key] = req[key]
+    if "code" in req and "description" in req:
+        output["description"] = req["description"]
     if "contacts" in req:
         output["contacts"] = []
         for contact in req["contacts"]:

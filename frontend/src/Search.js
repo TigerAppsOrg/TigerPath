@@ -11,6 +11,7 @@ import TreeView from 'react-treeview/lib/react-treeview.js';
 import {toggleSettle} from './Requirements';
 import {populateReqTree} from './Requirements';
 import {makeNodesClickable} from './Requirements';
+import {addReqPopovers} from './Requirements';
 
 var dragula = require('react-dragula');
 var current_request = null;
@@ -93,20 +94,73 @@ function renderRequirements(){
           });
           ReactDOM.render(
            data.map((mainReq, index)=>{
-              if(!(typeof mainReq === "object")) return(<div style={{padding: '5px'}}>The {mainReq} major is not supported yet.</div>)
-              let finished = ''
-              if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
-                (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
-                  finished='req-done';
-              let mainReqLabel = <span>
+              var name;
+              var content;
+              var finished = '';
+              var popoverContent;
+
+              // major is supported
+              if(typeof mainReq === "object") {
+                name = mainReq.name;
+                content = populateReqTree(mainReq);
+
+                // whether or not the major requirements have been satisfied
+                if ((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
+                  (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
+                    finished='req-done';
+
+                // popover
+                popoverContent = '<div class="popoverContentContainer">';
+                if(mainReq.explanation) {
+                  popoverContent += '<p>' + mainReq.explanation.split('\n').join('<br>') + '</p>';
+                }
+                else if(mainReq.description) {
+                  popoverContent += '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
+                }
+                if(mainReq.contacts) {
+                  popoverContent += '<h6>Contacts:</h6>';
+                  mainReq.contacts.forEach(contact => {
+                    popoverContent += '<p>' + contact.type + ':<br>' + contact.name
+                      + '<br><a href="mailto:' + contact.email + '">'
+                      + contact.email + '</a></p>';
+                  });
+                }
+                if(mainReq.urls) {
+                  popoverContent += '<h6>Reference Links:</h6>';
+                  mainReq.urls.forEach(url => {
+                    popoverContent += '<p><a href="' + url + '" class="ref-link" target="_blank">' + url + '</a></p>'
+                  });
+                }
+                popoverContent += '</div>'
+              }
+              // major is not supported yet
+              else {
+                name = mainReq;
+                content = <div>
+                            <p style={{padding: '5px'}}>
+                              The {name} major is not supported yet. If you would like to request it, let us know <a href="https://goo.gl/forms/pKxjmubIOSCOeR8L2" target="_blank">here</a>.
+                            </p>
+                            <p style={{padding: '5px'}}>In the meantime, you can track your AB degree requirements below.
+                            </p>
+                          </div>;
+                popoverContent = 'The ' + name + ' major is not supported yet.';
+              }
+
+              // render requirements
+              let mainReqLabel = <div className='reqLabel' 
+                                  title={'<span>' + name + '</span>'}
+                                  data-content={popoverContent}>
                                     <div className='my-arrow root-arrow'></div>
-                                    {mainReq.name}
-                                 </span>
-              return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>{populateReqTree(mainReq)}</TreeView>
+                                    {name}
+                                 </div>
+              return <TreeView key={index} itemClassName={"tree-root " + finished} childrenClassName="tree-sub-reqs" nodeLabel={mainReqLabel}>
+                        {content}
+                      </TreeView>
             }),
             document.getElementById('requirements')
           );
           makeNodesClickable();
+          addReqPopovers();
         }
       }
   });
