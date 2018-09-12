@@ -99,7 +99,7 @@ function renderRequirements(){
               if((mainReq['min_needed'] === 0 && mainReq['count'] >= 0) || 
                 (mainReq['min_needed'] > 0 && mainReq['count'] >= mainReq['min_needed']))
                   finished='req-done';
-              let popoverContent = '<div className="popoverContentContainer">';
+              let popoverContent = '<div class="popoverContentContainer">';
               if(mainReq.explanation) {
                 popoverContent += '<p>' + mainReq.explanation + '</p>';
               }
