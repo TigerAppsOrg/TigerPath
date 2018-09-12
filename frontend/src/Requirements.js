@@ -36,9 +36,11 @@ function getHash(stringName) {
 }
 
 export function getReqCourses(req_path){
+  var filterText = 'Satisfying: ' + req_path.split('//').pop();
+  $('#search-text').val(filterText);
   $('#spinner').css('display', 'inline-block');
   $.ajax({
-      // the slashes messes up the url 
+      // the slashes messes up the url
       url: "/api/v1/get_req_courses/" + req_path.replace(/\/\//g, '$'),
       datatype: 'json',
       type: 'GET',
@@ -57,7 +59,7 @@ export function populateReqTree(reqTree){
       // treeview key is not needed but assigning here to prevent error in console, this function creates a hash from the name
       let treeHash = getHash(requirement['name'])
       let finished = '';
-      if((requirement['min_needed'] === 0 && requirement['count'] >= 0) || 
+      if((requirement['min_needed'] === 0 && requirement['count'] >= 0) ||
         (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed']))
           finished='req-done';
       if(requirement['count'] === 0 && requirement['min_needed'] === 0) finished='req-neutral'
@@ -77,8 +79,8 @@ export function populateReqTree(reqTree){
                           <div className='my-arrow'></div>
                           <span className='reqName'>{requirement['name']}</span>
                           <span className='reqCount'>{tag}</span>
-                       </div>;
-      if('req_list' in requirement) { 
+                      </div>;
+      if ('req_list' in requirement) {
         return(<TreeView key={treeHash} nodeLabel={reqLabel} itemClassName={finished}>{populateReqTree(requirement)}</TreeView>);
       }
       else {
@@ -107,7 +109,7 @@ export function makeNodesClickable(){
       let arrowCollapsedClass = 'tree-view_arrow-collapsed'
       let treeCollapsedClass = 'tree-view_children-collapsed'
       let arrowItem = $(this).find('.tree-view_arrow');
-      if(arrowItem.hasClass(arrowCollapsedClass)){ 
+      if(arrowItem.hasClass(arrowCollapsedClass)){
         arrowItem.removeClass(arrowCollapsedClass);
         $(this).parent().find('.tree-view_children').removeClass(treeCollapsedClass);
       }
@@ -118,6 +120,7 @@ export function makeNodesClickable(){
     })
   });
 }
+
 // adds popovers to reqs
 export function addReqPopovers(){
   $('.reqLabel').each(function(){

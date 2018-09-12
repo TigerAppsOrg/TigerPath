@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', include('tigerpath.urls')),
@@ -23,3 +24,4 @@ urlpatterns = [
 
 if settings.ADMIN_ENABLED:
     urlpatterns.append(path('admin/', admin.site.urls))
+    urlpatterns.append(path('login/admin', auth_views.login, {'template_name': 'admin/login.html'}))
