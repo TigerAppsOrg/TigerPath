@@ -31,7 +31,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "description": "Prerequisites",
-      "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements(link is external). Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites(link is external) for all later computer science courses.",
+      "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements. Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "double_counting_allowed": false,
       "pdfs_allowed": false,
       "req_list": [
@@ -54,7 +54,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "description": "Departmental Requirements",
-      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements(link is external).  These eight courses must include two each from the following three areas:",
+      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the following three areas:",
       "double_counting_allowed": false,
       "pdfs_allowed": false,
       "req_list": [
