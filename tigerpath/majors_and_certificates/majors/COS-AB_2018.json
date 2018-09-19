@@ -31,7 +31,7 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 ; COS 126; COS 217 and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
+      "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 or 217; COS 126, COS 217, and 226.\n\nStudents should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "double_counting_allowed": false,
       "pdfs_allowed": false,
       "completed_by_semester": 4,
@@ -41,7 +41,7 @@
           "max_counted": 2,
           "min_needed": 2,
           "description": null,
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
+          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204 or 217.",
           "course_list": [
             "MAT 103",
             "MAT 104"
@@ -52,10 +52,11 @@
           "max_counted": 1,
           "min_needed": 1,
           "description": null,
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204.",
+          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204 or 217.",
           "course_list": [
             "MAT 202",
-            "MAT 204"
+            "MAT 204",
+            "MAT 217"
           ]
         },
         {
