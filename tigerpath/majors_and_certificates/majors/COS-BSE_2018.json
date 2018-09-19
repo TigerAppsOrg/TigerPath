@@ -55,7 +55,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "description": "Departmental Requirements",
-      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the following three areas:",
+      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the three main areas.\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.  In addition, some graduate COS courses (500-level) count as undergraduate departmentals (COS 551, COS 534), depending on their content and structure. (Please ask if you need to use a graduate course as a departmental).  However, graduate courses rarely count as special \"tracked\" departmentals (see the list below for the few exceptions).\n\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.  Note that it is very, very, very rare for courses outside the computer science department that are not cross-listed with the computer science department to count as track-specific (ie: Theory/Systems/Applications) departmentals.  Hence, in general, you will not be able to count more than 2 courses outside of the computer science department as COS departmentals.",
       "double_counting_allowed": false,
       "pdfs_allowed": false,
       "req_list": [
@@ -63,7 +63,7 @@
           "name": "Theory",
           "max_counted": 1,
           "min_needed": 2,
-          "description": "Theoretical computer science",
+          "description": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:*\n340 Reasoning about Computation\n423 Theory of Algorithms\n433**Cryptography\n445 Networks, Economics and Computing\n451 Computational Geometry\n487 Theory of Computation\n488 Introduction to Analytic Combinatorics\n510* (441) Programming Languages\n516* Reasoning About Software\n533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
           "explanation": null,
           "req_list": [
             {
