@@ -79,9 +79,11 @@ def scrape_parse_semester(term_code):
         #global course_count
         #global section_count
         seed_page = urlopen(COURSE_OFFERINGS)
-        departments = get_department_list(seed_page)
+        departments = list(get_department_list(seed_page))
+        length = len(departments)
         courses = []
-        for department in departments:
+        for index, department in enumerate(departments):
+            print('Scraping department {} of {}: {}'.format(index+1, length, department))
             courses += scrape(department)
         return courses
 
