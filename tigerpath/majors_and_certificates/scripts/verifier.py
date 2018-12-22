@@ -18,6 +18,8 @@ REQ_PATH_SEPARATOR = '//'
 # Limit the type to 12 characters and the code/name to 100 characters
 REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.100s"
 
+DEFAULT_SCHEDULE = [[]]*8
+
 def check_major(major_name, courses, year):
     """
     Returns information about the major requirements satisfied by the courses
@@ -273,7 +275,10 @@ def _add_course_lists_to_req(req, courses):
                             break
 
 def _init_courses(courses, req):
-    courses = copy.deepcopy(courses)
+    if not courses:
+        courses = DEFAULT_SCHEDULE
+    else:
+        courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
             course["name"] = course["name"].split(':')[0]

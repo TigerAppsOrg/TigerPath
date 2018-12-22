@@ -16,11 +16,6 @@ $(function() {
   let pageId = 1;
   let numOfPages = 3
 
-  // replace "Next" with "I understand" for first page
-  if (pageId === 1) {
-    $('#next-btn').html('I understand');
-  }
-
   // show onboarding modal
   $('#onboarding-modal').modal('show');
 

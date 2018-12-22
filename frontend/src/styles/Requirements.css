@@ -1,5 +1,5 @@
 /* items in requirement column */
-#requirements li{
+#requirements li {
   list-style-type: none;
   background-color: #d1dcff;
   padding-left: 3px;
@@ -23,12 +23,12 @@
 }
 
 /* greyed out unsettled reqs*/
-#requirements .unsettled{
+#requirements .unsettled {
   background-color: #DCDCDC;
 }
 
 /* styles root */
-#requirements .tree-root{
+#requirements .tree-root {
   margin-bottom: 3px;
   background-color: #DB7093;
   color: white;
@@ -49,7 +49,7 @@
   color: #045d00;
 }
 /* styles main req */
-#requirements .req-done{
+#requirements .req-done {
   background-color: #47a545;
   color: white;
 }
@@ -64,11 +64,6 @@
 #requirements .tree-sub-reqs .reqCount {
   float: right;
   padding-right: 5px;
-}
-
-/* name of courses next to count*/
-#requirements .tree-sub-reqs .reqName {
-  font-size:;
 }
 
 #requirements {
@@ -86,7 +81,7 @@
   margin-top: 5px;
 }
 
-.fa-exclamation-circle{
+.fa-exclamation-circle {
   color: #e74c3c;
 }
 

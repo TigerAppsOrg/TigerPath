@@ -20,4 +20,5 @@ urlpatterns = [
     path('api/v1/get_schedule/', views.get_schedule, name='get_schedule'),
     path('api/v1/get_requirements/', views.get_requirements, name='get_requirements'),
     path('api/v1/get_req_courses/<req_path>', views.get_req_courses, name='get_req_courses'),
+    path('api/v1/get_profile/', views.get_profile, name='get_profile'),
 ]
