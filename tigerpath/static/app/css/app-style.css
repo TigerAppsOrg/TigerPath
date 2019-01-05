@@ -10,122 +10,23 @@ h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
+
 .navbar {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: medium;
 }
-.navbar-toggle {
-  position: relative;
-  float: right;
-}
-.navbar-custom-searchbox {
-  background-color: #3d8af7;
-  color: #FFFFFF;
-  border: 1px solid black;
-  padding: 3px;
-  width: 100%;
-}
-.navbar-custom-drop {
-  background-color: #dacafb;
-  font-size: medium;
-  color: #000000;
-  border: 1px solid black;
-  width: 100%;
-}
-.navbar-custom .navbar-brand,
-.navbar-custom .navbar-text {
-  color: #FFFFFF;
-}
-.nav-tabs {
-  display: block;
-  padding: 10px;
-}
-.requirements-list {
-  background-color: #7e7f82;
-  width: inherit;
-  height: 100px;
-}
-.reqtable-boxes {
-  padding: 10px;
-  white-space: nowrap;
-}
-.completed {
-  background-color: #cbe8ba;
-}
-.incomplete {
-  background-color: #ffd783;
-}
-.not-started {
-  background-color: #ffc3ae;
-}
-#main-nav a{
-  color: #FFFFFF;
-  text-decoration:none;
-  margin: 5px;
-}
-#main-nav a:hover {
-  color: #3d8af7;
-  text-decoration: underline;
-}
-button.custom-toggler.navbar-toggler {
-  border-color: #FFFFFF;
-}
-#semesters {
-  border-collapse: collapse;
-  font-size: large;
-  height: 100px;
-  color: #FFFFFF;
-  width: inherit;
-  table-layout:fixed;
-}
 
-table td {
-  border: 2px solid white;
-}
-table tr:first-child td {
-  border-top: 0;
-}
-table tr td:first-child {
-  border-left: 0;
-}
-table tr:last-child td {
-  border-bottom: 0;
-}
-table tr td:last-child {
-  border-right: 0;
-}
-
-.semester {
-  background-color: #eee;
-  vertical-align: top;
-  height: calc(50vh - 60px);
-  width: 25%;
-  list-style-type: none;
-}
-thead.semester-header {
-  color: #FFFFFF;
-  text-align: center;
-}
-.fall-sem {
-  /* Should change description in tutorial.js whenever color is modified. */
-  background-color: #ad79d4;
-}
-.spring-sem {
-  /* Should change description in tutorial.js whenever color is modified. */
-  background-color: #3aaed4;
-}
-.hidden {
-  display:none;
-}
-.no-padding-right {
-  padding-right: 0 !important;
-}
-.no-padding-left {
-  padding-left: 0 !important;
+.nav-color-custom {
+  background-color: #464e56!important;
 }
 
 .nav-btn {
   color: white;
+}
+
+.nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
+  color: #fff;
+  background-color: #3d8af7;
 }
 
 #netid-dropdown a:hover {
@@ -137,61 +38,13 @@ thead.semester-header {
   display: inline-block;
 }
 
-.dropdown-content {
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.hidden {
   display: none;
-  position: absolute;
-  background-color: #ffffff;
-  min-width: 100px;
-  overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  margin-top: 3px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.nav-btn:hover, .nav-btn:focus, .nav-btn:active, .nav-btn.active, .open>.dropdown-toggle.nav-btn {
-  color: #fff;
-  background-color: #3d8af7;
-}
-
-.nav-color-custom {
-  background-color: #464e56!important;
-}
-#display-courses {
-  height: calc(100vh - 127px);
-  overflow:auto;
-}
-
-.col-lg-2{
-  padding-left: 0;
-  padding-right: 0;
-  overflow: hidden;
-}
-
-.row{
-  margin-right:0;
-  margin-left:0;
-}
-
-/* for search box, get rid of rounded corners and highlighted box on focus */
-#search-courses .form-control{
-  border-radius:0rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-}
-
-#search-courses .form-control:focus{
-  border-color: #aaa;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
-  outline: 0 none;
 }
 
 /* width */
@@ -216,22 +69,6 @@ thead.semester-header {
 
 .warning-text {
   color: #e74c3c;
-}
-
-#search-info{
-  display: -webkit-box;
-  padding-left: 10px;
-  padding-top: 5px;
-}
-
-#spinner{
-  display: none;
-  font-size: inherit;
-  margin-left: 2px;
-}
-
-#search-count-num{
-  margin-right: 3px;
 }
 
 /* Mobile banner */

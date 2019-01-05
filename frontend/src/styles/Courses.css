@@ -1,0 +1,135 @@
+/* for search box, get rid of rounded corners and highlighted box on focus */
+#search-courses .form-control{
+  border-radius:0rem;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+#search-courses .form-control:focus{
+  border-color: #aaa;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
+  outline: 0 none;
+}
+
+#search-info{
+  display: -webkit-box;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+#search-count-num{
+  margin-right: 3px;
+}
+
+#display-courses {
+  height: calc(100vh - 127px);
+  overflow: auto;
+}
+
+#display-courses .course-display p {
+  padding-right: 50px;
+}
+
+/* smaller font size for semester in search results */
+#display-courses .course-semester {
+  font-size: 11px;
+}
+
+#display-courses .course-display:hover .course-info,
+#display-courses .course-display:hover .course-eval {
+  display: block;
+}
+
+#spinner {
+  display: none;
+  font-size: inherit;
+  margin-left: 2px;
+}
+
+/* courses cards */
+.course-display {
+  font-size: 13px;
+  height: auto;
+  padding: 5px;
+  list-style-type: none;
+  margin: 3px;
+  border-radius: 2px;
+}
+
+.course-display.fall {
+  background-color: #eaccff;
+  color: #53008f;
+}
+
+.course-display.spring {
+  background-color: #ADD8E6;
+  color: #004a63;
+}
+
+.course-display.both {
+  background-color: #f0cfad;
+  color: #753a00;
+}
+
+.course-display p {
+  margin-bottom: 0;
+}
+
+.course-display:hover {
+  cursor: grab;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  position: relative;
+  z-index: 1;
+}
+
+.course-display:hover:active {
+  cursor: grabbing;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.small-course-card {
+  font-size: large;
+  height: 36px !important;
+  list-style-type: none;
+  margin: 0 3px 5px 3px;
+}
+
+/* for courses with long names */
+.small-course-card .course-name {
+  width: 90%;
+	overflow: hidden;
+	float: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* don't show react-beautiful-dnd's placeholder in search results */
+.placeholder-course + li {
+  display: none !important;
+}
+
+.course-info, .course-eval {
+  display: none;
+  float: right;
+}
+
+.course-info:hover, .course-eval:hover {
+  color: #333;
+}
+
+.delete-course {
+	display: none; /* gets rid of delete button */
+	float: right;
+  margin-top: 4px;
+  color: #666;
+}
+
+.delete-course:hover {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.popover-warning {
+  color: #e74c3c;
+}

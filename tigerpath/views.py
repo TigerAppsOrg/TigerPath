@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from django.db.models import Q
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponse, Http404
-from django.urls import reverse
 from . import models, forms, utils
 from .majors_and_certificates.scripts.verifier import check_major, check_degree, get_courses_by_path
 from .majors_and_certificates.scripts.university_info import LANG_DEPTS
@@ -13,7 +11,6 @@ from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 import django_cas_ng.views
 import ujson
 import re
-import requests
 import itertools
 
 
@@ -25,13 +22,11 @@ def login(request):
     else:
         return django_cas_ng.views.login(request)
 
-
 # cas auth logout
 def logout(request):
     success_msg = 'You have been successfully logged out.'
     messages.success(request, success_msg)
     return django_cas_ng.views.logout(request)
-
 
 # index page
 def index(request):
@@ -61,21 +56,17 @@ def index(request):
     else:
         return landing(request)
 
-
 # landing page
 def landing(request):
     return render(request, 'tigerpath/landing.html', None)
-
 
 # about page
 def about(request):
     return render(request, 'tigerpath/about.html', None)
 
-
 # privacy policy page
 def privacy_policy(request):
     return render(request, 'tigerpath/privacy.html', None)
-
 
 # save the info on the onboarding page
 @login_required
@@ -83,13 +74,11 @@ def save_onboarding(request):
     update_profile(request, forms.OnboardingForm)
     return redirect('index')
 
-
 # save the info on the user settings page
 @login_required
 def save_user_settings(request):
     update_profile(request, forms.SettingsForm)
     return redirect('index')
-
 
 def save_transcript_courses(request):
     ticket = request.GET.get('ticket', None)
@@ -110,7 +99,6 @@ def save_transcript_courses(request):
         raise Http404
     return redirect('index')
 
-
 # checks whether the form data is valid and returns the updated user profile
 def update_profile(request, profile_form):
     # if this is a POST request we need to process the form data
@@ -127,7 +115,6 @@ def update_profile(request, profile_form):
     # if it's any other request, we raise a 404 error
     else:
         raise Http404
-
 
 # get onboarding initial values from tigerbook
 def get_onboarding_initial_values(username):
@@ -156,24 +143,24 @@ def get_onboarding_initial_values(username):
                 initial_values['major'] = majors.get(code=tigerbook_major_code)
     return initial_values
 
-def convertCourses(course_list, queries):
+def convert_courses(course_list, queries):
     course_info_list = []
     for course in course_list:
         course_info = {}
         course_info['title'] = course.title
         course_info['id'] = course.registrar_id
-        course_info['listing'] = course.cross_listings
+        course_info['name'] = course.cross_listings
         course_info['semester_list'] = course.all_semesters
         course_info['dist_area'] = course.dist_area
         course_info['semester'] = get_semester_type(course.all_semesters)
         course_info_list.append(course_info)
 
     # sort list by dept and code
-    course_info_list = sorted(course_info_list, key=lambda course: course["listing"])
+    course_info_list = sorted(course_info_list, key=lambda course: course['name'])
     # show searched dept first
     for query in queries:
         if len(query) == 3 and query.isalpha():
-            course_info_list = sorted(course_info_list, key=lambda course: not (course['listing'].startswith(query.upper())))
+            course_info_list = sorted(course_info_list, key=lambda course: not (course['name'].startswith(query.upper())))
     return course_info_list
 
 # filters courses with query from react and sends back a list of filtered courses to display
@@ -187,9 +174,8 @@ def get_courses(request, search_query):
         queries = queries + query.split(" ")
 
     course_list = filter_courses(queries)
-    course_info_list = convertCourses(course_list, queries)
+    course_info_list = convert_courses(course_list, queries)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
-
 
 # returns list of courses that match a requirement
 @login_required
@@ -200,10 +186,10 @@ def get_req_courses(request, req_path):
     search_results = set([])
     course_list, dist_list = get_courses_by_path(req_path)
     for course in course_list:
-        if('LANG' in course):
+        if 'LANG' in course:
             for lang in list(LANG_DEPTS.keys()):
                 search_results.update(set(filter_courses(course.replace('*', '').replace('LANG', lang).split(' '))))
-        if('*' not in course):
+        if '*' not in course:
             course = course.split('/')[0]
             try:
                 search_results.add(models.Course_Listing.objects.get(dept=course.split(' ')[0], number=course.split(' ')[1]).course)
@@ -213,7 +199,7 @@ def get_req_courses(request, req_path):
             search_results.update(set(filter_courses(course.replace('*', '').split(' '))))
     for dist in dist_list:
         search_results.update(set(models.Course.objects.filter(dist_area=dist)))
-    course_info_list = convertCourses(list(search_results), course_list)
+    course_info_list = convert_courses(list(search_results), course_list)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
 # returns list of courses filtered by query
@@ -237,7 +223,6 @@ def filter_courses(queries):
 
     return results
 
-
 # returns 'fall', 'spring', or 'both' depending on the list of semesters
 def get_semester_type(all_semesters):
     all_semesters = ''.join(all_semesters)
@@ -248,49 +233,58 @@ def get_semester_type(all_semesters):
     else:
         return 'spring'
 
-
 # populate the courses in the user schedule with metadata from database
 def populate_user_schedule(schedule):
     if not schedule:
         return None
     db_courses = models.Course.objects.all()
-    for course in list(itertools.chain(*schedule)):
+    for course in itertools.chain(*schedule):
         db_course = db_courses.get(registrar_id=course['id'])
         course['name'] = db_course.cross_listings
         course['title'] = db_course.title
         course['dist_area'] = db_course.dist_area
         course['semester'] = get_semester_type(db_course.all_semesters)
+        if 'settled' not in course:
+            course['settled'] = []
     return schedule
-
 
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
-    current_user = models.UserProfile.objects.get(user=request.user)
-    current_user.user_schedule = ujson.loads(list(request.POST)[0])
+    current_user = request.user.profile
+    current_user.user_schedule = ujson.loads(request.POST.get('schedule', '[]'))
     current_user.save()
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
-
 
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    curr_user = models.UserProfile.objects.get(user=request.user)
+    curr_user = request.user.profile
     schedule = populate_user_schedule(curr_user.user_schedule)
     return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
-
 
 # returns requirements satisfied
 @login_required
 def get_requirements(request):
-    curr_user = models.UserProfile.objects.get(user=request.user)
-    schedule = populate_user_schedule(curr_user.user_schedule)
+    curr_user = request.user.profile
+
+    schedule = ujson.loads(request.GET.get('schedule', '[]'))
+    if not schedule:
+        schedule = populate_user_schedule(curr_user.user_schedule)
+
     requirements = []
-    try:
-        requirements.append(check_major(curr_user.major.code, curr_user.user_schedule, settings.ACTIVE_YEAR))
-    except:
-        # appends user major name so we can display error message
-        requirements.append(curr_user.major.name)
-    requirements.append(check_degree(curr_user.major.degree, curr_user.user_schedule, settings.ACTIVE_YEAR))
+    if curr_user.major:
+        if curr_user.major.supported:
+            requirements.append(check_major(curr_user.major.code, schedule, settings.ACTIVE_YEAR))
+        else:
+            # appends user major name so we can display error message
+            requirements.append(curr_user.major.name)
+        requirements.append(check_degree(curr_user.major.degree, schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
-    
+
+@login_required
+def get_profile(request):
+    curr_user = request.user.profile
+    profile = {}
+    profile['classYear'] = curr_user.year
+    return HttpResponse(ujson.dumps(profile, ensure_ascii=False), content_type='application/json')

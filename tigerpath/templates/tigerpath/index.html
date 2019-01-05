@@ -58,69 +58,7 @@
       </div>
     </nav>
 
-    <div class="row">
-      <div class="col-lg-2" id="search-pane">
-        <!-- search bar -->
-        <div id="search-courses"></div>
-        <div id='search-info'>
-          <div id="search-count"></div>
-          <span>Search Results</span>
-          <i id="spinner" class="fas fa-circle-notch fa-spin"></i>
-        </div>
-        <div id="display-courses"></div>
-      </div>
-
-      <div class="col-lg-8 no-padding-left no-padding-right">
-        <table id="semesters">
-          <thead class="semester-header">
-            <tr>
-              {% with year=request.user.profile.year %}
-                <td class="fall-sem">Fall {{ year|add:"-4"|default:"20XX" }}</td>
-                <td class="spring-sem">Spring {{ year|add:"-3"|default:"20XX" }}</td>
-                <td class="fall-sem">Fall {{ year|add:"-3"|default:"20XX" }}</td>
-                <td class="spring-sem">Spring {{ year|add:"-2"|default:"20XX" }}</td>
-              {% endwith %}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="sem1" class="semester"></td>
-              <td id="sem2" class="semester"></td>
-              <td id="sem3" class="semester"></td>
-              <td id="sem4" class="semester"></td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr>
-              <td class="no-border"> </td>
-            </tr>
-          </tbody>
-          <thead class="semester-header">
-            <tr>
-              {% with year=request.user.profile.year %}
-                <td class="fall-sem">Fall {{ year|add:"-2"|default:"20XX" }}</td>
-                <td class="spring-sem">Spring {{ year|add:"-1"|default:"20XX" }}</td>
-                <td class="fall-sem">Fall {{ year|add:"-1"|default:"20XX" }}</td>
-                <td class="spring-sem">Spring {{ year|default:"20XX" }}</td>
-              {% endwith %}
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td id="sem5" class="semester"></td>
-              <td id="sem6" class="semester"></td>
-              <td id="sem7" class="semester"></td>
-              <td id="sem8" class="semester"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="col-lg-2">
-        <!-- requirements -->
-        <div id="requirements"></div>
-      </div>
-    </div>
+    <div id="app" class="row"></div>
 
     <!-- external scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
