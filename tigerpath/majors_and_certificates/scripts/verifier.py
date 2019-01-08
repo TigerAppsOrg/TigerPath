@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json
+import yaml
 from pprint import pprint
 import os
 import sys
@@ -121,7 +121,7 @@ def check_requirements(req_file, courses):
     :rtype: (bool, dict, dict)
     """
     with open(req_file, 'r') as f:
-        req = json.load(f)
+        req = yaml.safe_load(f)
     courses = _init_courses(courses, req)
     req = _init_req(req)
     _mark_possible_reqs(req, courses)
@@ -174,7 +174,7 @@ def get_courses_by_path(path):
     else:
         raise ValueError("Path malformatted.")
     with open(req_filepath, 'r') as f:
-        req = json.load(f)
+        req = yaml.safe_load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
         raise ValueError("Path malformatted: " + path)
@@ -392,7 +392,8 @@ def _init_path_to(req):
             _init_path_to(subreq)
 
 def _json_format(obj):
-   return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
+    import json
+    return json.dumps(obj, sort_keys=False, indent=2, separators=(',', ': ')) + "\n"
 
 def _get_dir_path():
     return os.path.dirname(os.path.realpath(__file__))
@@ -609,7 +610,7 @@ def main():
     with open ("verifier_tests/1.test", "r") as f:
         major_name = f.readline()[:-1]
         year = int(f.readline())
-        courses = json.loads(f.read())
+        courses = yaml.safe_load(f)
     satisfied,courses,major = check_major(major_name,courses,year)
     print(_json_format(courses))
     print(_json_format(major))
