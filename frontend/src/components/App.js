@@ -131,7 +131,7 @@ export default class App extends Component {
     return (
       <React.Fragment>
         <DragDropContext onDragEnd={this.onDragEnd}>
-          <div className="col-lg-2 pl-0 pr-0">
+          <div id="search-pane" className="col-lg-2 pl-0 pr-0">
             <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
           </div>
           <div className="col-lg-8 pl-0 pr-0">
