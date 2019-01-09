@@ -1,41 +1,44 @@
 # TigerPath
 
-TigerPath is a COS 333 project that helps Princeton University students plan out their four-year course schedules. It is currently in development by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung.
+TigerPath is a web app that helps Princeton University students plan out their four-year course schedules. It began as a COS 333 project by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung.
 
-You can visit TigerPath at [http://tigerpath.io](http://tigerpath.io).
+You can visit TigerPath at [https://www.tigerpath.io](https://www.tigerpath.io).
 
-## Setup (with Docker)
+## Setup
 
-1. `git clone` this repository.
+### Pipenv
+
+1. `git clone` this repository. Install [Python 3.6](https://www.python.org) and [pipenv](https://docs.pipenv.org) (which helps you manage your dependencies).
+
+2. `cd` into the directory you just cloned. Run `pipenv install` to install all of the current dependencies from Pipfile.lock.
+
+3. Run `cd frontend` and `npm install` to install the necessary node modules for React to work.
+
+4. Run `cd ..` and `cp .env-example .env`. Then, set the environment variables in your `.env` file; specifically, you should replace the value of `DATABASE_URL` with the proper database URL for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields if you want the prepopulation of the user's year and major in the onboarding flow to work (you can get a TigerBook API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
+
+5. If you are making changes and testing locally, you should use development settings. If you haven't changed the default value for `DJANGO_SETTINGS_MODULE` in your `.env` file, then development settings are used by default. You can start a server with the environment variables in the file `.env` by running `pipenv run python manage.py runserver`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend".
+
+6. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of your React files. This means that running the webpack server will no longer be necessary. Then run `pipenv run python manage.py runserver --settings=config.settings.production`.
+
+### Docker Community Edition
+*Note: this installation method is not recommended because you have to re-build and re-run for every change you make.*
+
+1. `git clone` this repository. `cd` into the directory you just cloned. 
 
 2. Install the [Docker Community Edition](https://www.docker.com/community-edition). Make sure you also have [Docker Compose](https://docs.docker.com/compose/install) installed (should be automatically installed on Windows and Mac).
 
-3. Rename the `.env-example` file to `.env` and set your environment variables. Specifically, you should replace `DATABASE_URL=postgres://username:password@localhost:port/name` with the proper database url for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields (you can get an API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
+3. Run `cp .env-example .env`. Then, set the environment variables in your `.env` file; specifically, you should replace the value of `DATABASE_URL` with the proper database URL for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields if you want the prepopulation of the user's year and major in the onboarding flow to work (you can get a TigerBook API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
 
-3. Use the following commands to build your project and run it on a local server:
+4. Use the following commands to build your project and run it on a local server:
     ```
     docker-compose build                                        # Build code changes
     docker-compose up                                           # Run a local server at http://localhost:8000
     docker-compose down                                         # Stop the server
     ```
 
-## Setup (with pipenv)
-
-1. `git clone` this repository. Install [Python 3.6](https://www.python.org) and [pipenv](https://docs.pipenv.org) (which helps you manage your dependencies).
-
-2. Use `pipenv install` to install all of the current dependencies from Pipfile.lock.
-
-3. Navigate to the folder "frontend" and run `npm install` to install the necessary node modules for React to work.
-
-4. Rename the `.env-example` file to `.env` and set your environment variables. Specifically, you should replace `DATABASE_URL=postgres://username:password@localhost:port/name` with the proper database url for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields (you can get an API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
-
-5. The settings for production are used by default. If you are making changes and testing locally, you should use development settings. You can start a server with development settings and with the environment variables in the file `.env` by running `pipenv run python manage.py runserver --settings=config.settings.development`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend".
-
-6. If running with production settings, navigate to the folder "frontend" and run `npm run build` to create bundles of the webpack (React) server. This means that running the webpack (React) server will no longer be necessary. Then run `pipenv run python manage.py runserver --settings=config.settings.production`
-
 ## Development
 
-To run a command in a Docker container, do `docker exec -it [CONTAINER_NAME_OR_ID] [YOUR_COMMAND]`
+If you're using `pipenv` and you want to run one of the following commands, you should prefix it with `pipenv run` to make sure you're using the settings in your `.env` file. If you're using Docker, then you can run any of the following commands by using `docker exec -it [CONTAINER_NAME_OR_ID] [YOUR_COMMAND]`.
 
 #### Make migrations and update database
 

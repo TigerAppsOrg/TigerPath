@@ -6,6 +6,8 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REACT_BASE_DIR = os.path.dirname(BASE_DIR)
 
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
+
 
 # Application definition
 
