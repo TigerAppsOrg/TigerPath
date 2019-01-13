@@ -1,5 +1,6 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 h1,
 h2,

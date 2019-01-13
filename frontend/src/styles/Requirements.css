@@ -67,7 +67,7 @@
 }
 
 #requirements {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 56px);
   overflow: auto;
 }
 
@@ -77,7 +77,7 @@
 
 .popoverContentContainer {
   max-height: 200px;
-  overflow-y: scroll;
+  overflow-y: auto;
   margin-top: 5px;
 }
 

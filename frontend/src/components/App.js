@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import { ajaxSetup } from 'AjaxSetup';
 import Search from 'components/Search';
-import Schedule from 'components/Schedule';
+import TabbedContent from 'components/TabbedContent';
 import Requirements from 'components/Requirements';
 import { addPopover } from 'Popover';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { ThemeProvider } from 'styled-components';
+import { TIGERPATH_THEME } from 'styles/theme';
 
-const DEFAULT_SCHEDULE = [[],[],[],[],[],[],[],[]];
+const DEFAULT_SCHEDULE = [[],[],[],[],[],[],[],[],[]];
 const RADIX = 10;
 
 export default class App extends Component {
@@ -129,19 +131,22 @@ export default class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <DragDropContext onDragEnd={this.onDragEnd}>
-          <div id="search-pane" className="col-lg-2 pl-0 pr-0">
-            <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
+      <ThemeProvider theme={TIGERPATH_THEME}>
+        <React.Fragment>
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <div id="search-pane" className="col-lg-2 pl-0 pr-0">
+              <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
+            </div>
+            <div className="col-lg-8 pl-0 pr-0">
+              <TabbedContent onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} />
+              {/* <Schedule onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} /> */}
+            </div>
+          </DragDropContext>
+          <div className="col-lg-2 pl-0 pr-0">
+            <Requirements onChange={this.onChange} requirements={this.state.requirements} schedule={this.state.schedule} />
           </div>
-          <div className="col-lg-8 pl-0 pr-0">
-            <Schedule onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} />
-          </div>
-        </DragDropContext>
-        <div className="col-lg-2 pl-0 pr-0">
-          <Requirements onChange={this.onChange} requirements={this.state.requirements} schedule={this.state.schedule} />
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

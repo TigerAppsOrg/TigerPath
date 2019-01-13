@@ -62,7 +62,7 @@
 }
 
 #display-courses {
-  height: calc(100vh - 127px);
+  height: calc(100vh - 122px);
   overflow: auto;
 }
 
