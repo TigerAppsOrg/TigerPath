@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import Schedule from 'components/Schedule';
-import ExternalCredits from 'components/ExternalCredits';
+import ExternalCreditsView from 'components/ExternalCreditsView';
+
+const Content = styled.div`
+  height: calc(100vh - 96px);
+  font-size: large;
+`;
 
 const Nav = styled.div`
   ${({ theme }) => `
@@ -69,8 +74,10 @@ export default class TabbedContent extends Component {
           <NavButton active={scheduleTabActive} onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}>Schedule</NavButton>
           <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>External Credits</NavButton>
         </Nav>
-        {scheduleTabActive && <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />}
-        {externalCreditsTabActive && <ExternalCredits onChange={this.props.onChange} schedule={this.props.schedule} />}
+        <Content>
+          {scheduleTabActive && <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />}
+          {externalCreditsTabActive && <ExternalCreditsView onChange={this.props.onChange} schedule={this.props.schedule} />}
+        </Content>
       </React.Fragment>
     );
   }

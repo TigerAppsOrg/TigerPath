@@ -138,6 +138,11 @@
   color: #5a6268;
 }
 
+/* add delete button on course hover in semesters */
+#semesters .course-display:hover .delete-course {
+	display: block;
+}
+
 .delete-course {
 	display: none; /* gets rid of delete button */
 	float: right;

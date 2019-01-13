@@ -139,7 +139,6 @@ export default class App extends Component {
             </div>
             <div className="col-lg-8 pl-0 pr-0">
               <TabbedContent onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} />
-              {/* <Schedule onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} /> */}
             </div>
           </DragDropContext>
           <div className="col-lg-2 pl-0 pr-0">
