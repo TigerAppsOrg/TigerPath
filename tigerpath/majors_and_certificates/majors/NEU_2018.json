@@ -35,8 +35,8 @@
             "req_list": [
                 {
                     "name": null,
-                    "max_counted": 1,
-                    "min_needed": "ALL",
+                    "max_counted": 2,
+                    "min_needed": null,
                     "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
                     "course_list": [
                         "NEU 202",
@@ -46,7 +46,7 @@
                 {
                     "name": null,
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": null,
                     "explanation": "ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
                     "course_list": [
                         "NEU 201",
@@ -66,7 +66,6 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "course_list": [
                         "NEU 350"
                     ]
@@ -76,7 +75,6 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "course_list": [
                         "NEU 314"
                     ]
@@ -84,16 +82,14 @@
                 {
                     "name": "Physics",
                     "max_counted": 1,
-                    "min_needed": "ALL",
+                    "min_needed": 2,
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "req_list": [
                         {
                             "name": null,
-                            "max_counted": 1,
+                            "max_counted": 2,
                             "min_needed": "ALL",
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "PHY 101",
                                 "PHY 102"
@@ -101,11 +97,10 @@
                         },
                         {
                             "name": null,
-                            "max_counted": 1,
+                            "max_counted": 2,
                             "min_needed": "ALL",
                             "explanation": "",
                             "double_counting_allowed": true,
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "ISC 231",
                                 "ISC 232",
@@ -120,20 +115,18 @@
                     "max_counted": 1,
                     "min_needed": 5,
                     "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
-                    "completed_by_semester": 8,
                     "req_list": [
                         {
-                            "name": "Molecular/ Cellular/ Disease",
-                            "max_counted": 5,
+                            "name": "Molecular, Cellular, Disease",
+                            "max_counted": 3,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "NEU 301: Cellular Neurobiology",
-                                "EEB/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
-                                "NEU/PSY 413: The Neurobiology of Stress",
-                                "MOL/NEU 447: Neuroimmunology",
-                                "MOL/NEU 451: Genes, Brains, Minds",
+                                "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
+                                "NEU 413/PSY 413: The Neurobiology of Stress",
+                                "MOL 447/NEU 447: Neuroimmunology",
+                                "MOL 451/NEU 451: Genes, Brains, Minds",
                                 "MOL 459: Basic Virology",
                                 "MOL 458: Psychopharmacology",
                                 "NEU 475: Basal Ganglia in Health and Disease",
@@ -142,38 +135,36 @@
                         },
                         {
                             "name": "Neural Computation",
-                            "max_counted": 5,
+                            "max_counted": 3,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
-                                "PSY/NEU 330: Connectionist Modeling",
-                                "PSY/NEU 338: Animal Learning & Decision-making",
-                                "PSY/NEU 340: Neuroeconomics",
+                                "PSY 330/NEU 330: Connectionist Modeling",
+                                "PSY 338/NEU 338: Animal Learning & Decision-making",
+                                "PSY 340/NEU 340: Neuroeconomics",
                                 "NEU 437: Computational Neuroscience",
                                 "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
                                 "COS 402: Artificial Intelligence",
                                 "COS 324: Fundamentals of Machine Learning",
                                 "COS 485: Neural Networks: Theory and Applications",
                                 "ELE 364: Machine Learning for Predictive Data Analytics",
-                                "MAT/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience"
+                                "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience"
                             ]
                         },
                         {
-                            "name": "Systems & Circuits",
-                            "max_counted": 5,
+                            "name": "Systems and Circuits",
+                            "max_counted": 3,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
-                                "PSY/NEU 260: Life Cycle of Behaviors",
-                                "PSY/NEU 316: Cognitive Neuroscience of Selective Attention",
+                                "PSY 260/NEU 260: Life Cycle of Behaviors",
+                                "PSY 316/NEU 316: Cognitive Neuroscience of Selective Attention",
                                 "NEU 301: Cellular Neurobiology",
-                                "PSY/NEU 336: Diversity of Brains",
+                                "PSY 336/NEU 336: Diversity of Brains",
                                 "PSY 345/NEU 325: Sensation & Perception",
-                                "NEU/PSY 413: The Neurobiology of Stress",
+                                "NEU 413/PSY 413: The Neurobiology of Stress",
                                 "NEU 200: Functional Neuroanatomy",
-                                "NEU/PSY 422: Neural Dynamics of Cognition",
+                                "NEU 422/PSY 422: Neural Dynamics of Cognition",
                                 "NEU 427: Systems Neuroscience",
                                 "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
                                 "NEU 475: Basal Ganglia in Health and Disease",
@@ -182,25 +173,24 @@
                             ]
                         },
                         {
-                            "name": "Social & Cognitive Neuroscience",
-                            "max_counted": 5,
+                            "name": "Social and Cognitive Neuroscience",
+                            "max_counted": 3,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
-                                "PSY/NEU 306: Memory and Cognition",
-                                "PSY/NEU 316: Cog. Neuroscience of Selective Attention",
-                                "PSY/NEU 330: Connectionist Modeling",
-                                "PSY/NEU 331: Introduction to Clinical Neuropsychology",
-                                "PSY/NEU 337: Neuroscience of Social Cognition and Emotion",
-                                "PSY/NEU 338: Animal Learning & Decision-making",
-                                "PSY/NEU 340: Neuroeconomics",
-                                "PSY/NEU 405: Developmental Cognitive Neuroscience",
+                                "PSY 306/NEU 306: Memory and Cognition",
+                                "PSY 316/NEU 316: Cog. Neuroscience of Selective Attention",
+                                "PSY 330/NEU 330: Connectionist Modeling",
+                                "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
+                                "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
+                                "PSY 338/NEU 338: Animal Learning & Decision-making",
+                                "PSY 340/NEU 340: Neuroeconomics",
+                                "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
                                 "NEU 200: Functional Neuroanatomy",
-                                "NEU/PSY 422: Neural Dynamics of Cognition",
-                                "MOL/NEU 451: Genes, Brains, Minds",
-                                "PSY/NEU 480: fMRI Decoding",
-                                "PSY/NEU 516: Brain Imaging in Cognitive Neuroscience Research",
+                                "NEU 422/PSY 422: Neural Dynamics of Cognition",
+                                "MOL 451/NEU 451: Genes, Brains, Minds",
+                                "PSY 480/NEU 480: fMRI Decoding",
+                                "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research",
                                 "NEU 502A: From Molecules to Systems to Behavior",
                                 "PSY 409: Cyborg Psychology",
                                 "PSY 411: Psychology of Face Perception"
@@ -213,14 +203,12 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "req_list": [
                         {
                             "name": null,
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "MOL 214: Introduction to Cellular and Molecular Biology",
                                 "MOL 215/EEB 215: Quantitative Principles in Cell and Molecular Biology",
@@ -230,35 +218,14 @@
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": null,
+                            "min_needed": "ALL",
                             "explanation": "",
-                            "completed_by_semester": 8,
-                            "req_list": [
-                                {
-                                    "name": null,
-                                    "max_counted": 1,
-                                    "min_needed": 1,
-                                    "explanation": "",
-                                    "completed_by_semester": 8,
-                                    "course_list": [
-                                        "MOL 214",
-                                        "MOL 215"
-                                    ]
-                                },
-                                {
-                                    "name": null,
-                                    "max_counted": 1,
-                                    "min_needed": "ALL",
-                                    "explanation": "",
-                                    "double_counting_allowed": true,
-                                    "completed_by_semester": 8,
-                                    "course_list": [
-                                        "ISC 231",
-                                        "ISC 232",
-                                        "ISC 233",
-                                        "ISC 234"
-                                    ]
-                                }
+                            "double_counting_allowed": true,
+                            "course_list": [
+                                "ISC 231",
+                                "ISC 232",
+                                "ISC 233",
+                                "ISC 234"
                             ]
                         },
                         {
@@ -266,7 +233,6 @@
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "ISC 235",
                                 "MOL 342"
@@ -279,14 +245,13 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "course_list": [
                         "PSY 207: Psychopathology",
                         "PSY 255: Cognitive Psychology",
                         "PSY 252: Social Psychology",
-                        "PSY/NEU 345: Sensation & Perception*",
+                        "PSY 345/NEU 345: Sensation & Perception*",
                         "PSY 254: Developmental Psychology",
-                        "PSY/NEU 338: Animal Learning & Decision Making*",
+                        "PSY 338/NEU 338: Animal Learning & Decision Making*",
                         "EEB 311: Animal Behavior",
                         "EEB 313: Behavioral Ecology",
                         "EEB 329: Sensory Ecology"
@@ -297,14 +262,12 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "completed_by_semester": 8,
                     "req_list": [
                         {
                             "name": null,
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "completed_by_semester": 8,
                             "course_list": [   
                                 "COS 126",
                                 "SML 201"
@@ -313,10 +276,9 @@
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": null,
+                            "min_needed": "ALL",
                             "explanation": "",
                             "double_counting_allowed": true,
-                            "completed_by_semester": 8,
                             "course_list": [
                                 "ISC 231",
                                 "ISC 232",
