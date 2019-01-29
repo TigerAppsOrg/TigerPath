@@ -2,13 +2,13 @@
     "type": "Major",
     "name": "Neuroscience",
     "code": "NEU",
+    "degree": "AB",
     "year": 2018,
-    "description": "\nThe Princeton Neuroscience Institute (link is external)offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here. (link is external) ",
+    "description": "\nThe Princeton Neuroscience Institute offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here. ",
     "urls": [
         "https://ua.princeton.edu/academic-units/neuroscience-ab-through-princeton-neuroscience-institute",
         "http://pni.princeton.edu/"
     ],
-    "allowed_majors": [],
     "contacts": [
         {
             "type": "Departmental Representative",
@@ -59,7 +59,7 @@
                         "ISC 236"
                     ]
                 }
-            ],
+            ]
         },
         {
             "name": "Department Requirements",
@@ -123,7 +123,7 @@
                                 "ISC 233",
                                 "ISC 234"
                             ]
-                        },
+                        }
                     ]
                 },
                 {
@@ -137,7 +137,7 @@
                         {
                             "name": "Molecular/Cellular/Disease",
                             "max_counted": 5,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -156,7 +156,7 @@
                         {
                             "name": "Neural Computation",
                             "max_counted": 5,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -176,7 +176,7 @@
                         {
                             "name": "Systems & Circuits",
                             "max_counted": 5,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -199,7 +199,7 @@
                         {
                             "name": "Social & Cognitive Neuroscience",
                             "max_counted": 5,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -221,8 +221,8 @@
                                 "PSY 409: Cyborg Psychology",
                                 "PSY 411: Psychology of Face Perception"
                             ]
-                        },
-                    ],
+                        }
+                    ]
                 },
                 {
                     "name": "Cell Biology",
@@ -235,20 +235,20 @@
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "MOL 214: Introduction to Cellular and Molecular Biology",
                                 "MOL 215/EEB 215: Quantitative Principles in Cell and Molecular Biology",
-                                "EEB 211/MOL 211: The Biology of Organisms",
+                                "EEB 211/MOL 211: The Biology of Organisms"
                             ]
                         },
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -278,13 +278,13 @@
                                         "ISC 233",
                                         "ISC 234"
                                     ]
-                                },
+                                }
                             ]
                         },
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -292,7 +292,7 @@
                                 "ISC 235",
                                 "MOL 342"
                             ]
-                        },
+                        }
                     ]
                 },
                 {
@@ -325,7 +325,7 @@
                         {
                             "name": null,
                             "max_counted": 1,
-                            "min_needed": 0,
+                            "min_needed": null,
                             "explanation": "",
                             "double_counting_allowed": false,
                             "completed_by_semester": 8,
@@ -333,18 +333,19 @@
                                 {
                                     "name": null,
                                     "max_counted": 1,
-                                    "min_needed": 0,
+                                    "min_needed": null,
                                     "explanation": "",
                                     "double_counting_allowed": false,
                                     "completed_by_semester": 8,
                                     "course_list": [   
-                                        "COS 126"
-                                    ],   
+                                        "COS 126",
+                                        "SML 201"
+                                    ]   
                                 },
                                 {
                                     "name": null,
                                     "max_counted": 1,
-                                    "min_needed": 0,
+                                    "min_needed": null,
                                     "explanation": "",
                                     "double_counting_allowed": true,
                                     "completed_by_semester": 8,
@@ -353,31 +354,20 @@
                                         "ISC 232",
                                         "ISC 233",
                                         "ISC 234"
-                                    ],   
+                                    ]   
                                 }
-                            ],   
-                        },
-                        {
-                            "name": null,
-                            "max_counted": 1,
-                            "min_needed": 0,
-                            "explanation": "",
-                            "double_counting_allowed": false,
-                            "completed_by_semester": 8,
-                            "course_list": [   
-                                "SML 201"
-                            ],   
+                            ]   
                         }
-                    ],
+                    ]
                 }
-            ],
+            ]
         },
         {
           "name": "Independent Work",
           "max_counted": null,
           "min_needed": null,
           "description": "Independent Work",
-          "explanation": " In the fall semester of the junior year students participate in tutorials, read papers from the original literature, and prepare papers on assigned topics. In the spring term students write a research proposal with the guidance of a faculty adviser with whom they will eventually do their senior thesis.",
+          "explanation": "In the fall semester of the junior year students participate in tutorials, read papers from the original literature, and prepare papers on assigned topics. In the spring term students write a research proposal with the guidance of a faculty adviser with whom they will eventually do their senior thesis.",
           "no_req": null
         },
         {
@@ -387,6 +377,6 @@
           "description": "Senior Thesis",
           "explanation": "During the senior year each student, with the guidance of a faculty adviser, undertakes a major research effort. This research project can be a laboratory or independent study that will be written and presented as a senior thesis.",
           "no_req": null
-        },
+        }
     ]
 }
