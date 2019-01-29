@@ -43,60 +43,60 @@
           ]
         },
         {
-            "name": "Math",
-            "max_counted": 1,
-            "min_needed": "ALL",
-            "description": "Math Prerequisite",
-            "explanation": "Students who wish to take ECO 312 or upper-level finance certificate courses (such as ECO 462, ECO 465 or ECO 466), or pursue graduate studies in economics or finance should take the two-semester sequence MAT 201 + MAT 202 (or MAT 203 + MAT 204) rather than MAT 175.",
-            "double_counting_allowed": false,
-            "pdfs_allowed": false,
-            "completed_by_semester": 4,
-            "req_list": [
-              {
-                "name": "Math (175)",
+          "name": "Math",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "description": "Math Prerequisite",
+          "explanation": "Students who wish to take ECO 312 or upper-level finance certificate courses (such as ECO 462, ECO 465 or ECO 466), or pursue graduate studies in economics or finance should take the two-semester sequence MAT 201 + MAT 202 (or MAT 203 + MAT 204) rather than MAT 175.",
+          "double_counting_allowed": false,
+          "pdfs_allowed": false,
+          "completed_by_semester": 4,
+          "req_list": [
+            {
+              "name": "Math (175)",
+              "max_counted": 1,
+              "min_needed": 1,
+              "description": null,
+              "explanation": "",
+              "course_list": [
+                "MAT 175"
+              ]
+            },
+            {
+              "name": "Math (Upper-level)",
                 "max_counted": 1,
                 "min_needed": 1,
-                "description": null,
-                "explanation": "",
-                "course_list": [
-                  "MAT 175"
+                "description": "Math (Upper-level)",
+                "explanation": "Students who wish to take ECO 312 or upper-level finance certificate courses (such as ECO 462, ECO 465 or ECO 466), or pursue graduate studies in economics or finance should take the two-semester sequence MAT 201 + MAT 202 (or MAT 203 + MAT 204) rather than MAT 175.",
+                "double_counting_allowed": false,
+                "pdfs_allowed": false,
+                "completed_by_semester": 4,
+                "req_list": [
+                  {
+                    "name": "201 + 202",
+                    "max_counted": 2,
+                    "min_needed": 2,
+                    "description": null,
+                    "explanation": "",
+                    "course_list": [
+                      "MAT 201",
+                      "MAT 202"
+                    ]
+                  },
+                  {
+                    "name": "203 + 204",
+                    "max_counted": 2,
+                    "min_needed": 2,
+                    "description": null,
+                    "explanation": "",
+                    "course_list": [
+                      "MAT 203",
+                      "MAT 204"
+                    ]
+                  }
                 ]
-              },
-              {
-                "name": "Math (Upper-level)",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "description": "Math (Upper-level)",
-                  "explanation": "Students who wish to take ECO 312 or upper-level finance certificate courses (such as ECO 462, ECO 465 or ECO 466), or pursue graduate studies in economics or finance should take the two-semester sequence MAT 201 + MAT 202 (or MAT 203 + MAT 204) rather than MAT 175.",
-                  "double_counting_allowed": false,
-                  "pdfs_allowed": false,
-                  "completed_by_semester": 4,
-                  "req_list": [
-                    {
-                      "name": "201 + 202",
-                      "max_counted": 2,
-                      "min_needed": 2,
-                      "description": null,
-                      "explanation": "",
-                      "course_list": [
-                        "MAT 201",
-                        "MAT 202"
-                      ]
-                    },
-                    {
-                      "name": "203 + 204",
-                      "max_counted": 2,
-                      "min_needed": 2,
-                      "description": null,
-                      "explanation": "",
-                      "course_list": [
-                        "MAT 203",
-                        "MAT 204"
-                      ]
-                    },
-                  ]
-              }
-            ]
+            }
+          ]
         },
         {
           "name": "Statistics",
@@ -123,7 +123,7 @@
         {
           "name": "Economics (Standard)",
           "max_counted": 1,
-          "min_needed": 0,
+          "min_needed": null,
           "description": "Standard track or Politcal Economy",
           "explanation": "The Department offers a Program in Political Economy for Economics concentrators interested in studying issues at the intersection of these two fields. Program participants meet all the general requirements of Economics concentrators, and, in addition: (1) complete two Politics courses at any level before entering the program; (2) complete three 300-level (or higher) Politics courses during junior and senior years, and (3) conduct junior independent work with a political economy component. Politics courses approved as Economics cognates may also count toward the program’s requirements. Admission to the program takes place at the beginning of the junior year, in consultation with the Political Economy Adviser in Economics. A student who participates in this program is an Economics concentrator and is subject to all the requirements of the Economics department.  Concentrators who successfully complete the program’s requirements will receive a departmental attestation.",
           "double_counting_allowed": false,
@@ -177,7 +177,7 @@
                     "ECO 302",
                     "ECO 312"
                   ]
-                },
+                }
               ]
             },
             {
@@ -192,7 +192,7 @@
                 {
                   "name": "Economics Electives",
                   "max_counted": 5,
-                  "min_needed": 0,
+                  "min_needed": null,
                   "description": "Elective Requirement",
                   "explanation": "In addition to the three core courses, concentrators must pass, on a graded basis, five other departmental courses. Departmentals can be any 300-, 400-, or 500-level economics courses, or an approved cognate (see Cognates).",
                   "double_counting_allowed": false,
@@ -200,13 +200,13 @@
                   "req_list": [
                     "ECO 3*",
                     "ECO 4*",
-                    "ECO 5*",
+                    "ECO 5*"
                   ]
                 },
                 {
                   "name": "Cognates",
                   "max_counted": 2,
-                  "min_needed": 0,
+                  "min_needed": null,
                   "description": "Cognates Requirement",
                   "explanation": "Economics majors are allowed to count a maximum of two courses from other departments as cognates. These courses need to have substantial economics content. A course with an economics cross-listing (indicated by an ECO 3XX, ECO 4XX, or ECO 5XX number in its first or second listing) counts as a regular departmental, not as a cognate. ",
                   "double_counting_allowed": false,
@@ -236,9 +236,9 @@
                     "WWS 373/CHV 373",
                     "WWS 466/HIS 467"
                   ]
-                },
+                }
               ]
-            },
+            }
           ]
         },
         {
