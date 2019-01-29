@@ -59,6 +59,7 @@
             "name": "Department Requirements",
             "max_counted": 1,
             "min_needed": "ALL",
+            "explantion": "",
             "req_list": [
                 {
                     "name": "Laboratory in Principles of Neuroscience",
@@ -122,7 +123,7 @@
                     "completed_by_semester": 8,
                     "req_list": [
                         {
-                            "name": "Molecular/Cellular/Disease",
+                            "name": "Molecular/ Cellular/ Disease",
                             "max_counted": 5,
                             "min_needed": null,
                             "explanation": "",
@@ -316,7 +317,7 @@
                             "explanation": "",
                             "double_counting_allowed": true,
                             "completed_by_semester": 8,
-                            "req_list": [
+                            "course_list": [
                                 "ISC 231",
                                 "ISC 232",
                                 "ISC 233",
