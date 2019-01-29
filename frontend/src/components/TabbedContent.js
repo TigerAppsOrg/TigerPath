@@ -5,17 +5,16 @@ import ExternalCreditsView from 'components/ExternalCreditsView';
 
 const Content = styled.div`
   height: calc(100vh - 96px);
-  font-size: large;
 `;
 
 const Nav = styled.div`
   ${({ theme }) => `
     display: flex;
     flex-direction: row;
-    height: 30px;
+    height: auto;
     border: 2px solid ${theme.lightGrey};
     border-radius: 2px;
-    margin: 5px 100px;
+    margin: 5px 25%;
   `}
 `;
 
@@ -76,7 +75,7 @@ export default class TabbedContent extends Component {
         </Nav>
         <Content>
           {scheduleTabActive && <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />}
-          {externalCreditsTabActive && <ExternalCreditsView onChange={this.props.onChange} schedule={this.props.schedule} />}
+          {externalCreditsTabActive && <ExternalCreditsView onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />}
         </Content>
       </React.Fragment>
     );

@@ -12,6 +12,10 @@ const ExternalCreditsContent = styled.div`
   grid-gap: 5px;
 `;
 
+const StyledSemester = styled(Semester)`
+
+`;
+
 export default class ExternalCreditsView extends Component {
   courseCardList = (courseList, semIndex) => {
     return (
@@ -30,14 +34,14 @@ export default class ExternalCreditsView extends Component {
   render() {
     return (
       <ExternalCreditsContent>
-        <Semester
+        <StyledSemester
           onChange={this.props.onChange}
           schedule={this.props.schedule}
           semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
         >
           External Credits You've Added
-        </Semester>
-        <ExternalCreditForm />
+        </StyledSemester>
+        <ExternalCreditForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
       </ExternalCreditsContent>
     );
   }

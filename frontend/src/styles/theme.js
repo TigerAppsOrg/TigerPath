@@ -1,8 +1,10 @@
 export const TIGERPATH_THEME = {
-  darkGreyText: '#212529',
-  lightGrey: '#727e8a',
-  darkGrey: '#464e56',
   darkOrange: '#e49f58',
+
+  /* Navigation colors */
+  darkGreyText: '#555555',
+  lightGrey: '#6c757d',
+  darkGrey: '#5a6268',
 
   /* Should change description in tutorial.js whenever these colors are modified. */
   fallSemHeaderColor: '#ad79d4',

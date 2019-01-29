@@ -13,6 +13,7 @@ const SemesterWrapper = styled.div`
 const SemesterHeader = styled.div`
   color: #FFFFFF;
   text-align: center;
+  font-size: large;
 
   background-color: ${({theme, semesterType}) => {
     if (semesterType === SEMESTER_TYPE.FALL_SEM)
@@ -35,7 +36,7 @@ export const SEMESTER_TYPE = Object.freeze({
   SPRING_SEM: 'spring-sem',
 });
 
-export const EXTERNAL_CREDITS_SEMESTER_INDEX = 7; // todo remove this and use index 8
+export const EXTERNAL_CREDITS_SEMESTER_INDEX = 8;
 
 export default class Semester extends Component {
   removeCourse = (semIndex, courseIndex) => {
@@ -87,8 +88,11 @@ export default class Semester extends Component {
   render() {
     let semIndex = this.props.semesterIndex;
     let semId = `sem${semIndex}`;
+    let className = 'semester';
+    if (this.props.className) className += ` ${this.props.className}`;
+
     return (
-      <SemesterWrapper className='semester'>
+      <SemesterWrapper className={className}>
         <SemesterHeader semesterType={this.props.semesterType}>
           {this.props.children}
         </SemesterHeader>
