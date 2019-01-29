@@ -4,7 +4,7 @@
     "code": "NEU",
     "degree": "AB",
     "year": 2018,
-    "description": "\nThe Princeton Neuroscience Institute offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here. ",
+    "description": "The Princeton Neuroscience Institute offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here.",
     "urls": [
         "https://ua.princeton.edu/academic-units/neuroscience-ab-through-princeton-neuroscience-institute",
         "http://pni.princeton.edu/"
@@ -32,16 +32,12 @@
             "max_counted": 1,
             "min_needed": "ALL",
             "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
-            "double_counting_allowed": false,
-            "pdfs_allowed": 0,
             "req_list": [
                 {
                     "name": null,
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
-                    "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
                     "course_list": [
                         "NEU 202",
                         "MAT 103"
@@ -52,8 +48,6 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
-                    "double_counting_allowed": false,
-                    "pdfs_allowed": 0,
                     "course_list": [
                         "NEU 201",
                         "ISC 236"
@@ -65,15 +59,12 @@
             "name": "Department Requirements",
             "max_counted": 1,
             "min_needed": "ALL",
-            "double_counting_allowed": false,
-            "pdfs_allowed": 0,
             "req_list": [
                 {
                     "name": "Laboratory in Principles of Neuroscience",
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "course_list": [
                         "NEU 350"
@@ -84,7 +75,6 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "course_list": [
                         "NEU 314"
@@ -95,7 +85,6 @@
                     "max_counted": 1,
                     "min_needed": "ALL",
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "req_list": [
                         {
@@ -103,7 +92,6 @@
                             "max_counted": 1,
                             "min_needed": "ALL",
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "PHY 101",
@@ -131,7 +119,6 @@
                     "max_counted": 1,
                     "min_needed": 5,
                     "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "req_list": [
                         {
@@ -139,7 +126,6 @@
                             "max_counted": 5,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "NEU 301: Cellular Neurobiology",
@@ -158,7 +144,6 @@
                             "max_counted": 5,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "PSY/NEU 330: Connectionist Modeling",
@@ -178,7 +163,6 @@
                             "max_counted": 5,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "PSY/NEU 260: Life Cycle of Behaviors",
@@ -201,7 +185,6 @@
                             "max_counted": 5,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "PSY/NEU 306: Memory and Cognition",
@@ -229,7 +212,6 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "req_list": [
                         {
@@ -237,7 +219,6 @@
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "MOL 214: Introduction to Cellular and Molecular Biology",
@@ -250,7 +231,6 @@
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "req_list": [
                                 {
@@ -258,7 +238,6 @@
                                     "max_counted": 1,
                                     "min_needed": 1,
                                     "explanation": "",
-                                    "double_counting_allowed": false,
                                     "completed_by_semester": 8,
                                     "course_list": [
                                         "MOL 214",
@@ -286,7 +265,6 @@
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
                             "course_list": [
                                 "ISC 235",
@@ -300,7 +278,6 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "course_list": [
                         "PSY 207: Psychopathology",
@@ -319,7 +296,6 @@
                     "max_counted": 1,
                     "min_needed": 1,
                     "explanation": "",
-                    "double_counting_allowed": false,
                     "completed_by_semester": 8,
                     "req_list": [
                         {
@@ -327,35 +303,24 @@
                             "max_counted": 1,
                             "min_needed": null,
                             "explanation": "",
-                            "double_counting_allowed": false,
                             "completed_by_semester": 8,
-                            "req_list": [   
-                                {
-                                    "name": null,
-                                    "max_counted": 1,
-                                    "min_needed": null,
-                                    "explanation": "",
-                                    "double_counting_allowed": false,
-                                    "completed_by_semester": 8,
-                                    "course_list": [   
-                                        "COS 126",
-                                        "SML 201"
-                                    ]   
-                                },
-                                {
-                                    "name": null,
-                                    "max_counted": 1,
-                                    "min_needed": null,
-                                    "explanation": "",
-                                    "double_counting_allowed": true,
-                                    "completed_by_semester": 8,
-                                    "req_list": [
-                                        "ISC 231",
-                                        "ISC 232",
-                                        "ISC 233",
-                                        "ISC 234"
-                                    ]   
-                                }
+                            "course_list": [   
+                                "COS 126",
+                                "SML 201"
+                            ]   
+                        },
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": null,
+                            "explanation": "",
+                            "double_counting_allowed": true,
+                            "completed_by_semester": 8,
+                            "req_list": [
+                                "ISC 231",
+                                "ISC 232",
+                                "ISC 233",
+                                "ISC 234"
                             ]   
                         }
                     ]
