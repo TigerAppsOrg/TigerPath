@@ -16,14 +16,14 @@
   ],
   "req_list":[
     {
-      "name":"Requirements",
+      "name":"Track",
       "max_counted":1,
-      "min_needed":2,
-      "explanation":"Requirements for History Major",
+      "min_needed":1,
+      "explanation":"Complete 1 track",
       "completed_by_semester":8,
       "req_list":[
         {
-          "name":"History Major",
+          "name":"History Major Track",
           "max_counted":1,
           "min_needed":"ALL",
           "explanation":"Standard History Major Requirements.",
@@ -32,26 +32,67 @@
             {
               "name":"Prerequisites",
               "max_counted":1,
-              "min_needed":2,
+              "min_needed": 1,
               "explanation":"Students are required to take and pass at least two departmental courses before they enter the department. Students who wish to enter the department but who have not taken two departmental courses before their junior year must consult with the departmental representative.",
               "completed_by_semester":4,
-              "course_list":[
-                "HIS 201",
-                "HIS 207",
-                "HIS 208",
-                "HIS 210",
-                "HIS 211",
-                "HIS 212",
-                "HIS 241",
-                "HIS 267",
-                "HIS 277",
-                "HIS 278",
-                "HIS 280",
-                "HIS 281",
-                "HIS 282",
-                "HIS 290",
-                "HIS 291",
-                "HIS 292"
+              "double_counting_allowed":true,
+              "req_list":[
+                {
+                  "name": null,
+                  "max_counted":1,
+                  "min_needed": 2,
+                  "explanation":"Standard History Major Requirements.",
+                  "completed_by_semester":4,
+                  "course_list":[
+                    "HIS 201",
+                    "HIS 207",
+                    "HIS 208",
+                    "HIS 210",
+                    "HIS 211",
+                    "HIS 212",
+                    "HIS 241",
+                    "HIS 267",
+                    "HIS 277",
+                    "HIS 278",
+                    "HIS 280",
+                    "HIS 281",
+                    "HIS 282",
+                    "HIS 290",
+                    "HIS 291",
+                    "HIS 292"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted":1,
+                  "min_needed":"ALL",
+                  "explanation": "HUM sequence can satisfy",
+                  "completed_by_semester":4,
+                  "req_list":[
+                    {
+                      "name": null,
+                      "max_counted":1,
+                      "min_needed":"ALL",
+                      "explanation": "HUM sequence can satisfy",
+                      "completed_by_semester":4,
+                      "course_list":[
+                        "HUM 216",
+                        "HUM 217"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted":1,
+                      "min_needed":"ALL",
+                      "explanation": "HUM sequence can satisfy",
+                      "completed_by_semester":4,
+                      "course_list":[
+                        "HUM 218",
+                        "HUM 219"
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -124,9 +165,9 @@
                 "HIS 270",
                 "HIS 280",
                 "HIS 295",
-                "AMS 395/,HIS 296",
+                "AMS 395/HIS 296",
                 "HIS 306",
-                "REL 357/,HIS 310",
+                "REL 357/HIS 310",
                 "HIS 361",
                 "HIS 371",
                 "HIS 372",
@@ -135,22 +176,22 @@
                 "HIS 375",
                 "HIS 376",
                 "HIS 377",
-                "ECO 370/,HIS 378",
+                "ECO 370/HIS 378",
                 "HIS 379",
                 "HIS 380",
                 "HIS 381",
-                "AMS 390/,HIS 382",
+                "AMS 390/HIS 382",
                 "HIS 383",
                 "HIS 384",
                 "HIS 385",
-                "AAS 366/,HIS 386",
-                "AAS 367/,HIS 387",
+                "AAS 366/HIS 386",
+                "AAS 367/HIS 387",
                 "HIS 388",
                 "HIS 389",
                 "HIS 390",
                 "HIS 393",
                 "HIS 398",
-                "AMS 399/,HIS 399",
+                "AMS 399/HIS 399",
                 "HIS 401",
                 "HIS 402",
                 "HIS 403",
@@ -160,22 +201,22 @@
                 "HIS 427",
                 "HIS 440",
                 "HIS 441",
-                "AMS 342/,HIS 442",
+                "AMS 342/HIS 442",
                 "HIS 444",
-                "AMS 353/,HIS 445",
-                "AMS 338/,HIS 450",
+                "AMS 353/HIS 445",
+                "AMS 338/HIS 450",
                 "HIS 451",
-                "AAS 330/,HIS 455",
+                "AAS 330/HIS 455",
                 "HIS 456",
                 "HIS 459",
                 "HIS 460",
-                "HIS 465/,LAO 465",
+                "HIS 465/LAO 465",
                 "HIS 469",
                 "HIS 470",
                 "HIS 471",
                 "HIS 474",
                 "HIS 475",
-                "AAS 477/,HIS 477",
+                "AAS 477/HIS 477",
                 "HIS 478",
                 "HIS 479",
                 "HIS 481",
@@ -338,19 +379,35 @@
             },
             {
               "name":"Departmentals",
-              "max_counted":11,
-              "min_needed":9,
+              "max_counted":1,
+              "min_needed":10,
               "explanation":"Departmental regulations stipulate that undergraduates must pass at least 10 courses, including HIS 400, in order to receive the A.B. degree.",
               "completed_by_semester":8,
               "double_counting_allowed":true,
-              "course_list":[
-                "HIS *"
+              "req_list":[
+                {
+                  "name":null,
+                  "max_counted":12,
+                  "min_needed":null,
+                  "explanation":"Departmental regulations stipulate that undergraduates must pass at least 10 courses, including HIS 400, in order to receive the A.B. degree.",
+                  "completed_by_semester":8,
+                  "course_list":[
+                    "HIS *"
+                  ]
+                },
+                {
+                  "name":null,
+                  "max_counted":12,
+                  "min_needed":null,
+                  "explanation":"Cognates. The history department encourages students to take courses in other departments when they add depth and variety to their selected program of concentration. For example, a student concentrating in Russian history might identify an appropriate course in politics to take as a cognate; a student concentrating in intellectual history might take an appropriate course in philosophy as a cognate. Two such courses may be taken during the junior and senior years and counted as departmental courses provided they contribute significantly to the student's plan of study. Cognates cannot be used to fulfill departmental distribution requirements. Cognates can only be approved by the departmental representative during the course enrollment period and prior to attending the class. Courses may not be designated as cognates retroactively. Cross-listed courses (for example, CLA 217, also listed as HIS 217) are automatically considered departmental courses, not cognates.",
+                  "completed_by_semester":8
+                }
               ]
             },
             {
               "name":"U.S. Concentrators Only (2)",
-              "max_counted":1,
-              "min_needed":0,
+              "max_counted": 0,
+              "min_needed": null,
               "explanation":"U.S. Concentrators must take 2 courses in pre 20th Century:",
               "completed_by_semester":8,
               "course_list":[
@@ -379,18 +436,11 @@
                 "HIS 483",
                 "HIS 487"
               ]
-            },
-            {
-              "name":"Cognates",
-              "max_counted":null,
-              "min_needed":null,
-              "explanation":"Cognates. The history department encourages students to take courses in other departments when they add depth and variety to their selected program of concentration. For example, a student concentrating in Russian history might identify an appropriate course in politics to take as a cognate; a student concentrating in intellectual history might take an appropriate course in philosophy as a cognate. Two such courses may be taken during the junior and senior years and counted as departmental courses provided they contribute significantly to the student's plan of study. Cognates cannot be used to fulfill departmental distribution requirements. Cognates can only be approved by the departmental representative during the course enrollment period and prior to attending the class. Courses may not be designated as cognates retroactively. Cross-listed courses (for example, CLA 217, also listed as HIS 217) are automatically considered departmental courses, not cognates.",
-              "completed_by_semester":8
             }
           ]
         },
         {
-          "name":"History of Science",
+          "name":"History of Science Track",
           "max_counted":1,
           "min_needed":"ALL",
           "explanation":"History of Science: History majors wishing to concentrate in the history of science need not meet the departmental prerequisites or distribution requirements.They have separate requirements.",
@@ -449,24 +499,24 @@
               ]
             }
           ]
-        },
-        {
-          "name":"Junior Seminar",
-          "max_counted":1,
-          "min_needed":1,
-          "explanation":"Junior Year. In the fall term of the junior year students are required to enroll in HIS 400 Junior Seminars.",
-          "completed_by_semester":6,
-          "course_list":[
-            "HIS 400"
-          ]
-        },
-        {
-          "name":"Senior Thesis",
-          "min_needed":0,
-          "explanation":"Senior Year. The independent work consists of writing a thesis on an approved subject of the student's choice. The thesis usually relies on research in original source materials, but it may also involve reinterpretation of familiar materials.",
-          "completed_by_semester":8
         }
       ]
+    },
+    {
+      "name":"Junior Seminar",
+      "max_counted":1,
+      "min_needed":1,
+      "explanation":"Junior Year. In the fall term of the junior year students are required to enroll in HIS 400 Junior Seminars.",
+      "completed_by_semester":6,
+      "course_list":[
+        "HIS 400"
+      ]
+    },
+    {
+      "name":"Senior Thesis",
+      "min_needed":0,
+      "explanation":"Senior Year. The independent work consists of writing a thesis on an approved subject of the student's choice. The thesis usually relies on research in original source materials, but it may also involve reinterpretation of familiar materials.",
+      "completed_by_semester":8
     }
   ]
 }
