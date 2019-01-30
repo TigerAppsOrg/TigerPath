@@ -186,7 +186,7 @@
       "name": "Molecular Biology",
       "code": "MOL",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
