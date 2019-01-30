@@ -56,7 +56,7 @@
       "name": "Chemistry",
       "code": "CHM",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
