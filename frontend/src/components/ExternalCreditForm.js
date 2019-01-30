@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import Semester from 'components/Semester';
 import { Form, Button, Input, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Card, CardHeader, CardBody } from 'reactstrap';
-import Requirements from 'components/Requirements';
+import RequirementsDropdown from 'components/RequirementsDropdown';
 
-const StyledCardHeader = styled(CardHeader)`
+const ECCardHeader = styled(CardHeader)`
   padding: 2px;
   text-align: center;
   font-size: large;
@@ -29,7 +29,6 @@ export default class ExternalCreditForm extends Component {
     super(props);
     this.state = {
       name: '',
-      dropdownOpen: false,
     };
   }
 
@@ -44,17 +43,11 @@ export default class ExternalCreditForm extends Component {
     event.preventDefault();
   }
 
-  toggle = () => {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
-  }
-
   render() {
     return (
       <div className={this.props.className}>
         <Card>
-          <StyledCardHeader>Add external credit</StyledCardHeader>
+          <ECCardHeader>Add external credit</ECCardHeader>
           <CardBody>
             <Form onSubmit={this.handleSubmit}>
               <Label>
@@ -63,19 +56,7 @@ export default class ExternalCreditForm extends Component {
               </Label>
               <Label>
                 <LabelText>Requirement you want to satisfy:</LabelText>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                  <DropdownToggle caret>
-                    Select a requirement
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    <DropdownItem header>Header</DropdownItem>
-                    <DropdownItem>Some Action</DropdownItem>
-                    <DropdownItem>Foo Action</DropdownItem>
-                    <DropdownItem header>Header 2</DropdownItem>
-                    <DropdownItem>Bar Action</DropdownItem>
-                    <DropdownItem>Quo Action</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
+                <RequirementsDropdown requirements={this.props.requirements} />
               </Label>
               <Submit>Submit</Submit>
             </Form>

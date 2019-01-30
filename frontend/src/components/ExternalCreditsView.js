@@ -4,7 +4,7 @@ import Semester, { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'components/Semester';
 import CourseCard from 'components/CourseCard';
 import ExternalCreditForm from 'components/ExternalCreditForm';
 
-const ExternalCreditsContent = styled.div`
+const ECContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
@@ -15,11 +15,11 @@ const ExternalCreditsContent = styled.div`
   padding: 20px 10px 20px 10px;
 `;
 
-const StyledSemester = styled(Semester)`
+const ECSemester = styled(Semester)`
   grid-area: sem;
 `;
 
-const StyledExternalCreditForm = styled(ExternalCreditForm)`
+const ECForm = styled(ExternalCreditForm)`
   grid-area: add;
 `;
 
@@ -40,16 +40,16 @@ export default class ExternalCreditsView extends Component {
 
   render() {
     return (
-      <ExternalCreditsContent>
-        <StyledSemester
+      <ECContent>
+        <ECSemester
           onChange={this.props.onChange}
           schedule={this.props.schedule}
           semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
         >
           Your External Credits
-        </StyledSemester>
-        <StyledExternalCreditForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
-      </ExternalCreditsContent>
+        </ECSemester>
+        <ECForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
+      </ECContent>
     );
   }
 }

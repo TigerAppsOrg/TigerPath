@@ -16,7 +16,7 @@ const SemesterHeader = styled.div`
   text-align: center;
   font-size: large;
   border-radius: 2px 2px 0 0;
-  padding: 2px 0 2px 0;
+  padding: 2px;
 
   background-color: ${({theme, semesterType}) => {
     if (semesterType === SEMESTER_TYPE.FALL_SEM)
