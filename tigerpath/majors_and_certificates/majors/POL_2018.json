@@ -170,7 +170,7 @@
       "name": "Analytic Requirement",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "The department maintains a list of politics courses that have an emphasis on methodological tools for research in political science. Concentrators are required to take a course to fulfill the analytic requirement (link is external), normally no later than the first term of their junior year. The courses used to fulfill the analytic requirement cannot be used to fulfill primary-, secondary-, or third-field requirements. The analytic requirement may be satisfied by POL 341, POL 345/SOC 305, POL 346, or POL 347. We will also accept ANT 300A, ANT 301A, ECO 202, ECO 302, ECO 312, ORF 245, PHI 201, SOC 404, WWS 200, or WWS 332.",
+      "explanation": "The department maintains a list of politics courses that have an emphasis on methodological tools for research in political science. Concentrators are required to take a course to fulfill the analytic requirement, normally no later than the first term of their junior year. The courses used to fulfill the analytic requirement cannot be used to fulfill primary-, secondary-, or third-field requirements. The analytic requirement may be satisfied by POL 341, POL 345/SOC 305, POL 346, or POL 347. We will also accept ANT 300A, ANT 301A, ECO 202, ECO 302, ECO 312, ORF 245, PHI 201, SOC 404, WWS 200, or WWS 332.",
       "completed_by_semester": 6,
       "course_list": [
         "POL 341",
