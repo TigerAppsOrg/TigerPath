@@ -236,7 +236,7 @@
       "name": "Physics",
       "code": "PHY",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
