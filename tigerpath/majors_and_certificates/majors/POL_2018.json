@@ -424,7 +424,7 @@
     {
       "name": "Junior Seminar",
       "max_counted": null,
-      "min_needed": 1,
+      "min_needed": null,
       "explanation": "Students are required to complete two semesters of junior independent work (link is external). Junior Workshops will meet every other week of the Fall teaching period and on alternating weeks, students are required to view online plenary session video modules and attend a 50-minute discussion section. The plenary component provides common instruction in research procedures and techniques. In their Fall Junior Workshops, juniors will complete a series of assignments building up to a research prospectus. [NOTE: Junior Workshops (link is external) are not considered courses and do not count toward satisfying departmental course requirements.] In the spring semester, juniors will complete a Junior Paper under the supervision of an independent work adviser. Students must achieve at least a “D” on each of their two semesters of junior independent work as well as an average of a “C” or above across the two. If the average of the two is below “C” or one of the two receives an “F”, a second Junior Paper is required (with a grade that brings the average of the Fall JIW and the Summer JP grades to at least a “C” or better). This is a prerequisite for beginning the senior year. For purposes of this requirement, the grades before the application of any late penalties are used.",
       "completed_by_semester": 6,
       "no_req": null
