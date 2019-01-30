@@ -88,7 +88,7 @@
                         {
                             "name": null,
                             "max_counted": 2,
-                            "min_needed": "ALL",
+                            "min_needed": null,
                             "explanation": "",
                             "course_list": [
                                 "PHY 101",
