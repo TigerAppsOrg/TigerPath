@@ -24,7 +24,7 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 1,
+      "min_needed": 2,
       "explanation": "Generally, either 215-217 or 216-218 or 203-204-215 are strongly recommended for admission to the department. Prospective mathematics majors should consult the department early and plan a program that includes as much of the 215-217 or 216-218 sequence as possible. Most majors begin taking courses at the 300-level by the second semester of the sophomore year, in preparation for their junior independent work.",
       "req_list": [
         {
@@ -33,13 +33,21 @@
           "min_needed": "ALL",
           "explanation": "",
           "course_list": [
-            "MAT 215",
-            "MAT 217"
+            "MAT 215"
           ]
         },
         {
           "name": null,
           "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAT 217"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 2,
           "min_needed": "ALL",
           "explanation": "",
           "course_list": [
@@ -54,11 +62,10 @@
           "explanation": "",
           "course_list": [
             "MAT 203",
-            "MAT 204",
-            "MAT 215"
+            "MAT 204"
           ]
         }
-      ],
+      ]
     },
     {
       "name": "Departmental Courses",
