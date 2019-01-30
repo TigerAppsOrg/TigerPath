@@ -4,7 +4,7 @@ import Schedule from 'components/Schedule';
 import ExternalCreditsView from 'components/ExternalCreditsView';
 
 const Content = styled.div`
-  height: calc(100vh - 96px);
+  height: calc(100vh - 98px);
 `;
 
 const Nav = styled.div`
@@ -24,6 +24,7 @@ const NavButton = styled.button`
     border: none;
     cursor: pointer;
     padding: 0;
+    background: white;
     color: ${theme.darkGreyText};
 
     webkit-transition: all 0.15s ease-in-out;

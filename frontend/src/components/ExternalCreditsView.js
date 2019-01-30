@@ -7,13 +7,20 @@ import ExternalCreditForm from 'components/ExternalCreditForm';
 const ExternalCreditsContent = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 20px;
+  grid-template-areas:
+    "sem add";
   height: inherit;
-  grid-gap: 5px;
+  padding: 20px 10px 20px 10px;
 `;
 
 const StyledSemester = styled(Semester)`
+  grid-area: sem;
+`;
 
+const StyledExternalCreditForm = styled(ExternalCreditForm)`
+  grid-area: add;
 `;
 
 export default class ExternalCreditsView extends Component {
@@ -39,9 +46,9 @@ export default class ExternalCreditsView extends Component {
           schedule={this.props.schedule}
           semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
         >
-          External Credits You've Added
+          Your External Credits
         </StyledSemester>
-        <ExternalCreditForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
+        <StyledExternalCreditForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
       </ExternalCreditsContent>
     );
   }

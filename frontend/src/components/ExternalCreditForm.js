@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import Semester from 'components/Semester';
-import { Form, Button, Input, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Form, Button, Input, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Card, CardHeader, CardBody } from 'reactstrap';
 import Requirements from 'components/Requirements';
 
-const Heading = styled.h6`
-  margin-bottom: 2rem;
+const StyledCardHeader = styled(CardHeader)`
+  padding: 2px;
+  text-align: center;
+  font-size: large;
 `;
 
 const Label = styled.label`
-  display: flex;
+  display: block;
+  margin-bottom: 1rem;
 `;
 
-const StyledInput = styled(Input)`
-  flex: 1;
-  margin-left: 10px;
+const LabelText = styled.p`
+  margin-bottom: 0.5rem;
 `;
 
 const Submit = styled(Button)`
@@ -50,26 +52,35 @@ export default class ExternalCreditForm extends Component {
 
   render() {
     return (
-      <div>
-        <Heading>Add external credit</Heading>
-        <Form onSubmit={this.handleSubmit}>
-          <Label>
-            <span>Name of external credit</span>
-            <StyledInput type="text" id="name" value={this.state.name} onChange={this.handleChange} />
-          </Label>
-          <Label>
-            <span>Which requirement do you want this to satisfy?</span>
-            <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-              <DropdownToggle caret>
-                Choose a requirement
-              </DropdownToggle>
-              <DropdownMenu>
-                <Requirements onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
-              </DropdownMenu>
-            </Dropdown>
-          </Label>
-          <Submit>Submit</Submit>
-        </Form>
+      <div className={this.props.className}>
+        <Card>
+          <StyledCardHeader>Add external credit</StyledCardHeader>
+          <CardBody>
+            <Form onSubmit={this.handleSubmit}>
+              <Label>
+                <LabelText>Name of external credit:</LabelText>
+                <Input type="text" id="name" value={this.state.name} onChange={this.handleChange} />
+              </Label>
+              <Label>
+                <LabelText>Requirement you want to satisfy:</LabelText>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <DropdownToggle caret>
+                    Select a requirement
+                  </DropdownToggle>
+                  <DropdownMenu>
+                    <DropdownItem header>Header</DropdownItem>
+                    <DropdownItem>Some Action</DropdownItem>
+                    <DropdownItem>Foo Action</DropdownItem>
+                    <DropdownItem header>Header 2</DropdownItem>
+                    <DropdownItem>Bar Action</DropdownItem>
+                    <DropdownItem>Quo Action</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </Label>
+              <Submit>Submit</Submit>
+            </Form>
+          </CardBody>
+        </Card>
       </div>
     );
   }
