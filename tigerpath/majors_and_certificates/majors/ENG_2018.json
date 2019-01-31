@@ -1,7 +1,7 @@
 {
   "type": "Major",
   "name": "English",
-  "code": "Eng",
+  "code": "ENG",
   "degree": "AB",
   "year": 2018,
   "urls": [
@@ -60,19 +60,16 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": 1,
+          "min_needed": null,
           "explanation": "1 can be any level",
           "course_list": [
-            "ENG 2*",
-            "ENG 3*",
-            "ENG 4*",
-            "ENG 5*"
+            "ENG 2*"
           ]
         },
         {
           "name": null,
-          "max_counted": 7,
-          "min_needed": 7,
+          "max_counted": 8,
+          "min_needed": null,
           "explanation": "7 have to be 300 or higher",
           "course_list": [
             "ENG 3*",
