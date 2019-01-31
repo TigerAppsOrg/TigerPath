@@ -173,7 +173,7 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    with open(req_filepath, encoding="utf8") as f:
+    with open(req_filepath, 'r', encoding="utf8") as f:
         req = json.load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
