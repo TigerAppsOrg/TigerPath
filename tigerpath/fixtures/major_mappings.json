@@ -46,7 +46,7 @@
       "name": "Astrophysical Sciences",
       "code": "AST",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
