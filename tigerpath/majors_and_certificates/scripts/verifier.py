@@ -120,7 +120,7 @@ def check_requirements(req_file, courses):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    with open(req_file, encoding="utf8") as f:
+    with open(req_file, 'r', encoding="utf8") as f:
         req = json.load(f)
     courses = _init_courses(courses, req)
     req = _init_req(req)
