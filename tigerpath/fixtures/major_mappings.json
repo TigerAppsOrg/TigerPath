@@ -256,7 +256,7 @@
       "name": "Psychology",
       "code": "PSY",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
