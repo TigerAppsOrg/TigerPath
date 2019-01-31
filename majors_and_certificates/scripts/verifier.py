@@ -120,7 +120,7 @@ def check_requirements(req_file, courses):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    with open(req_file, 'r') as f:
+    with open(req_file, 'r', encoding="utf8") as f:
         req = json.load(f)
     courses = _init_courses(courses, req)
     req = _init_req(req)
@@ -173,7 +173,7 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    with open(req_filepath, 'r') as f:
+    with open(req_filepath, 'r', encoding="utf8") as f:
         req = json.load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
