@@ -20,13 +20,13 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('index')
     else:
-        return django_cas_ng.views.login(request)
+        return django_cas_ng.views.LoginView.as_view()(request)
 
 # cas auth logout
 def logout(request):
     success_msg = 'You have been successfully logged out.'
     messages.success(request, success_msg)
-    return django_cas_ng.views.logout(request)
+    return django_cas_ng.views.LogoutView.as_view()(request)
 
 # index page
 def index(request):
