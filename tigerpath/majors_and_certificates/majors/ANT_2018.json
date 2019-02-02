@@ -49,7 +49,7 @@
               "min_needed": "ALL",
               "explanation": "",
               "course_list": [
-                "ANT 300",
+                "ANT 300*",
                 "ANT 301*",
                 "ANT 390*"
               ]
@@ -114,7 +114,7 @@
               "course_list": [
                 "ANT 240",
                 "ANT 206*",
-                "ANT 300",
+                "ANT 300*",
                 "ANT 301*"
               ]
             },
@@ -176,7 +176,7 @@
               "min_needed": "ALL",
               "explanation": "",
               "course_list": [
-                "ANT 300",
+                "ANT 300*",
                 "ANT 301*",
                 "ANT 390*"
               ]
