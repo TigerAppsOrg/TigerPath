@@ -1,0 +1,440 @@
+{
+  "type": "Major",
+  "name": "Politics",
+  "code": "POL",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-department-politics",
+    "http://www.princeton.edu/politics/undergraduate"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Alan W. Patten",
+      "email": "apatten@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Keren Yarhi-Milo",
+      "email": "kyarhi@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "Normally, students entering the department must have successfully completed at least two courses offered by the Department of Politics on a graded basis before the end of their sophomore year.  It is strongly recommended that one or both of the prerequisites be at the 200-level. Courses taken as prerequisites will be counted as departmentals.",
+      "completed_by_semester": 4,
+      "double_counting_allowed": true,
+      "course_list": [
+        "POL *"
+      ]
+    },
+    {
+      "name": "Departmentals",
+      "max_counted": 1,
+      "min_needed": 10,
+      "explanation": "By the end of the senior year, all students in the department must complete, in addition to the prerequisites (link is external), eight departmental courses, of which two may be cognates. Students must attain an overall average of C or higher in the ten or more graded courses that count as departmentals. All departmentals must be taken on a graded basis - P/D/F not allowed. All departmentals factor into the Honors calculation. Concentrators indicate a prospective primary field when they sign into the department in the spring of their sophomore year, and designate a primary field by the end of the first term of their junior year. Concentrators take courses in at least three of the fields listed below, designating one as their primary field of study, another as their secondary field, and an additional field. Students take a minimum of three courses in their primary field, two courses in their secondary field, and one course in a third field. One of three courses in the primary field normally is a 200-level course. Prerequisites may be used to satisfy field requirements. A course taken to satisfy the analytical requirement cannot be used to satisfy the field requirement. The department's website (link is external) lists additional courses that will fulfill field requirements in a given year, including one-time-only courses. It also lists topics courses offered by other departments that have POL cross-listings and that therefore can be counted as departmental courses. [NOTE: Once you have taken 2, 300-level courses in a given field, you may not take the introductory 200-level Politics course in that field.]",
+      "double_counting_allowed": true,
+      "req_list": [
+        {
+          "name": "Political Theory",
+          "max_counted": 10,
+          "min_needed": null,
+          "explanation": "the PT sub-field focuses on the nature of justice, democracy, power, and other key ideas, and encourages students to develop frameworks for thinking evaluatively about pressing issues of politics and public policy of the day. POL 210, 301, 302, 303, 304, 305, 306, 307, 308, 309, 313, 315, 316, 321, 403, 410, 411, 412, 413, 416",
+          "course_list": [
+            "POL 210",
+            "POL 301",
+            "POL 302",
+            "POL 303",
+            "POL 304",
+            "POL 305",
+            "POL 306",
+            "POL 307",
+            "POL 308",
+            "POL 309",
+            "POL 313",
+            "POL 315",
+            "POL 316",
+            "POL 321",
+            "POL 403",
+            "POL 410",
+            "POL 411",
+            "POL 412",
+            "POL 413",
+            "POL 416"
+          ]
+        },
+        {
+          "name": "American Politics",
+          "max_counted": 10,
+          "min_needed": null,
+          "explanation": "the AP sub-field focuses on the U.S. political system and includes the study of the development of the American system of governance, American political institutions, the attitudes and behaviors of U.S. residents, and the relationship between institutions and people. POL 220, 314, 315, 316, 318, 320, 321, 322, 323, 324, 325, 327, 330, 333, 349, 392, 420, 421, 422, 423",
+          "course_list": [
+            "POL 220",
+            "POL 314",
+            "POL 315",
+            "POL 316",
+            "POL 318",
+            "POL 320",
+            "POL 321",
+            "POL 322",
+            "POL 323",
+            "POL 324",
+            "POL 325",
+            "POL 327",
+            "POL 330",
+            "POL 333",
+            "POL 349",
+            "POL 392",
+            "POL 420",
+            "POL 421",
+            "POL 422",
+            "POL 423"
+          ]
+        },
+        {
+          "name": "Comparative Politics",
+          "max_counted": 10,
+          "min_needed": null,
+          "explanation": "the CP sub-field focuses on the similarities and differences in patterns of politics around the world with attention to what happens within states regarding representation, economic development, violence, and effective government. POL 230, 349, 351, 352, 355, 356, 360, 362, 364, 366, 367, 374, 375, 378, 384, 386, 430, 431, 432, 433, 434, 479",
+          "course_list": [
+            "POL 230",
+            "POL 349",
+            "POL 351",
+            "POL 352",
+            "POL 355",
+            "POL 356",
+            "POL 360",
+            "POL 362",
+            "POL 364",
+            "POL 366",
+            "POL 367",
+            "POL 374",
+            "POL 375",
+            "POL 378",
+            "POL 384",
+            "POL 386",
+            "POL 430",
+            "POL 431",
+            "POL 432",
+            "POL 433",
+            "POL 434",
+            "POL 479"
+          ]
+        },
+        {
+          "name": "International Relations",
+          "max_counted": 10,
+          "min_needed": null,
+          "explanation": "the IR sub-field focuses on the study of politics among nations and non-state actors in world affairs including subjects such as the causes of war, the role of international law and institutions, economic interdependence, and cooperation to advance common goals for human rights and environmental protection. POL 240, 313, 380, 381, 385, 386, 388, 389, 392, 393, 440, 441, 442, 443, 444",
+          "course_list": [
+            "POL 240",
+            "POL 313",
+            "POL 380",
+            "POL 381",
+            "POL 385",
+            "POL 386",
+            "POL 388",
+            "POL 389",
+            "POL 392",
+            "POL 393",
+            "POL 440",
+            "POL 441",
+            "POL 442",
+            "POL 443",
+            "POL 444"
+          ]
+        },
+        {
+          "name": "Methods in political science",
+          "max_counted": 10,
+          "min_needed": null,
+          "explanation": "(cannot be the primary field): These courses provide undergraduate students with analytical tools they can use to conduct rigorous social science research. POL 250, 345, 346, 347, 450, 451, 452, 453",
+          "course_list": [
+            "POL 250",
+            "POL 345",
+            "POL 346",
+            "POL 347",
+            "POL 450",
+            "POL 451",
+            "POL 452",
+            "POL 453"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analytic Requirement",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "The department maintains a list of politics courses that have an emphasis on methodological tools for research in political science. Concentrators are required to take a course to fulfill the analytic requirement, normally no later than the first term of their junior year. The courses used to fulfill the analytic requirement cannot be used to fulfill primary-, secondary-, or third-field requirements. The analytic requirement may be satisfied by POL 341, POL 345/SOC 305, POL 346, or POL 347. We will also accept ANT 300A, ANT 301A, ECO 202, ECO 302, ECO 312, ORF 245, PHI 201, SOC 404, WWS 200, or WWS 332.",
+      "completed_by_semester": 6,
+      "course_list": [
+        "POL 341",
+        "POL 345/SOC 305",
+        "POL 346",
+        "POL 347",
+        "ANT 300A",
+        "ANT 301A",
+        "ECO 202",
+        "ECO 302",
+        "ECO 312",
+        "ORF 245",
+        "PHI 201",
+        "SOC 404",
+        "WWS 200",
+        "WWS 332"
+      ]
+    },
+    {
+      "name": "Track",
+      "max_counted": 1,
+      "min_needed": null,
+      "explanation": "Optional tracks",
+      "req_list": [
+        {
+          "name": "American Ideas and Institutions",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The Department of Politics, in collaboration with the James Madison Program in American Ideals and Institutions, offers the program in American Ideas and Institutions for students who wish to further and demonstrate their understandings of the three branches of the federal government and the values, ideas, and theories that underlie them and are animated by their workings. It draws together a menu of courses from American politics, political theory, public law, and other departmental offerings.",
+          "double_counting_allowed": true,
+          "req_list": [
+            {
+              "name": "The Executive Branch",
+              "max_counted": 2,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "POL 325",
+                "POL 330",
+                "POL 332",
+                "POL 394"
+              ]
+            },
+            {
+              "name": "The Legislative Branch",
+              "max_counted": 2,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "POL 324",
+                "POL 329"
+              ]
+            },
+            {
+              "name": "The Constitution and the Courts",
+              "max_counted": 2,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "POL 314",
+                "POL 315",
+                "POL 316",
+                "POL 320"
+              ]
+            },
+            {
+              "name": "American Political, Legal, and Constitutional Thought",
+              "max_counted": 2,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "WWS 370/POL 308",
+                "POL 314",
+                "POL 315",
+                "POL 316",
+                "POL 319",
+                "POL 321",
+                "POL 328",
+                "POL 332"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Political Economy",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The Department of Politics offers the Program in Political Economy for students who wish to further their understanding of social phenomena and individual behavior by combining the perspectives of its two constituent disciplines. The program allows and encourages students to use analytical tools from game theory, microeconomics and statistics to study political behavior, and to incorporate a thorough analysis of politics and collective decision-making into economic analysis.",
+          "double_counting_allowed": true,
+          "req_list": [
+            {
+              "name": "Preqrequisites",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "To participate in this program, students must complete two Politics courses and ECO 100 and ECO 101, and MAT 103 (or higher level) before the end of their sophomore year. All five of these courses should be taken on a graded basis (e.g., not p/d/f). (Under special circumstances, students can apply for exceptions or deferrals of these prerequisites. These requests will be considered by the PE advisor.)",
+              "req_list": [
+                {
+                  "name": "Economics",
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": "",
+                  "course_list": [
+                    "ECO 100",
+                    "ECO 101"
+                  ]
+                },
+                {
+                  "name": "Math",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "MAT 103",
+                    "MAT 104",
+                    "MAT 201",
+                    "MAT 202",
+                    "MAT 203",
+                    "MAT 204"
+                  ]
+                },
+                {
+                  "name": "Politics",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": "",
+                  "course_list": [
+                    "POL *"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Track Departmentals",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "It is important for each student to select a combination of Economics and Politics courses that form a coherent and meaningful program. Before signing up for the first term of the junior year, the student should work out a tentative course outline for the next two years; this outline must be approved and signed by the PE adviser. In addition to the PE prerequisites, a student in the PE program is required to complete the following courses, all of which will be counted as departmentals:",
+              "req_list": [
+                {
+                  "name": "Political Economy",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "POL 349",
+                    "POL 352"
+                  ]
+                },
+                {
+                  "name": "Game Theory in Politics",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "POL 347"
+                  ]
+                },
+                {
+                  "name": "Quantitative Methods",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "POL 345/SOC 305",
+                    "POL 346",
+                    "ECO 202",
+                    "ECO 302",
+                    "ECO 312"
+                  ]
+                },
+                {
+                  "name": "Microeconomics",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "ECO 300",
+                    "ECO 310",
+                    "WWS 300"
+                  ]
+                },
+                {
+                  "name": "Macroeconomics, Topics",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "ECO 301",
+                    "ECO 311",
+                    "WWS 301/ECO 352",
+                    "WWS 302/ECO 359",
+                    "WWS 307/ECO 349"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Quantitative and Analytical Political Science",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The program in Quantitative and Analytical Political Science is designed for students who wish to deepen their understanding of quantitative and analytical methods to study key questions in political science.",
+          "double_counting_allowed": true,
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "MAT 175 (or its equivalent EGR 192, MAT 201, MAT 203)",
+              "course_list": [
+                "MAT 175",
+                "EGR 192",
+                "MAT 201",
+                "MAT 203"
+              ]
+            },
+            {
+              "name": "Track Departmentals",
+              "max_counted": 1,
+              "min_needed": 4,
+              "explanation": "In addition to the prerequisite, students must complete four courses among those listed below along with six other departmental courses. Of the following six courses, students must take four with at least one being in Quantitative Analysis as well as at least one from the Game Theory and Applications category.",
+              "req_list": [
+                {
+                  "name": "Quantitative Analysis",
+                  "max_counted": 3,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "POL 245",
+                    "POL 345",
+                    "POL 346"
+                  ]
+                },
+                {
+                  "name": "Game Theory and Applications",
+                  "max_counted": 3,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "POL 347",
+                    "POL 349",
+                    "POL 352"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Junior Seminar",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nStudents are required to complete two semesters of junior independent work. Junior Workshops will meet every other week of the Fall teaching period and on alternating weeks, students are required to view online plenary session video modules and attend a 50-minute discussion section. The plenary component provides common instruction in research procedures and techniques. In their Fall Junior Workshops, juniors will complete a series of assignments building up to a research prospectus. [NOTE: Junior Workshops are not considered courses and do not count toward satisfying departmental course requirements.] In the spring semester, juniors will complete a Junior Paper under the supervision of an independent work adviser. Students must achieve at least a “D” on each of their two semesters of junior independent work as well as an average of a “C” or above across the two. If the average of the two is below “C” or one of the two receives an “F”, a second Junior Paper is required (with a grade that brings the average of the Fall JIW and the Summer JP grades to at least a “C” or better). This is a prerequisite for beginning the senior year. For purposes of this requirement, the grades before the application of any late penalties are used.",
+      "completed_by_semester": 6,
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nDuring the senior year, each student writes a thesis. The senior thesis normally is written on a topic within a student's primary field. The department encourages students to use the summer between junior and senior year for work on the senior thesis.",
+      "completed_by_semester": 8,
+      "no_req": null
+    }
+  ]
+}
