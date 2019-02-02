@@ -19,14 +19,14 @@
       "name":"Track",
       "max_counted":1,
       "min_needed":1,
-      "explanation":"Complete 1 track",
+      "explanation": null,
       "completed_by_semester":8,
       "req_list":[
         {
           "name":"History Major Track",
           "max_counted":1,
           "min_needed":"ALL",
-          "explanation":"Standard History Major Requirements.",
+          "explanation": null,
           "completed_by_semester":8,
           "req_list":[
             {
@@ -41,7 +41,7 @@
                   "name": null,
                   "max_counted":1,
                   "min_needed": 2,
-                  "explanation":"Standard History Major Requirements.",
+                  "explanation": null,
                   "completed_by_semester":4,
                   "course_list":[
                     "HIS 201",
@@ -65,15 +65,15 @@
                 {
                   "name": null,
                   "max_counted":1,
-                  "min_needed":"ALL",
-                  "explanation": "HUM sequence can satisfy",
+                  "min_needed":1,
+                  "explanation": null,
                   "completed_by_semester":4,
                   "req_list":[
                     {
                       "name": null,
                       "max_counted":1,
                       "min_needed":"ALL",
-                      "explanation": "HUM sequence can satisfy",
+                      "explanation": null,
                       "completed_by_semester":4,
                       "course_list":[
                         "HUM 216",
@@ -84,7 +84,7 @@
                       "name": null,
                       "max_counted":1,
                       "min_needed":"ALL",
-                      "explanation": "HUM sequence can satisfy",
+                      "explanation": null,
                       "completed_by_semester":4,
                       "course_list":[
                         "HUM 218",
@@ -158,7 +158,7 @@
               "name":"United States",
               "max_counted":1,
               "min_needed":1,
-              "explanation":"Of the departmental courses, one a course in United States history",
+              "explanation":"Of the departmental courses, one must be a course in United States history.",
               "completed_by_semester":8,
               "course_list":[
                 "AMS 361/HIS 261",
@@ -231,7 +231,7 @@
               "name":"Non-Western",
               "max_counted":1,
               "min_needed":1,
-              "explanation":"Of the departmental courses, one a course in non-Western history",
+              "explanation":"Of the departmental courses, one must be a course in non-Western history.",
               "completed_by_semester":8,
               "course_list":[
                 "HIS 201",
@@ -314,7 +314,7 @@
               "name":"Pre-Modern",
               "max_counted":1,
               "min_needed":1,
-              "explanation":"Of the departmental courses, one a course in premodern history. ",
+              "explanation":"Of the departmental courses, one must be a course in premodern history.",
               "completed_by_semester":8,
               "course_list":[
                 "HIS 207",
@@ -387,20 +387,13 @@
               "req_list":[
                 {
                   "name":null,
-                  "max_counted":12,
+                  "max_counted":null,
                   "min_needed":null,
                   "explanation":"Departmental regulations stipulate that undergraduates must pass at least 10 courses, including HIS 400, in order to receive the A.B. degree.",
                   "completed_by_semester":8,
                   "course_list":[
                     "HIS *"
                   ]
-                },
-                {
-                  "name":null,
-                  "max_counted":12,
-                  "min_needed":null,
-                  "explanation":"Cognates. The history department encourages students to take courses in other departments when they add depth and variety to their selected program of concentration. For example, a student concentrating in Russian history might identify an appropriate course in politics to take as a cognate; a student concentrating in intellectual history might take an appropriate course in philosophy as a cognate. Two such courses may be taken during the junior and senior years and counted as departmental courses provided they contribute significantly to the student's plan of study. Cognates cannot be used to fulfill departmental distribution requirements. Cognates can only be approved by the departmental representative during the course enrollment period and prior to attending the class. Courses may not be designated as cognates retroactively. Cross-listed courses (for example, CLA 217, also listed as HIS 217) are automatically considered departmental courses, not cognates.",
-                  "completed_by_semester":8
                 }
               ]
             },
@@ -408,7 +401,7 @@
               "name":"U.S. Concentrators Only (2)",
               "max_counted": 0,
               "min_needed": null,
-              "explanation":"U.S. Concentrators must take 2 courses in pre 20th Century:",
+              "explanation":"U.S. Concentrators must take 2 courses in pre 20th Century.",
               "completed_by_semester":8,
               "course_list":[
                 "AMS 361/HIS 261",
@@ -443,7 +436,7 @@
           "name":"History of Science Track",
           "max_counted":1,
           "min_needed":"ALL",
-          "explanation":"History of Science: History majors wishing to concentrate in the history of science need not meet the departmental prerequisites or distribution requirements.They have separate requirements.",
+          "explanation":"History of Science: History majors wishing to concentrate in the history of science need not meet the departmental prerequisites or distribution requirements.",
           "completed_by_semester":8,
           "req_list":[
             {
@@ -458,7 +451,7 @@
               "name":"History of Science Main Courses",
               "max_counted":1,
               "min_needed":4,
-              "explanation":"Four of the following courses:",
+              "explanation": null,
               "completed_by_semester":8,
               "course_list":[
                 "HIS 277",
@@ -492,7 +485,7 @@
               "name":"Departmentals",
               "max_counted":1,
               "min_needed":4,
-              "explanation":"Four other history courses.",
+              "explanation": null,
               "completed_by_semester":8,
               "course_list":[
                 "HIS *"
