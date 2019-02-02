@@ -1,0 +1,224 @@
+{
+  "type": "Major",
+  "name": "East Asian Studies",
+  "code": "EAS",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-east-asian-studies#",
+    "https://eas.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Martin Kern",
+      "email": "mkern@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Franz K. Prichard",
+      "email": "franzp@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "1. One year of language study in one East Asian language\n2. One 200-level EAS course",
+      "req_list": [
+        {
+          "name": "Language",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "req_list": [
+            {
+              "name": "Chinese",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "",
+              "course_list": [
+                "CHI 101",
+                "CHI 102",
+                "CHI 103",
+                "CHI 105",
+                "CHI 107",
+                "CHI 108",
+                "CHI 303",
+                "CHI 304",
+                "CHI 305",
+                "CHI 306",
+                "CHI 403",
+                "CHI 404",
+                "CHI 405",
+                "CHI 406"
+              ]
+            },
+            {
+              "name": "Japanese",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "",
+              "course_list": [
+                "JPN 101",
+                "JPN 102",
+                "JPN 105",
+                "JPN 107",
+                "JPN 301",
+                "JPN 302",
+                "JPN 305",
+                "JPN 306"
+              ]
+            },
+            {
+              "name": "Korean",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "",
+              "course_list": [
+                "KOR 101",
+                "KOR 102",
+                "KOR 103",
+                "KOR 105",
+                "KOR 107",
+                "KOR 108",
+                "KOR 301",
+                "KOR 302",
+                "KOR 303",
+                "KOR 308"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "EAS Course",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "double_counting_allowed": true,
+          "course_list": [
+            "EAS 2*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Language Proficiency",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Language proficiency through the third year in one East Asian language.",
+      "course_list": [
+        "CHI 304",
+        "CHI 306",
+        "CHI 403",
+        "CHI 404",
+        "CHI 405",
+        "CHI 406",
+        "JPN 302",
+        "JPN 306",
+        "KOR 302",
+        "KOR 308"
+      ]
+    },
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Eight departmental courses (“departmentals”) fulfilling the following requirements:",
+      "req_list": [
+        {
+          "name": "Junior Seminar",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The Junior Seminar (EAS 300) as an introductory methods survey course, generally taken fall of the junior year",
+          "course_list": [
+            "EAS 300"
+          ]
+        },
+        {
+          "name": "Transnational Courses",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Two of the following transnational courses:\n-History of East Asia to 1800 (HIS/EAS 207)\n-East Asia since 1800 (HIS/EAS 208)\n-Contemporary East Asia (EAS 229)\n-East Asian Humanities I: The Classical Foundations (HUM/EAS/COM 233)\n-East Asian Humanities II: Tradition and Transformations (HUM/EAS/COM 234)",
+          "course_list": [
+            "HIS 207/EAS 207",
+            "HIS 208/EAS 208",
+            "EAS 229",
+            "HUM 233/EAS 233/COM 233",
+            "HUM 234/EAS 234/COM 234"
+          ]
+        },
+        {
+          "name": "Pre-Modern East Asia",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "At least one course on pre-modern East Asia\nNote: Either HIS 207 or HUM 233, when taken in fulfillment of (b), may also be used simultaneously towards requirement (c), however the course will only count towards one of the six required EAS-prefix departmentals.",
+          "course_list": [
+            "EAS *"
+          ]
+        },
+        {
+          "name": "Additional Courses",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "Two additional courses, which may be\n-EAS courses including courses cross-listed with EAS\n-Cognate courses approved by the Departmental Representative\n-Language courses at or above the 300 level (after the three-year proficiency requirement is fulfilled)\n-Any second East Asian language courses",
+          "course_list": [
+            "EAS *",
+            "CHI 101",
+                "CHI 102",
+                "CHI 103",
+                "CHI 105",
+                "CHI 107",
+                "CHI 108",
+                "CHI 303",
+                "CHI 304",
+                "CHI 305",
+                "CHI 306",
+                "CHI 403",
+                "CHI 404",
+                "CHI 405",
+                "CHI 406",
+                "JPN 101",
+                "JPN 102",
+                "JPN 105",
+                "JPN 107",
+                "JPN 301",
+                "JPN 302",
+                "JPN 305",
+                "JPN 306",
+                "KOR 101",
+                "KOR 102",
+                "KOR 103",
+                "KOR 105",
+                "KOR 107",
+                "KOR 108",
+                "KOR 301",
+                "KOR 302",
+                "KOR 303",
+                "KOR 308"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "All departmental students engage in independent work, supervised by a member of the department chosen in consultation with a departmental adviser. The independent work of the junior year generally consists of participating actively in a junior seminar in both the fall and the spring semesters. Alternatively, a student may opt to replace one junior seminar with supervised reading in a special subject and then writing a paper based on that reading. The independent work in the senior year centers on writing a senior thesis. A substantial percentage of our majors work with faculty in other departments on their senior project.",
+      "description": "Independent Work",
+      "double_counting_allowed": true,
+      "course_list": [
+        "EAS 300"
+      ]
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\n",
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
