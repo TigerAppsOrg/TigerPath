@@ -334,6 +334,8 @@ def _init_req_fields(req):
     if "req_list" in req:
         for subreq in req["req_list"]:
             _init_req_fields(subreq)
+    elif "course_list" in req and "excluded_course_list" not in req:
+        req["excluded_course_list"] = []
     elif "num_courses" in req and req["name"] == None and "completed_by_semester" in req:
         req["name"] = "Complete " + str(req["num_courses"]) + " courses by Semester " + str(req["completed_by_semester"])
     return req
@@ -455,6 +457,12 @@ def _mark_courses(req, courses):
     for sem in courses:
         for c in sem:
             if req["path_to"] in c["possible_reqs"]: # already used
+                continue
+            excluded = False
+            for pattern in req["excluded_course_list"]:
+                if _course_match(c["name"], pattern):
+                    excluded = True
+            if excluded:  # this course cannot count for this req, so skip it
                 continue
             for pattern in req["course_list"]:
                 if _course_match(c["name"], pattern):
