@@ -8,7 +8,7 @@
 }
 
 /* add delete button on course hover in semesters */
-#semesters .course-display:hover .delete-course {
+#semesters .course-card:hover .delete-course {
 	display: block;
 }
 
@@ -17,8 +17,15 @@
   vertical-align: top;
   height: calc(50vh - 60px);
   width: 25%;
-  list-style-type: none;
-  padding-top: 5px;
+  padding: 5px 5px 0 5px;
+}
+
+.semester.green-tint {
+  background-color: #D0EBCF;
+}
+
+.semester.red-tint {
+  background-color: #ffc0cb;
 }
 
 thead.semester-header {

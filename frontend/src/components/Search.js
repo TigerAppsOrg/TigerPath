@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import CourseCard from 'components/CourseCard';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import SearchCard from 'components/SearchCard';
+import { Droppable } from 'react-beautiful-dnd';
 
 export default class Search extends Component {
   constructor(props) {
@@ -41,21 +41,6 @@ export default class Search extends Component {
     }));
   };
 
-  courseCard = (provided, isDragging, course) => {
-    if (isDragging) {
-      return (
-        <React.Fragment>
-          <CourseCard innerRef={provided.innerRef} draggable={provided.draggableProps} dragHandle={provided.dragHandleProps}
-                      course={course} showSearchInfo={false} />
-          <CourseCard course={course} showSearchInfo={true} isPlaceholder={true} />
-        </React.Fragment>
-      );
-    } else {
-      return <CourseCard innerRef={provided.innerRef} draggable={provided.draggableProps} dragHandle={provided.dragHandleProps}
-                         course={course} showSearchInfo={true} />
-    }
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -80,12 +65,8 @@ export default class Search extends Component {
             <React.Fragment>
               <div id="display-courses" ref={provided.innerRef} {...provided.droppableProps}>
                 {this.props.searchResults.map((course, courseIndex) => {
-                  let courseKey = `search-course-card-${courseIndex}`;
-                  return (
-                    <Draggable key={courseKey} draggableId={courseKey} index={courseIndex}>
-                      {(provided, snapshot) => this.courseCard(provided, snapshot.isDragging, course)}
-                    </Draggable>
-                  );
+                  let courseKey = `course-card-${course["semester"]}-search-${courseIndex}`;
+                  return <SearchCard key={courseKey} courseKey={courseKey} index={courseIndex} course={course} />;
                 })}
               </div>
             </React.Fragment>

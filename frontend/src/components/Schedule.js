@@ -3,6 +3,8 @@ import $ from 'jquery';
 import CourseCard from 'components/CourseCard';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
+const RADIX = 10;
+
 export default class Schedule extends Component {
   constructor(props) {
     super(props);
@@ -53,12 +55,12 @@ export default class Schedule extends Component {
     return (
       <React.Fragment>
         {courseList.map((course, courseIndex) => {
-          let courseKey = `course-card-${semIndex}-${courseIndex}`;
+          let courseKey = `course-card-${course["semester"]}-${semIndex}-${courseIndex}`;
           return (
             <Draggable key={courseKey} draggableId={courseKey} index={courseIndex}>
               {(provided, snapshot) => (
                 <CourseCard innerRef={provided.innerRef} draggable={provided.draggableProps} dragHandle={provided.dragHandleProps}
-                            course={course} showSearchInfo={false}
+                            course={course} courseKey={courseKey} isDragging={snapshot.isDragging}
                             onCourseRemove={this.removeCourse} semIndex={semIndex} courseIndex={courseIndex} />
               )}
             </Draggable>
@@ -83,19 +85,42 @@ export default class Schedule extends Component {
     );
   }
 
+  getSemesterBodyClassNames = (semId, snapshot) => {
+    let classNames = ['semester'];
+
+    if (snapshot.isDraggingOver) {
+      let semIndex = parseInt(semId.split('sem')[1], RADIX);
+      let courseKey = snapshot.draggingOverWith;
+      let courseSemType = courseKey.split('-')[2];
+
+      if ((courseSemType === 'fall' && semIndex % 2 === 0) ||
+          (courseSemType === 'spring' && semIndex % 2 === 1) ||
+          courseSemType === 'both') {
+        classNames.push('green-tint');
+      } else {
+        classNames.push('red-tint');
+      }
+    }
+
+    return classNames.join(' ');
+  }
+
   semesterBodyRow = (semIndices) => {
     return (
       <tr>
         {semIndices.map(i => {
-          let semId = `sem${i}`
+          let semId = `sem${i}`;
           return (
             <Droppable key={semId} droppableId={semId}>
-              {(provided, snapshot) => (
-                <td id={semId} className="semester" ref={provided.innerRef} {...provided.droppableProps}>
-                  {this.props.schedule && this.courseCardList(this.props.schedule[i], i)}
-                  {provided.placeholder}
-                </td>
-              )}
+              {(provided, snapshot) => {
+                let classNames = this.getSemesterBodyClassNames(semId, snapshot);
+                return (
+                  <td id={semId} className={classNames} ref={provided.innerRef} {...provided.droppableProps}>
+                    {this.props.schedule && this.courseCardList(this.props.schedule[i], i)}
+                    {provided.placeholder}
+                  </td>
+                );
+              }}
             </Droppable>
           );
         })}

@@ -1,34 +1,44 @@
 import $ from 'jquery';
 
-export function addPopover(courseId, courseName, courseTitle) {
-  let addedCourses = $(".semester").find("[id=" + courseId +"]");
-  addedCourses.each((index, course) => {
-    let courseElement = $(course);
+export function addPopover(course, courseKey, semIndex) {
+  let courseName = course['name'];
+  let courseTitle = course['title'];
+  let courseSemType = course['semester'];
 
-    // Add content to the popover
-    courseElement.attr("title", courseName);
-    courseElement.attr("data-html", "true");
-    if (addedCourses.length > 1) {
-      courseElement.attr("data-content", courseTitle + "<br><span class='popover-warning'>Note: course already added</span>");
-    } else {
-      courseElement.attr("data-content", courseTitle);
-    }
+  let courseElement = $(`#${courseKey}`)
+  courseElement.attr("title", courseName);
+  courseElement.attr("data-html", "true");
 
-    // Show the popover when it's hovered over
-    courseElement
-      .popover({ trigger: "manual" , html: true, animation: true})
-      .on("mouseenter", () => {
-        courseElement.popover("show");
-        $(".popover").on("mouseleave", () => {
-          courseElement.popover("hide");
-        });
-      })
-      .on("mouseleave", () => {
-        setTimeout(() => {
-          if (!$(".popover:hover").length) {
-            courseElement.popover("hide");
-          }
-        }, 100);
+  // Add content to the popover
+  let content = courseTitle;
+  let addedCoursesWithSameName = $(".semester").find(`[title="${courseName}"]`);
+
+  if (addedCoursesWithSameName.length > 1) {
+    content += "<div class='popover-warning'>This course has already been added to your schedule.</div>";
+  }
+
+  if (courseSemType === 'fall' && semIndex % 2 === 1) {
+    content += "<div class='popover-warning'>This course has previously only been offered in the Fall.</div>";
+  } else if (courseSemType === 'spring' && semIndex % 2 === 0) {
+    content += "<div class='popover-warning'>This course has previously only been offered in the Spring.</div>";
+  }
+
+  courseElement.attr("data-content", content);
+
+  // Show the popover when it's hovered over
+  courseElement
+    .popover({ trigger: "manual" , html: true, animation: true})
+    .on("mouseenter", () => {
+      courseElement.popover("show");
+      $(".popover").on("mouseleave", () => {
+        courseElement.popover("hide");
       });
-  });
+    })
+    .on("mouseleave", () => {
+      setTimeout(() => {
+        if (!$(".popover:hover").length) {
+          courseElement.popover("hide");
+        }
+      }, 100);
+    });
 }

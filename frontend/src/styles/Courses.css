@@ -22,23 +22,60 @@
   margin-right: 3px;
 }
 
+.search-card {
+  font-size: 13px;
+  height: auto;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 2px;
+  background-color: #f5f5f5;
+}
+
+.search-card.fall {
+  background-color: #f6ebff;
+  color: #53008f;
+}
+
+.search-card.spring {
+  background-color: #ebf6f9;
+  color: #004a63;
+}
+
+.search-card.both {
+  background-color: #fbf2e9;
+  color: #753a00;
+}
+
+.search-card-info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 5px;
+  align-items: center;
+}
+
+.search-card-links {
+  visibility: hidden;
+}
+
+.search-card:hover .search-card-links {
+  visibility: visible;
+}
+
 #display-courses {
   height: calc(100vh - 127px);
   overflow: auto;
 }
 
-#display-courses .course-display p {
-  padding-right: 50px;
+.course-title {
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 /* smaller font size for semester in search results */
-#display-courses .course-semester {
+.course-prev-sems {
   font-size: 11px;
-}
-
-#display-courses .course-display:hover .course-info,
-#display-courses .course-display:hover .course-eval {
-  display: block;
+  margin-left: 5px;
+  margin-bottom: 0;
 }
 
 #spinner {
@@ -48,74 +85,57 @@
 }
 
 /* courses cards */
-.course-display {
-  font-size: 13px;
-  height: auto;
+.course-card {
+  font-size: large;
+  height: 36px;
   padding: 5px;
-  list-style-type: none;
-  margin: 3px;
   border-radius: 2px;
+  margin-bottom: 5px;
 }
 
-.course-display.fall {
+.course-card.fall {
   background-color: #eaccff;
   color: #53008f;
 }
 
-.course-display.spring {
-  background-color: #ADD8E6;
+.course-card.spring {
+  background-color: #c4e3ed;
   color: #004a63;
 }
 
-.course-display.both {
-  background-color: #f0cfad;
+.course-card.both {
+  background-color: #f3d9be;
   color: #753a00;
 }
 
-.course-display p {
-  margin-bottom: 0;
+.course-card .course-name {
+  width: 90%;
+	overflow: hidden;
+	float: left;
+	text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.course-display:hover {
+.course-card:hover {
   cursor: grab;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   position: relative;
   z-index: 1;
 }
 
-.course-display:hover:active {
+.course-card:hover:active, .course-card-shadow {
   cursor: grabbing;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
-
-.small-course-card {
-  font-size: large;
-  height: 36px !important;
-  list-style-type: none;
-  margin: 0 3px 5px 3px;
-}
-
-/* for courses with long names */
-.small-course-card .course-name {
-  width: 90%;
-	overflow: hidden;
-	float: left;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  z-index: 1;
 }
 
 /* don't show react-beautiful-dnd's placeholder in search results */
-.placeholder-course + li {
+.placeholder-course + div {
   display: none !important;
 }
 
-.course-info, .course-eval {
-  display: none;
-  float: right;
-}
-
 .course-info:hover, .course-eval:hover {
-  color: #333;
+  color: #5a6268;
 }
 
 .delete-course {
@@ -132,4 +152,5 @@
 
 .popover-warning {
   color: #e74c3c;
+  margin-top: 5px;
 }
