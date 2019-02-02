@@ -43,7 +43,7 @@
           "name": "Political Theory",
           "max_counted": 10,
           "min_needed": null,
-          "explanation": "the PT sub-field focuses on the nature of justice, democracy, power, and other key ideas, and encourages students to develop frameworks for thinking evaluatively about pressing issues of politics and public policy of the day. POL 210, 301, 302, 303, 304, 305, 306, 307, 308, 309, 313, 315, 316, 321, 403, 410, 411, 412, 413, 416",
+          "explanation": "The PT sub-field focuses on the nature of justice, democracy, power, and other key ideas, and encourages students to develop frameworks for thinking evaluatively about pressing issues of politics and public policy of the day. POL 210, 301, 302, 303, 304, 305, 306, 307, 308, 309, 313, 315, 316, 321, 403, 410, 411, 412, 413, 416",
           "course_list": [
             "POL 210",
             "POL 301",
@@ -71,7 +71,7 @@
           "name": "American Politics",
           "max_counted": 10,
           "min_needed": null,
-          "explanation": "the AP sub-field focuses on the U.S. political system and includes the study of the development of the American system of governance, American political institutions, the attitudes and behaviors of U.S. residents, and the relationship between institutions and people. POL 220, 314, 315, 316, 318, 320, 321, 322, 323, 324, 325, 327, 330, 333, 349, 392, 420, 421, 422, 423",
+          "explanation": "The AP sub-field focuses on the U.S. political system and includes the study of the development of the American system of governance, American political institutions, the attitudes and behaviors of U.S. residents, and the relationship between institutions and people. POL 220, 314, 315, 316, 318, 320, 321, 322, 323, 324, 325, 327, 330, 333, 349, 392, 420, 421, 422, 423",
           "course_list": [
             "POL 220",
             "POL 314",
@@ -99,7 +99,7 @@
           "name": "Comparative Politics",
           "max_counted": 10,
           "min_needed": null,
-          "explanation": "the CP sub-field focuses on the similarities and differences in patterns of politics around the world with attention to what happens within states regarding representation, economic development, violence, and effective government. POL 230, 349, 351, 352, 355, 356, 360, 362, 364, 366, 367, 374, 375, 378, 384, 386, 430, 431, 432, 433, 434, 479",
+          "explanation": "The CP sub-field focuses on the similarities and differences in patterns of politics around the world with attention to what happens within states regarding representation, economic development, violence, and effective government. POL 230, 349, 351, 352, 355, 356, 360, 362, 364, 366, 367, 374, 375, 378, 384, 386, 430, 431, 432, 433, 434, 479",
           "course_list": [
             "POL 230",
             "POL 349",
@@ -129,7 +129,7 @@
           "name": "International Relations",
           "max_counted": 10,
           "min_needed": null,
-          "explanation": "the IR sub-field focuses on the study of politics among nations and non-state actors in world affairs including subjects such as the causes of war, the role of international law and institutions, economic interdependence, and cooperation to advance common goals for human rights and environmental protection. POL 240, 313, 380, 381, 385, 386, 388, 389, 392, 393, 440, 441, 442, 443, 444",
+          "explanation": "The IR sub-field focuses on the study of politics among nations and non-state actors in world affairs including subjects such as the causes of war, the role of international law and institutions, economic interdependence, and cooperation to advance common goals for human rights and environmental protection. POL 240, 313, 380, 381, 385, 386, 388, 389, 392, 393, 440, 441, 442, 443, 444",
           "course_list": [
             "POL 240",
             "POL 313",
@@ -152,7 +152,7 @@
           "name": "Methods in political science",
           "max_counted": 10,
           "min_needed": null,
-          "explanation": "(cannot be the primary field): These courses provide undergraduate students with analytical tools they can use to conduct rigorous social science research. POL 250, 345, 346, 347, 450, 451, 452, 453",
+          "explanation": "(Cannot be the primary field): These courses provide undergraduate students with analytical tools they can use to conduct rigorous social science research. POL 250, 345, 346, 347, 450, 451, 452, 453",
           "course_list": [
             "POL 250",
             "POL 345",
