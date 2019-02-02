@@ -33,10 +33,11 @@ export default class App extends Component {
       let schedule = this.state.schedule;
       this.updateSchedule();
       this.fetchRequirements(schedule);
-      for (let sem_num = 0; sem_num < schedule.length; sem_num++) {
-        for (let course_index = 0; course_index < schedule[sem_num].length; course_index++) {
-          let course = schedule[sem_num][course_index];
-          addPopover(course['id'], course['name'], course['title']);
+      for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
+        for (let courseIndex = 0; courseIndex < schedule[semIndex].length; courseIndex++) {
+          let course = schedule[semIndex][courseIndex];
+          let courseKey = `course-card-${course["semester"]}-${semIndex}-${courseIndex}`;
+          addPopover(course, courseKey, semIndex);
         }
       }
     }
@@ -54,18 +55,18 @@ export default class App extends Component {
   // gets current enrolled courses and sends post request
   updateSchedule = () => {
     let schedule = this.state.schedule;
-    let stripped_schedule = [];
-    for (let sem_num = 0; sem_num < schedule.length; sem_num++) {
-      stripped_schedule.push([]);
-      for (let course of schedule[sem_num]) {
-        stripped_schedule[sem_num].push({id: course['id'], settled: course['settled']});
+    let strippedSchedule = [];
+    for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
+      strippedSchedule.push([]);
+      for (let course of schedule[semIndex]) {
+        strippedSchedule[semIndex].push({id: course['id'], settled: course['settled']});
       }
     }
 
     $.ajax({
       url: "/api/v1/update_schedule/",
       type: 'POST',
-      data: { schedule: JSON.stringify(stripped_schedule) }
+      data: { schedule: JSON.stringify(strippedSchedule) }
     });
   }
 
