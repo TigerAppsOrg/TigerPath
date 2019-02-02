@@ -1,0 +1,267 @@
+{
+  "type": "Major",
+  "name": "Physics",
+  "code": "PHY",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-physics",
+    "https://phy.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Herman L. Verlinde",
+      "email": "verlinde@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Steven S. Gubser",
+      "email": "ssgubser@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Prerequisites as described here apply to the Class of 2019 and beyond. The Class of 2018 should consult the 2016-2017 Undergraduate Announcement for a list of program requirements.\nPrerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 207, and MAT 203-204.  These six courses should be completed by the end of sophomore year.  PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105.  PHY 104 may be replaced by ISC 233-234 or PHY 106.  PHY 207 may be replaced by PHY 205.  MAT 203 may be replaced by MAT 201 or MAT 218.  MAT 204 may be replaced by MAT 202 or MAT 217.  Prerequisites for concentration in physics cannot be taken on a pass/D/fail basis.",
+      "completed_by_semester": 4,
+      "req_list": [
+        {
+          "name": "Introductory Physics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "PHY 103",
+                    "PHY 105"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": "",
+                  "course_list": [
+                    "ISC 231",
+                    "ISC 232"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": "",
+                  "course_list": [
+                    "EGR 191",
+                    "EGR 192"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "PHY 104",
+                    "PHY 106"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": "",
+                  "course_list": [
+                    "ISC 233",
+                    "ISC 234"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "PHY 207",
+                "PHY 205"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Math",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Mastery of calculus to the level of MAT 103 or above, or advanced placement (an AP score of 5 on the AB test or an AP score of 4 on the BC test);",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "MAT 201",
+                "MAT 203",
+                "MAT 218"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "MAT 202",
+                "MAT 204",
+                "MAT 217"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "The program of study as described here applies to the Class of 2019 and beyond. The Class of 2018 should consult the 2016-2017 Undergraduate Announcement for a list of program requirements.\nUpon completion of the prerequisites described above, courses required for concentration in physics are as follows.",
+      "req_list": [
+        {
+          "name": "Quantum",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "One semester of quantum mechanics: PHY 208.",
+          "course_list": [
+            "PHY 208"
+          ]
+        },
+        {
+          "name": "Thermodynamics and Statistical Mechanics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "One semester of thermodynamics and statistical mechanics: PHY 301.",
+          "course_list": [
+            "PHY 301"
+          ]
+        },
+        {
+          "name": "Experimental Physics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "One semester of experimental physics: PHY 312.",
+          "course_list": [
+            "PHY 312"
+          ]
+        },
+        {
+          "name": "Complex Analysis",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One course either on complex analysis or on differential equations at the 300-level or higher:  APC 350, MAE 305, MAE 306, MAT 330, MAT 335, or MAT 427.",
+          "course_list": [
+            "APC 350",
+            "MAE 305",
+            "MAE 306",
+            "MAT 330",
+            "MAT 335",
+            "MAT 427"
+          ]
+        },
+        {
+          "name": "Additional Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One additional course in Physics (not including cross-lists) at the 300-level or above.",
+          "course_list": [
+            "PHY 3*",
+            "PHY 4*",
+            "PHY 5*"
+          ]
+        },
+        {
+          "name": "Crosslisted Additional Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One additional course in Physics at the 300-level or above, including cross-lists.",
+          "course_list": [
+            "PHY 3*",
+            "PHY 4*",
+            "PHY 5*"
+          ]
+        },
+        {
+          "name": "Additional Math or Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One additional course in either Physics or Math at the 300-level or above, including cross-lists.",
+          "course_list": [
+            "PHY 3*",
+            "PHY 4*",
+            "PHY 5*",
+            "MAT 3*",
+            "MAT 4*",
+            "MAT 5*"
+          ]
+        },
+        {
+          "name": "Elective",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One elective course at the 300-level or higher, as detailed below.\nThe elective course can be any Physics Department course (including cross-lists) at 300-level or above.  400-level physics courses are particularly recommended.  Courses in astrophysics, biophysics or biology, chemistry, computer science, engineering, geophysical science, materials science, plasma physics, and mathematics may also be appropriate depending on the interests of the student.  Graduate courses may also be taken with permission from both the instructor and the departmental representative.",
+          "course_list": [
+            "PHY 3*",
+            "PHY 4*",
+            "PHY 5*",
+            "AST *",
+            "CHM *",
+            "QCB *",
+            "COS *",
+            "GEO *",
+            "MAT *",
+            "MSE *"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior independent work:  Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, which will take place early in the semester, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.\nDuring the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review, or a research proposal.  The second junior paper is due in early May.",
+      "description": "Independent Work",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. During the fall of the junior year each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding the senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical, or library study that will be written and presented as a senior thesis.",
+      "max_counted": null,
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
