@@ -77,7 +77,7 @@
           "name": "Real Analysis",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "one course in real analysis (e.g. 320 or 325 or 425 or 385)",
+          "explanation": "One course in real analysis (e.g. 320 or 325 or 425 or 385)",
           "course_list": [
             "MAT 320",
             "MAT 325",
@@ -89,7 +89,7 @@
           "name": "Complex Analysis",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "one course in complex analysis (e.g. 330 or 335)",
+          "explanation": "One course in complex analysis (e.g. 330 or 335)",
           "course_list": [
             "MAT 330",
             "MAT 335"
@@ -99,7 +99,7 @@
           "name": "Algebra",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "one course in algebra (e.g. 340 or 345)",
+          "explanation": "One course in algebra (e.g. 340 or 345)",
           "course_list": [
             "MAT 340",
             "MAT 345"
@@ -109,7 +109,7 @@
           "name": "Geometry or Topology",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "one course in geometry or topology (e.g. 350 or 355 or 365 or 560) Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+          "explanation": "One course in geometry or topology (e.g. 350 or 355 or 365 or 560) Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
           "course_list": [
             "MAT 350",
             "MAT 355",
@@ -124,7 +124,7 @@
           "name": "Elective",
           "max_counted": 1,
           "min_needed": 4,
-          "explanation": "students must complete an additional four courses at the 300 level or higher, up to three of which may be cognate courses outside the mathematics department, with permission from the junior or senior advisers or departmental representative.",
+          "explanation": "Students must complete an additional four courses at the 300 level or higher, up to three of which may be cognate courses outside the mathematics department, with permission from the junior or senior advisers or departmental representative.",
           "course_list": [
             "MAT 3*",
             "MAT 4*",
