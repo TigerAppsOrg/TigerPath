@@ -506,7 +506,7 @@
       "name":"Junior Seminar",
       "max_counted":1,
       "min_needed":1,
-      "explanation":"Junior Year. In the fall term of the junior year students are required to enroll in HIS 400 Junior Seminars.",
+      "explanation":"<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior Year. In the fall term of the junior year students are required to enroll in HIS 400 Junior Seminars.",
       "completed_by_semester":6,
       "course_list":[
         "HIS 400"
@@ -515,7 +515,7 @@
     {
       "name":"Senior Thesis",
       "min_needed":0,
-      "explanation":"Senior Year. The independent work consists of writing a thesis on an approved subject of the student's choice. The thesis usually relies on research in original source materials, but it may also involve reinterpretation of familiar materials.",
+      "explanation":"<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Year. The independent work consists of writing a thesis on an approved subject of the student's choice. The thesis usually relies on research in original source materials, but it may also involve reinterpretation of familiar materials.",
       "completed_by_semester":8
     }
   ]
