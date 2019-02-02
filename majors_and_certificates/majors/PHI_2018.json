@@ -1,0 +1,158 @@
+{
+  "type": "Major",
+  "name": "Philosophy",
+  "code": "PHI",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-philosophy#",
+    "https://philosophy.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Gideon Rosen",
+      "email": "grosen@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "John P. Burgess",
+      "email": "jburgess@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": 3,
+      "explanation": "Distribution Requirement. Six of the eight courses must be so distributed that there are two in each of three of the four areas into which philosophy courses are divided; there is no such restriction on the remaining two of the eight. The four distribution areas are as follows:",
+      "req_list": [
+        {
+          "name": "Metaphysics",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "",
+          "course_list": [
+            "PHI 203",
+            "PHI 218",
+            "PHI 237",
+            "PHI 311",
+            "PHI 313",
+            "PHI 315",
+            "PHI 317",
+            "PHI 318",
+            "PHI 337",
+            "PHI 338"
+          ]
+        },
+        {
+          "name": "Ethics and Philosophy of Value",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "",
+          "course_list": [
+            "PHI 202",
+            "PHI 306",
+            "PHI 307",
+            "PHI 309",
+            "PHI 319",
+            "PHI 320",
+            "PHI 325",
+            "PHI 326",
+            "PHI 335",
+            "PHI 360",
+            "PHI 380",
+            "PHI 384",
+            "PHI 385",
+            "PHI 390",
+            "PHI 391",
+            "PHI 419"
+          ]
+        },
+        {
+          "name": "Logic and Philosophy of Science",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "",
+          "course_list": [
+            "PHI 201",
+            "PHI 204",
+            "PHI 312",
+            "PHI 314",
+            "PHI 321",
+            "PHI 322",
+            "PHI 323",
+            "PHI 327",
+            "PHI 340",
+            "PHI 490"
+          ]
+        },
+        {
+          "name": "History of Philosophy",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "",
+          "course_list": [
+            "PHI 200",
+            "PHI 205",
+            "PHI 300",
+            "PHI 301",
+            "PHI 302",
+            "PHI 303",
+            "PHI 304",
+            "PHI 306",
+            "PHI 332",
+            "PHI 333",
+            "PHI 335",
+            "PHI 338"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Interdisciplinary Options",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "",
+      "req_list": [
+        {
+          "name": "Political Philosophy",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Political Philosophy. Senior concentrators doing their theses in political philosophy have the option of substituting for the usual distribution requirement (two courses in each of three areas plus two unrestricted courses) the following: two courses from among those listed under the Department of Politics as courses in political theory; two philosophy courses in the ethics and philosophy of value area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
+          "no_req": true
+        },
+        {
+          "name": "Philosophy of Science",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Philosophy of Science. Senior concentrators doing their theses in philosophy of science have the option of substituting for the usual distribution requirements (two courses in each of three areas plus two unrestricted courses) the following: two upper-division (300 level or higher) courses in one relevant science (such as mathematics, computer science, physics, biology, psychology, economics); two philosophy courses in the logic and philosophy of science area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
+          "no_req": true
+        },
+        {
+          "name": "Philosophy and Linguistics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Philosophy and Linguistics. Philosophy concentrators participating in the certificate program in linguistics may follow the philosophy of science option just described, taking linguistics as their science. All courses listed under the Program in Linguistics as core, other, or related courses may be considered courses in the science of linguistics for this purpose.",
+          "no_req": true
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior Year. During fall semester of the junior year, independent work normally involves participation in a seminar of up to five students under the supervision of an instructor from the faculty of the department. The seminar provides a transition from course work to fully independent work. A junior seminar meets weekly for an hour or biweekly for two hours to discuss readings selected by the instructor, and each student writes a final paper, normally of at least 5,000 words, on a topic in the area defined by those readings, usually chosen by the student from a list provided by the instructor. (The student's grade for fall semester independent work will be based mainly on this paper, but it is usually based partly on shorter papers and/or oral presentations in the seminar earlier in the term.) During spring semester of the junior year, independent work consists of writing a junior paper -- an essay on a philosophical topic, normally of at least 5,000 words--under the supervision of an individual faculty adviser (different from the student's fall seminar instructor).",
+      "description": "Independent Work",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Year. Senior year independent work consists of the following: writing the senior thesis, an essay or group of related essays on a topic or group of related topics in philosophy, normally of at least 10,000 words (and normally of at most 15,000 words); and preparation for the departmental examination (see below). The thesis is read, the examination is conducted, and both are graded by a committee of two members of the faculty, one primarily for advising the thesis, the other for coordinating the examination. A short thesis proposal is due just before fall recess and an interim thesis draft, normally of at least 5,000 words (not necessarily in final form), is due just after winter recess.",
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
