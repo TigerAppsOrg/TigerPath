@@ -1,0 +1,279 @@
+{
+  "type": "Major",
+  "name": "Molecular Biology",
+  "code": "MOL",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-molecular-biology",
+    "https://molbio.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Bonnie L. Bassler",
+      "email": "bbassler@princeton.edu"
+    },
+    {
+      "type": "Director",
+      "name": "Elizabeth R. Gavis",
+      "email": "gavis@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": 3,
+      "explanation": "To enter the Department of Molecular Biology, students must have completed MOL 214 with a grade of C or better. CHM 201/207 and 202, or one unit of chemistry AP credit and CHM 202 or 215, or two units of chemistry AP credit, are also required to enter the department. An alternate path into the department is through the integrated science curriculum",
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 3,
+          "min_needed": null,
+          "explanation": "Regular track",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CHM 201 or 207",
+              "course_list": [
+                "CHM 201",
+                "CHM 207"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "CHM 202 or 215",
+              "course_list": [
+                "CHM 202",
+                "CHM 215"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "MOL 214",
+              "course_list": [
+                "MOL 214"
+              ]
+            }
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 3,
+          "min_needed": null,
+          "explanation": "ISC track",
+          "course_list": [
+            "ISC 231",
+            "ISC 232",
+            "ISC 233",
+            "ISC 234"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "General Requirements",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "req_list": [
+        {
+          "name": "Organic Chemistry",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "CHM 301 and 302/304, or CHM 337. Courses taken at other institutions can be used toward fulfillment of the chemistry requirements with prior approval from the Department of Chemistry. The organic chemistry requirement must be completed before the beginning of the junior year.",
+          "completed_by_semester": 4,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "",
+              "completed_by_semester": 4,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": "",
+                  "completed_by_semester": 4,
+                  "course_list": [
+                    "CHM 301"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "completed_by_semester": 4,
+                  "course_list": [
+                    "CHM 302",
+                    "CHM 304"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "completed_by_semester": 4,
+              "course_list": [
+                "CHM 337"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Quantitative",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Students satisfy the quantitative requirement by taking one course in statistics (SML 201, NEU 314, or ORF 245) and one course in either computer science (COS 126 or above) or math (MAT 103, 104, 175, 192, or any 200-level MAT course). SML 201 and COS 126 are the recommended choices for most students. AP credit cannot be used toward the fulfillment of the quantitative requirement. Courses taken at other institutions can be substituted for the second required course (but not for the statistics course), if approved by the corresponding department.",
+          "req_list": [
+            {
+              "name": "Statistics",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "SML 201",
+                "NEU 314",
+                "ORF 245"
+              ]
+            },
+            {
+              "name": "Computer Science",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "COS 126",
+                "COS 2*",
+                "COS 3*",
+                "COS 4*",
+                "COS 5*"
+              ]
+            },
+            {
+              "name": "Math",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "MAT 103",
+                "MAT 104",
+                "MAT 175",
+                "MAT 192",
+                "MAT 2*"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Physics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "",
+              "course_list": [
+                "PHY 101",
+                "PHY 102"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "",
+              "course_list": [
+                "PHY 103",
+                "PHY 104"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "",
+              "course_list": [
+                "PHY 108"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "",
+              "double_counting_allowed": true,
+              "course_list": [
+                "ISC 231",
+                "ISC 232",
+                "ISC 233",
+                "ISC 234"
+              ]
+            }
+          ]
+        }
+      ],
+      "explanation": ""
+    },
+    {
+      "name": "Departmental Core Courses",
+      "max_counted": 4,
+      "min_needed": "ALL",
+      "explanation": "The following core courses are required: MOL 342, MOL 345, MOL 348, and MOL 350. Except under very special circumstances, these courses must be taken before senior year. All four departmental core courses count toward the eight required departmentals. No substitutions are allowed except in the case of study abroad which, if it entails intensive research and with advanced permission, can substitute for MOL 350. Note that MOL 345 may be taken concurrently with CHM 302/304.",
+      "completed_by_semester": 6,
+      "course_list": [
+        "MOL 342",
+        "MOL 345",
+        "MOL 348",
+        "MOL 350"
+      ]
+    },
+    {
+      "name": "Other Departmentals",
+      "max_counted": 1,
+      "min_needed": 8,
+      "explanation": "All students must take a total of at least eight departmentals. In addition to the four departmental core courses, students must take at least one 300, 400, or 500-level course with MOL as the primary listing. The remaining three departmentals can be chosen from among all 300-or-higher-level MOL, MOL-crosslisted, or other approved courses (see list on department website). Note that CHM 301, CHM 302/304, and CHM 337 qualify as departmentals. Only courses taken at Princeton count as departmentals; there are no exceptions to this rule.",
+      "double_counting_allowed": true,
+      "course_list": [
+        "CHM 301",
+        "CHM 302",
+        "CHM 304",
+        "CHM 337",
+        "MOL 3*",
+        "MOL 4*",
+        "MOL 5*"
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the fall semester of the junior year students participate in tutorials in which they read papers from the original literature and prepare two short papers on assigned topics. In the spring semester, students carry out independent work with a faculty adviser with whom they will eventually do their senior thesis research, culminating in a paper in the form of a grant proposal.",
+      "description": "Independent Work",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nDuring the senior year each student, with the guidance of a faculty adviser, undertakes a major research effort. This research project can be a laboratory or non-laboratory-based study that will be written and presented as a senior thesis.",
+      "max_counted": null,
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
