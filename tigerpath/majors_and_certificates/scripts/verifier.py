@@ -120,7 +120,7 @@ def check_requirements(req_file, courses):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    with open(req_file, 'r') as f:
+    with open(req_file, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
     courses = _init_courses(courses, req)
     req = _init_req(req)
@@ -173,7 +173,7 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    with open(req_filepath, 'r') as f:
+    with open(req_filepath, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
     subreq = _get_req_by_path(req, path)
     if not subreq:
@@ -614,7 +614,7 @@ def _get_collapsed_course_and_dist_req_sets(req):
     return (total_course_set, total_dist_req_set)
 
 def main():
-    with open ("verifier_tests/1.test", "r") as f:
+    with open ("verifier_tests/1.test", "r", encoding="utf8") as f:
         major_name = f.readline()[:-1]
         year = int(f.readline())
         courses = yaml.safe_load(f)

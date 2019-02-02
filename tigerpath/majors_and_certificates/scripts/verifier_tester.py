@@ -23,7 +23,7 @@ def main():
         if filename.endswith(".test"): 
             print("Testing: " + filename)
             file_path = os.path.join(TESTS_LOCATION, filename)
-            with open (file_path, "r") as f:
+            with open (file_path, "r", encoding="utf8") as f:
                 req_name = f.readline()[:-1]
                 year = int(f.readline())
                 courses = yaml.safe_load(f)
@@ -32,13 +32,13 @@ def main():
             else: # checking major
                 major_filename = req_name + "_" + str(year)  + ".json"
                 major_filepath = os.path.join(DIR_PATH, verifier.MAJORS_LOCATION, major_filename)
-                with open(major_filepath, 'r') as f:
+                with open(major_filepath, 'r', encoding="utf8") as f:
                     requirements = yaml.safe_load(f)
-                with open(SCHEMA_LOCATION, 'r') as s:
+                with open(SCHEMA_LOCATION, 'r', encoding="utf8") as s:
                     schema = yaml.safe_load(s)
                 jsonschema.validate(requirements,schema)
                 satisfied, courses, req_tree = verifier.check_major(req_name, courses, year)
-            with open (file_path+".out", "w") as f:
+            with open (file_path+".out", "w", encoding="utf8") as f:
                 f.write(_json_format(courses))
                 f.write("\n")
                 f.write(_json_format(req_tree))
