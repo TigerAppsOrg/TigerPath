@@ -1,0 +1,153 @@
+{
+  "type": "Major",
+  "name": "Mathematics",
+  "code": "MAT",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-mathematics-0#",
+    "https://www.math.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "David Gabai",
+      "email": "gabai@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Jennifer M. Johnson",
+      "email": "jmjohnso@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "Generally, either 215-217 or 216-218 or 203-204-215 are strongly recommended for admission to the department. Prospective mathematics majors should consult the department early and plan a program that includes as much of the 215-217 or 216-218 sequence as possible. Most majors begin taking courses at the 300-level by the second semester of the sophomore year, in preparation for their junior independent work.",
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAT 215"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAT 217"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 2,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAT 216",
+            "MAT 218"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "MAT 203",
+            "MAT 204"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Students must complete four core requirements. It is recommended that students complete some of these core requirements by the end of the sophomore year. Completing these core courses early gives more options for junior and senior independent work. Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+      "req_list": [
+        {
+          "name": "Real Analysis",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "one course in real analysis (e.g. 320 or 325 or 425 or 385)",
+          "course_list": [
+            "MAT 320",
+            "MAT 325",
+            "MAT 425",
+            "MAT 385"
+          ]
+        },
+        {
+          "name": "Complex Analysis",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "one course in complex analysis (e.g. 330 or 335)",
+          "course_list": [
+            "MAT 330",
+            "MAT 335"
+          ]
+        },
+        {
+          "name": "Algebra",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "one course in algebra (e.g. 340 or 345)",
+          "course_list": [
+            "MAT 340",
+            "MAT 345"
+          ]
+        },
+        {
+          "name": "Geometry or Topology",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "one course in geometry or topology (e.g. 350 or 355 or 365 or 560) Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+          "course_list": [
+            "MAT 350",
+            "MAT 355",
+            "MAT 365",
+            "MAT 560",
+            "MAT 375",
+            "MAT 377",
+            "MAT 378"
+          ]
+        },
+        {
+          "name": "Elective",
+          "max_counted": 1,
+          "min_needed": 4,
+          "explanation": "students must complete an additional four courses at the 300 level or higher, up to three of which may be cognate courses outside the mathematics department, with permission from the junior or senior advisers or departmental representative.",
+          "course_list": [
+            "MAT 3*",
+            "MAT 4*",
+            "MAT 5*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAll departmental students engage in independent work, supervised by a member of the department chosen in consultation with a departmental adviser. The independent work of the junior year generally consists of participating actively in a junior seminar in both the fall and the spring semesters. Alternatively, a student may opt to replace one junior seminar with supervised reading in a special subject and then writing a paper based on that reading. The independent work in the senior year centers on writing a senior thesis. A substantial percentage of our majors work with faculty in other departments on their senior project.",
+      "description": "Independent Work",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\n",
+      "max_counted": null,
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
