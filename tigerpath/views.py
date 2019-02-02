@@ -20,13 +20,13 @@ def login(request):
     if request.user.is_authenticated:
         return redirect('index')
     else:
-        return django_cas_ng.views.login(request)
+        return django_cas_ng.views.LoginView.as_view()(request)
 
 # cas auth logout
 def logout(request):
     success_msg = 'You have been successfully logged out.'
     messages.success(request, success_msg)
-    return django_cas_ng.views.logout(request)
+    return django_cas_ng.views.LogoutView.as_view()(request)
 
 # index page
 def index(request):
@@ -78,25 +78,6 @@ def save_onboarding(request):
 @login_required
 def save_user_settings(request):
     update_profile(request, forms.SettingsForm)
-    return redirect('index')
-
-def save_transcript_courses(request):
-    ticket = request.GET.get('ticket', None)
-    if ticket:
-        courses = utils.get_transcript_courses(ticket)
-        if courses:
-            # save courses into schedule
-            current_user = models.UserProfile.objects.get(user=request.user)
-            current_user.user_schedule, courses_not_imported = utils.convert_transcript_courses_to_schedule(courses)
-            current_user.save()
-            success_msg = 'The courses from your transcript were successfully added to the schedule.'
-            if courses_not_imported:
-                success_msg += '<br>However, we were not able to add the following courses: ' + ', '.join(courses_not_imported)
-            messages.success(request, success_msg, extra_tags='safe')
-        else:
-            messages.error(request, 'Unfortunately, we weren\'t able to add the courses from your transcript to the schedule. Please add them manually.')
-    else:
-        raise Http404
     return redirect('index')
 
 # checks whether the form data is valid and returns the updated user profile

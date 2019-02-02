@@ -70,10 +70,10 @@ export default class CourseCard extends Component {
         <i className="fas fa-times-circle delete-course" onClick={this.removeCourse}></i>
         {showSearchInfo &&
           <React.Fragment>
-            <a href={`${BASE_COURSE_OFFERINGS_URL}?courseid=${course["id"]}&term=${termCode}`} target="_blank">
+            <a href={`${BASE_COURSE_OFFERINGS_URL}?courseid=${course["id"]}&term=${termCode}`} target="_blank" rel="noopener noreferrer">
               <i className="fas fa-info-circle fa-lg fa-fw course-info" />
             </a>
-            <a href={`${BASE_COURSE_EVAL_URL}?terminfo=${termCode}&courseinfo=${course["id"]}`} target="_blank">
+            <a href={`${BASE_COURSE_EVAL_URL}?terminfo=${termCode}&courseinfo=${course["id"]}`} target="_blank" rel="noopener noreferrer">
               <i className="fas fa-chart-bar fa-lg fa-fw course-eval" />
             </a>
             <p className="course-title">{course["title"]}</p>

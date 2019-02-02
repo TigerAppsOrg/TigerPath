@@ -14,7 +14,7 @@ function hidePage(id) {
 // wait for DOM to load first
 $(function() {
   let pageId = 1;
-  let numOfPages = 3
+  let numOfPages = 2;
 
   // show onboarding modal
   $('#onboarding-modal').modal('show');
@@ -28,13 +28,7 @@ $(function() {
     if (pageId === numOfPages) {
       $('#next-btn').toggle();
       $('#finish-btn').toggle();
-      $('#transcript-btn').toggle();
     }
-  });
-
-  // send ajax request to set user metadata when transcript button is pressed
-  $('#transcript-btn').click(function() {
-    $("#onboarding-form").ajaxSubmit();
   });
 
   // when the finish button is clicked, hide the onboarding modal
@@ -45,7 +39,7 @@ $(function() {
   // override enter to submit for the onboarding form
   $('#onboarding-form').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) { 
+    if (keyCode === 13) {
       e.preventDefault();
       // click different buttons depending on the page
       if (pageId === numOfPages) {

@@ -132,15 +132,15 @@ export default class Requirements extends Component {
 
         let reqLabel = (
           <div className='reqLabel'
-              reqpath={requirement['path_to']} 
-              title={'<span>' + requirement['name'] + '</span>'} 
+              reqpath={requirement['path_to']}
+              title={'<span>' + requirement['name'] + '</span>'}
               data-content={popoverContent}>
             <div className='my-arrow'></div>
             <span className='reqName'>{requirement['name']}</span>
             <span className='reqCount'>{tag}</span>
           </div>
         );
-        
+
         if ('req_list' in requirement) {
           return (
             <TreeView key={index} nodeLabel={reqLabel} itemClassName={finished}>

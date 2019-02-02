@@ -24,4 +24,4 @@ urlpatterns = [
 
 if settings.ADMIN_ENABLED:
     urlpatterns.append(path('admin/', admin.site.urls))
-    urlpatterns.append(path('login/admin', auth_views.login, {'template_name': 'admin/login.html'}))
+    urlpatterns.append(path('login/admin', auth_views.LoginView.as_view(template_name='admin/login.html')))

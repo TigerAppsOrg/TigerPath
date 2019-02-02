@@ -216,7 +216,7 @@
       "name": "Neuroscience",
       "code": "NEU",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {

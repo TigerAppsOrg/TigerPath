@@ -9,7 +9,6 @@ urlpatterns = [
     path('privacy', views.privacy_policy, name='privacy_policy'),
     path('onboarding/save', views.save_onboarding, name='save_onboarding'),
     path('settings/save', views.save_user_settings, name='save_settings'),
-    path('transcript/save', views.save_transcript_courses, name='save_transcript'),
     # cas auth
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
