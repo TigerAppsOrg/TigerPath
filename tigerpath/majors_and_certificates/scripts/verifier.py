@@ -287,6 +287,8 @@ def _init_courses(courses, req):
             course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
             course["semester_number"] = sem_num
             course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
+            if "external" not in course:
+                course["external"] = False
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
             elif req["type"] in ["Major", "Degree"]: # filter out irrelevant requirements from list
@@ -488,7 +490,7 @@ def _mark_settled(req, courses):
                 continue
             if len(c["settled"])>0:
                 for p in c["settled"]: # go through the settled paths
-                    if p in req["path_to"] and req["path_to"] in c["possible_reqs"]: # c was settled into this requirement
+                    if p in req["path_to"] and (c["external"] or req["path_to"] in c["possible_reqs"]): # c was settled into this requirement
                         num_marked += 1
                         c["reqs_satisfied"].append(req["path_to"])
                         break
@@ -509,6 +511,11 @@ def _mark_all(req, courses):
             if req["path_to"] in c["possible_reqs"]:
                 num_marked += 1
                 c["reqs_double_counted"].append(req["path_to"])
+            elif c["external"]:
+                for p in c["settled"]:
+                    if p in req["path_to"]:
+                        num_marked += 1
+                        c["reqs_satisfied"].append(req["path_to"])
     return num_marked
 
 def _check_degree_progress(req, courses):
