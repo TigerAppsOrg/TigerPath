@@ -1,0 +1,167 @@
+{
+  "type": "Major",
+  "name": "English",
+  "code": "ENG",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-english",
+    "https://english.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Simon Gikandi",
+      "email": "sgikandi@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Tamsen O. Wolff",
+      "email": "twolff@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "English department prerequisites provide a background in literary history and familiarity with one of the major genres. Concentrators take both ENG 200 (British Literature from the 14th to the 18th Centuries) and one of the 200-level Reading Literature courses: ENG 205 (Poetry), ENG 206 (Fiction), ENG 207 (Drama), or ENG 208 (The Essay) or ENG 209 (Theory).",
+      "req_list": [
+        {
+          "name": "British Literature 14th to 18th Centuries",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "",
+          "course_list": [
+            "ENG 200"
+          ]
+        },
+        {
+          "name": "Reading Literature",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "course_list": [
+            "ENG 205",
+            "ENG 206",
+            "ENG 207",
+            "ENG 208",
+            "ENG 209"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": 8,
+      "explanation": "English concentrators must take a total of 11 courses: two 200-level prerequisites, the Junior Seminar, and eight departmental courses, seven of which must be at the 300 level or above. With the permission of the departmental representative, concentrators may count one cognate course from another department, where that course adds depth or perspective to their studies in English. (Some optional tracks may permit more cognates or specify their nature: see below.)",
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "1 can be any level",
+          "course_list": [
+            "ENG 2*"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 8,
+          "min_needed": null,
+          "explanation": "7 have to be 300 or higher",
+          "course_list": [
+            "ENG 3*",
+            "ENG 4*",
+            "ENG 5*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tracks (Optional)",
+      "max_counted": 1,
+      "min_needed": null,
+      "explanation": "Students must complete four core requirements. It is recommended that students complete some of these core requirements by the end of the sophomore year. Completing these core courses early gives more options for junior and senior independent work. Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+      "req_list": [
+        {
+          "name": "British",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "four courses in British literature; one junior paper and the senior thesis on a British topic. One cognate course in another department (history, art and archaeology, etc.) on a British topic may be counted.",
+          "no_req": null
+        },
+        {
+          "name": "American",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "Literature and culture of the territories that became the United States, from native peoples and the first European settlers to the present day. Requirements: four courses in American literature (including at least one of ENG 201, ENG 353, or ENG 366); one junior paper and the senior thesis on an American topic. One cognate course in another department (history, art and archaeology, etc.) on an American topic may be counted. This track is often combined with a certificate in American studies or African American studies.",
+          "no_req": null
+        },
+        {
+          "name": "Anglophone",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "Literature and culture of English as a global language. Requirements: four courses in Anglophone literature; one junior paper and the senior thesis on an Anglophone topic. Up to two cognate courses in another department (history, art and archaeology, etc.) on an Anglophone topic may be counted.",
+          "no_req": null
+        },
+        {
+          "name": "Arts and Media",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "Literature in relation to other arts, including architecture, visual art, film, photography, music (classical, popular, or other); and/or in relation to its circumstances of production and transmission, from manuscript to print to radio, television, and the Internet. Requirements: three courses in topics related to the arts and media, including up to two cognates from other departments; one junior paper and the senior thesis on a related topic.",
+          "no_req": null
+        },
+        {
+          "name": "Comparative Literatures",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "English in relation to the literature of another language. Requirements: at least three and no more than four 300-level courses in a single foreign language (with no other cognates permitted); one junior paper and the senior thesis on a comparative topic (including translation). With permission of the departmental representative, some foreign language classes may be used to satisfy the departmental distribution requirements.",
+          "no_req": null
+        },
+        {
+          "name": "Theory and Criticism",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "For students interested in thinking about the underlying principles by which we understand literature. Considers the history and theory of literary interpretation from Plato to the present, including such methods and movements as linguistics, structuralism, feminism, psychoanalysis, Marxism, cultural studies, gender and sexuality studies, race studies, postcolonial studies, and deconstruction. Requirements: three courses in literary or cultural theory and literary criticism, including either ENG 305 or ENG 306; one junior paper and the senior thesis on a topic in theory and criticism, or making imaginative use of critical methodologies.",
+          "no_req": null
+        },
+        {
+          "name": "Theater and Performance Studies",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "A home for the study of dramatic literature, performance culture, and/or performance studies. Includes traditional theater, live and recorded music, popular culture performances, avant-garde arts, stand-up comedy, street theater, contemporary dance, and slam poetry. Requirements: one introductory class in theater by the end of sophomore year; at least two and not more than three 300- or 400-level courses in theater, counted as departmental courses (no other cognates are allowed); departmental courses must also include one upper-level Shakespeare course, one course in drama and/or performance before 1700, and one course in drama and/or performance after 1700; one junior paper and the senior thesis on a related topic.",
+          "no_req": null
+        },
+        {
+          "name": "Creative Writing",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "Students elect the creative writing track provisionally; final admission depends on the permission of the Program in Creative Writing to write a creative thesis. The Department of English recommends that students take at least one 200-level creative writing course by the end of sophomore year. Requirements: a minimum of two and a maximum of three courses at the 300 level or above in creative writing counted as departmental courses (no other cognates are allowed); creative thesis. Students not approved to write a creative thesis revert to one of the other tracks. One 300-level creative writing class may be used as a cognate.",
+          "double_counting_allowed": true,
+          "completed_by_semester": 4,
+          "course_list": [
+            "CWR 3*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators write one junior paper, which is begun in conjunction with the fall junior seminar but completed in the spring semester of the junior year. The senior thesis is written with an adviser chosen in the spring of junior year.",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nFor English concentrators, senior theses are 60-75 pages in length, on a topic chosen in collaboration with the thesis adviser and approved by the committee of departmental studies. One chapter or 20 pages of the thesis is due in December.",
+      "no_req": null
+    }
+  ]
+}
