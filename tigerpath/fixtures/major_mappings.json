@@ -226,7 +226,7 @@
       "name": "Philosophy",
       "code": "PHI",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
