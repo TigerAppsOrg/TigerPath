@@ -1,0 +1,141 @@
+{
+  "type": "Major",
+  "name": "Psychology",
+  "code": "PSY",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-psychology",
+    "https://psych.princeton.edu/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Kenneth A. Norman",
+      "email": "knorman@princeton.edu"
+    },
+    {
+      "type": "Departmental Representative",
+      "name": "Michael S. Graziano",
+      "email": "graziano@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "The prerequisites for entering the Department of Psychology are successful graded completion of PSY 251 (Quantitative Methods) or a pre-approved statistics course in another department (for example, ORF 245 or ECO 202), along with two other courses from the following list: PSY 101 (Introduction to Psychology), PSY 252 (Social Psychology), PSY 254 (Developmental Psychology), PSY 255 (Cognitive Psychology), or either PSY 258 (Fundamentals of Neuroscience) or NEU 200 (Functional Neuroanatomy). All requests for an alternative set of prerequisites must be approved by the Departmental Representative.",
+      "req_list": [
+        {
+          "name": "Quantitative Methods",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "",
+          "course_list": [
+            "PSY 251",
+            "ORF 245",
+            "ECO 202"
+          ]
+        },
+        {
+          "name": "Introductory Courses",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 2,
+              "min_needed": 0,
+              "explanation": "",
+              "course_list": [
+                "PSY 101",
+                "PSY 252",
+                "PSY 254",
+                "PSY 255"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 0,
+              "explanation": "",
+              "course_list": [
+                "PSY 258",
+                "NEU 200"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Departmental Courses",
+      "max_counted": 1,
+      "min_needed": 8,
+      "explanation": "Psychology concentrators must successfully pass at least eight courses within the department in addition to the three prerequisite courses. If they were not already taken as prerequisites, PSY 252, PSY 255, and either PSY 258 or NEU 200 must be included in the eight courses. It is recommended that students finish these three courses by the end of junior year. One of the eight departmental courses must be PSY 300 (Research Methods in Psychology), which must be completed by the end of junior year. Of the remaining departmental courses, all must be 200-level or higher and at least four must be at the 300- or 400-level. Students can take up to two, pre-approved cognate courses from other departments, which count as 300-level-and-above departmental courses.",
+      "req_list": [
+        {
+          "name": "Required Departmentals",
+          "max_counted": 4,
+          "min_needed": "ALL",
+          "explanation": "",
+          "completed_by_semester": 6,
+          "double_counting_allowed": true,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": "",
+              "course_list": [
+                "PSY 252",
+                "PSY 255",
+                "PSY 300"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "",
+              "course_list": [
+                "PSY 258",
+                "NEU 200"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Other Departmentals",
+          "max_counted": 4,
+          "min_needed": 4,
+          "explanation": "",
+          "course_list": [
+            "PSY 2*",
+            "PSY 3*",
+            "PSY 4*",
+            "PSY 5*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nTo satisfy the junior independent work requirement, each student, in consultation with a faculty adviser, must write a fall semester report and a spring semester report.\n1.  Fall Semester Paper: Each student is assigned to work with one faculty member from the Department of Psychology for the entire fall semester.  The format of the fall report is flexible and depends on discussion between student and advisor. In one common format, the student finds a topic of personal interest that overlaps the advisor’s expertise. The student then researches the topic, finds relevant scientific papers, and writes a review of those papers, including the student’s own critical analysis and interpretation. In another common format, the student joins a research group, working with the advisor and graduate students on experiments. In this case, the fall paper contains an introduction that reviews the literature, a methods section describing the experimental procedures, a results section describing any results obtained by the end of the semester, and a discussion describing possible outcomes and interpretations. The fall paper is typically 15 to 20 pages.\n2.  Spring Semester Paper: With help from the department, and by talking to faculty and researching faculty web pages, students find a faculty advisor whose interests overlap their own. Students are then required to write a 20-30 page paper. The format is flexible and depends on discussions between student and advisor. In one common format, students write a research proposal. The proposal can in some cases lay the groundwork for the senior thesis, but this is not required. The paper typically includes a comprehensive review of the relevant literature, a statement of a specific scientific question, a description of the proposed methods, and a discussion of the possible outcomes and interpretations. In another common format, students perform the proposed experiments and include data in the spring paper. A second adviser, serving as a reader, will be assigned for the spring semester. Second advisers are usually from the Department of Psychology. Advisers from other departments will be considered only after the student has obtained permission from the primary adviser, the departmental representative in psychology, and the potential second adviser. Then the student must submit written notification to the Undergraduate Administrator indicating the name and department of the second adviser.",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nEach concentrator must prepare a senior thesis, based either on an experimental investigation conducted by the student in a laboratory or field setting or on a theoretical inquiry or computational modeling endeavor. In close consultation with a faculty adviser, each student develops, carries out, and writes up his or her own research project. The resulting thesis serves as the basis for the first part of the senior comprehensive exam (see below). Length varies depending on type of thesis (experimental write-ups are often shorter) but is typically between 40 and 80 pages. Students are required to select a primary adviser from within the Department of Psychology. They will not be assigned a faculty member. A second adviser, serving as a reader, will be assigned. Advisers from other departments will be considered only after the student has obtained permission from the primary adviser, the departmental representative in psychology, and the potential second adviser. Then the student must submit written notification to the Undergraduate Administrator indicating the name and department of the second adviser.",
+      "no_req": null
+    }
+  ]
+}
