@@ -116,7 +116,7 @@
       "name": "Economics",
       "code": "ECO",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
