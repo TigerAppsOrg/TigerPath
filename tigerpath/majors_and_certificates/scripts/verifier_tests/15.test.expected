@@ -77,13 +77,12 @@
     {
       "name": "MAE305 / CBE305 / EGR305 / MAT391",
       "possible_reqs": [
-        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Differential Equations",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Applications of Mathematics"
       ],
       "reqs_satisfied": [
-        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
-      ],
-      "settled": [
-        "Major//2018//MAE//Applications of Mathematics//Differential Equations"
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Differential Equations",
+        "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Applications of Mathematics"
       ]
     },
     {
@@ -167,13 +166,10 @@
     {
       "name": "COS 340",
       "possible_reqs": [
-        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Mathematics Elective"
       ],
       "reqs_satisfied": [
-        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
-      ],
-      "settled": [
-        "Major//2018//MAE//Applications of Mathematics//Mathematics Elective"
+        "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Mathematics Elective"
       ]
     }
   ],
@@ -181,13 +177,13 @@
     {
       "name": "MAE442",
       "possible_reqs": [
-        "Major//2018//MAE//Senior Independent work"
+        "Major//2018//MAE//Senior Independent Work"
       ],
       "reqs_satisfied": [
-        "Major//2018//MAE//Senior Independent work"
+        "Major//2018//MAE//Senior Independent Work"
       ],
       "settled": [
-        "Major//2018//MAE//Senior Independent work"
+        "Major//2018//MAE//Senior Independent Work"
       ]
     }
   ]
@@ -226,8 +222,8 @@
     }
   ],
   "satisfied": true,
-  "count": 4,
-  "min_needed": 4,
+  "count": 3,
+  "min_needed": 3,
   "max_counted": null,
   "req_list": [
     {
@@ -250,44 +246,6 @@
       "unsettled": []
     },
     {
-      "name": "Applications of Mathematics",
-      "path_to": "Major//2018//MAE//Applications of Mathematics",
-      "explanation": "Applications of Mathematics\n\nThe following course is required for both Mechanical and Aerospace Engineers. \nMAE 305 (MAT 301) Mathematics in Engineering I \n\nIn addition, all Mechanical Engineers must take a mathematics elective usually selected\nfrom the following list: \n\uf0b7 MAE 306 (MAT 392) Mathematics in Engineering II (strongly\nrecommended for those planning graduate work in engineering or applied\nscience) \n\uf0b7 ORF 245 Fundamentals of Engineering Statistics\n\uf0b7 ORF 307 Optimization \n\uf0b7 ORF 309 Probability and Stochastic Systems (MAT 380/ELE 380) \n\uf0b7 ORF 363 Computing and Optimization for the Physical and Social Sciences (COS\n323) \n\uf0b7 COS 340 Reasoning About Computation \n\uf0b7 MAT 330 Complex Analysis with Applications \n\uf0b7 MAT 393 Mathematical Programming \n\uf0b7 PHY 403 Mathematical Methods of Physics \n\n(Alternatives not on this list must be approved by the Departmental Representative in\nadvance).",
-      "pdfs_allowed": false,
-      "satisfied": true,
-      "count": 2,
-      "min_needed": 2,
-      "max_counted": 1,
-      "req_list": [
-        {
-          "name": "Differential Equations",
-          "path_to": "Major//2018//MAE//Applications of Mathematics//Differential Equations",
-          "explanation": "",
-          "satisfied": true,
-          "count": 1,
-          "min_needed": 1,
-          "max_counted": null,
-          "settled": [
-            "MAE305 / CBE305 / EGR305 / MAT391"
-          ],
-          "unsettled": []
-        },
-        {
-          "name": "Mathematics Elective",
-          "path_to": "Major//2018//MAE//Applications of Mathematics//Mathematics Elective",
-          "explanation": "",
-          "satisfied": true,
-          "count": 1,
-          "min_needed": 1,
-          "max_counted": 1,
-          "settled": [
-            "COS 340"
-          ],
-          "unsettled": []
-        }
-      ]
-    },
-    {
       "name": "Departmental Concentration",
       "path_to": "Major//2018//MAE//Departmental Concentration",
       "explanation": "A minimum of eight upper level Departmental courses are required. This includes Senior Independent Work. \n\nNone of the Department requirements can be taken on a pass/fail or audit basis. All\nrequests for substitution, other than those listed under the Engineering Physics Program, must be approved by the Departmental Representative in advance. ",
@@ -302,7 +260,7 @@
           "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering",
           "explanation": "Mechanical Engineering. This program deals with the analysis and design of machines, their motion, power sources, and control. The curriculum is based on dynamics, thermodynamics, and the study of the structure and behavior of fluid and solid materials; it is accredited by the Engineering Accreditation Commission of ABET.",
           "satisfied": true,
-          "count": 7,
+          "count": 8,
           "min_needed": 7,
           "max_counted": 1,
           "req_list": [
@@ -462,6 +420,44 @@
                   "unsettled": []
                 }
               ]
+            },
+            {
+              "name": "Applications of Mathematics",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics",
+              "explanation": "Applications of Mathematics\n\nThe following course is required for both Mechanical and Aerospace Engineers. \nMAE 305 (MAT 301) Mathematics in Engineering I \n\nIn addition, all Mechanical Engineers must take a mathematics elective usually selected\nfrom the following list: \n\u2022 MAE 306 (MAT 392) Mathematics in Engineering II (strongly\nrecommended for those planning graduate work in engineering or applied\nscience) \n\u2022 ORF 245 Fundamentals of Engineering Statistics\n\u2022 ORF 307 Optimization \n\u2022 ORF 309 Probability and Stochastic Systems (MAT 380/ELE 380) \n\u2022 ORF 363 Computing and Optimization for the Physical and Social Sciences (COS\n323) \n\u2022 COS 340 Reasoning About Computation \n\u2022 MAT 330 Complex Analysis with Applications \n\u2022 MAT 393 Mathematical Programming \n\u2022 PHY 403 Mathematical Methods of Physics \n\n(Alternatives not on this list must be approved by the Departmental Representative in\nadvance).",
+              "pdfs_allowed": false,
+              "satisfied": true,
+              "count": 2,
+              "min_needed": 2,
+              "max_counted": 1,
+              "req_list": [
+                {
+                  "name": "Differential Equations",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Differential Equations",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 1,
+                  "max_counted": null,
+                  "settled": [
+                    "MAE305 / CBE305 / EGR305 / MAT391"
+                  ],
+                  "unsettled": []
+                },
+                {
+                  "name": "Mathematics Elective",
+                  "path_to": "Major//2018//MAE//Departmental Concentration//Mechanical Engineering//Applications of Mathematics//Mathematics Elective",
+                  "explanation": "",
+                  "satisfied": true,
+                  "count": 1,
+                  "min_needed": 1,
+                  "max_counted": 1,
+                  "settled": [
+                    "COS 340"
+                  ],
+                  "unsettled": []
+                }
+              ]
             }
           ]
         },
@@ -470,7 +466,7 @@
           "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering",
           "explanation": "Aerospace Engineering. This program deals with the analysis and design of aerospace vehicles. The curriculum is based on the applications of principles from dynamics, control, thermodynamics, fluid mechanics and solid mechanics; it is accredited by the Engineering Accreditation Commission of ABET.",
           "satisfied": false,
-          "count": 5,
+          "count": 6,
           "min_needed": 7,
           "max_counted": 1,
           "req_list": [
@@ -650,15 +646,29 @@
                   "unsettled": []
                 }
               ]
+            },
+            {
+              "name": "Applications of Mathematics",
+              "path_to": "Major//2018//MAE//Departmental Concentration//Aerospace Engineering//Applications of Mathematics",
+              "explanation": "Applications of Mathematics\n\nThe following course is required for both Mechanical and Aerospace Engineers. \nMAE 305 (MAT 301) Mathematics in Engineering I \n\nIn addition, all Mechanical Engineers must take a mathematics elective usually selected\nfrom the following list: \n\u2022 MAE 306 (MAT 392) Mathematics in Engineering II (strongly\nrecommended for those planning graduate work in engineering or applied\nscience) \n\u2022 ORF 245 Fundamentals of Engineering Statistics\n\u2022 ORF 307 Optimization \n\u2022 ORF 309 Probability and Stochastic Systems (MAT 380/ELE 380) \n\u2022 ORF 363 Computing and Optimization for the Physical and Social Sciences (COS 323) \n\u2022 COS 340 Reasoning About Computation \n\u2022 MAT 330 Complex Analysis with Applications \n\u2022 MAT 393 Mathematical Programming \n\u2022 PHY 403 Mathematical Methods of Physics \n\n(Alternatives not on this list must be approved by the Departmental Representative in\nadvance).",
+              "pdfs_allowed": false,
+              "satisfied": true,
+              "count": 1,
+              "min_needed": 1,
+              "max_counted": 1,
+              "settled": [
+                "MAE305 / CBE305 / EGR305 / MAT391"
+              ],
+              "unsettled": []
             }
           ]
         }
       ]
     },
     {
-      "name": "Senior Independent work",
-      "path_to": "Major//2018//MAE//Senior Independent work",
-      "explanation": "Senior Independent work is the culminating experience for the mechanical and aerospace\nengineering programs. All seniors are required to participate in a research or engineering\nproject. All projects must include elements of engineering design (engineering design is the\nprocess of devising a system, component, or process to meet desired needs). The following\ncourses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);\nMAE 440 Senior Independent Work (one semester, spring); MAE 442 Senior Thesis (yearlong);\nMAE 444 Senior Project (year-long). Students are strongly encouraged to select\nthe year-long project or thesis option. Senior projects are intended for teams or groups\nwhile senior thesis is intended for individuals. For senior project or thesis, work begins in\nthe fall but enrollment is only in spring term when a double grade is awarded. Please note:\nIf a student has selected to participate in a year-long project or thesis and is enrolled in only\nthree courses during the fall semester, it is required that they will enroll in Senior Project or\nThesis during the spring semester. For these students, it will NOT be possible to drop-down\nto a one-semester course of Independent Work without incurring a failure for Independent\nWork in the fall term. In Spring term you must enroll in three courses plus senior thesis or\nsenior project (senior thesis and senior project count as two courses). Therefore your senior\nyear course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.\nThere are NO exceptions to this rule even if your total number of courses will exceed 36.",
+      "name": "Senior Independent Work",
+      "path_to": "Major//2018//MAE//Senior Independent Work",
+      "explanation": "Senior Independent Work is the culminating experience for the mechanical and aerospace\nengineering programs. All seniors are required to participate in a research or engineering\nproject. All projects must include elements of engineering design (engineering design is the\nprocess of devising a system, component, or process to meet desired needs). The following\ncourses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);\nMAE 440 Senior Independent Work (one semester, spring); MAE 442 Senior Thesis (yearlong);\nMAE 444 Senior Project (year-long). Students are strongly encouraged to select\nthe year-long project or thesis option. Senior projects are intended for teams or groups\nwhile senior thesis is intended for individuals. For senior project or thesis, work begins in\nthe fall but enrollment is only in spring term when a double grade is awarded. Please note:\nIf a student has selected to participate in a year-long project or thesis and is enrolled in only\nthree courses during the fall semester, it is required that they will enroll in Senior Project or\nThesis during the spring semester. For these students, it will NOT be possible to drop-down\nto a one-semester course of Independent Work without incurring a failure for Independent\nWork in the fall term. In Spring term you must enroll in three courses plus senior thesis or\nsenior project (senior thesis and senior project count as two courses). Therefore your senior\nyear course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.\nThere are NO exceptions to this rule even if your total number of courses will exceed 36.",
       "satisfied": true,
       "count": 1,
       "min_needed": 1,

@@ -13,6 +13,16 @@
       ]
     },
     {
+      "name": "AP Calculus BC",
+      "possible_reqs": [],
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Prerequisites//Calculus"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Prerequisites//Calculus"
+      ]
+    },
+    {
       "name": "COS 226",
       "possible_reqs": [
         "Major//2018//COS-AB//Prerequisites//Computer Science Prerequisites"
@@ -44,7 +54,12 @@
         "Major//2018//COS-AB//Core Courses//Theory//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Theory//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Theory"
+      ]
     },
     {
       "name": "COS 333",
@@ -52,7 +67,12 @@
         "Major//2018//COS-AB//Core Courses//Systems//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Systems//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Systems"
+      ]
     }
   ],
   [
@@ -74,7 +94,12 @@
         "Major//2018//COS-AB//Core Courses//Systems//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Systems//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Systems"
+      ]
     },
     {
       "name": "MUS314/COS314",
@@ -82,7 +107,12 @@
         "Major//2018//COS-AB//Core Courses//Applications//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Applications//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Applications"
+      ]
     },
     {
       "name": "COS 423",
@@ -90,7 +120,12 @@
         "Major//2018//COS-AB//Core Courses//Theory//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Theory//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Theory"
+      ]
     },
     {
       "name": "COS 436",
@@ -98,7 +133,12 @@
         "Major//2018//COS-AB//Core Courses//Applications//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//Applications//000"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//Applications"
+      ]
     }
   ],
   [
@@ -125,7 +165,12 @@
         "Major//2018//COS-AB//Core Courses//Applications//000",
         "Major//2018//COS-AB//Core Courses//General"
       ],
-      "reqs_satisfied": []
+      "reqs_satisfied": [
+        "Major//2018//COS-AB//Core Courses//General"
+      ],
+      "settled": [
+        "Major//2018//COS-AB//Core Courses//General"
+      ]
     }
   ]
 ]
@@ -158,7 +203,7 @@
     }
   ],
   "satisfied": false,
-  "count": 0,
+  "count": 1,
   "min_needed": 2,
   "max_counted": null,
   "req_list": [
@@ -178,10 +223,12 @@
           "path_to": "Major//2018//COS-AB//Prerequisites//Calculus",
           "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204 or 217.",
           "satisfied": false,
-          "count": 0,
+          "count": 1,
           "min_needed": 2,
           "max_counted": 2,
-          "settled": [],
+          "settled": [
+            "AP Calculus BC"
+          ],
           "unsettled": []
         },
         {
@@ -217,8 +264,8 @@
       "path_to": "Major//2018//COS-AB//Core Courses",
       "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the three main areas.\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.  In addition, some graduate COS courses (500-level) count as undergraduate departmentals (COS 551, COS 534), depending on their content and structure. (Please ask if you need to use a graduate course as a departmental).  However, graduate courses rarely count as special \"tracked\" departmentals (see the list below for the few exceptions).\n\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 \u2013 Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.  Note that it is very, very, very rare for courses outside the computer science department that are not cross-listed with the computer science department to count as track-specific (ie: Theory/Systems/Applications) departmentals.  Hence, in general, you will not be able to count more than 2 courses outside of the computer science department as COS departmentals.\n\nSome regular courses are COS departmentals but do not count in any specific track, such as COS 351 \"Information technology and public policy\".  COS 495, Special Topics, is a departmental but may be associated with different tracks (or no track) depending on content.  Other one-time courses may also be departmentals and may count in one of the tracks depending on level and content.   Check with your advisor or the undergraduate coordinator for up-to-date information.",
       "pdfs_allowed": false,
-      "satisfied": false,
-      "count": 1,
+      "satisfied": true,
+      "count": 4,
       "min_needed": 4,
       "max_counted": 1,
       "req_list": [
@@ -226,66 +273,58 @@
           "name": "Theory",
           "path_to": "Major//2018//COS-AB//Core Courses//Theory",
           "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n\u2022 340 Reasoning about Computation\n\u2022 423 Theory of Algorithms\n\u2022 433**Cryptography\n\u2022 445 Networks, Economics and Computing\n\u2022 451 Computational Geometry\n\u2022 487 Theory of Computation\n\u2022 488 Introduction to Analytic Combinatorics\n\u2022 510* (441) Programming Languages\n\u2022 516* Reasoning About Software\n\u2022 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
-          "satisfied": false,
-          "count": 0,
+          "satisfied": true,
+          "count": 2,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [],
-          "unsettled": [
+          "settled": [
             "COS340",
             "COS 423"
-          ]
+          ],
+          "unsettled": []
         },
         {
           "name": "Systems",
           "path_to": "Major//2018//COS-AB//Core Courses//Systems",
           "explanation": "Courses in this track study the design and implementation of the foundational hardware and software that constitute a modern computing environment.\n\nSystems courses:\n\u2022 306 (ELE 206) Introduction to Logic Design\n\u2022 318 Operating Systems\n\u2022 320 Compiling Techniques\n\u2022 333 Advanced Programming Techniques\n\u2022 375 (ELE 375) Computer Architecture and Organization\n\u2022 418 Distributed Systems**\n\u2022 425 Database and Information Management Systems\n\u2022 461 Computer Networks*\n\u2022 463 Wireless Networks\n\u2022 475 (ELE 475) Computer Architecture\n\u2022 518 Advanced Computer Systems**\n\u2022 561 Advanced Computer Networks*\n\n*If you take COS 461 and  COS 561 only one will count as a systems requirement.\n**If you take COS 418 and  COS 518 only one will count as a systems requirement.",
-          "satisfied": false,
-          "count": 0,
+          "satisfied": true,
+          "count": 2,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [],
-          "unsettled": [
+          "settled": [
             "COS 333",
             "ELE 206/COS 306"
-          ]
+          ],
+          "unsettled": []
         },
         {
           "name": "Applications",
           "path_to": "Major//2018//COS-AB//Core Courses//Applications",
           "explanation": "Courses in this track treat a broad range of topics.\n\nApplications courses:\n\u2022 314 (MUS 314) Computer and Electronic Music through Programming, Performance, and Composition (with programming precept)\n\u2022 323 (ORF 363)  Computing and Optimization \n\u2022 324 Introduction to Machine Learning\n\u2022 326 Functional Programming\n\u2022 343 Algorithms for Computational Biology\n\u2022 401 (TRA 301) Introduction To Machine Translation\n\u2022 402 Machine Learning and Artificial Intelligence\n\u2022 424 Fundamentals of Machine Learning\n\u2022 426* Computer Graphics\n\u2022 429 Computer Vision\n\u2022 432 Information Security\n\u2022 435 Information Retrieval, Discovery and Delivery\n\u2022 436 Human-Computer Interface Technology\n\u2022 455 (MOL 455) Introduction to Genomics and Computational Molecular Biology\n\u2022 485 Neural Networks\n\u2022 526* Advanced Computer Graphics\n\n*If a student takes both COS 426 and 526, only one will count as an applications requirement.",
-          "satisfied": false,
-          "count": 0,
+          "satisfied": true,
+          "count": 2,
           "min_needed": 2,
           "max_counted": 1,
-          "settled": [],
-          "unsettled": [
+          "settled": [
             "MUS314/COS314",
-            "COS 436",
-            "COS 401 / LIN 304 / TRA 301"
-          ]
+            "COS 436"
+          ],
+          "unsettled": []
         },
         {
           "name": "General",
           "path_to": "Major//2018//COS-AB//Core Courses//General",
           "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 \u2013 Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.",
           "satisfied": true,
-          "count": 2,
+          "count": 3,
           "min_needed": 2,
           "max_counted": 1,
           "settled": [
             "COS 351/ SOC 353 /WWS351",
-            "NEU 330 / PSY 330"
-          ],
-          "unsettled": [
-            "COS340",
-            "COS 333",
-            "ELE 206/COS 306",
-            "MUS314/COS314",
-            "COS 423",
-            "COS 436",
+            "NEU 330 / PSY 330",
             "COS 401 / LIN 304 / TRA 301"
-          ]
+          ],
+          "unsettled": []
         }
       ]
     },

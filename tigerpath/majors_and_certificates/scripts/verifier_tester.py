@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import yaml
 from pprint import pprint
 import jsonschema # must be installed via pip
 import os
@@ -22,22 +23,22 @@ def main():
         if filename.endswith(".test"): 
             print("Testing: " + filename)
             file_path = os.path.join(TESTS_LOCATION, filename)
-            with open (file_path, "r") as f:
+            with open (file_path, "r", encoding="utf8") as f:
                 req_name = f.readline()[:-1]
                 year = int(f.readline())
-                courses = json.loads(f.read())
+                courses = yaml.safe_load(f)
             if req_name in ["AB", "BSE"]: # checking degree. No validation for degree jsons
                 satisfied, courses, req_tree = verifier.check_degree(req_name, courses, year)
             else: # checking major
                 major_filename = req_name + "_" + str(year)  + ".json"
                 major_filepath = os.path.join(DIR_PATH, verifier.MAJORS_LOCATION, major_filename)
-                with open(major_filepath, 'r') as f:
-                    requirements = json.load(f)
-                with open(SCHEMA_LOCATION, 'r') as s:
-                    schema = json.load(s)
+                with open(major_filepath, 'r', encoding="utf8") as f:
+                    requirements = yaml.safe_load(f)
+                with open(SCHEMA_LOCATION, 'r', encoding="utf8") as s:
+                    schema = yaml.safe_load(s)
                 jsonschema.validate(requirements,schema)
                 satisfied, courses, req_tree = verifier.check_major(req_name, courses, year)
-            with open (file_path+".out", "w") as f:
+            with open (file_path+".out", "w", encoding="utf8") as f:
                 f.write(_json_format(courses))
                 f.write("\n")
                 f.write(_json_format(req_tree))

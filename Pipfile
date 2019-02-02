@@ -25,6 +25,7 @@ django-widget-tweaks = "*"
 django-webpack-loader = "*"
 ujson = "*"
 jsonschema = "*"
+pyyaml = "*"
 
 [dev-packages]
 
