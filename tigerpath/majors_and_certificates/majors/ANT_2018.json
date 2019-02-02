@@ -50,8 +50,8 @@
               "explanation": "",
               "course_list": [
                 "ANT 300",
-                "ANt 301",
-                "ANT 390"
+                "ANT 301*",
+                "ANT 390*"
               ]
             },
             {
@@ -113,9 +113,9 @@
               "explanation": "",
               "course_list": [
                 "ANT 240",
-                "ANT 206",
+                "ANT 206*",
                 "ANT 300",
-                "ANT 301"
+                "ANT 301*"
               ]
             },
             {
@@ -143,7 +143,7 @@
                     "ANT 403",
                     "ANT 309B",
                     "ANT 442",
-                    "ANT 206",
+                    "ANT 206*",
                     "ANT 215"
                   ]
                 },
@@ -177,8 +177,8 @@
               "explanation": "",
               "course_list": [
                 "ANT 300",
-                "ANT 301",
-                "ANT 390"
+                "ANT 301*",
+                "ANT 390*"
               ]
             },
             {
