@@ -150,29 +150,37 @@
               ]
             },
             {
-              "name": "Computer Science",
+              "name": "Math or Computer Science",
               "max_counted": 1,
               "min_needed": 1,
               "explanation": "",
-              "course_list": [
-                "COS 126",
-                "COS 2*",
-                "COS 3*",
-                "COS 4*",
-                "COS 5*"
-              ]
-            },
-            {
-              "name": "Math",
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "",
-              "course_list": [
-                "MAT 103",
-                "MAT 104",
-                "MAT 175",
-                "MAT 192",
-                "MAT 2*"
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "COS 126",
+                    "COS 2*",
+                    "COS 3*",
+                    "COS 4*",
+                    "COS 5*"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "",
+                  "course_list": [
+                    "MAT 103",
+                    "MAT 104",
+                    "MAT 175",
+                    "MAT 192",
+                    "MAT 2*"
+                  ]
+                }
               ]
             }
           ]
