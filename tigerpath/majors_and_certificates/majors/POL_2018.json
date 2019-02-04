@@ -192,7 +192,7 @@
       "name": "Track",
       "max_counted": 1,
       "min_needed": null,
-      "explanation": "Optional tracks",
+      "explanation": "Optional tracks (In beta, currently double counts courses between requirements in 1 or more tracks when it should only reuse departmentals in at most 1 requirement)",
       "req_list": [
         {
           "name": "American Ideas and Institutions",
