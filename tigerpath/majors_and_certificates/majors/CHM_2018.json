@@ -212,30 +212,58 @@
       "min_needed": 4,
       "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
       "course_list": [
-        "MOL 3*",
-        "MOL 4*",
-        "MOL 5*",
-        "CHM 3*",
-        "CHM 4*",
-        "CHM 5*",
-        "GEO 3*",
-        "GEO 4*",
-        "GEO 5*",
-        "MSE 3*",
-        "MSE 4*",
-        "MSE 5*",
-        "NEU 3*",
-        "NEU 4*",
-        "NEU 5*",
-        "PHY 3*",
-        "PHY 4*",
-        "PHY 5*",
-        "COS 3*",
-        "COS 4*",
-        "COS 5*",
-        "MAT 3*",
-        "MAT 4*",
-        "MAT 5*"
+        {
+          "name": null,
+          "max_counted": null,
+          "min_needed": null,
+          "explanation": "",
+          "course_list": [
+            "MOL 3*",
+            "MOL 4*",
+            "MOL 5*",
+            "CHM 3*",
+            "CHM 4*",
+            "CHM 5*",
+            "GEO 3*",
+            "GEO 4*",
+            "GEO 5*",
+            "MSE 3*",
+            "MSE 4*",
+            "MSE 5*",
+            "NEU 3*",
+            "NEU 4*",
+            "NEU 5*",
+            "PHY 3*",
+            "PHY 4*",
+            "PHY 5*",
+            "COS 3*",
+            "COS 4*",
+            "COS 5*",
+            "MAT 3*",
+            "MAT 4*",
+            "MAT 5*"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "MAT 201 or 203",
+          "course_list": [
+            "MAT 201",
+            "MAT 203"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "MAT 202 or 204",
+          "course_list": [
+            "MAT 202",
+            "MAT 204"
+          ]
+        }
       ]
     },
     {
@@ -243,6 +271,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "explanation": "An understanding of chemistry requires a thorough background in physics and mathematics. Students majoring in chemistry should obtain a broad background in these subjects. In general, it is desirable to take courses in mathematics at least through multivariable calculus (MAT 201 or 203) and linear algebra (MAT 202 or 204). These courses may be counted as departmental courses. These mathematics courses are also required for professional certification.",
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": null,
