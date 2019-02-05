@@ -208,7 +208,7 @@ export default class Requirements extends Component {
         if (mainReq.urls) {
           popoverContent += '<h6>Reference Links:</h6>';
           mainReq.urls.forEach(url => {
-            popoverContent += '<p><a href="' + url + '" class="ref-link" target="_blank">' + url + '</a></p>'
+            popoverContent += '<p><a href="' + url + '" class="ref-link" target="_blank" rel="noopener noreferrer">' + url + '</a></p>'
           });
         }
         popoverContent += '</div>'

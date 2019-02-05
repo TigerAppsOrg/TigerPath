@@ -26,7 +26,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
-    
+
     {% include 'includes/analytics/analytics_head.html' %}
   </head>
   <body>
@@ -40,12 +40,12 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-dark nav-color-custom static-top">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-color-custom">
       <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}">TigerPath <small>(Beta)</small></a>
         <div>
-          <a class="btn nav-btn" href="{% url 'about' %}" target="_blank">About</a>
-          <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank">Feedback</a>
+          <a class="btn nav-btn" href="{% url 'about' %}" target="_blank" rel="noopener noreferrer">About</a>
+          <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank" rel="noopener noreferrer">Feedback</a>
           <div class="dropdown">
             <a id="netid-btn" class="btn nav-btn dropdown-toggle" href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
             <div id="netid-dropdown" class="dropdown-menu">

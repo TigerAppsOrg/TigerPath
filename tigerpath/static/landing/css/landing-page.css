@@ -1,15 +1,16 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(#d2f4ff,  #fff);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 700;
+.body-alt {
+  background-image: linear-gradient(#d2f4ff 0%,  #fff 50%);
+}
+
+h2, h4 {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
 .navbar {
@@ -17,94 +18,27 @@ h6 {
   font-size: medium;
 }
 
-#main-nav a{
-  color: #FFFFFF;
-  text-decoration:none;
-  margin: 5px;
-}
-#main-nav a:hover {
-  color: #3d8af7;
-  text-decoration: underline;
-}
-button.custom-toggler.navbar-toggler {
-  border-color: #FFFFFF;
-}
-
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("../img/header_background.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-}
-
-header.masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}
-
-header.masthead h1 {
-  font-size: 2rem;
-}
-
-header.small-masthead {
-  position: relative;
-  background-color: #343a40;
-  background: url("../img/header_background.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
-header.small-masthead .overlay {
-  position: absolute;
-  background-color: #212529;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  opacity: 0.3;
-}
-
-header.masthead h1 {
-  font-size: 2rem;
-}
-
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
-}
-
-footer.footer {
+.footer {
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
-/* About page */
+.landing-demo {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 
 .text-section {
-  margin-top: 24px;
-}
-
-.btn {
-  color: white;
+  margin-top: 36px;
 }
 
 .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
@@ -112,6 +46,6 @@ footer.footer {
     background-color: #3d8af7;
 }
 
-.nav-color-custom {
-  background-color: #464e56!important;
+.majors-list {
+  white-space: pre-line;
 }
