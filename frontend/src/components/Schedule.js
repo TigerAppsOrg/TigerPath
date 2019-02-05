@@ -130,7 +130,7 @@ export default class Schedule extends Component {
 
   render() {
     let years = this.state.years;
-    if (this.props.schedule && years) {
+    if (years) {
       return (
         <table id="semesters">
           <thead className="semester-header">

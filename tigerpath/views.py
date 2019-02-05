@@ -248,10 +248,7 @@ def get_schedule(request):
 @login_required
 def get_requirements(request):
     curr_user = request.user.profile
-
-    schedule = ujson.loads(request.GET.get('schedule', '[]'))
-    if not schedule:
-        schedule = populate_user_schedule(curr_user.user_schedule)
+    schedule = populate_user_schedule(curr_user.user_schedule)
 
     requirements = []
     if curr_user.major:
@@ -262,6 +259,11 @@ def get_requirements(request):
             requirements.append(curr_user.major.name)
         requirements.append(check_degree(curr_user.major.degree, schedule, settings.ACTIVE_YEAR))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
+
+@login_required
+def update_schedule_and_get_requirements(request):
+    update_schedule(request)
+    return get_requirements(request)
 
 @login_required
 def get_profile(request):
