@@ -59,7 +59,7 @@
             "name": "Department Requirements",
             "max_counted": 1,
             "min_needed": "ALL",
-            "explantion": "",
+            "explanation": "",
             "req_list": [
                 {
                     "name": "Laboratory in Principles of Neuroscience",

@@ -26,6 +26,7 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "explanation": "The prerequisites for entering the Department of Psychology are successful graded completion of PSY 251 (Quantitative Methods) or a pre-approved statistics course in another department (for example, ORF 245 or ECO 202), along with two other courses from the following list: PSY 101 (Introduction to Psychology), PSY 252 (Social Psychology), PSY 254 (Developmental Psychology), PSY 255 (Cognitive Psychology), or either PSY 258 (Fundamentals of Neuroscience) or NEU 200 (Functional Neuroanatomy). All requests for an alternative set of prerequisites must be approved by the Departmental Representative.",
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Quantitative Methods",
@@ -82,7 +83,6 @@
           "min_needed": "ALL",
           "explanation": "",
           "completed_by_semester": 6,
-          "double_counting_allowed": true,
           "req_list": [
             {
               "name": null,
