@@ -16,7 +16,7 @@ export default class App extends Component {
     ajaxSetup();
     this.state = {
       profile: null,
-      schedule: DEFAULT_SCHEDULE,
+      schedule: null,
       requirements: null,
       searchQuery: '',
       searchResults: [],
@@ -30,9 +30,11 @@ export default class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.schedule !== prevState.schedule) {
+      if (prevState !== null) {
+        this.updateScheduleAndGetRequirements();
+      }
+
       let schedule = this.state.schedule;
-      this.updateSchedule();
-      this.fetchRequirements(schedule);
       for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
         for (let courseIndex = 0; courseIndex < schedule[semIndex].length; courseIndex++) {
           let course = schedule[semIndex][courseIndex];
@@ -53,7 +55,7 @@ export default class App extends Component {
   }
 
   // gets current enrolled courses and sends post request
-  updateSchedule = () => {
+  updateScheduleAndGetRequirements = () => {
     let schedule = this.state.schedule;
     let strippedSchedule = [];
     for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
@@ -64,39 +66,36 @@ export default class App extends Component {
     }
 
     $.ajax({
-      url: "/api/v1/update_schedule/",
+      url: "/api/v1/update_schedule_and_get_requirements/",
       type: 'POST',
-      data: { schedule: JSON.stringify(strippedSchedule) }
+      data: { schedule: JSON.stringify(strippedSchedule) },
+      success: data => this.handleRequirementData(data),
     });
   }
 
-  fetchRequirements = (schedule = null) => {
-    let ajaxRequest = {
+  fetchRequirements = () => {
+    $.ajax({
       url: "/api/v1/get_requirements/",
       datatype: 'json',
       type: 'GET',
-      success: data => {
-        if (data) {
-          // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
-          data = data.map(mainReq => {
-            // if mainReq is not an array, then it is just the name of the major
-            if (!Array.isArray(mainReq)) return mainReq
-            return mainReq[2];
-          });
-          this.setState({requirements: data});
-        }
-      }
-    };
-    // if the schedule is defined, then we fetch the requirements for that schedule
-    // otherwise, it will use the schedule that's stored in the database
-    if (schedule) {
-      ajaxRequest['data'] = { schedule: JSON.stringify(schedule) };
-    }
-    $.ajax(ajaxRequest);
+      success: data => this.handleRequirementData(data),
+    });
   }
 
-  onDragEnd = (result) => {
-    let schedule = this.state.schedule.slice();
+  handleRequirementData = data => {
+    if (data) {
+      // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
+      data = data.map(mainReq => {
+        // if mainReq is not an array, then it is just the name of the major
+        if (!Array.isArray(mainReq)) return mainReq
+        return mainReq[2];
+      });
+      this.setState({requirements: data});
+    }
+  }
+
+  onDragEnd = result => {
+    let schedule = (this.state.schedule || DEFAULT_SCHEDULE).slice();
     let searchResults = this.state.searchResults;
 
     if (result.destination === null) return;
