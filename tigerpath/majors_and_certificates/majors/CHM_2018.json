@@ -211,7 +211,7 @@
       "max_counted": 1,
       "min_needed": 4,
       "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
-      "course_list": [
+      "req_list": [
         {
           "name": null,
           "max_counted": null,
