@@ -176,13 +176,13 @@
       "name": "Core Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explantion": "Students must take three 300-, 400-, or 500-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic, physical, and inorganic chemistry. The experimental requirement may be fulfilled by taking either CHM 371, or MOL 350, or MSE 302, or PHY 311 or 312, or CBE 346. Note: The experimental course must be completed by the end of the junior year.",
+      "explanation": "Students must take three 300-, 400-, or 500-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic, physical, and inorganic chemistry. The experimental requirement may be fulfilled by taking either CHM 371, or MOL 350, or MSE 302, or PHY 311 or 312, or CBE 346. Note: The experimental course must be completed by the end of the junior year.",
       "req_list": [
         {
           "name": "Chemistry Departmentals",
           "max_counted": 1,
           "min_needed": 3,
-          "explantion": "",
+          "explanation": "",
           "course_list": [
             "CHM 3*",
             "CHM 4*",
@@ -193,7 +193,7 @@
           "name": "Experimental Laboratory",
           "max_counted": 1,
           "min_needed": 1,
-          "explantion": "",
+          "explanation": "",
           "completed_by_semester": 6,
           "course_list": [
             "CHM 371",
@@ -210,7 +210,7 @@
       "name": "Cognates",
       "max_counted": 1,
       "min_needed": 4,
-      "explantion": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
+      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
       "course_list": [
         "MOL 3*",
         "MOL 4*",
@@ -242,13 +242,13 @@
       "name": "Physics and Mathematics",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explantion": "An understanding of chemistry requires a thorough background in physics and mathematics. Students majoring in chemistry should obtain a broad background in these subjects. In general, it is desirable to take courses in mathematics at least through multivariable calculus (MAT 201 or 203) and linear algebra (MAT 202 or 204). These courses may be counted as departmental courses. These mathematics courses are also required for professional certification.",
+      "explanation": "An understanding of chemistry requires a thorough background in physics and mathematics. Students majoring in chemistry should obtain a broad background in these subjects. In general, it is desirable to take courses in mathematics at least through multivariable calculus (MAT 201 or 203) and linear algebra (MAT 202 or 204). These courses may be counted as departmental courses. These mathematics courses are also required for professional certification.",
       "req_list": [
         {
           "name": null,
           "max_counted": 1,
           "min_needed": 1,
-          "explantion": "201 or 203",
+          "explanation": "201 or 203",
           "course_list": [
             "MAT 201",
             "MAT 203"
@@ -258,7 +258,7 @@
           "name": null,
           "max_counted": 1,
           "min_needed": 1,
-          "explantion": "202 or 204",
+          "explanation": "202 or 204",
           "course_list": [
             "MAT 202",
             "MAT 204"

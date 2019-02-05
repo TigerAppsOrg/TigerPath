@@ -106,7 +106,7 @@
           ]
         },
         {
-          "name": "Geometry or Topology",
+          "name": "Geometry, Topology, or Discrete Math",
           "max_counted": 1,
           "min_needed": 1,
           "explanation": "One course in geometry or topology (e.g. 350 or 355 or 365 or 560) Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",

@@ -37,7 +37,6 @@
       "max_counted": 1,
       "min_needed": 10,
       "explanation": "By the end of the senior year, all students in the department must complete, in addition to the prerequisites (link is external), eight departmental courses, of which two may be cognates. Students must attain an overall average of C or higher in the ten or more graded courses that count as departmentals. All departmentals must be taken on a graded basis - P/D/F not allowed. All departmentals factor into the Honors calculation. Concentrators indicate a prospective primary field when they sign into the department in the spring of their sophomore year, and designate a primary field by the end of the first term of their junior year. Concentrators take courses in at least three of the fields listed below, designating one as their primary field of study, another as their secondary field, and an additional field. Students take a minimum of three courses in their primary field, two courses in their secondary field, and one course in a third field. One of three courses in the primary field normally is a 200-level course. Prerequisites may be used to satisfy field requirements. A course taken to satisfy the analytical requirement cannot be used to satisfy the field requirement. The department's website (link is external) lists additional courses that will fulfill field requirements in a given year, including one-time-only courses. It also lists topics courses offered by other departments that have POL cross-listings and that therefore can be counted as departmental courses. [NOTE: Once you have taken 2, 300-level courses in a given field, you may not take the introductory 200-level Politics course in that field.]",
-      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Political Theory",
@@ -193,7 +192,7 @@
       "name": "Track",
       "max_counted": 1,
       "min_needed": null,
-      "explanation": "Optional tracks",
+      "explanation": "Optional tracks (In beta, currently double counts courses between requirements in 1 or more tracks when it should only reuse departmentals in at most 1 requirement)",
       "req_list": [
         {
           "name": "American Ideas and Institutions",
