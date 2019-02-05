@@ -25,7 +25,7 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Prerequisites as described here apply to the Class of 2019 and beyond. The Class of 2018 should consult the 2016-2017 Undergraduate Announcement for a list of program requirements.\nPrerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 207, and MAT 203-204.  These six courses should be completed by the end of sophomore year.  PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105.  PHY 104 may be replaced by ISC 233-234 or PHY 106.  PHY 207 may be replaced by PHY 205.  MAT 203 may be replaced by MAT 201 or MAT 218.  MAT 204 may be replaced by MAT 202 or MAT 217.  Prerequisites for concentration in physics cannot be taken on a pass/D/fail basis.",
+      "explanation": "Prerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 207, and MAT 203-204.  These six courses should be completed by the end of sophomore year.  PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105.  PHY 104 may be replaced by ISC 233-234 or PHY 106.  PHY 207 may be replaced by PHY 205.  MAT 203 may be replaced by MAT 201 or MAT 218.  MAT 204 may be replaced by MAT 202 or MAT 217.  Prerequisites for concentration in physics cannot be taken on a pass/D/fail basis.",
       "completed_by_semester": 4,
       "req_list": [
         {
