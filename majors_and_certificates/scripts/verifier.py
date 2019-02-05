@@ -555,26 +555,26 @@ def _course_match(course_name, pattern):
                     return True
                 if (len(p)>4 and p[4] == '*'): # 'LANG*' or 'LANG***'
                     return True
-                if (len(c)>4 and len(p)>5 and 
+                if (len(c)>=4 and len(p)>5 and
                     p[5] == '*' and c[3:4] == p[4:5]): # 'LANG1*' or 'LANG1**'
                     return True
-                if (len(c)>5 and len(p)>6 and 
+                if (len(c)>=5 and len(p)>6 and
                     p[6] == '*' and c[3:5] == p[4:6]): # 'LANG12*'
                     return True
-                if (len(c)>6 and len(p)>7 and 
+                if (len(c)>=6 and len(p)>7 and
                     p[7] == '*' and c[3:6] == p[4:7]): # 'LANG123*'
                     return True
             # non-language course
-            if (len(c)>3 and len(p)>3 and 
+            if (len(c)>=3 and len(p)>3 and
                     p[3] == '*' and c[:3] == p[:3]): # 'AAA*' or 'AAA***'
                 return True
-            if (len(c)>4 and len(p)>4 and 
+            if (len(c)>=4 and len(p)>4 and
                     p[4] == '*' and c[:4] == p[:4]): # 'AAA1*' or 'AAA1**'
                 return True
-            if (len(c)>5 and len(p)>5 and 
+            if (len(c)>=5 and len(p)>5 and
                     p[5] == '*' and c[:5] == p[:5]): # 'AAA12*'  Note: not currently in format spec
                 return True
-            if (len(c)>6 and len(p)>6 and 
+            if (len(c)>=6 and len(p)>6 and
                     p[6] == '*' and c[:6] == p[:6]): # 'AAA123*' matches to 'AAA123C'
                 return True
     return False
