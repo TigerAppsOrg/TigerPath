@@ -1,10 +1,15 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.landing-body {
   background-image: linear-gradient(#d2f4ff,  #fff);
 }
 
-.body-alt {
-  background-image: linear-gradient(#d2f4ff 0%,  #fff 50%);
+.navbar-brand {
+  font-weight: 400;
 }
 
 h2, h4 {
@@ -29,6 +34,7 @@ header.masthead {
 }
 
 .footer {
+  font-size: 1rem;
   padding-top: 4rem;
   padding-bottom: 3rem;
 }
