@@ -22,15 +22,17 @@
 
     {% include 'includes/analytics/analytics_head.html' %}
   </head>
-  <body class="landing-body">
+  <body>
     {% include 'includes/analytics/analytics_body.html' %}
 
     {% include 'includes/navigation.html' %}
 
+    <div class="header-bg"></div>
+
     <header class="masthead text-center">
       <div class="container">
         <div class="col-xl-9 mx-auto">
-          <h2 class="mb-4">TigerPath helps Princeton University students plan out their four-year course schedules.</h2>
+          <h2 class="header-text mb-4">TigerPath helps Princeton University students plan out their four-year course schedules.</h2>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto mb-5">
           <a class="btn btn-primary" href="{% url 'login' %}">Login to manage your schedule</a>
