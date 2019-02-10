@@ -9,6 +9,7 @@ const Semesters = styled.div`
   grid-template-rows: repeat(2, 1fr);
   height: inherit;
   grid-gap: 5px;
+  padding: 0 5px;
 `;
 
 export default class Schedule extends Component {

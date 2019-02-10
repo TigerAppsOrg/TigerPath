@@ -3,10 +3,22 @@ import CourseCard from 'components/CourseCard';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
 
+export const SEMESTER_TYPE = Object.freeze({
+  FALL_SEM: Symbol('fallSem'),
+  SPRING_SEM: Symbol('springSem'),
+});
+
+export const EXTERNAL_CREDITS_SEMESTER_INDEX = 8;
+
 const RADIX = 10;
 
+const SEMESTER_BODY_COLOR = Object.freeze({
+  GREY: Symbol('greySemBody'),
+  GREEN: Symbol('greenSemBody'),
+  RED: Symbol('redSemBody'),
+});
+
 const SemesterWrapper = styled.div`
-  background-color: #f5f5f5;
   height: 100%;
   border-radius: 2px;
 `;
@@ -19,12 +31,14 @@ const SemesterHeader = styled.div`
   padding: 2px;
 
   background-color: ${({theme, semesterType}) => {
-    if (semesterType === SEMESTER_TYPE.FALL_SEM)
-      return `${theme.fallSemHeaderColor}`;
-    else if (semesterType === SEMESTER_TYPE.SPRING_SEM)
-      return `${theme.springSemHeaderColor}`;
-    else
-      return `${theme.darkOrange}`;
+    switch (semesterType) {
+      case SEMESTER_TYPE.FALL_SEM:
+        return `${theme.fallSemHeaderColor}`;
+      case SEMESTER_TYPE.SPRING_SEM:
+        return `${theme.springSemHeaderColor}`;
+      default:
+        return `${theme.darkOrange}`;
+    }
   }}
 `;
 
@@ -32,14 +46,18 @@ const SemesterBody = styled.div`
   list-style-type: none;
   padding-top: 5px;
   height: calc(100% - 27px);
+
+  background-color: ${({theme, semesterBodyColor}) => {
+    switch (semesterBodyColor) {
+      case SEMESTER_BODY_COLOR.GREEN:
+        return `${theme.greenSemBody}`;
+      case SEMESTER_BODY_COLOR.RED:
+        return `${theme.redSemBody}`;
+      default:
+        return `${theme.greySemBody}`;
+    }
+  }}
 `;
-
-export const SEMESTER_TYPE = Object.freeze({
-  FALL_SEM: 'fall-sem',
-  SPRING_SEM: 'spring-sem',
-});
-
-export const EXTERNAL_CREDITS_SEMESTER_INDEX = 8;
 
 export default class Semester extends Component {
   removeCourse = (semIndex, courseIndex) => {
@@ -68,9 +86,7 @@ export default class Semester extends Component {
     );
   }
 
-  getSemesterBodyClassNames = (semId, snapshot) => {
-    let classNames = ['semester-body'];
-
+  getSemesterBodyColor = (semId, snapshot) => {
     if (snapshot.isDraggingOver) {
       let semIndex = parseInt(semId.split('sem')[1], RADIX);
       let courseKey = snapshot.draggingOverWith;
@@ -79,13 +95,13 @@ export default class Semester extends Component {
       if ((courseSemType === 'fall' && semIndex % 2 === 0) ||
           (courseSemType === 'spring' && semIndex % 2 === 1) ||
           courseSemType === 'both') {
-        classNames.push('green-tint');
+        return SEMESTER_BODY_COLOR.GREEN;
       } else {
-        classNames.push('red-tint');
+        return SEMESTER_BODY_COLOR.RED;
       }
     }
 
-    return classNames.join(' ');
+    return SEMESTER_BODY_COLOR.GREY;
   }
 
   render() {
@@ -101,7 +117,7 @@ export default class Semester extends Component {
         </SemesterHeader>
         <Droppable key={semId} droppableId={semId} isDropDisabled={semIndex === EXTERNAL_CREDITS_SEMESTER_INDEX}>
           {(provided, snapshot) => (
-            <SemesterBody className={this.getSemesterBodyClassNames(semId, snapshot)} ref={provided.innerRef} {...provided.droppableProps}>
+            <SemesterBody ref={provided.innerRef} {...provided.droppableProps} semesterBodyColor={this.getSemesterBodyColor(semId, snapshot)}>
               {this.props.schedule && this.courseCardList(this.props.schedule, semIndex)}
               {provided.placeholder}
             </SemesterBody>
