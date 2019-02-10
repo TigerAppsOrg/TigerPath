@@ -114,7 +114,7 @@
 }
 
 .course-card .course-name {
-  width: 90%;
+  max-width: calc(100% - 18px);
 	overflow: hidden;
 	float: left;
 	text-overflow: ellipsis;
@@ -145,7 +145,7 @@
 
 /* add delete button on course hover in semesters */
 #semesters .course-card:hover .delete-course {
-	display: block;
+  display: block;
 }
 
 .delete-course {
