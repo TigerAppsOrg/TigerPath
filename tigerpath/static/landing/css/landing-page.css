@@ -6,7 +6,6 @@ body {
 
 .navbar-brand {
   font-weight: 400;
-  color: #222 !important;
 }
 
 h2, h4 {
@@ -18,10 +17,11 @@ h2, h4 {
 .navbar {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: medium;
+  background-color: #464e56 !important;
 }
 
 .nav-item {
-  color: #222;
+  color: #fff;
 }
 
 header.masthead {
@@ -48,7 +48,7 @@ header.masthead {
   transform: skewY(-12deg) translateY(-60px);
   -webkit-transform-origin: 0;
   transform-origin: 0;
-  background: linear-gradient(180deg, #3aaed4 15%, #d2f4ff 70%, #fff 85%);
+  background: linear-gradient(180deg, #47d1ff 15%, #d2f4ff 70%, #fff 85%);
   z-index: -1;
 }
 

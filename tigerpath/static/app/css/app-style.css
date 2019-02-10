@@ -14,10 +14,7 @@ h6 {
 .navbar {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: medium;
-}
-
-.nav-color-custom {
-  background-color: #464e56!important;
+  background-color: #464e56 !important;
 }
 
 .nav-btn {
