@@ -93,11 +93,6 @@
   margin-bottom: 5px;
 }
 
-.semester .course-card {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
 .course-card.fall {
   background-color: #eaccff;
   color: #53008f;

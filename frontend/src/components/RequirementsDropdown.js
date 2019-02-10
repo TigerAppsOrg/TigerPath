@@ -1,29 +1,19 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
 import styled from 'styled-components'
 
-const ReqDropdownMenu = styled(DropdownMenu)`
+const ReqDropdown = styled(Dropdown)`
+  display: block;
+`;
+
+const ReqDropdownMenu = styled(Dropdown.Menu)`
   overflow: auto;
-  height: 500px;
+  max-height: 275px;
 `;
 
 export default class RequirementsDropdown extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dropdownOpen: false,
-    };
-  }
-
-  toggle = () => {
-    this.setState(prevState => ({
-      dropdownOpen: !prevState.dropdownOpen
-    }));
-  }
-
   handleRequirementClick = (reqName) => {
-    // alert('clicked ' + reqName);
-    // this.props.toggle();
+    console.log(reqName);
   }
 
   populateReqTree = (reqTree) => {
@@ -33,14 +23,14 @@ export default class RequirementsDropdown extends Component {
         if ('req_list' in requirement) {
           return (
             <React.Fragment key={reqName}>
-              <DropdownItem header>{reqName}</DropdownItem>
+              <Dropdown.Header>{reqName}</Dropdown.Header>
               {this.populateReqTree(requirement)}
             </React.Fragment>
           );
         } else {
           return (
             <React.Fragment key={reqName}>
-              <DropdownItem onClick={(e) => this.handleRequirementClick(reqName, e)}>{reqName}</DropdownItem>
+              <Dropdown.Item onClick={(e) => this.handleRequirementClick(requirement['path_to'], e)}>{reqName}</Dropdown.Item>
             </React.Fragment>
           );
         }
@@ -54,7 +44,7 @@ export default class RequirementsDropdown extends Component {
       let content;
 
       // major is supported
-      if (typeof mainReq === "object") {
+      if (typeof mainReq === 'object') {
         name = mainReq.name;
         content = this.populateReqTree(mainReq);
       }
@@ -65,9 +55,9 @@ export default class RequirementsDropdown extends Component {
 
       return (
         <React.Fragment key={name}>
-          <DropdownItem header>{name}</DropdownItem>
+          <Dropdown.Header>{name}</Dropdown.Header>
           {content}
-          <DropdownItem divider />
+          <Dropdown.Divider />
         </React.Fragment>
       );
     });
@@ -75,16 +65,16 @@ export default class RequirementsDropdown extends Component {
 
   render() {
     return (
-      <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret>
+      <ReqDropdown>
+        <Dropdown.Toggle variant="secondary">
           Select a requirement
-        </DropdownToggle>
+        </Dropdown.Toggle>
         {this.props.requirements &&
           <ReqDropdownMenu>
             {this.requirements()}
           </ReqDropdownMenu>
         }
-      </Dropdown>
+      </ReqDropdown>
     );
   }
 }

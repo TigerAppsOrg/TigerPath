@@ -5,11 +5,15 @@ import styled from 'styled-components'
 
 const Semesters = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 25%);
+  grid-template-columns: repeat(4, calc(25% - 3.75px));
   grid-template-rows: repeat(2, 1fr);
   height: inherit;
   grid-gap: 5px;
   padding: 0 5px;
+`;
+
+const ScheduleSemester = styled(Semester)`
+  height: calc(100% - 15px);
 `;
 
 export default class Schedule extends Component {
@@ -42,7 +46,7 @@ export default class Schedule extends Component {
       let semester = this.isSemesterFallSem(semesterType) ? 'Fall' : 'Spring';
 
       semesters.push(
-        <Semester
+        <ScheduleSemester
           key={semId}
           onChange={this.props.onChange}
           schedule={schedule}
@@ -50,7 +54,7 @@ export default class Schedule extends Component {
           semesterType={semesterType}
         >
           {semester} {year}
-        </Semester>
+        </ScheduleSemester>
       );
 
       semesterType = this.isSemesterFallSem(semesterType) ? SEMESTER_TYPE.SPRING_SEM : SEMESTER_TYPE.FALL_SEM;

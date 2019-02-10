@@ -18,11 +18,6 @@ const SEMESTER_BODY_COLOR = Object.freeze({
   RED: Symbol('redSemBody'),
 });
 
-const SemesterWrapper = styled.div`
-  height: 100%;
-  border-radius: 2px;
-`;
-
 const SemesterHeader = styled.div`
   color: #FFFFFF;
   text-align: center;
@@ -39,13 +34,15 @@ const SemesterHeader = styled.div`
       default:
         return `${theme.darkOrange}`;
     }
-  }}
+  }};
 `;
 
 const SemesterBody = styled.div`
   list-style-type: none;
-  padding-top: 5px;
-  height: calc(100% - 27px);
+  padding: 5px;
+  height: inherit;
+  min-height: 200px;
+  border-radius: 0 0 2px 2px;
 
   background-color: ${({theme, semesterBodyColor}) => {
     switch (semesterBodyColor) {
@@ -56,7 +53,7 @@ const SemesterBody = styled.div`
       default:
         return `${theme.greySemBody}`;
     }
-  }}
+  }};
 `;
 
 export default class Semester extends Component {
@@ -111,7 +108,7 @@ export default class Semester extends Component {
     if (this.props.className) className += ` ${this.props.className}`;
 
     return (
-      <SemesterWrapper className={className}>
+      <div className={className}>
         <SemesterHeader semesterType={this.props.semesterType}>
           {this.props.children}
         </SemesterHeader>
@@ -123,7 +120,7 @@ export default class Semester extends Component {
             </SemesterBody>
           )}
         </Droppable>
-      </SemesterWrapper>
+      </div>
     )
   }
 }

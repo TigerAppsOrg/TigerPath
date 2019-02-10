@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 export default class CourseCard extends Component {
   removeCourse = () => {
     this.props.onCourseRemove(this.props.semIndex, this.props.courseIndex);
+    $(`#${this.props.courseKey}`).popover("hide");
   }
 
   getClassNames = () => {
