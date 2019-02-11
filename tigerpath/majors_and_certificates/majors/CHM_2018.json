@@ -175,9 +175,9 @@
       "req_list": [
         {
           "name": "Chemistry Departmentals",
-          "max_counted": 1,
+          "max_counted": 3,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": "Students must take three 300-, 400-, or 500-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic, physical, and inorganic chemistry.",
           "course_list": [
             "CHM 3*",
             "CHM 4*",
@@ -188,7 +188,7 @@
           "name": "Experimental Laboratory",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": "The experimental requirement may be fulfilled by taking either CHM 371, or MOL 350, or MSE 302, or PHY 311 or 312, or CBE 346. Note: The experimental course must be completed by the end of the junior year.",
           "completed_by_semester": 6,
           "course_list": [
             "CHM 371",
@@ -196,7 +196,7 @@
             "MSE 302",
             "PHY 311",
             "PHY 312",
-            "CB 346"
+            "CBE 346"
           ]
         }
       ]
@@ -205,7 +205,7 @@
       "name": "Cognates",
       "max_counted": 1,
       "min_needed": 4,
-      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
+      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.\n\n<i>Editor's Note: Concentrators must get departmental approval for many of these courses, and TigerPath does not verify this.</i>",
       "req_list": [
         {
           "name": null,
