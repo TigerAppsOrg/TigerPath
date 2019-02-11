@@ -96,7 +96,8 @@ export default class Semester extends Component {
 
       if ((courseSemType === 'fall' && isFallSemester(this.state.semesterType)) ||
           (courseSemType === 'spring' && isSpringSemester(this.state.semesterType)) ||
-          courseSemType === 'both') {
+          courseSemType === 'both' ||
+          courseSemType === 'external') {
         return SEMESTER_BODY_COLOR.GREEN;
       } else {
         return SEMESTER_BODY_COLOR.RED;

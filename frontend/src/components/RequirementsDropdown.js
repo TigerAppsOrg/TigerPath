@@ -29,6 +29,9 @@ export default class RequirementsDropdown extends Component {
         let leftPadding = 1.5 + level * 0.5;
 
         if ('req_list' in requirement) {
+          if (reqName === 'Degree Progress') {
+            return <React.Fragment key={reqName} />;
+          }
           return (
             <React.Fragment key={reqName}>
               <ReqDropdownHeader leftPadding={leftPadding}>{reqName}</ReqDropdownHeader>

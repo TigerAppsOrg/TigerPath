@@ -6,7 +6,8 @@ import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Alert from 'react-bootstrap/Alert';
 import RequirementsDropdown from 'components/RequirementsDropdown';
-import { getSemesterNames } from 'utils/SemesterUtils';
+import { DEFAULT_SCHEDULE, EXTERNAL_CREDITS_SEMESTER_INDEX, getSemesterNames } from 'utils/SemesterUtils';
+import uuidv1 from 'uuid/v1';
 
 const ECCardHeader = styled(Card.Header)`
   padding: 2px;
@@ -26,6 +27,12 @@ const Submit = styled(Button)`
 
 const DEFAULT_NAME = { label: '', value: ''};
 
+const FORM_STATE = Object.freeze({
+  NOT_SUBMITTED: Symbol('formNotSubmitted'),
+  FAILURE: Symbol('formFailure'),
+  SUCCESS: Symbol('formSuccess'),
+});
+
 export default class ExternalCreditForm extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +40,7 @@ export default class ExternalCreditForm extends Component {
       name: DEFAULT_NAME,
       selectedSemester: null,
       selectedRequirement: null,
-      submitted: false,
+      formState: FORM_STATE.NOT_SUBMITTED,
     };
   }
 
@@ -44,18 +51,44 @@ export default class ExternalCreditForm extends Component {
   handleSubmit = event => {
     const form = event.currentTarget;
 
-    if (form.checkValidity() === false) {
+    // check to see that the form has been completely filled out
+    if (form.checkValidity() === false || !this.state.selectedSemester || !this.state.selectedRequirement) {
+      this.setState({ formState: FORM_STATE.FAILURE });
       event.preventDefault();
       event.stopPropagation();
+      return;
     }
 
-    this.setState({ submitted: true });
+    let schedule = (this.props.schedule || DEFAULT_SCHEDULE).slice();
+    let semIndex = this.state.selectedSemester.value;
 
-    console.log('Name: ' + this.state.name.value);
-    console.log('selected semester: ' + this.state.selectedSemester);
-    console.log('selected requirement: ' + this.state.selectedRequirement);
+    // populate the course values
+    let course = {}
+    course['id'] = uuidv1();
+    course['external'] = true;
+    course['name'] = this.state.name.value;
+    course['dist_area'] = null;
+    course['semester'] = 'external';
+    course['settled'] = [this.state.selectedRequirement.value];
 
-    this.setState({ name: DEFAULT_NAME, selectedSemester: null, selectedRequirement: null });
+    // add the course to the schedule
+    let scheduleSemester;
+    if (semIndex === 'N/A') {
+      scheduleSemester = schedule[EXTERNAL_CREDITS_SEMESTER_INDEX];
+    } else {
+      scheduleSemester = schedule[semIndex];
+    }
+    let semLen = scheduleSemester.length;
+    scheduleSemester.splice(semLen - 1, 0, course);
+
+    // update the state
+    this.props.onChange('schedule', schedule);
+    this.setState({
+      formState: FORM_STATE.SUCCESS,
+      name: DEFAULT_NAME,
+      selectedSemester: null,
+      selectedRequirement: null
+    });
 
     event.preventDefault();
   }
@@ -71,10 +104,15 @@ export default class ExternalCreditForm extends Component {
         <Card>
           <ECCardHeader>Add external credit</ECCardHeader>
           <Card.Body>
-            <Alert variant="success" show={this.state.submitted}
-                   onClose={() => this.setState({ submitted: false })} dismissible={true}>
+            <Alert variant="success" show={this.state.formState === FORM_STATE.SUCCESS}
+                   onClose={() => this.setState({ formState: FORM_STATE.NOT_SUBMITTED })} dismissible={true}>
               Your external credit has been successfully created!
             </Alert>
+            <Alert variant="danger" show={this.state.formState === FORM_STATE.FAILURE}
+                   onClose={() => this.setState({ formState: FORM_STATE.NOT_SUBMITTED })} dismissible={true}>
+              Please fill out all of the fields.
+            </Alert>
+
             <Form onSubmit={this.handleSubmit} validated={this.state.validated}>
               <Form.Group controlId="formExternalCreditName">
                 <Form.Label>Name of external credit:</Form.Label>

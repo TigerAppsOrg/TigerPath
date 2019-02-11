@@ -42,8 +42,8 @@
 }
 
 .search-card.both {
-  background-color: #fbf2e9;
-  color: #753a00;
+  background: linear-gradient(to right, #f6ebff, #ebf6f9);
+  color: #333;
 }
 
 .search-card-info {
@@ -104,6 +104,11 @@
 }
 
 .course-card.both {
+  background: linear-gradient(to right, #eaccff, #c4e3ed);
+  color: #333;
+}
+
+.course-card.external {
   background-color: #f3d9be;
   color: #753a00;
 }
@@ -139,7 +144,7 @@
 }
 
 /* add delete button on course hover in semesters */
-#semesters .course-card:hover .delete-course {
+.semester .course-card:hover .delete-course {
   display: block;
 }
 

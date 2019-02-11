@@ -1,9 +1,10 @@
 export const SEMESTER_TYPE = Object.freeze({
   FALL_SEM: Symbol('fallSem'),
   SPRING_SEM: Symbol('springSem'),
-  DEFAULT: Symbol('default'),
+  DEFAULT: Symbol('defaultSem'),
 });
 
+export const DEFAULT_SCHEDULE = [[],[],[],[],[],[],[],[],[]];
 export const EXTERNAL_CREDITS_SEMESTER_INDEX = 8;
 
 export function isFallSemester(semesterType) {

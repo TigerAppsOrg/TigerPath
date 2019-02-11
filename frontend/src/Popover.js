@@ -11,7 +11,12 @@ export function addPopover(course, courseKey, semIndex) {
   courseElement.attr("data-html", "true");
 
   // Add content to the popover
-  let content = courseTitle;
+  let content;
+  if (!course['external']) {
+    content = courseTitle;
+  } else {
+    content = 'This is an external credit that you\'ve added.';
+  }
   let addedCoursesWithSameName = $(".semester").find(`[title="${courseName}"]`);
 
   if (addedCoursesWithSameName.length > 1) {

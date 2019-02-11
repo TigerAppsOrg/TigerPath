@@ -220,13 +220,17 @@ def populate_user_schedule(schedule):
         return None
     db_courses = models.Course.objects.all()
     for course in itertools.chain(*schedule):
-        db_course = db_courses.get(registrar_id=course['id'])
-        course['name'] = db_course.cross_listings
-        course['title'] = db_course.title
-        course['dist_area'] = db_course.dist_area
-        course['semester'] = get_semester_type(db_course.all_semesters)
-        if 'settled' not in course:
-            course['settled'] = []
+        if 'external' in course and course['external']:
+            course['semester'] = 'external'
+            course['dist_area'] = None
+        else:
+            db_course = db_courses.get(registrar_id=course['id'])
+            course['name'] = db_course.cross_listings
+            course['title'] = db_course.title
+            course['dist_area'] = db_course.dist_area
+            course['semester'] = get_semester_type(db_course.all_semesters)
+            if 'settled' not in course:
+                course['settled'] = []
     return schedule
 
 # updates user's schedules with added courses
