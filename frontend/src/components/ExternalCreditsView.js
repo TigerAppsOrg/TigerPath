@@ -12,7 +12,6 @@ const ECContent = styled.div`
   grid-gap: 20px;
   grid-template-areas:
     "sem add";
-  height: inherit;
   padding: 20px 10px 20px 10px;
 `;
 

@@ -39,7 +39,7 @@ const SemesterHeader = styled(
 const SemesterBody = styled.div`
   list-style-type: none;
   padding: 5px;
-  height: inherit;
+  height: calc(100% - 31px);
   min-height: 200px;
   border-radius: 0 0 2px 2px;
 

@@ -14,10 +14,6 @@ const Semesters = styled.div`
   padding: 0 5px;
 `;
 
-const ScheduleSemester = styled(Semester)`
-  height: calc(100% - 15px);
-`;
-
 export default class Schedule extends Component {
   componentDidMount() {
     if (this.props.schedule === null) {
@@ -60,14 +56,14 @@ export default class Schedule extends Component {
     let semesters = semesterNames.map((semName, index) => {
       let semId = `sem${index}`;
       return (
-        <ScheduleSemester
+        <Semester
           key={semId}
           onChange={this.props.onChange}
           schedule={this.props.schedule}
           semesterIndex={index}
         >
           {semName}
-        </ScheduleSemester>
+        </Semester>
       );
     });
     return semesters;
