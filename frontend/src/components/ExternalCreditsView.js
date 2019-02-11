@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import Semester, { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'components/Semester';
+import Semester from 'components/Semester';
 import CourseCard from 'components/CourseCard';
 import ExternalCreditForm from 'components/ExternalCreditForm';
+import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 
 const ECContent = styled.div`
   display: grid;
@@ -48,7 +49,8 @@ export default class ExternalCreditsView extends Component {
         >
           Your External Credits
         </ECSemester>
-        <ECForm onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />
+        <ECForm onChange={this.props.onChange} profile={this.props.profile}
+                schedule={this.props.schedule} requirements={this.props.requirements} />
       </ECContent>
     );
   }

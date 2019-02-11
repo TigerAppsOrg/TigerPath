@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import { ajaxSetup } from 'AjaxSetup';
 import Search from 'components/Search';
-import TabbedContent from 'components/TabbedContent';
+import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
 import { addPopover } from 'Popover';
 import { DragDropContext } from 'react-beautiful-dnd';
@@ -138,7 +138,7 @@ export default class App extends Component {
               <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
             </div>
             <div className="col-lg-8 pl-0 pr-0">
-              <TabbedContent onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} requirements={this.state.requirements} />
+              <MainView onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} requirements={this.state.requirements} />
             </div>
           </DragDropContext>
           <div className="col-lg-2 pl-0 pr-0">

@@ -11,26 +11,38 @@ const ReqDropdownMenu = styled(Dropdown.Menu)`
   max-height: 275px;
 `;
 
-export default class RequirementsDropdown extends Component {
-  handleRequirementClick = (reqName) => {
-    console.log(reqName);
-  }
+const ReqDropdownHeader = styled(
+  ({ leftPadding, ...rest }) => <Dropdown.Header {...rest}></Dropdown.Header>)`
+  padding-left: ${({ leftPadding }) => `${leftPadding}rem`};
+`;
 
-  populateReqTree = (reqTree) => {
+const ReqDropdownItem = styled(
+  ({ leftPadding, ...rest }) => <Dropdown.Item {...rest}></Dropdown.Item>)`
+  padding-left: ${({ leftPadding }) => `${leftPadding}rem`};
+`;
+
+export default class RequirementsDropdown extends Component {
+  populateReqTree = (reqTree, level) => {
     return (
       reqTree['req_list'].map((requirement, index) => {
         let reqName = requirement['name'];
+        let leftPadding = 1.5 + level * 0.5;
+
         if ('req_list' in requirement) {
           return (
             <React.Fragment key={reqName}>
-              <Dropdown.Header>{reqName}</Dropdown.Header>
-              {this.populateReqTree(requirement)}
+              <ReqDropdownHeader leftPadding={leftPadding}>{reqName}</ReqDropdownHeader>
+              {this.populateReqTree(requirement, level+1)}
             </React.Fragment>
           );
         } else {
           return (
             <React.Fragment key={reqName}>
-              <Dropdown.Item onClick={(e) => this.handleRequirementClick(requirement['path_to'], e)}>{reqName}</Dropdown.Item>
+              <ReqDropdownItem eventKey={requirement["path_to"]} leftPadding={leftPadding}
+                             onSelect={(e) => this.props.handleChange("selectedRequirement", reqName, e)}
+              >
+                {reqName}
+              </ReqDropdownItem>
             </React.Fragment>
           );
         }
@@ -39,14 +51,17 @@ export default class RequirementsDropdown extends Component {
   }
 
   requirements = () => {
-    return this.props.requirements.map((mainReq, index) => {
+    let requirements = this.props.requirements;
+    let reqLen = requirements.length;
+    return requirements.map((mainReq, index) => {
       let name;
       let content;
+      let isLastItem = reqLen === index+1;
 
       // major is supported
       if (typeof mainReq === 'object') {
         name = mainReq.name;
-        content = this.populateReqTree(mainReq);
+        content = this.populateReqTree(mainReq, 1);
       }
       // major is not supported yet
       else {
@@ -57,17 +72,19 @@ export default class RequirementsDropdown extends Component {
         <React.Fragment key={name}>
           <Dropdown.Header>{name}</Dropdown.Header>
           {content}
-          <Dropdown.Divider />
+          {!isLastItem && <Dropdown.Divider />}
         </React.Fragment>
       );
     });
   }
 
   render() {
+    let req = this.props.selectedRequirement;
+    let dropdownLabel = req ? req.label : 'Select a requirement';
     return (
       <ReqDropdown>
         <Dropdown.Toggle variant="secondary">
-          Select a requirement
+          {dropdownLabel}
         </Dropdown.Toggle>
         {this.props.requirements &&
           <ReqDropdownMenu>

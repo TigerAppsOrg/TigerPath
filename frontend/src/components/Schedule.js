@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
-import Semester, { SEMESTER_TYPE } from 'components/Semester';
+import Semester from 'components/Semester';
 import styled from 'styled-components'
+import { getSemesterNames } from 'utils/SemesterUtils';
 
 const Semesters = styled.div`
   display: grid;
@@ -27,40 +28,24 @@ export default class Schedule extends Component {
     });
   }
 
-  isSemesterFallSem = (semesterType) => {
-    return semesterType === SEMESTER_TYPE.FALL_SEM;
-  }
-
   semesters = () => {
-    let schedule = this.props.schedule;
     let profile = this.props.profile;
-    let semesters = [];
+    if (!profile || !profile.classYear) return [];
 
-    if (!schedule || !profile || !profile.classYear) return semesters;
-
-    let year = profile.classYear - 4;
-    let semesterType = SEMESTER_TYPE.FALL_SEM;
-
-    for (let i = 0; i < 8; i++) {
-      let semId = `sem${i}`;
-      let semester = this.isSemesterFallSem(semesterType) ? 'Fall' : 'Spring';
-
-      semesters.push(
+    let semesterNames = getSemesterNames(profile.classYear);
+    let semesters = semesterNames.map((semName, index) => {
+      let semId = `sem${index}`;
+      return (
         <ScheduleSemester
           key={semId}
           onChange={this.props.onChange}
-          schedule={schedule}
-          semesterIndex={i}
-          semesterType={semesterType}
+          schedule={this.props.schedule}
+          semesterIndex={index}
         >
-          {semester} {year}
+          {semName}
         </ScheduleSemester>
       );
-
-      semesterType = this.isSemesterFallSem(semesterType) ? SEMESTER_TYPE.SPRING_SEM : SEMESTER_TYPE.FALL_SEM;
-      if (this.isSemesterFallSem(semesterType)) year++;
-    }
-
+    });
     return semesters;
   }
 

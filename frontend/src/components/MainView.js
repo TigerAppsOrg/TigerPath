@@ -53,7 +53,7 @@ const TABS = Object.freeze({
   EXTERNAL_CREDITS_TAB: Symbol('externalCredits'),
 });
 
-export default class TabbedContent extends Component {
+export default class MainView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,8 +75,13 @@ export default class TabbedContent extends Component {
           <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>External Credits</NavButton>
         </Nav>
         <Content>
-          {scheduleTabActive && <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />}
-          {externalCreditsTabActive && <ExternalCreditsView onChange={this.props.onChange} schedule={this.props.schedule} requirements={this.props.requirements} />}
+          {scheduleTabActive &&
+            <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />
+          }
+          {externalCreditsTabActive &&
+            <ExternalCreditsView onChange={this.props.onChange} profile={this.props.profile}
+                                 schedule={this.props.schedule} requirements={this.props.requirements} />
+          }
         </Content>
       </React.Fragment>
     );

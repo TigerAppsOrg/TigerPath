@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import CourseCard from 'components/CourseCard';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components'
-
-export const SEMESTER_TYPE = Object.freeze({
-  FALL_SEM: Symbol('fallSem'),
-  SPRING_SEM: Symbol('springSem'),
-});
-
-export const EXTERNAL_CREDITS_SEMESTER_INDEX = 8;
-
-const RADIX = 10;
+import {
+  SEMESTER_TYPE,
+  EXTERNAL_CREDITS_SEMESTER_INDEX,
+  getSemesterType,
+  isFallSemester,
+  isSpringSemester
+} from 'utils/SemesterUtils';
 
 const SEMESTER_BODY_COLOR = Object.freeze({
   GREY: Symbol('greySemBody'),
@@ -18,7 +16,8 @@ const SEMESTER_BODY_COLOR = Object.freeze({
   RED: Symbol('redSemBody'),
 });
 
-const SemesterHeader = styled.div`
+const SemesterHeader = styled(
+  ({ semesterType, ...rest }) => <div {...rest} />)`
   color: #FFFFFF;
   text-align: center;
   font-size: large;
@@ -57,6 +56,13 @@ const SemesterBody = styled.div`
 `;
 
 export default class Semester extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      semesterType: getSemesterType(this.props.semesterIndex),
+    };
+  }
+
   removeCourse = (semIndex, courseIndex) => {
     let newSchedule = this.props.schedule.slice();
     newSchedule[semIndex].splice(courseIndex, 1);
@@ -83,14 +89,13 @@ export default class Semester extends Component {
     );
   }
 
-  getSemesterBodyColor = (semId, snapshot) => {
+  getSemesterBodyColor = snapshot => {
     if (snapshot.isDraggingOver) {
-      let semIndex = parseInt(semId.split('sem')[1], RADIX);
       let courseKey = snapshot.draggingOverWith;
       let courseSemType = courseKey.split('-')[2];
 
-      if ((courseSemType === 'fall' && semIndex % 2 === 0) ||
-          (courseSemType === 'spring' && semIndex % 2 === 1) ||
+      if ((courseSemType === 'fall' && isFallSemester(this.state.semesterType)) ||
+          (courseSemType === 'spring' && isSpringSemester(this.state.semesterType)) ||
           courseSemType === 'both') {
         return SEMESTER_BODY_COLOR.GREEN;
       } else {
@@ -109,12 +114,13 @@ export default class Semester extends Component {
 
     return (
       <div className={className}>
-        <SemesterHeader semesterType={this.props.semesterType}>
+        <SemesterHeader semesterType={this.state.semesterType}>
           {this.props.children}
         </SemesterHeader>
         <Droppable key={semId} droppableId={semId} isDropDisabled={semIndex === EXTERNAL_CREDITS_SEMESTER_INDEX}>
           {(provided, snapshot) => (
-            <SemesterBody ref={provided.innerRef} {...provided.droppableProps} semesterBodyColor={this.getSemesterBodyColor(semId, snapshot)}>
+            <SemesterBody ref={provided.innerRef} {...provided.droppableProps}
+                          semesterBodyColor={this.getSemesterBodyColor(snapshot)}>
               {this.props.schedule && this.courseCardList(this.props.schedule, semIndex)}
               {provided.placeholder}
             </SemesterBody>

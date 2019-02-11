@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import Semester from 'components/Semester';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Alert from 'react-bootstrap/Alert';
 import RequirementsDropdown from 'components/RequirementsDropdown';
+import { getSemesterNames } from 'utils/SemesterUtils';
 
 const ECCardHeader = styled(Card.Header)`
   padding: 2px;
@@ -13,79 +14,98 @@ const ECCardHeader = styled(Card.Header)`
   font-size: large;
 `;
 
-const Submit = styled(Button)`
-  float: right;
+const SemesterDropdown = styled(Dropdown)`
+  display: block;
 `;
+
+const Submit = styled(Button)`
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+`;
+
+const DEFAULT_NAME = { label: '', value: ''};
 
 export default class ExternalCreditForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: null,
+      name: DEFAULT_NAME,
       selectedSemester: null,
       selectedRequirement: null,
+      submitted: false,
     };
   }
 
-  handleChange = (stateName, event) => {
-    console.log(event.target);
-    console.log(event.target.value);
-    this.setState({ [stateName]: event.target.value });
+  handleChange = (stateName, eventLabel, eventKey) => {
+    this.setState({ [stateName]: { label: eventLabel, value: eventKey } });
   }
 
   handleSubmit = event => {
-    alert('A name was submitted: ' + this.state.name);
+    const form = event.currentTarget;
+
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    this.setState({ submitted: true });
+
+    console.log('Name: ' + this.state.name.value);
+    console.log('selected semester: ' + this.state.selectedSemester);
+    console.log('selected requirement: ' + this.state.selectedRequirement);
+
+    this.setState({ name: DEFAULT_NAME, selectedSemester: null, selectedRequirement: null });
+
     event.preventDefault();
   }
 
-  // handleSemesterClick = event => {
-  //   let target = event.target;
-  //   let id = target.id;
-  //   console.log(target);
-  //   console.log(id);
-  //   this.setState({[id]: target.value});
-  // }
-
   render() {
+    let profile = this.props.profile;
+    let selectedSem = this.state.selectedSemester;
+    let semesterDropdownLabel = selectedSem ? selectedSem.label : 'Select a semester';
+    let reqName = this.state.name;
+
     return (
       <div className={this.props.className}>
         <Card>
           <ECCardHeader>Add external credit</ECCardHeader>
           <Card.Body>
-            <Form onSubmit={this.handleSubmit}>
+            <Alert variant="success" show={this.state.submitted}
+                   onClose={() => this.setState({ submitted: false })} dismissible={true}>
+              Your external credit has been successfully created!
+            </Alert>
+            <Form onSubmit={this.handleSubmit} validated={this.state.validated}>
               <Form.Group controlId="formExternalCreditName">
-                <Form.Label>Name of external credit</Form.Label>
-                <Form.Control type="text" placeholder="e.g. AP Calculus BC" />
+                <Form.Label>Name of external credit:</Form.Label>
+                <Form.Control required type="text" placeholder="e.g. AP Calculus BC" value={reqName.value} onChange={(e) => this.handleChange("name", e.target.value, e.target.value)} />
               </Form.Group>
 
               <Form.Group controlId="formRequirement">
-                <Form.Label>Requirement you want to satisfy</Form.Label>
-                <RequirementsDropdown requirements={this.props.requirements} />
+                <Form.Label>Requirement you want to satisfy:</Form.Label>
+                <RequirementsDropdown requirements={this.props.requirements} handleChange={this.handleChange}
+                                      selectedRequirement={this.state.selectedRequirement} />
               </Form.Group>
 
               <Form.Group controlId="formSemester">
-                <Form.Label>Which semester did you obtain this external credit in?</Form.Label>
-                <Dropdown>
+                <Form.Label>Semester you obtained the external credit in:</Form.Label>
+                <SemesterDropdown>
                   <Dropdown.Toggle variant="secondary">
-                    Select a semester
+                    {semesterDropdownLabel}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item onClick={e => this.handleChange('selectedSemester', e)}>None</Dropdown.Item>
-                    <Dropdown.Item onClick={e => this.handleChange('selectedSemester', e)}>1</Dropdown.Item>
-                    <Dropdown.Item onClick={e => this.handleChange('selectedSemester', e)}>2</Dropdown.Item>
-                    <Dropdown.Item onClick={e => this.handleChange('selectedSemester', e)}>3</Dropdown.Item>
-                    <Dropdown.Item onClick={e => this.handleChange('selectedSemester', e)}>4</Dropdown.Item>
+                    <Dropdown.Item eventKey="N/A" onSelect={e => this.handleChange("selectedSemester", "N/A", e)}>N/A</Dropdown.Item>
+                    { profile && profile.classYear &&
+                      getSemesterNames(profile.classYear).map((semName, index) =>
+                        <Dropdown.Item key={semName} eventKey={index} onSelect={(e) => this.handleChange("selectedSemester", semName, e)}>
+                          {semName}
+                        </Dropdown.Item>
+                      )
+                    }
                   </Dropdown.Menu>
-                </Dropdown>
-                {/* <Form.Control as="select">
-                  <option>None</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </Form.Control> */}
+                </SemesterDropdown>
                 <Form.Text className="text-muted">
-                  For AP credits, waivers, or other external credits that don't fit in a semester, choose None.
+                  For AP credits, waivers, or other external credits that don't fit in a semester, choose "N/A" - they will appear in "Your External Credits" on the left.
                 </Form.Text>
               </Form.Group>
 
