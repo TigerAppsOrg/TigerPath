@@ -14,6 +14,9 @@
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+
     <!-- Custom styles for this template -->
     <link href="{% static 'landing/css/landing-page.css' %}" rel="stylesheet">
 
@@ -21,42 +24,32 @@
   </head>
   <body>
     {% include 'includes/analytics/analytics_body.html' %}
-    
+
     {% include 'includes/navigation.html' %}
 
-    <!-- Masthead -->
-    <header class="masthead text-white text-center">
-      <div class="overlay"></div>
+    <div class="header-bg"></div>
+
+    <header class="masthead text-center">
       <div class="container">
-        <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <h1 class="mb-5">TigerPath helps Princeton University students plan out their four-year course schedules.</h1>
-          </div>
-          <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-            <a class="btn btn-primary" href="{% url 'login' %}">Login to manage your schedule</a>
-          </div>
+        <div class="col-xl-9 mx-auto">
+          <h2 class="header-text mb-4">TigerPath helps Princeton University students plan out their four-year course schedules.</h2>
         </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto mb-5">
+          <a class="btn btn-primary" href="{% url 'login' %}">Login to manage your schedule</a>
+        </div>
+        <img class="landing-demo img-fluid mb-5 mx-auto" src="{% static 'landing/img/landing_demo.gif' %}"/>
       </div>
     </header>
 
-    <!-- Features and screenshots -->
-    <section class="container mb-4 mt-4">
-      <div class="row justify-content-center mb-3">
-        <h2>Features</h2>
-      </div>
-      <div class="text-center mb-4">
-        <p class="lead"><b>Search</b> for courses</p>
-        <p class="lead"><b>Drag and drop</b> courses into your schedule</p>
-        <p class="lead"><b>Track requirements</b> for your selected major and degree</p>
-        <p class="lead">See how viable <b>switching to another major</b> would be</p>
-      </div>
-      <div class="row justify-content-center">
-        <img src="{% static 'landing/img/landing_demo.gif' %}"/>
+    <section class="container text-center mb-4">
+      <h2 class="mb-4">Features</h2>
+      <div class="mb-5">
+        <p class="lead mb-4"><i class="fas fa-search mr-3"></i><b>Search</b> for Princeton courses from any semester</p>
+        <p class="lead mb-4"><i class="far fa-hand-rock mr-3"></i>Easily customize your schedule using fluid <b>drag and drop</b></p>
+        <p class="lead mb-4"><i class="fas fa-list-ul mr-3"></i><b>Track requirements in real-time</b> for your major and degree</p>
+        <p class="lead mb-4"><i class="fas fa-exchange-alt mr-3"></i>See how feasible <b>switching to another major</b> would be</p>
       </div>
     </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- show messages to the user -->
     {% include 'includes/messages.html' %}
