@@ -9,7 +9,7 @@ function startIntro() {
       {
         element: '#search-pane',
         intro: `You can search for courses you want to add to your schedule here. This can be by the course code or title.
-        Try searching something!
+        Try searching something now!
         <br><br>
         Fall courses appear in <b style="color: purple;">purple</b>, Spring courses appear in <b style="color: #217bbe;">blue</b>, and courses that are offered in both semesters appear in a gradient of <b style="color: purple;">purple</b> and <b style="color: #217bbe;">blue</b></b>.
         <br><br>

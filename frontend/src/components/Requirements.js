@@ -90,7 +90,7 @@ export default class Requirements extends Component {
       for (let course_index = 0; course_index < schedule[sem_num].length; course_index++) {
         let scheduleCourse = schedule[sem_num][course_index];
 
-        if (scheduleCourse['name'] === course) {
+        if (scheduleCourse['name'] === course && !scheduleCourse['external']) {
           let settledReqTypes = scheduleCourse['settled'].map(path => path.split('//', 3).join('//'));
           let indexOfPathToType = settledReqTypes.indexOf(pathToType);
 

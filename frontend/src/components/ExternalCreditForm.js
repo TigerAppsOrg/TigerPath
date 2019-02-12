@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Alert from 'react-bootstrap/Alert';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import RequirementsDropdown from 'components/RequirementsDropdown';
 import { DEFAULT_SCHEDULE, EXTERNAL_CREDITS_SEMESTER_INDEX, getSemesterNames } from 'utils/SemesterUtils';
 import uuidv1 from 'uuid/v1';
@@ -126,7 +128,19 @@ export default class ExternalCreditForm extends Component {
               </Form.Group>
 
               <Form.Group controlId="formSemester">
-                <Form.Label>Semester you obtained the external credit in:</Form.Label>
+                <Form.Label>
+                  Semester you obtained the external credit in:
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip>
+                        For AP credits, waivers, or other external credits that don't fit in a semester, choose "N/A" - they will appear in "Your External Credits" on the left. For a summer course, choose either the semester before or after the summer in which you took it.
+                      </Tooltip>
+                    }
+                  >
+                    <i className="fas fa-info-circle fa-lg fa-fw ml-1" />
+                  </OverlayTrigger>
+                </Form.Label>
                 <SemesterDropdown>
                   <Dropdown.Toggle variant="secondary">
                     {semesterDropdownLabel}
@@ -142,9 +156,6 @@ export default class ExternalCreditForm extends Component {
                     }
                   </Dropdown.Menu>
                 </SemesterDropdown>
-                <Form.Text className="text-muted">
-                  For AP credits, waivers, or other external credits that don't fit in a semester, choose "N/A" - they will appear in "Your External Credits" on the left.
-                </Form.Text>
               </Form.Group>
 
               <Submit variant="primary" type="submit">

@@ -248,7 +248,7 @@ def get_schedule(request):
     schedule = populate_user_schedule(curr_user.user_schedule)
 
     # make sure that the schedule has 9 semesters
-    if len(schedule) < 9:
+    while len(schedule) < 9:
         schedule.append([])
 
     return HttpResponse(ujson.dumps(schedule, ensure_ascii=False), content_type='application/json')
