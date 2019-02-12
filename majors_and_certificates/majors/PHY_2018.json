@@ -236,20 +236,34 @@
             "PHY 3*",
             "PHY 4*",
             "PHY 5*",
-            "AST *",
-            "CHM *",
-            "QCB *",
-            "COS *",
-            "GEO *",
-            "MAT *",
-            "MSE *"
+            "AST 3*",
+            "AST 4*",
+            "AST 5*",
+            "CHM 3*",
+            "CHM 4*",
+            "CHM 5*",
+            "QCB 3*",
+            "QCB 4*",
+            "QCB 5*",
+            "COS 3*",
+            "COS 4*",
+            "COS 5*",
+            "GEO 3*",
+            "GEO 4*",
+            "GEO 5*",
+            "MAT 3*",
+            "MAT 4*",
+            "MAT 5*",
+            "MSE 3*",
+            "MSE 4*",
+            "MSE 5*"
           ]
         }
       ]
     },
     {
       "name": "Independent Work",
-      "max_counted": null,
+      "max_counted": 0,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior independent work:  Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, which will take place early in the semester, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.\nDuring the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review, or a research proposal.  The second junior paper is due in early May.",
       "description": "Independent Work",
@@ -257,9 +271,9 @@
     },
     {
       "name": "Senior Thesis",
-      "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. During the fall of the junior year each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding the senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical, or library study that will be written and presented as a senior thesis.",
+      "min_needed": 0,
       "max_counted": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. During the fall of the junior year each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding the senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical, or library study that will be written and presented as a senior thesis.",
       "description": "Senior Thesis",
       "no_req": null
     }
