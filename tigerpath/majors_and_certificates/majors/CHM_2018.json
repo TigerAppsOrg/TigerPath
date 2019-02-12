@@ -29,7 +29,7 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 3,
+      "min_needed": "ALL",
       "explanation": "Before entering the department, students are expected to complete:\nThe sophomore program of prospective chemistry concentrators should include one year of organic chemistry (CHM 301 and 302/304). Note: Chemistry concentrators must take the CHM 301 and 302/304 sequence at Princeton.",
       "req_list": [
         {
@@ -41,7 +41,7 @@
             {
               "name": null,
               "max_counted": 2,
-              "min_needed": 2,
+              "min_needed": null,
               "explanation": "Standard",
               "req_list": [
                 {
@@ -99,32 +99,27 @@
           "req_list": [
             {
               "name": null,
-              "max_counted": 2,
-              "min_needed": "ALL",
-              "explanation": "101 and 102",
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": "Mechanics: 101, 103, or 105",
               "course_list": [
                 "PHY 101",
-                "PHY 102"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 2,
-              "min_needed": "ALL",
-              "explanation": "103 and 104",
-              "course_list": [
                 "PHY 103",
-                "PHY 104"
+                "PHY 105",
+                "EGR 151",
+                "EGR 191"
               ]
             },
             {
               "name": null,
-              "max_counted": 2,
-              "min_needed": "ALL",
-              "explanation": "105 and 106",
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": "Electricity and Magnetism: 102, 104, or 106",
               "course_list": [
-                "PHY 105",
-                "PHY 106"
+                "PHY 102",
+                "PHY 104",
+                "PHY 106",
+                "EGR 153"
               ]
             },
             {
@@ -143,8 +138,8 @@
           ]
         },
         {
-          "name": "Sophomore Program of Prospective Chemistry Concentrators",
-          "max_counted": null,
+          "name": "Organic Chemistry",
+          "max_counted": 1,
           "min_needed": 2,
           "explanation": "The sophomore program of prospective chemistry concentrators should include one year of organic chemistry (CHM 301 and 302/304). Note: Chemistry concentrators must take the CHM 301 and 302/304 sequence at Princeton.",
           "double_counting_allowed": true,
@@ -152,7 +147,7 @@
             {
               "name": null,
               "max_counted": 1,
-              "min_needed": 1,
+              "min_needed": null,
               "explanation": "CHM 301",
               "course_list": [
                 "CHM 301"
@@ -161,7 +156,7 @@
             {
               "name": null,
               "max_counted": 1,
-              "min_needed": 1,
+              "min_needed": null,
               "explanation": "CHM 302 or 304",
               "course_list": [
                 "CHM 302",
@@ -180,9 +175,9 @@
       "req_list": [
         {
           "name": "Chemistry Departmentals",
-          "max_counted": 1,
+          "max_counted": 3,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": "Students must take three 300-, 400-, or 500-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic, physical, and inorganic chemistry.",
           "course_list": [
             "CHM 3*",
             "CHM 4*",
@@ -193,7 +188,7 @@
           "name": "Experimental Laboratory",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": "The experimental requirement may be fulfilled by taking either CHM 371, or MOL 350, or MSE 302, or PHY 311 or 312, or CBE 346. Note: The experimental course must be completed by the end of the junior year.",
           "completed_by_semester": 6,
           "course_list": [
             "CHM 371",
@@ -201,7 +196,7 @@
             "MSE 302",
             "PHY 311",
             "PHY 312",
-            "CB 346"
+            "CBE 346"
           ]
         }
       ]
@@ -210,7 +205,7 @@
       "name": "Cognates",
       "max_counted": 1,
       "min_needed": 4,
-      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
+      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.\n\n<i>Editor's Note: Concentrators must get departmental approval for many of these courses, and TigerPath does not verify this.</i>",
       "req_list": [
         {
           "name": null,
