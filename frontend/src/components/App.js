@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import { ajaxSetup } from 'AjaxSetup';
 import Search from 'components/Search';
-import Schedule from 'components/Schedule';
+import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
-import { addPopover } from 'Popover';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { ThemeProvider } from 'styled-components';
+import { TIGERPATH_THEME } from 'styles/theme';
+import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 
-const DEFAULT_SCHEDULE = [[],[],[],[],[],[],[],[]];
 const RADIX = 10;
 
 export default class App extends Component {
@@ -30,17 +31,8 @@ export default class App extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.schedule !== prevState.schedule) {
-      if (prevState !== null) {
+      if (prevState.schedule !== null) {
         this.updateScheduleAndGetRequirements();
-      }
-
-      let schedule = this.state.schedule;
-      for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
-        for (let courseIndex = 0; courseIndex < schedule[semIndex].length; courseIndex++) {
-          let course = schedule[semIndex][courseIndex];
-          let courseKey = `course-card-${course["semester"]}-${semIndex}-${courseIndex}`;
-          addPopover(course, courseKey, semIndex);
-        }
       }
     }
   }
@@ -61,7 +53,12 @@ export default class App extends Component {
     for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
       strippedSchedule.push([]);
       for (let course of schedule[semIndex]) {
-        strippedSchedule[semIndex].push({id: course['id'], settled: course['settled']});
+        let strippedCourse = { id: course['id'], settled: course['settled'] };
+        if (course['external']) {
+          strippedCourse['external'] = course['external'];
+          strippedCourse['name'] = course['name'];
+        }
+        strippedSchedule[semIndex].push(strippedCourse);
       }
     }
 
@@ -129,19 +126,21 @@ export default class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
-        <DragDropContext onDragEnd={this.onDragEnd}>
-          <div id="search-pane" className="col-lg-2 pl-0 pr-0">
-            <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
+      <ThemeProvider theme={TIGERPATH_THEME}>
+        <React.Fragment>
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <div id="search-pane" className="col-lg-2 pl-0 pr-0">
+              <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
+            </div>
+            <div className="col-lg-8 pl-0 pr-0">
+              <MainView onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} requirements={this.state.requirements} />
+            </div>
+          </DragDropContext>
+          <div className="col-lg-2 pl-0 pr-0">
+            <Requirements onChange={this.onChange} requirements={this.state.requirements} schedule={this.state.schedule} />
           </div>
-          <div className="col-lg-8 pl-0 pr-0">
-            <Schedule onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} />
-          </div>
-        </DragDropContext>
-        <div className="col-lg-2 pl-0 pr-0">
-          <Requirements onChange={this.onChange} requirements={this.state.requirements} schedule={this.state.schedule} />
-        </div>
-      </React.Fragment>
+        </React.Fragment>
+      </ThemeProvider>
     );
   }
 }

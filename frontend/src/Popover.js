@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { getSemesterType, isFallSemester, isSpringSemester } from 'utils/SemesterUtils';
 
 export function addPopover(course, courseKey, semIndex) {
   let courseName = course['name'];
@@ -10,16 +11,21 @@ export function addPopover(course, courseKey, semIndex) {
   courseElement.attr("data-html", "true");
 
   // Add content to the popover
-  let content = courseTitle;
+  let content;
+  if (!course['external']) {
+    content = courseTitle;
+  } else {
+    content = 'This is an external credit that you\'ve added.';
+  }
   let addedCoursesWithSameName = $(".semester").find(`[title="${courseName}"]`);
 
   if (addedCoursesWithSameName.length > 1) {
     content += "<div class='popover-warning'>This course has already been added to your schedule.</div>";
   }
 
-  if (courseSemType === 'fall' && semIndex % 2 === 1) {
+  if (courseSemType === 'fall' && isSpringSemester(getSemesterType(semIndex))) {
     content += "<div class='popover-warning'>This course has previously only been offered in the Fall.</div>";
-  } else if (courseSemType === 'spring' && semIndex % 2 === 0) {
+  } else if (courseSemType === 'spring' && isFallSemester(getSemesterType(semIndex))) {
     content += "<div class='popover-warning'>This course has previously only been offered in the Spring.</div>";
   }
 

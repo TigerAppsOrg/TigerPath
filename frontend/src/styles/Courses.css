@@ -42,8 +42,8 @@
 }
 
 .search-card.both {
-  background-color: #fbf2e9;
-  color: #753a00;
+  background: linear-gradient(to right, #f6ebff, #ebf6f9);
+  color: #333;
 }
 
 .search-card-info {
@@ -62,7 +62,7 @@
 }
 
 #display-courses {
-  height: calc(100vh - 127px);
+  height: calc(100vh - 122px);
   overflow: auto;
 }
 
@@ -104,12 +104,17 @@
 }
 
 .course-card.both {
+  background: linear-gradient(to right, #eaccff, #c4e3ed);
+  color: #333;
+}
+
+.course-card.external {
   background-color: #f3d9be;
   color: #753a00;
 }
 
 .course-card .course-name {
-  width: 90%;
+  max-width: calc(100% - 18px);
 	overflow: hidden;
 	float: left;
 	text-overflow: ellipsis;
@@ -136,6 +141,11 @@
 
 .course-info:hover, .course-eval:hover {
   color: #5a6268;
+}
+
+/* add delete button on course hover in semesters */
+.semester .course-card:hover .delete-course {
+  display: block;
 }
 
 .delete-course {
