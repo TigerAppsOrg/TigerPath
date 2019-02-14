@@ -36,7 +36,7 @@ export function getSemesterNames(classYear) {
       semesterNames.push(`${semester} ${year}`);
 
       semesterType = isFallSemester(semesterType) ? SEMESTER_TYPE.SPRING_SEM : SEMESTER_TYPE.FALL_SEM;
-      if (isFallSemester(semesterType)) year++;
+      if (isSpringSemester(semesterType)) year++;
     }
 
     return semesterNames;
