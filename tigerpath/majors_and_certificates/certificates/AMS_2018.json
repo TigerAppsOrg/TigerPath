@@ -1,0 +1,80 @@
+{
+    "type": "Certificate",
+    "name": "American Studies",
+    "code": "AMS",
+    "degree": null,
+    "year": 2018,
+    "description": "Objects of study range across multiple media, including texts, images, works of art, music, performance, and film, and draw from the diverse fields of literature, history, political science, art history, economics, law, cultural studies, and the history of science.  The course attends to how knowledge about America has and continues to be produced, disseminated, and consumed, emphasizing the cognitive processes associated with the invention and delineation of America.",
+    "urls": [
+        "https://ams.princeton.edu/academics/program-study"
+    ],
+    "contacts": [
+        {
+            "type": "Program Assistant",
+            "name": "Candice Kessel",
+            "email": "cwkessel@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "This course introduces a selection of signature ideas and debates that made the nation what it is today and what it is becoming.  Objects of study range across multiple media, including texts, images, works of art, music, performance, and film, and draw from the diverse fields of literature, history, political science, art history, economics, law, cultural studies, and the history of science.  The course attends to how knowledge about America has and continues to be produced, disseminated, and consumed, emphasizing the cognitive processes associated with the invention and delineation of America.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "AMS 101"
+            ]
+        },
+        {
+            "name": "Breadth",
+            "max_counted": 3,
+            "min_needed": 3,
+            "explanation": "Three courses in American Studies, Asian American Studies, or Latino Studies, either originating in the relevant program or cross-listed, and representing disciplinary breadth in the social sciences, arts, and humanities. No more than one course taken in fulfillment of the student’s concentration may be counted toward the certificate.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "AAS 305",
+                "AAS 322",
+                "AAS 363",
+                "AAS 380",
+                "AMS 306",
+                "AMS 335",
+                "AMS 356",
+                "AMS 403",
+                "AMS 404",
+                "ART 470",
+                "GSS 345",
+                "HIS 444",
+                "ASA 347",
+                "ATL 498",
+                "COM 431",
+                "ENG 401",
+                "ENG 408",
+                "ENV 357",
+                "MUS 260",
+                "HUM 346",
+                "THR 385",
+                "WWS 385",
+                "WWS 387",
+                "AMS 301",
+                "AMS 307",
+                "AMS 311",
+                "AMS 361",
+                "AMS 395",
+                "ART 384",
+                "ART 393",
+                "CWR 345",
+                "ENG 416",
+                "GSS 319",
+                "JDS 312",
+                "REL 360",
+                "SAS 360",
+                "THR 332"
+            ]
+        }
+    ]
+}

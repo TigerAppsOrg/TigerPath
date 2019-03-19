@@ -1,0 +1,101 @@
+{
+    "type": "Certificate",
+    "name": "Global Health and Health Policy",
+    "code": "GHP",
+    "degree": null,
+    "year": 2018,
+    "description" : "The interdepartmental Program in Global Health and Health Policy enables undergraduates to study the determinants, consequences, and patterns of disease across societies; the role of medical technologies and interventions in health improvements; and the economic, political, and social factors that shape domestic and global public health policy.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-global-health-and-health-policy",
+        "https://globalhealth.princeton.edu/"
+    ],
+    "contacts": [
+        {
+            "type": "Co-Director",
+            "name": "Joao G. Biehl",
+            "email": "jbiehl@princeton.edu"
+        },
+        {
+            "type": "Co-Director",
+            "name": "Andrea Graham",
+            "email": "algraham@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core Requirements",
+            "min_needed": 2,
+            "explanation": "Completion of GHP 350 (Critical Perspectives on Global Health and Health Policy) and GHP 351 (Epidemiology) is required by the end of junior year.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 2,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 6,
+            "course_list": [
+                "GHP 350",
+                "GHP 351"
+            ]
+        },
+        {
+            "name": "Senior Thesis",
+            "max_counted": 0,
+            "min_needed": 0,
+            "explanation": "A senior thesis written in the home department that addresses or relates to global health and health policy in an interdisciplinary manner. The thesis requirement can be fulfilled in three ways: an integrated thesis on a health topic; a final chapter that connects the thesis to health and health policy; a separate research paper on a topic directly relevant to health and health policy. The topic must be approved by the GHP program in the fall of the senior year.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "no_req": null
+        },
+        {
+            "name": "Summer Project",
+            "max_counted": 0,
+            "min_needed": 0,
+            "explanation": "An approved field- or lab-based research project during the summer between the junior and senior year is required. Options include a research-focused internship, independent research, or participation in a faculty member's field or laboratory research (including lab research at Princeton with a health application). The project or internship must last a minimum of 8 weeks. The requirement cannot be fulfilled until the summer after junior year.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "no_req": null
+        },
+        {
+            "name": "Health-Related Electives",
+            "min_needed": 4,
+            "explanation": "Four additional health-related electives approved by the GHP program, at least one of which is in an area outside of the home department. ",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 1,
+            "completed_by_semester": 8,
+            "course_list": [
+                "AMS 306",
+                "PSY 317",
+                "WWS 453",
+                "MOL 425",
+                "MOL 458",
+                "MOL 423",
+                "ISC 326",
+                "LAS 372",
+                "GSS 420",
+                "GHP 4121",
+                "GHP 400",
+                "EEB 328",
+                "CBE 447",
+                "AAS 302",
+                "WWS 354",
+                "MOL 460",
+                "MOL 349",
+                "EEB 327",
+                "ECO 332",
+                "CHM 440",
+                "ENV 407",
+                "MOL 433",
+                "MOL 459",
+                "GHP 301",
+                "ANT 403",
+                "CBE 440",
+                "GHP 300",
+                "GHP 410",
+                "MOL 447",
+                "WWS 393",
+                "ENV 329",
+                "WWS 407",
+                "GHP 408",
+                "GHP 409"
+            ]
+        }
+    ]
+}

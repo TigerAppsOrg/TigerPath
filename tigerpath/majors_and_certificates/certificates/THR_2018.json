@@ -1,0 +1,70 @@
+{
+    "type": "Certificate",
+    "name": "Theater",
+    "code": "THR",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Theater, part of the Lewis Center for the Arts, offers students the opportunity to work with artists, critics and scholars in the the rehearsal room, the theater and the classroom. Students can familiarize themselves with theatrical collaboration and with all the practical skills of theater making; and gain an understanding of the role theater has played and continues to play in many cultures throughout history. The program offers courses in playwriting, acting, directing, design, dramaturgy, performance history, and criticism. The program offers a full season of theatrical productions and explorations, chosen by the students and produced, in collaboration with professional artists and technicians, in order to support our students growth as artists. Visiting guest artists offer workshops, participate in play readings and explorations, and collaborate on student productions.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-theater"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Jane Cox",
+            "email": "janecox@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Studio Courses",
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "At least three must be studio courses chosen from offerings in acting, directing, playwriting, design, and dramaturgy.",
+
+            "course_list": [
+                "THR 400",
+                "THR 317",
+                "THR 402"
+            ]
+        },
+        {
+            "name": "Remaining requirements",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "At least one course in dramatic literature, performance history, performance studies, or criticism. Up to two courses in this area may be used toward the five-course requirement.",
+            "course_list": [
+                "THR 101",
+                "THR 201",
+                "THR 205",
+                "THR 210A",
+                "THR 210B",
+                "THR 211",
+                "THR 217",
+                "THR 228",
+                "THR 237",
+                "THR 242",
+                "THR 300",
+                "THR 301",
+                "THR 303",
+                "THR 304",
+                "THR 305",
+                "THR 311",
+                "THR 314",
+                "THR 318",
+                "THR 321",
+                "THR 323",
+                "THR 326",
+                "THR 328",
+                "THR 330",
+                "THR 331",
+                "THR 338",
+                "THR 341",
+                "THR 343",
+                "THR 345",
+                "THR 346",
+                "THR 347"
+            ]
+        }
+    ]
+}

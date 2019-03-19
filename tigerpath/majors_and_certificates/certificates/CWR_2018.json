@@ -1,0 +1,56 @@
+{
+    "type": "Certificate",
+    "name": "Creative Writing",
+    "code": "CWR",
+    "degree": null,
+    "year": 2018,
+    "description" : "The Program in Creative Writing, part of the Lewis Center for the Arts, allows undergraduates to work with practicing writers while pursuing a regular liberal arts course of study. Students develop their writing skills; learn the possibilities of modern poetry, fiction, nonfiction, screenwriting, and translation; and gain a special access to the critical understanding of literature through their involvement in the creative process. Small workshop courses in poetry, fiction, nonfiction, screenwriting, and translation are taught by the program faculty, and visiting writers. These courses are limited in enrollment to ensure the benefits of working closely with faculty. Students begin the creative writing course sequence in either the fall or spring with 201, 202, 203, 204, 205, 206, 348, 349, or 448. (Any of these may be repeated for credit with a different instructor.) Students who have taken two 200-level courses in poetry, fiction, and translation may apply for the 300 level. All creative writing courses require an application process. Screenwriting students may apply to intermediate and advanced screenwriting classes after one introductory screenwriting class, or any other two CWR courses.Each workshop focuses on one genre only (poetry, fiction, nonfiction, screenwriting, or translation). Workshops meet for up to three hours weekly and are devoted primarily to discussion of student work. All creative writing program courses are graded pass/D/fail but are not counted in the pass/D/fail budget.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-creative-writing",
+        "http://arts.princeton.edu/academics/creative-writing/program-of-study/"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Tracy K. Smith",
+            "email": "Tracy.K.Smith@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Lower Level Requirements",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Candidates for the certificate normally take two 200-level courses in creative writing by the end of sophomore year. A portion of this requirement may be waived in unusual circumstances.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 2,
+            "pdfs_allowed": 2,
+            "completed_by_semester": 4,
+            "course_list": [
+                "CWR 201",
+                "CWR 202",
+                "CWR 203",
+                "CWR 204",
+                "CWR 205",
+                "CWR 206"
+            ]
+        },
+        {
+            "name": "Upper Level Requirements",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Candidates for the certificate normally take two 300-level courses by the end of junior year. A portion of this requirement may be waived in unusual circumstances. ",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 2,
+            "completed_by_semester": 6,
+            "course_list": [
+                "CWR 301",
+                "CWR 302",
+                "CWR 303",
+                "CWR 304",
+                "CWR 305",
+                "CWR 306"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "type": "Certificate",
+    "name": "Language and Culture: East Asian",
+    "code": "LAC-EAS",
+    "degree": null,
+    "year": 2018,
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-language-and-culture",
+        "https://odoc.princeton.edu/certificates-language-and-culture",
+        "https://eas.princeton.edu/undergraduate/certificates"
+    ],
+    "contacts": [
+        {
+            "type": "Department Chair",
+            "name": "Martin Kern",
+            "email": "mkern@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Language Proficiency",
+            "min_needed": 7,
+            "description": "Seven language courses, three or more of which must be beyond the second year level.",
+            "explanation": "A student majoring in a department other than East Asian studies may earn a certificate in Chinese, Japanese, or Korean by completing 7 language courses, 3 or more of which must be beyond the 2nd-year level, and 1 or more East Asian studies or cognate courses.\nStudents placing into higher level language courses may still qualify for the certificate by substituting EAS-prefixed and cognate courses for language work. Such exceptions will be made in consultation with the EAS Director of Undergraduate Studies.\nCourses taken a in summer language programs (i.e. Princeton in Beijing or Princeton in Ishikawa) or over the course of a semester or year at other institutions may count towards certificate requirements. However, pre-approval for such coursework must be obtained from the EAS Director of Undergraduate Studies.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "CHI 1**",
+                "CHI 3**",
+                "CHI 40*",
+                "JPN 1**",
+                "JPN 3**",
+                "KOR 1**",
+                "KOR 3**"
+            ]
+        },
+        {
+            "name": "Content Courses",
+            "min_needed": 1,
+            "description": "One or more East Asian studies or cognate courses in linguistics, religion, history, or anthropology.",
+            "explanation": "A student majoring in a department other than East Asian studies may earn a certificate in Chinese, Japanese, or Korean by completing 7 language courses, 3 or more of which must be beyond the 2nd-year level, and 1 or more East Asian studies or cognate courses. Students must also complete a substantial piece of independent research (20-25 pages) based at least in part on Chinese, Japanese, or Korean sources dealing with aspects of East Asia. The paper could be either an original piece of research or a Junior Paper or Senior Thesis. If such a Junior Paper or Senior Thesis is written for another department, at least half of the work has to be on East Asia. Students interested in earning a certificate should apply at the department office by the end of their junior year.\n\nStudents placing into higher level language courses may still qualify for the certificate by substituting EAS-prefixed and cognate courses for language work. Such exceptions will be made in consultation with the EAS Director of Undergraduate Studies.\nCourses taken abroad in summer language programs (i.e. Princeton in Beijing or Princeton in Ishikawa) or over the course of a semester or year at other institutions may count towards certificate requirements. However, pre-approval for such coursework must be obtained from the EAS Director of Undergraduate Studies.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "EAS ***",
+                "LIN ***",
+                "REL ***",
+                "HIS ***",
+                "ANT ***"
+            ]
+        }
+    ]
+}

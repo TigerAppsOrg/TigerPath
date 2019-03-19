@@ -1,0 +1,37 @@
+{
+    "type": "Certificate",
+    "name": "Language and Culture: Classics",
+    "code": "LAC-CLA",
+    "degree": null,
+    "year": 2018,
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-language-and-culture",
+        "https://odoc.princeton.edu/certificates-language-and-culture",
+        "https://classics.princeton.edu/programs/undergraduate/tracks/certificate-program"
+    ],
+    "contacts": [
+        {
+            "type": "Assistant Professor of Classics",
+            "name": "Emmanuel C. Bourbouhakis",
+            "email": "ebourbou@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "General Requirement",
+            "min_needed": 3,
+            "description": "Greek and/or Latin Courses",
+            "explanation": "Three Greek and/or Latin courses — one course may be at the 200 level; the remaining two must be 300 level courses.\n \nA piece of independent work. This can be satisfied in several ways:\n \nby a substantial paper growing out of one of the courses taken to fulfill the certificate requirement (this will be in addition to the work required in the course).\nby a substantial paper on a topic agreed upon with an instructor in the department and approved by the program.\nwith the agreement of the home department and the program, by a piece of independent work that will satisfy the requirements of both home department and program. As a substitute for this requirement, students may either take an additional course in their language at the 200 or 300 level or a CLA course focusing on the culture of their certificate program.\n",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "LAT 2**",
+                "MOG 2**",
+                "CLG 2**",
+                "LAT 3**",
+                "MOG 3**",
+                "CLG 3**"
+            ]
+        }
+    ]
+}

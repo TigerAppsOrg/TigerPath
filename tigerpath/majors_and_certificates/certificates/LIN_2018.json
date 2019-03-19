@@ -1,0 +1,59 @@
+{
+    "type": "Certificate",
+    "name": "Linguistics",
+    "code": "LIN",
+    "degree": null,
+    "year": 2018,
+    "description": "Linguistics is the scientific study of language and all its properties. Students at Princeton develop the skills of a linguist through hands-on engagement with gathering and interpreting data from many different languages, the employment of diverse methodologies, and the investigation of language through a variety of lenses.",
+    "urls": [
+        "https://linguistics.princeton.edu/certificate/"
+    ],
+    "contacts": [
+        {
+            "type": "Program Manager",
+            "name": "Yolanda Sullivan",
+            "email": "syolanda@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introduction to Language and Linguistics",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "LIN 201 is an introduction to the linguistic theory that forms the basis for most of the other courses offered by the Program in Linguistics. It is also a prerequisite for most advanced courses in Linguistics.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "LIN 201"
+            ]
+        },
+        {
+            "name": "Requirement",
+            "max_counted": 1,
+            "min_needed": 4,
+            "explanation": "Any LIN course besides 201, 200-level or above, counts for this category. At least three of the four courses should bear the LIN designation or be cross-listed with Linguistics. Linguistics related courses in other departments and programs may be counted with the approval of the director.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "LIN 260",
+                "LIN 302",
+                "LIN 310",
+                "LIN 250",
+                "PHI 534",
+                "LIN 206",
+                "LIN 205",
+                "LIN 235",
+                "LIN 210",
+                "PHI 334",
+                "LIN 355",
+                "LIN 312",
+                "LIN 308",
+                "LIN 408",
+                "LIN 301",
+                "TRA 301",
+                "LIN 306",
+                "LIN 412"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "type": "Certificate",
+    "name": "Hellenic Studies",
+    "code": "HLS",
+    "degree": null,
+    "year": 2018,
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-hellenic-studies",
+        "https://www.princeton.edu/hellenic/undergraduate/"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Christian Wildberg",
+            "email": "wildberg@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Prerequisites",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Satisfactory completion of at least one of the introductory HLS courses, or some other one-time-only introductory Hellenic Studies course, or Freshman seminar on an approved Hellenic Studies topic.",
+            "course_list": [
+                "HLS 107",
+                "HLS 206",
+                "HLS 210",
+                "HLS 240",
+                "HLS 266",
+                "HLS 346",
+                "HUM 216",
+                "COM 205"
+            ]
+        },
+        {
+            "name": "Upper-Class Seminars",
+            "min_needed": 2,
+            "explanation": "At least two upper-class seminars in Hellenic Studies (HLS 324, HLS 330, HLS 334, HLS 335, HLS 337, HLS 355, HLS 358, HLS 361, HLS 362, HLS 363, global seminar as approved by the Program Executive Director); or one upperclass seminar in Hellenic Studies and one approved upperclass cognate course.",
+            "course_list": [
+                "HLS 324",
+                "HLS 330",
+                "HLS 334",
+                "HLS 335",
+                "HLS 337",
+                "HLS 355",
+                "HLS 358",
+                "HLS 361",
+                "HLS 362",
+                "HLS 363"
+            ]
+        },
+        {
+            "name": "Plan A Language Requirement",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Only Plan A (Modern Greek Language and Literature) students have a language requirement (HLS 107 or advanced language skill in modern Greek and/or transfer course, as approved by the Program Executive Director). Other students are encouraged to take at least two years of ancient or modern Greek.",
+            "course_list": [
+                "HLS 107/MOG 107",
+                "CLG 108"
+            ]
+        }
+    ]
+}

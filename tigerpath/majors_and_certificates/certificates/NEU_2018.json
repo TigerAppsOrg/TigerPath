@@ -1,0 +1,87 @@
+{
+    "type": "Certificate",
+    "name": "Neuroscience",
+    "code": "NEU",
+    "degree": null,
+    "year": 2018,
+    "description": "The Certificate Program in Neuroscience at Princeton is designed for University undergraduate students with a strong interest in the brain but whose primary studies are in a different subject area. Students pursuing concentrations in a wide variety of fields (e.g., molecular biology, psychology, engineering, chemistry, applied math, economics, politics, history, and music) have successfully completed the neuroscience certificate.",
+    "urls": [
+        "http://pni.princeton.edu/education/undergraduate-certificate"
+    ],
+    "contacts": [
+        {
+            "type": "PNI Undergraduate Administrator",
+            "name": "Paryn Wallace",
+            "email": "neurocrt@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introduction Course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "To complete the certificate, the student must take one of the introductory courses. [Note: As of Academic Year 2017-18, NEU 175: Introduction to Neuroscience will no longer be offered]",
+            "double_counting_allowed": false,
+            "max_common_with_major": 3,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "NEU 175",
+                "NEU 200",
+                "NEU 201"
+            ]
+        },
+        {
+            "name": "Core Course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "The student is required to take NEU 202 as a core course.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "NEU 202"
+            ]
+        },
+        {
+            "name": "Elective Courses",
+            "max_counted": 1,
+            "min_needed": 4,
+            "explanation": "The student must complete four (4) electives. These electives must come from 3 out of 4 subject areas. These areas are: Molecular/Cellular/Disease, Circuits & Systems, Neural Computation, and Social & Cognitive Neuroscience.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 4,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "NEU 301",
+                "EEB 403",
+                "PSY 413",
+                "MOL 447",
+                "MOL 451",
+                "MOL 458",
+                "NEU 475",
+                "NEU 501A",
+                "PSY 260",
+                "PSY 316",
+                "PSY 330",
+                "PSY 338",
+                "PSY 340",
+                "NEU 437",
+                "NEU 457",
+                "COS 402",
+                "COS 424",
+                "COS 495",
+                "ELE 364",
+                "MAT 323",
+                "PSY 306",
+                "PSY 331",
+                "PSY 337",
+                "PSY 405",
+                "NEU 200",
+                "NEU 422",
+                "PSY 480",
+                "PSY 516",
+                "NEU 502A",
+                "PSY 411"
+            ]
+        }
+    ]
+}
