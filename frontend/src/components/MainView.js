@@ -72,7 +72,7 @@ export default class MainView extends Component {
       <React.Fragment>
         <Nav>
           <NavButton active={scheduleTabActive} onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}>Schedule</NavButton>
-          <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>External Credits</NavButton>
+          <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>AP/External Credits</NavButton>
         </Nav>
         <Content>
           {scheduleTabActive &&
