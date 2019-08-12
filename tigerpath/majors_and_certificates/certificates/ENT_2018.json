@@ -1,0 +1,51 @@
+{
+    "type": "Certificate",
+    "name": "Entrepreneurship",
+    "code": "ENT",
+    "degree": null,
+    "year": 2018,
+    "description": "Entrepreneurship is driving enormous social and economic changes that are shaping our collective future. The program has three main aims: to create focused pathways through the curriculum that will allow Princeton undergraduates to supplement work in their major departments with a systematic and coherent understanding of, and practice in, entrepreneurship; to leverage, expand, and enhance the University’s offerings across the liberal arts in order to fulfill the previously stated aim; and to promote an interdisciplinary academic community of undergraduate students, faculty members, and others who share an interest and commitment to learning from and contributing to these areas.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-entrepreneurship"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Margaret R. Martonosi",
+            "email": "mrm@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introductory Courses",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Two common introductory courses: EGR 200/ENT 201 and EGR 201/ENT 200.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "EGR 201",
+                "EGR 200"
+            ]
+        },
+        {
+            "name": "Two Core Courses",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Two core courses: must be chosen from a list, which may be updated each year by the Executive Committee",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "ANT 300",
+                "COS 448",
+                "EGR 395",
+                "EGR 491",
+                "EGR 497",
+                "EGR 488",
+                "EGR 475",
+                "HIS 379",
+                "SOC 345"
+            ]
+        }
+    ]
+}

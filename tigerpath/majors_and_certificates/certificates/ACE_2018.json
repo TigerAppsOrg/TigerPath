@@ -1,0 +1,116 @@
+{
+    "type": "Certificate",
+    "name": "Architecture and Engineering",
+    "code": "ACE",
+    "degree": null,
+    "year": 2018,
+    "urls": [
+        "https://arch-eng.princeton.edu/program-requirements/"
+    ],
+    "description": "The Program in Architecture and Engineering enables students to work at the intersection of engineering and architecture.  It is a framework for interdisciplinary study to tackle problems that cannot be addressed by one discipline.  The certificate is an opportunity to respond dynamically to evolving global challenges, where elegant and effective solutions lead to more resilient and sustainable communities.",
+    "contacts": [
+        {
+            "type": "Program Director",
+            "name": "Forrest Meggers",
+            "email": "fmeggers@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core",
+            "max_counted": 2,
+            "min_needed": 2,
+            "explanation": "The following two design courses are required for all students: ARC 203 and ARC 204.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARC 203",
+                "ARC 204"
+            ]
+        },
+        {
+            "name": "Field of Expertise",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "With approval of the committee, the student may construct their own “field of expertise” that demonstrates a coherent program of study addressing a global challenge theme.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 2,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "CEE 262A",
+                "CEE 262B",
+                "ARC 374",
+                "ENE 202"
+            ]
+        },
+        {
+            "name": "Structures",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses are selected from a list of electives either following a field of expertise or building a unique interdisciplinary set approved by advisor.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARC 311",
+                "ARC 374",
+                "ARC 350",
+                "ARC 351",
+                "CEE 205",
+                "CEE 312",
+                "CEE 361",
+                "CEE 364",
+                "CEE 463",
+                "MSE 301",
+                "MSE 302"
+            ]
+        },
+        {
+            "name": "Computation",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses are selected from a list of electives either following a field of expertise or building a unique interdisciplinary set approved by advisor.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARC 596",
+                "CEE 463",
+                "CEE 546",
+                "COS 126",
+                "COS 217",
+                "COS 226",
+                "COS 306",
+                "COS 397",
+                "COS 424"
+            ]
+        },
+        {
+            "name": "Environment",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses are selected from a list of electives either following a field of expertise or building a unique interdisciplinary set approved by advisor.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARC 311",
+                "ARC 382",
+                "ART 250",
+                "ARC 406",
+                "ARC 519",
+                "ARC 509",
+                "CEE 207",
+                "CEE 304",
+                "CEE 311",
+                "CEE 477",
+                "MAE 221",
+                "MAE 228",
+                "MAE 328",
+                "MSE 301",
+                "MSE 302"
+            ]
+        }
+    ]
+}

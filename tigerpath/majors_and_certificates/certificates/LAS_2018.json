@@ -1,0 +1,76 @@
+{
+    "type": "Certificate",
+    "name": "Latin American Studies",
+    "code": "LAS",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Latin American Studies promotes interdisciplinary study and seeks to inspire knowledge of and experience in Latin America.Through various approaches in the humanities and the social and natural sciences, the program seeks to guide students toward an understanding of Latin American arts, cultures, histories, socioeconomic conditions, politics, and natural environments.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-latin-american-studies"
+    ],
+    "contacts": [
+        {
+            "type": "Director of the Program in Latin American Studies",
+            "name": "Gabriela Nouzeilles",
+            "email": "gnouzeil@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Latin American Studies",
+            "max_counted": 1,
+            "min_needed": 4,
+            "explanation": "The Program in Latin American Studies offers two tracks of study: Latin American Studies and Brazilian Studies.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "ARC 205",
+                "POR 304",
+                "SPA 319",
+                "HUM 346",
+                "SPA 345",
+                "SPA 220",
+                "SPA 222",
+                "SPA 330",
+                "REL 359",
+                "POR 562",
+                "AAS 328",
+                "WWS 364",
+                "SPA 548",
+                "ANT 336",
+                "ART 387",
+                "LAS 376",
+                "LAS 486",
+                "LAS 392",
+                "POR 222",
+                "AAS 322",
+                "SPA 550",
+                "ART 367",
+                "POR 221",
+                "ART 103",
+                "AAS 242",
+                "LAS 395",
+                "ART 365",
+                "SPA 213",
+                "LAS 372",
+                "SPA 338",
+                "EEB 332",
+                "EEB 338",
+                "LAS 362",
+                "HIS 468",
+                "SPA 363",
+                "SPA 239",
+                "POR 309",
+                "POL 535",
+                "SPA 555",
+                "SPA 335",
+                "AAS 319",
+                "HIS 407",
+                "AAS 313",
+                "POL 430",
+                "SPA 356",
+                "LAS 381"
+            ]
+        }
+    ]
+}

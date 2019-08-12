@@ -1,0 +1,88 @@
+{
+    "type": "Certificate",
+    "name": "Statistics and Machine Learning",
+    "code": "SML",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Statistics and Machine Learning is designed for students, majoring in any department, who have a strong interest in data analysis and its application across disciplines. Statistics and machine learning, the academic disciplines centered around developing and understanding data analysis tools, play an essential role in various scientific fields including biology, engineering, and the social sciences. This new field of “data science” is interdisciplinary, merging contributions from a variety of disciplines to address numerous applied problems. The program provides students with a set of tools required for addressing these emerging challenges. Through the program, students will learn basic theoretical frameworks and apply statistics and machine learning methods to many problems of interest.",
+    "urls": [
+        "https://csml.princeton.edu/undergraduates/certificate-program"
+    ],
+    "contacts": [
+        {
+            "type": "Certificate Executive Committee",
+            "name": "Barbara Engelhardt",
+            "email": "bee@cs.princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Foundations of Statistics",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Students are required to take a total of five courses and earn at least B- for each course: one of the “Foundations of Statistics” courses, one of the “Foundations of Machine Learning” courses, and three elective courses. With all necessary permissions, advanced students may also take approved graduate-level courses. Students may count at most two courses from another degree program (departmental concentration) towards this certificate program.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ECO 202",
+                "ORF 245",
+                "POL 345",
+                "PSY 251",
+                "WWS 200"
+            ]
+        },
+        {
+            "name": "Electives",
+            "max_counted": 3,
+            "min_needed": 3,
+            "explanation": "With permission, may count course not used for previous foundation tracks.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "POL 245",
+                "SML 201",
+                "SML 310",
+                "COS 402",
+                "COS 429",
+                "COS 485",
+                "ELE 477",
+                "ELE 488",
+                "ORF 418",
+                "MAT 385",
+                "ORF 309",
+                "ORF 363",
+                "AST 303",
+                "CEE 460",
+                "ECO 302",
+                "ECO 312",
+                "ECO 313",
+                "ELE 382",
+                "ELE 480",
+                "GEO 422",
+                "MAE 345",
+                "ORF 405",
+                "POL 346",
+                "SOC 400",
+                "QCB 408"
+            ]
+        },
+        {
+            "name": "Foundations of Machine Learning",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Students are required to take a total of five courses and earn at least B- for each course: one of the “Foundations of Statistics” courses, one of the “Foundations of Machine Learning” courses, and three elective courses. With all necessary permissions, advanced students may also take approved graduate-level courses. Students may count at most two courses from another degree program (departmental concentration) towards this certificate program.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "COS 324",
+                "COS 424",
+                "ELE 364",
+                "ELE 435",
+                "MAT 390",
+                "ORF 350"
+            ]
+        }
+    ]
+}

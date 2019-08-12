@@ -1,0 +1,80 @@
+{
+    "type": "Certificate",
+    "name": "Archaeology",
+    "code": "ART",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Archaeology is designed to provide students with an interdisciplinary foundation in archaeology—the study of the material remains of the past—and to equip students to use archaeological evidence in other fields of inquiry. The Program offers courses that cover many cultures and periods, including Egypt, the Near East, Greece, Rome, and the Americas. It encourages a deep integration of the humanities and the sciences, and promotes the awareness of issues of cultural heritage.",
+    "urls": [
+        "https://artandarchaeology.princeton.edu/about-us/undergraduate/programs-of-study"
+    ],
+    "contacts": [
+        {
+            "type": "Department Manager",
+            "name": "Susan Lehre",
+            "email": "lehre@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core",
+            "max_counted": 2,
+            "min_needed": 2,
+            "explanation": "The core courses and fieldwork requirement ensure breadth and\nprovide a theoretical and methodological foundation for further study.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ART 100",
+                "ART 401"
+            ]
+        },
+        {
+            "name": "Fieldwork",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "“Fieldwork” is not limited to excavation. Sustained engagement in any aspect of an\narchaeological project fulfills the obligation. Students may, for example, assist in a\ngeophysical survey, participate in a surface survey, work in archaeological archives,\nor intern for a zoologist. Fieldwork must be approved by the program’s executive\ncommittee ahead of time.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ART 304"
+            ]
+        },
+        {
+            "name": "Breadth",
+            "max_counted": 3,
+            "min_needed": 3,
+            "explanation": "At least one must be offered in the Department of Art and Archaeology in the Ancient area, and at least one must be a course outside of the Department of Art and Archaeology (see the list below). Approved Freshman Seminars may count toward the three courses. A Freshman Seminar taught by a faculty member in the Department of Art and Archaeology may not count for the required course outside of the department.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ANT 206",
+                "ANT 308",
+                "ANT 374",
+                "ART 100",
+                "ART 102",
+                "ART 200",
+                "ART 201",
+                "ART 266",
+                "ART 267",
+                "ART 290",
+                "ART 300",
+                "ART 301",
+                "ART 304",
+                "ART 306",
+                "ART 308",
+                "ART 395",
+                "ART 418",
+                "ART 401",
+                "ART 481",
+                "FRS 126",
+                "FRS 129",
+                "GEO 103",
+                "GEO 203",
+                "GEO 370"
+            ]
+        }
+    ]
+}

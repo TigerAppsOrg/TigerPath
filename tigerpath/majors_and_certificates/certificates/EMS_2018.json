@@ -1,0 +1,92 @@
+{
+    "type": "Certificate",
+    "name": "Engineering and Management Systems",
+    "code": "EMS",
+    "degree": null,
+    "year": 2018,
+    "description": "The certificate Program in Engineering and Management Systems (EMS) provides students with tools for the complex decision-making problems that arise in engineering, the sciences, and management. The program offers a coherent, integrated set of core courses that are based on analytic methods, with applications in the planning and control of complex systems required by a modern technological society. Emphasis is placed on rigorous modeling and analysis, taking advantage of the vast flow of data and ubiquitous computing power available today. The EMS certificate program complements the certificate programs in applications of computing, applied and computational mathematics, and finance.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-engineering-and-management-systems"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Warren B. Powell",
+            "email": "powell@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introductory statistics course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "An introductory statistics course",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "ECO 202",
+                "ORF 245",
+                "PHY 301",
+                "PSY 251",
+                "SOC 301",
+                "WWS 200"
+            ]
+        },
+        {
+            "name": "Introductory optimization course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "An introductory optimization course",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "CBE 442",
+                "ELE 382",
+                "MAE 433",
+                "ORF 307"
+            ]
+        },
+        {
+            "name": "Probability",
+            "min_needed": 1,
+            "max_counted" : 1,
+            "explanation": "Probability",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "ORF 309"
+            ]
+        },
+        {
+            "name": "Optimization and uncertainty",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "A course integrating optimization and uncertainty",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "COS 402",
+                "ECO 418",
+                "ECO 462",
+                "ECO 465",
+                "MAE 345",
+                "ORF 311",
+                "ORF 418"
+            ]
+        },
+        {
+            "name": "Management, entrepreneurship, or systems",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "An integrative course in management, entrepreneurship, or systems",
+            "double_counting_allowed": false,
+            "completed_by_semester": 8,
+            "course_list": [
+                "CBE 442",
+                "EGR 491",
+                "EGR 497",
+                "ORF 411"
+            ]
+        }
+    ]
+}

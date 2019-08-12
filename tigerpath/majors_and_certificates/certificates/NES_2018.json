@@ -1,0 +1,71 @@
+{
+    "type": "Certificate",
+    "name": "Near Eastern Studies",
+    "code": "NES",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Near Eastern Studies provides students in any department of Princeton University the opportunity to study the languages, modern history, contemporary institutions, and problems of the Near East. Its purpose is to enhance a liberal education and to offer additional training for students who plan a career in that area. For this program, the Near East is defined as the entire Arab world plus the present-day states of Iran, Israel, and Turkey.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-near-eastern-studies",
+        "http://www.princeton.edu/nep/"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Professor Bernard A. Haykel",
+            "email": "haykel@princeton.edu"
+        },
+        {
+            "type": "Program Manager",
+            "name": "Karen N. Chirik",
+            "email": "kchirik@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Language",
+            "min_needed": 4,
+            "description": "Language Requirement",
+            "explanation": "Students who have had no relevant language training will take at least two years of Arabic, Hebrew, Persian, or Turkish language as elective courses.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARA 1**", 
+                "ARA 301",
+                "ARA 302", 
+                "HEB 1**",
+                "PER 1**", 
+                "TUR 1**", 
+                "TUR 304", 
+                "TUR 305"
+            ]
+        },
+        {
+            "name": "History",
+            "min_needed": 1,
+            "description": "History Requirement",
+            "explanation": "All students will take, as departmental courses, at least one appropriate history course in the Department of Near Eastern Studies. Students in the Department of History will take at least two such courses.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "NES ***"
+            ]
+        },
+        {
+            "name": "Social Sciences",
+            "min_needed": 2,
+            "description": "Social Sciences Requirement",
+            "explanation": "All students will take at least two courses treating the Near East that are chosen from the offerings of the Departments of Anthropology, Near Eastern Studies, Politics, Religion, and Sociology, and the Woodrow Wilson School.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ANT *", 
+                "NES *", 
+                "POL *", 
+                "REL *", 
+                "SOC *", 
+                "WWS *"
+            ]
+        }
+    ]
+}

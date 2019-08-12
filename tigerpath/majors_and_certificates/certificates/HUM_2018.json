@@ -1,0 +1,99 @@
+{
+    "type": "Certificate",
+    "name": "Humanistic Studies",
+    "code": "HUM",
+    "degree": null,
+    "year": 2018,
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-humanistic-studies",
+        "https://humstudies.princeton.edu/certificate/"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Eric Gregory",
+            "email": "gregory@Princeton.edudprof@princeton.edu"
+        },
+        {
+            "type": "Acting Director",
+            "name": "Esther Schor",
+            "email": "eschor@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core Interdisciplinary Courses",
+            "min_needed": 2,
+            "explanation": "Students must complete two interdisciplinary courses during the first two years: \nHUM 216-217 or 218-219, Interdisciplinary Approaches to Western Culture; or HUM 233-234, East Asian Humanities; or two other equivalent courses that provide a rigorous interdisciplinary approach to the arts and culture over a span of historical time.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 4,
+            "course_list": [
+                "HUM 216",
+                "HUM 218",
+                "HUM 233",
+                "HUM 234"
+            ]
+        },
+        {
+            "name": "Elective Courses",
+            "min_needed": 6,
+            "explanation": "In addition to the two prerequisites, students complete six additional courses, which may also be used to fulfill departmental requirements.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 6,
+            "req_list": [
+                {
+                    "name": "Interdisciplinary Electives",
+                    "min_needed": 4,
+                    "explanation": "Four of the six elective courses must be explicitly interdisciplinary in their approach and/or subject matter.",
+                    "double_counting_allowed": false,
+                    "max_common_with_major": 4,
+                    "course_list": [
+                        "ARC 594",
+                        "ART 311",
+                        "CLA 212",
+                        "COM 205",
+                        "COM 539",
+                        "ENG 390",
+                        "ENG 572",
+                        "FRE 414",
+                        "HUM 290",
+                        "HUM 346",
+                        "HUM 365",
+                        "HUM 450",
+                        "HUM 470",
+                        "HUM 583",
+                        "MED 227",
+                        "SPA 336",
+                        "STC 297",
+                        "TRA 400",
+                        "ANT 235",
+                        "COM 206",
+                        "COM 332",
+                        "DAN 316",
+                        "EAS 371",
+                        "FRE 383",
+                        "GER 517",
+                        "HIS 456",
+                        "HUM 596",
+                        "HUM 597",
+                        "PSY 210",
+                        "REL 222",
+                        "SLA 368"
+                    ]
+                },
+                {
+                    "name": "Interdisciplinary Capstone Seminar",
+                    "max_counted": 1,
+                    "min_needed": 0,
+                    "explanation": "One of the six courses is an interdisciplinary capstone seminar created specifically for certificate students, and normally held once a semester or at least once a year. Other team-taught, advanced, cross-disciplinary seminars can sometimes fulfill the capstone requirement, in consultation with the Humanities Council’s executive director.",
+                    "double_counting_allowed": false,
+                    "max_common_with_major": 1,
+                    "course_list": [
+                        "HUM470"
+                    ]
+                }
+            ]
+        }
+    ]
+}
