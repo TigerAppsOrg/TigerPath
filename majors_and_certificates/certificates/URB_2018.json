@@ -1,0 +1,112 @@
+{
+    "type": "Certificate",
+    "name": "Urban Studies",
+    "code": "URB",
+    "degree": null,
+    "year": 2018,
+    "description": "The Certificate Program in Urban Studies is an interdepartmental plan of study for undergraduates that offers an interdisciplinary framework for the study of cities, metropolitan regions, and urban and suburban landscapes. With courses in diverse department, the program encourages students to think about metropolitan centers in all their complexity as physical spaces; social, cultural, political, and economic nexuses; and historical artifacts.",
+    "urls": [
+        "http://urbanstudies.princeton.edu/"
+    ],
+    "contacts": [
+        {
+            "type": "Program Administrator",
+            "name": "Valerie Smith",
+            "email": "valsmith@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introduction",
+            "max_counted": 2,
+            "min_needed": 2,
+            "explanation": "Every student is strongly encouraged to take the program's two required introductory courses, URB 200 and ARC 205 as soon as possible although the courses can be taken at any time.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "URB 200",
+                "ARC 205"
+            ]
+        },
+        {
+            "name": "Social Science",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses not on the approved list may be used as electives with the approval of the Urban Studies Director. However, each selected course must contain substantial urban content to fulfill the requirements of the certificate program.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "NST 100"
+            ]
+        },
+        {
+            "name": "Humanities",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses not on the approved list may be used as electives with the approval of the Urban Studies Director. However, each selected course must contain substantial urban content to fulfill the requirements of the certificate program.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "AAS 442",
+                "DAN 322",
+                "ENG 391N",
+                "NST 100",
+                "ARC 526",
+                "ART 387",
+                "AMS 356",
+                "HIS 388",
+                "LAS 392",
+                "MUS 258",
+                "POL 403",
+                "PSY 400",
+                "PSY 402",
+                "SOC 227",
+                "URB 200",
+                "URB 202",
+                "AMS 311",
+                "AMS 395",
+                "ANT 445",
+                "ARC 205",
+                "ARC 301",
+                "ARC 303",
+                "ARC 312",
+                "ARC 492",
+                "ENG 391B",
+                "ART 313",
+                "ENV 348",
+                "HIS 418",
+                "SOC 358",
+                "SOC 413",
+                "URB 201",
+                "SPA 239",
+                "HIS 456",
+                "MUS 264",
+                "VIS 325"
+            ]
+        },
+        {
+            "name": "Engineering & Natural Sciences",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Courses not on the approved list may be used as electives with the approval of the Urban Studies Director. However, each selected course must contain substantial urban content to fulfill the requirements of the certificate program.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "course_list": [
+                "ARC 519",
+                "CEE 334",
+                "CEE 471",
+                "ENV 305",
+                "GEO 102A",
+                "GEO 360",
+                "MAE  228",
+                "CEE 262B",
+                "CEE 262A",
+                "CEE 311"
+            ]
+        }
+    ]
+}

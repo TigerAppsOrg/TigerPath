@@ -1,0 +1,160 @@
+{
+    "type": "Certificate",
+    "name": "Robotics and Intelligent Systems",
+    "code": "RIS",
+    "degree": null,
+    "year": 2018,
+    "description": "New industries and organizations depend increasingly on the interplay between engineering, computing, and the life sciences. Innovations and inventions require multidisciplinary approaches and entrepreneurship, as well as grounding in theory and practice, in topics that may not be covered by a single department. The program offers an integrated set of core and elective courses, introducing students to fundamental concepts, providing depth in specific fields of interest, and setting the stage for further achievement. Students are encouraged to expand their experience through summer internships with companies, government agencies, and university laboratories.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-robotics-and-intelligent-systems"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": " Robert F. Stengel",
+            "email": "stengel@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Admission to the Program",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "The program is open to juniors and seniors who have a satisfactory background in mathematics, science, and computing.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 6,
+            "req_list": [
+                {
+                    "name": "Mathematics",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Mathematics through MAT 202 or 204.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 6,
+                    "course_list": [
+                        "MAT 202",
+                        "MAT 204"
+                    ]
+                },
+                {
+                    "name": "Computing course",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "COS 126, ORF 201 or an equivalent computing course.",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "completed_by_semester": 6,
+                    "course_list": [
+                        "COS 126",
+                        "ORF 201"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Program of Study",
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "A student in this program must satisfy both program and departmental requirements. The program for each student is worked out by the student and the student's departmental adviser. The program requirements are as follows:\n\n1. All students must take six courses, including three core courses and three electives. To qualify for the certificate, a minimum grade average of B- in the six program courses is required. Program courses may not be taken on a pass/D/fail basis, unless that is the only grading alternative for the course. In some cases, a course can fulfill both a certificate program requirement and a regular departmental requirement (contact program director for details).",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "req_list": [
+                {
+                    "name": "Laboratory",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Laboratory",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "ELE 206",
+                        "MAE 224",
+                        "PHY 210"
+                    ]
+                },
+                {
+                    "name": "Control Systems",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Control Systems",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "CBE 445",
+                        "MAE 345",
+                        "MAE 433",
+                        "MAE 434",
+                        "ELE 301"
+                    ]
+                },
+                {
+                    "name": "Cognition, Language, and Decision Making",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Cognition, Language, and Decision Making",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "PSY 255",
+                        "PSY 321",
+                        "NEU 258",
+                        "NEU 259",
+                        "NEU 330",
+                        "PSY 322"
+                    ]
+                },
+                {
+                    "name": "Elective Courses",
+                    "min_needed": 3,
+                    "explanation": "Three Courses, Maximum of Two from any Department",
+                    "double_counting_allowed": false,
+                    "pdfs_allowed": 0,
+                    "course_list": [
+                        "CBE 442",
+                        "CBE 447",
+                        "CEE 361",
+                        "COS 217",
+                        "COS 226",
+                        "COS 333",
+                        "COS 340",
+                        "COS 402",
+                        "COS 424",
+                        "COS 426",
+                        "COS 429",
+                        "COS 461",
+                        "ECO 202",
+                        "ELE 201",
+                        "ELE 302",
+                        "ELE 381",
+                        "ELE 482",
+                        "ELE 486",
+                        "MAE 206",
+                        "MAE 321",
+                        "MAE 322",
+                        "MAE 331",
+                        "MAE 332",
+                        "MAE 341",
+                        "MAE 342",
+                        "MAE 412",
+                        "ORF 245",
+                        "ORF 307",
+                        "ORF 309",
+                        "ORF 311",
+                        "ORF 350",
+                        "ORF 363",
+                        "ORF 405",
+                        "ORF 467",
+                        "PHI 207",
+                        "PSY 259",
+                        "PSY 309",
+                        "PSY 345",
+                        "PSY 422",
+                        "PSY 475"
+                    ]
+                }
+            ]
+        }
+    ]
+}

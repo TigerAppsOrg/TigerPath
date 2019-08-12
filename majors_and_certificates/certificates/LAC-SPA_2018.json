@@ -1,0 +1,67 @@
+{
+    "type": "Certificate",
+    "name": "Spanish Language and Culture",
+    "code": "LAC-SPA",
+    "degree": null,
+    "year": 2018,
+    "description": "The Program in Language and Culture, administered through the individual language and literature departments, allows concentrators in any discipline to earn a certificate in language and culture. Certificates can be earned in the departments of classics, East Asian studies, French and Italian, German, Near Eastern studies, Slavic languages and literatures, and Spanish and Portuguese languages and cultures.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-language-and-culture",
+        "https://spo.princeton.edu/undergraduate/certificate"
+    ],
+    "contacts": [
+        {
+            "type": "Departmental Representative",
+            "name": "Christina Lee",
+            "email": "chrislee@princeton.edu"
+        },
+        {
+            "type": "Undergraduate Administrator",
+            "name": "Beth Heisler",
+            "email": "bheisler@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core Requirement",
+            "min_needed": 4,
+            "description": "Department Requirement",
+            "explanation": "Four SPA courses above SPA 209, at least three of which must be 300-level (or higher) department-based courses in the Spanish language, literature, or culture. Courses must be taken for a letter grade, no Pass/D/Fail or Audit. At the discretion of the Departmental Representative, students who study abroad during the academic year may count one pre-approved course per semester abroad towards the certificate. One Princeton summer abroad course offered through the department would also count. Two pre-approved courses in a summer program abroad other than Princeton's can count as one course towards the certificate.  In no case, however, can more than two courses taken abroad count toward the certificate. Any Spanish course taught in English will require all written work to be completed in Spanish in order to count towards the certificate.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "course_list": [
+                "SPA 392",
+                "SPA 210",
+                "SPA 220",
+                "SPA 222",
+                "SPA 224",
+                "SPA 330",
+                "SPA 336",
+                "SPA 345",
+                "SPA 534",
+                "SPA 540",
+                "SPA 548",
+                "SPA 373",
+                "SPA 387",
+                "SPA 211",
+                "SPA 213",
+                "SPA 214",
+                "SPA 239",
+                "SPA 304",
+                "SPA 307",
+                "SPA 319",
+                "SPA 335",
+                "SPA 338",
+                "SPA 340",
+                "SPA 356",
+                "SPA 363",
+                "SPA 380",
+                "SPA 403",
+                "SPA 500",
+                "SPA 550",
+                "SPA 555"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,159 @@
+{
+    "type": "Certificate",
+    "name": "Finance",
+    "code": "FIN",
+    "degree": null,
+    "year": 2018,
+    "description": "The rapidly-developing field of finance focuses on the pricing of financial assets, including equities, bonds, currencies, and derivative securities; portfolio management and the evaluation of financial risks; banking and financial intermediation; the financing of corporations; corporate governance; financial-market and banking regulation; and many other topics.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-finance"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "Markus K. Brunnermeier",
+            "email": "markus@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Foundation Courses: Mathematics",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Mathematics: MAT 175 (Mathematics for Economics/Life Sciences), or MAT 201 (Multivariable Calculus) and MAT 202 (Linear Algebra with Applications), MAT 203 (Advanced Vector Calculus), and MAT 204 (Advanced Linear Algebra with Applications)",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "MAT 175",
+                "MAT 201",
+                "MAT 202",
+                "MAT 203",
+                "MAT 204"
+            ]
+        },
+        {
+            "name": "Foundation Courses: Economics",
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "Economics: ECO 310 (Microeconomic Theory: A Mathematical Approach)",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "ECO 310"
+            ]
+        },
+        {
+            "name": "Foundation Courses: Probability and Statistics",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Probability and Statistics: ORF 245 (Fundamentals of Engineering Statistics), or ECO 202 (Statistics and Data Analysis for Economics), or PSY 251 (Quantitative Methods), or SOC 301 (Sociological Research Methods), or POL 345 (Quantitative Analysis and Politics), WWS 200 (Statistics for Social Science) or WWS 332 (Quantitative Analysis for Public Policy), or PHY 301 (Thermal Physics) and PHY 312 (Experimental Physics), or a score of 5 in AP Statistics",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "ORF 245",
+                "ECO 202",
+                "PSY 251",
+                "SOC 301",
+                "POL 345 ",
+                "WWS 200",
+                "WWS 332",
+                "PHY 301",
+                "PHY 312"
+            ]
+        },
+        {
+            "name": "Core Courses",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "The two core courses, ECO 362 (Financial Investments) and ECO 363 (Corporate Finance and Financial Institutions), typically completed during the junior year.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "ECO 362",
+                "ECO 363"
+            ]
+        },
+        {
+            "name": "Elective Courses: List One",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "List 1: Financial Applications, and List 2: General Methodology for Finance. ECO and ORF majors must take at least two of their three elective courses from List 1. All other concentrators must take at least one of their three elective courses from List 1.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "ECO 315",
+                "ECO 342",
+                "ECO 344",
+                "ECO 353",
+                "ECO 361",
+                "ECO 461",
+                "ECO 462",
+                "ECO 463",
+                "ECO 464",
+                "ECO 465",
+                "ECO 466",
+                "ECO 467",
+                "ECO 468",
+                "ECO 469",
+                "ECO 491",
+                "ECO 492",
+                "ECO 493",
+                "ECO 494",
+                "EGR 395",
+                "EGR 475",
+                "EGR 491",
+                "ORF 435",
+                "ORF 474",
+                "WWS 466",
+                "WWS 524",
+                "WWS 582f"
+            ]
+        },
+        {
+            "name": "Elective Courses: List Two",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "List 1: Financial Applications, and List 2: General Methodology for Finance. ECO and ORF majors must take at least two of their three elective courses from List 1. All other concentrators must take at least one of their three elective courses from List 1.",
+            "double_counting_allowed": false,
+            "completed_by_semester": 4,
+            "course_list": [
+                "APC 350",
+                "CEE 460",
+                "COS 318",
+                "COS 333",
+                "COS 423",
+                "COS 424",
+                "COS 432",
+                "COS 436",
+                "COS 445",
+                "COS 461",
+                "ECO 311",
+                "ECO 312",
+                "ECO 313",
+                "ECO 317",
+                "ECO 365",
+                "ECO 414",
+                "ECO 418",
+                "ECO 488",
+                "MAE 305",
+                "MAE 306",
+                "MAT 325",
+                "MAT 330",
+                "MAT 335",
+                "MAT 385",
+                "MAT 486",
+                "ORF 307",
+                "ORF 309",
+                "ORF 311",
+                "ORF 335",
+                "ORF 350",
+                "ORF 363",
+                "ORF 401",
+                "ORF 405",
+                "ORF 409",
+                "ORF 455",
+                "WWS 340"
+            ]
+        }
+    ]
+}

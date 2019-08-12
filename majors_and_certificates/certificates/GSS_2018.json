@@ -1,0 +1,140 @@
+{
+    "type": "Certificate",
+    "name": "Gender Sexuality Studies",
+    "code": "GSS",
+    "degree": null,
+    "year": 2018,
+    "description" : "The Program in Gender and Sexuality Studies is an interdisciplinary forum for the study of gender and sexuality, as well as their intersections with race, class, and ethnicity, across cultures and global geographies both past and present. The program's courses, which are open to all students, and examine gender and sexuality from a variety of disciplinary and interdisciplinary perspectives. The program offers core courses, seminars, and cross-listed courses. A current list of course offerings is available on the program website. The program also encourages summer internships in relevant community-based programs, nonprofits, and nongovernmental organizations with which the program's theoretical and historical inquiries can be applied in a practical setting.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/program-gender-and-sexuality-studies",
+        "http://gss.princeton.edu/about-program/undergraduate-certificate"
+    ],
+    "contacts": [
+        {
+            "type": "Director",
+            "name": "rkunzel@princeton.edu",
+            "email": "dprof@princeton.edu"
+        },
+        {
+            "type": "Acting Director",
+            "name": "Wallace D. Best",
+            "email": "wbest@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Core Requirement",
+            "min_needed": 1,
+            "explanation": "Students interested in pursuing the certificate generally apply to the program in their sophomore year after completing the introductory course, GSS201, which provides a background for advanced study and suggests the rich variety of feminist and LGBT scholarship being conducted today.",
+            "double_counting_allowed": false,
+            "pdfs_allowed": 1,
+            "completed_by_semester": 8,
+            "course_list": [
+                "GSS 201"
+            ]
+        },
+        {
+            "name": "GSS Specific Course",
+            "min_needed": 1,
+            "explanation": "Students must take one additional 300- or 400-level GSS course.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 1,
+            "completed_by_semester": 8,
+            "course_list": [
+                "AMS 335",
+                "ASA 347",
+                "COM 435",
+                "ENG 408",
+                "ENV 357",
+                "GSS 345",
+                "NES 374",
+                "NES 379",
+                "POL 422",
+                "THR 385",
+                "VIS 369",
+                "AAS 319",
+                "AAS 358",
+                "AMS 301",
+                "ANT 405",
+                "CHV 390",
+                "COM 416",
+                "CWR 345",
+                "EAS 314",
+                "ENG 327",
+                "ENG 394",
+                "ENG 398",
+                "GSS 319",
+                "GSS 420",
+                "HIS 401",
+                "PSY 329",
+                "REL 328",
+                "REL 360",
+                "SAS 335",
+                "SPA 335",
+                "THR 332"
+            ]
+        },
+        {
+            "name": "Elective Courses",
+            "min_needed": 3,
+            "explanation": "Students are encouraged to take at least one course from at least three of the following thematic clusters.  At least one of the courses may not be used to satisfy the requirements for the student’s concentration:Transnational/global perspectives Gender, Race, and Ethnicity Bodies, Sexualities Culture and Representation Politics and Social Change Historical Perspectives",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 1,
+            "completed_by_semester": 8,
+            "course_list": [
+                "AAS 242",
+                "GSS 299",
+                "SPA 213",
+                "CLA 212",
+                "DAN 210",
+                "AMS 335",
+                "ASA 347",
+                "GSS 502",
+                "HIS 519",
+                "COM 530",
+                "COM 542",
+                "COM 435",
+                "ENG 408",
+                "ENV 357",
+                "GSS 345",
+                "NES 374",
+                "NES 379",
+                "POL 422",
+                "THR 385",
+                "VIS 369",
+                "AAS 319",
+                "AAS 358",
+                "AMS 301",
+                "ANT 405",
+                "CHV 390",
+                "COM 416",
+                "CWR 345",
+                "EAS 314",
+                "ENG 327",
+                "ENG 394",
+                "ENG 398",
+                "GSS 319",
+                "GSS 420",
+                "HIS 401",
+                "PSY 329",
+                "REL 328",
+                "REL 360",
+                "SAS 335",
+                "SPA 335",
+                "THR 332"
+            ]
+        },
+        {
+            "name": "Independent Work",
+            "min_needed": 0,
+            "explanation": "Certificate students’ independent work must incorporate issues related to Gender and Sexuality Studies.  Students can fulfill this requirement in several ways. For those concentrating in humanities or social science disciplines, the senior thesis and at least one junior paper must incorporate issues related to GSS.  For students concentrating in disciplines in which it is difficult to incorporate GSS-related questions into junior papers and theses (including fields such as science or engineering), students can fulfill this requirement by submitting two revised GSS-related course papers for review by the Director.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 0,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "no_req": null
+        }
+    ]
+}

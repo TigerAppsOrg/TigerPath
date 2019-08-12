@@ -1,0 +1,93 @@
+{
+    "type": "Certificate",
+    "name": "Values and Public Life",
+    "code": "VPL",
+    "degree": null,
+    "year": 2018,
+    "description": "Students attaining the certificate will be equipped to bring informed discussion of values into the public sphere and to integrate a critical value perspective into their future studies and pursuits. The program is open to undergraduates in all disciplines, and students are invited to apply at the end of the sophomore year. ",
+    "urls": [
+        "https://uchv.princeton.edu/academic-programs/values-and-public-life-certificate"
+    ],
+    "contacts": [
+        {
+            "type": "Departmental Representative",
+            "name": "Femke DeRuyter",
+            "email": "vpl@princeton.edu"
+        }
+    ],
+    "req_list": [
+        {
+            "name": "Introduction Course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Students must take PHI / CHV 202 as an introduction course.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "course_list": [
+                "PHI 202"
+            ]
+        },
+        {
+            "name": "Core Course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Students must take one course out of the following core requirements.",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "course_list": [
+                "WWS 370",
+                "POL 307",
+                "POL 306",
+                "POL 312",
+                "POL 313"
+            ]
+        },
+        {
+            "name": "Seminar Course",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": "Students must take a Junior/Senior Seminar in Values and Public Life (topics change from year to year) or, in an exceptional scenario (e.g., study abroad), another seminar on normative issues approved by the program director. ",
+            "double_counting_allowed": false,
+            "max_common_with_major": 1,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "course_list": [
+                "PHI 380",
+                "POL 403",
+                "POL 417"
+            ]
+        },
+        {
+            "name": "Thematic Courses",
+            "max_counted": 1,
+            "min_needed": 2,
+            "explanation": "Students must identify an area of focus and take 2 courses with an explicit values component related to it, chosen by the student in consultation with the program director.  Some illustrative focus areas (or “themes”) are: Bioethics, Cognitive psychology, ethics, and public policy; Democracy in theory and practice; Global justice and human right;  Constitutionalism and the rule of law; History of thought about political justice, human rights, or some other core concept in public morality; Public dilemmas in literature; Ethics, religion, and theology",
+            "double_counting_allowed": false,
+            "max_common_with_major": 2,
+            "pdfs_allowed": 0,
+            "completed_by_semester": 8,
+            "course_list": [
+                "CGS 312",
+                "CHV 332",
+                "CHV 333",
+                "CHV 370",
+                "CHV 390",
+                "CLA 214",
+                "ECO 385",
+                "PHI 307",
+                "PHI 519",
+                "SOC 302",
+                "CHV 528",
+                "COM 362",
+                "COM 413",
+                "PHI 315",
+                "PHI 411",
+                "REL 261"
+            ]
+        }
+    ]
+}
