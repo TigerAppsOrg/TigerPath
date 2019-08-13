@@ -71,17 +71,15 @@ def scrape_import_course(course, counter=ScrapeCounter()):
     course_object.description = course['description']
     _append_to_all_semesters(term_code, course_object)
 
+    # add distribution area
+    course_object.dist_area = course['distribution_area']
+
     # create course listings
     for listing in course['course_listings']:
         _create_course_listing(listing, course_object, counter)
 
     # set cross_listings
     _set_cross_listings(course['course_listings'], course_object)
-
-    # scrape the course offerings website to get the dist area (slowest part of the code)
-    if course_created: # to speed this up, we assume the dist area will not change
-        dist_area = scrape_id(course_id, term_code)['area']
-        course_object.dist_area = dist_area
 
     course_object.save()
 

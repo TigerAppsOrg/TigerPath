@@ -32,6 +32,7 @@ def scrape_parse_semester(term_code):
     # ahead of time
     TERM_PREFIX = FEED_PREFIX + "?term=" + str(TERM_CODE)
     DEP_PREFIX = TERM_PREFIX + "&subject="
+    VERSION_PREFIX = "&vers=1.5"
 
     # for now hardwire the namespaces--too annoying
     PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_4'
@@ -92,7 +93,7 @@ def scrape_parse_semester(term_code):
         """ Scrape all events listed under department
         """
         parser = etree.XMLParser(ns_clean=True)
-        link = DEP_PREFIX + department
+        link = DEP_PREFIX + department + VERSION_PREFIX
         xmldoc = urlopen(link)
         tree = etree.parse(xmldoc, parser)
         dep_courses = tree.getroot()
@@ -137,6 +138,7 @@ def scrape_parse_semester(term_code):
             return {
                 "title": get_text('title', course),
                 "guid": get_text('guid', course),
+                "distribution_area": get_text('distribution_area', course),
                 "description": none_to_empty(course.find('detail').find('description').text),
                 "semester": get_current_semester(),
                 "professors": [parse_prof(x) for x in course.find('instructors')],
