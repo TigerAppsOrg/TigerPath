@@ -143,9 +143,6 @@ def scrape_parse_semester(term_code):
     DEP_PREFIX = TERM_PREFIX + "&subject="
     VERSION_PREFIX = "&vers=1.5"
 
-    # for now hardwire the namespaces--too annoying
-    PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_4'
-
     CURRENT_SEMESTER = ['']
 
     h = HTMLParser()
@@ -157,6 +154,8 @@ def scrape_parse_semester(term_code):
         """ get semester according to TERM_CODE
         """
         #global CURRENT_SEMESTER
+        # for now hardwire the namespaces--too annoying
+        PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_4'
         if not CURRENT_SEMESTER[0]:
             parser = etree.XMLParser(ns_clean=True)
             termxml = urlopen(TERM_PREFIX)
@@ -187,6 +186,8 @@ def scrape_parse_semester(term_code):
     def scrape(department):
         """ Scrape all events listed under department
         """
+        # for now hardwire the namespaces--too annoying
+        PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_5'
         parser = etree.XMLParser(ns_clean=True)
         link = DEP_PREFIX + department + VERSION_PREFIX
         xmldoc = urlopen(link)
