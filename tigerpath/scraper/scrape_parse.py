@@ -147,8 +147,14 @@ def scrape_parse_semester(term_code):
 
     h = HTMLParser()
 
-    def get_text(key, object):
-        return h.unescape(raise_if_none(object.find(key), "key " + key + " does not exist").text)
+    def get_text(key, object, fail_ok=False):
+        found = object.find(key)
+        if fail_ok and (found is None or found.text is None):
+            return found
+        elif (found is None or found.text is None):
+            ParseError("key " + key + " does not exist")
+        else:
+            return h.unescape(found.text)
 
     def get_current_semester():
         """ get semester according to TERM_CODE
@@ -217,11 +223,6 @@ def scrape_parse_semester(term_code):
         else:
             return x
 
-    def raise_if_none(text, error_message):
-        if text is None:
-            raise ParseError(error_message)
-        return text
-
     # Parse it for courses, sections, and lecture times (as recurring events)
     # If the course with this ID exists in the database, we update the course
     # Otherwise, create new course with the information
@@ -234,7 +235,7 @@ def scrape_parse_semester(term_code):
             return {
                 "title": get_text('title', course),
                 "guid": get_text('guid', course),
-                "distribution_area": get_text('distribution_area', course),
+                "distribution_area": get_text('distribution_area', course, fail_ok=True),
                 "description": none_to_empty(course.find('detail').find('description').text),
                 "semester": get_current_semester(),
                 "professors": [parse_prof(x) for x in course.find('instructors')],
