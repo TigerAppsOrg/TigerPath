@@ -9,8 +9,117 @@ Procedure:
 from lxml import etree
 from html.parser import HTMLParser
 from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import re
+
+DEPTS = {
+    "AAS": "African American Studies",
+    "AFS": "African Studies",
+    "AMS": "American Studies",
+    "ANT": "Anthropology",
+    "AOS": "Atmospheric & Oceanic Sciences",
+    "APC": "Appl and Computational Math",
+    "ARA": "Arabic",
+    "ARC": "Architecture",
+    "ART": "Art and Archaeology",
+    "ASA": "Asian American Studies",
+    "AST": "Astrophysical Sciences",
+    "ATL": "Atelier",
+    "BCS": "Bosnian-Croatian-Serbian",
+    "CBE": "Chemical and Biological Engr",
+    "CEE": "Civil and Environmental Engr",
+    "CGS": "Cognitive Science",
+    "CHI": "Chinese",
+    "CHM": "Chemistry",
+    "CHV": "Center for Human Values",
+    "CLA": "Classics",
+    "CLG": "Classical Greek",
+    "COM": "Comparative Literature",
+    "COS": "Computer Science",
+    "CTL": "Center for Teaching & Learning",
+    "CWR": "Creative Writing",
+    "CZE": "Czech",
+    "DAN": "Dance",
+    "EAS": "East Asian Studies",
+    "ECO": "Economics",
+    "ECS": "European Cultural Studies",
+    "EEB": "Ecology and Evol Biology",
+    "EGR": "Engineering",
+    "ELE": "Electrical Engineering",
+    "ENE": "Energy Studies",
+    "ENG": "English",
+    "ENT": "Entrepreneurship",
+    "ENV": "Environmental Studies",
+    "EPS": "Contemporary European Politics",
+    "FIN": "Finance",
+    "FRE": "French",
+    "FRS": "Freshman Seminars",
+    "GEO": "Geosciences",
+    "GER": "German",
+    "GHP": "Global Health & Health Policy",
+    "GLS": "Global Seminar",
+    "GSS": "Gender and Sexuality Studies",
+    "HEB": "Hebrew",
+    "HIN": "Hindi",
+    "HIS": "History",
+    "HLS": "Hellenic Studies",
+    "HOS": "History of Science",
+    "HPD": "History/Practice of Diplomacy",
+    "HUM": "Humanistic Studies",
+    "ISC": "Integrated Science Curriculum",
+    "ITA": "Italian",
+    "JDS": "Judaic Studies",
+    "JPN": "Japanese",
+    "JRN": "Journalism",
+    "KOR": "Korean",
+    "LAO": "Latino Studies",
+    "LAS": "Latin American Studies",
+    "LAT": "Latin",
+    "LCA": "Lewis Center for the Arts",
+    "LIN": "Linguistics",
+    "MAE": "Mech and Aerospace Engr",
+    "MAT": "Mathematics",
+    "MED": "Medieval Studies",
+    "MOD": "Media and Modernity",
+    "MOG": "Modern Greek",
+    "MOL": "Molecular Biology",
+    "MSE": "Materials Science and Engr",
+    "MTD": "Music Theater",
+    "MUS": "Music",
+    "NES": "Near Eastern Studies",
+    "NEU": "Neuroscience",
+    "ORF": "Oper Res and Financial Engr",
+    "PAW": "Ancient World",
+    "PER": "Persian",
+    "PHI": "Philosophy",
+    "PHY": "Physics",
+    "PLS": "Polish",
+    "POL": "Politics",
+    "POP": "Population Studies",
+    "POR": "Portuguese",
+    "PSY": "Psychology",
+    "QCB": "Quantitative Computational Bio",
+    "REL": "Religion",
+    "RES": "Russian, East Europ, Eurasian",
+    "RUS": "Russian",
+    "SAN": "Sanskrit",
+    "SAS": "South Asian Studies",
+    "SLA": "Slavic Languages and Lit",
+    "SML": "Statistics & Machine Learning",
+    "SOC": "Sociology",
+    "SPA": "Spanish",
+    "STC": "Science and Technology Council",
+    "SWA": "Swahili",
+    "THR": "Theater",
+    "TPP": "Teacher Preparation",
+    "TRA": "Translation, Intercultural Com",
+    "TUR": "Turkish",
+    "TWI": "Twi",
+    "URB": "Urban Studies",
+    "URD": "Urdu",
+    "VIS": "Visual Arts",
+    "WRI": "Princeton Writing Program",
+    "WWS": "Woodrow Wilson School",
+}
 
 
 class ParseError(Exception):
@@ -61,26 +170,12 @@ def scrape_parse_semester(term_code):
             }
         return CURRENT_SEMESTER[0]
 
-    def get_department_list(seed_page):
-        """ get list of departments
-        Parses seed_page and returns a list of the departments' names.
-        Seed page should be "http://registrar.princeton.edu/course-offerings/"
-        Automatically gets the courses for the current term.
-        """
-        soup = BeautifulSoup(seed_page, "lxml")
-        # Example tag:
-        # <input name="subject" type="checkbox" value="COS">
-        dept_tags = soup('input', {"name": "subject"})
-        departments = map(lambda t: t.attrs['value'], dept_tags)
-        return departments
-
     def scrape_all():
         """ scrape all events from Princeton's course webfeed
         """
         #global course_count
         #global section_count
-        seed_page = urlopen(COURSE_OFFERINGS)
-        departments = list(get_department_list(seed_page))
+        departments = list(DEPTS.keys())
         length = len(departments)
         courses = []
         for index, department in enumerate(departments):
