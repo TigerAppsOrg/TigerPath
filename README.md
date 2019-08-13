@@ -4,6 +4,8 @@ TigerPath is a web app that helps Princeton University students plan out their f
 
 You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
+To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/TigerPathApp/tigerpath/blob/master/CONTRIBUTING.md).
+
 ## Setup
 
 ### Pipenv
