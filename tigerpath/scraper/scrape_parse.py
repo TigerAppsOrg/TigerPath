@@ -11,6 +11,11 @@ from html.parser import HTMLParser
 from urllib.request import urlopen
 import re
 
+# This should technically be imported from
+# ../majors_and_certificates/scripts/university_info.py
+# but this import currently fails.
+# TODO: find out why and merge these lists.
+#       Possibly refactor this and move it somewhere else entirely.
 DEPTS = {
     "AAS": "African American Studies",
     "AFS": "African Studies",

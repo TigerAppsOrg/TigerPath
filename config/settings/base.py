@@ -133,12 +133,25 @@ CAS_LOGOUT_COMPLETELY = False
 
 # GLOBAL VARIABLES
 
-# Apparent term numbering system (unconfirmed):
-#   Fall: 1{last 2 digits of ending year}2
-#   Spring: 1{last 2 digits of ending year}4
+# ACTIVE_TERMS defines the terms that are scraped by the scraper
+# Term numbering system:
+#   First digit: always a 1 -- not clear why
+#   Second and Third digits: last 2 digits of ending year of schoolyear
+#   Fourth digit: the season number, as follows
+#     1 = Summer
+#     2 = Fall
+#     3 = Winter
+#     4 = Spring
+#
 # For example, the Fall 2016 term is 1172 - the ending year is 2017.
 # Similarly, the Spring 2017 term is 1174 - the ending year is 2017.
-# Note: generally, limit this to three terms. This defines the terms that are
-#   scraped and the default terms displayed on schedules.
-ACTIVE_TERMS = [1162, 1164, 1172, 1174, 1182, 1184, 1192]
-ACTIVE_YEAR = 2018
+ACTIVE_TERMS = [1162, 1164, 1172, 1174, 1182, 1184, 1192, 1194, 1202]
+
+# NOTE: [Requirements sets for different class years]
+# The ACTIVE_YEAR is a placeholder for a yet-to-be-implemented feature that
+# will be used to decide between different sets of requirements for different
+# class years.
+# As this is not yet fully implemented, there is currently only one set
+# of requirements, all of which are currently listed under class year 2018.
+# The active year is thus a placeholder for a future feature.
+ACTIVE_YEAR = 2018  # Do not update. Leave at 2018.
