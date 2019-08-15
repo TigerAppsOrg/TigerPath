@@ -142,6 +142,7 @@ CAS_LOGOUT_COMPLETELY = False
 #     2 = Fall
 #     3 = Winter
 #     4 = Spring
+#   Usually only 2 (Fall) and 4 (Spring) are used.
 #
 # For example, the Fall 2016 term is 1172 - the ending year is 2017.
 # Similarly, the Spring 2017 term is 1174 - the ending year is 2017.
