@@ -315,9 +315,7 @@ module.exports = {
     minimizer: [
       new UglifyJsPlugin({
         uglifyOptions: {
-          compress: {
-            warnings: false,
-          },
+          warnings: false,
           output: {
             comments: false,
           },

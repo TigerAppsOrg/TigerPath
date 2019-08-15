@@ -10,7 +10,7 @@ To learn about contributing to TigerPath, take a look at the [contributing guide
 
 ### Pipenv
 
-1. `git clone` this repository. Install [Python 3.6](https://www.python.org) and [pipenv](https://docs.pipenv.org) (which helps you manage your dependencies).
+1. `git clone` this repository. Install [Python 3.6](https://www.python.org), [node.js](https://nodejs.org/en/), and [pipenv](https://docs.pipenv.org) (which helps you manage your dependencies).
 
 2. `cd` into the directory you just cloned. Run `pipenv install` to install all of the current dependencies from Pipfile.lock.
 
