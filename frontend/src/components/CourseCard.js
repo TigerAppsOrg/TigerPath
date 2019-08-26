@@ -19,10 +19,13 @@ export default class CourseCard extends Component {
   render() {
     let course = this.props.course;
     return (
-      <div id={this.props.courseKey} title={course["name"]} className={this.getClassNames()}
-           ref={this.props.innerRef} {...this.props.draggable} {...this.props.dragHandle}>
-        <div className="course-name">{course["name"]}</div>
-        <i className="fas fa-times-circle delete-course" onClick={this.removeCourse} />
+      <div className="unbreakable">
+        <div id={this.props.courseKey} title={course["name"]} className={this.getClassNames()}
+             ref={this.props.innerRef} {...this.props.draggable} {...this.props.dragHandle}>
+          <div className="course-name">{course["name"]}</div>
+          <i className="fas fa-times-circle delete-course" onClick={this.removeCourse} />
+        </div>
+        <div className="search-card-info print-only">{course["title"]}</div>
       </div>
     );
   }
