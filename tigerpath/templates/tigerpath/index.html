@@ -46,6 +46,7 @@
         <div>
           <a class="btn nav-btn" href="{% url 'about' %}" target="_blank" rel="noopener noreferrer">About</a>
           <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank" rel="noopener noreferrer">Feedback</a>
+          <a class="btn nav-btn" href="https://github.com/TigerPathApp/tigerpath" target="_blank" rel="noopener noreferrer">GitHub</a>
           <div class="dropdown">
             <a id="netid-btn" class="btn nav-btn dropdown-toggle" href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
             <div id="netid-dropdown" class="dropdown-menu">
