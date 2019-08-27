@@ -41,3 +41,14 @@ export function getSemesterNames(classYear) {
 
     return semesterNames;
 }
+
+/* Converts semester to term code */
+export function convertSemToTermCode(sem) {
+  let code = "1";
+  if (sem[0] === "f") {
+    code += (parseInt(sem.slice(1), 10) + 1).toString() + "2";
+  } else {
+    code += sem.slice(1) + "4";
+  }
+  return code;
+}
