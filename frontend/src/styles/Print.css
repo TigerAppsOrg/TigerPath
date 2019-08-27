@@ -1,0 +1,63 @@
+/* This defines how the main page will look when printed. */
+
+/* visible only when printed */
+.print-only {
+  display: none;
+}
+
+@media print {
+  /* default to landscape printing */
+  /* @page { 
+    size: landscape;
+  } */
+
+  /* visible only when printed */
+  .print-only {
+    display: block;
+    page-break-before: avoid;
+    break-before: avoid;
+  }
+
+  /* hide elements that shouldn't be printed */
+  .dont-print {
+    display: none;
+  }
+
+  /* don't display banner on printout */
+  div#banner {
+    display: none;
+  }
+
+  /* the printout's header */
+  h1 {
+    font-size: 28pt;
+    text-align: center;
+    page-break-before: always;
+  }
+
+  /* don't allow a pagebreak here */
+  .unbreakable {
+    page-break-inside: avoid;
+  }
+
+  /* force pagebreak before */
+  .break {
+    page-break-before: always;
+  }
+
+  /* make text black and force background colors to be printed */
+  * {
+    color: #000;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* add a QR code to the printout. */
+  /* h1:after {
+    content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://www.tigerpath.io&choe=UTF-8);
+    position: absolute;
+    right: 0;
+    top: 0;
+  } */
+}
