@@ -185,23 +185,39 @@ def get_req_courses(request, req_path):
 
 # returns list of courses filtered by query
 def filter_courses(queries):
+    # shortcut for an empty search
+    if len(queries) == 0:
+        return []
     results = models.Course.objects.all()
+    # remember original length to check if any results have been filtered out
+    original_length = len(results)
     for query in queries:
+        if len(results) == 0:
+            # no results remain. return empty
+            return []
         if query == '':
             continue
-
-        # is department
         if len(query) == 3 and query.isalpha():
-            results = list(filter(lambda course: query.upper() in course.cross_listings, results))
-
-        # is course number
-        elif len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
-            results = list(filter(lambda course: any([listing[3:].startswith(query.upper()) for listing in re.split(' / ', course.cross_listings)]), results))
-
-        # check if it matches title
-        else:
-            results = list(filter(lambda course: query.lower() in course.title.lower(), results))
-
+            # might be a 3-letter departmental code
+            filtered_results = list(filter(lambda course: query.upper() in course.cross_listings, results))
+            if len(filtered_results) > 0:
+                results = filtered_results
+                continue
+        if len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
+            # might be a course number
+            filtered_results = list(filter(lambda course: any([listing[3:].startswith(query.upper()) for listing in re.split(' / ', course.cross_listings)]), results))
+            if len(filtered_results) > 0:
+                results = filtered_results
+                continue
+        # might be part of a course title
+        filtered_results = list(filter(lambda course: query.lower() in course.title.lower(), results))
+        if len(filtered_results) > 0:
+            results = filtered_results
+            continue
+        # if reaches this line, query returned no results, so drop and move on
+    if len(results) == original_length:
+        # none of the queries were vaild
+        return []
     return results
 
 # returns 'fall', 'spring', or 'both' depending on the list of semesters
