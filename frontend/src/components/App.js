@@ -128,15 +128,19 @@ export default class App extends Component {
     return (
       <ThemeProvider theme={TIGERPATH_THEME}>
         <React.Fragment>
+          <h1 class="print-only">My Four Year Schedule</h1>
+          <p class="print-only">
+            This schedule was created using <b>TigerPath - Princeton's Four-Year Course Planner</b> at <a href="http://www.tigerpath.io/" target="_blank" rel="noopener noreferrer">tigerpath.io</a>.
+          </p>
           <DragDropContext onDragEnd={this.onDragEnd}>
-            <div id="search-pane" className="col-lg-2 pl-0 pr-0">
+            <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
               <Search onChange={this.onChange} searchQuery={this.state.searchQuery} searchResults={this.state.searchResults} />
             </div>
             <div className="col-lg-8 pl-0 pr-0">
               <MainView onChange={this.onChange} profile={this.state.profile} schedule={this.state.schedule} requirements={this.state.requirements} />
             </div>
           </DragDropContext>
-          <div className="col-lg-2 pl-0 pr-0">
+          <div className="col-lg-2 pl-0 pr-0 break dont-print">
             <Requirements onChange={this.onChange} requirements={this.state.requirements} schedule={this.state.schedule} />
           </div>
         </React.Fragment>
