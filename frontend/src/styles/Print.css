@@ -55,7 +55,7 @@
 
   /* add a QR code to the printout. */
   /* h1:after {
-    content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://tigerpath.io&choe=UTF-8);
+    content: url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://www.tigerpath.io&choe=UTF-8);
     position: absolute;
     right: 0;
     top: 0;

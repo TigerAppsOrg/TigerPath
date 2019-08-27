@@ -130,7 +130,7 @@ export default class App extends Component {
         <React.Fragment>
           <h1 class="print-only">My Four Year Schedule</h1>
           <p class="print-only">
-            This schedule was created using <b>TigerPath - Princeton's Four-Year Course Planner</b> at <a href="http://www.tigerpath.io/" target="_blank" rel="noopener noreferrer">tigerpath.io.</a>
+            This schedule was created using <b>TigerPath - Princeton's Four-Year Course Planner</b> at <a href="http://www.tigerpath.io/" target="_blank" rel="noopener noreferrer">tigerpath.io</a>.
           </p>
           <DragDropContext onDragEnd={this.onDragEnd}>
             <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
