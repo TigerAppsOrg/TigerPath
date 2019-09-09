@@ -42,14 +42,10 @@ export function addPopover(course, courseKey, semIndex) {
 
   content += "<div className='search-card-links'>"
   content += "<a href=" + courseInfoLink + " target='_blank' rel='noopener noreferrer'> "
-  // TODO: replace text link with actual icon button. Doesn't work for some reason
-  content += "🛈"  // i in circle symbol
-  // content += "<i className='fas fa-info-circle fa-lg fa-fw course-info'></i>"
+  content += "<i class='fas fa-info-circle fa-lg fa-fw course-info'></i>"
   content += "</a> "
   content += "<a href=" + courseEvalLink + " target='_blank' rel='noopener noreferrer'>"
-  // TODO: replace text link with actual icon button. Doesn't work for some reason
-  content += "📊"  // bar graph symbol
-  // content += "<i className='fas fa-chart-bar fa-lg fa-fw course-eval' />"
+  content += "<i class='fas fa-chart-bar fa-lg fa-fw course-eval' />"
   content += "</a>"
   content += "</div>"
 
