@@ -36,18 +36,20 @@ export function addPopover(course, courseKey, semIndex) {
   let courseId = course["id"];
   // TODO: Don't hardcode the semester list
   let courseSemList = course["semester_list"];
-  let termCode = convertSemToTermCode(courseSemList[courseSemList.length - 1]);
-  let courseInfoLink = BASE_COURSE_OFFERINGS_URL + "?courseid=" + courseId + "&term=" + termCode;
-  let courseEvalLink = BASE_COURSE_EVAL_URL + "?terminfo=" + termCode + "&courseinfo=" + courseId;
-
-  content += "<div className='search-card-links'>"
-  content += "<a href=" + courseInfoLink + " target='_blank' rel='noopener noreferrer'> "
-  content += "<i class='fas fa-info-circle fa-lg fa-fw course-info'></i>"
-  content += "</a> "
-  content += "<a href=" + courseEvalLink + " target='_blank' rel='noopener noreferrer'>"
-  content += "<i class='fas fa-chart-bar fa-lg fa-fw course-eval' />"
-  content += "</a>"
-  content += "</div>"
+  if (courseSemList && courseSemList.length > 0) {
+    let termCode = convertSemToTermCode(courseSemList[courseSemList.length - 1]);
+    let courseInfoLink = BASE_COURSE_OFFERINGS_URL + "?courseid=" + courseId + "&term=" + termCode;
+    let courseEvalLink = BASE_COURSE_EVAL_URL + "?terminfo=" + termCode + "&courseinfo=" + courseId;
+    
+    content += "<div className='search-card-links'>"
+    content += "<a href=" + courseInfoLink + " target='_blank' rel='noopener noreferrer'> "
+    content += "<i class='fas fa-info-circle fa-lg fa-fw course-info'></i>"
+    content += "</a> "
+    content += "<a href=" + courseEvalLink + " target='_blank' rel='noopener noreferrer'>"
+    content += "<i class='fas fa-chart-bar fa-lg fa-fw course-eval' />"
+    content += "</a>"
+    content += "</div>"
+  }
 
   courseElement.attr("data-content", content);
 
