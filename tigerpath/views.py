@@ -228,6 +228,7 @@ def populate_user_schedule(schedule):
             course['name'] = db_course.cross_listings
             course['title'] = db_course.title
             course['dist_area'] = db_course.dist_area
+            course["semester_list"] = db_course.all_semesters
             course['semester'] = get_semester_type(db_course.all_semesters)
             if 'settled' not in course:
                 course['settled'] = []

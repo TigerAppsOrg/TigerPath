@@ -35,7 +35,7 @@ export function addPopover(course, courseKey, semIndex) {
 
   let courseId = course["id"];
   // TODO: Don't hardcode the semester list
-  let courseSemList = ['f19'];
+  let courseSemList = course["semester_list"];
   let termCode = convertSemToTermCode(courseSemList[courseSemList.length - 1]);
   let courseInfoLink = BASE_COURSE_OFFERINGS_URL + "?courseid=" + courseId + "&term=" + termCode;
   let courseEvalLink = BASE_COURSE_EVAL_URL + "?terminfo=" + termCode + "&courseinfo=" + courseId;
