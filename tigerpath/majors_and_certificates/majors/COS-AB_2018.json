@@ -84,7 +84,7 @@
           "name": "Theory",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n• 340 Reasoning about Computation\n• 423 Theory of Algorithms\n• 433**Cryptography\n• 445 Networks, Economics and Computing\n• 451 Computational Geometry\n• 487 Theory of Computation\n• 488 Introduction to Analytic Combinatorics\n• 510* (441) Programming Languages\n• 516* Reasoning About Software\n• 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
+          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n• 340 Reasoning about Computation\n• 423 Theory of Algorithms\n• 433**Cryptography\n• 445 Networks, Economics and Computing\n• 451 Computational Geometry\n• 487 Theory of Computation\n• 488 Introduction to Analytic Combinatorics\n• 510* (441) Programming Languages\n• 511 Theoretical Machine Learning\n• 516* Reasoning About Software\n• 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
           "req_list": [
             {
               "name": null,
@@ -97,7 +97,8 @@
                 "COS 445: Networks, Economics and Computing",
                 "COS 451: Computational Geometry",
                 "COS 487: Theory of Computation",
-                "COS 488: Introduction to Analytic Combinatorics"
+                "COS 488: Introduction to Analytic Combinatorics",
+                "COS 511: Theoretical Machine Learning"
               ]
             },
             {
