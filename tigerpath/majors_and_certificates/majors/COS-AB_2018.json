@@ -214,7 +214,7 @@
           "name": "General",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "<i>Editor's Note: Beginning with the Class of 2023 CHM 301, ECO 312 and Physics courses will no longer count as COS departmentals.</i>\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.",
+          "explanation": "<i>Note: Beginning with the Class of 2023 CHM 301, ECO 312 and Physics courses will no longer count as COS departmentals.</i>\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.",
           "course_list": [
             "COS 3**",
             "COS 4**",
