@@ -22,8 +22,8 @@
     },
     {
       "type": "Departmental Representative",
-      "name": "Andrea LaPaugh",
-      "email": "aslp@cs.princeton.edu"
+      "name": "Jaswinder Singh",
+      "email": "jps@cs.princeton.edu"
     }
   ],
   "req_list": [
@@ -60,7 +60,7 @@
           "name": "Theory",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n• 340 Reasoning about Computation\n• 423 Theory of Algorithms\n• 433**Cryptography\n• 445 Networks, Economics and Computing\n• 451 Computational Geometry\n• 487 Theory of Computation\n• 488 Introduction to Analytic Combinatorics\n• 510* (441) Programming Languages\n• 516* Reasoning About Software\n• 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
+          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n• 340 Reasoning about Computation\n• 423 Theory of Algorithms\n• 433**Cryptography\n• 445 Networks, Economics and Computing\n• 451 Computational Geometry\n• 487 Theory of Computation\n• 488 Introduction to Analytic Combinatorics\n• 510* (441) Programming Languages\n• 511 Theoretical Machine Learning\n• 516* Reasoning About Software\n• 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
           "req_list": [
             {
               "name": null,
@@ -73,7 +73,8 @@
                 "COS 445: Networks, Economics and Computing",
                 "COS 451: Computational Geometry",
                 "COS 487: Theory of Computation",
-                "COS 488: Introduction to Analytic Combinatorics"
+                "COS 488: Introduction to Analytic Combinatorics",
+                "COS 511: Theoretical Machine Learning"
               ]
             },
             {
@@ -103,7 +104,7 @@
           "name": "Systems",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track study the design and implementation of the foundational hardware and software that constitute a modern computing environment.\n\nSystems courses:\n• 306 (ELE 206) Introduction to Logic Design\n• 318 Operating Systems\n• 320 Compiling Techniques\n• 333 Advanced Programming Techniques\n• 375 (ELE 375) Computer Architecture and Organization\n• 418 Distributed Systems**\n• 425 Database and Information Management Systems\n• 461 Computer Networks*\n• 463 Wireless Networks\n• 475 (ELE 475) Computer Architecture\n• 518 Advanced Computer Systems**\n• 561 Advanced Computer Networks*\n\n*If you take COS 461 and  COS 561 only one will count as a systems requirement.\n**If you take COS 418 and  COS 518 only one will count as a systems requirement.",
+          "explanation": "Courses in this track study the design and implementation of the foundational hardware and software that constitute a modern computing environment.\n\nSystems courses:\n• 306 (ELE 206) Introduction to Logic Design\n• 316 Principles of Computer System Design\n• 318 Operating Systems\n• 320 Compiling Techniques\n• 333 Advanced Programming Techniques\n• 375 (ELE 375) Computer Architecture and Organization\n• 418 Distributed Systems**\n• 425 Database and Information Management Systems\n• 461 Computer Networks*\n• 463 Wireless Networks\n• 475 (ELE 475) Computer Architecture\n• 518 Advanced Computer Systems**\n• 561 Advanced Computer Networks*\n\n*If you take COS 461 and  COS 561 only one will count as a systems requirement.\n**If you take COS 418 and  COS 518 only one will count as a systems requirement.",
           "req_list": [
             {
               "name": null,
@@ -112,6 +113,7 @@
               "explanation": null,
               "course_list": [
                 "COS 306/ELE 206: Introduction to Logic Design",
+                "COS 316: Principles of Computer System Design",
                 "COS 318: Operating Systems",
                 "COS 320: Compiling Techniques",
                 "COS 333: Advanced Programming Techniques",
@@ -147,7 +149,7 @@
           "name": "Applications",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track treat a broad range of topics.\n\nApplications courses:\n• 314 (MUS 314) Computer and Electronic Music through Programming, Performance, and Composition (with programming precept)\n• 323 (ORF 363)  Computing and Optimization \n• 324 Introduction to Machine Learning\n• 326 Functional Programming\n• 343 Algorithms for Computational Biology\n• 401 (TRA 301) Introduction To Machine Translation\n• 402 Machine Learning and Artificial Intelligence\n• 424 Fundamentals of Machine Learning\n• 426* Computer Graphics\n• 429 Computer Vision\n• 432 Information Security\n• 435 Information Retrieval, Discovery and Delivery\n• 436 Human-Computer Interface Technology\n• 455 (MOL 455) Introduction to Genomics and Computational Molecular Biology\n• 485 Neural Networks\n• 526* Advanced Computer Graphics\n\n*If a student takes both COS 426 and 526, only one will count as an applications requirement.",
+          "explanation": "Courses in this track treat a broad range of topics.\n\nApplications courses:\n• 314 (MUS 314) Computer and Electronic Music through Programming, Performance, and Composition (with programming precept)\n• 323 (ORF 363)  Computing and Optimization \n• 324 Introduction to Machine Learning\n• 326 Functional Programming\n• 343 Algorithms for Computational Biology\n• 360 (PSY 360) Computational Models of Cognition\n• 401 (TRA 301) Introduction To Machine Translation\n• 402 Machine Learning and Artificial Intelligence\n• 424 Fundamentals of Machine Learning\n• 426* Computer Graphics\n• 429 Computer Vision\n• 432 Information Security\n• 435 Information Retrieval, Discovery and Delivery\n• 436 Human-Computer Interface Technology\n• 455 (MOL 455) Introduction to Genomics and Computational Molecular Biology\n• 484 Natural Language Processing\n• 485 Neural Networks\n• 526* Advanced Computer Graphics\n\n*If a student takes both COS 426 and 526, only one will count as an applications requirement.",
           "req_list": [
             {
               "name": null,
@@ -158,10 +160,10 @@
                 "COS 314/MUS 314: Computer and Electronic Music through Programming, Performance, and Composition",
                 "COS 323/ORF 363: Computing and Optimization for the Physical and Social Sciences",
                 "COS 324: Introduction to Machine Learning",
-                "COS 325/MUS 315: Transforming Reality by Computer",
                 "COS 326: Functional Programming",
                 "COS 343: Algorithms for Computational Biology",
-                "COS 401/TRA 301: Introduction to Machine Translation ",
+                "COS 360/PSY 360: Computational Models of Cognition",
+                "COS 401/TRA 301: Introduction to Machine Translation",
                 "COS 402: Machine Learning and  Artificial Intelligence",
                 "COS 424: Fundamentals of Machine Learning",
                 "COS 429: Computer Vision",
@@ -169,6 +171,7 @@
                 "COS 435: Information Retrieval, Discovery, and Delivery",
                 "COS 436: Human-Computer Interface Technology",
                 "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
+                "COS 484: Natural Language Processing",
                 "COS 485: Neural Networks"
               ]
             },
@@ -188,7 +191,7 @@
           "name": "General",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Any computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.\n\nOne additional semester of independent work may be counted as one of the departmental courses.",
+          "explanation": "<i>Note: Beginning with the Class of 2023 CHM 301, ECO 312 and Physics courses will no longer count as COS departmentals.</i>\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.",
           "req_list": [
             {
               "name": null,
