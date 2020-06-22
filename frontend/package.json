@@ -28,7 +28,7 @@
     "fs-extra": "^7.0.1",
     "html-webpack-plugin": "^4.0.0-beta.5",
     "jest": "^24.0.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "object-assign": "^4.1.1",
     "popper.js": "^1.14.7",
     "postcss-flexbugs-fixes": "^4.1.0",
