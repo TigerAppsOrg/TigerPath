@@ -5,17 +5,17 @@
   "degree": "AB",
   "year": 2018,
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-astrophysical-sciences#",
-    "https://web.astro.princeton.edu/"
+    "https://ua.princeton.edu/academic-units/department-astrophysical-sciences",
+    "https://web.astro.princeton.edu/academic/undergraduate-program/major-requirements"
   ],
   "contacts": [
     {
       "type": "Chair",
-      "name": "James M. Stone",
-      "email": "jmstone@princeton.edu"
+      "name": "Michael A. Strauss",
+      "email": "strauss@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Neta A. Bahcall",
       "email": "neta@astro.princeton.edu"
     }
@@ -31,19 +31,9 @@
         {
           "name": "Math",
           "max_counted": 1,
-          "min_needed": 4,
-          "explanation": "",
+          "min_needed": "ALL",
+          "explanation": "Mathematics 201, 202 or equivalent",
           "req_list": [
-            {
-              "name": null,
-              "max_counted": 2,
-              "min_needed": null,
-              "explanation": "",
-              "course_list": [
-                "MAT 103",
-                "MAT 104"
-              ]
-            },
             {
               "name": null,
               "max_counted": 1,
@@ -71,46 +61,18 @@
         {
           "name": "Physics",
           "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "",
-              "course_list": [
-                "PHY 103",
-                "PHY 105"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "",
-              "course_list": [
-                "PHY 104",
-                "PHY 106"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": "",
-              "course_list": [
-                "PHY 205",
-                "PHY 207"
-              ]
-            }
+          "min_needed": 1,
+          "explanation": "Physics 205 or 207",
+          "course_list": [
+            "PHY 205",
+            "PHY 207"
           ]
         },
         {
           "name": "Astrophysical Sciences",
           "max_counted": null,
           "min_needed": null,
-          "explanation": "Strongly recommended",
+          "explanation": "Astrophysical Sciences 204 is strongly recommended.",
           "course_list": [
             "AST 204"
           ]
@@ -127,7 +89,7 @@
           "name": "Astrophysics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": null,
           "course_list": [
             "AST 301",
             "AST 303",
@@ -140,7 +102,7 @@
           "name": "Physics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": null,
           "course_list": [
             "PHY 208",
             "PHY 301",
@@ -152,7 +114,7 @@
           "name": "Electives",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "",
+          "explanation": null,
           "course_list": [
             "PHY 312",
             "PHY 403",
