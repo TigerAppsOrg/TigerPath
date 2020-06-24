@@ -238,7 +238,6 @@
           "max_counted": null,
           "min_needed": null,
           "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nStudents must take one course, 200-level and above, dedicated mostly to a period before 1800. It does not necessarily have to be one of their nine departmentals. Nor does it have to be a literature course, strictly speaking, but it must be a study of culture based upon the reading of primary sources. Some examples would be: any course on literature before 1800; any course on pre-modern or early modern philosophy or religion; any course on art or music history before 1800. A course on general history that is not specifically cultural in focus and not based upon the study of primary sources such as texts, music, or art will not count. Students unsure whether a particular course will meet the historical requirement should email the syllabus to COM’s Director of Undergraduate Studies for approval. If the pre-1800 course is not one of the nine departmentals, it may be taken P/D/F. If it is one of the nine departmentals, it must be taken for a grade.",
-          "description": "Historical Period",
           "no_req": null
         },
       ]
@@ -248,7 +247,6 @@
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators must write two junior papers. The first paper, some 3,000 words in length, will normally involve the close study of a work from one of the non-English-language literatures in which the student has linguistic competence. Its purpose is to develop the student's basic skills as a reader of complex texts. The second paper should be wider in scope, and might serve as the beginnings of a senior thesis. It will normally be some 8,000 words in length.",
-      "description": "Independent Work",
       "no_req": null
     },
     {
@@ -256,7 +254,6 @@
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators must write a senior thesis, normally between 15,000 and 20,000 words, which is comparative in nature and should reflect the student's ability to relate and analyze materials in the area chosen. Creative theses must be accompanied by a substantial critical essay.",
-      "description": "Senior Thesis",
       "no_req": null
     }
   ]
