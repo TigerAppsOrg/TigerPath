@@ -4,9 +4,10 @@
   "code": "ENG",
   "degree": "AB",
   "year": 2018,
+  "explanation": "English concentrators must take a total of 10 courses: the Junior Seminar (JRS), and nine departmental courses. The Junior Seminar is a topical introduction to research methods in the discipline, and prepares students for their independent work. Of the remaining nine required courses, one is in Literary and Cultural History (LCH); these courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study. Five courses meet distribution requirements, and three more are additional ENG or ENG cross-listed courses.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-english",
-    "https://english.princeton.edu/"
+    "https://english.princeton.edu/undergraduate/program"
   ],
   "contacts": [
     {
@@ -15,7 +16,7 @@
       "email": "sgikandi@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Tamsen O. Wolff",
       "email": "twolff@princeton.edu"
     }
@@ -24,143 +25,333 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "There are no specific prerequisite courses for the concentration in English, but prospective concentrators should take at least one course in English in the first and second years. The department offers several 200-level Gateway Courses each year, both lectures and seminars, which are a particularly good way to begin, although they can be taken at any time.",
+      "double_counting_allowed": true,
+      "course_list": [
+        "ENG 2*"
+      ]
+    },
+    {
+      "name": "Distribution Requirements",
+      "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "English department prerequisites provide a background in literary history and familiarity with one of the major genres. Concentrators take both ENG 200 (British Literature from the 14th to the 18th Centuries) and one of the 200-level Reading Literature courses: ENG 205 (Poetry), ENG 206 (Fiction), ENG 207 (Drama), or ENG 208 (The Essay) or ENG 209 (Theory).",
+      "explanation": "Departmental distribution requirements ensure breadth in each concentrator's program of study. Everyone must take at least one course in each of the following areas for a total of 10 courses: Literary and Cultural History (LCH), Literature and Culture before 1700 (pre-1700), Literature and Culture from 1700-1900 (1700-1900), Literature and Culture from 1900-present (post-1900), Difference and Diversity (D&D), Theory and Criticism provides tools for thinking critically across all these periods, identities, and genres (T&C), Junior Seminar (ENG 300), Three additional ENG or ENG cross-listed courses",
       "req_list": [
         {
-          "name": "British Literature 14th to 18th Centuries",
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
-          "course_list": [
-            "ENG 200"
-          ]
-        },
-        {
-          "name": "Reading Literature",
+          "name": "Literary and Cultural History",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": null,
           "course_list": [
-            "ENG 205",
+            "ENG 200",
+            "ENG 353",
+            "ENG 415/JRN 415/COM 446",
+            "AAS 353/ENG 352",
+            "COM 339/ECS 351/ENG 239/HUM 399"
+          ]
+        },
+        {
+          "name": "Literature and Culture before 1700",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "ENG 310/MED 210",
+            "ENG 311/MED 309",
+            "ENG 312/MED 312",
+            "ENG 313/MED 315/COM 358",
+            "ENG 320/THR 310",
+            "ENG 321",
+            "ENG 325",
+            "ENG 326",
+            "ENG 327/GSS 410",
+            "ENG 328",
+            "ENG 381",
+            "ENG 400/MED 400",
+            "ENG 421/MED 421",
+            "COM 212/THR 212/ENG 425"
+          ]
+        },
+        {
+          "name": "Literature and Culture from 1700-1900",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "ENG 202",
+            "ENG 339",
+            "ENG 340",
+            "ENG 341",
+            "ENG 350",
+            "ENG 351",
+            "ENG 357",
+            "ENG 411/AAS 413/AMS 411",
+            "ENG 432/HUM 433",
+            "AAS 353/ENG 352",
+            "COM 372/ENG 303",
+            "COM 421/ENG 241"
+          ]
+        },
+        {
+          "name": "Literature and Culture from 1900-Present",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "ENG 203",
             "ENG 206",
-            "ENG 207",
             "ENG 208",
-            "ENG 209"
+            "ENG 308",
+            "ENG 309",
+            "ENG 317",
+            "ENG 324",
+            "ENG 333",
+            "ENG 343",
+            "ENG 345",
+            "ENG 351",
+            "ENG 354/AAS 354/THR 351",
+            "ENG 355",
+            "ENG 356/AMS 364",
+            "ENG 357",
+            "ENG 360",
+            "ENG 362",
+            "ENG 363",
+            "ENG 364/COM 321/THR 364",
+            "ENG 368/AMS 340",
+            "ENG 372/THR 372",
+            "ENG 374",
+            "ENG 376/THR 376",
+            "ENG 377/COM 386",
+            "ENG 379/AAS 379/AMS 389/ART 380",
+            "ENG 380/THR 380",
+            "ENG 382/THR 382",
+            "ENG 384/ENV 383",
+            "ENG 385",
+            "ENG 387",
+            "ENG 388/GSS 399",
+            "ENG 391A/AAS 391",
+            "ENG 391B/URB 391/ARC 200",
+            "ENG 395/AMS 384/GSS 301",
+            "ENG 397/AAS 397/COM 339",
+            "ENG 401/AMS 400",
+            "ENG 403",
+            "ENG 405",
+            "ENG 406",
+            "ENG 409/THR 410",
+            "ENG 411",
+            "ENG 412",
+            "ENG 414/AAS 455",
+            "ENG 416/AMS 416",
+            "ENG 428/AMS 428/THR 428",
+            "ENG 432/HUM 433",
+            "AAS 359/ENG 366",
+            "AAS 363/ENG 439/AMS 362",
+            "AAS 392/ENG 392",
+            "AAS 499/ENG 499/AMS 499",
+            "AMS 301/ENG 432/GSS 338/ASA 301",
+            "AMS 310/ENG 434/ASA 310",
+            "AMS 317/MTD 321/THR 322/ENG 249",
+            "AMS 335/JS 320/GSS 323/ENG 441",
+            "AMS 351/ENG 451",
+            "AMS 367/ENG 267",
+            "ASA 224/ENG 224/GSS 226",
+            "ASA 347/AMS 347/ENG 426/GSS 358",
+            "COM 339/ECS 351/ENG 239/HUM 399",
+            "COM 416/ECS 416/ENG 430/GSS 416",
+            "COM 422/ENG 423/GER 422/FRE 422",
+            "COM 435/ENG 438/GSS 404",
+            "ECS 342/COM 342/ENG 349",
+            "ENV 363/ENG 337",
+            "ENV 369/ENG 383",
+            "GSS 303/ENG 446",
+            "GSS 319/AMS 320/ENG 436",
+            "HUM 328/ENG 270/ART 396",
+            "MTD 310/THR 310/ENG 318",
+            "SLA 417/COM 406/ENG 424/RES 417",
+            "THR 348/ENG 448",
+            "THR 350/ENG 449",
+            "THR 359/ENG 447",
           ]
-        }
-      ]
-    },
-    {
-      "name": "Departmental Courses",
-      "max_counted": 1,
-      "min_needed": 8,
-      "explanation": "English concentrators must take a total of 11 courses: two 200-level prerequisites, the Junior Seminar, and eight departmental courses, seven of which must be at the 300 level or above. With the permission of the departmental representative, concentrators may count one cognate course from another department, where that course adds depth or perspective to their studies in English. (Some optional tracks may permit more cognates or specify their nature: see below.)",
-      "req_list": [
+        },
         {
-          "name": null,
+          "name": "Difference and Diversity",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "1 can be any level",
+          "min_needed": 1,
+          "explanation": null,
           "course_list": [
-            "ENG 2*"
+            "ENG 229/AMS 229",
+            "ENG 317",
+            "ENG 326",
+            "ENG 354/AAS 354/THR 351",
+            "ENG 356/AMS 364",
+            "ENG 374",
+            "ENG 377/COM 386",
+            "ENG 379/AAS 379/AMS 389/ART 380",
+            "ENG 380/THR 380",
+            "ENG 382/THR 382",
+            "ENG 391A/AAS 391",
+            "ENG 391B/URB 391/ARC 200",
+            "ENG 395/AMS 384/GSS 301",
+            "ENG 397/AAS 397/COM 339",
+            "ENG 398/GSS 403",
+            "ENG 406",
+            "ENG 408/GSS 415/AMS 418",
+            "ENG 411/AAS 413/AMS 411",
+            "ENG 415/JRN 415/COM 446",
+            "ENG 416/AMS 416",
+            "ENG 444/ASA 444/AMS 443",
+            "ENG 446",
+            "AAS 353/ENG 352",
+            "AAS 359/ENG 366",
+            "AAS 392/ENG 392",
+            "AMS 310/ENG 434/ASA 310",
+            "AMS 335/JDS 320/GSS 323/ENG 441",
+            "AMS 351/ENG 451",
+            "AMS 360/ENG 387/AAS 360",
+            "AMS 406/ENG 319",
+            "ASA 224/ENG 224/GSS 226",
+            "ASA 225/ENG 225/GSS 224",
+            "ASA 347/AMS 347/ENG 426/GSS 358",
+            "ASA 363/ENG 439/AMS 362",
+            "AAS 499/ENG 499/AMS 499",
+            "COM 351/TRA 351/ENG 361",
+            "COM 485/ENG 438/GSS 404",
+            "GSS 345/AAS 355/ENG 399/AMS 373",
+            "GSS 400/ENG 264",
+            "LCA 213/AAS 213/ENG 213/HUM 213",
+            "MUS 307/HUM 307/ENG 313"
           ]
-        },
-        {
-          "name": null,
-          "max_counted": 8,
-          "min_needed": null,
-          "explanation": "7 have to be 300 or higher",
-          "course_list": [
-            "ENG 3*",
-            "ENG 4*",
-            "ENG 5*"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Tracks (Optional)",
-      "max_counted": 1,
-      "min_needed": null,
-      "explanation": "Students must complete four core requirements. It is recommended that students complete some of these core requirements by the end of the sophomore year. Completing these core courses early gives more options for junior and senior independent work. Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
-      "req_list": [
-        {
-          "name": "British",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Four courses in British literature; one junior paper and the senior thesis on a British topic. One cognate course in another department (history, art and archaeology, etc.) on a British topic may be counted.",
-          "no_req": null
-        },
-        {
-          "name": "American",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature and culture of the territories that became the United States, from native peoples and the first European settlers to the present day. Requirements: four courses in American literature (including at least one of ENG 201, ENG 353, or ENG 366); one junior paper and the senior thesis on an American topic. One cognate course in another department (history, art and archaeology, etc.) on an American topic may be counted. This track is often combined with a certificate in American studies or African American studies.",
-          "no_req": null
-        },
-        {
-          "name": "Anglophone",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature and culture of English as a global language. Requirements: four courses in Anglophone literature; one junior paper and the senior thesis on an Anglophone topic. Up to two cognate courses in another department (history, art and archaeology, etc.) on an Anglophone topic may be counted.",
-          "no_req": null
-        },
-        {
-          "name": "Arts and Media",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature in relation to other arts, including architecture, visual art, film, photography, music (classical, popular, or other); and/or in relation to its circumstances of production and transmission, from manuscript to print to radio, television, and the Internet. Requirements: three courses in topics related to the arts and media, including up to two cognates from other departments; one junior paper and the senior thesis on a related topic.",
-          "no_req": null
-        },
-        {
-          "name": "Comparative Literatures",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "English in relation to the literature of another language. Requirements: at least three and no more than four 300-level courses in a single foreign language (with no other cognates permitted); one junior paper and the senior thesis on a comparative topic (including translation). With permission of the departmental representative, some foreign language classes may be used to satisfy the departmental distribution requirements.",
-          "no_req": null
         },
         {
           "name": "Theory and Criticism",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "For students interested in thinking about the underlying principles by which we understand literature. Considers the history and theory of literary interpretation from Plato to the present, including such methods and movements as linguistics, structuralism, feminism, psychoanalysis, Marxism, cultural studies, gender and sexuality studies, race studies, postcolonial studies, and deconstruction. Requirements: three courses in literary or cultural theory and literary criticism, including either ENG 305 or ENG 306; one junior paper and the senior thesis on a topic in theory and criticism, or making imaginative use of critical methodologies.",
-          "no_req": null
-        },
-        {
-          "name": "Theater and Performance Studies",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "A home for the study of dramatic literature, performance culture, and/or performance studies. Includes traditional theater, live and recorded music, popular culture performances, avant-garde arts, stand-up comedy, street theater, contemporary dance, and slam poetry. Requirements: one introductory class in theater by the end of sophomore year; at least two and not more than three 300- or 400-level courses in theater, counted as departmental courses (no other cognates are allowed); departmental courses must also include one upper-level Shakespeare course, one course in drama and/or performance before 1700, and one course in drama and/or performance after 1700; one junior paper and the senior thesis on a related topic.",
-          "no_req": null
-        },
-        {
-          "name": "Creative Writing",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Students elect the creative writing track provisionally; final admission depends on the permission of the Program in Creative Writing to write a creative thesis. The Department of English recommends that students take at least one 200-level creative writing course by the end of sophomore year. Requirements: a minimum of two and a maximum of three courses at the 300 level or above in creative writing counted as departmental courses (no other cognates are allowed); creative thesis. Students not approved to write a creative thesis revert to one of the other tracks. One 300-level creative writing class may be used as a cognate.",
-          "double_counting_allowed": true,
-          "completed_by_semester": 4,
+          "min_needed": 1,
+          "explanation": null,
           "course_list": [
-            "CWR 3*"
+            "ENG 203",
+            "ENG 305",
+            "ENG 306",
+            "ENG 308",
+            "ENG 319/AMS 322",
+            "ENG 328",
+            "ENG 343",
+            "ENG 355",
+            "ENG 369",
+            "ENG 376/THR 376",
+            "ENG 379/AAS 379/AMS 389/ART 380",
+            "ENG 384/ENV 383",
+            "ENG 386/ENV 386",
+            "ENG 394/GSS 398",
+            "ENG 398/GSS 403",
+            "ENG 402",
+            "ENG 403",
+            "ENG 411/AAS 413/AMS 411",
+            "ENG 414/AAS 455",
+            "ENG 416/COM 431",
+            "ENG 444/ASA 444/AMS 443",
+            "ENG 445/ART 457/GSS 445",
+            "AAS 499/ENG 499/AMS 499",
+            "AMS 367/ENG 267",
+            "COM 351/TRA 351/ENG 361",
+            "COM 441/PHI 441/HUM 441/ENG 281",
+            "ECS 342/COM 342/ENG 349",
+            "ENV 323/ENG 315",
+            "ENV 357/AMS 457/GSS 357/ENG 315",
+            "ENV 363/ENG 337",
+            "ENV 369/ENG 383",
+            "GSS 400/ENG 264",
+            "HUM 328/ENG 270/ART 396",
+            "HUM 470/ENG 482/MUS 433",
+            "MUS 307/HUM 307/ENG 313",
+            "THR 350/ENG 449"
+          ]
+        },
+        {
+          "name": "Tracks",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "req_list": [
+            {
+              "name": "English",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": null,
+              "course_list": [
+                "ENG *"
+              ]
+            },
+            {
+              "name": "Creative Writing",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": "Creative Writing: students accepted to the certificate program in Creative Writing may cognate two CWR courses as departmental courses in English, and may substitute a thesis in CWR for the thesis in English. Final admission depends on the permission of the Program in Creative Writing to write a creative thesis in the spring of junior year. Students not approved to write a creative thesis may cognate one course in CWR.",
+              "req_list": [
+                {
+                  "name": "English",
+                  "max_counted": null,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ENG *"
+                  ]
+                },
+                {
+                  "name": "Cognates",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CWR *"
+                  ]
+                },
+              ]
+            },
+            {
+              "name": "Theater",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": "Theater: students accepted to the certificate program in Theater may cognate two THR courses as departmental courses in English.",
+              "req_list": [
+                {
+                  "name": "English",
+                  "max_counted": null,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ENG *"
+                  ]
+                },
+                {
+                  "name": "Cognates",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "THR *"
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "name": "Independent Work",
-      "max_counted": null,
-      "min_needed": null,
-      "description": "Independent Work",
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators write one junior paper, which is begun in conjunction with the fall junior seminar but completed in the spring semester of the junior year. The senior thesis is written with an adviser chosen in the spring of junior year.",
-      "no_req": null
+      "name": "Junior Seminar",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "The Junior Seminar (ENG 300). The JRS is an introduction to the methods of research and the arts of criticism, taken in the fall of the junior year. During the Sophomore Sign-ins, concentrators can apply to study abroad in London to complete their junior seminar, or they can participate in a lotto draw for placement into one of four seminars at Princeton. The Junior Seminar instructor advises each member of the seminar on class selection for the spring.\n\nThe Junior Paper. English requires one 20-30 page JP, which is begun in conjunction with the Junior Seminar, with the seminar instructor continuing as the independet work adviser throughout the spring.",
+      "course_list": [
+        "ENG 300"
+      ]
     },
     {
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "description": "Senior Thesis",
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nFor English concentrators, senior theses are 60-75 pages in length, on a topic chosen in collaboration with the thesis adviser and approved by the committee of departmental studies. One chapter or 20 pages of the thesis is due in December.",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe Senior Thesis. Theses are 60-75 pages in length, on a topic chosen in collaboration with the thesis adviser. One chapter or 20 pages of the thesis is due in December.",
       "no_req": null
     }
   ]
