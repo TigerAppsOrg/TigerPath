@@ -30,13 +30,14 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "1a) Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203).  Students should elect GEO 202 or 203 with an eye toward their likely track of study. Students who need to take the other course for their specialization may count the course used as a prerequisite as an elective (in #5, below).\n\n1b) With permission of the DUS, a student can substitute GEO 102/103, a Geosciences Freshman Seminar, or certain Geosciences 300/400 level courses for GEO202/203. ",
+      "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203). Students should elect GEO 202 or 203 with an eye toward their likely track of study. Students who need to take the other course for their specialization may count the course used as a prerequisite as an elective (in #5, below). With permission of the DUS, a student can substitute GEO 102/103, a Geosciences Freshman Seminar, or certain Geosciences 300/400 level courses for GEO202/203.",
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203).",
           "course_list": [
             "MAT 104"
           ]
@@ -45,7 +46,7 @@
           "name": "Computer Science",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203).",
           "course_list": [
             "COS 126"
           ]
@@ -54,7 +55,7 @@
           "name": "Geoscience",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203). Students should elect GEO 202 or 203 with an eye toward their likely track of study.",
           "course_list": [
             "GEO 202",
             "GEO 203"
