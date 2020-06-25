@@ -146,7 +146,7 @@
       "name": "Geosciences",
       "code": "GEO",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
