@@ -10,19 +10,14 @@
   ],
   "contacts": [
     {
-      "type": "Departmental Representative",
-      "name": "Robert P. L'Esperance",
-      "email": "rpl@princeton.edu"
-    },
-    {
       "type": "Chair",
       "name": "Thomas W. Muir",
       "email": "muir@princeton.edu"
     },
     {
-      "type": "Director",
-      "name": "David W. Tank",
-      "email": "dwtank@princeton.edu"
+      "type": "Director of Undergraduate Studies",
+      "name": "Robert P. L'Esperance",
+      "email": "rpl@princeton.edu"
     }
   ],
   "req_list": [
@@ -30,7 +25,7 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Before entering the department, students are expected to complete:\nThe sophomore program of prospective chemistry concentrators should include one year of organic chemistry (CHM 301 and 302/304). Note: Chemistry concentrators must take the CHM 301 and 302/304 sequence at Princeton.",
+      "explanation": null,
       "req_list": [
         {
           "name": "Chemistry",
@@ -178,6 +173,9 @@
           "max_counted": 3,
           "min_needed": 3,
           "explanation": "Students must take three 300-, 400-, or 500-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic, physical, and inorganic chemistry.",
+          "excluded_course_list": [
+            "CHM 371"
+          ],
           "course_list": [
             "CHM 3*",
             "CHM 4*",
@@ -205,13 +203,13 @@
       "name": "Cognates",
       "max_counted": 1,
       "min_needed": 4,
-      "explanation": "The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.\n\n<i>Editor's Note: Concentrators must get departmental approval for many of these courses, and TigerPath does not verify this.</i>",
+      "explanation": "<i>Editor's Note: Concentrators must get departmental approval for many of these courses, and TigerPath does not verify this.</i>\n\nThe remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience, or physics). Many courses in the sciences at the 300, 400, and 500 levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component.",
       "req_list": [
         {
           "name": null,
           "max_counted": null,
           "min_needed": null,
-          "explanation": "",
+          "explanation": null,
           "course_list": [
             "MOL 3*",
             "MOL 4*",
@@ -294,7 +292,6 @@
       "name": "Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "description": "Independent Work",
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nFirst-term program:\nThe First-term program consists of two components: The Junior Colloquium and Reading Groups.\n1. The Junior Colloquium: One evening each week throughout the fall term, talks will be given by faculty members on topics not normally included in coursework. Junior chemistry concentrators and early concentrators are required to attend these sessions.\n2. Reading Groups:  Juniors will be assigned to one of several reading groups. Over the course of the semester, every group will meet with three separate instructors, one for each of three four-week reading periods. Reading group instructors will utilize current chemical literature to introduce novel research and the mechanics of scientific writing. At the end of each reading period, students will submit a critical analysis of a research article.\nReading group advisers are selected by the Junior Colloquia chairperson to give the student a broad sampling of faculty interests. The student's final term grade is calculated by the departmental representative using the grades on the three papers plus the individual's record of attendance at the evening colloquia.\nSecond-term program:\nEach student will select a faculty adviser for spring independent work by the start of the spring semester. The student will meet regularly with the faculty adviser during the semester. At the end of the term, the student will submit a research proposal for the senior thesis. The student will summarize any preliminary experimental results. A student's final term grade is determined by the departmental representative in conjunction with the faculty adviser's evaluation.",
       "no_req": null
     },
@@ -302,7 +299,6 @@
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "description": "Senior Thesis",
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAt the end of the junior year, each student selects a thesis adviser (who may or may not be the same as the adviser during the junior year). The adviser and the student will agree on a topic on which the student will undertake independent original research throughout both terms of the senior year. This project will consist largely of original research involving wet laboratory work and/or chemical theory. On or before the University deadline, a written thesis based on this research work must be submitted to the department. The thesis will be evaluated and ranked by a committee of professors, two each from the following areas of study, as appropriate: inorganic chemistry, organic chemistry, physical chemistry, materials science, and biochemistry.",
       "no_req": null
     }
