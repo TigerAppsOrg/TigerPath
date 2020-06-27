@@ -18,7 +18,7 @@ const CourseName = styled.div`
 
 const PopoverContent = styled.div`
   background-color: white;
-  border-radius: 5px;
+  border-radius: 0.25rem;
   padding: 0.5rem;
   border: 1px solid #cbd5e0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),

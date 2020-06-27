@@ -8,8 +8,14 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { ThemeProvider } from 'styled-components';
 import { TIGERPATH_THEME } from 'styles/theme';
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
+import styled from 'styled-components';
 
 const RADIX = 10;
+
+const AppStyled = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default class App extends Component {
   constructor(props) {
@@ -133,7 +139,7 @@ export default class App extends Component {
   render() {
     return (
       <ThemeProvider theme={TIGERPATH_THEME}>
-        <React.Fragment>
+        <AppStyled>
           <h1 className="print-only">My Four Year Schedule</h1>
           <p className="print-only">
             This schedule was created using{' '}
@@ -148,7 +154,10 @@ export default class App extends Component {
             .
           </p>
           <DragDropContext onDragEnd={this.onDragEnd}>
-            <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
+            <div
+              id="search-pane"
+              className="col-lg-2 pl-0 pr-0 border-right dont-print"
+            >
               <Search
                 onChange={this.onChange}
                 searchResults={this.state.searchResults}
@@ -163,14 +172,14 @@ export default class App extends Component {
               />
             </div>
           </DragDropContext>
-          <div className="col-lg-2 pl-0 pr-0 break dont-print">
+          <div className="col-lg-2 pl-0 pr-0 border-left break dont-print">
             <Requirements
               onChange={this.onChange}
               requirements={this.state.requirements}
               schedule={this.state.schedule}
             />
           </div>
-        </React.Fragment>
+        </AppStyled>
       </ThemeProvider>
     );
   }

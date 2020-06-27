@@ -49,7 +49,7 @@ const ScheduleCourseCard = (props) => {
           </Draggable>
         </div>
       </CoursePopover>
-      <div className="search-card-info print-only">{course['title']}</div>
+      <div className="mb-2 print-only">{course['title']}</div>
     </div>
   );
 };

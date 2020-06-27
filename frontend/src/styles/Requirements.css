@@ -7,7 +7,7 @@
   margin-right: 3px;
   margin-bottom: 3px;
   color: #4B0082;
-  border-radius: 2px;
+  border-radius: 0.25rem;
   cursor: pointer;
 
   overflow: hidden;
@@ -36,7 +36,7 @@
 
 /* style everything except main roots*/
 #requirements .tree-sub-reqs .tree-view_item {
-  border-radius: 2px;
+  border-radius: 0.25rem;
   margin-right: 3px;
   margin-bottom: 3px;
   background-color: #ffc0cb;

@@ -16,12 +16,11 @@ const SEMESTER_BODY_COLOR = Object.freeze({
   RED: Symbol('redSemBody'),
 });
 
-const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
+const SemesterHeader = styled.div`
   color: #ffffff;
   text-align: center;
   font-size: large;
-  border-radius: 2px 2px 0 0;
-  padding: 2px;
+  padding: 0.5rem;
 
   background-color: ${({ theme, semesterType }) => {
     switch (semesterType) {
@@ -37,10 +36,10 @@ const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
 
 const SemesterBody = styled.div`
   list-style-type: none;
-  padding: 5px;
-  height: calc(100% - 31px);
-  min-height: 200px;
-  border-radius: 0 0 2px 2px;
+  padding: 0.5rem;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   background-color: ${({ theme, semesterBodyColor }) => {
     switch (semesterBodyColor) {
@@ -52,6 +51,12 @@ const SemesterBody = styled.div`
         return `${theme.greySemBody}`;
     }
   }};
+`;
+
+const SemesterStyled = styled.div`
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 `;
 
 export default class Semester extends Component {
@@ -114,7 +119,7 @@ export default class Semester extends Component {
     if (this.props.className) className += ` ${this.props.className}`;
 
     return (
-      <div className={className}>
+      <SemesterStyled className={className}>
         <SemesterHeader semesterType={this.state.semesterType}>
           {this.props.children}
         </SemesterHeader>
@@ -139,7 +144,7 @@ export default class Semester extends Component {
             </SemesterBody>
           )}
         </Droppable>
-      </div>
+      </SemesterStyled>
     );
   }
 }

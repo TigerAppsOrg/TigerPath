@@ -12,7 +12,7 @@ const Nav = styled.div`
   flex-direction: row;
   height: auto;
   border: 2px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 2px;
+  border-radius: 0.25rem;
   margin: 5px 25%;
 
   @media print {
@@ -35,7 +35,7 @@ const NavButton = styled.button`
     transition: all 0.15s ease-in-out;
 
     ${active &&
-    `
+    css`
       background: ${theme.lightGrey};
       color: white;
     `};

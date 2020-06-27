@@ -5,12 +5,19 @@ import styled from 'styled-components';
 import { getSemesterNames } from 'utils/SemesterUtils';
 
 const Semesters = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, calc(25% - 3.75px));
-  grid-template-rows: repeat(2, 1fr);
-  height: inherit;
-  grid-gap: 5px;
-  padding: 0 5px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 100%;
+`;
+
+const ScheduleSemester = styled(Semester)`
+  display: flex;
+  flex-direction: column;
+  width: calc(25% - 10px);
+  height: calc(50% - 10px);
+  margin: 5px;
 `;
 
 const Schedule = (props) => {
@@ -37,14 +44,14 @@ const Schedule = (props) => {
     let semesters = semesterNames.map((semName, index) => {
       let semId = `sem${index}`;
       return (
-        <Semester
+        <ScheduleSemester
           key={semId}
           onChange={onChange}
           schedule={schedule}
           semesterIndex={index}
         >
           {semName}
-        </Semester>
+        </ScheduleSemester>
       );
     });
     return semesters;

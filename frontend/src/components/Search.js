@@ -4,9 +4,14 @@ import useSWR from 'swr';
 import styled from 'styled-components';
 import useDebounce from '../hooks/use-debounce';
 
-const Spinner = styled.i`
-  font-size: inherit;
-  margin-left: 2px;
+const SearchInfo = styled.div`
+  margin: 0.25rem 0.75rem;
+  color: ${({ theme }) => theme.lightGrey};
+`;
+
+const SearchResults = styled.div`
+  height: calc(100vh - 126px);
+  overflow: auto;
 `;
 
 const getCoursesEndpoint = '/api/v1/get_courses/';
@@ -58,16 +63,11 @@ const Search = (props) => {
           autoFocus
         />
       </div>
-      <div id="search-info">
-        <div id="search-count">
-          <span id="search-count-num">{searchResults.length}</span>
-        </div>
-        <span>Search Results</span>
-        {isLoading && (
-          <Spinner className="fas fa-circle-notch fa-spin"></Spinner>
-        )}
-      </div>
-      <div id="display-courses">
+      <SearchInfo>
+        <span>{searchResults.length} Search Results</span>
+        {isLoading && <i className="ml-2 fas fa-circle-notch fa-spin"></i>}
+      </SearchInfo>
+      <SearchResults>
         {searchResults.map((course, courseIndex) => {
           const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
           return (
@@ -79,7 +79,7 @@ const Search = (props) => {
             />
           );
         })}
-      </div>
+      </SearchResults>
     </>
   );
 };
