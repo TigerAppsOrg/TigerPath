@@ -40,6 +40,7 @@
     "react-bootstrap": "^1.2.2",
     "react-dev-utils": "^10.2.1",
     "react-dom": "^16.13.1",
+    "react-tiny-popover": "^5.1.0",
     "react-treeview": "^0.4.7",
     "resolve": "^1.17.0",
     "style-loader": "^1.2.1",

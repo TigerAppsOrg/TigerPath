@@ -59,6 +59,7 @@ export default class Semester extends Component {
     super(props);
     this.state = {
       semesterType: getSemesterType(this.props.semesterIndex),
+      isPopoverOpen: false,
     };
   }
 
