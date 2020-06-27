@@ -19,7 +19,6 @@ export default class App extends Component {
       profile: null,
       schedule: null,
       requirements: null,
-      searchQuery: '',
       searchResults: [],
     };
   }
@@ -152,7 +151,6 @@ export default class App extends Component {
             <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
               <Search
                 onChange={this.onChange}
-                searchQuery={this.state.searchQuery}
                 searchResults={this.state.searchResults}
               />
             </div>

@@ -1,83 +1,87 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
+import React, { useState, useEffect, useCallback } from 'react';
 import SearchCard from 'components/SearchCard';
+import useSWR from 'swr';
+import styled from 'styled-components';
+import useDebounce from '../hooks/use-debounce';
 
-export default class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentRequest: null,
-    };
-  }
+const Spinner = styled.i`
+  font-size: inherit;
+  margin-left: 2px;
+`;
 
-  // is called whenever search query is modified
-  updateSearch = (event) => {
-    $('#spinner').css('display', 'inline-block');
+const getCoursesEndpoint = '/api/v1/get_courses/';
 
-    let searchQuery = event.target.value;
-    this.props.onChange('searchQuery', searchQuery);
-    if (searchQuery === '') searchQuery = '$'; // makes sure that there is a value, $ is dummy arg
+const Search = (props) => {
+  const { searchResults, onChange } = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
-    this.setState((state) => ({
-      currentRequest: $.ajax({
-        url: '/api/v1/get_courses/' + searchQuery,
-        datatype: 'json',
-        type: 'GET',
-        cache: true,
-        beforeSend: function () {
-          // if readyState is 4, then the request is already finished
-          if (
-            state.currentRequest !== null &&
-            state.currentRequest.readyState !== 4
-          ) {
-            state.currentRequest.abort();
-          }
-        },
-        success: function (searchResults) {
-          if (searchQuery === this.props.searchQuery || searchQuery === '$') {
-            this.props.onChange('searchResults', searchResults);
-            $('#spinner').css('display', 'none');
-          }
-        }.bind(this),
-      }),
-    }));
+  const fetcher = useCallback(
+    async (url) => {
+      if (url === getCoursesEndpoint || debouncedSearchQuery.length < 3) {
+        return [];
+      }
+      const res = await fetch(url);
+      const json = await res.json();
+      return json;
+    },
+    [debouncedSearchQuery]
+  );
+
+  const { data: searchResultsData } = useSWR(
+    `${getCoursesEndpoint}${debouncedSearchQuery}`,
+    fetcher
+  );
+
+  useEffect(() => {
+    if (!searchResultsData) return;
+    onChange('searchResults', searchResultsData);
+    setIsLoading(false);
+  }, [searchResultsData]);
+
+  const onSearchQueryChange = (event) => {
+    setSearchQuery(event.target.value);
+    setIsLoading(true);
   };
 
-  render() {
-    return (
-      <React.Fragment>
-        <div id="search-courses">
-          <input
-            type="text"
-            id="search-text"
-            placeholder="Search Courses"
-            value={this.props.searchQuery}
-            onChange={this.updateSearch}
-            className="form-control"
-            autoFocus
-          />
+  return (
+    <>
+      <div id="search-courses">
+        <input
+          type="text"
+          id="search-text"
+          placeholder="Search Courses"
+          value={searchQuery}
+          onChange={onSearchQueryChange}
+          className="form-control"
+          autoFocus
+        />
+      </div>
+      <div id="search-info">
+        <div id="search-count">
+          <span id="search-count-num">{searchResults.length}</span>
         </div>
-        <div id="search-info">
-          <div id="search-count">
-            <span id="search-count-num">{this.props.searchResults.length}</span>
-          </div>
-          <span>Search Results</span>
-          <i id="spinner" className="fas fa-circle-notch fa-spin"></i>
-        </div>
-        <div id="display-courses">
-          {this.props.searchResults.map((course, courseIndex) => {
-            const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
-            return (
-              <SearchCard
-                key={courseKey}
-                courseKey={courseKey}
-                index={courseIndex}
-                course={course}
-              />
-            );
-          })}
-        </div>
-      </React.Fragment>
-    );
-  }
-}
+        <span>Search Results</span>
+        {isLoading && (
+          <Spinner className="fas fa-circle-notch fa-spin"></Spinner>
+        )}
+      </div>
+      <div id="display-courses">
+        {searchResults.map((course, courseIndex) => {
+          const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
+          return (
+            <SearchCard
+              key={courseKey}
+              courseKey={courseKey}
+              index={courseIndex}
+              course={course}
+            />
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+export default Search;
