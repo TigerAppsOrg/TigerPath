@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Semester from 'components/Semester';
-import CourseCard from 'components/CourseCard';
 import ExternalCreditForm from 'components/ExternalCreditForm';
 import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 
@@ -22,44 +21,26 @@ const ECForm = styled(ExternalCreditForm)`
   grid-area: add;
 `;
 
-export default class ExternalCreditsView extends Component {
-  courseCardList = (courseList, semIndex) => {
-    return (
-      <React.Fragment>
-        {courseList.map((course, courseIndex) => {
-          let courseKey = `course-card-${semIndex}-${courseIndex}`;
-          return (
-            <CourseCard
-              key={courseKey}
-              course={course}
-              showSearchInfo={false}
-              onCourseRemove={this.removeCourse}
-              semIndex={semIndex}
-              courseIndex={courseIndex}
-            />
-          );
-        })}
-      </React.Fragment>
-    );
-  };
+const ExternalCreditsView = (props) => {
+  const { schedule, profile, requirements, onChange } = props;
 
-  render() {
-    return (
-      <ECContent>
-        <ECSemester
-          onChange={this.props.onChange}
-          schedule={this.props.schedule}
-          semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
-        >
-          Your External Credits
-        </ECSemester>
-        <ECForm
-          onChange={this.props.onChange}
-          profile={this.props.profile}
-          schedule={this.props.schedule}
-          requirements={this.props.requirements}
-        />
-      </ECContent>
-    );
-  }
-}
+  return (
+    <ECContent>
+      <ECSemester
+        onChange={onChange}
+        schedule={schedule}
+        semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
+      >
+        Your External Credits
+      </ECSemester>
+      <ECForm
+        onChange={onChange}
+        profile={profile}
+        schedule={schedule}
+        requirements={requirements}
+      />
+    </ECContent>
+  );
+};
+
+export default ExternalCreditsView;

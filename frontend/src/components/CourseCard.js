@@ -1,64 +1,103 @@
-import React, { useState } from 'react';
-import CoursePopover from './CoursePopover';
-import { Draggable } from 'react-beautiful-dnd';
-import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
+import React, { forwardRef } from 'react';
+import styled, { css } from 'styled-components';
 
-const CourseCard = (props) => {
-  const { semIndex, courseIndex, courseKey, course, onCourseRemove } = props;
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+const DeleteButton = styled.i`
+  display: none;
+  float: right;
+  margin-top: 4px;
+  color: #666;
 
-  const removeCourse = () => {
-    onCourseRemove(semIndex, courseIndex);
-  };
+  &:hover {
+    color: #e74c3c;
+    cursor: pointer;
+  }
+`;
 
-  const getClassNames = (isDragging) => {
-    let classNames = [];
-    classNames.push('course-card');
-    classNames.push(course['semester']);
-    if (isDragging) classNames.push('course-card-shadow');
-    return classNames.join(' ');
-  };
+const CourseCardStyled = styled.div`
+  font-size: large;
+  height: 36px;
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 5px;
+
+  &:hover {
+    cursor: grab;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: relative;
+    z-index: 1;
+
+    ${DeleteButton} {
+      display: block;
+    }
+  }
+
+  ${({ isDragging }) =>
+    isDragging &&
+    css`
+      cursor: grabbing !important;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+      z-index: 1;
+    `}
+
+  ${({ semester }) =>
+    (semester === 'fall' &&
+      css`
+        background-color: #eaccff;
+        color: #53008f;
+      `) ||
+    (semester === 'spring' &&
+      css`
+        background-color: #c4e3ed;
+        color: #004a63;
+      `) ||
+    (semester === 'both' &&
+      css`
+        background: linear-gradient(to right, #eaccff, #c4e3ed);
+        color: #333;
+      `) ||
+    (semester === 'external' &&
+      css`
+        background-color: #f3d9be;
+        color: #753a00;
+      `)}
+`;
+
+const CourseName = styled.div`
+  max-width: calc(100% - 18px);
+  overflow: hidden;
+  float: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+const CourseCard = (props, ref) => {
+  const {
+    courseKey,
+    course,
+    isDragging,
+    onCourseRemove,
+    ...otherProps
+  } = props;
 
   return (
-    <div
-      className="unbreakable"
-      onMouseEnter={() => setIsPopoverOpen(true)}
-      onMouseLeave={() => setIsPopoverOpen(false)}
+    <CourseCardStyled
+      ref={ref}
+      id={courseKey}
+      title={course['name']}
+      semester={course['semester']}
+      isDragging={isDragging}
+      {...otherProps}
     >
-      <CoursePopover
-        isOpen={isPopoverOpen}
-        course={course}
-        courseKey={courseKey}
-        semIndex={semIndex}
-      >
-        <div>
-          <Draggable
-            draggableId={courseKey}
-            index={courseIndex}
-            isDragDisabled={semIndex === EXTERNAL_CREDITS_SEMESTER_INDEX}
-          >
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                id={courseKey}
-                title={course['name']}
-                className={getClassNames(snapshot.isDragging)}
-                {...provided.draggableProps}
-                {...provided.dragHandleProps}
-              >
-                <div className="course-name">{course['name']}</div>
-                <i
-                  className="fas fa-times-circle delete-course"
-                  onClick={removeCourse}
-                />
-              </div>
-            )}
-          </Draggable>
-        </div>
-      </CoursePopover>
-      <div className="search-card-info print-only">{course['title']}</div>
-    </div>
+      <CourseName className="course-name">{course['name']}</CourseName>
+      {onCourseRemove && (
+        <DeleteButton
+          className="fas fa-times-circle"
+          onClick={onCourseRemove}
+        />
+      )}
+    </CourseCardStyled>
   );
 };
 
-export default CourseCard;
+export default forwardRef(CourseCard);

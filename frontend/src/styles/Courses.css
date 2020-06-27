@@ -84,68 +84,6 @@
   margin-left: 2px;
 }
 
-/* courses cards */
-.course-card {
-  font-size: large;
-  height: 36px;
-  padding: 5px;
-  border-radius: 2px;
-  margin-bottom: 5px;
-}
-
-.course-card.fall {
-  background-color: #eaccff;
-  color: #53008f;
-}
-
-.course-card.spring {
-  background-color: #c4e3ed;
-  color: #004a63;
-}
-
-.course-card.both {
-  background: linear-gradient(to right, #eaccff, #c4e3ed);
-  color: #333;
-}
-
-.course-card.external {
-  background-color: #f3d9be;
-  color: #753a00;
-}
-
-.course-card .course-name {
-  max-width: calc(100% - 18px);
-	overflow: hidden;
-	float: left;
-	text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.course-card:hover {
-  cursor: grab;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  position: relative;
-  z-index: 1;
-}
-
 .course-info:hover, .course-eval:hover {
   color: #5a6268;
 }
-
-/* add delete button on course hover in semesters */
-.course-card:hover .delete-course {
-  display: block;
-}
-
-.delete-course {
-	display: none; /* gets rid of delete button */
-	float: right;
-  margin-top: 4px;
-  color: #666;
-}
-
-.delete-course:hover {
-  color: #e74c3c;
-  cursor: pointer;
-}
-

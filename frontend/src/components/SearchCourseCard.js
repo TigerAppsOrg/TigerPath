@@ -1,19 +1,9 @@
 import React from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import CourseCard from './CourseCard';
 
-const SearchCourseCardStyled = styled.div`
-  ${({ isBeingDragged }) =>
-    isBeingDragged &&
-    css`
-      cursor: grabbing !important;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-        0 10px 10px rgba(0, 0, 0, 0.22);
-      z-index: 1;
-    `}
-`;
-
-const PlaceholderCourse = styled.div`
+const PlaceholderCourse = styled(CourseCard)`
   & ~ [data-rbd-placeholder-context-id] {
     display: none !important;
   }
@@ -32,24 +22,19 @@ const SearchCourseCard = (props) => {
           <Draggable draggableId={courseKey} index={courseIndex}>
             {(provided, snapshot) => (
               <>
-                <SearchCourseCardStyled
+                <CourseCard
                   ref={provided.innerRef}
-                  id={courseKey}
-                  title={course['name']}
-                  className={`course-card ${course['semester']}`}
-                  isBeingDragged={snapshot.isDragging}
+                  courseKey={courseKey}
+                  course={course}
+                  isDragging={snapshot.isDragging}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
-                >
-                  <div className="course-name">{course['name']}</div>
-                </SearchCourseCardStyled>
+                />
                 {snapshot.isDragging && (
                   <PlaceholderCourse
-                    id={`${courseKey}-placeholder`}
-                    className={`course-card ${course['semester']}`}
-                  >
-                    <div className="course-name">{course['name']}</div>
-                  </PlaceholderCourse>
+                    courseKey={`${courseKey}-placeholder`}
+                    course={course}
+                  />
                 )}
               </>
             )}

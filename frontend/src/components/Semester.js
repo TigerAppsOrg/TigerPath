@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CourseCard from 'components/CourseCard';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import {
@@ -9,6 +8,7 @@ import {
   isFallSemester,
   isSpringSemester,
 } from 'utils/SemesterUtils';
+import ScheduleCourseCard from './ScheduleCourseCard';
 
 const SEMESTER_BODY_COLOR = Object.freeze({
   GREY: Symbol('greySemBody'),
@@ -75,7 +75,7 @@ export default class Semester extends Component {
         {semester[semIndex].map((course, courseIndex) => {
           let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
           return (
-            <CourseCard
+            <ScheduleCourseCard
               key={courseKey}
               course={course}
               courseKey={courseKey}
