@@ -17,20 +17,23 @@ const SearchCourseCard = (props) => {
       droppableId={`search-result-droppable-${courseKey}`}
       isDropDisabled={true}
     >
-      {(provided, snapshot) => (
-        <div ref={provided.innerRef} {...provided.droppableProps}>
+      {(droppableProvided) => (
+        <div
+          ref={droppableProvided.innerRef}
+          {...droppableProvided.droppableProps}
+        >
           <Draggable draggableId={courseKey} index={courseIndex}>
-            {(provided, snapshot) => (
+            {(draggableProvided, draggableSnapshot) => (
               <>
                 <CourseCard
-                  ref={provided.innerRef}
+                  ref={draggableProvided.innerRef}
                   courseKey={courseKey}
                   course={course}
-                  isDragging={snapshot.isDragging}
-                  {...provided.draggableProps}
-                  {...provided.dragHandleProps}
+                  isDragging={draggableSnapshot.isDragging}
+                  {...draggableProvided.draggableProps}
+                  {...draggableProvided.dragHandleProps}
                 />
-                {snapshot.isDragging && (
+                {draggableSnapshot.isDragging && (
                   <PlaceholderCourse
                     courseKey={`${courseKey}-placeholder`}
                     course={course}
@@ -39,7 +42,7 @@ const SearchCourseCard = (props) => {
               </>
             )}
           </Draggable>
-          {provided.placeholder}
+          {droppableProvided.placeholder}
         </div>
       )}
     </Droppable>

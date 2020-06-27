@@ -5,7 +5,14 @@ import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 import CourseCard from './CourseCard';
 
 const ScheduleCourseCard = (props) => {
-  const { courseKey, course, semIndex, courseIndex, onCourseRemove } = props;
+  const {
+    courseKey,
+    course,
+    semIndex,
+    courseIndex,
+    onCourseRemove,
+    disablePopover,
+  } = props;
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   const removeCourse = () => onCourseRemove(semIndex, courseIndex);
@@ -17,7 +24,7 @@ const ScheduleCourseCard = (props) => {
       onMouseLeave={() => setIsPopoverOpen(false)}
     >
       <CoursePopover
-        isOpen={isPopoverOpen}
+        isOpen={isPopoverOpen && !disablePopover}
         course={course}
         courseKey={courseKey}
         semIndex={semIndex}

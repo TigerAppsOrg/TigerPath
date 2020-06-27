@@ -69,24 +69,21 @@ export default class Semester extends Component {
     this.props.onChange('schedule', newSchedule);
   };
 
-  courseCardList = (semester, semIndex) => {
-    return (
-      <React.Fragment>
-        {semester[semIndex].map((course, courseIndex) => {
-          let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
-          return (
-            <ScheduleCourseCard
-              key={courseKey}
-              course={course}
-              courseKey={courseKey}
-              onCourseRemove={this.removeCourse}
-              semIndex={semIndex}
-              courseIndex={courseIndex}
-            />
-          );
-        })}
-      </React.Fragment>
-    );
+  courseCardList = (semester, semIndex, isDraggingOver) => {
+    return semester[semIndex].map((course, courseIndex) => {
+      let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
+      return (
+        <ScheduleCourseCard
+          key={courseKey}
+          course={course}
+          courseKey={courseKey}
+          onCourseRemove={this.removeCourse}
+          semIndex={semIndex}
+          courseIndex={courseIndex}
+          disablePopover={isDraggingOver}
+        />
+      );
+    });
   };
 
   getSemesterBodyColor = (snapshot) => {
@@ -133,7 +130,11 @@ export default class Semester extends Component {
               semesterBodyColor={this.getSemesterBodyColor(snapshot)}
             >
               {this.props.schedule &&
-                this.courseCardList(this.props.schedule, semIndex)}
+                this.courseCardList(
+                  this.props.schedule,
+                  semIndex,
+                  snapshot.isDraggingOver
+                )}
               {provided.placeholder}
             </SemesterBody>
           )}
