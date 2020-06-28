@@ -25,6 +25,10 @@ const PopoverTitle = styled.div`
   margin-right: 0.5rem;
 `;
 
+const SearchIcon = styled.i`
+  margin-right: 5px;
+`;
+
 const ReqCategoryLabel = (props) => {
   const { requirement, onChange, onClick } = props;
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -52,7 +56,7 @@ const ReqCategoryLabel = (props) => {
           className="btn btn-light btn-sm"
           onClick={getReqCourses}
         >
-          <i className="fa fa-search"></i>
+          <SearchIcon className="fa fa-search"></SearchIcon>
           <span>Find</span>
         </button>
       </PopoverHeader>

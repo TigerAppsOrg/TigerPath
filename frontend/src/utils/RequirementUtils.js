@@ -1,4 +1,4 @@
-const isReqDone = (requirement) => {
+const isReqComplete = (requirement) => {
   const minNeeded = requirement['min_needed'];
   const count = requirement['count'];
   return (
@@ -12,4 +12,4 @@ const isReqNeutral = (requirement) => {
   return minNeeded === 0 && count === 0;
 };
 
-export { isReqDone, isReqNeutral };
+export { isReqComplete, isReqNeutral };

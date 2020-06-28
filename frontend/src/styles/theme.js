@@ -25,4 +25,12 @@ export const TIGERPATH_THEME = {
   bothCourseTextColor: '#333',
   externalCourseBgColor: '#f3d9be',
   externalCourseTextColor: '#753a00',
+
+  /* Requirement tree colors */
+  reqIncompleteBgColor: '#ffc0cb',
+  reqIncompleteTextColor: '#690012',
+  reqCompleteBgColor: '#d0ebcf',
+  reqCompleteTextColor: '#045d00',
+  reqNeutralBgColor: '#f3eab4',
+  reqNeutralTextColor: '#756613',
 };

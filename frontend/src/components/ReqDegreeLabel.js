@@ -9,6 +9,10 @@ import {
   PopoverDescription,
 } from '../styles/ReqTree';
 
+const DegreeTreeName = styled(TreeName)`
+  font-weight: bold;
+`;
+
 const PopoverTitle = styled.div`
   font-weight: bold;
 `;
@@ -106,7 +110,7 @@ const ReqDegreeLabel = (props) => {
         content={renderPopoverContent}
       >
         <TreeNameContainer onClick={onClick}>
-          <TreeName>{name}</TreeName>
+          <DegreeTreeName>{name}</DegreeTreeName>
         </TreeNameContainer>
       </Popover>
     </TreeLabel>

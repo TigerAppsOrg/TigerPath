@@ -1,10 +1,16 @@
 import React from 'react';
 import ReqDegreeTree from './ReqDegreeTree';
+import styled from 'styled-components';
+
+const RequirementsStyled = styled.div`
+  height: calc(100vh - 56px);
+  overflow: auto;
+`;
 
 const Requirements = (props) => {
   const { requirements, schedule, onChange } = props;
   return (
-    <div id="requirements">
+    <RequirementsStyled id="requirements">
       {requirements &&
         requirements.map((req, index) => (
           <ReqDegreeTree
@@ -14,7 +20,7 @@ const Requirements = (props) => {
             onChange={onChange}
           />
         ))}
-    </div>
+    </RequirementsStyled>
   );
 };
 
