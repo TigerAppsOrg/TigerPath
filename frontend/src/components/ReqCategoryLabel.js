@@ -18,6 +18,7 @@ const PopoverDescription = styled.div`
   margin-top: 0.5rem;
   max-height: 200px;
   overflow-y: auto;
+  overflow-wrap: break-word;
   white-space: pre-wrap;
 `;
 
@@ -50,21 +51,9 @@ const ReqCategoryLabel = (props) => {
     }
   }, [requirement]);
 
-  const getReqCourses = (req_path) => {
-    // var searchQuery = 'Satisfying: ' + req_path.split('//').pop();
-    // onChange('searchQuery', searchQuery);
-    // $('#spinner').css('display', 'inline-block');
-    // $.ajax({
-    //   // the slashes messes up the url
-    //   url: '/api/v1/get_req_courses/' + req_path.replace(/\/\//g, '$'),
-    //   datatype: 'json',
-    //   type: 'GET',
-    //   cache: true,
-    //   success: (searchResults) => {
-    //     onChange('searchResults', searchResults);
-    //     $('#spinner').css('display', 'none');
-    //   },
-    // });
+  const getReqCourses = () => {
+    const searchQuery = 'Category: ' + requirement['path_to'];
+    onChange('searchQuery', searchQuery);
   };
 
   const renderPopoverContent = () => (
@@ -74,7 +63,7 @@ const ReqCategoryLabel = (props) => {
         <button
           type="button"
           className="btn btn-light btn-sm"
-          onClick={getReqCourses(requirement['path_to'])}
+          onClick={getReqCourses}
         >
           <i className="fa fa-search"></i>
           <span>Find</span>

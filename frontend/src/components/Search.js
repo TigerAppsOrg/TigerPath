@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import SearchCard from 'components/SearchCard';
 import useSWR from 'swr';
 import styled from 'styled-components';
@@ -14,30 +14,33 @@ const SearchResults = styled.div`
   overflow: auto;
 `;
 
-const getCoursesEndpoint = '/api/v1/get_courses/';
+const GET_COURSES_URL = '/api/v1/get_courses/';
+const GET_REQ_COURSES_URL = '/api/v1/get_req_courses/';
+
+const fetcher = async (url) => {
+  if (url === null) return [];
+  const res = await fetch(url);
+  const json = await res.json();
+  return json;
+};
 
 const Search = (props) => {
-  const { searchResults, onChange } = props;
+  const { searchQuery, searchResults, onChange } = props;
   const [isLoading, setIsLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
-  const fetcher = useCallback(
-    async (url) => {
-      if (url === getCoursesEndpoint || debouncedSearchQuery.length < 3) {
-        return [];
-      }
-      const res = await fetch(url);
-      const json = await res.json();
-      return json;
-    },
-    [debouncedSearchQuery]
-  );
-
-  const { data: searchResultsData } = useSWR(
-    `${getCoursesEndpoint}${debouncedSearchQuery}`,
-    fetcher
-  );
+  const fetchUrl = useMemo(() => {
+    if (debouncedSearchQuery.startsWith('Category: ')) {
+      let query = debouncedSearchQuery.split('Category: ')[1];
+      query = query.replace(/\/\//g, '$');
+      return GET_REQ_COURSES_URL + encodeURIComponent(query);
+    } else if (debouncedSearchQuery.length >= 3) {
+      return GET_COURSES_URL + encodeURIComponent(debouncedSearchQuery);
+    } else {
+      return null;
+    }
+  }, [debouncedSearchQuery]);
+  const { data: searchResultsData } = useSWR(fetchUrl, fetcher);
 
   useEffect(() => {
     if (!searchResultsData) return;
@@ -45,10 +48,13 @@ const Search = (props) => {
     setIsLoading(false);
   }, [searchResultsData]);
 
-  const onSearchQueryChange = (event) => {
-    setSearchQuery(event.target.value);
+  useEffect(() => {
+    if (!searchQuery) return;
     setIsLoading(true);
-  };
+  }, [searchQuery]);
+
+  const onSearchQueryChange = (event) =>
+    onChange('searchQuery', event.target.value);
 
   return (
     <>

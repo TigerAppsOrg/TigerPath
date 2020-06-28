@@ -56,7 +56,7 @@ const ReqDegreeLabel = (props) => {
                 <Title>Contacts:</Title>
                 <ul>
                   {requirement.contacts.map((contact) => (
-                    <li>
+                    <li key={contact.name}>
                       {contact.type}:{' '}
                       <a
                         href={`mailto:${contact.email}`}
@@ -75,7 +75,7 @@ const ReqDegreeLabel = (props) => {
                 <Title>Sources:</Title>
                 <ul>
                   {requirement.urls.map((url) => (
-                    <li>
+                    <li key={url}>
                       <RefLink
                         href={url}
                         target="_blank"
