@@ -17,9 +17,9 @@
 
 /* styles all levels */
 #requirements .tree-view_item {
+  display: flex;
   padding-left: 3px;
   cursor: pointer;
-  display: flow-root;
 }
 
 /* greyed out unsettled reqs*/

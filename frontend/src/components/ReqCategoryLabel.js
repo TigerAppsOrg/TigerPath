@@ -22,6 +22,12 @@ const PopoverDescription = styled.div`
   white-space: pre-wrap;
 `;
 
+const CategoryLabel = styled.span`
+  flex: 1;
+  overflow: hidden;
+  user-select: none;
+`;
+
 const Label = styled.span`
   display: flex;
   justify-content: space-between;
@@ -39,7 +45,7 @@ const Progress = styled.span`
 `;
 
 const ReqCategoryLabel = (props) => {
-  const { requirement, onChange } = props;
+  const { requirement, onChange, onClick } = props;
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [progress, setProgress] = useState(null);
 
@@ -76,7 +82,8 @@ const ReqCategoryLabel = (props) => {
   );
 
   return (
-    <div
+    <CategoryLabel
+      onClick={onClick}
       onMouseEnter={() => setIsPopoverOpen(true)}
       onMouseLeave={() => setIsPopoverOpen(false)}
     >
@@ -86,14 +93,11 @@ const ReqCategoryLabel = (props) => {
         content={renderPopoverContent}
       >
         <Label>
-          <ReqName>
-            <span className="my-arrow" />
-            <span>{requirement['name']}</span>
-          </ReqName>
+          <ReqName>{requirement['name']}</ReqName>
           <Progress>{progress}</Progress>
         </Label>
       </Popover>
-    </div>
+    </CategoryLabel>
   );
 };
 

@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import PopoverContent from './PopoverContent';
 import Popover from 'react-tiny-popover';
 
-const Title = styled.div`
+const Label = styled.span`
+  flex: 1;
+  user-select: none;
+`;
+
+const PopoverTitle = styled.div`
   font-weight: bold;
 `;
 
@@ -14,11 +19,11 @@ const PopoverDescription = styled.div`
   white-space: pre-wrap;
 `;
 
-const Container = styled.div`
+const PopoverContainer = styled.div`
   margin-top: 0.5rem;
 `;
 
-const RefLink = styled.a`
+const SourceLink = styled.a`
   font-family: 'Lucida Console', Monaco, monospace;
   font-size: 12px;
   white-space: nowrap;
@@ -28,7 +33,7 @@ const RefLink = styled.a`
 `;
 
 const ReqDegreeLabel = (props) => {
-  const { requirement } = props;
+  const { requirement, onClick } = props;
   const [name, setName] = useState(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
@@ -44,7 +49,7 @@ const ReqDegreeLabel = (props) => {
     if (typeof requirement === 'object') {
       return (
         <PopoverContent>
-          <Title>{name}</Title>
+          <PopoverTitle>{name}</PopoverTitle>
           <PopoverDescription>
             <div>
               {requirement.explanation
@@ -52,8 +57,8 @@ const ReqDegreeLabel = (props) => {
                 : requirement.description}
             </div>
             {requirement.contacts && (
-              <Container>
-                <Title>Contacts:</Title>
+              <PopoverContainer>
+                <PopoverTitle>Contacts:</PopoverTitle>
                 <ul>
                   {requirement.contacts.map((contact) => (
                     <li key={contact.name}>
@@ -68,25 +73,25 @@ const ReqDegreeLabel = (props) => {
                     </li>
                   ))}
                 </ul>
-              </Container>
+              </PopoverContainer>
             )}
             {requirement.urls && (
-              <Container>
-                <Title>Sources:</Title>
+              <PopoverContainer>
+                <PopoverTitle>Sources:</PopoverTitle>
                 <ul>
                   {requirement.urls.map((url) => (
                     <li key={url}>
-                      <RefLink
+                      <SourceLink
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         {url}
-                      </RefLink>
+                      </SourceLink>
                     </li>
                   ))}
                 </ul>
-              </Container>
+              </PopoverContainer>
             )}
           </PopoverDescription>
         </PopoverContent>
@@ -97,7 +102,8 @@ const ReqDegreeLabel = (props) => {
   };
 
   return (
-    <div
+    <Label
+      onClick={onClick}
       onMouseEnter={() => setIsPopoverOpen(true)}
       onMouseLeave={() => setIsPopoverOpen(false)}
     >
@@ -106,12 +112,9 @@ const ReqDegreeLabel = (props) => {
         position="left"
         content={renderPopoverContent}
       >
-        <div>
-          <span className="my-arrow root-arrow"></span>
-          <span>{name}</span>
-        </div>
+        <span>{name}</span>
       </Popover>
-    </div>
+    </Label>
   );
 };
 
