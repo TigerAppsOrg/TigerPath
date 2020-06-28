@@ -27,7 +27,7 @@ export default class ECReqDropdown extends Component {
 
       if ('req_list' in requirement) {
         if (reqName === 'Degree Progress') {
-          return <React.Fragment key={reqName} />;
+          return null;
         }
         return (
           <React.Fragment key={reqName}>
@@ -39,17 +39,16 @@ export default class ECReqDropdown extends Component {
         );
       } else {
         return (
-          <React.Fragment key={reqName}>
-            <ReqDropdownItem
-              eventKey={requirement['path_to']}
-              leftPadding={leftPadding}
-              onSelect={(e) =>
-                this.props.handleChange('selectedRequirement', reqName, e)
-              }
-            >
-              {reqName}
-            </ReqDropdownItem>
-          </React.Fragment>
+          <ReqDropdownItem
+            key={reqName}
+            eventKey={requirement['path_to']}
+            leftPadding={leftPadding}
+            onSelect={(e) =>
+              this.props.handleChange('selectedRequirement', reqName, e)
+            }
+          >
+            {reqName}
+          </ReqDropdownItem>
         );
       }
     });

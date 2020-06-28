@@ -31,6 +31,10 @@ const Submit = styled(Button)`
   margin-right: 0;
 `;
 
+const InfoIcon = styled.i`
+  color: ${({ theme }) => theme.lightGrey};
+`;
+
 const DEFAULT_NAME = { label: '', value: '' };
 
 const FORM_STATE = Object.freeze({
@@ -169,13 +173,15 @@ export default class ExternalCreditForm extends Component {
                       <Tooltip>
                         For AP credits, waivers, or other external credits that
                         don't fit in a semester, choose "N/A" - they will appear
-                        in "Your External Credits" on the left. For a summer
-                        course, choose either the semester before or after the
-                        summer in which you took it.
+                        in "Your External Credits" on the left.
+                        <br />
+                        <br />
+                        For a summer course, choose either the semester before
+                        or after the summer in which you took it.
                       </Tooltip>
                     }
                   >
-                    <i className="fas fa-info-circle fa-lg fa-fw ml-1" />
+                    <InfoIcon className="fas fa-info-circle fa-lg fa-fw ml-1" />
                   </OverlayTrigger>
                 </Form.Label>
                 <SemesterDropdown>

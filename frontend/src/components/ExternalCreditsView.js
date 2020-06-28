@@ -5,20 +5,19 @@ import ExternalCreditForm from 'components/ExternalCreditForm';
 import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 
 const ECContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-gap: 20px;
-  grid-template-areas: 'sem add';
-  padding: 20px 10px 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
 `;
 
 const ECSemester = styled(Semester)`
-  grid-area: sem;
+  flex: 1;
+  margin: 0.5rem;
 `;
 
 const ECForm = styled(ExternalCreditForm)`
-  grid-area: add;
+  flex: 1;
+  margin: 0.5rem;
 `;
 
 const ExternalCreditsView = (props) => {
