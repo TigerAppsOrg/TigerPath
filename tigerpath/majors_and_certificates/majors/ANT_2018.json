@@ -95,7 +95,7 @@
                   "name": "200-level",
                   "max_counted": 1,
                   "min_needed": 2,
-                  "explanation": null,
+                  "explanation": "Two foundational 200-level courses (one may be a cognate approved at this level)",
                   "course_list": [
                     "ANT 2*"
                   ]
@@ -104,7 +104,7 @@
                   "name": "300-level",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": null,
+                  "explanation": "One 300-level course in addition to 300, 301, 390 (may be a cognate approved at this level)",
                   "excluded_course_list": [
                     "ANT 300*",
                     "ANT 301*",
@@ -118,7 +118,7 @@
                   "name": "400-level",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": null,
+                  "explanation": "One advanced 400-level topical course (may be a cognate approved at this level)",
                   "course_list": [
                     "ANT 4*"
                   ]
@@ -127,7 +127,7 @@
                   "name": "Electives",
                   "max_counted": 1,
                   "min_needed": 2,
-                  "explanation": null,
+                  "explanation": "Two free electives (may be another ANT course at any level and/or a cognate)",
                   "excluded_course_list": [
                     "ANT 300*",
                     "ANT 301*",
