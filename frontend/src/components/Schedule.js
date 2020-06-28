@@ -7,17 +7,17 @@ import { getSemesterNames } from 'utils/SemesterUtils';
 const Semesters = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-left: 5px;
-  margin-right: 5px;
+  padding: 0.5rem;
   height: 100%;
+  overflow-y: auto;
 `;
 
 const ScheduleSemester = styled(Semester)`
   display: flex;
   flex-direction: column;
-  width: calc(25% - 10px);
-  height: calc(50% - 10px);
-  margin: 5px;
+  width: calc(25% - 1rem);
+  height: calc(50% - 1rem);
+  margin: 0.5rem;
 `;
 
 const Schedule = (props) => {

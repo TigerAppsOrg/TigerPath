@@ -5,6 +5,7 @@ export const TIGERPATH_THEME = {
   darkGreyText: '#555555',
   lightGrey: '#6c757d',
   darkGrey: '#5a6268',
+  lighterGrey: '#ced4da',
 
   /* Semester body colors */
   greySemBody: '#f5f5f5',
