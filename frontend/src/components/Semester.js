@@ -36,7 +36,7 @@ const SemesterHeader = styled.div`
 
 const SemesterBody = styled.div`
   list-style-type: none;
-  padding: 0.5rem;
+  padding: 0 0.5rem 0.5rem 0.5rem;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -51,10 +51,6 @@ const SemesterBody = styled.div`
         return `${theme.greySemBody}`;
     }
   }};
-
-  > * + * {
-    margin-top: 0.5rem;
-  }
 `;
 
 const SemesterStyled = styled.div`

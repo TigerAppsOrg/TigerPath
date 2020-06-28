@@ -3,6 +3,11 @@ import CoursePopover from './CoursePopover';
 import { Draggable } from 'react-beautiful-dnd';
 import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 import CourseCard from './CourseCard';
+import styled from 'styled-components';
+
+const ScheduleCourseCardStyled = styled(CourseCard)`
+  margin-top: 0.5rem;
+`;
 
 const ScheduleCourseCard = (props) => {
   const {
@@ -36,7 +41,7 @@ const ScheduleCourseCard = (props) => {
             isDragDisabled={semIndex === EXTERNAL_CREDITS_SEMESTER_INDEX}
           >
             {(provided, snapshot) => (
-              <CourseCard
+              <ScheduleCourseCardStyled
                 ref={provided.innerRef}
                 courseKey={courseKey}
                 course={course}

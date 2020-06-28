@@ -3,7 +3,13 @@ import { Draggable, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import CourseCard from './CourseCard';
 
+const SearchCourseCardStyled = styled(CourseCard)`
+  margin-top: 0.5rem;
+`;
+
 const PlaceholderCourse = styled(CourseCard)`
+  margin-top: 0.5rem;
+
   & ~ [data-rbd-placeholder-context-id] {
     display: none !important;
   }
@@ -25,7 +31,7 @@ const SearchCourseCard = (props) => {
           <Draggable draggableId={courseKey} index={courseIndex}>
             {(draggableProvided, draggableSnapshot) => (
               <>
-                <CourseCard
+                <SearchCourseCardStyled
                   ref={draggableProvided.innerRef}
                   courseKey={courseKey}
                   course={course}
