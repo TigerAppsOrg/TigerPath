@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import Popover from 'react-tiny-popover';
 import PopoverContent from './PopoverContent';
 import styled from 'styled-components';
+import {
+  TreeLabel,
+  TreeNameContainer,
+  TreeName,
+  PopoverDescription,
+} from '../styles/ReqTree';
+
+const Progress = styled.span`
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
 
 const PopoverHeader = styled.div`
   display: flex;
@@ -12,36 +23,6 @@ const PopoverHeader = styled.div`
 const PopoverTitle = styled.div`
   font-weight: bold;
   margin-right: 0.5rem;
-`;
-
-const PopoverDescription = styled.div`
-  margin-top: 0.5rem;
-  max-height: 200px;
-  overflow-y: auto;
-  overflow-wrap: break-word;
-  white-space: pre-wrap;
-`;
-
-const CategoryLabel = styled.span`
-  flex: 1;
-  overflow: hidden;
-  user-select: none;
-`;
-
-const Label = styled.span`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const ReqName = styled.span`
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-`;
-
-const Progress = styled.span`
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 `;
 
 const ReqCategoryLabel = (props) => {
@@ -82,8 +63,7 @@ const ReqCategoryLabel = (props) => {
   );
 
   return (
-    <CategoryLabel
-      onClick={onClick}
+    <TreeLabel
       onMouseEnter={() => setIsPopoverOpen(true)}
       onMouseLeave={() => setIsPopoverOpen(false)}
     >
@@ -92,12 +72,12 @@ const ReqCategoryLabel = (props) => {
         position="left"
         content={renderPopoverContent}
       >
-        <Label>
-          <ReqName>{requirement['name']}</ReqName>
+        <TreeNameContainer onClick={onClick}>
+          <TreeName>{requirement['name']}</TreeName>
           <Progress>{progress}</Progress>
-        </Label>
+        </TreeNameContainer>
       </Popover>
-    </CategoryLabel>
+    </TreeLabel>
   );
 };
 

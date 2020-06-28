@@ -2,21 +2,15 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import PopoverContent from './PopoverContent';
 import Popover from 'react-tiny-popover';
-
-const Label = styled.span`
-  flex: 1;
-  user-select: none;
-`;
+import {
+  TreeLabel,
+  TreeNameContainer,
+  TreeName,
+  PopoverDescription,
+} from '../styles/ReqTree';
 
 const PopoverTitle = styled.div`
   font-weight: bold;
-`;
-
-const PopoverDescription = styled.div`
-  margin-top: 0.5rem;
-  max-height: 200px;
-  overflow-y: auto;
-  white-space: pre-wrap;
 `;
 
 const PopoverContainer = styled.div`
@@ -102,8 +96,7 @@ const ReqDegreeLabel = (props) => {
   };
 
   return (
-    <Label
-      onClick={onClick}
+    <TreeLabel
       onMouseEnter={() => setIsPopoverOpen(true)}
       onMouseLeave={() => setIsPopoverOpen(false)}
     >
@@ -112,9 +105,11 @@ const ReqDegreeLabel = (props) => {
         position="left"
         content={renderPopoverContent}
       >
-        <span>{name}</span>
+        <TreeNameContainer onClick={onClick}>
+          <TreeName>{name}</TreeName>
+        </TreeNameContainer>
       </Popover>
-    </Label>
+    </TreeLabel>
   );
 };
 
