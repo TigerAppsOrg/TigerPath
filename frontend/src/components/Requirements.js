@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
-import ReqCategory from './ReqCategory';
+import ReqCategoryLabel from './ReqCategoryLabel';
+import ReqDegreeLabel from './ReqDegreeLabel';
 
 export default class Requirements extends Component {
   componentDidUpdate(prevProps) {
@@ -125,7 +126,7 @@ export default class Requirements extends Component {
           key={index}
           itemClassName={finished}
           nodeLabel={
-            <ReqCategory
+            <ReqCategoryLabel
               requirement={requirement}
               onChange={this.props.onChange}
             />
@@ -144,11 +145,9 @@ export default class Requirements extends Component {
       let name;
       let content;
       let finished = '';
-      let popoverContent;
 
       // major is supported
       if (typeof mainReq === 'object') {
-        name = mainReq.name;
         content = this.populateReqTree(mainReq);
 
         // whether or not the major requirements have been satisfied
@@ -159,42 +158,6 @@ export default class Requirements extends Component {
         ) {
           finished = 'req-done';
         }
-        // popover
-        popoverContent = '<div class="popoverContentContainer">';
-        if (mainReq.explanation) {
-          popoverContent +=
-            '<p>' + mainReq.explanation.split('\n').join('<br>') + '</p>';
-        } else if (mainReq.description) {
-          popoverContent +=
-            '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
-        }
-        if (mainReq.contacts) {
-          popoverContent += '<h6>Contacts:</h6>';
-          mainReq.contacts.forEach((contact) => {
-            popoverContent +=
-              '<p>' +
-              contact.type +
-              ':<br>' +
-              contact.name +
-              '<br><a href="mailto:' +
-              contact.email +
-              '">' +
-              contact.email +
-              '</a></p>';
-          });
-        }
-        if (mainReq.urls) {
-          popoverContent += '<h6>Reference Links:</h6>';
-          mainReq.urls.forEach((url) => {
-            popoverContent +=
-              '<p><a href="' +
-              url +
-              '" class="ref-link" target="_blank" rel="noopener noreferrer">' +
-              url +
-              '</a></p>';
-          });
-        }
-        popoverContent += '</div>';
       }
       // major is not supported yet
       else {
@@ -218,26 +181,14 @@ export default class Requirements extends Component {
             </p>
           </div>
         );
-        popoverContent = 'The ' + name + ' major is not supported yet.';
       }
 
-      // render requirements
-      let mainReqLabel = (
-        <div
-          className="reqLabel"
-          title={'<span>' + name + '</span>'}
-          data-content={popoverContent}
-        >
-          <div className="my-arrow root-arrow"></div>
-          {name}
-        </div>
-      );
       return (
         <TreeView
           key={index}
           itemClassName={'tree-root ' + finished}
           childrenClassName="tree-sub-reqs"
-          nodeLabel={mainReqLabel}
+          nodeLabel={<ReqDegreeLabel requirement={mainReq} />}
         >
           {content}
         </TreeView>

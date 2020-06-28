@@ -69,21 +69,6 @@
   padding-right: 5px;
 }
 
-.popoverContentContainer {
-  max-height: 200px;
-  overflow-y: auto;
-  margin-top: 5px;
-}
-
 .fa-exclamation-circle {
   color: #e74c3c;
-}
-
-.ref-link {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
 }

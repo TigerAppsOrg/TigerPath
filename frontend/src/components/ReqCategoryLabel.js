@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Popover from 'react-tiny-popover';
 import PopoverContent from './PopoverContent';
-import $ from 'jquery';
 import styled from 'styled-components';
 
 const PopoverHeader = styled.div`
@@ -38,7 +37,7 @@ const Progress = styled.span`
   padding-right: 0.5rem;
 `;
 
-const ReqCategory = (props) => {
+const ReqCategoryLabel = (props) => {
   const { requirement, onChange } = props;
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [progress, setProgress] = useState(null);
@@ -109,4 +108,4 @@ const ReqCategory = (props) => {
   );
 };
 
-export default ReqCategory;
+export default ReqCategoryLabel;
