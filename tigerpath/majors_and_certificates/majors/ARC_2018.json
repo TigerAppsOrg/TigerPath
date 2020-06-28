@@ -172,30 +172,17 @@
     },
     {
       "name": "Independent Work",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "The junior independent work requirement is satisfied by a paper (about 30 pages) selected by the student in consultation with a faculty member. The work is initiated in the fall (topic, outline and bibliography) and completed in the spring. Students work throughout the year in consultation with their faculty adviser. A Ph.D. student mentor also provides writing support.",
-      "course_list": [
-        "ARC 981"
-      ]
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe junior independent work requirement is satisfied by a paper (about 30 pages) selected by the student in consultation with a faculty member. The work is initiated in the fall (topic, outline and bibliography) and completed in the spring. Students work throughout the year in consultation with their faculty adviser. A Ph.D. student mentor also provides writing support.",
+      "no_req": null
     },
     {
       "name": "Senior Thesis",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "The senior thesis in architecture is a year-long project that begins with ARC 403 in the fall semester. Faculty thesis advisers are assigned at the end of the fall term of the senior year, and students work closely with their adviser to formulate their topic, define research methods, organize thesis material, and refine the presentation of the scholarship.\n\nThe senior thesis is intended to be a detailed project, presenting a well-argued piece of research on a precise architectural theme, and may include several forms of representation. For example, students commonly utilize architectural drawings, models, video, photographs, and computer-generated drawings and models. The final presentation and oral defense of the senior thesis in the spring constitutes a section of the departmental examination.",
-      "course_list": [
-        "ARC 984"
-      ]
-    },
-    {
-      "name": "Senior Departmental Exam",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "All students in the architecture program take the departmental examination [DC1] in May of their senior year. The exam consists of a dialog with one’s advisor and second reader around the thesis itself and a brief (10-15 min) presentation summarizing the student’s principal questions, findings, and contribution to existing research. Students typically show images and highlight what was most interesting and exciting about the project.",
-      "course_list": [
-        "ARC 983"
-      ]
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe senior thesis in architecture is a year-long project that begins with ARC 403 in the fall semester. Faculty thesis advisers are assigned at the end of the fall term of the senior year, and students work closely with their adviser to formulate their topic, define research methods, organize thesis material, and refine the presentation of the scholarship.\n\nThe senior thesis is intended to be a detailed project, presenting a well-argued piece of research on a precise architectural theme, and may include several forms of representation. For example, students commonly utilize architectural drawings, models, video, photographs, and computer-generated drawings and models. The final presentation and oral defense of the senior thesis in the spring constitutes a section of the departmental examination.",
+      "no_req": null
     }
   ]
 }
