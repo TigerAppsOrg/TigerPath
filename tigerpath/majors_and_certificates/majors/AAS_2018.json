@@ -66,7 +66,8 @@
       "name": "Track",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "Concentrators are required to complete nine (9) courses: two (2) core survey courses, AAS 300 Junior Seminar: Research and Writing in African American Studies, and six (6) additional African American Studies courses. In addition, all concentrators are required to participate in the senior colloquium.",
+      "explanation": "<p>At the end of their fall semester, juniors declare a subfield to pursue, selecting from the following courses:</p><ul><li>African American Culture and Life (AACL)</li><li>Global Race and Ethnicity (GRE)</li><li>Race and Public Policy (RPP)</li></ul><p>Four (4) courses must be taken in the chosen subfield, with two (2) additional courses as follows:</p><ul><li>If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.</li><li>If the chosen subfield is GRE, then one (1) must be an AACL course, and one (1) must be an RPP course.</li></ul><p>Students are permitted to take <em>up to two (2)</em> approved cognate courses in other departments. See the <a href=\"https://aas.princeton.edu/courses\" target=\"_blank\" rel=\"noopener\">departmental website</a> for the lists of courses and approved cognates by subfield.</p>",
+
       "req_list": [
         {
           "name": "African American Culture and Life",
@@ -129,7 +130,8 @@
                 "ANT 301",
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 389/AAS 333/AMS 339",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ART 242/ARC 242",
                 "ART 261/AAS 261/AFS 261",
                 "ART 373/AAS 373",
@@ -211,7 +213,8 @@
                 "AAS 353/ENG 352",
                 "AAS 362/WWS 497/POL 338",
                 "AAS 372/ART 374/AMS 372",
-                "AAS 411/AFS 411, ART 371",
+                "AAS 411/AFS 411/ART 371",
+
                 "AAS 426/HIS 426",
                 "AAS 442/AFS 442/COM 425",
                 "AAS 481/ENG 429",
@@ -224,7 +227,8 @@
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 419/AMS 417/GSS 423/LAS 419",
                 "ANT 421/AFS 320",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ART 237/AAS 237",
                 "ART 242/ARC 242",
                 "ART 260/AAS 260/AFS 260",
@@ -331,7 +335,8 @@
                 "AAS 353/ENG 352",
                 "AAS 362/WWS 497/POL 338",
                 "AAS 372/ART 374/AMS 372",
-                "AAS 411/AFS 411, ART 371",
+                "AAS 411/AFS 411/ART 371",
+
                 "AAS 426/HIS 426",
                 "AAS 442/AFS 442/COM 425",
                 "AAS 481/ENG 429",
@@ -344,7 +349,8 @@
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 419/AMS 417/GSS 423/LAS 419",
                 "ANT 421/AFS 320",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ART 237/AAS 237",
                 "ART 242/ARC 242",
                 "ART 260/AAS 260/AFS 260",
@@ -473,7 +479,8 @@
                 "ANT 301",
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 389/AAS 333/AMS 339",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ART 242/ARC 242",
                 "ART 261/AAS 261/AFS 261",
                 "ART 373/AAS 373",
@@ -563,10 +570,10 @@
                 "ANT 350",
                 "ANT 363/AAS 369",
                 "ANT 403/AAS 403/GHP 403",
-                "ANT 461/AAS 364/GHP 461/GS3 461",
                 "ANT 421/AFS 320",
                 "ANT 461/AAS 364/GHP 461/GSS 461",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ECO 351",
                 "ENG 379/AAS 379/AMS 389/ART 380",
                 "GHP 409/AAS 410",
@@ -638,10 +645,10 @@
                 "ANT 350",
                 "ANT 363/AAS 369",
                 "ANT 403/AAS 403/GHP 403",
-                "ANT 461/AAS 364/GHP 461/GS3 461",
                 "ANT 421/AFS 320",
                 "ANT 461/AAS 364/GHP 461/GSS 461",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ECO 351",
                 "ENG 379/AAS 379/AMS 389/ART 380",
                 "GHP 409/AAS 410",
@@ -697,7 +704,8 @@
                 "AAS 353/ENG 352",
                 "AAS 362/WWS 497/POL 338",
                 "AAS 372/ART 374/AMS 372",
-                "AAS 411/AFS 411, ART 371",
+                "AAS 411/AFS 411/ART 371",
+
                 "AAS 426/HIS 426",
                 "AAS 442/AFS 442/COM 425",
                 "AAS 481/ENG 429",
@@ -710,7 +718,8 @@
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 419/AMS 417/GSS 423/LAS 419",
                 "ANT 421/AFS 320",
-                "ARC 396/SAS/396/URB 396",
+                "ARC 396/SAS 396/URB 396",
+
                 "ART 237/AAS 237",
                 "ART 242/ARC 242",
                 "ART 260/AAS 260/AFS 260",
@@ -802,8 +811,8 @@
       "name": "Senior Colloquium",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators are required to participate in the <a href=\"https://aas.princeton.edu/academics/undergraduate-program/senior-colloquium\">Senior Colloquium</a>, which seeks to provide a space for seniors concentrating in African American Studies to reflect upon their experiences within the Department, and upon how the understanding and insight they have gained here can and should influence their lives beyond graduation. The Senior Colloquium(link is external) meets a total of six times per term.  A member of the AAS core faculty leads each colloquium meeting, and senior thesis advisors are expected to attend at least one session at the invitation of their advisee.",
-      "description": "Senior Colloquium",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators are required to participate in the <a href=\"https://aas.princeton.edu/academics/undergraduate-program/senior-colloquium\">Senior Colloquium</a>, which seeks to provide a space for seniors concentrating in African American Studies to reflect upon their experiences within the Department, and upon how the understanding and insight they have gained here can and should influence their lives beyond graduation. The Senior Colloquium meets a total of six times per term.  A member of the AAS core faculty leads each colloquium meeting, and senior thesis advisors are expected to attend at least one session at the invitation of their advisee.",
+
       "no_req": null
     }
   ]
