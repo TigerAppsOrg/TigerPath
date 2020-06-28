@@ -7,8 +7,8 @@ const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 
 const SearchCardLinks = styled.div`
   visibility: hidden;
-  min-width: 50px;
   white-space: nowrap;
+  margin-left: 0.25rem;
 `;
 
 const SearchCardInfo = styled.div`
@@ -16,7 +16,6 @@ const SearchCardInfo = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem;
-  padding-top: 0;
 `;
 
 const CourseTitle = styled.div`
@@ -31,9 +30,7 @@ const PreviousSemText = styled.div`
 const SearchCardStyled = styled.div`
   font-size: 14px;
   height: auto;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin: 0 0.25rem 0.25rem 0.25rem;
   border-radius: 0.25rem;
   background-color: #f5f5f5;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -134,7 +131,7 @@ export default class SearchCard extends Component {
           <SearchCardInfo>
             <div>
               <CourseTitle>{course['title']}</CourseTitle>
-              <PreviousSemText>{`Previously offered in ${prevOfferedSemList}`}</PreviousSemText>
+              <PreviousSemText>{`Previously: ${prevOfferedSemList}`}</PreviousSemText>
             </div>
             <SearchCardLinks>
               <a

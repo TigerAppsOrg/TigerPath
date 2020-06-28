@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Alert from 'react-bootstrap/Alert';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import RequirementsDropdown from 'components/RequirementsDropdown';
+import ECReqDropdown from 'components/ECReqDropdown';
 import {
   DEFAULT_SCHEDULE,
   EXTERNAL_CREDITS_SEMESTER_INDEX,
@@ -153,7 +153,7 @@ export default class ExternalCreditForm extends Component {
 
               <Form.Group controlId="formRequirement">
                 <Form.Label>Requirement you want to satisfy:</Form.Label>
-                <RequirementsDropdown
+                <ECReqDropdown
                   requirements={this.props.requirements}
                   handleChange={this.handleChange}
                   selectedRequirement={this.state.selectedRequirement}

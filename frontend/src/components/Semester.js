@@ -51,6 +51,10 @@ const SemesterBody = styled.div`
         return `${theme.greySemBody}`;
     }
   }};
+
+  > * + * {
+    margin-top: 0.5rem;
+  }
 `;
 
 const SemesterStyled = styled.div`

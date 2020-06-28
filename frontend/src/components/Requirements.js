@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
+import ReqCategory from './ReqCategory';
 
 export default class Requirements extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.requirements !== prevProps.requirements) {
       this.makeNodesClickable();
-      this.addReqPopovers();
     }
   }
 
@@ -37,59 +37,6 @@ export default class Requirements extends Component {
               .find('.tree-view_children')
               .addClass(treeCollapsedClass);
           }
-        });
-    });
-  };
-
-  getReqCourses = (req_path) => {
-    var searchQuery = 'Satisfying: ' + req_path.split('//').pop();
-    this.props.onChange('searchQuery', searchQuery);
-    $('#spinner').css('display', 'inline-block');
-    $.ajax({
-      // the slashes messes up the url
-      url: '/api/v1/get_req_courses/' + req_path.replace(/\/\//g, '$'),
-      datatype: 'json',
-      type: 'GET',
-      cache: true,
-      success: (searchResults) => {
-        this.props.onChange('searchResults', searchResults);
-        $('#spinner').css('display', 'none');
-      },
-    });
-  };
-
-  // adds popovers to reqs
-  addReqPopovers = () => {
-    $('.reqLabel').each((index, reqLabel) => {
-      let reqLabelElement = $(reqLabel);
-      // show popover when it's hovered over
-      reqLabelElement
-        .popover({
-          trigger: 'manual',
-          html: true,
-          animation: true,
-          boundary: 'viewport',
-          template:
-            '<div class="popover req-popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
-          sanitize: false,
-        })
-        .on('mouseenter', () => {
-          reqLabelElement.popover('show');
-          $('body')
-            .off('click', '.searchByReq')
-            .on('click', '.searchByReq', () => {
-              this.getReqCourses(reqLabelElement.attr('reqpath'));
-            });
-          $('.popover').on('mouseleave', () => {
-            reqLabelElement.popover('hide');
-          });
-        })
-        .on('mouseleave', () => {
-          setTimeout(() => {
-            if (!$('.popover:hover').length) {
-              reqLabelElement.popover('hide');
-            }
-          }, 100);
         });
     });
   };
@@ -127,6 +74,38 @@ export default class Requirements extends Component {
     this.props.onChange('schedule', schedule);
   };
 
+  renderLeaf = (requirement) => {
+    if (requirement['settled']) {
+      return requirement['settled'].map((course, index) => (
+        <li
+          key={index}
+          className="settled"
+          onClick={(e) => {
+            this.toggleSettle(course, requirement['path_to'], false);
+          }}
+        >
+          {course}
+        </li>
+      ));
+    } else {
+      return requirement['unsettled'].map((course, index) => (
+        <li
+          key={index}
+          className="unsettled text-muted"
+          onClick={(e) => {
+            this.toggleSettle(course, requirement['path_to'], true);
+          }}
+        >
+          {course}{' '}
+          <i
+            className="fa fa-exclamation-circle"
+            title="This course could satisfy multiple requirements. Click to settle it here."
+          ></i>
+        </li>
+      ));
+    }
+  };
+
   // traverses req tree to display when updating reqlist
   populateReqTree = (reqTree) => {
     return reqTree['req_list'].map((requirement, index) => {
@@ -141,76 +120,22 @@ export default class Requirements extends Component {
       if (requirement['count'] === 0 && requirement['min_needed'] === 0)
         finished = 'req-neutral';
 
-      let tag = '';
-      if (requirement['min_needed'] === 0) tag = requirement['count'];
-      else tag = requirement['count'] + '/' + requirement['min_needed'];
-
-      let popoverContent =
-        '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
-      popoverContent += '<div class="popoverContentContainer">';
-      if (requirement.explanation) {
-        popoverContent +=
-          '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
-      }
-      popoverContent += '</div>';
-
-      let reqLabel = (
-        <div
-          className="reqLabel"
-          reqpath={requirement['path_to']}
-          title={'<span>' + requirement['name'] + '</span>'}
-          data-content={popoverContent}
+      return (
+        <TreeView
+          key={index}
+          itemClassName={finished}
+          nodeLabel={
+            <ReqCategory
+              requirement={requirement}
+              onChange={this.props.onChange}
+            />
+          }
         >
-          <div className="my-arrow"></div>
-          <span className="reqName">{requirement['name']}</span>
-          <span className="reqCount">{tag}</span>
-        </div>
+          {'req_list' in requirement
+            ? this.populateReqTree(requirement)
+            : this.renderLeaf(requirement)}
+        </TreeView>
       );
-
-      if ('req_list' in requirement) {
-        return (
-          <TreeView key={index} nodeLabel={reqLabel} itemClassName={finished}>
-            {this.populateReqTree(requirement)}
-          </TreeView>
-        );
-      } else {
-        return (
-          <TreeView key={index} itemClassName={finished} nodeLabel={reqLabel}>
-            {requirement['settled'] &&
-              requirement['settled'].map((course, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="settled"
-                    onClick={(e) => {
-                      this.toggleSettle(course, requirement['path_to'], false);
-                    }}
-                  >
-                    {course}
-                  </li>
-                );
-              })}
-            {requirement['unsettled'] &&
-              requirement['unsettled'].map((course, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="unsettled text-muted"
-                    onClick={(e) => {
-                      this.toggleSettle(course, requirement['path_to'], true);
-                    }}
-                  >
-                    {course}{' '}
-                    <i
-                      className="fa fa-exclamation-circle"
-                      title="This course could satisfy multiple requirements. Click to settle it here."
-                    ></i>
-                  </li>
-                );
-              })}
-          </TreeView>
-        );
-      }
     });
   };
 

@@ -8,21 +8,13 @@ import {
   convertSemToTermCode,
 } from 'utils/SemesterUtils';
 import styled from 'styled-components';
+import PopoverContent from './PopoverContent';
 
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 
 const CourseName = styled.div`
   font-weight: bold;
   margin-bottom: 5px;
-`;
-
-const PopoverContent = styled.div`
-  background-color: white;
-  border-radius: 0.25rem;
-  padding: 0.5rem;
-  border: 1px solid #cbd5e0;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 `;
 
 const PopoverWarning = styled.div`

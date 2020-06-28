@@ -60,12 +60,6 @@
   color: #756613;
 }
 
-/* count of courses*/
-#requirements .tree-sub-reqs .reqCount {
-  float: right;
-  padding-right: 5px;
-}
-
 #requirements {
   height: calc(100vh - 56px);
   overflow: auto;
