@@ -89,7 +89,7 @@
           "name": "Astrophysics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": null,
+          "explanation": "Every student majoring in astrophysical sciences will acquire the necessary training in astrophysics by taking at least three astrophysics courses at the 300 or 400 level.",
           "course_list": [
             "AST 301",
             "AST 303",
@@ -102,7 +102,7 @@
           "name": "Physics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": null,
+          "explanation": "In addition to these courses, departmental students will take courses in the Department of Physics that provide basic training in mechanics, quantum mechanics, electromagnetic theory, and other relevant topics.",
           "course_list": [
             "PHY 208",
             "PHY 301",
@@ -111,11 +111,16 @@
           ]
         },
         {
-          "name": "Electives",
+          "name": "Cognates",
           "max_counted": 1,
           "min_needed": 2,
           "explanation": null,
           "course_list": [
+            "AST 301",
+            "AST 303",
+            "AST 309/MAE 309/PHY 309/ENE 309",
+            "AST 401",
+            "AST 403",
             "PHY 312",
             "PHY 403",
             "PHY 406",
@@ -127,7 +132,10 @@
             "MAT 328",
             "GEO 427",
             "MAE 341",
-            "MAE 342"
+            "MAE 342",
+            "COS 126",
+            "MAT 309/ORF 309",
+            "MAE 222"
           ]
         }
       ]
