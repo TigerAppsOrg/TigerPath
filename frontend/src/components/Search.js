@@ -33,7 +33,7 @@ const Search = (props) => {
       let query = debouncedSearchQuery.split('Category: ')[1];
       query = query.replace(/\/\//g, '$');
       return GET_REQ_COURSES_URL + encodeURIComponent(query);
-    } else if (debouncedSearchQuery.length >= 3) {
+    } else if (debouncedSearchQuery.length > 0) {
       return GET_COURSES_URL + encodeURIComponent(debouncedSearchQuery);
     } else {
       return null;
@@ -42,15 +42,15 @@ const Search = (props) => {
   const { data: searchResultsData } = useSWR(fetchUrl);
 
   useEffect(() => {
+    if (!debouncedSearchQuery) return;
+    if (fetchUrl) setIsLoading(true);
+  }, [debouncedSearchQuery, fetchUrl]);
+
+  useEffect(() => {
     if (!searchResultsData) return;
     setSearchResults(searchResultsData);
     setIsLoading(false);
-  }, [searchResultsData]);
-
-  useEffect(() => {
-    if (!searchQuery) return;
-    setIsLoading(true);
-  }, [searchQuery]);
+  }, [searchResultsData, setSearchResults]);
 
   const onSearchQueryChange = (event) => setSearchQuery(event.target.value);
 
