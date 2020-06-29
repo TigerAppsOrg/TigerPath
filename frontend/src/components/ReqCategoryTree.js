@@ -5,7 +5,7 @@ import { isReqComplete, isReqNeutral } from '../utils/RequirementUtils';
 import styled, { css } from 'styled-components';
 
 const CategoryTreeContainer = styled.div`
-  .category-tree-label {
+  & > .category-tree > .category-tree-label {
     display: flex;
     cursor: pointer;
     padding: 0.25rem;
@@ -44,6 +44,7 @@ const ReqCategoryTree = (props) => {
   return (
     <CategoryTreeContainer categoryStatus={getCategoryStatus()}>
       <TreeView
+        treeViewClassName="category-tree"
         itemClassName="category-tree-label"
         nodeLabel={
           <ReqCategoryLabel

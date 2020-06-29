@@ -15,6 +15,8 @@ const RequirementsStyled = styled.div`
 `;
 
 const LoaderStyled = styled(Loader)`
+  margin: 0 auto;
+  text-align: center;
   justify-self: center;
   align-self: center;
 `;

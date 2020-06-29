@@ -7,7 +7,7 @@ import { isReqComplete } from '../utils/RequirementUtils';
 import styled, { css } from 'styled-components';
 
 const DegreeTreeContainer = styled.div`
-  .degree-tree-label {
+  & > .degree-tree > .degree-tree-label {
     display: flex;
     cursor: pointer;
     padding: 0.25rem;
@@ -26,7 +26,7 @@ const DegreeTreeContainer = styled.div`
         `)}
   }
 
-  .degree-tree-children {
+  & > .degree-tree > .degree-tree-children {
     margin-right: 0.25rem;
   }
 `;
@@ -63,6 +63,7 @@ const ReqDegreeTree = (props) => {
       }
     >
       <TreeView
+        treeViewClassName="degree-tree"
         itemClassName="degree-tree-label"
         childrenClassName="degree-tree-children"
         nodeLabel={

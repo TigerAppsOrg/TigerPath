@@ -51,7 +51,9 @@ const NavButton = styled.button`
   }
 `;
 
-const ScheduleLoader = styled(Loader)`
+const LoaderStyled = styled(Loader)`
+  margin: 0 auto;
+  text-align: center;
   justify-self: center;
   align-self: center;
 `;
@@ -68,7 +70,7 @@ const MainView = (props) => {
   const externalCreditsTabActive = currentTab === TABS.EXTERNAL_CREDITS_TAB;
 
   const renderContent = () => {
-    if (!schedule) return <ScheduleLoader />;
+    if (!schedule) return <LoaderStyled />;
     if (externalCreditsTabActive) {
       return (
         <ExternalCreditsView

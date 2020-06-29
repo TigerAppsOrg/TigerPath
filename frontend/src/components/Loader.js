@@ -2,9 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const LoaderStyled = styled.span`
-  margin: 100px auto 0;
-  text-align: center;
-
   & > span {
     width: ${({ size }) => size}px;
     height: ${({ size }) => size}px;

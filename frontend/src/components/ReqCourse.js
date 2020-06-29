@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
+import Loader from './Loader';
 
 const ReqCourseStyled = styled.li`
   display: flex;
@@ -48,16 +49,33 @@ const AlertIcon = styled.i`
 
 const ReqCourse = (props) => {
   const { course, isSettled, onClick } = props;
+  const [isUpdating, setIsUpdating] = useState(false);
 
-  return (
-    <ReqCourseStyled isSettled={isSettled} onClick={onClick}>
-      <ReqCourseName>{course}</ReqCourseName>
-      {!isSettled && (
+  const onCourseClick = async () => {
+    setIsUpdating(true);
+    await onClick();
+    setIsUpdating(false);
+  };
+
+  const renderIcon = () => {
+    if (isUpdating) {
+      return <Loader size={10} />;
+    } else if (!isSettled) {
+      return (
         <AlertIcon
           className="ml-2 fa fa-exclamation-circle"
           title="This course can satisfy multiple requirements. Please choose a requirement for it to satisfy."
-        ></AlertIcon>
-      )}
+        />
+      );
+    } else {
+      return null;
+    }
+  };
+
+  return (
+    <ReqCourseStyled isSettled={isSettled} onClick={onCourseClick}>
+      <ReqCourseName>{course}</ReqCourseName>
+      {renderIcon()}
     </ReqCourseStyled>
   );
 };

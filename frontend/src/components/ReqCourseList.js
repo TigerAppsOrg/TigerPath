@@ -4,7 +4,7 @@ import ReqCourse from './ReqCourse';
 const ReqCourseList = (props) => {
   const { schedule, requirement, setSchedule } = props;
 
-  const toggleSettle = (course, pathTo, shouldSettle) => {
+  const toggleSettle = async (course, pathTo, shouldSettle) => {
     let pathToType = pathTo.split('//', 3).join('//');
     let newSchedule = schedule.slice();
 
@@ -33,7 +33,7 @@ const ReqCourseList = (props) => {
       }
     }
 
-    setSchedule(newSchedule);
+    await setSchedule(newSchedule);
   };
 
   return (
