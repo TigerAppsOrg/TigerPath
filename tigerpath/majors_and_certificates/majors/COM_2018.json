@@ -30,7 +30,7 @@
         {
           "name": "Foreign Language",
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "explanation": "To enter the department, students must be sufficiently knowledgeable in one language other than English to take an upper-level course in it in his or her junior year.\n\nPlan to read a second foreign language before graduation. Proficiency in only one non-English language is required for admission to the department. However, students who concentrate in comparative literature are also expected to study at least one other non-English language and to be able to read in the language by the time they graduate. Such language study may take place before or during their years as departmental concentrators. Some students demonstrate their competency by taking an upper-level course in the literature of that language. Other students gain this competency by taking three terms of language study at Princeton, or two terms and an intensive language course in the summer, or (especially in the case of languages that are no longer spoken) an intensive language course in the summer. A few take a foreign language test administered by the relevant department during the summer.",
           "double_counting_allowed": true,
           "completed_by_semester": 4,
