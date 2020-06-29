@@ -29,9 +29,8 @@ const ExternalCreditsView = (props) => {
         schedule={schedule}
         setSchedule={setSchedule}
         semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
-      >
-        Your External Credits
-      </ECSemester>
+        semName="Your External Credits"
+      />
       <ECForm
         profile={profile}
         schedule={schedule}

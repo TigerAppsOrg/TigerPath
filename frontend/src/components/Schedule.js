@@ -34,9 +34,8 @@ const Schedule = (props) => {
           schedule={schedule}
           setSchedule={setSchedule}
           semesterIndex={index}
-        >
-          {semName}
-        </ScheduleSemester>
+          semName={semName}
+        />
       );
     });
     return semesters;

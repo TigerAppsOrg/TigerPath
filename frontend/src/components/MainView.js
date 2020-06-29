@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Schedule from 'components/Schedule';
 import ExternalCreditsView from 'components/ExternalCreditsView';
+import Loader from './Loader';
 
 const Content = styled.div`
   height: calc(100vh - 98px);
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      display: flex;
+    `}
 `;
 
 const Nav = styled.div`
@@ -45,6 +51,11 @@ const NavButton = styled.button`
   }
 `;
 
+const ScheduleLoader = styled(Loader)`
+  justify-self: center;
+  align-self: center;
+`;
+
 const TABS = Object.freeze({
   SCHEDULE_TAB: Symbol('schedule'),
   EXTERNAL_CREDITS_TAB: Symbol('externalCredits'),
@@ -55,6 +66,28 @@ const MainView = (props) => {
   const [currentTab, setCurrentTab] = useState(TABS.SCHEDULE_TAB);
   const scheduleTabActive = currentTab === TABS.SCHEDULE_TAB;
   const externalCreditsTabActive = currentTab === TABS.EXTERNAL_CREDITS_TAB;
+
+  const renderContent = () => {
+    if (!schedule) return <ScheduleLoader />;
+    if (externalCreditsTabActive) {
+      return (
+        <ExternalCreditsView
+          profile={profile}
+          schedule={schedule}
+          requirements={requirements}
+          setSchedule={setSchedule}
+        />
+      );
+    } else {
+      return (
+        <Schedule
+          profile={profile}
+          schedule={schedule}
+          setSchedule={setSchedule}
+        />
+      );
+    }
+  };
 
   return (
     <>
@@ -72,23 +105,7 @@ const MainView = (props) => {
           AP and Other External Credits
         </NavButton>
       </Nav>
-      <Content>
-        {scheduleTabActive && (
-          <Schedule
-            profile={profile}
-            schedule={schedule}
-            setSchedule={setSchedule}
-          />
-        )}
-        {externalCreditsTabActive && (
-          <ExternalCreditsView
-            profile={profile}
-            schedule={schedule}
-            requirements={requirements}
-            setSchedule={setSchedule}
-          />
-        )}
-      </Content>
+      <Content isLoading={!schedule}>{renderContent()}</Content>
     </>
   );
 };

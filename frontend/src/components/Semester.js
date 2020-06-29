@@ -120,7 +120,7 @@ export default class Semester extends Component {
     return (
       <SemesterStyled className={className}>
         <SemesterHeader semesterType={this.state.semesterType}>
-          {this.props.children}
+          {this.props.semName}
         </SemesterHeader>
         <Droppable
           key={semId}

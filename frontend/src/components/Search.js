@@ -3,6 +3,7 @@ import SearchCard from 'components/SearchCard';
 import useSWR from 'swr';
 import styled from 'styled-components';
 import useDebounce from '../hooks/use-debounce';
+import Loader from './Loader';
 
 const SearchInfo = styled.div`
   margin: 0.25rem 0.75rem;
@@ -68,7 +69,7 @@ const Search = (props) => {
       </div>
       <SearchInfo>
         <span>{searchResults.length} Search Results</span>
-        {isLoading && <i className="ml-2 fas fa-circle-notch fa-spin"></i>}
+        {isLoading && <Loader className="ml-2" size={10} />}
       </SearchInfo>
       <SearchResults>
         {searchResults.map((course, courseIndex) => {
