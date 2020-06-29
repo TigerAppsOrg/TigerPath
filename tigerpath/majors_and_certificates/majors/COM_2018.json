@@ -27,12 +27,17 @@
       "min_needed": 1,
       "explanation": "Foreign Language Requirement. To enter the department, students must be sufficiently knowledgeable in one language other than English to take an upper-level course in it in his or her junior year.\n\nPlan to read a second foreign language before graduation. Proficiency in only one non-English language is required for admission to the department. However, students who concentrate in comparative literature are also expected to study at least one other non-English language and to be able to read in the language by the time they graduate. Such language study may take place before or during their years as departmental concentrators. Some students demonstrate their competency by taking an upper-level course in the literature of that language. Other students gain this competency by taking three terms of language study at Princeton, or two terms and an intensive language course in the summer, or (especially in the case of languages that are no longer spoken) an intensive language course in the summer. A few take a foreign language test administered by the relevant department during the summer.",
       "course_list": [
-        "LANG 107"
+        "LANG 107",
+        "LANG 108",
+        "LANG 2**",
+        "LANG 3**",
+        "LANG 4**",
+        "LANG 5**"
       ]
     },
     {
       "name": "Introductory Courses",
-      "max_counted": null,
+      "max_counted": 1,
       "min_needed": null,
       "explanation": "Students who wish to concentrate in comparative literature are advised (though not required) to take COM 205-206, HUM 216-219 or TRA 200 in their sophomore year or earlier.",
       "double_counting_allowed": true,
@@ -58,19 +63,22 @@
           "name": "Comparative Literature",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "All majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Majors must take COM 300 in the fall term of their junior year, unless they are studying abroad then, in which case they must take the course in their senior year instead. COM has also sometimes accepted the English-department junior seminar taught in London by Princeton faculty. The other two COM courses can be 200-, 300-, 400-, or 500-level; with the professor’s permission, advanced students may enroll in 500-level COM courses. COM majors in the classes of 2019 and 2020 fulfill this requirement by taking COM 300 (the Junior Seminar), and any other COM courses or courses cross-listed with COM. These must be Princeton COM courses; no exceptions.",
+          "explanation": "All majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Those other two COM courses can be 200-, 300-, 400-, or 500-level; with the professor’s permission, advanced students may enroll in 500-level COM courses. These must be Princeton COM courses; no exceptions.",
           "excluded_course_list": [
             "COM 300"
           ],
           "course_list": [
-            "COM *"
+            "COM 2**",
+            "COM 3**",
+            "COM 4**",
+            "COM 5**"
           ]
         },
         {
           "name": "Junior Seminar",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "All majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Majors must take COM 300 in the fall term of their junior year, unless they are studying abroad then, in which case they must take the course in their senior year instead. COM has also sometimes accepted the English-department junior seminar taught in London by Princeton faculty. The other two COM courses can be 200-, 300-, 400-, or 500-level; with the professor’s permission, advanced students may enroll in 500-level COM courses. COM majors in the classes of 2019 and 2020 fulfill this requirement by taking COM 300 (the Junior Seminar), and any other COM courses or courses cross-listed with COM. These must be Princeton COM courses; no exceptions.",
+          "explanation": "All majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Majors must take COM 300 in the fall term of their junior year, unless they are studying abroad then, in which case they must take the course in their senior year instead. COM has also sometimes accepted the English-department junior seminar taught in London by Princeton faculty.",
           "course_list": [
             "COM 300"
           ]
@@ -78,8 +86,8 @@
         {
           "name": "Non-English-Languge Reading",
           "max_counted": 1,
-          "min_needed": 3,
-          "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but as TigerPath does not verify this.</i>\n\nAll majors must take four 200-, 300-, 400-, or 500-level non-English-language reading-based courses. Any course at the 200-level or above taught within any language department at Princeton that is not part of a language instruction sequence may be used to fulfill the requirement, so long as it is based on the reading of texts and/or viewing of films in a non-English language. The focus of such a course must be in the language for which the student is claiming credit. A limited number of secondary readings may be in English (or some other foreign language), but the course must entail a substantial and extended engagement with materials in the original language for which the student is claiming credit. Courses that are part of a language-instruction sequence as well as grammar-review courses are normally excluded; students studying languages with fewer course offerings such as Arabic or Hindi-Urdu may petition the Director of Undergraduate Studies for permission to allow a reading-based course that is part of the language-instruction sequence. Courses do not need to be about literature; courses in film, art, history, philosophy, or the social sciences that are devoted to reading texts in the original language will also fulfill this requirement. Courses in which the primary readings are in translation cannot be counted, but those where the language of discussion and written assignments are in English are allowable. Any questions about whether a course and its readings or viewings qualify for credit should be taken up with the Director of Undergraduate Studies. In the event that a special arrangement is requested in order to claim credit for a course, students must secure such arrangements at the beginning of the semester with both the course professor and the DUS, and follow up with both the professor and DUS at the end of the semester once those conditions have been fulfilled.\n\nAs long as all four reading courses are in non-English languages, this requirement can be fulfilled through any distribution of languages. The courses can be evenly split between two foreign languages, divided with three courses in one foreign language, and one in the other, or even distributed among three or four different languages. Students also have the option of taking all four reading courses in one foreign language, and simply demonstrating reading proficiency in the second foreign language. The Department understands proficiency as the ability to read short texts (such as a short story, poem, essay, or newspaper article) with the aid of a dictionary. The determination will be made at the discretion of the Director of Undergraduate Studies, but typically proficiency may be established through completion of three semesters in a language sequence at Princeton, which for many languages will culminate in a course numbered 107 or 108, or by taking 200-level and higher courses in the language. Certain approved summer programs will also meet the requirement. Students interested in this latter option should confer with the Director of Undergraduate Studies.",
+          "min_needed": 4,
+          "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but TigerPath does not verify this.</i>\n\nAll majors must take four 200-, 300-, 400-, or 500-level non-English-language reading-based courses. Any course at the 200-level or above taught within any language department at Princeton that is not part of a language instruction sequence may be used to fulfill the requirement, so long as it is based on the reading of texts and/or viewing of films in a non-English language. The focus of such a course must be in the language for which the student is claiming credit. A limited number of secondary readings may be in English (or some other foreign language), but the course must entail a substantial and extended engagement with materials in the original language for which the student is claiming credit. Courses that are part of a language-instruction sequence as well as grammar-review courses are normally excluded; students studying languages with fewer course offerings such as Arabic or Hindi-Urdu may petition the Director of Undergraduate Studies for permission to allow a reading-based course that is part of the language-instruction sequence. Courses do not need to be about literature; courses in film, art, history, philosophy, or the social sciences that are devoted to reading texts in the original language will also fulfill this requirement. Courses in which the primary readings are in translation cannot be counted, but those where the language of discussion and written assignments are in English are allowable. Any questions about whether a course and its readings or viewings qualify for credit should be taken up with the Director of Undergraduate Studies. In the event that a special arrangement is requested in order to claim credit for a course, students must secure such arrangements at the beginning of the semester with both the course professor and the DUS, and follow up with both the professor and DUS at the end of the semester once those conditions have been fulfilled.\n\nAs long as all four reading courses are in non-English languages, this requirement can be fulfilled through any distribution of languages. The courses can be evenly split between two foreign languages, divided with three courses in one foreign language, and one in the other, or even distributed among three or four different languages. Students also have the option of taking all four reading courses in one foreign language, and simply demonstrating reading proficiency in the second foreign language. The Department understands proficiency as the ability to read short texts (such as a short story, poem, essay, or newspaper article) with the aid of a dictionary. The determination will be made at the discretion of the Director of Undergraduate Studies, but typically proficiency may be established through completion of three semesters in a language sequence at Princeton, which for many languages will culminate in a course numbered 107 or 108, or by taking 200-level and higher courses in the language. Certain approved summer programs will also meet the requirement. Students interested in this latter option should confer with the Director of Undergraduate Studies.",
           "course_list": [
             "LANG 2*",
             "LANG 3*",
@@ -97,10 +105,15 @@
               "name": "Comparative Work in Literatures",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but as TigerPath does not verify this.</i>\n\nComparative work in literatures: two 300-, 400-, or 500-level courses in any literature, including English. These courses need not be taken in the same department; a pairing such as ENG 320 and SPA 354, for example, would fulfill the requirement.",
+              "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but TigerPath does not verify this.</i>\n\nComparative work in literatures: two 300-, 400-, or 500-level courses in any literature, including English. These courses need not be taken in the same department; a pairing such as ENG 320 and SPA 354, for example, would fulfill the requirement.",
+
               "course_list": [
-                "LANG *",
-                "ENG *"
+                "LANG 3**",
+                "LANG 4**",
+                "LANG 5**",
+                "ENG 3**",
+                "ENG 4**",
+                "ENG 5**"
               ]
             },
             {
@@ -148,7 +161,7 @@
               "name": "Another Medium",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Comparative work in literature and another medium: two 300-, 400-, or 500-level courses in photography, film, art, art history, architecture or music. In general, these courses involve the same medium (photography, for example); students intending to pair courses involving different media with related content (photography and painting, for example) should obtain written permission from COM’s Director of Undergraduate Studies.",
+              "explanation": "<i>Editor's Note: Not all of these courses fall under this requirement and TigerPath does not verify this.</i>\n\nComparative work in literature and another medium: two 300-, 400-, or 500-level courses in photography, film, art, art history, architecture or music. In general, these courses involve the same medium (photography, for example); students intending to pair courses involving different media with related content (photography and painting, for example) should obtain written permission from COM’s Director of Undergraduate Studies.",
               "course_list": [
                 "ART 3*",
                 "ART 4*",
@@ -182,6 +195,9 @@
                 "EAS 3*",
                 "EAS 4*",
                 "EAS 5*",
+                "ECS 3*",
+                "ECS 4*",
+                "ECS 5*",
                 "ENV 3*",
                 "ENV 4*",
                 "ENV 5*",
@@ -191,12 +207,18 @@
                 "GSS 3*",
                 "GSS 4*",
                 "GSS 5*",
+                "HLS 3*",
+                "HLS 4*",
+                "HLS 5*",
                 "JDS 3*",
                 "JDS 4*",
                 "JDS 5*",
                 "LAS 3*",
                 "LAS 4*",
                 "LAS 5*",
+                "LAO 3*",
+                "LAO 4*",
+                "LAO 5*",
                 "NES 3*",
                 "NES 4*",
                 "NES 5*",
@@ -223,6 +245,9 @@
                 "MTD 3*",
                 "MTD 4*",
                 "MTD 5*",
+                "MUS 3*",
+                "MUS 4*",
+                "MUS 5*",
                 "THR 3*",
                 "THR 4*",
                 "THR 5*",
