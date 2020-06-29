@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import SearchCard from 'components/SearchCard';
 import useSWR from 'swr';
 import styled from 'styled-components';
@@ -26,6 +26,7 @@ const Search = (props) => {
     setSearchResults,
   } = props;
   const [isLoading, setIsLoading] = useState(false);
+  const searchResultsRef = useRef(null);
   const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
   const fetchUrl = useMemo(() => {
@@ -49,6 +50,7 @@ const Search = (props) => {
   useEffect(() => {
     if (!searchResultsData) return;
     setSearchResults(searchResultsData);
+    searchResultsRef.current.scrollTo(0, 0);
     setIsLoading(false);
   }, [searchResultsData, setSearchResults]);
 
@@ -71,7 +73,7 @@ const Search = (props) => {
         <span>{searchResults.length} Search Results</span>
         {isLoading && <Loader className="ml-2" size={10} />}
       </SearchInfo>
-      <SearchResults>
+      <SearchResults ref={searchResultsRef}>
         {searchResults.map((course, courseIndex) => {
           const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
           return (
