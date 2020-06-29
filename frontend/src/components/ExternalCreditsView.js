@@ -21,22 +21,22 @@ const ECForm = styled(ExternalCreditForm)`
 `;
 
 const ExternalCreditsView = (props) => {
-  const { schedule, profile, requirements, onChange } = props;
+  const { schedule, profile, requirements, setSchedule } = props;
 
   return (
     <ECContent>
       <ECSemester
-        onChange={onChange}
         schedule={schedule}
+        setSchedule={setSchedule}
         semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
       >
         Your External Credits
       </ECSemester>
       <ECForm
-        onChange={onChange}
         profile={profile}
         schedule={schedule}
         requirements={requirements}
+        setSchedule={setSchedule}
       />
     </ECContent>
   );

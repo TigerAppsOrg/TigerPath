@@ -2,7 +2,7 @@ import React from 'react';
 import ReqCourse from './ReqCourse';
 
 const ReqCourseList = (props) => {
-  const { schedule, requirement, onChange } = props;
+  const { schedule, requirement, setSchedule } = props;
 
   const toggleSettle = (course, pathTo, shouldSettle) => {
     let pathToType = pathTo.split('//', 3).join('//');
@@ -33,7 +33,7 @@ const ReqCourseList = (props) => {
       }
     }
 
-    onChange('schedule', newSchedule);
+    setSchedule(newSchedule);
   };
 
   return (

@@ -8,7 +8,7 @@ const RequirementsStyled = styled.div`
 `;
 
 const Requirements = (props) => {
-  const { requirements, schedule, onChange } = props;
+  const { requirements, schedule, setSearchQuery, setSchedule } = props;
   return (
     <RequirementsStyled id="requirements">
       {requirements &&
@@ -17,7 +17,8 @@ const Requirements = (props) => {
             key={index}
             schedule={schedule}
             requirement={req}
-            onChange={onChange}
+            setSearchQuery={setSearchQuery}
+            setSchedule={setSchedule}
           />
         ))}
     </RequirementsStyled>

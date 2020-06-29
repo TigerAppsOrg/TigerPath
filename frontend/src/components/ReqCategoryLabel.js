@@ -30,7 +30,7 @@ const SearchIcon = styled.i`
 `;
 
 const ReqCategoryLabel = (props) => {
-  const { requirement, onChange, onClick } = props;
+  const { requirement, setSearchQuery, onClick } = props;
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [progress, setProgress] = useState(null);
 
@@ -44,7 +44,7 @@ const ReqCategoryLabel = (props) => {
 
   const getReqCourses = () => {
     const searchQuery = 'Category: ' + requirement['path_to'];
-    onChange('searchQuery', searchQuery);
+    setSearchQuery(searchQuery);
   };
 
   const renderPopoverContent = () => (

@@ -51,7 +51,7 @@ const TABS = Object.freeze({
 });
 
 const MainView = (props) => {
-  const { profile, schedule, requirements, onChange } = props;
+  const { profile, schedule, requirements, setSchedule } = props;
   const [currentTab, setCurrentTab] = useState(TABS.SCHEDULE_TAB);
   const scheduleTabActive = currentTab === TABS.SCHEDULE_TAB;
   const externalCreditsTabActive = currentTab === TABS.EXTERNAL_CREDITS_TAB;
@@ -74,14 +74,18 @@ const MainView = (props) => {
       </Nav>
       <Content>
         {scheduleTabActive && (
-          <Schedule onChange={onChange} profile={profile} schedule={schedule} />
+          <Schedule
+            profile={profile}
+            schedule={schedule}
+            setSchedule={setSchedule}
+          />
         )}
         {externalCreditsTabActive && (
           <ExternalCreditsView
-            onChange={onChange}
             profile={profile}
             schedule={schedule}
             requirements={requirements}
+            setSchedule={setSchedule}
           />
         )}
       </Content>

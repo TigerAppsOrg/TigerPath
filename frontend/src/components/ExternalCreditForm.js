@@ -96,7 +96,7 @@ export default class ExternalCreditForm extends Component {
     scheduleSemester.splice(semLen - 1, 0, course);
 
     // update the state
-    this.props.onChange('schedule', schedule);
+    this.props.setSchedule(schedule);
     this.setState({
       formState: FORM_STATE.SUCCESS,
       name: DEFAULT_NAME,

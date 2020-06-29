@@ -32,7 +32,7 @@ const CategoryTreeContainer = styled.div`
 `;
 
 const ReqCategoryTree = (props) => {
-  const { children, requirement, onChange } = props;
+  const { children, requirement, setSearchQuery } = props;
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const getCategoryStatus = () => {
@@ -48,7 +48,7 @@ const ReqCategoryTree = (props) => {
         nodeLabel={
           <ReqCategoryLabel
             requirement={requirement}
-            onChange={onChange}
+            setSearchQuery={setSearchQuery}
             onClick={() => setIsCollapsed(!isCollapsed)}
           />
         }

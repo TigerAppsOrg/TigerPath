@@ -64,14 +64,13 @@ export default class Semester extends Component {
     super(props);
     this.state = {
       semesterType: getSemesterType(this.props.semesterIndex),
-      isPopoverOpen: false,
     };
   }
 
   removeCourse = (semIndex, courseIndex) => {
     let newSchedule = this.props.schedule.slice();
     newSchedule[semIndex].splice(courseIndex, 1);
-    this.props.onChange('schedule', newSchedule);
+    this.props.setSchedule(newSchedule);
   };
 
   courseCardList = (semester, semIndex, isDraggingOver) => {

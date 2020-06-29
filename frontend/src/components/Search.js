@@ -17,15 +17,13 @@ const SearchResults = styled.div`
 const GET_COURSES_URL = '/api/v1/get_courses/';
 const GET_REQ_COURSES_URL = '/api/v1/get_req_courses/';
 
-const fetcher = async (url) => {
-  if (url === null) return [];
-  const res = await fetch(url);
-  const json = await res.json();
-  return json;
-};
-
 const Search = (props) => {
-  const { searchQuery, searchResults, onChange } = props;
+  const {
+    searchQuery,
+    searchResults,
+    setSearchQuery,
+    setSearchResults,
+  } = props;
   const [isLoading, setIsLoading] = useState(false);
   const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
@@ -40,11 +38,11 @@ const Search = (props) => {
       return null;
     }
   }, [debouncedSearchQuery]);
-  const { data: searchResultsData } = useSWR(fetchUrl, fetcher);
+  const { data: searchResultsData } = useSWR(fetchUrl);
 
   useEffect(() => {
     if (!searchResultsData) return;
-    onChange('searchResults', searchResultsData);
+    setSearchResults(searchResultsData);
     setIsLoading(false);
   }, [searchResultsData]);
 
@@ -53,8 +51,7 @@ const Search = (props) => {
     setIsLoading(true);
   }, [searchQuery]);
 
-  const onSearchQueryChange = (event) =>
-    onChange('searchQuery', event.target.value);
+  const onSearchQueryChange = (event) => setSearchQuery(event.target.value);
 
   return (
     <>

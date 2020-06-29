@@ -32,20 +32,24 @@ const DegreeTreeContainer = styled.div`
 `;
 
 const ReqDegreeTree = (props) => {
-  const { schedule, requirement, onChange } = props;
+  const { schedule, requirement, setSearchQuery, setSchedule } = props;
   const [isCollapsed, setIsCollapsed] = useState(false);
   const isReqSupported = typeof requirement === 'object';
 
   const populateCategoryTree = (req) => {
     return req['req_list'].map((subreq, index) => (
-      <ReqCategoryTree key={index} requirement={subreq} onChange={onChange}>
+      <ReqCategoryTree
+        key={index}
+        requirement={subreq}
+        setSearchQuery={setSearchQuery}
+      >
         {'req_list' in subreq ? (
           populateCategoryTree(subreq)
         ) : (
           <ReqCourseList
             schedule={schedule}
             requirement={subreq}
-            onChange={onChange}
+            setSchedule={setSchedule}
           />
         )}
       </ReqCategoryTree>

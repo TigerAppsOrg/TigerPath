@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import $ from 'jquery';
+import React from 'react';
 import Semester from 'components/Semester';
 import styled from 'styled-components';
 import { getSemesterNames } from 'utils/SemesterUtils';
@@ -21,21 +20,7 @@ const ScheduleSemester = styled(Semester)`
 `;
 
 const Schedule = (props) => {
-  const { schedule, profile, onChange } = props;
-
-  useEffect(() => {
-    if (schedule === null) {
-      // get existing schedule and populate semesters
-      $.ajax({
-        url: '/api/v1/get_schedule/',
-        datatype: 'json',
-        type: 'GET',
-        success: (schedule) => {
-          if (schedule) onChange('schedule', schedule);
-        },
-      });
-    }
-  }, [schedule]);
+  const { schedule, profile, setSchedule } = props;
 
   const renderSemesters = () => {
     if (!profile || !profile.classYear) return [];
@@ -46,8 +31,8 @@ const Schedule = (props) => {
       return (
         <ScheduleSemester
           key={semId}
-          onChange={onChange}
           schedule={schedule}
+          setSchedule={setSchedule}
           semesterIndex={index}
         >
           {semName}
