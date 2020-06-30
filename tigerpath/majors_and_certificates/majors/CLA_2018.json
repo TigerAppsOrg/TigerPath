@@ -25,19 +25,20 @@
       "name": "Tracks",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": null,
+      "explanation": "Three programs of study are offered within the Department of Classics. The first, Classics, uses knowledge of Greek or Latin (or both languages) as a gateway to the study of the literature, history, and culture of ancient Greece and Rome. The second, Classical Studies, allows for the study of different aspects of a specific period or facet of classical civilization and its impact; it does not initially require knowledge of Greek or Latin. The third, Ancient History, focuses on the history of the ancient world, with special attention to historical method and comparative approaches; it does not initially require knowledge of Greek or Latin.",
       "req_list": [
         {
           "name": "Classics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": null,
+          "explanation": "Classics uses knowledge of Greek or Latin (or both languages) as a gateway to the study of the literature, history, and culture of ancient Greece and Rome.\n\nStudents are expected to pass a sight translation examination from Greek or Latin. This examination may be taken, by arrangement, at the end of any term in the junior or senior year; it will be graded pass/fail.\n\nStudents who are considering further work in the field, either in graduate school or in independent study, should take both Latin and Greek to the 300 level, continuing with both languages in each term of the junior and senior years. Such students are also strongly advised to take at least one course in Greek history and one in Roman history in their underclass years.",
           "req_list": [
             {
               "name": "Prerequisites",
               "max_counted": 1,
               "min_needed": 1,
               "explanation": "To enter this program, a student normally should have completed CLG 108 or LAT 108 or demonstrated intermediate proficiency in Greek or Latin through test scores (SAT, AP), a placement exam, or coursework. A strongly motivated student who has completed CLG 102 or LAT 102 (or CLG 103 or LAT 103) may concentrate, with permission of the departmental representative.",
+              "double_counting_allowed": true,
               "course_list": [
                 "CLG 108",
                 "LAT 108",
@@ -191,7 +192,7 @@
               "name": "Ancient Greek or Latin",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "Each student must successfully complete either Ancient Greek or Latin to the level of 108 or achieve an equivalent level of knowledge, as demonstrated through test scores (SAT, AP), a placement exam, or coursework (including through a summer language program). However, at least one language course must be taken at Princeton.",
+              "explanation": "Each student must successfully complete either Ancient Greek or Latin to the level of 108 or achieve an equivalent level of knowledge, as demonstrated through test scores (SAT, AP), a placement exam, or coursework (including through a summer language program). However, at least one language course must be taken at Princeton.\n\nStudents should be aware that most graduate programs in Classics will demand a more extensive training in the ancient languages than these minimum requirements. Those considering going on to graduate school should plan to do additional work in Greek and Latin either during their time at Princeton or through a postbaccalaureate program.",
               "course_list": [
                 "LAT 108",
                 "CLG 108"
@@ -199,23 +200,31 @@
             },
             {
               "name": "Departmentals",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nThe specific courses to be taken by each student must form a coherent program of study. Whatever the individual concentration, each student's program must contain eight departmentals and the Junior Seminar.",
+              "max_counted": 1,
+              "min_needed": 8,
+              "explanation": "<i>Editor's Note: The concentrator's course plan requires course approval from the Director of Undergraduate Studies, and TigerPath does not verify this.</i>\n\nThe specific courses to be taken by each student must form a coherent program of study. Whatever the individual concentration, each student's program must contain eight departmentals and the Junior Seminar.",
               "req_list": [
                 {
                   "name": "Classical Civilization",
-                  "max_counted": null,
-                  "min_needed": null,
-                  "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nSix of these courses must focus in whole or in part on classical civilization or its influence. At least three of these courses must be taught in the Department of Classics (CLA, CLG, or LAT). Courses taken during the freshman and sophomore years beyond the prerequisite may count toward this requirement if they are appropriate to the student's overall program.",
-                  "no_req": null
+                  "max_counted": 6,
+                  "min_needed": 6,
+                  "explanation": "<i>Editor's Note: Concentrators must get departmental approval for these courses, and TigerPath does not verify this.</i>\n\nSix of these courses must focus in whole or in part on classical civilization or its influence. At least three of these courses must be taught in the Department of Classics (CLA, CLG, or LAT). Courses taken during the freshman and sophomore years beyond the prerequisite may count toward this requirement if they are appropriate to the student's overall program.",
+                  "course_list": [
+                    "CLA *",
+                    "CLG *",
+                    "LAT *"
+                  ]
                 },
                 {
                   "name": "Comparative/Methodological Component",
-                  "max_counted": null,
-                  "min_needed": null,
-                  "explanation": "<i>Editor's Note: Concentrators must get departmental approval for many of these courses, and TigerPath does not verify this.</i>\n\nTwo courses must fulfill the comparative/methodological component of the track of study. The aim of this requirement is to introduce students to new perspectives and new tools of inquiry for exploring their chosen subject. There is no set list, since different courses will be appropriate to different interests. These courses must be preapproved by the DUS to count as part of the student's track.",
-                  "no_req": null
+                  "max_counted": 2,
+                  "min_needed": 2,
+                  "explanation": "<i>Editor's Note: Concentrators must get departmental approval for these courses, and TigerPath does not verify this.</i>\n\nTwo courses must fulfill the comparative/methodological component of the track of study. The aim of this requirement is to introduce students to new perspectives and new tools of inquiry for exploring their chosen subject. There is no set list, since different courses will be appropriate to different interests. These courses must be preapproved by the DUS to count as part of the student's track.",
+                  "course_list": [
+                    "CLA *",
+                    "CLG *",
+                    "LAT *"
+                  ]
                 }
               ]
             }
@@ -294,7 +303,7 @@
               "req_list": [
                 {
                   "name": "Ancient Greek History",
-                  "max_counted": null,
+                  "max_counted": 1,
                   "min_needed": 1,
                   "explanation": "These must include one survey course on ancient Greek history (CLA 216, CLA 217).",
                   "course_list": [
@@ -304,7 +313,7 @@
                 },
                 {
                   "name": "Roman History",
-                  "max_counted": null,
+                  "max_counted": 1,
                   "min_needed": 1,
                   "explanation": "One survey course on Roman history (CLA 218, CLA 219)",
                   "course_list": [
