@@ -1,0 +1,194 @@
+{
+  "type": "Major",
+  "name": "Architecture",
+  "code": "ARC",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/school-architecture",
+    "https://soa.princeton.edu/content/undergraduate-program-architecture",
+    "https://soa.princeton.edu/sites/default/files/student%20handbook_undergrad%20F2019-DC.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Dean",
+      "name": "Mónica Ponce de León",
+      "email": "mpdl@princeton.edu"
+    },
+    {
+      "type": "Associate Dean",
+      "name": "Paul Lewis",
+      "email": "paul@ltlarchitects.com"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Mario I. Gandelsonas",
+      "email": "mgndlsns@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Cameron Wu",
+      "email": "cwu@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Students who wish to concentrate in architecture are required to complete two courses during their first year or sophomore year: ARC 203 Introduction to Architectural Thinking and ARC 204 Introduction to Architectural Design. The courses do not need to be taken in sequence. At least one course in architectural history, taken in either the School of Architecture or the Department of Art and Archaeology, is recommended but not required to be completed before their junior year.",
+      "completed_by_semester": 4,
+      "course_list": [
+        "ARC 203",
+        "ARC 204"
+      ]
+    },
+    {
+      "name": "Departmentals",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "In addition to the general prerequisites and the requirements for independent work, each student is required to complete ten courses in three related areas: history and theory, technology, and design. The History and Theory distribution requires seven courses: three History and Theory of Architecture courses, two of which are ARC 308 and ARC 403; two courses in History and Theory of Urbanism and Landscape; and at least two upper level courses to be taken in the Department of Art and Archaeology. The Technology distribution requires two courses, one of which is ARC 311: Building Science and Technology–Building Systems. The Design Seminar distribution requires ARC 206.\n\nArchitecture concentrators take the following sequence of courses in their junior and senior year: Junior Studio, which consists of ARC 350 and ARC 351, and two required history and theory courses: ARC 308: History of Architectural Theory (taken in the fall of the junior year) and ARC 403: Topics in the History and Theory of Architecture in the fall semester of the senior year. These courses introduce methodologies of historical analysis and research, the literature of the field, and varieties of architectural writing.\n\nIn the fall semester of their senior year, students are required to enroll in ARC 404: Advanced Design Studio. ARC 404 is centered around independent design projects in that synthesize students’ training and interests and investigate new approaches to representation.",
+      "req_list": [
+        {
+          "name": "History and Theory of Architecture",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Three History and Theory of Architecture courses, two of which are ARC 308 and ARC 403",
+          "req_list": [
+            {
+              "name": "Required Courses",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ARC 308",
+                "ARC 403"
+              ]
+            },
+            {
+              "name": "Electives",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+              "course_list": [
+                "AMS 322/URB 322/ARC 326/AAS 320",
+                "ARC 302/ART 347",
+                "ARC 322",
+                "ARC 489",
+                "ARC 492/URB 492/ENV 492",
+                "ART 102/ARC 102",
+                "ART 201/ARC 209",
+                "ART 341/ARC 341",
+                "ART 445/ARC 445",
+                "ART 466/ARC 466/SPA 466",
+                "ECS 343/POL 406/ARC 343/ART 352",
+                "ECS 376/ARC 376",
+                "HIS 464/ARC 464/ENV 464/URB 464"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "History and Theory of Urbanism and Landscape",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>\n\nTwo courses in History and Theory of Urbanism and Landscape.",
+          "course_list": [
+            "ARC 205/URB 205/LAS 225/ENV 205",
+            "ARC 303",
+            "ARC 312",
+            "ARC 321",
+            "ARC 396/SAS 396/URB 396",
+            "ARC 449",
+            "ARC 492/URB 492/ENV 492",
+            "ART 250",
+            "DAN 310/ARC 380/THR 323/URB 310",
+            "ENV 382",
+            "ENV 424/ARC 424/ART 492",
+            "URB 201/WWS 201/SOC 203/ARC 207",
+            "URB 300/ARC 300/HUM 300/SLA 300",
+            "URB 385/SOC 385/HUM 385/ARC 385",
+            "URB 401/ARC 401"
+          ]
+        },
+        {
+          "name": "Art and Archaeology",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "At least two upper level courses to be taken in the Department of Art and Archaeology.",
+          "course_list": [
+            "ART 3*",
+            "ART 4*",
+            "ART 5*"
+          ]
+        },
+        {
+          "name": "Building Technology",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The Technology distribution requires two courses, one of which is ARC 311: Building Science and Technology–Building Systems.",
+          "req_list": [
+            {
+              "name": "Required Courses",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ARC 311"
+              ]
+            },
+            {
+              "name": "Electives",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+              "course_list": [
+                "ARC 374",
+                "ARC 406/ENV 406",
+                "CEE 262*/ARC 262*/EGR 262*/URB 262*/ART 262",
+                "CEE 312",
+                "CEE 364/ARC 364",
+                "CEE 461",
+                "ENE 202/ARC 208/EGR 208/ENV 206"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Design Seminar",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The Design Seminar distribution requires ARC 206.",
+          "course_list": [
+            "ARC 206"
+          ]
+        },
+        {
+          "name": "Design Studios",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Architecture concentrators take the following sequence of courses in their junior and senior year: Junior Studio, which consists of ARC 350 and ARC 351. In the fall semester of their senior year, students are required to enroll in ARC 404: Advanced Design Studio. ARC 404 is centered around independent design projects in that synthesize students’ training and interests and investigate new approaches to representation.",
+          "course_list": [
+            "ARC 350",
+            "ARC 351",
+            "ARC 404"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe junior independent work requirement is satisfied by a paper (about 30 pages) selected by the student in consultation with a faculty member. The work is initiated in the fall (topic, outline and bibliography) and completed in the spring. Students work throughout the year in consultation with their faculty adviser. A Ph.D. student mentor also provides writing support.",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe senior thesis in architecture is a year-long project that begins with ARC 403 in the fall semester. Faculty thesis advisers are assigned at the end of the fall term of the senior year, and students work closely with their adviser to formulate their topic, define research methods, organize thesis material, and refine the presentation of the scholarship.\n\nThe senior thesis is intended to be a detailed project, presenting a well-argued piece of research on a precise architectural theme, and may include several forms of representation. For example, students commonly utilize architectural drawings, models, video, photographs, and computer-generated drawings and models. The final presentation and oral defense of the senior thesis in the spring constitutes a section of the departmental examination.",
+      "no_req": null
+    }
+  ]
+}
