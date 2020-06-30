@@ -166,25 +166,38 @@ def get_req_courses(request, req_path):
     # prevents duplicate courses to be added in search results
     search_results = set([])
     course_list, dist_list = get_courses_by_path(req_path)
+    def _update_search_results(crs):
+        crs = crs.split('/')[0]  # only lookup the first listing
+        if '*' in crs:  # wildcard listing, could be multiple courses
+            crs = crs.replace('*', '').split(' ')
+            search_results.update(set(filter_courses(crs, allow_failure=True)))
+        else:  # explicit course listing
+            try:
+                search_results.add(models.Course_Listing.objects.get(
+                    dept=crs.split(' ')[0], number=crs.split(' ')[1]).course)
+            except Exception:  # if course not found, ignore and move on
+                pass
     for course in course_list:
         if 'LANG' in course:
             for lang in list(LANG_DEPTS.keys()):
-                search_results.update(set(filter_courses(course.replace('*', '').replace('LANG', lang).split(' '))))
-        if '*' not in course:
-            course = course.split('/')[0]
-            try:
-                search_results.add(models.Course_Listing.objects.get(dept=course.split(' ')[0], number=course.split(' ')[1]).course)
-            except:
-                pass
+                _update_search_results(course.replace('LANG', lang))
         else:
-            search_results.update(set(filter_courses(course.replace('*', '').split(' '))))
+            _update_search_results(course)
     for dist in dist_list:
         search_results.update(set(models.Course.objects.filter(dist_area=dist)))
     course_info_list = convert_courses(list(search_results), course_list)
     return HttpResponse(ujson.dumps(course_info_list, ensure_ascii=False), content_type='application/json')
 
-# returns list of courses filtered by query
-def filter_courses(queries):
+def filter_courses(queries, allow_failure=False):
+    """
+    Returns a list of courses filtered by query
+
+    If allow_failure is False, silently drop any queries that filter down to
+    zero results in order to provide the best possible non-empty search
+    results on user searches in case of typos.
+    Setting it to True will allow failure (filtering down to empty), and is
+    useful when the searches are not user defined and should not have typos.
+    """
     # shortcut for an empty search
     if len(queries) == 0:
         return []
@@ -211,7 +224,7 @@ def filter_courses(queries):
                 continue
         # might be part of a course title
         filtered_results = list(filter(lambda course: query.lower() in course.title.lower(), results))
-        if len(filtered_results) > 0:
+        if len(filtered_results) > 0 or allow_failure:
             results = filtered_results
             continue
         # if reaches this line, query returned no results, so drop and move on
