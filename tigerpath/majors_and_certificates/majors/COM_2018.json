@@ -46,11 +46,11 @@
         {
           "name": "Introductory Courses",
           "max_counted": 1,
-          "min_needed": null,
+          "min_needed": 1,
           "explanation": "Students who wish to concentrate in comparative literature are advised (though not required) to take COM 205-206, HUM 216-219 or TRA 200 in their sophomore year or earlier.",
           "double_counting_allowed": true,
           "completed_by_semester": 4,
-          "course_list": [
+          "req_list": [
             {
               "name": null,
               "max_counted": 1,
@@ -97,7 +97,7 @@
           "name": "Comparative Literature",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "All majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Those other two COM courses can be 200-, 300-, 400-, or 500-level; with the professor’s permission, advanced students may enroll in 500-level COM courses. These must be Princeton COM courses; no exceptions.",
+          "explanation": "<i>Editor's Note: Not all of the courses allowed by TigerPath will satisfy this requirement. Only the subset that are taught by core COM faculty should count, but TigerPath cannot verify this.</i>\n\nAll majors beginning with the class of 2021, must take COM 300 (the Junior Seminar), and two other COM courses taught by core COM faculty (that is, by faculty listed on the “Core Faculty” list of the departmental website). Those other two COM courses can be 200-, 300-, 400-, or 500-level; with the professor’s permission, advanced students may enroll in 500-level COM courses. These must be Princeton COM courses; no exceptions.",
           "excluded_course_list": [
             "COM 300"
           ],
