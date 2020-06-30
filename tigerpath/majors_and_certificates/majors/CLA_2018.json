@@ -51,12 +51,12 @@
             {
               "name": "Departmentals",
               "max_counted": 1,
-              "min_needed": "ALL",
+              "min_needed": 8,
               "explanation": "Eight departmental courses are required. Of these, five must be in the original languages at the 200 level or above, including at least one course at the 300 level. The combination of LAT 104-108, or CLG/LAT 105-108, may be counted as the equivalent of one 200-level course. One course in ancient history (CLA 214, 216, 217, 218, or 219, or HIS 343) must also be included among the departmentals. Students must also take the Junior Seminar in the fall of their junior year.",
               "req_list": [
                 {
                   "name": "Original Languages",
-                  "max_counted": 1,
+                  "max_counted": null,
                   "min_needed": 5,
                   "explanation": "Of these, five must be in the original languages at the 200 level or above, including at least one course at the 300 level. The combination of LAT 104-108, or CLG/LAT 105-108, may be counted as the equivalent of one 200-level course.",
                   "req_list": [
@@ -73,23 +73,7 @@
                           "explanation": null,
                           "course_list": [
                             "LAT 2*",
-                            "LAT 3*",
-                            "LAT 4*",
-                            "LAT 5*",
-                            "CLG 2*",
-                            "CLG 3*",
-                            "CLG 4*",
-                            "CLG 5*"
-                          ]
-                        },
-                        {
-                          "name": null,
-                          "max_counted": 1,
-                          "min_needed": "ALL",
-                          "explanation": null,
-                          "course_list": [
-                            "LAT 104",
-                            "LAT 108"
+                            "CLG 2*"
                           ]
                         },
                         {
@@ -116,12 +100,16 @@
                     },
                     {
                       "name": null,
-                      "max_counted": 1,
+                      "max_counted": null,
                       "min_needed": 1,
                       "explanation": null,
                       "course_list": [
                         "CLG 3*",
-                        "LAT 3*"
+                        "LAT 3*",
+                        "CLG 4*",
+                        "LAT 4*",
+                        "CLG 5*",
+                        "LAT 5*"
                       ]
                     }
                   ]
@@ -141,14 +129,11 @@
                   ]
                 },
                 {
-                  "name": "Cognates",
-                  "max_counted": 1,
-                  "min_needed": 2,
+                  "name": "Other Departmentals",
+                  "max_counted": 2,
+                  "min_needed": null,
                   "explanation": "Students may count, among the eight departmentals, up to two courses not requiring the use of Greek or Latin (in addition to the course in ancient history). These courses may be offered by the department or, with the approval of the DUS, they may be courses in other departments that deal with aspects of Greek and Roman civilization.",
                   "course_list": [
-                    "CLA *",
-                    "CLG *",
-                    "LAT *",
                     "COM 205",
                     "NES 220",
                     "NES 331",
@@ -161,7 +146,6 @@
                     "ART 302",
                     "ART 306",
                     "ART 308",
-                    "LAT 232",
                     "HIS 343",
                     "HIS 344",
                     "MED 227",
