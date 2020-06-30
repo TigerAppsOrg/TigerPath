@@ -123,7 +123,7 @@ DEPTS = {
     "URD": "Urdu",
     "VIS": "Visual Arts",
     "WRI": "Princeton Writing Program",
-    "WWS": "Woodrow Wilson School",
+    "WWS": "Public and International Affairs",
 }
 
 
