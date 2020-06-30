@@ -15,9 +15,9 @@
       "email": "verlinde@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
-      "name": "Steven S. Gubser",
-      "email": "ssgubser@princeton.edu"
+      "type": "Director of Undergraduate Studies",
+      "name": "William Jones",
+      "email": "wcjones@princeton.edu"
     }
   ],
   "req_list": [
@@ -25,26 +25,26 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Prerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 207, and MAT 203-204.  These six courses should be completed by the end of sophomore year.  PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105.  PHY 104 may be replaced by ISC 233-234 or PHY 106.  PHY 207 may be replaced by PHY 205.  MAT 203 may be replaced by MAT 201 or MAT 218.  MAT 204 may be replaced by MAT 202 or MAT 217.  Prerequisites for concentration in physics cannot be taken on a pass/D/fail basis.",
+      "explanation": "Prerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 205, and MAT 203-204. These five courses should be completed by the end of sophomore year. PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105. PHY 104 may be replaced by ISC 233-234 or PHY 106. PHY 205 may be replaced by PHY 207. MAT 203 may be replaced by MAT 201 or MAT 218. MAT 204 may be replaced by MAT 202 or MAT 217. Prerequisites for concentration in physics cannot be taken on a pass/D/fail basis.\n\nIt is possible to concentrate in physics starting with 100-level physics courses in sophomore year. Interested students should meet with the departmental representative as early as possible.",
       "completed_by_semester": 4,
       "req_list": [
         {
-          "name": "Introductory Physics",
+          "name": "Physics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "",
+          "explanation": "Prerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 205, and MAT 203-204. PHY 103 may be replaced by ISC 231-232 (the first term of Integrated Science Sequence), or EGR 191-192 (Engineering-Math-Physics), or PHY 105. PHY 104 may be replaced by ISC 233-234 or PHY 106. PHY 205 may be replaced by PHY 207.",
           "req_list": [
             {
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": null,
               "req_list": [
                 {
                   "name": null,
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "",
+                  "explanation": null,
                   "course_list": [
                     "PHY 103",
                     "PHY 105"
@@ -54,7 +54,7 @@
                   "name": null,
                   "max_counted": 1,
                   "min_needed": "ALL",
-                  "explanation": "",
+                  "explanation": null,
                   "course_list": [
                     "ISC 231",
                     "ISC 232"
@@ -64,7 +64,7 @@
                   "name": null,
                   "max_counted": 1,
                   "min_needed": "ALL",
-                  "explanation": "",
+                  "explanation": null,
                   "course_list": [
                     "EGR 191",
                     "EGR 192"
@@ -76,13 +76,13 @@
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": null,
               "req_list": [
                 {
                   "name": null,
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "",
+                  "explanation": null,
                   "course_list": [
                     "PHY 104",
                     "PHY 106"
@@ -92,7 +92,7 @@
                   "name": null,
                   "max_counted": 1,
                   "min_needed": "ALL",
-                  "explanation": "",
+                  "explanation": null,
                   "course_list": [
                     "ISC 233",
                     "ISC 234"
@@ -104,7 +104,7 @@
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
                 "PHY 207",
                 "PHY 205"
@@ -116,13 +116,13 @@
           "name": "Math",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Mastery of calculus to the level of MAT 103 or above, or advanced placement (an AP score of 5 on the AB test or an AP score of 4 on the BC test);",
+          "explanation": "Prerequisites for concentration in physics are the following five courses: PHY 103-104, PHY 205, and MAT 203-204. MAT 203 may be replaced by MAT 201 or MAT 218. MAT 204 may be replaced by MAT 202 or MAT 217.",
           "req_list": [
             {
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
                 "MAT 201",
                 "MAT 203",
@@ -133,7 +133,7 @@
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
                 "MAT 202",
                 "MAT 204",
@@ -148,10 +148,10 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "The program of study as described here applies to the Class of 2019 and beyond. The Class of 2018 should consult the 2016-2017 Undergraduate Announcement for a list of program requirements.\nUpon completion of the prerequisites described above, courses required for concentration in physics are as follows.",
+      "explanation": "Upon completion of the prerequisites described above, courses required for concentration in physics are as follows.",
       "req_list": [
         {
-          "name": "Quantum",
+          "name": "Quantum Mechanics",
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "One semester of quantum mechanics: PHY 208.",
@@ -181,7 +181,7 @@
           "name": "Complex Analysis",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One course either on complex analysis or on differential equations at the 300-level or higher:  APC 350, MAE 305, MAE 306, MAT 330, MAT 335, or MAT 427.",
+          "explanation": "One course either on complex analysis or on differential equations at the 300-level or higher: APC 350, MAE 305, MAE 306, MAT 330, MAT 335, or MAT 427.",
           "course_list": [
             "APC 350",
             "MAE 305",
@@ -195,7 +195,7 @@
           "name": "Additional Physics",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One additional course in Physics (not including cross-lists) at the 300-level or above.",
+          "explanation": "<i>Editor's Note: Some of these courses may not fulfill this requirement as TigerPath does not check cross-listing.</i>\n\nOne additional course in Physics (not including cross-lists) at the 300-level or above.",
           "course_list": [
             "PHY 3*",
             "PHY 4*",
@@ -214,7 +214,7 @@
           ]
         },
         {
-          "name": "Additional Math or Physics",
+          "name": "Additional Physics or Math",
           "max_counted": 1,
           "min_needed": 1,
           "explanation": "One additional course in either Physics or Math at the 300-level or above, including cross-lists.",
@@ -231,7 +231,7 @@
           "name": "Elective",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One elective course at the 300-level or higher, as detailed below.\nThe elective course can be any Physics Department course (including cross-lists) at 300-level or above.  400-level physics courses are particularly recommended.  Courses in astrophysics, biophysics or biology, chemistry, computer science, engineering, geophysical science, materials science, plasma physics, and mathematics may also be appropriate depending on the interests of the student.  Graduate courses may also be taken with permission from both the instructor and the departmental representative.",
+          "explanation": "One elective course at the 300-level or higher, as detailed below.\n\nThe elective course can be any Physics Department course (including cross-lists) at 300-level or above. 400-level physics courses are particularly recommended. Courses in astrophysics, biophysics or biology, chemistry, computer science, engineering, geophysical science, materials science, plasma physics, and mathematics may also be appropriate depending on the interests of the student. Graduate courses may also be taken with permission from both the instructor and the departmental representative.",
           "course_list": [
             "PHY 3*",
             "PHY 4*",
@@ -263,18 +263,16 @@
     },
     {
       "name": "Independent Work",
-      "max_counted": 0,
+      "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior independent work:  Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, which will take place early in the semester, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.\nDuring the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review, or a research proposal.  The second junior paper is due in early May.",
-      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn addition to the coursework carried out during the junior year, the student is required to complete two junior papers, each of which is on a research topic of current interest. The purpose of the papers is to give students exposure to how physics research is actually performed by immersing them in journal, as opposed to textbook, literature. Each paper is written in close consultation with a faculty adviser, who is typically performing research in the subject area of the paper. A junior paper may serve as a preliminary investigation of a senior thesis topic. Junior independent work may also be satisfied with a short experimental project.",
       "no_req": null
     },
     {
       "name": "Senior Thesis",
-      "min_needed": 0,
+      "min_needed": null,
       "max_counted": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. During the fall of the junior year each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding the senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical, or library study that will be written and presented as a senior thesis.",
-      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the senior year, in addition to coursework, students write a senior thesis based on their own research. The topic might be chosen from one of the active experimental or theoretical research fields of the Physics Department, or might be suggested by a faculty member with some subsidiary interest. A student could also choose a topic relating physics and another field, such as biophysics, geophysics, the teaching of physics, history of science, or engineering physics. Students whose main adviser is outside the Physics Department must also have a co-adviser who is a faculty member in the Physics Department.",
       "no_req": null
     }
   ]
