@@ -195,7 +195,7 @@
           "name": "Additional Physics",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One additional course in Physics (not including cross-lists) at the 300-level or above.",
+          "explanation": "<i>Editor's Note: Some of these courses may not fulfill this requirement as TigerPath does not check cross-listing.</i>\n\nOne additional course in Physics (not including cross-lists) at the 300-level or above.",
           "course_list": [
             "PHY 3*",
             "PHY 4*",
