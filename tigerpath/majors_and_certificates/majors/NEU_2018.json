@@ -1,373 +1,373 @@
 {
-  "type": "Major",
-  "name": "Neuroscience",
-  "code": "NEU",
-  "degree": "AB",
-  "year": 2018,
-  "explanation": "The Princeton Neuroscience Institute offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here.",
-  "urls": [
-    "https://ua.princeton.edu/academic-units/neuroscience-ab-through-princeton-neuroscience-institute",
-    "https://pni.princeton.edu/education/undergraduate-concentration/neu-concentration-course-study"
-  ],
-  "contacts": [
-    {
-      "type": "Director of Undergraduate Studies",
-      "name": "Asif A. Ghazanfar",
-      "email": "asifg@princeton.edu"
-    }
-  ],
-  "req_list": [
-    {
-      "name": "Prerequisites",
-      "max_counted": 1,
-      "min_needed": 3,
-      "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
-      "req_list": [
+    "type": "Major",
+    "name": "Neuroscience",
+    "code": "NEU",
+    "degree": "AB",
+    "year": 2018,
+    "explanation": "The Princeton Neuroscience Institute offers the neuroscience concentration for undergraduates with a strong interest in pursuing an in-depth study of the brain. Neuroscience is a broad interdisciplinary field requiring rigorous preparation in basic science. Students in this discipline are expected to understand the basic principles and approaches of modern neuroscience. The concentration provides an opportunity for the serious study of molecular, cellular, developmental, and systems neuroscience as it interfaces with cognitive and behavioral research. Since modern neuroscience is relying increasingly on quantitatively sophisticated methods and theory, students are also expected to gain competency in, physics, mathematics and computation. By offering a combination of courses and interdisciplinary research, students who complete the neuroscience concentration will be highly qualified to pursue graduate work at the best neuroscience, psychology or biology graduate programs and will also have completed, in large part, the background requirements to enter medical or veterinary school. Other possible career paths for those with a neuroscience degree can be found here.",
+    "urls": [
+        "https://ua.princeton.edu/academic-units/neuroscience-ab-through-princeton-neuroscience-institute",
+        "https://pni.princeton.edu/education/undergraduate-concentration/neu-concentration-course-study"
+    ],
+    "contacts": [
         {
-          "name": null,
-          "max_counted": null,
-          "min_needed": "ALL",
-          "explanation": null,
-          "course_list": [
-            "NEU 202",
-            "MAT 103"
-          ]
-        },
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
-          "course_list": [
-            "NEU 201",
-            "ISC 236"
-          ]
+            "type": "Director of Undergraduate Studies",
+            "name": "Asif A. Ghazanfar",
+            "email": "asifg@princeton.edu"
         }
-      ]
-    },
-    {
-      "name": "Core Courses",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "Unless you have extensive programming experience or some experience with Python, it is strongly recommended that you take NEU 314 before NEU 350.",
-      "course_list": [
-        "NEU 314",
-        "NEU 350"
-      ]
-    },
-    {
-      "name": "Cognate Courses",
-      "max_counted": 1,
-      "min_needed": 1,
-      "explanation": null,
-      "req_list": [
+    ],
+    "req_list": [
         {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": null,
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": "ALL",
-              "explanation": null,
-              "course_list": [
-                "PHY 101",
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": 1,
-              "explanation": null,
-              "course_list": [
-                "PHY 102",
-                "PHY 108"
-              ]
-            }
-          ]
+            "name": "Prerequisites",
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
+            "req_list": [
+                {
+                    "name": null,
+                    "max_counted": null,
+                    "min_needed": "ALL",
+                    "explanation": null,
+                    "course_list": [
+                        "NEU 202",
+                        "MAT 103"
+                    ]
+                },
+                {
+                    "name": null,
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
+                    "course_list": [
+                        "NEU 201",
+                        "ISC 236"
+                    ]
+                }
+            ]
         },
         {
-          "name": null,
-          "max_counted": 2,
-          "min_needed": "ALL",
-          "explanation": null,
-          "double_counting_allowed": true,
-          "course_list": [
-            "ISC 231",
-            "ISC 232",
-            "ISC 233",
-            "ISC 234"
-          ]
+            "name": "Core Courses",
+            "max_counted": 1,
+            "min_needed": "ALL",
+            "explanation": "Unless you have extensive programming experience or some experience with Python, it is strongly recommended that you take NEU 314 before NEU 350.",
+            "course_list": [
+                "NEU 314",
+                "NEU 350"
+            ]
+        },
+        {
+            "name": "Cognate Courses",
+            "max_counted": 1,
+            "min_needed": 1,
+            "explanation": null,
+            "req_list": [
+                {
+                    "name": null,
+                    "max_counted": 1,
+                    "min_needed": "ALL",
+                    "explanation": null,
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": "ALL",
+                            "explanation": null,
+                            "course_list": [
+                              " PHY 101",
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": 1,
+                            "explanation": null,
+                            "course_list": [
+                                "PHY 102",
+                                "PHY 108"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": null,
+                    "max_counted": 2,
+                    "min_needed": "ALL",
+                    "explanation": null,
+                    "double_counting_allowed": true,
+                    "course_list": [
+                        "ISC 231",
+                        "ISC 232",
+                        "ISC 233",
+                        "ISC 234"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Elective Subject Areas",
+            "max_counted": 1,
+            "min_needed": 3,
+            "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
+            "req_list": [
+                {
+                    "name": "Molecular, Cellular, Disease",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": null,
+                    "course_list": [
+                        "NEU 301: Cellular Neurobiology",
+                        "NEU 385",
+                        "NEU 430",
+                        "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
+                        "NEU 413/PSY 413: The Neurobiology of Stress",
+                        "MOL 433",
+                        "MOL 447/NEU 447: Neuroimmunology",
+                        "MOL 459: Basic Virology",
+                        "MOL 250",
+                        "NEU 428/PSY 428",
+                        "NEU 475: Basal Ganglia in Health and Disease",
+                        "ELE 452",
+                        "NEU 501A: Molecules to Systems",
+                        "PHY 562",
+                        "QCB 515"
+                    ]
+                },
+                {
+                    "name": "Neural Computation",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": null,
+                    "course_list": [
+                        "COS 226",
+                        "COS 343",
+                        "COS 402: Artificial Intelligence",
+                        "COS 429",
+                        "COS 324: Fundamentals of Machine Learning",
+                        "COS 302/SML 305",
+                        "COS 485: Neural Networks: Theory and Applications",
+                        "ELE 364: Machine Learning for Predictive Data Analytics",
+                        "ELE 452",
+                        "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience",
+                        "NEU 437: Computational Neuroscience",
+                        "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
+                        "PSY 330/NEU 330: Connectionist Modeling",
+                        "PSY 338/NEU 338: Animal Learning & Decision-making",
+                        "PSY 340/NEU 340: Neuroeconomics",
+                        "PSY 360",
+                        "QCB 515"
+                    ]
+                },
+                {
+                    "name": "Systems and Circuits",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": null,
+                    "course_list": [
+                        "NEU 200: Functional Neuroanatomy",
+                        "NEU 301: Cellular Neurobiology",
+                        "NEU 385",
+                        "NEU 413/PSY 413: The Neurobiology of Stress",
+                        "NEU 422/PSY 422: Neural Dynamics of Cognition",
+                        "NEU 427: Systems Neuroscience",
+                        "NEU 428/PSY 428",
+                        "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
+                        "NEU 475: Basal Ganglia in Health and Disease",
+                        "NEU 501A: Molecules to Systems",
+                        "NEU 502A: From Molecules to Systems to Behavior",
+                        "PSY 260/NEU 260: Life Cycle of Behaviors",
+                        "PSY 316/NEU 316: Cognitive Neuroscience of Selective Attention",
+                        "PSY 336/NEU 336: Diversity of Brains",
+                        "PSY 345/NEU 325: Sensation & Perception",
+                        "PHY 562"
+                    ]
+                },
+                {
+                    "name": "Social and Cognitive Neuroscience",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": null,
+                    "course_list": [
+                        "NEU 200: Functional Neuroanatomy",
+                        "NEU 422/PSY 422: Neural Dynamics of Cognition",
+                        "NEU 502A: From Molecules to Systems to Behavior",
+                        "PSY 248/MUS 248",
+                        "PSY 306/NEU 306: Memory and Cognition",
+                        "PSY 316/NEU 316: Cog. Neuroscience of Selective Attention",
+                        "PSY 318",
+                        "PSY 330/NEU 330: Connectionist Modeling",
+                        "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
+                        "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
+                        "PSY 338/NEU 338: Animal Learning & Decision-making",
+                        "PSY 340/NEU 340: Neuroeconomics",
+                        "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
+                        "PSY 409: Cyborg Psychology",
+                        "PSY 411: Psychology of Face Perception",
+                        "PSY 480/NEU 480: fMRI Decoding",
+                        "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "5 Electives",
+            "max_counted": 1,
+            "min_needed": 5,
+            "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
+            "double_counting_allowed": true,
+            "course_list": [
+                "NEU 200: Functional Neuroanatomy",
+                "NEU 301: Cellular Neurobiology",
+                "NEU 385",
+                "NEU 413/PSY 413: The Neurobiology of Stress",
+                "NEU 422/PSY 422: Neural Dynamics of Cognition",
+                "NEU 427: Systems Neuroscience",
+                "NEU 428/PSY 428",
+                "NEU 430",
+                "NEU 437: Computational Neuroscience",
+                "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
+                "NEU 475: Basal Ganglia in Health and Disease",
+                "NEU 501A: Molecules to Systems",
+                "NEU 502A: From Molecules to Systems to Behavior",
+                "COS 226",
+                "COS 343",
+                "COS 402: Artificial Intelligence",
+                "COS 429",
+                "COS 324: Fundamentals of Machine Learning",
+                "COS 302/SML 305",
+                "COS 485: Neural Networks: Theory and Applications",
+                "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
+                "ELE 364: Machine Learning for Predictive Data Analytics",
+                "ELE 452",
+                "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience",
+                "MOL 250",
+                "MOL 433",
+                "MOL 447/NEU 447: Neuroimmunology",
+                "MOL 459: Basic Virology",
+                "PHY 562",
+                "PSY 248/MUS 248",
+                "PSY 260/NEU 260: Life Cycle of Behaviors",
+                "PSY 306/NEU 306: Memory and Cognition",
+                "PSY 316/NEU 316: Cognitive Neuroscience of Selective Attention",
+                "PSY 318",
+                "PSY 330/NEU 330: Connectionist Modeling",
+                "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
+                "PSY 336/NEU 336: Diversity of Brains",
+                "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
+                "PSY 338/NEU 338: Animal Learning & Decision-making",
+                "PSY 340/NEU 340: Neuroeconomics",
+                "PSY 345/NEU 325: Sensation & Perception",
+                "PSY 360",
+                "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
+                "PSY 409: Cyborg Psychology",
+                "PSY 411: Psychology of Face Perception",
+                "PSY 480/NEU 480: fMRI Decoding",
+                "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research",
+                "QCB 515"
+            ]
+        },
+        {
+            "name": "Additional Courses",
+            "max_counted": 1,
+            "min_needed": "ALL",
+            "explanation": null,
+            "req_list": [
+                {
+                    "name": "Cell Biology",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Students must take one 200-level or higher course in cell biology from the following list.",
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": null,
+                            "min_needed": null,
+                            "explanation": null,
+                            "course_list": [
+                                "MOL 214: Introduction to Cellular and Molecular Biology",
+                                "MOL 215/EEB 215: Quantitative Principles in Cell and Molecular Biology",
+                                "MOL 342",
+                                "EEB 211/MOL 211: The Biology of Organisms",
+                                "ISC 235",
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": "ALL",
+                            "explanation": null,
+                            "double_counting_allowed": true,
+                            "course_list": [
+                                "ISC 231",
+                                "ISC 232",
+                                "ISC 233",
+                                "ISC 234"
+                            ]
+                        },
+                    ]
+                },
+                {
+                    "name": "Behavior",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Students must take one 200-level or higher course in behavior from the following list.",
+                    "course_list": [
+                        "PSY 207: Psychopathology",
+                        "PSY 255: Cognitive Psychology",
+                        "PSY 252: Social Psychology",
+                        "PSY 345/NEU 345: Sensation & Perception*",
+                        "PSY 254: Developmental Psychology",
+                        "PSY 338/NEU 338: Animal Learning & Decision Making*",
+                        "EEB 311: Animal Behavior",
+                        "EEB 313: Behavioral Ecology",
+                        "EEB 329: Sensory Ecology"
+                    ]
+                },
+                {
+                    "name": "Quantitative Thinking",
+                    "max_counted": 1,
+                    "min_needed": 1,
+                    "explanation": "Students must take one course in quantitative thinking from the following list.",
+                    "req_list": [
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": null,
+                            "explanation": null,
+                            "course_list": [
+                                "COS 126",
+                                "SML 201"
+                            ]
+                        },
+                        {
+                            "name": null,
+                            "max_counted": 1,
+                            "min_needed": "ALL",
+                            "explanation": null,
+                            "double_counting_allowed": true,
+                            "course_list": [
+                                "ISC 231",
+                                "ISC 232",
+                                "ISC 233",
+                                "ISC 234"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Independent Work",
+            "max_counted": null,
+            "min_needed": null,
+            "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the Fall semester of your junior year, you will participate in small group tutorials to discuss research papers from the primary literature. These tutorials provide an interactive format for you to learn to read and analyze current primary scientific literature — this is essential for you to develop new ideas about research and for formulating hypotheses.\n\nYou will participate in discussions headed by postdoctoral instructors once a week for 1.5 hours. The tutorial is broken into two 4-week sections, each with a distinct topic area. At the end of each section, you will be asked to write a short critique of a relevant research paper assigned by the instructor. Students will attend and participate in a total of 8 discussion groups and will write 2 short papers for the fall tutorial.\n\nOne major product: Students’ Spring Independent Work culminates with the submission of a research proposal. This proposal will serve as the basis for your senior thesis work. As is typical of research proposals, the document will include a short survey of the literature.\n\nYou should expect to meet with your advisor ~5 times during the semester to formulate the project and discuss the literature.",
+            "no_req": null
+        },
+        {
+            "name": "Senior Thesis",
+            "max_counted": null,
+            "min_needed": null,
+            "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe senior thesis in neuroscience is the culmination of original research conducted by the student with the guidance of a faculty member in the Princeton Neuroscience Institute (including associated and affiliated members).\n\nThis comprehensive written work, ideally, is the application of the skills learned in coursework, Junior tutorials and Junior papers to an original research project. It is worth noting that a number of students generate original findings that are eventually incorporated into peer-reviewed scientific articles.",
+            "no_req": null
         }
-      ]
-    },
-    {
-      "name": "Elective Subject Areas",
-      "max_counted": 1,
-      "min_needed": 3,
-      "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
-      "req_list": [
-        {
-          "name": "Molecular, Cellular, Disease",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "NEU 301: Cellular Neurobiology",
-            "NEU 385",
-            "NEU 430",
-            "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
-            "NEU 413/PSY 413: The Neurobiology of Stress",
-            "MOL 433",
-            "MOL 447/NEU 447: Neuroimmunology",
-            "MOL 459: Basic Virology",
-            "MOL 250",
-            "NEU 428/PSY 428",
-            "NEU 475: Basal Ganglia in Health and Disease",
-            "ELE 452",
-            "NEU 501A: Molecules to Systems",
-            "PHY 562",
-            "QCB 515"
-          ]
-        },
-        {
-          "name": "Neural Computation",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "COS 226",
-            "COS 343",
-            "COS 402: Artificial Intelligence",
-            "COS 429",
-            "COS 324: Fundamentals of Machine Learning",
-            "COS 302/SML 305",
-            "COS 485: Neural Networks: Theory and Applications",
-            "ELE 364: Machine Learning for Predictive Data Analytics",
-            "ELE 452",
-            "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience",
-            "NEU 437: Computational Neuroscience",
-            "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
-            "PSY 330/NEU 330: Connectionist Modeling",
-            "PSY 338/NEU 338: Animal Learning & Decision-making",
-            "PSY 340/NEU 340: Neuroeconomics",
-            "PSY 360",
-            "QCB 515"
-          ]
-        },
-        {
-          "name": "Systems and Circuits",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "NEU 200: Functional Neuroanatomy",
-            "NEU 301: Cellular Neurobiology",
-            "NEU 385",
-            "NEU 413/PSY 413: The Neurobiology of Stress",
-            "NEU 422/PSY 422: Neural Dynamics of Cognition",
-            "NEU 427: Systems Neuroscience",
-            "NEU 428/PSY 428",
-            "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
-            "NEU 475: Basal Ganglia in Health and Disease",
-            "NEU 501A: Molecules to Systems",
-            "NEU 502A: From Molecules to Systems to Behavior",
-            "PSY 260/NEU 260: Life Cycle of Behaviors",
-            "PSY 316/NEU 316: Cognitive Neuroscience of Selective Attention",
-            "PSY 336/NEU 336: Diversity of Brains",
-            "PSY 345/NEU 325: Sensation & Perception",
-            "PHY 562"
-          ]
-        },
-        {
-          "name": "Social and Cognitive Neuroscience",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "NEU 200: Functional Neuroanatomy",
-            "NEU 422/PSY 422: Neural Dynamics of Cognition",
-            "NEU 502A: From Molecules to Systems to Behavior",
-            "PSY 248/MUS 248",
-            "PSY 306/NEU 306: Memory and Cognition",
-            "PSY 316/NEU 316: Cog. Neuroscience of Selective Attention",
-            "PSY 318",
-            "PSY 330/NEU 330: Connectionist Modeling",
-            "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
-            "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
-            "PSY 338/NEU 338: Animal Learning & Decision-making",
-            "PSY 340/NEU 340: Neuroeconomics",
-            "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
-            "PSY 409: Cyborg Psychology",
-            "PSY 411: Psychology of Face Perception",
-            "PSY 480/NEU 480: fMRI Decoding",
-            "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "5 Electives",
-      "max_counted": 1,
-      "min_needed": 5,
-      "explanation": "Students must take 5 NEU courses from 3 out of 4 subject areas.",
-      "double_counting_allowed": true,
-      "course_list": [
-        "NEU 200: Functional Neuroanatomy",
-        "NEU 301: Cellular Neurobiology",
-        "NEU 385",
-        "NEU 413/PSY 413: The Neurobiology of Stress",
-        "NEU 422/PSY 422: Neural Dynamics of Cognition",
-        "NEU 427: Systems Neuroscience",
-        "NEU 428/PSY 428",
-        "NEU 430",
-        "NEU 437: Computational Neuroscience",
-        "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
-        "NEU 475: Basal Ganglia in Health and Disease",
-        "NEU 501A: Molecules to Systems",
-        "NEU 502A: From Molecules to Systems to Behavior",
-        "COS 226",
-        "COS 343",
-        "COS 402: Artificial Intelligence",
-        "COS 429",
-        "COS 324: Fundamentals of Machine Learning",
-        "COS 302/SML 305",
-        "COS 485: Neural Networks: Theory and Applications",
-        "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
-        "ELE 364: Machine Learning for Predictive Data Analytics",
-        "ELE 452",
-        "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience",
-        "MOL 250",
-        "MOL 433",
-        "MOL 447/NEU 447: Neuroimmunology",
-        "MOL 459: Basic Virology",
-        "PHY 562",
-        "PSY 248/MUS 248",
-        "PSY 260/NEU 260: Life Cycle of Behaviors",
-        "PSY 306/NEU 306: Memory and Cognition",
-        "PSY 316/NEU 316: Cognitive Neuroscience of Selective Attention",
-        "PSY 318",
-        "PSY 330/NEU 330: Connectionist Modeling",
-        "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
-        "PSY 336/NEU 336: Diversity of Brains",
-        "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
-        "PSY 338/NEU 338: Animal Learning & Decision-making",
-        "PSY 340/NEU 340: Neuroeconomics",
-        "PSY 345/NEU 325: Sensation & Perception",
-        "PSY 360",
-        "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
-        "PSY 409: Cyborg Psychology",
-        "PSY 411: Psychology of Face Perception",
-        "PSY 480/NEU 480: fMRI Decoding",
-        "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research",
-        "QCB 515"
-      ]
-    },
-    {
-      "name": "Additional Courses",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": null,
-      "req_list": [
-        {
-          "name": "Cell Biology",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Students must take one 200-level or higher course in cell biology from the following list.",
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "MOL 214: Introduction to Cellular and Molecular Biology",
-                "MOL 215/EEB 215: Quantitative Principles in Cell and Molecular Biology",
-                "MOL 342",
-                "EEB 211/MOL 211: The Biology of Organisms",
-                "ISC 235",
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": "ALL",
-              "explanation": null,
-              "double_counting_allowed": true,
-              "course_list": [
-                "ISC 231",
-                "ISC 232",
-                "ISC 233",
-                "ISC 234"
-              ]
-            },
-          ]
-        },
-        {
-          "name": "Behavior",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Students must take one 200-level or higher course in behavior from the following list.",
-          "course_list": [
-            "PSY 207: Psychopathology",
-            "PSY 255: Cognitive Psychology",
-            "PSY 252: Social Psychology",
-            "PSY 345/NEU 345: Sensation & Perception*",
-            "PSY 254: Developmental Psychology",
-            "PSY 338/NEU 338: Animal Learning & Decision Making*",
-            "EEB 311: Animal Behavior",
-            "EEB 313: Behavioral Ecology",
-            "EEB 329: Sensory Ecology"
-          ]
-        },
-        {
-          "name": "Quantitative Thinking",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Students must take one course in quantitative thinking from the following list.",
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "COS 126",
-                "SML 201"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": "ALL",
-              "explanation": null,
-              "double_counting_allowed": true,
-              "course_list": [
-                "ISC 231",
-                "ISC 232",
-                "ISC 233",
-                "ISC 234"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Independent Work",
-      "max_counted": null,
-      "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the Fall semester of your junior year, you will participate in small group tutorials to discuss research papers from the primary literature. These tutorials provide an interactive format for you to learn to read and analyze current primary scientific literature — this is essential for you to develop new ideas about research and for formulating hypotheses.\n\nYou will participate in discussions headed by postdoctoral instructors once a week for 1.5 hours. The tutorial is broken into two 4-week sections, each with a distinct topic area. At the end of each section, you will be asked to write a short critique of a relevant research paper assigned by the instructor. Students will attend and participate in a total of 8 discussion groups and will write 2 short papers for the fall tutorial.\n\nOne major product: Students’ Spring Independent Work culminates with the submission of a research proposal. This proposal will serve as the basis for your senior thesis work. As is typical of research proposals, the document will include a short survey of the literature.\n\nYou should expect to meet with your advisor ~5 times during the semester to formulate the project and discuss the literature.",
-      "no_req": null
-    },
-    {
-      "name": "Senior Thesis",
-      "max_counted": null,
-      "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe senior thesis in neuroscience is the culmination of original research conducted by the student with the guidance of a faculty member in the Princeton Neuroscience Institute (including associated and affiliated members).\n\nThis comprehensive written work, ideally, is the application of the skills learned in coursework, Junior tutorials and Junior papers to an original research project. It is worth noting that a number of students generate original findings that are eventually incorporated into peer-reviewed scientific articles.",
-      "no_req": null
-    }
-  ]
+    ]
 }
