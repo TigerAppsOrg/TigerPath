@@ -219,6 +219,7 @@
                   "explanation": "Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration.",
                   "double_counting_allowed": true,
                   "course_list": [
+                    "ITA 207",
                     "ITA 207I",
                     "ITA 208"
                   ]
