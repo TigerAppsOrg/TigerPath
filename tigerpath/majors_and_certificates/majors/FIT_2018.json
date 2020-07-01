@@ -4,10 +4,11 @@
   "code": "FIT",
   "degree": "AB",
   "year": 2018,
-  "explanation": "The Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students. For examples of the kinds of topics students in FIT have explored in their Senior Thesis, see the list of titles below.",
+  "explanation": "The Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-french-and-italian",
-    "https://fit.princeton.edu/undergraduate/concentrating/plan-study"
+    "https://fit.princeton.edu/undergraduate/concentrating/plan-study",
+    "https://fit.princeton.edu/sites/fit/files/fit_undergraduate_handbook_2019-20_new_0.pdf"
   ],
   "contacts": [
     {
@@ -57,6 +58,8 @@
             "FRE 221",
             "FRE 222",
             "FRE 224",
+            "FRE 225",
+            "FRE 230",
             "ITA 207I",
             "ITA 208",
             "ITA 209",
