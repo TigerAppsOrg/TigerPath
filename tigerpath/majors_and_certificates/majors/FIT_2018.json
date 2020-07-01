@@ -145,7 +145,9 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents concentrate in French OR Italian. Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). Up to three of the eight may be cognate courses approved by the Director of Undergraduate Studies (DUS) and drawn from other sections of the Department or from other humanities and social science subjects.",
                   "course_list": [
-                    "FRE *"
+                    "FRE 3*",
+                    "FRE 4*",
+                    "FRE 5*"
                   ]
                 },
                 {
@@ -154,8 +156,12 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "LANG *",
-                    "ENG *"
+                    "LANG 3*",
+                    "LANG 4*",
+                    "LANG 5*",
+                    "ENG 3*",
+                    "ENG 4*",
+                    "ENG 5*"
                   ],
                   "excluded_course_list": [
                     "FRE *"
@@ -167,9 +173,15 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian and another related field normally take a minimum of eight upper-division courses: five in the relevant language and literature (one of which may be a cognate), and three in the other field. For example, students specializing in French or Italian and History, Politics, or Art and Archaeology, might take appropriate courses in those departments, such as HIS 350, 351, 345, or 365, POL 371, 372, or 381, or ART 319, 320, or 333. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "ART *",
-                    "HIS *",
-                    "POL *"
+                    "ART 3*",
+                    "ART 4*",
+                    "ART 5*",
+                    "HIS 3*",
+                    "HIS 4*",
+                    "HIS 5*",
+                    "POL 3*",
+                    "POL 4*",
+                    "POL 5*"
                   ]
                 },
                 {
@@ -178,11 +190,21 @@
                   "min_needed": 3,
                   "explanation": "This track is designed for students wishing to combine work in French or Italian and a creative art, such as theater, music, dance, painting, film, and creative writing. Upon approval by the Director of Undergraduate Studies, the student would normally take a minimum of eight upper-division courses: five in the relevant language and literature and three in the field related to the art of interest. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). In some cases, an original work of creation (paintings, prose or poetry…), or of performance (theatre…), may substitute for the Senior Thesis, but not for one of the two Junior Papers. In these cases, students will be required to also submit a substantial critical work of at least 6,000 but no more than 10,000 words (25-35 pages), in which they will position and discuss their creative work in relation to the historical and cultural context of the language in question.",
                   "course_list": [
-                    "THR *",
-                    "MUS *",
-                    "DAN *",
-                    "VIS *",
-                    "CWR *"
+                    "THR 3*",
+                    "THR 4*",
+                    "THR 5*",
+                    "MUS 3*",
+                    "MUS 4*",
+                    "MUS 5*",
+                    "DAN 3*",
+                    "DAN 4*",
+                    "DAN 5*",
+                    "VIS 3*",
+                    "VIS 4*",
+                    "VIS 5*",
+                    "CWR 3*",
+                    "CWR 4*",
+                    "CWR 5*"
                   ]
                 }
               ]
@@ -301,7 +323,9 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents concentrate in French OR Italian. Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). Up to three of the eight may be cognate courses approved by the Director of Undergraduate Studies (DUS) and drawn from other sections of the Department or from other humanities and social science subjects.",
                   "course_list": [
-                    "ITA *"
+                    "ITA 3*",
+                    "ITA 4*",
+                    "ITA 5*"
                   ]
                 },
                 {
@@ -310,8 +334,12 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "LANG *",
-                    "ENG *"
+                    "LANG 3*",
+                    "LANG 4*",
+                    "LANG 5*",
+                    "ENG 3*",
+                    "ENG 4*",
+                    "ENG 5*"
                   ],
                   "excluded_course_list": [
                     "ITA *"
@@ -323,9 +351,15 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian and another related field normally take a minimum of eight upper-division courses: five in the relevant language and literature (one of which may be a cognate), and three in the other field. For example, students specializing in French or Italian and History, Politics, or Art and Archaeology, might take appropriate courses in those departments, such as HIS 350, 351, 345, or 365, POL 371, 372, or 381, or ART 319, 320, or 333. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "ART *",
-                    "HIS *",
-                    "POL *"
+                    "ART 3*",
+                    "ART 4*",
+                    "ART 5*",
+                    "HIS 3*",
+                    "HIS 4*",
+                    "HIS 5*",
+                    "POL 3*",
+                    "POL 4*",
+                    "POL 5*"
                   ]
                 },
                 {
@@ -334,11 +368,21 @@
                   "min_needed": 3,
                   "explanation": "This track is designed for students wishing to combine work in French or Italian and a creative art, such as theater, music, dance, painting, film, and creative writing. Upon approval by the Director of Undergraduate Studies, the student would normally take a minimum of eight upper-division courses: five in the relevant language and literature and three in the field related to the art of interest. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). In some cases, an original work of creation (paintings, prose or poetry…), or of performance (theatre…), may substitute for the Senior Thesis, but not for one of the two Junior Papers. In these cases, students will be required to also submit a substantial critical work of at least 6,000 but no more than 10,000 words (25-35 pages), in which they will position and discuss their creative work in relation to the historical and cultural context of the language in question.",
                   "course_list": [
-                    "THR *",
-                    "MUS *",
-                    "DAN *",
-                    "VIS *",
-                    "CWR *"
+                    "THR 3*",
+                    "THR 4*",
+                    "THR 5*",
+                    "MUS 3*",
+                    "MUS 4*",
+                    "MUS 5*",
+                    "DAN 3*",
+                    "DAN 4*",
+                    "DAN 5*",
+                    "VIS 3*",
+                    "VIS 4*",
+                    "VIS 5*",
+                    "CWR 3*",
+                    "CWR 4*",
+                    "CWR 5*"
                   ]
                 }
               ]
