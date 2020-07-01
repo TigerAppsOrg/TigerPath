@@ -27,7 +27,7 @@
       "name": "Concentration",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration. The three remaining courses may be cognates, chosen from another field, discipline, or language (depending on the track) with the approval of the DUS. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). As independent work, concentrators complete two junior papers and a senior thesis, all under close supervision by professors in the department (one advisor for each JP; two for the senior thesis). Independent work does not have to be written in the foreign language. Students who elect to concentrate in French or Italian are often simultaneously enrolled in certificate programs, such as African Studies, Contemporary European Politics and Society, European Cultural Studies, Gender and Sexuality Studies, Latin American Studies, Theater, and Dance, or Visual Arts.",
+      "explanation": "Students are required to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration. The three remaining courses may be cognates, chosen from another field, discipline, or language (depending on the track) with the approval of the DUS. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). As independent work, concentrators complete two junior papers and a senior thesis, all under close supervision by professors in the department (one advisor for each JP; two for the senior thesis). Independent work does not have to be written in the foreign language. Students who elect to concentrate in French or Italian are often simultaneously enrolled in certificate programs, such as African Studies, Contemporary European Politics and Society, European Cultural Studies, Gender and Sexuality Studies, Latin American Studies, Theater, and Dance, or Visual Arts.",
       "req_list": [
         {
           "name": "French",
@@ -87,7 +87,7 @@
               "name": "Departmentals",
               "max_counted": 1,
               "min_needed": 5,
-              "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration.",
+              "explanation": "Five of these must be departmental courses, taken in the language of concentration.",
               "req_list": [
                 {
                   "name": "200-Level Courses",
@@ -154,7 +154,8 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "LANG *"
+                    "LANG *",
+                    "ENG *"
                   ],
                   "excluded_course_list": [
                     "FRE *"
@@ -241,7 +242,7 @@
               "name": "Departmentals",
               "max_counted": 1,
               "min_needed": 5,
-              "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration.",
+              "explanation": "Five of these must be departmental courses, taken in the language of concentration.",
               "req_list": [
                 {
                   "name": "200-Level Courses",
@@ -308,7 +309,8 @@
                   "min_needed": 3,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
                   "course_list": [
-                    "LANG *"
+                    "LANG *",
+                    "ENG *"
                   ],
                   "excluded_course_list": [
                     "ITA *"
