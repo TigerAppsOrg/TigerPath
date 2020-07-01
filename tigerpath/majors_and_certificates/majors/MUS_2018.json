@@ -103,8 +103,8 @@
     {
       "name": "Materials & Making",
       "max_counted": 1,
-      "min_needed": 3,
-      "explanation": "Three Materials & Making courses.",
+      "min_needed": 2,
+      "explanation": "Two Materials & Making courses.",
       "course_list": [
         "MUS 204",
         "MUS 205",
@@ -155,6 +155,15 @@
             "MUS 5*"
           ]
         }
+      ]
+    },
+    {
+      "name": "Junior Seminar",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "A fall-term Junior Seminar introduces students to some of the methodological, technical, creative, and disciplinary issues entailed in the study and making of music. Assignments may relate to, or inform, their independent work, but will be graded separately from the JIW. Students who are abroad during the fall of the junior year can complete the Junior Seminar during the fall term of the senior year.",
+      "course_list": [
+        "MUS 300"
       ]
     },
     {
