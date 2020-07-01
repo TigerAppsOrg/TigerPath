@@ -7,7 +7,8 @@
   "explanation": "The Department of Music aims to give students a broad foundation for making, performing, studying, and writing about music. As part of the major, students pursue work in two loosely defined areas: Culture and Criticism (C&C) and Materials and Making (M&M). M&M encompasses topics usually explored in hands-on, exploratory ways, such as composition, improvisation, theory, analysis, and electronic music. The C&C area focuses on the scholarly study of music, from historical and formalist analysis to cognitive science and ethnography. Whether our concentrators ultimately choose to make music, to research and write about it, or do both, they are encouraged to develop independent work that moves across traditional disciplinary or methodological boundaries.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-music",
-    "https://music.princeton.edu/program-study"
+    "https://music.princeton.edu/program-study",
+    "https://music.princeton.edu/sites/default/files/ua_department_of_music_2020.pdf"
   ],
   "contacts": [
     {
@@ -32,7 +33,7 @@
           "name": "Required",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": null,
+          "explanation": "Students interested in majoring in music are expected to attain competence in music theory before entering the department. This general prerequisite is typically satisfied by the completion of both semesters of “Music Theory through Performance and Composition” (MUS 105 and MUS 106).  Because certain upper-level courses have a year of music theory as a prerequisite, students who are considering majoring in music are advised to take MUS 105 and MUS 106 in their first year.\n\nUnder special circumstances, students may be able to place out of MUS 105 by demonstrating equivalent knowledge in an exam given by the music faculty. Students who pass out of MUS 105 will be required to take an additional elective to meet the minimum requirement of 11 courses in the major.",
           "course_list": [
             "MUS 105",
             "MUS 106"
@@ -42,8 +43,11 @@
           "name": "Culture & Criticism",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "One 200-level Culture & Criticism course.",
           "course_list": [
+            "MUS 203",
+            "MUS 220",
+            "MUS 223",
             "MUS 230",
             "MUS 232",
             "MUS 234",
@@ -69,6 +73,9 @@
       "min_needed": 2,
       "explanation": "Two Culture & Criticism courses.",
       "course_list": [
+        "MUS 203",
+        "MUS 220",
+        "MUS 223",
         "MUS 230",
         "MUS 232",
         "MUS 234",
@@ -99,6 +106,9 @@
       "min_needed": 3,
       "explanation": "Three Materials & Making courses.",
       "course_list": [
+        "MUS 204",
+        "MUS 205",
+        "MUS 206",
         "MUS 209",
         "MUS 210",
         "MUS 248",
