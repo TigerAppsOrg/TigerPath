@@ -64,19 +64,7 @@
             "SLA 312",
             "SLA 413"
           ]
-        },
-        {
-          "name": "Survey Courses",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "Two of three survey courses: SLA 219, 220, 221",
-          "double_counting_allowed": true,
-          "course_list": [
-            "SLA 219",
-            "SLA 220",
-            "SLA 221"
-          ]
-        },
+        }
       ]
     },
     {
@@ -88,10 +76,30 @@
         {
           "name": "Slavic Languages and Literatures",
           "max_counted": null,
-          "min_needed": 4,
+          "min_needed": "ALL",
           "explanation": "Four upper-level (200 and above) courses must be within the department, two of which must be from the core survey courses (SLA 219, 220, 221)",
-          "course_list": [
-            "SLA *"
+          "req_list": [
+            {
+              "name": "Core Survey Courses",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two of three survey courses: SLA 219, 220, 221",
+              "course_list": [
+                "SLA 219",
+                "SLA 220",
+                "SLA 221"
+              ]
+            },
+            {
+              "name": "Additional Courses",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": null,
+              "double_counting_allowed": true,
+              "course_list": [
+                "SLA *"
+              ]
+            }
           ]
         },
         {
