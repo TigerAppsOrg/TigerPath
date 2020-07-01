@@ -117,27 +117,10 @@
           "max_counted": 4,
           "min_needed": 4,
           "explanation": "Of the remaining departmental courses, all must be 200-level or higher and at least four must be 300-level or higher. Students can take up to two cognate courses from other departments, approved by the Psychology Departmental Representative, to count as departmental courses.",
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": 1,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "PSY 2*"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "PSY 3*",
-                "PSY 4*",
-                "PSY 5*"
-              ]
-            }
+          "course_list": [
+            "PSY 3*",
+            "PSY 4*",
+            "PSY 5*"
           ]
         }
       ]
