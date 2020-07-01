@@ -24,142 +24,323 @@
   ],
   "req_list": [
     {
-      "name": "Prerequisites",
-      "max_counted": 1,
-      "min_needed": 1,
-      "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification. Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration. FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
-      "completed_by_semester": 4,
-      "req_list": [
-        {
-          "name": "Standard",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification.",
-          "course_list": [
-            "FRE 107",
-            "FRE 108",
-            "ITA 107",
-            "ITA 108"
-          ]
-        },
-        {
-          "name": "Advanced",
-          "max_counted": 0,
-          "min_needed": null,
-          "explanation": "Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration. FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
-          "double_counting_allowed": true,
-          "course_list": [
-            "FRE 207",
-            "FRE 207F",
-            "FRE 208",
-            "FRE 211",
-            "FRE 215",
-            "FRE 217",
-            "FRE 221",
-            "FRE 222",
-            "FRE 224",
-            "FRE 225",
-            "FRE 230",
-            "ITA 207I",
-            "ITA 208",
-            "ITA 209",
-            "ITA 220",
-            "ITA 225"
-          ]
-        }
-      ]
-    },
-    {
       "name": "Concentration",
       "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+      "min_needed": 1,
+      "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration. The three remaining courses may be cognates, chosen from another field, discipline, or language (depending on the track) with the approval of the DUS. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). As independent work, concentrators complete two junior papers and a senior thesis, all under close supervision by professors in the department (one advisor for each JP; two for the senior thesis). Independent work does not have to be written in the foreign language. Students who elect to concentrate in French or Italian are often simultaneously enrolled in certificate programs, such as African Studies, Contemporary European Politics and Society, European Cultural Studies, Gender and Sexuality Studies, Latin American Studies, Theater, and Dance, or Visual Arts.",
       "req_list": [
         {
-          "name": "Any Level",
+          "name": "French",
           "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+          "min_needed": "ALL",
+          "explanation": null,
           "req_list": [
             {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "FRE *",
-                "ITA *"
-              ],
-              "excluded_course_list": [
-                "FRE 207",
-                "FRE 208",
-                "ITA 207",
-                "ITA 208"
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification. Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration. FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
+              "completed_by_semester": 4,
+              "req_list": [
+                {
+                  "name": "Standard",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification.",
+                  "course_list": [
+                    "FRE 107",
+                    "FRE 108"
+                  ]
+                },
+                {
+                  "name": "Advanced",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration.",
+                  "double_counting_allowed": true,
+                  "course_list": [
+                    "FRE 207",
+                    "FRE 207F",
+                    "FRE 208"
+                  ]
+                },
+                {
+                  "name": "200-Level Course",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
+                  "double_counting_allowed": true,
+                  "course_list": [
+                    "FRE 211",
+                    "FRE 215",
+                    "FRE 217",
+                    "FRE 221",
+                    "FRE 222",
+                    "FRE 224",
+                    "FRE 225",
+                    "FRE 230"
+                  ]
+                }
               ]
             },
             {
-              "name": null,
+              "name": "Departmentals",
               "max_counted": 1,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "FRE 207",
-                "FRE 208",
-                "ITA 207",
-                "ITA 208"
+              "min_needed": 5,
+              "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration.",
+              "req_list": [
+                {
+                  "name": "200-Level Courses",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": "Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "FRE 2*",
+                      ],
+                      "excluded_course_list": [
+                        "FRE 207",
+                        "FRE 208"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "FRE 207",
+                        "FRE 208"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Upper-Level Courses",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation": null,
+                  "course_list": [
+                    "FRE 3*",
+                    "FRE 4*",
+                    "FRE 5*"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Tracks",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "The Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students.",
+              "req_list": [
+                {
+                  "name": "One Language, Literature, and Culture",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents concentrate in French OR Italian. Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). Up to three of the eight may be cognate courses approved by the Director of Undergraduate Studies (DUS) and drawn from other sections of the Department or from other humanities and social science subjects.",
+                  "course_list": [
+                    "FRE *"
+                  ]
+                },
+                {
+                  "name": "Two Languages, Literatures, and Cultures",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "course_list": [
+                    "LANG *"
+                  ],
+                  "excluded_course_list": [
+                    "FRE *"
+                  ]
+                },
+                {
+                  "name": "Another Field",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian and another related field normally take a minimum of eight upper-division courses: five in the relevant language and literature (one of which may be a cognate), and three in the other field. For example, students specializing in French or Italian and History, Politics, or Art and Archaeology, might take appropriate courses in those departments, such as HIS 350, 351, 345, or 365, POL 371, 372, or 381, or ART 319, 320, or 333. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "course_list": [
+                    "ART *",
+                    "HIS *",
+                    "POL *"
+                  ]
+                },
+                {
+                  "name": "Creative Arts",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "This track is designed for students wishing to combine work in French or Italian and a creative art, such as theater, music, dance, painting, film, and creative writing. Upon approval by the Director of Undergraduate Studies, the student would normally take a minimum of eight upper-division courses: five in the relevant language and literature and three in the field related to the art of interest. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). In some cases, an original work of creation (paintings, prose or poetry…), or of performance (theatre…), may substitute for the Senior Thesis, but not for one of the two Junior Papers. In these cases, students will be required to also submit a substantial critical work of at least 6,000 but no more than 10,000 words (25-35 pages), in which they will position and discuss their creative work in relation to the historical and cultural context of the language in question.",
+                  "course_list": [
+                    "THR *",
+                    "MUS *",
+                    "DAN *",
+                    "VIS *",
+                    "CWR *"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          "name": "Upper Level",
+          "name": "Italian",
           "max_counted": 1,
-          "min_needed": 3,
+          "min_needed": "ALL",
           "explanation": null,
-          "course_list": [
-            "FRE 3*",
-            "FRE 4*",
-            "FRE 5*",
-            "ITA 3*",
-            "ITA 4*",
-            "ITA 5*"
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification. Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration. FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
+              "completed_by_semester": 4,
+              "req_list": [
+                {
+                  "name": "Standard",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "Students who wish to concentrate in the department should possess a sound knowledge of either French or Italian by the end of their sophomore year. This can be achieved by completing the language sequence (FRE 107 or 108; ITA 107 or 108), or by demonstrating equivalent qualification.",
+                  "course_list": [
+                    "ITA 107",
+                    "ITA 108"
+                  ]
+                },
+                {
+                  "name": "Advanced",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "Students are also strongly encouraged to complete at least one advanced-language course (FRE 207, 207F or 208; ITA 207I, 208) prior to admission, or shortly thereafter, which can then be counted toward the concentration.",
+                  "double_counting_allowed": true,
+                  "course_list": [
+                    "ITA 207I",
+                    "ITA 208"
+                  ]
+                },
+                {
+                  "name": "200-Level Course",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "FIT recommends that students complete at least one more 200-level course (such as FRE 211, 215, 217, 221, 222, 224, 225, 230, or ITA 208, 209, 220, 225) before enrolling in a 300-level course.",
+                  "double_counting_allowed": true,
+                  "course_list": [
+                    "ITA 208",
+                    "ITA 209",
+                    "ITA 220",
+                    "ITA 225"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Departmentals",
+              "max_counted": 1,
+              "min_needed": 5,
+              "explanation": "All four tracks above require students to take eight upper-division courses. Five of these must be departmental courses, taken in the language of concentration.",
+              "req_list": [
+                {
+                  "name": "200-Level Courses",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": "Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ITA 2*",
+                      ],
+                      "excluded_course_list": [
+                        "ITA 207",
+                        "ITA 208"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ITA 207",
+                        "ITA 208"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Upper-Level Courses",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation": null,
+                  "course_list": [
+                    "ITA 3*",
+                    "ITA 4*",
+                    "ITA 5*"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Tracks",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "The Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students.",
+              "req_list": [
+                {
+                  "name": "One Language, Literature, and Culture",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents concentrate in French OR Italian. Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). Up to three of the eight may be cognate courses approved by the Director of Undergraduate Studies (DUS) and drawn from other sections of the Department or from other humanities and social science subjects.",
+                  "course_list": [
+                    "ITA *"
+                  ]
+                },
+                {
+                  "name": "Two Languages, Literatures, and Cultures",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "course_list": [
+                    "LANG *"
+                  ],
+                  "excluded_course_list": [
+                    "ITA *"
+                  ]
+                },
+                {
+                  "name": "Another Field",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nStudents intending to combine work in French or Italian and another related field normally take a minimum of eight upper-division courses: five in the relevant language and literature (one of which may be a cognate), and three in the other field. For example, students specializing in French or Italian and History, Politics, or Art and Archaeology, might take appropriate courses in those departments, such as HIS 350, 351, 345, or 365, POL 371, 372, or 381, or ART 319, 320, or 333. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
+                  "course_list": [
+                    "ART *",
+                    "HIS *",
+                    "POL *"
+                  ]
+                },
+                {
+                  "name": "Creative Arts",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "This track is designed for students wishing to combine work in French or Italian and a creative art, such as theater, music, dance, painting, film, and creative writing. Upon approval by the Director of Undergraduate Studies, the student would normally take a minimum of eight upper-division courses: five in the relevant language and literature and three in the field related to the art of interest. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). In some cases, an original work of creation (paintings, prose or poetry…), or of performance (theatre…), may substitute for the Senior Thesis, but not for one of the two Junior Papers. In these cases, students will be required to also submit a substantial critical work of at least 6,000 but no more than 10,000 words (25-35 pages), in which they will position and discuss their creative work in relation to the historical and cultural context of the language in question.",
+                  "course_list": [
+                    "THR *",
+                    "MUS *",
+                    "DAN *",
+                    "VIS *",
+                    "CWR *"
+                  ]
+                }
+              ]
+            }
           ]
-        }
-      ]
-    },
-    {
-      "name": "Tracks",
-      "max_counted": 1,
-      "min_needed": null,
-      "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nThe Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students.",
-      "req_list": [
-        {
-          "name": "One Language, Literature, and Culture",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Students concentrate in French OR Italian. Eight upper-division courses are counted towards concentration. At least five of these must be in the language and subject of concentration. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). Up to three of the eight may be cognate courses approved by the Director of Undergraduate Studies (DUS) and drawn from other sections of the Department or from other humanities and social science subjects.",
-          "no_req": null
-        },
-        {
-          "name": "Two Languages, Literatures, and Cultures",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Students intending to combine work in French or Italian with another language, civilization, and culture normally take a minimum of eight upper-division courses: five in French or Italian (one of which may be a cognate), three in the other relevant language. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
-          "no_req": null
-        },
-        {
-          "name": "Another Field",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Students intending to combine work in French or Italian and another related field normally take a minimum of eight upper-division courses: five in the relevant language and literature (one of which may be a cognate), and three in the other field. For example, students specializing in French or Italian and History, Politics, or Art and Archaeology, might take appropriate courses in those departments, such as HIS 350, 351, 345, or 365, POL 371, 372, or 381, or ART 319, 320, or 333. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted).",
-          "no_req": null
-        },
-        {
-          "name": "Creative Arts",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "This track is designed for students wishing to combine work in French or Italian and a creative art, such as theater, music, dance, painting, film, and creative writing. Upon approval by the Director of Undergraduate Studies, the student would normally take a minimum of eight upper-division courses: five in the relevant language and literature and three in the field related to the art of interest. Up to two of the five departmental courses may be taken at the 200-level (but FRE 207 and 208, or ITA 207 and 208, cannot both be counted). In some cases, an original work of creation (paintings, prose or poetry…), or of performance (theatre…), may substitute for the Senior Thesis, but not for one of the two Junior Papers. In these cases, students will be required to also submit a substantial critical work of at least 6,000 but no more than 10,000 words (25-35 pages), in which they will position and discuss their creative work in relation to the historical and cultural context of the language in question.",
-          "no_req": null
         }
       ]
     },
