@@ -56,7 +56,7 @@
               "req_list": [
                 {
                   "name": "Original Languages",
-                  "max_counted": null,
+                  "max_counted": 7,
                   "min_needed": 5,
                   "explanation": "Of these, five must be in the original languages at the 200 level or above, including at least one course at the 300 level. The combination of LAT 104-108, or CLG/LAT 105-108, may be counted as the equivalent of one 200-level course.",
                   "req_list": [
@@ -116,7 +116,7 @@
                 },
                 {
                   "name": "Ancient History",
-                  "max_counted": null,
+                  "max_counted": 3,
                   "min_needed": 1,
                   "explanation": "One course in ancient history (CLA 214, 216, 217, 218, or 219, or HIS 343) must also be included among the departmentals.",
                   "course_list": [
@@ -200,7 +200,7 @@
                   ]
                 },
                 {
-                  "name": "Comparative/Methodological Component",
+                  "name": "Comparative / Methodological Component",
                   "max_counted": 2,
                   "min_needed": 2,
                   "explanation": "<i>Editor's Note: Concentrators must get departmental approval for these courses, and TigerPath does not verify this.</i>\n\nTwo courses must fulfill the comparative/methodological component of the track of study. The aim of this requirement is to introduce students to new perspectives and new tools of inquiry for exploring their chosen subject. There is no set list, since different courses will be appropriate to different interests. These courses must be preapproved by the DUS to count as part of the student's track.",
