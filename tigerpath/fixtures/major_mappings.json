@@ -136,7 +136,7 @@
       "name": "French and Italian",
       "code": "FIT",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
