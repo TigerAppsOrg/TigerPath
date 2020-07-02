@@ -1,0 +1,184 @@
+{
+  "type": "Major",
+  "name": "Music",
+  "code": "MUS",
+  "degree": "AB",
+  "year": 2018,
+  "explanation": "The Department of Music aims to give students a broad foundation for making, performing, studying, and writing about music. As part of the major, students pursue work in two loosely defined areas: Culture and Criticism (C&C) and Materials and Making (M&M). M&M encompasses topics usually explored in hands-on, exploratory ways, such as composition, improvisation, theory, analysis, and electronic music. The C&C area focuses on the scholarly study of music, from historical and formalist analysis to cognitive science and ethnography. Whether our concentrators ultimately choose to make music, to research and write about it, or do both, they are encouraged to develop independent work that moves across traditional disciplinary or methodological boundaries.",
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-music",
+    "https://music.princeton.edu/program-study",
+    "https://music.princeton.edu/sites/default/files/ua_department_of_music_2020.pdf"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Wendy Heller",
+      "email": "wbheller@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Juri Seo",
+      "email": "juri@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "MUS 105, MUS 106, and a 200-level Culture & Criticism course. Students who place out of MUS 105 by demonstrating equivalent knowledge in an exam given by the music faculty are required to take an additional elective to meet the minimum requirement of 11 courses in the major.",
+      "req_list": [
+        {
+          "name": "Required",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Students interested in majoring in music are expected to attain competence in music theory before entering the department. This general prerequisite is typically satisfied by the completion of both semesters of “Music Theory through Performance and Composition” (MUS 105 and MUS 106).  Because certain upper-level courses have a year of music theory as a prerequisite, students who are considering majoring in music are advised to take MUS 105 and MUS 106 in their first year.\n\nUnder special circumstances, students may be able to place out of MUS 105 by demonstrating equivalent knowledge in an exam given by the music faculty. Students who pass out of MUS 105 will be required to take an additional elective to meet the minimum requirement of 11 courses in the major.",
+          "course_list": [
+            "MUS 105",
+            "MUS 106"
+          ]
+        },
+        {
+          "name": "Culture & Criticism",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "One 200-level Culture & Criticism course.",
+          "course_list": [
+            "MUS 203",
+            "MUS 220",
+            "MUS 223",
+            "MUS 230",
+            "MUS 232",
+            "MUS 234",
+            "MUS 236",
+            "MUS 238",
+            "MUS 240",
+            "MUS 242",
+            "MUS 248",
+            "MUS 250",
+            "MUS 258",
+            "MUS 260",
+            "MUS 262",
+            "MUS 264",
+            "MUS 265",
+            "MUS 270"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Culture & Criticism",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "Two Culture & Criticism courses.",
+      "course_list": [
+        "MUS 203",
+        "MUS 220",
+        "MUS 223",
+        "MUS 230",
+        "MUS 232",
+        "MUS 234",
+        "MUS 236",
+        "MUS 238",
+        "MUS 240",
+        "MUS 242",
+        "MUS 248",
+        "MUS 250",
+        "MUS 258",
+        "MUS 260",
+        "MUS 262",
+        "MUS 264",
+        "MUS 265",
+        "MUS 270",
+        "MUS 325",
+        "MUS 334",
+        "MUS 343",
+        "MUS 350",
+        "MUS 359",
+        "MUS 434",
+        "MUS 435"
+      ]
+    },
+    {
+      "name": "Materials & Making",
+      "max_counted": 1,
+      "min_needed": 2,
+      "explanation": "Two Materials & Making courses.",
+      "course_list": [
+        "MUS 204",
+        "MUS 205",
+        "MUS 206",
+        "MUS 209",
+        "MUS 210",
+        "MUS 248",
+        "MUS 270",
+        "MUS 306",
+        "MUS 308",
+        "MUS 309",
+        "MUS 310",
+        "MUS 311",
+        "MUS 312",
+        "MUS 314",
+        "MUS 315",
+        "MUS 316",
+        "MUS 319",
+        "MUS 329",
+        "MUS 340",
+        "MUS 342",
+        "MUS 345"
+      ]
+    },
+    {
+      "name": "Electives",
+      "max_counted": 1,
+      "min_needed": 3,
+      "explanation": "Electives (3), two of which should be at the 300-level or higher. Music Majors who are also in the Program in Music Performance may use one performance course (e.g. MUS 213, MUS 214, MUS 219, MUS 298/299) as an elective. Cross-listed courses in which Music is not the sponsoring Department can be used as an elective only with the permission of the Director of Undergraduate Studies.",
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": null,
+          "course_list": [
+            "MUS 2*"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": null,
+          "min_needed": null,
+          "explanation": null,
+          "course_list": [
+            "MUS 3*",
+            "MUS 4*",
+            "MUS 5*"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Junior Seminar",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "A fall-term Junior Seminar introduces students to some of the methodological, technical, creative, and disciplinary issues entailed in the study and making of music. Assignments may relate to, or inform, their independent work, but will be graded separately from the JIW. Students who are abroad during the fall of the junior year can complete the Junior Seminar during the fall term of the senior year.",
+      "course_list": [
+        "MUS 300"
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe nature of junior independent work can vary greatly. For reference, it might consist of a research paper of approximately 30–40 pages, or an original composition of roughly 6–10 minutes (which would typically include a short paper detailing motivations and context for the composition). These are only guidelines, and the eventual scale of the work will depend on its nature. The specific goals for the project are worked out with a faculty advisor (identified during the fall semester), resulting in a proposal submitted to the advisor and Director of Undergraduate Studies before the end of fall semester. The proposal consists of a summary of the project's aims and context, an outline, and references to related works (bibliography for research papers, associated repertoire for compositions, and other material as appropriate to the project).",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe senior thesis is a year-long project devised by the student in conjunction with a faculty adviser, presented as a research paper of approximately 60–80 pages, or an original composition of roughly 12–20 minutes (including a short accompanying paper). As with junior independent work, these parameters are only guidelines, and the eventual scale of the work will depend on its nature.  The topics for junior and senior independent work are often related, though they do not have to be. The thesis grade is the average of the grades given by the faculty adviser and a second faculty reader.",
+      "no_req": null
+    }
+  ]
+}

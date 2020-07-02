@@ -196,7 +196,7 @@
       "name": "Music",
       "code": "MUS",
       "degree": "AB",
-      "supported": false
+      "supported": true
     }
   },
   {
