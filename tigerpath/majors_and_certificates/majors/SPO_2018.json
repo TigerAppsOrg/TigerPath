@@ -38,6 +38,7 @@
               "max_counted": 1,
               "min_needed": 2,
               "explanation": "Normally, students complete two 200-level courses in Spanish or one 200-level course in Portuguese.",
+              "double_counting_allowed": true,
               "course_list": [
                 "SPA 2*"
               ]
@@ -92,7 +93,8 @@
                   "course_list": [
                     "SPA 2*",
                     "SPA 3*",
-                    "SPA 4*"
+                    "SPA 4*",
+                    "SPA 5*"
                   ],
                   "excluded_course_list": [
                     "SPA 20*"
@@ -203,8 +205,20 @@
               "max_counted": 1,
               "min_needed": 1,
               "explanation": "All Portuguese concentrators are required to take at least one 200-level POR course.",
+              "double_counting_allowed": true,
               "course_list": [
                 "POR 2*"
+              ]
+            },
+            {
+              "name": "Advanced Language",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "All concentrators are strongly advised to include one advanced language course (SPA 205, SPA 207, SPA 207S, SPA 208S, SPA 209, or SPA 307 for Spanish; POR 207S, POR 208, or POR 209 for Portuguese) in their subject(s) of concentration.",
+              "course_list": [
+                "POR 207S",
+                "POR 208",
+                "POR 209"
               ]
             },
             {
@@ -236,7 +250,8 @@
                   "course_list": [
                     "POR 2*",
                     "POR 3*",
-                    "POR 4*"
+                    "POR 4*",
+                    "POR 5*"
                   ],
                   "excluded_course_list": [
                     "POR 20*"
