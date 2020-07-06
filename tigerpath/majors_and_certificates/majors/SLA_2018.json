@@ -74,12 +74,12 @@
         {
           "name": "Slavic Languages and Literatures",
           "max_counted": null,
-          "min_needed": "ALL",
+          "min_needed": 4,
           "explanation": "Four upper-level (200 and above) courses must be within the department, two of which must be from the core survey courses (SLA 219, 220, 221)",
           "req_list": [
             {
               "name": "Core Survey Courses",
-              "max_counted": 1,
+              "max_counted": null,
               "min_needed": 2,
               "explanation": "Two of three survey courses: SLA 219, 220, 221",
               "course_list": [
@@ -90,10 +90,9 @@
             },
             {
               "name": "Additional Courses",
-              "max_counted": 1,
+              "max_counted": null,
               "min_needed": 2,
               "explanation": null,
-              "double_counting_allowed": true,
               "course_list": [
                 "SLA *"
               ]
@@ -104,9 +103,10 @@
           "name": "Cognates",
           "max_counted": 4,
           "min_needed": null,
-          "explanation": "<i>Editor's Note: This requirement is too broad, so TigerPath does not check it.</i>",
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
           "course_list": [
-            "LANG *"
+            "LANG *",
+            "ENG *"
           ]
         }
       ]
