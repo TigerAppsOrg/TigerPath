@@ -6,7 +6,8 @@
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-german",
-    "https://german.princeton.edu/programs/undergraduate/about-major"
+    "https://german.princeton.edu/programs/undergraduate/about-major",
+    "https://german.princeton.edu/sites/default/files/2019-11/2019-2020%20current%20Undergraduate%20Handbook%20Nov.pdf"
   ],
   "contacts": [
     {
@@ -180,18 +181,18 @@
           ]
         },
         {
-          "name": "German Linguistics",
+          "name": "Germanic Linguistics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Concentrates on the history and structure of the German language. Majors who select this track are required to take Linguistics 213 (Introduction to Language and Linguistics) or a comparable course in linguistics, and two seminars related to topics in Germanic linguistics: GER 505 (History of the German Language) or GER 508, and GER 506 (Second Language Acquisition and Pedagogy) or GER 316. In addition, such students will take at least three other courses in German literature and culture (usually no more than two at the 200 level), as well as two cognate courses.",
+          "explanation": "Concentrates on the history and structure of the German language. Majors who select this track are required to take Linguistics 201 (Introduction to Language and Linguistics) or a comparable course in linguistics, and two seminars related to topics in Germanic linguistics: GER 505 (History of the German Language) or GER 508, and GER 506 (Second Language Acquisition and Pedagogy) or GER 316. In addition, such students will take at least three other courses in German literature and culture (usually no more than two at the 200 level), as well as two cognate courses.",
           "req_list": [
             {
               "name": "Linguistics",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "Majors who select this track are required to take Linguistics 213 (Introduction to Language and Linguistics) or a comparable course in linguistics.",
+              "explanation": "Majors who select this track are required to take Linguistics 201 (Introduction to Language and Linguistics) or a comparable course in linguistics.",
               "course_list": [
-                "LIN 213",
+                "LIN 201",
               ]
             },
             {
@@ -223,7 +224,7 @@
               ]
             },
             {
-              "name": "German",
+              "name": "German literature and culture",
               "max_counted": 1,
               "min_needed": 3,
               "explanation": "Students will take at least three other courses in German literature and culture (usually no more than two at the 200 level).",
@@ -254,7 +255,7 @@
               "name": "Cognates",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "Two cognate courses.",
+              "explanation": "Two cognate courses pertaining to linguistics.",
               "course_list": [
                 "GER 3*",
                 "GER 4*",
@@ -302,7 +303,7 @@
               "name": "Cognates",
               "max_counted": 1,
               "min_needed": 3,
-              "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but as TigerPath does not verify this.</i>\n\nThree upper-level courses in a second literature.",
+              "explanation": "<i>Editor's Note: Not all of these courses fall under this requirement and TigerPath does not verify this.</i>\n\nThree upper-level courses in a second literature.",
               "course_list": [
                 "LANG 3*",
                 "LANG 4*",
@@ -327,7 +328,7 @@
               "name": "German",
               "max_counted": 1,
               "min_needed": 4,
-              "explanation": "Four courses will be taken in the German Department (usually no more than two at the 200 level), on topics pertaining to German literature and culture.",
+              "explanation": "Four courses will be taken in the German Department (usually no more than two at the 200 level), on topics pertaining to German literature and culture. Recommended departmental courses are GER 207, 208, 211, 306, 307, 309, and 324.",
               "req_list": [
                 {
                   "name": null,
@@ -355,7 +356,7 @@
               "name": "Politics",
               "max_counted": 1,
               "min_needed": 4,
-              "explanation": "<i>Editor's Note: Most of these courses fall under this requirement but as TigerPath does not verify this.</i>\n\nFour courses will be taken in the Department of Politics (usually no more than two at the 200 level), on topics pertaining to German/European politics or political theory.",
+              "explanation": "<i>Editor's Note: Not all of these courses fall under this requirement and TigerPath does not verify this.</i>\n\nFour courses will be taken in the Department of Politics (usually no more than two at the 200 level), on topics pertaining to German/European politics or political theory. Recommended cognates in politics include POL 210, 230, 240, 301, 303, 313, 316, 349, 385, and 388.",
               "req_list": [
                 {
                   "name": null,
