@@ -13,11 +13,7 @@ def create_year_choices():
 
 # returns a list of tuples (major code, major name)
 def create_major_choices():
-    majors = Major.objects.order_by('name').values_list('id', 'name')
-    supported_majors = tuple(majors.filter(supported=True))
-    unsupported_majors = tuple(majors.filter(supported=False))
-    return (('Fully supported', supported_majors),
-            ('Not fully supported yet - only AB/BSE requirements supported', unsupported_majors))
+    return Major.objects.order_by('name').values_list('id', 'name')
 
 
 class OnboardingForm(forms.ModelForm):
