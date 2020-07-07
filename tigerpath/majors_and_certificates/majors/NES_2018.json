@@ -202,7 +202,13 @@
                 "LANG 3*",
                 "LANG 4*",
                 "LANG 5*"
-              ]
+              ],
+              "excluded_course_list": [
+                "ARA *",
+                "HEB *",
+                "PER *",
+                "TUR *"
+              ],
             }
           ]
         },
