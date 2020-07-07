@@ -1,0 +1,374 @@
+{
+  "type": "Major",
+  "name": "Spanish and Portuguese",
+  "code": "SPO",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-spanish-and-portuguese-languages",
+    "https://spo.princeton.edu/undergraduate/concentration-new"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Pedro Meira Monteiro",
+      "email": "pmeira@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Javier E. Guerrero",
+      "email": "jg17@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Concentration",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": null,
+      "req_list": [
+        {
+          "name": "Spanish",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Normally, students complete two 200-level courses in Spanish or one 200-level course in Portuguese.",
+              "double_counting_allowed": true,
+              "course_list": [
+                "SPA 2*"
+              ]
+            },
+            {
+              "name": "Advanced Language",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "All Spanish concentrators are strongly advised to take one advanced language course (SPA 205, SPA 207, SPA 207S, SPA 208S, SPA 209 or SPA 307), unless the Director of Undergraduate Studies (in consultation with the language directors) determines that the respective student’s language skills do not warrant taking such course.",
+              "course_list": [
+                "SPA 205",
+                "SPA 207",
+                "SPA 207S",
+                "SPA 208S",
+                "SPA 209",
+                "SPA 307"
+              ]
+            },
+            {
+              "name": "Pre-1800 Literature",
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": "<i>Editor's Note: This requirement is too broad, so TigerPath does not check it.</i>\n\nAll Spanish concentrators must take one course in pre-1800 literature. University regulations limit to 12 the number of departmental courses allowed to each student in his or her concentration. Students cannot earn both a SPO concentration (in any track) and a SPO certificate (in any language). Students interested in focusing both in Spanish and Portuguese may choose Track 2 for their concentration.",
+              "no_req": null
+            },
+            {
+              "name": "Upper Division Courses",
+              "max_counted": 1,
+              "min_needed": 5,
+              "explanation": "Any track in the concentration in Spanish and/or Portuguese Literature and Cultures requires a minimum of eight upper-division courses, at least five of which must be in the language of concentration. With the approval of the Director of Undergraduate Studies, up to three courses taken during a semester abroad may count towards the concentration if the student is pursuing Track 1 or Track 2. Up to two courses taken during a semester abroad may be counted towards the concentration if the student is pursuing Track 3 or Track 4.",
+              "course_list": [
+                "SPA 2*",
+                "SPA 3*",
+                "SPA 4*",
+                "SPA 5*"
+              ],
+              "excluded_course_list": [
+                "SPA 20*"
+              ]
+            },
+            {
+              "name": "Tracks",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Departmental courses cover a wide array of literary, cultural, social, historical, and political topics. Students are, therefore, able to pursue courses of study that are tailor-made to their own individual interests. The department offers four different tracks for concentrators.",
+              "req_list": [
+                {
+                  "name": "One Language, Literature, and Culture",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in one language, literature, and cultures (Spanish or Portuguese). Eight upper-division courses in the language of concentration. Up to two of those courses may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "SPA 2*",
+                    "SPA 3*",
+                    "SPA 4*",
+                    "SPA 5*"
+                  ],
+                  "excluded_course_list": [
+                    "SPA 20*"
+                  ]
+                },
+                {
+                  "name": "Two Languages, Literatures, and Cultures",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in two languages, literature and cultures (Spanish and Portuguese; or Spanish/Portuguese and another language). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the second language. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "LANG 3*",
+                    "LANG 4*",
+                    "LANG 5*",
+                    "ENG 3*",
+                    "ENG 4*",
+                    "ENG 5*"
+                  ],
+                  "excluded_course_list": [
+                    "SPA *"
+                  ]
+                },
+                {
+                  "name": "Another Field",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in Spanish or Portuguese with another related field (e.g. Urban Studies, Architecture, Global Health & Health Policy, Environmental Studies, Humanistic Studies, Sociology, European Studies, International Studies, Latino Studies, Latin American Studies, Comparative Literature, History, Politics, Anthropology). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the secondary field. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "ANT 3*",
+                    "ANT 4*",
+                    "ANT 5*",
+                    "ARC 3*",
+                    "ARC 4*",
+                    "ARC 5*",
+                    "COM 3*",
+                    "COM 4*",
+                    "COM 5*",
+                    "ECS 3*",
+                    "ECS 4*",
+                    "ECS 5*",
+                    "ENV 3*",
+                    "ENV 4*",
+                    "ENV 5*",
+                    "GHP 3*",
+                    "GHP 4*",
+                    "GHP 5*",
+                    "HIS 3*",
+                    "HIS 4*",
+                    "HIS 5*",
+                    "HUM 3*",
+                    "HUM 4*",
+                    "HUM 5*",
+                    "LAO 3*",
+                    "LAO 4*",
+                    "LAO 5*",
+                    "LAS 3*",
+                    "LAS 4*",
+                    "LAS 5*",
+                    "POL 3*",
+                    "POL 4*",
+                    "POL 5*",
+                    "SOC 3*",
+                    "SOC 4*",
+                    "SOC 5*",
+                    "URB 3*",
+                    "URB 4*",
+                    "URB 5*",
+                    "WWS 3*",
+                    "WWS 4*",
+                    "WWS 5*"
+                  ]
+                },
+                {
+                  "name": "Creative Arts",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in Spanish or Portuguese with the creative arts (e.g. creative writing, theater, visual arts, translation). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the creative arts. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "CRW 3*",
+                    "CRW 4*",
+                    "CRW 5*",
+                    "DAN 3*",
+                    "DAN 4*",
+                    "DAN 5*",
+                    "THR 3*",
+                    "THR 4*",
+                    "THR 5*",
+                    "TRA 3*",
+                    "TRA 4*",
+                    "TRA 5*",
+                    "VIS 3*",
+                    "VIS 4*",
+                    "VIS 5*"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Portuguese",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "All Portuguese concentrators are required to take at least one 200-level POR course.",
+              "double_counting_allowed": true,
+              "course_list": [
+                "POR 2*"
+              ]
+            },
+            {
+              "name": "Advanced Language",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "All concentrators are strongly advised to include one advanced language course (SPA 205, SPA 207, SPA 207S, SPA 208S, SPA 209, or SPA 307 for Spanish; POR 207S, POR 208, or POR 209 for Portuguese) in their subject(s) of concentration.",
+              "course_list": [
+                "POR 207S",
+                "POR 208",
+                "POR 209"
+              ]
+            },
+            {
+              "name": "Upper Division Courses",
+              "max_counted": 1,
+              "min_needed": 5,
+              "explanation": "Any track in the concentration in Spanish and/or Portuguese Literature and Cultures requires a minimum of eight upper-division courses, at least five of which must be in the language of concentration. With the approval of the Director of Undergraduate Studies, up to three courses taken during a semester abroad may count towards the concentration if the student is pursuing Track 1 or Track 2. Up to two courses taken during a semester abroad may be counted towards the concentration if the student is pursuing Track 3 or Track 4.",
+              "course_list": [
+                "POR 2*",
+                "POR 3*",
+                "POR 4*",
+                "POR 5*"
+              ],
+              "excluded_course_list": [
+                "POR 20*"
+              ]
+            },
+            {
+              "name": "Tracks",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Departmental courses cover a wide array of literary, cultural, social, historical, and political topics. Students are, therefore, able to pursue courses of study that are tailor-made to their own individual interests. The department offers four different tracks for concentrators.",
+              "req_list": [
+                {
+                  "name": "One Language, Literature, and Culture",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in one language, literature, and cultures (Spanish or Portuguese). Eight upper-division courses in the language of concentration. Up to two of those courses may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "POR 2*",
+                    "POR 3*",
+                    "POR 4*",
+                    "POR 5*"
+                  ],
+                  "excluded_course_list": [
+                    "POR 20*"
+                  ]
+                },
+                {
+                  "name": "Two Languages, Literatures, and Cultures",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in two languages, literature and cultures (Spanish and Portuguese; or Spanish/Portuguese and another language). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the second language. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "LANG 3*",
+                    "LANG 4*",
+                    "LANG 5*",
+                    "ENG 3*",
+                    "ENG 4*",
+                    "ENG 5*"
+                  ],
+                  "excluded_course_list": [
+                    "POR *"
+                  ]
+                },
+                {
+                  "name": "Another Field",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in Spanish or Portuguese with another related field (e.g. Urban Studies, Architecture, Global Health & Health Policy, Environmental Studies, Humanistic Studies, Sociology, European Studies, International Studies, Latino Studies, Latin American Studies, Comparative Literature, History, Politics, Anthropology). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the secondary field. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "ANT 3*",
+                    "ANT 4*",
+                    "ANT 5*",
+                    "ARC 3*",
+                    "ARC 4*",
+                    "ARC 5*",
+                    "COM 3*",
+                    "COM 4*",
+                    "COM 5*",
+                    "ECS 3*",
+                    "ECS 4*",
+                    "ECS 5*",
+                    "ENV 3*",
+                    "ENV 4*",
+                    "ENV 5*",
+                    "GHP 3*",
+                    "GHP 4*",
+                    "GHP 5*",
+                    "HIS 3*",
+                    "HIS 4*",
+                    "HIS 5*",
+                    "HUM 3*",
+                    "HUM 4*",
+                    "HUM 5*",
+                    "LAO 3*",
+                    "LAO 4*",
+                    "LAO 5*",
+                    "LAS 3*",
+                    "LAS 4*",
+                    "LAS 5*",
+                    "POL 3*",
+                    "POL 4*",
+                    "POL 5*",
+                    "SOC 3*",
+                    "SOC 4*",
+                    "SOC 5*",
+                    "URB 3*",
+                    "URB 4*",
+                    "URB 5*",
+                    "WWS 3*",
+                    "WWS 4*",
+                    "WWS 5*"
+                  ]
+                },
+                {
+                  "name": "Creative Arts",
+                  "max_counted": 1,
+                  "min_needed": 3,
+                  "explanation": "Concentration in Spanish or Portuguese with the creative arts (e.g. creative writing, theater, visual arts, translation). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the creative arts. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.",
+                  "course_list": [
+                    "CRW 3*",
+                    "CRW 4*",
+                    "CRW 5*",
+                    "DAN 3*",
+                    "DAN 4*",
+                    "DAN 5*",
+                    "THR 3*",
+                    "THR 4*",
+                    "THR 5*",
+                    "TRA 3*",
+                    "TRA 4*",
+                    "TRA 5*",
+                    "VIS 3*",
+                    "VIS 4*",
+                    "VIS 5*"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Concentrators are strongly advised to take SPA/POR 330 during the fall of their junior year. This course is designed to introduce students to research methods and to guide them in the production of their first Junior Paper.\n\nConcentrators should discuss as soon as possible their area of interest with the Director of Undergraduate Studies in order to find the most appropriate advisers for the Junior Papers. By the end of September (first JP), and by mid-February (second JP), all juniors should have contacted their advisers to discuss a plan of work.\n\nThe first JP (Fall semester) should be about 4,000 words, and the second JP (Spring semester) should be between 5,000 and 8,000 words. Both JPs can be written in English, in which case a three-page summary in the target language must be provided. Or, the JPs can be written in the target language in which case a summary is not needed. Any extensions beyond the University deadline date need pre-approval from both the Director of Undergraduate Studies and Residential College Dean. All JPs must include Princeton University's honor pledge.\n\nConcentrators following two languages are encouraged to write one JP in each of the languages of concentration.",
+      "course_list": [
+        "SPA 330",
+        "POR 330"
+      ]
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nStudents should select a Senior Thesis adviser by the end of September at the latest. The Senior Thesis is normally written in English, and should be between 15,000 and 20,000 words. Topics chosen in the past have ranged over the whole field of Spanish and Portuguese studies, from linguistic problems and literary techniques through close textual analysis to thematic and ideological studies. Students primarily interested in culture and civilization have written on art, political and economic issues, education, and a variety of social questions. The senior thesis is a major commitment of a student's time and energy, and the most important yardstick for choosing a topic is willingness to spend many hours on a particular set of texts or problems. Please visit the Mudd Library website for inspiration and a listing of previous senior thesis topics over the years. More detailed information can be found in the Senior Thesis Handbook.",
+      "no_req": null
+    }
+  ]
+}
