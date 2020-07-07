@@ -129,7 +129,9 @@
                   "explanation": "Five elective 300/400 level geosciences courses.",
                   "course_list": [
                     "GEO 3*",
-                    "GEO 4*"
+                    "GEO 4*",
+                    "MOL 345",
+                    "MOL 380"
                   ]
                 }
               ]
@@ -196,7 +198,12 @@
                   "explanation": "Five elective 300/400 level geosciences courses.",
                   "course_list": [
                     "GEO 3*",
-                    "GEO 4*"
+                    "GEO 4*",
+                    "CHM 301",
+                    "CEE 311",
+                    "CEE 306",
+                    "CEE 307",
+                    "CEE 471"
                   ]
                 }
               ]
@@ -263,7 +270,8 @@
                   "explanation": "Five elective 300/400 level geosciences courses.",
                   "course_list": [
                     "GEO 3*",
-                    "GEO 4*"
+                    "GEO 4*",
+                    "MAE 305"
                   ]
                 }
               ]
@@ -330,7 +338,9 @@
                   "explanation": "Five elective 300/400 level geosciences courses.",
                   "course_list": [
                     "GEO 3*",
-                    "GEO 4*"
+                    "GEO 4*",
+                    "MAE 305",
+                    "MAE 221"
                   ]
                 }
               ]
