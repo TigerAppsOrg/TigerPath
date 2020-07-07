@@ -1,0 +1,221 @@
+{
+  "type": "Major",
+  "name": "Religion",
+  "code": "REL",
+  "degree": "AB",
+  "year": 2018,
+  "explanation": "Concentrators are required to complete at least nine religion courses taught by department faculty (including visitors to the department of religion) by the end of their senior year. Courses taken prior to declaring a Religion major count toward this total. In addition, students are encouraged, but not required, to take two approved cognate courses in other departments. The cognate courses will be calculated into departmental honors. The departmental representative must approve cognate courses.",
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-religion",
+    "https://religion.princeton.edu/undergraduate-program/major-requirements/"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Judith L. Weisenfeld",
+      "email": "jweisenf@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Seth Perry",
+      "email": "sethp@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Prerequisites",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Any course offered by the department.",
+      "double_counting_allowed": true,
+      "course_list": [
+        "REL *"
+      ]
+    },
+    {
+      "name": "Subfields",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "Students will select at least one course from each of the five subfields of the faculty: Islam, Religion and Critical Thought, Religion in America, Religions of Asia, Religions of the Ancient Mediterranean.",
+      "req_list": [
+        {
+          "name": "Islam",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "REL 235/NES 235",
+            "REL 239/NES 239",
+            "REL 327/GSS 298",
+            "REL 328/GSS 328",
+            "REL 333/NES 333",
+            "REL 335/NES 356",
+            "NES 240/REL 240"
+          ]
+        },
+        {
+          "name": "Religion and Critical Thought",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "REL 215",
+            "REL 260/GHP 270",
+            "REL 261/CHV 261",
+            "REL 263",
+            "REL 264/CHV 264/PHI 264",
+            "REL 292",
+            "REL 293",
+            "REL 306",
+            "REL 311",
+            "REL 330/HUM 330/JDS 331/COM 382",
+            "REL 347/JDS 347",
+            "REL 364/HUM 364/GSS 412",
+            "REL 394",
+            "REL 398/JDS 398",
+            "REL 402/PHI 402/CHV 407",
+            "REL 420"
+          ]
+        },
+        {
+          "name": "Religion in America",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "REL 250/AAS 250",
+            "REL 256/AAS 256",
+            "REL 259/GSS 278/LAS 259",
+            "REL 271/AMS 341",
+            "REL 275/LAS 275",
+            "REL 357/HIS 310",
+            "REL 359/LAS 388",
+            "REL 360/GSS 360/AMS 369",
+            "REL 371",
+            "REL 373",
+            "REL 377/AAS 376/AMS 378",
+            "REL 383",
+            "AAS 305/REL 391/AMS 355",
+            "AAS 318/REL 318",
+            "AAS 358/REL 379/GSS 359"
+          ]
+        },
+        {
+          "name": "Religions of Asia",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "REL 210",
+            "REL 216/SAS 216/PHI 216",
+            "REL 225",
+            "REL 226/EAS 226",
+            "REL 228/EAS 228",
+            "REL 280/EAS 281",
+            "REL 307/SAS 307",
+            "REL 308/SAS 308",
+            "REL 322/EAS 322",
+            "REL 324",
+            "REL 329/SAS 329"
+          ]
+        },
+        {
+          "name": "Religions of the Ancient Mediterranean",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "REL 230/JDS 230",
+            "REL 244/NES 244/MED 246",
+            "REL 246/JDS 246",
+            "REL 251/HLS 251/MED 251",
+            "REL 252",
+            "REL 261/CHV 261",
+            "REL 304/JDS 314",
+            "REL 341/JDS 341",
+            "REL 342/JDS 343",
+            "REL 350/CLA 352/ENG 442/HIS 353",
+            "REL 352",
+            "REL 355/HLS 356",
+            "REL 410/JDS 411",
+            "JDS 202/REL 202"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Additional Courses",
+      "max_counted": 1,
+      "min_needed": 3,
+      "explanation": "Students will take three additional courses taught by department faculty. At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" At least one such course will be offered every academic year. Please note: Critical Approaches courses do not double-count for subfield distributions.",
+      "req_list": [
+        {
+          "name": "Critical Approaches to the Study of Religion",
+          "max_counted": null,
+          "min_needed": 1,
+          "explanation": "At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" Please note: Critical Approaches courses do not double-count for subfield distributions.",
+          "course_list": [
+            "REL 244/NES 244/MED 246",
+            "REL 261/CHV 261",
+            "REL 263",
+            "REL 264/CHV 264/PHI 264",
+            "REL 347/JDS 347",
+            "REL 364/HUM 364/GSS 412",
+            "REL 383"
+          ]
+        },
+        {
+          "name": "Department Courses",
+          "max_counted": 2,
+          "min_needed": null,
+          "explanation": null,
+          "course_list": [
+            "REL *"
+          ],
+          "excluded_course_list": [
+            "REL 219/SOC 219",
+            "REL 343/JDS 339/HEB 343",
+            "REL 354",
+            "AAS 321/REL 321",
+            "ANT 208/REL 208",
+            "ART 310/HLS 354/MED 307/REL 305",
+            "ART 409/REL 409",
+            "ART 431/MED 431/REL 431",
+            "COM 202/JDS 203/REL 203",
+            "HUM 315/CLA 315/REL 301",
+            "JDS 204/REL 204",
+            "JDS 224/REL 217",
+            "JDS 302/NES 302/REL 302/HEB 322",
+            "JDS 305/REL 305",
+            "JDS 307/REL 307",
+            "JDS 321/REL 384",
+            "NES 221/JDS 223/REL 216",
+            "NES 339/REL 339",
+            "NES 379/JDS 378/GSS 380/REL 376",
+            "NES 545/MED 545/REL 548/JDS 545",
+            "NES 556/REL 556",
+            "POL 309/REL 309",
+            "SAS 345/REL 345"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "In conjunction with REL 399, the Junior Colloquium, during the fall term juniors will produce a five to seven-page JP proposal. During the spring term, juniors will continue this independent research and write a 30-40 page junior paper under supervision of a faculty adviser. The departmental representative, in consultation with the director of the colloquium, will assign advisers. At the end of junior year, students will review their work in the department and discuss with a faculty committee their plans for senior independent work.",
+      "course_list": [
+        "REL 399"
+      ]
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nEvery senior will prepare a 70-90 page thesis under the supervision of a faculty adviser. The departmental representative in consultation with the chair of the department will assign advisors.\n\nAt the end of the year, students will take an oral examination concerning their senior independent work, focus of study, and work in the department generally.\n\nThose students considering graduate work in religion are strongly advised to develop a reading knowledge of languages most appropriate to their focus of study, for example, Hebrew, Greek, Latin, Arabic, Chinese, Japanese, German, and French.",
+      "description": "Senior Thesis",
+      "no_req": null
+    }
+  ]
+}
