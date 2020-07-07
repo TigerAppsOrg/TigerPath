@@ -106,7 +106,7 @@ DEPTS = {
     "URD": "Urdu",
     "VIS": "Visual Arts",
     "WRI": "Princeton Writing Program",
-    "WWS": "Woodrow Wilson School",
+    "WWS": "Public and International Affairs",
 }
 
 AB_DEPTS = {
@@ -140,7 +140,7 @@ AB_DEPTS = {
     "SLA": "Slavic Languages and Lit",
     "SOC": "Sociology",
     "SPO": "Spanish and Portuguese",
-    "WWS": "Woodrow Wilson School",
+    "WWS": "Public and International Affairs",
 }
 
 AB_CONCENTRATIONS = {
@@ -174,7 +174,7 @@ AB_CONCENTRATIONS = {
     "SLA": "Slavic Languages and Literatures",
     "SOC": "Sociology",
     "SPO": "Spanish and Portuguese",
-    "WWS": "Woodrow Wilson School of Public and International Affairs",
+    "WWS": "Public and International Affairs",
 }
 
 BSE_CONCENTRATIONS = {

@@ -303,7 +303,7 @@
     "model": "tigerpath.major",
     "pk": 31,
     "fields": {
-      "name": "Woodrow Wilson School of Public and International Affairs",
+      "name": "Public and International Affairs",
       "code": "WWS",
       "degree": "AB",
       "supported": true
