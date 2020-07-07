@@ -55,7 +55,7 @@
           "name": "Geoscience",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203). Students should elect GEO 202 or 203 with an eye toward their likely track of study.",
+          "explanation": "Three prerequisite requirements for entering the concentration (MAT 104 (or AP), COS 126, and GEO 202 or 203). Students should elect GEO 202 or 203 with an eye toward their likely track of study.\n\nWith permission of the DUS, a student can substitute GEO 102/103, a Geosciences Freshman Seminar, or certain Geosciences 300/400 level courses for GEO 202/203.",
           "course_list": [
             "GEO 202",
             "GEO 203"
@@ -67,7 +67,7 @@
       "name": "Tracks",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "There are five department specializations: Microbiology (MB), Environmental Geochemistry (EC), Oceans, Atmosphere, & Climate (OA), Geology & Earth History (GE), and Geophysics (GP). Each specialization has a different set of prerequisites (1,2), basic science requirements (3), geoscience core requirements (4) & recommended electives (5) as follows",
+      "explanation": "There are five department specializations: Microbiology (MB), Environmental Geochemistry (EC), Oceans, Atmosphere, & Climate (OA), Geology & Earth History (GE), and Geophysics (GP). Each specialization has a different set of prerequisites, basic science requirements, geoscience core requirements & recommended electives as shown <a href=\"https://geosciences.princeton.edu/undergraduate/programs-of-study\" target=\"_blank\" rel=\"noopener\">here</a>.",
       "req_list": [
         {
           "name": "Microbiology",
