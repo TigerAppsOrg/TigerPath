@@ -6,7 +6,8 @@
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-art-and-archaeology",
-    "https://artandarchaeology.princeton.edu/"
+    "https://artandarchaeology.princeton.edu/",
+    "https://cms.artandarchaeology.princeton.edu/media/files/2019a-and-augradhandbook-1.pdf"
   ],
   "contacts": [
     {
@@ -72,7 +73,7 @@
                   "name": "Additional Courses",
                   "max_counted": 1,
                   "min_needed": 6,
-                  "explanation": "Students must also take at least one course in each of the following three areas: Group 1 (ancient), Group 2 (medieval/early modern), and Group 3 (modern/contemporary). Thematic courses spanning more than one area will be allocated to a distribution area on a case-by-case basis. ",
+                  "explanation": "Students must also take at least one course in each of the following three areas: Group 1 (ancient), Group 2 (medieval/early modern), and Group 3 (modern/contemporary). Thematic courses spanning more than one area will be allocated to a distribution area on a case-by-case basis.",
                   "course_list": [
                     "ART *"
                   ]
@@ -136,7 +137,7 @@
                   "explanation": "The visual arts courses must include: studio courses in at least two different media; two studio courses at the 300 or 400 level; VIS 392 Issues in Contemporary Art; and VIS 416 Exhibition Issues and Methods or VIS 417 Fall Film Seminar. The Department of Art and Archaeology courses must include: at least one course from Group 3 (19th century to the present); and two others, including at least one course from Group 1 (ancient) or Group 2 (medieval/early modern). The third course may be from any group.",
                   "req_list": [
                     {
-                      "name": "VIS 416/VIS 417",
+                      "name": "VIS 416 or VIS 417",
                       "max_counted": 1,
                       "min_needed": 1,
                       "explanation": "VIS 416 Exhibition Issues and Methods or VIS 417 Fall Film Seminar.",
