@@ -204,7 +204,7 @@
                 {
                   "name": null,
                   "max_counted": 1,
-                  "min_needed": null,
+                  "min_needed": 1,
                   "explanation": null,
                   "course_list": [
                     "GER 505",
@@ -214,7 +214,7 @@
                 {
                   "name": null,
                   "max_counted": 1,
-                  "min_needed": null,
+                  "min_needed": 1,
                   "explanation": null,
                   "course_list": [
                     "GER 506",
@@ -224,7 +224,7 @@
               ]
             },
             {
-              "name": "German literature and culture",
+              "name": "German Literature and Culture",
               "max_counted": 1,
               "min_needed": 3,
               "explanation": "Students will take at least three other courses in German literature and culture (usually no more than two at the 200 level).",
@@ -257,9 +257,6 @@
               "min_needed": 2,
               "explanation": "Two cognate courses pertaining to linguistics.",
               "course_list": [
-                "GER 3*",
-                "GER 4*",
-                "GER 5*",
                 "LIN *"
               ]
             }
