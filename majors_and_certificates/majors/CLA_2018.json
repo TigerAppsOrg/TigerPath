@@ -1,0 +1,518 @@
+{
+  "type": "Major",
+  "name": "Classics",
+  "code": "CLA",
+  "degree": "AB",
+  "year": 2018,
+  "urls": [
+    "https://ua.princeton.edu/academic-units/department-classics",
+    "https://classics.princeton.edu/programs/undergraduate/tracks"
+  ],
+  "contacts": [
+    {
+      "type": "Chair",
+      "name": "Michael A. Flower",
+      "email": "mflower@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Joshua Billings",
+      "email": "jhbillings@princeton.edu"
+    }
+  ],
+  "req_list": [
+    {
+      "name": "Tracks",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Three programs of study are offered within the Department of Classics. The first, Classics, uses knowledge of Greek or Latin (or both languages) as a gateway to the study of the literature, history, and culture of ancient Greece and Rome. The second, Classical Studies, allows for the study of different aspects of a specific period or facet of classical civilization and its impact; it does not initially require knowledge of Greek or Latin. The third, Ancient History, focuses on the history of the ancient world, with special attention to historical method and comparative approaches; it does not initially require knowledge of Greek or Latin.",
+      "req_list": [
+        {
+          "name": "Classics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "Classics uses knowledge of Greek or Latin (or both languages) as a gateway to the study of the literature, history, and culture of ancient Greece and Rome.\n\nStudents are expected to pass a sight translation examination from Greek or Latin. This examination may be taken, by arrangement, at the end of any term in the junior or senior year; it will be graded pass/fail.\n\nStudents who are considering further work in the field, either in graduate school or in independent study, should take both Latin and Greek to the 300 level, continuing with both languages in each term of the junior and senior years. Such students are also strongly advised to take at least one course in Greek history and one in Roman history in their underclass years.",
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "To enter this program, a student normally should have completed CLG 108 or LAT 108 or demonstrated intermediate proficiency in Greek or Latin through test scores (SAT, AP), a placement exam, or coursework. A strongly motivated student who has completed CLG 102 or LAT 102 (or CLG 103 or LAT 103) may concentrate, with permission of the departmental representative.",
+              "double_counting_allowed": true,
+              "course_list": [
+                "CLG 108",
+                "LAT 108",
+                "CLG 102",
+                "LAT 102",
+                "CLG 103",
+                "LAT 103"
+              ]
+            },
+            {
+              "name": "Departmentals",
+              "max_counted": 1,
+              "min_needed": 8,
+              "explanation": "Eight departmental courses are required. Of these, five must be in the original languages at the 200 level or above, including at least one course at the 300 level. The combination of LAT 104-108, or CLG/LAT 105-108, may be counted as the equivalent of one 200-level course. One course in ancient history (CLA 214, 216, 217, 218, or 219, or HIS 343) must also be included among the departmentals. Students must also take the Junior Seminar in the fall of their junior year.",
+              "req_list": [
+                {
+                  "name": "Original Languages",
+                  "max_counted": 7,
+                  "min_needed": 5,
+                  "explanation": "Of these, five must be in the original languages at the 200 level or above, including at least one course at the 300 level. The combination of LAT 104-108, or CLG/LAT 105-108, may be counted as the equivalent of one 200-level course.",
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": 4,
+                      "min_needed": null,
+                      "explanation": null,
+                      "req_list": [
+                        {
+                          "name": null,
+                          "max_counted": null,
+                          "min_needed": null,
+                          "explanation": null,
+                          "course_list": [
+                            "LAT 2*",
+                            "CLG 2*"
+                          ]
+                        },
+                        {
+                          "name": null,
+                          "max_counted": 1,
+                          "min_needed": "ALL",
+                          "explanation": null,
+                          "course_list": [
+                            "LAT 105",
+                            "LAT 108"
+                          ]
+                        },
+                        {
+                          "name": null,
+                          "max_counted": 1,
+                          "min_needed": "ALL",
+                          "explanation": null,
+                          "course_list": [
+                            "CLG 105",
+                            "CLG 108"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "min_needed": 1,
+                      "explanation": null,
+                      "course_list": [
+                        "CLG 3*",
+                        "LAT 3*",
+                        "CLG 4*",
+                        "LAT 4*",
+                        "CLG 5*",
+                        "LAT 5*"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Ancient History",
+                  "max_counted": 3,
+                  "min_needed": 1,
+                  "explanation": "One course in ancient history (CLA 214, 216, 217, 218, or 219, or HIS 343) must also be included among the departmentals.",
+                  "course_list": [
+                    "CLG 214",
+                    "CLA 216",
+                    "CLA 217",
+                    "CLA 218",
+                    "CLA 219",
+                    "HIS 343"
+                  ]
+                },
+                {
+                  "name": "Other Departmentals",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": "Students may count, among the eight departmentals, up to two courses not requiring the use of Greek or Latin (in addition to the course in ancient history). These courses may be offered by the department or, with the approval of the DUS, they may be courses in other departments that deal with aspects of Greek and Roman civilization.",
+                  "course_list": [
+                    "COM 205",
+                    "NES 220",
+                    "NES 331",
+                    "PHI 300",
+                    "PHI 301",
+                    "ART 202",
+                    "ART 203",
+                    "ART 300",
+                    "ART 301",
+                    "ART 302",
+                    "ART 306",
+                    "ART 308",
+                    "HIS 343",
+                    "HIS 344",
+                    "MED 227",
+                    "POL 301",
+                    "ART 205"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Classical Studies",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "This track offers the opportunity for sustained and focused inquiry into the history, literature, and culture of the ancient Mediterranean, as well as the impact of classical antiquity on later periods by using a variety of interpretative methods. The particular program for each student is determined in collaboration with the Director of Undergraduate Studies (DUS) and/or a faculty adviser. The focus can be on a specific disciplinary subfield (e.g., ancient politics) or on a particular period to be explored from a number of perspectives (e.g., the history, literature, and art of Imperial Rome). Each track must have a methodological component designed to introduce the student to techniques of analysis appropriate to the student's particular interests. This component of the track is satisfied by two comparative or methodological courses, the subject matter of which is concerned primarily with the classical world. These courses are chosen by each student in consultation with a faculty adviser and/or the DUS and must be preapproved by the DUS.",
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "At least one course in the Department of Classics or cross-listed as CLA. A second course in addition to the prerequisite is strongly recommended, as well, but this course can count as one of the six departmentals focusing on classical civilization. A freshman seminar on a classical subject may count as a prerequisite, but may not be used as a departmental.\n\nApplicants to this track must submit a proposed plan of study, worked out in consultation with the DUS, by the end of Fall term in their junior year. Given the range of possible interests (e.g., Greek and Roman culture, Late Antique or Byzantine/Mediaeval literature, the reception of antiquity in later periods and cultures), each applicant may bring to the study of the ancient world, there is no set list of fields of concentration, and faculty members can give additional guidance in preparing a track of study.",
+              "course_list": [
+                "CLA *"
+              ]
+            },
+            {
+              "name": "Ancient Greek or Latin",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Each student must successfully complete either Ancient Greek or Latin to the level of 108 or achieve an equivalent level of knowledge, as demonstrated through test scores (SAT, AP), a placement exam, or coursework (including through a summer language program). However, at least one language course must be taken at Princeton.\n\nStudents should be aware that most graduate programs in Classics will demand a more extensive training in the ancient languages than these minimum requirements. Those considering going on to graduate school should plan to do additional work in Greek and Latin either during their time at Princeton or through a postbaccalaureate program.",
+              "course_list": [
+                "LAT 108",
+                "CLG 108"
+              ]
+            },
+            {
+              "name": "Departmentals",
+              "max_counted": 1,
+              "min_needed": 8,
+              "explanation": "<i>Editor's Note: The concentrator's course plan requires course approval from the Director of Undergraduate Studies, and TigerPath does not verify this.</i>\n\nThe specific courses to be taken by each student must form a coherent program of study. Whatever the individual concentration, each student's program must contain eight departmentals and the Junior Seminar.",
+              "req_list": [
+                {
+                  "name": "Classical Civilization",
+                  "max_counted": 6,
+                  "min_needed": 6,
+                  "explanation": "<i>Editor's Note: Concentrators must get departmental approval for these courses, and TigerPath does not verify this.</i>\n\nSix of these courses must focus in whole or in part on classical civilization or its influence. At least three of these courses must be taught in the Department of Classics (CLA, CLG, or LAT). Courses taken during the freshman and sophomore years beyond the prerequisite may count toward this requirement if they are appropriate to the student's overall program.",
+                  "course_list": [
+                    "CLA *",
+                    "CLG *",
+                    "LAT *"
+                  ]
+                },
+                {
+                  "name": "Comparative / Methodological Component",
+                  "max_counted": 2,
+                  "min_needed": 2,
+                  "explanation": "<i>Editor's Note: Concentrators must get departmental approval for these courses, and TigerPath does not verify this.</i>\n\nTwo courses must fulfill the comparative/methodological component of the track of study. The aim of this requirement is to introduce students to new perspectives and new tools of inquiry for exploring their chosen subject. There is no set list, since different courses will be appropriate to different interests. These courses must be preapproved by the DUS to count as part of the student's track.",
+                  "course_list": [
+                    "CLA *",
+                    "CLG *",
+                    "LAT *"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ancient History",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The program offers students a pathway to explore the history of ancient Greece and Rome and their relationships with the neighboring cultures of the Near East, Europe, and Africa. It is also ideal for students interested in acquiring training in the academic discipline of history while concentrating on the period spanning the Late Bronze Age (ca. 1700 B.C.E.) to the early medieval and Byzantine worlds (ca. 600 C.E.). Although students may specialize in a particular field of history (political, social, economic, cultural), geographic area, or historical period of antiquity, the aim of the program is to provide a well-rounded training in the field of history, with a focus on ancient history. Students must take courses on both Greece and Rome, one course on a nonclassical premodern civilization, and at least one course on material culture, and develop intermediate-level proficiency in classical Latin and/or Greek. An additional course that introduces students to the main methods, theories, and philosophies of history is also strongly encouraged.",
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "One course from the list below (courses that can serve as prerequisites or satisfy requirement).",
+              "course_list": [
+                "ART 200",
+                "ART 202",
+                "ART 203",
+                "ART 204",
+                "ART 300",
+                "ART 301",
+                "ART 302",
+                "ART 305",
+                "ART 306",
+                "ART 308",
+                "ART 401",
+                "ART 410",
+                "CLA *",
+                "CLG 2*",
+                "CLG 3*",
+                "LAT 2*",
+                "LAT 3*",
+                "HLS 346",
+                "HIS 290",
+                "HIS 343",
+                "HIS 355",
+                "HUM 205",
+                "HUM 216",
+                "HUM 217",
+                "NES 331",
+                "NES 205",
+                "NES 300",
+                "NES 301",
+                "NES 332",
+                "NES 335",
+                "PHI 205",
+                "PHI 300",
+                "PHI 301",
+                "PHI 335",
+                "POL 301",
+                "REL 230",
+                "REL 231",
+                "REL 251",
+                "REL 252",
+                "REL 337",
+                "REL 340"
+              ]
+            },
+            {
+              "name": "Ancient Greek or Latin",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Each student must successfully complete either Ancient Greek or Latin to the level of 108 or achieve an equivalent level of knowledge, as demonstrated through test scores (SAT, AP), a placement exam, or coursework (including through a summer language program). However, at least one language course must be taken at Princeton.",
+              "course_list": [
+                "LAT 108",
+                "CLG 108"
+              ]
+            },
+            {
+              "name": "Departmentals",
+              "max_counted": 1,
+              "min_needed": 8,
+              "explanation": "Eight departmental courses are required. These must include one survey course on ancient Greek history (CLA 216, CLA 217) and one survey course on Roman history (CLA 218, CLA 219); two seminars at the 300 level focusing on ancient history (e.g., CLA 326, CLA 327: Topics in Ancient History; CLA 324: Classical Historians and their Philosophies of History; CLA 325: Roman Law); one course on material culture (e.g., ART 202: Greek Art; ART308: Roman Cities and Countryside); two courses focusing in whole or in part on classical civilization (see list below); and one history course on a non-classical pre-nineteenth century civilization (e.g., EAS 335: Early Chinese History to 221; NES 220: Jews, Muslims, and Christians in the Middle Ages; HIS 350 History of France, 1685-1800). Students must also take the Junior Seminar in the fall of their junior year.",
+              "req_list": [
+                {
+                  "name": "Ancient Greek History",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "These must include one survey course on ancient Greek history (CLA 216, CLA 217).",
+                  "course_list": [
+                    "CLA 216",
+                    "CLA 217"
+                  ]
+                },
+                {
+                  "name": "Roman History",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "One survey course on Roman history (CLA 218, CLA 219)",
+                  "course_list": [
+                    "CLA 218",
+                    "CLA 219"
+                  ]
+                },
+                {
+                  "name": "Ancient History Seminars",
+                  "max_counted": 2,
+                  "min_needed": 2,
+                  "explanation": "<i>Editor's Note: Some of these courses fall under this requirement but TigerPath does not verify this.</i>\n\nTwo seminars at the 300 level focusing on ancient history (e.g., CLA 326, CLA 327: Topics in Ancient History; CLA 324: Classical Historians and their Philosophies of History; CLA 325: Roman Law)",
+                  "course_list": [
+                    "ART 300",
+                    "ART 301",
+                    "ART 302",
+                    "ART 305",
+                    "ART 306",
+                    "ART 308",
+                    "CLA *",
+                    "CLG 3*",
+                    "LAT 3*",
+                    "HLS 346",
+                    "HIS 290",
+                    "HIS 343",
+                    "HIS 355",
+                    "NES 331",
+                    "NES 300",
+                    "NES 301",
+                    "NES 332",
+                    "NES 335",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 335",
+                    "POL 301",
+                    "REL 337",
+                    "REL 340"
+                  ]
+                },
+                {
+                  "name": "Material Culture",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement nor do all these courses satisfy this requirement.</i>\n\nOne course on material culture (e.g., ART 202: Greek Art; ART308: Roman Cities and Countryside).",
+                  "course_list": [
+                    "ART 200",
+                    "ART 202",
+                    "ART 203",
+                    "ART 204",
+                    "ART 300",
+                    "ART 301",
+                    "ART 302",
+                    "ART 305",
+                    "ART 306",
+                    "ART 308",
+                    "ART 401",
+                    "ART 410",
+                    "CLA *",
+                    "CLG 2*",
+                    "CLG 3*",
+                    "LAT 2*",
+                    "LAT 3*",
+                    "HLS 346",
+                    "HIS 290",
+                    "HIS 343",
+                    "HIS 355",
+                    "HUM 205",
+                    "HUM 216",
+                    "HUM 217",
+                    "NES 331",
+                    "NES 205",
+                    "NES 300",
+                    "NES 301",
+                    "NES 332",
+                    "NES 335",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 335",
+                    "POL 301",
+                    "REL 230",
+                    "REL 231",
+                    "REL 251",
+                    "REL 252",
+                    "REL 337",
+                    "REL 340"
+                  ]
+                },
+                {
+                  "name": "Classical Civilization",
+                  "max_counted": 2,
+                  "min_needed": 2,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement nor do all these courses satisfy this requirement.</i>\n\nTwo courses focusing in whole or in part on classical civilization",
+                  "course_list": [
+                    "ART 200",
+                    "ART 202",
+                    "ART 203",
+                    "ART 204",
+                    "ART 300",
+                    "ART 301",
+                    "ART 302",
+                    "ART 305",
+                    "ART 306",
+                    "ART 308",
+                    "ART 401",
+                    "ART 410",
+                    "CLA *",
+                    "CLG 2*",
+                    "CLG 3*",
+                    "LAT 2*",
+                    "LAT 3*",
+                    "HLS 346",
+                    "HIS 290",
+                    "HIS 343",
+                    "HIS 355",
+                    "HUM 205",
+                    "HUM 216",
+                    "HUM 217",
+                    "NES 331",
+                    "NES 205",
+                    "NES 300",
+                    "NES 301",
+                    "NES 332",
+                    "NES 335",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 335",
+                    "POL 301",
+                    "REL 230",
+                    "REL 231",
+                    "REL 251",
+                    "REL 252",
+                    "REL 337",
+                    "REL 340"
+                  ]
+                },
+                {
+                  "name": "Pre-Nineteenth Century Civilization",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement nor do all these courses satisfy this requirement.</i>\n\nOne history course on a non-classical pre-nineteenth century civilization (e.g., EAS 335: Early Chinese History to 221; NES 220: Jews, Muslims, and Christians in the Middle Ages; HIS 350 History of France, 1685-1800).",
+                  "course_list": [
+                    "ART 200",
+                    "ART 202",
+                    "ART 203",
+                    "ART 204",
+                    "ART 300",
+                    "ART 301",
+                    "ART 302",
+                    "ART 305",
+                    "ART 306",
+                    "ART 308",
+                    "ART 401",
+                    "ART 410",
+                    "CLA *",
+                    "CLG 2*",
+                    "CLG 3*",
+                    "LAT 2*",
+                    "LAT 3*",
+                    "HLS 346",
+                    "HIS 290",
+                    "HIS 343",
+                    "HIS 355",
+                    "HUM 205",
+                    "HUM 216",
+                    "HUM 217",
+                    "NES 331",
+                    "NES 205",
+                    "NES 300",
+                    "NES 301",
+                    "NES 332",
+                    "NES 335",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 335",
+                    "POL 301",
+                    "REL 230",
+                    "REL 231",
+                    "REL 251",
+                    "REL 252",
+                    "REL 337",
+                    "REL 340"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Junior Seminar",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "During the fall of the junior year, all majors must take the Junior Seminar (CLA 340). The course introduces students to different fields of study within the department, including literature, ancient history, ancient culture, linguistics, and reception studies. Students will gain experience in the methods of their chosen of area(s) of study while acquiring an understanding of the history of the discipline and its place in the 21st century. Students will also acquire the skills necessary to pursue junior and senior independent work. Students who are abroad during the fall of their junior year can complete the Junior Seminar during the fall semester of their senior year.",
+      "course_list": [
+        "CLA 340"
+      ]
+    },
+    {
+      "name": "Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the fall term, each student researches and writes a paper of 15 to 20 pages on a topic of their choosing under the direction of a faculty adviser. The Junior Seminar will provide guidance in choosing a topic, structuring an outline, writing, and revising.  In the spring term, students undertake a more ambitious research paper of 20 to 25 pages. Each student again works closely with a member of the faculty on the project, meeting regularly over the course of the spring term for discussion and analysis.",
+      "no_req": null
+    },
+    {
+      "name": "Senior Thesis",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAt the end of the second term of the junior year, a departmental student is advised to select the subject of the senior thesis after consultation with the DUS. The thesis in its final form must be submitted to the department by April 15 of the senior year.",
+      "no_req": null
+    }
+  ]
+}
