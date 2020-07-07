@@ -204,6 +204,7 @@
                 "LANG 5*"
               ],
               "excluded_course_list": [
+                "NES *",
                 "ARA *",
                 "HEB *",
                 "PER *",
