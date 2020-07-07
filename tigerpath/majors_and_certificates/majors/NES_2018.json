@@ -25,7 +25,7 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": "ALL",
+      "min_needed": 1,
       "explanation": "A student who has completed at least one course in the department is eligible to concentrate in Near Eastern studies. This course may be a language class or a course or seminar offered in any of the disciplines covered by the department.",
       "double_counting_allowed": true,
       "course_list": [
