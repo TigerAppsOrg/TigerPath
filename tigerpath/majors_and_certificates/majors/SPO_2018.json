@@ -59,10 +59,22 @@
             },
             {
               "name": "Pre-1800 Literature",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "<i>Editor's Note: This requirement is too broad, so TigerPath does not check it.</i>\n\nAll Spanish concentrators must take one course in pre-1800 literature. University regulations limit to 12 the number of departmental courses allowed to each student in his or her concentration. Students cannot earn both a SPO concentration (in any track) and a SPO certificate (in any language). Students interested in focusing both in Spanish and Portuguese may choose Track 2 for their concentration.",
-              "no_req": null
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>\n\nAll Spanish concentrators must take one course in pre-1800 literature.",
+              "double_counting_allowed": true,
+              "course_list": [  # Note: This sample list was provided in an email from the DUS.
+                "SPA 235: Of Shipwreck and Other Disasters",
+                "SPA 300: The Literature and Culture of Spain and Colonial Latin America: Medieval, Renaissance, and Baroque",
+                "SPA 312: The Dramatic Expression of the Golden Age",
+                "SPA 305: Topics in Spanish Civilization of the Golden Age",
+                "SPA 303: Spanish Literature and Culture: Modern Spain 1700-2000",
+                "SPA 335: Mexico's Tenth Muse: Sor Juana Inés de la Cruz",
+                "SPA 394: New Approaches to Indigenous and Ecological Issues",
+                "SPA 237: Wildness, Whiteness, and Manliness in Colonial Latin American",
+                "SPA 250: Identity in the Hispanic World",
+                "SPA 343: Latin American Philosophy"
+              ]
             },
             {
               "name": "Upper Division Courses",
