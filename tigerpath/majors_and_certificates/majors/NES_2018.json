@@ -73,20 +73,157 @@
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "Seven other deparmentals that fulfill the following distribution requirements in historical periods, regions, and disciplines.\nA single course may satisfy multiple distribution requirements across these domains. For example, a course focusing on 20th century Turkish literature may count as modern (Historical Periods), Ottoman Empire/Turkey (Regions), and literature (Disciplines).\nA single course may not, however, satisfy more than one distribution requirement within a single domain; a course on Arabic literature that spans the pre-modern and modern periods would thus not satisfy both the pre-modern and modern Historical Periods requirements.",
+          "double_counting_allowed": true,
           "req_list": [
             {
               "name": "Historical Periods",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nAt least one course focused on the pre-modern Near East (before 1800) and at least one course focused on the modern Near East.",
-              "no_req": null
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "At least one course focused on the pre-modern Near East (before 1800) and at least one course focused on the modern Near East.",
+              "req_list": [
+                {
+                  "name": "Pre-Modern",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 201",
+                    "NES 208",
+                    "NES 212",
+                    "NES 221",
+                    "NES 229",
+                    "NES 240",
+                    "NES 251",
+                    "NES 269",
+                    "NES 339",
+                    "NES 345",
+                    "NES 347",
+                    "NES 348",
+                    "NES 350",
+                    "NES 351",
+                    "NES 367",
+                    "NES 369",
+                    "NES 379",
+                    "NES 385",
+                    "NES 387",
+                    "NES 390",
+                    "NES 437"
+                  ]
+                },
+                {
+                  "name": "Modern",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 201",
+                    "NES 210",
+                    "NES 212",
+                    "NES 240",
+                    "NES 265",
+                    "NES 269",
+                    "NES 312",
+                    "NES 315",
+                    "NES 326",
+                    "NES 327",
+                    "NES 338",
+                    "NES 362",
+                    "NES 365",
+                    "NES 373",
+                    "NES 374",
+                    "NES 377",
+                    "NES 385",
+                    "NES 391",
+                    "NES 394",
+                    "NES 395",
+                    "NES 433",
+                    "NES 438"
+                  ]
+                }
+              ]
             },
             {
               "name": "Regions",
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": "<i>Editor's Note: This requirement is too broad or requires course approval from the concentrator's Director of Undergraduate Studies, so TigerPath does not check it.</i>\n\nAt least two regionally specific courses. Each must focus on one of the following six sub-regions of the Near East. They may not focus on the same region: Egypt, North Africa, and Andalusia; The Levant, Iraq, and the Arabian peninsula; Ottoman empire/Turkey; Iran; Muslim South and Central Asia; Diasporic communities.",
-              "no_req": null
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "At least two regionally specific courses. Each must focus on one of the following six sub-regions of the Near East. They may not focus on the same region: Egypt, North Africa, and Andalusia; The Levant, Iraq, and the Arabian peninsula; Ottoman empire/Turkey; Iran; Muslim South and Central Asia; Diasporic communities.",
+              "req_list": [
+                {
+                  "name": "Egypt, North Africa, and Andalusia",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 251",
+                    "NES 269",
+                    "NES 315",
+                    "NES 369",
+                    "NES 390",
+                    "NES 394",
+                    "NES 395"
+                  ]
+                },
+                {
+                  "name": "The Levant, Iraq, and the Arabian Peninsula",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 221",
+                    "NES 269",
+                    "NES 326",
+                    "NES 338",
+                    "NES 373"
+                  ]
+                },
+                {
+                  "name": "Ottoman Empire/Turkey",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 433",
+                    "NES 437",
+                    "NES 438"
+                  ]
+                },
+                {
+                  "name": "Iran",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 210",
+                    "NES 212",
+                    "NES 229",
+                    "NES 269",
+                    "NES 365",
+                    "NES 367",
+                    "NES 377"
+                  ]
+                },
+                {
+                  "name": "Muslim South and Central Asia",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 350",
+                    "NES 351",
+                    "NES 362"
+                  ]
+                },
+                {
+                  "name": "Diasporic Communities",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
+                  "course_list": [
+                    "NES 327",
+                    "NES 373"
+                  ]
+                },
+              ]
             },
             {
               "name": "Disciplines",
@@ -101,19 +238,25 @@
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
                   "course_list": [
                     "NES 201",
-                    "NES 220",
-                    "NES 268",
+                    "NES 212",
+                    "NES 221",
+                    "NES 229",
+                    "NES 240",
+                    "NES 251",
                     "NES 269",
-                    "NES 305",
-                    "NES 337",
+                    "NES 312",
+                    "NES 327",
                     "NES 338",
-                    "NES 343",
-                    "NES 345",
                     "NES 350",
-                    "NES 358",
+                    "NES 351",
+                    "NES 362",
                     "NES 365",
-                    "NES 416",
-                    "NES 419",
+                    "NES 369",
+                    "NES 373",
+                    "NES 385",
+                    "NES 390",
+                    "NES 394",
+                    "NES 395",
                     "NES 433",
                     "NES 437",
                     "NES 438"
@@ -125,13 +268,8 @@
                   "min_needed": 1,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
                   "course_list": [
-                    "NES 202",
-                    "NES 214",
-                    "ARA 401",
-                    "ARA 404",
-                    "HEB 301",
-                    "HEB 302",
-                    "PER 301"
+                    "NES 208",
+                    "NES 387"
                   ]
                 },
                 {
@@ -140,12 +278,17 @@
                   "min_needed": 1,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
                   "course_list": [
+                    "NES 210",
                     "NES 265",
+                    "NES 269",
+                    "NES 312",
                     "NES 315",
-                    "NES 345",
-                    "NES 347",
-                    "NES 348",
-                    "NES 363"
+                    "NES 326",
+                    "NES 365",
+                    "NES 374",
+                    "NES 377",
+                    "NES 385",
+                    "NES 391"
                   ]
                 },
                 {
@@ -154,18 +297,17 @@
                   "min_needed": 1,
                   "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>",
                   "course_list": [
-                    "NES 220",
-                    "NES 236",
+                    "NES 221",
                     "NES 240",
-                    "NES 268",
                     "NES 269",
-                    "NES 334",
-                    "NES 336",
                     "NES 339",
-                    "NES 340",
+                    "NES 345",
+                    "NES 347",
                     "NES 348",
-                    "NES 356",
-                    "NES 435"
+                    "NES 365",
+                    "NES 367",
+                    "NES 379",
+                    "NES 385"
                   ]
                 }
               ]
