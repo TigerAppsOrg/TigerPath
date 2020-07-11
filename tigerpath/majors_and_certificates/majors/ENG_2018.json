@@ -42,7 +42,7 @@
           "name": "Literary and Cultural History",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Literary and Cultural History (LCH) courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study.",
           "course_list": [
             "ENG 200",
             "ENG 353",
@@ -227,7 +227,7 @@
           "name": "Theory and Criticism",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Theory and Criticism (T&C) provides tools for thinking critically across all these periods, identities, and genres.",
           "course_list": [
             "ENG 203",
             "ENG 305",
@@ -271,7 +271,7 @@
           "name": "Tracks",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "Three additional ENG or ENG cross-listed courses",
           "req_list": [
             {
               "name": "English",
