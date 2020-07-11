@@ -44,11 +44,12 @@
           "min_needed": 1,
           "explanation": "Literary and Cultural History (LCH) courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study.",
           "course_list": [
-            "ENG 200",
-            "ENG 353",
-            "ENG 415/JRN 415/COM 446",
-            "AAS 353/ENG 352",
-            "COM 339/ECS 351/ENG 239/HUM 399"
+            "ENG 200: Literary History",
+            "ENG 301:	Word Love: A History of English for Readers",
+            "ENG 353: Melodrama, from Uncle Tom's Cabin to Grey's Anatomy",
+            "ENG 415/JRN 415/COM 446: Topics in Literature and Ethics: Imagining Human Rights",
+            "AAS 353/ENG 352: African American Literature: Origins to 1910",
+            "COM 339/ECS 351/ENG 239/HUM 399: Politcal Novel and Cinema"
           ]
         },
         {
