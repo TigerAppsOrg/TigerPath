@@ -85,18 +85,20 @@
           "min_needed": 1,
           "explanation": null,
           "course_list": [
-            "ENG 202",
-            "ENG 339",
-            "ENG 340",
-            "ENG 341",
-            "ENG 350",
-            "ENG 351",
-            "ENG 357",
-            "ENG 411/AAS 413/AMS 411",
-            "ENG 432/HUM 433",
-            "AAS 353/ENG 352",
-            "COM 372/ENG 303",
-            "COM 421/ENG 241"
+            "ENG 202: The American Short Story from Irving to Wharton",
+            "ENG 339: Topics in 18th-Century Literature: Jane Austin",
+            "ENG 340: Romanticism and the Age of Revolution",
+            "ENG 341: The Later Romantics",
+            "ENG 345: Nineteenth-Century Fiction",
+            "ENG 385: Children's Literature",
+            "ENG 350: Literature of the American Renaissance, 1820‐1860",
+            "ENG 351: American Literature: 1865‐1930",
+            "ENG 357: Topics in American Literature: Henry James and William Faulkner",
+            "ENG 411/AAS 413/AMS 411: Major Authors: Emerson & Douglass",
+            "ENG 432/HUM 433: Fashioning the Self, Rendering Others: Literary and Visual Portraiture, 18th C to the Present",
+            "AAS 353/ENG 352: African American Literature: Origins to 1910",
+            "COM 372/ENG 303: The Gothic Tradition",
+            "COM 421/ENG 241: Lyric Language and Form I: Renaissance to Romantic"
           ]
         },
         {
