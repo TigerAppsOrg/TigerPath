@@ -42,7 +42,7 @@
           "name": "Literary and Cultural History",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Literary and Cultural History (LCH) courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study.",
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>\n\nLiterary and Cultural History (LCH) courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study.",
           "course_list": [
             "ENG 200: Literary History",
             "ENG 301:	Word Love: A History of English for Readers",
@@ -56,7 +56,7 @@
           "name": "Literature and Culture before 1700",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
           "course_list": [
             "ENG 310/MED 210: The Old English Period",
             "ENG 311/MED 309: The Medieval Period",
@@ -83,7 +83,7 @@
           "name": "Literature and Culture from 1700-1900",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
           "course_list": [
             "ENG 202: The American Short Story from Irving to Wharton",
             "ENG 339: Topics in 18th-Century Literature: Jane Austin",
@@ -105,7 +105,7 @@
           "name": "Literature and Culture from 1900-Present",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
           "course_list": [
             "ENG 203",
             "ENG 206",
@@ -186,7 +186,7 @@
           "name": "Difference and Diversity",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
           "course_list": [
             "ENG 229/AMS 229",
             "ENG 317",
@@ -235,7 +235,7 @@
           "name": "Theory and Criticism",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Theory and Criticism (T&C) provides tools for thinking critically across all these periods, identities, and genres.",
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>\n\nTheory and Criticism (T&C) provides tools for thinking critically across all these periods, identities, and genres.",
           "course_list": [
             "ENG 203",
             "ENG 305",
