@@ -59,7 +59,7 @@
           "name": "Chemistry",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Two terms of introductory chemistry (or equivalent, or an AP score of 5). Advanced placement: Students who receive a 5 on the Math Exam [BC test or AB test] are exempt from the math requirement.",
+          "explanation": "Two terms of introductory chemistry (or equivalent, or an AP score of 5).",
           "req_list": [
             {
               "name": null,
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "name": "Courses Requirements",
+      "name": "Course Requirements",
       "max_counted": 1,
       "min_needed": "ALL",
       "explanation": "A minimum of 8 courses are required. You must receive a C- or better for departmental credit.",
@@ -155,7 +155,7 @@
           "name": "Two Areas",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "1 class from each of 2 of the following areas (2 classes total): Behavior and Organismal Biology (EEB 313, 314, 329, 403, 404*, 406*), Disease Ecology (EEB 304, 327, 328*, 351), Conservation Biology (EEB 308, 380*, 417, 303), Mathematical and Computational Biology (EEB 324, 325).",
+          "explanation": "1 class from each of 2 of the following areas (2 classes total): Behavior and Organismal Biology (EEB 313, 314, 329, 403, 404*, 406*), Disease Ecology (EEB 304, 327, 328*, 351), Conservation Biology (EEB 308, 380*, 417, 303), Mathematical and Computational Biology (EEB 324, 325). *Offered as part of the semester abroad program.",
           "req_list": [
             {
               "name": "Behavior and Organismal Biology",
