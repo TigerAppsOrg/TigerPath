@@ -36,7 +36,7 @@
       "name": "Distribution Requirements",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Departmental distribution requirements ensure breadth in each concentrator's program of study. Everyone must take at least one course in each of the following areas for a total of 10 courses: Literary and Cultural History (LCH), Literature and Culture before 1700 (pre-1700), Literature and Culture from 1700-1900 (1700-1900), Literature and Culture from 1900-present (post-1900), Difference and Diversity (D&D), Theory and Criticism provides tools for thinking critically across all these periods, identities, and genres (T&C), Junior Seminar (ENG 300), Three additional ENG or ENG cross-listed courses",
+      "explanation": "Departmental distribution requirements ensure breadth in each concentrator's program of study. Everyone must take at least one course in each of the following areas for a total of 10 courses: Literary and Cultural History (LCH), Literature and Culture before 1700 (pre-1700), Literature and Culture from 1700-1900 (1700-1900), Literature and Culture from 1900-present (post-1900), Difference and Diversity (D&D), Theory and Criticism provides tools for thinking critically across all these periods, identities, and genres (T&C), Junior Seminar (ENG 300), Three additional ENG or ENG cross-listed courses.",
       "req_list": [
         {
           "name": "Literary and Cultural History",
@@ -266,72 +266,72 @@
             "MUS 307/HUM 307/ENG 313",
             "THR 350/ENG 449"
           ]
+        }
+      ]
+    },
+    {
+      "name": "Tracks",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": null,
+      "req_list": [
+        {
+          "name": "English",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Three additional ENG or ENG cross-listed courses.",
+          "course_list": [
+            "ENG *"
+          ]
         },
         {
-          "name": "Tracks",
+          "name": "Creative Writing",
           "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
+          "min_needed": 3,
+          "explanation": "Creative Writing: students accepted to the certificate program in Creative Writing may cognate two CWR courses as departmental courses in English, and may substitute a thesis in CWR for the thesis in English. Final admission depends on the permission of the Program in Creative Writing to write a creative thesis in the spring of junior year. Students not approved to write a creative thesis may cognate one course in CWR.",
           "req_list": [
             {
               "name": "English",
-              "max_counted": 1,
-              "min_needed": 3,
+              "max_counted": null,
+              "min_needed": 1,
               "explanation": null,
               "course_list": [
                 "ENG *"
               ]
             },
             {
-              "name": "Creative Writing",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Creative Writing: students accepted to the certificate program in Creative Writing may cognate two CWR courses as departmental courses in English, and may substitute a thesis in CWR for the thesis in English. Final admission depends on the permission of the Program in Creative Writing to write a creative thesis in the spring of junior year. Students not approved to write a creative thesis may cognate one course in CWR.",
-              "req_list": [
-                {
-                  "name": "English",
-                  "max_counted": null,
-                  "min_needed": 1,
-                  "explanation": null,
-                  "course_list": [
-                    "ENG *"
-                  ]
-                },
-                {
-                  "name": "Cognates",
-                  "max_counted": 2,
-                  "min_needed": null,
-                  "explanation": null,
-                  "course_list": [
-                    "CWR *"
-                  ]
-                },
+              "name": "Cognates",
+              "max_counted": 2,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CWR *"
+              ]
+            },
+          ]
+        },
+        {
+          "name": "Theater",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Theater: students accepted to the certificate program in Theater may cognate two THR courses as departmental courses in English.",
+          "req_list": [
+            {
+              "name": "English",
+              "max_counted": null,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "ENG *"
               ]
             },
             {
-              "name": "Theater",
-              "max_counted": 1,
-              "min_needed": 3,
-              "explanation": "Theater: students accepted to the certificate program in Theater may cognate two THR courses as departmental courses in English.",
-              "req_list": [
-                {
-                  "name": "English",
-                  "max_counted": null,
-                  "min_needed": 1,
-                  "explanation": null,
-                  "course_list": [
-                    "ENG *"
-                  ]
-                },
-                {
-                  "name": "Cognates",
-                  "max_counted": 2,
-                  "min_needed": null,
-                  "explanation": null,
-                  "course_list": [
-                    "THR *"
-                  ]
-                }
+              "name": "Cognates",
+              "max_counted": 2,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "THR *"
               ]
             }
           ]
