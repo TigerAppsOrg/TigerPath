@@ -178,21 +178,29 @@
                   ]
                 },
                 {
-                  "name": "Ethnography, Evidence, and Experience",
+                  "name": "Required Courses",
                   "max_counted": 1,
-                  "min_needed": 1,
+                  "min_needed": "ALL",
                   "explanation": null,
-                  "course_list": [
-                    "ANT 300*"
-                  ]
-                },
-                {
-                  "name": "The Ethnographer's Craft",
-                  "max_counted": 1,
-                  "min_needed": 1,
-                  "explanation": null,
-                  "course_list": [
-                    "ANT 301*"
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": 1,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 300*"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": 1,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 301*"
+                      ]
+                    }
                   ]
                 }
               ]
@@ -201,46 +209,79 @@
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 5,
-              "explanation": "Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved MedAnth courses will be published each semester before course enrollment begins.\n\nMedAnth students are allowed to take two cognates (as defined under Program of Study above). A department cognate for a MedAnth student might include a course taught in departments or programs such as the History of Science, African American Studies, Gender and Sexuality Studies, Sociology, Psychology, Molecular Biology, Engineering, Global Health, regional studies classes including AMS, EAS, LAS, NES, courses taken during study abroad and/or anthropology courses taught outside the Medical Anthropology Track.",
+              "explanation": "Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved MedAnth courses will be published each semester before course enrollment begins.",
               "req_list": [
                 {
-                  "name": null,
+                  "name": "MedAnth Electives",
                   "max_counted": null,
+                  "min_needed": 3,
                   "explanation": null,
-                  "course_list": [
-                    "ANT 201",
-                    "ANT 206",
-                    "ANT 215",
-                    "ANT 219",
-                    "ANT 235",
-                    "ANT 240",
-                    "GSS 203/ANT 243",
-                    "ANT 272",
-                    "ANT 305",
-                    "ANT 309A",
-                    "ANT 309B",
-                    "EAS 312/ANT 312",
-                    "ANT 331",
-                    "ANT 340",
-                    "ANT 360",
-                    "GHP 304/ANT 376",
-                    "AAS 302/ANT 378",
-                    "GHP 350/ANT 380",
-                    "WWS 375/ANT 388",
-                    "ANT 405",
-                    "ANT 442",
-                    "ANT 446",
-                    "ANT 461"
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 201",
+                        "ANT 206",
+                        "ANT 215",
+                        "ANT 219",
+                        "ANT 235",
+                        "ANT 240",
+                        "GSS 203/ANT 243",
+                        "ANT 272",
+                        "ANT 305",
+                        "ANT 309A",
+                        "ANT 309B",
+                        "EAS 312/ANT 312",
+                        "ANT 331",
+                        "ANT 340",
+                        "ANT 360",
+                        "GHP 304/ANT 376",
+                        "AAS 302/ANT 378",
+                        "GHP 350/ANT 380",
+                        "WWS 375/ANT 388",
+                        "ANT 405",
+                        "ANT 442",
+                        "ANT 446",
+                        "ANT 461"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "CLA 231",
+                        "SLA 368"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "name": null,
+                  "name": "Cognates",
                   "max_counted": 2,
                   "min_needed": null,
-                  "explanation": null,
+                  "explanation": "MedAnth students are allowed to take two cognates (as defined under Program of Study above). A department cognate for a MedAnth student might include a course taught in departments or programs such as the History of Science, African American Studies, Gender and Sexuality Studies, Sociology, Psychology, Molecular Biology, Engineering, Global Health, regional studies classes including AMS, EAS, LAS, NES, courses taken during study abroad and/or anthropology courses taught outside the Medical Anthropology Track.",
                   "course_list": [
-                    "CLA 231",
-                    "SLA 368"
+                    "AAS *",
+                    "AMS *",
+                    "ANT *",
+                    "EAS *",
+                    "EGR *",
+                    "GHP *",
+                    "GSS *",
+                    "HOS *",
+                    "LAS *",
+                    "MOL *",
+                    "NES *",
+                    "PSY *",
+                    "SOC *"
+                  ],
+                  "excluded_course_list": [
+                    "ANT 300*",
+                    "ANT 301*"
                   ]
                 }
               ]
@@ -292,61 +333,89 @@
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 6,
-              "explanation": "These courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved LPE courses will be published each semester before course enrollment begins.\n\nLPE students are allowed to take two cognates (as defined under Program of Study above). Appropriate cognates for LPE might include Introduction to Microeconomics (ECO 100), a course taught in the Politics Department, a regional studies course, courses taken during study abroad and/or anthropology courses taught outside the Law, Politics, and Economics track.",
+              "explanation": "Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved LPE courses will be published each semester before course enrollment begins.",
               "req_list": [
                 {
-                  "name": null,
+                  "name": "LPE Electives",
                   "max_counted": null,
+                  "min_needed": 4,
                   "explanation": null,
-                  "course_list": [
-                    "ANT 201",
-                    "ANT 203",
-                    "ANT 219",
-                    "ANT 223",
-                    "ANT 225",
-                    "ANT 227",
-                    "ANT 231",
-                    "ANT 232",
-                    "ANT 246",
-                    "ANT 272",
-                    "ANT 304",
-                    "ANT 306",
-                    "ANT 309A",
-                    "ANT 314",
-                    "ANT 319",
-                    "EAS 225/ANT 323",
-                    "ANT 336",
-                    "ANT 337",
-                    "LAS 217/ANT 339",
-                    "ANT 342",
-                    "ANT 363",
-                    "ANT 369",
-                    "AAS 302/ANT 378",
-                    "AFS 205/ANT 384",
-                    "EGR 385/ANT 385",
-                    "LAS 307/ANT 387",
-                    "NES 391/ANT 391",
-                    "ANT 405",
-                    "ANT 406",
-                    "ANT 407",
-                    "ANT 419",
-                    "ANT 421",
-                    "ANT 434",
-                    "ANT 446",
-                    "ANT 452",
-                    "ANT 453",
-                    "ANT 461",
-                    "LAS 486/ANT 486"
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 201",
+                        "ANT 203",
+                        "ANT 219",
+                        "ANT 223",
+                        "ANT 225",
+                        "ANT 227",
+                        "ANT 231",
+                        "ANT 232",
+                        "ANT 246",
+                        "ANT 272",
+                        "ANT 304",
+                        "ANT 306",
+                        "ANT 309A",
+                        "ANT 314",
+                        "ANT 319",
+                        "EAS 225/ANT 323",
+                        "ANT 336",
+                        "ANT 337",
+                        "LAS 217/ANT 339",
+                        "ANT 342",
+                        "ANT 363",
+                        "ANT 369",
+                        "AAS 302/ANT 378",
+                        "AFS 205/ANT 384",
+                        "EGR 385/ANT 385",
+                        "LAS 307/ANT 387",
+                        "NES 391/ANT 391",
+                        "ANT 405",
+                        "ANT 406",
+                        "ANT 407",
+                        "ANT 419",
+                        "ANT 421",
+                        "ANT 434",
+                        "ANT 446",
+                        "ANT 452",
+                        "ANT 453",
+                        "ANT 461",
+                        "LAS 486/ANT 486"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "LAS 218",
+                        "LAS 313"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "name": null,
+                  "name": "Cognates",
                   "max_counted": 2,
                   "min_needed": null,
-                  "explanation": null,
+                  "explanation": "LPE students are allowed to take two cognates (as defined under Program of Study above). Appropriate cognates for LPE might include Introduction to Microeconomics (ECO 100), a course taught in the Politics Department, a regional studies course, courses taken during study abroad and/or anthropology courses taught outside the Law, Politics, and Economics track.",
                   "course_list": [
-                    "LAS 218",
-                    "LAS 313"
+                    "ANT *",
+                    "AMS *",
+                    "EAS *",
+                    "ECO 100",
+                    "LAS *",
+                    "NES *",
+                    "POL *"
+                  ],
+                  "excluded_course_list": [
+                    "ANT 300*",
+                    "ANT 301*",
+                    "ANT 390*"
                   ]
                 }
               ]
