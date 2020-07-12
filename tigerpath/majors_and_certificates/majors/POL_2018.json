@@ -408,30 +408,30 @@
               ]
             }
           ]
-        },
-        {
-          "name": "Additional Course",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "POL *"
-          ]
         }
       ]
     },
     {
       "name": "Track",
       "max_counted": 1,
-      "min_needed": null,
+      "min_needed": 1,
       "explanation": "All students who declare their concentration in Politics are eligible to pursue one of the three tracks and should inform the Undergraduate Program Manager of their intention to pursue a program upon declaring the concentration in April of their sophomore year, and no later than February 1 of their junior year. The tracks provide additional guidance for structuring the program of study as a Politics concentrator, but students are not required to select a track to graduate with a degree in Politics. Students who pursue a program will still need to fulfill the requirements of a Politics concentrator. Courses may simultaneously fulfill both the program requirements and the Politics concentration requirements.",
+      "double_counting_allowed": true,
       "req_list": [
+        {
+          "name": "Politics",
+          "max_counted": 1,
+          "min_needed": 8,
+          "explanation": "By the end of the senior year, all students in the Department must complete, in addition to prerequisites, no fewer than eight departmental courses, of which two may be cognates.",
+          "course_list": [
+            "POL *"
+          ]
+        },
         {
           "name": "American Ideas and Institutions",
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "The Department of Politics, in collaboration with the James Madison Program in American Ideals and Institutions, offers the program in American Ideas and Institutions for students who wish to further and demonstrate their understandings of the three branches of the federal government and the values, ideas, and theories that underlie them and are animated by their workings. It draws together a menu of courses from American politics, political theory, public law, and other departmental offerings.\n\nA student in the program is required to complete five courses, one in each of the four topics listed below, as well as one more additionally chosen from any one of the areas. No individual course number may be counted for more than one program requirement (even if, as in the case of POL 332 for example, the course may be taken by a student more than once as the topic changes annually).",
-          "double_counting_allowed": true,
           "req_list": [
             {
               "name": "The Executive Branch",
@@ -518,7 +518,6 @@
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "Political economy (PE) is a cross-disciplinary field for students who wish to further their understandings of social phenomena and individual behavior by combining the perspectives of its two constituent disciplines. The program allows and encourages students to use analytical tools from game theory, microeconomics and statistics to study political behavior, and to incorporate a thorough analysis of politics and collective decision-making into economic analysis. ",
-          "double_counting_allowed": true,
           "req_list": [
             {
               "name": "Preqrequisites",
@@ -632,7 +631,6 @@
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "The undergraduate program in Quantitative and Analytical Political Science (QAPS) is designed for students who wish to deepen their understanding of quantitative and analytical methods to study key questions in political science.",
-          "double_counting_allowed": true,
           "req_list": [
             {
               "name": "Prerequisites",
