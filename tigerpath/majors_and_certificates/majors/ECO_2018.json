@@ -32,7 +32,7 @@
           "name": "Economics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": null,
+          "explanation": "To enter the department, a student must complete, by the end of sophomore year, the prerequisite courses ECO 100, ECO 101, ECO 202 (or equivalent), and MAT (175 or equivalent), earning a letter grade of C or better in each course. ORF 245 can be substituted for ECO 202. POL 345 followed by POL 346 can also be used to satisfy our statistics pre-requirement. (POL 345 alone is not sufficient).",
           "req_list": [
             {
               "name": null,
@@ -78,7 +78,7 @@
           "name": "Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Incoming majors  must complete MAT 175 (or equivalent) by the end of their sophomore year and earn a letter grade of C or better.\n\nStudents will only be exempt from the Economics Department’s MAT 175 pre-requisite if they have already taken an acceptable college level course in multivariate calculus and earned a grade of C or better. Please note that the AP BC calculus curriculum is not sufficient since it only teaches univariate calculus, while MAT 175 focuses on multivariate calculus.\n\nStudents who wish to take math-track econometrics (ECO 312), upper level finance certificate courses (such as ECO 462, ECO 465 and ECO 466), or pursue graduate studies in economics and finance should take MAT 201 and MAT 202 instead of MAT 175. Both courses should be taken for a letter grade by this subset of students. The finance certificate program strongly advises that you take both MAT 201 and MAT 202; only the highest of the two grades is recorded for the purpose of fulfilling the entry requirements. Students who choose to fulfill this requirement by taking the one-semester MAT 175 will be responsible for mastering the linear algebra part of the curriculum on their own.",
+          "explanation": "Incoming majors must complete MAT 175 (or equivalent) by the end of their sophomore year and earn a letter grade of C or better.\n\nStudents will only be exempt from the Economics Department’s MAT 175 pre-requisite if they have already taken an acceptable college level course in multivariate calculus and earned a grade of C or better. Please note that the AP BC calculus curriculum is not sufficient since it only teaches univariate calculus, while MAT 175 focuses on multivariate calculus.\n\nStudents who wish to take math-track econometrics (ECO 312), upper level finance certificate courses (such as ECO 462, ECO 465 and ECO 466), or pursue graduate studies in economics and finance should take MAT 201 and MAT 202 instead of MAT 175. Both courses should be taken for a letter grade by this subset of students. The finance certificate program strongly advises that you take both MAT 201 and MAT 202; only the highest of the two grades is recorded for the purpose of fulfilling the entry requirements. Students who choose to fulfill this requirement by taking the one-semester MAT 175 will be responsible for mastering the linear algebra part of the curriculum on their own.",
           "completed_by_semester": 4,
           "req_list": [
             {
@@ -154,13 +154,13 @@
       ]
     },
     {
-      "name": "Departmentals",
+      "name": "Economics",
       "max_counted": 1,
       "min_needed": 5,
       "explanation": "In addition to the three core courses, concentrators must pass, on a graded basis, five other departmental courses. Departmentals can be any 300-, 400-, or 500-level Economics courses, or an approved cognate (see Cognates).\n\nStudents planning a senior thesis with empirical emphasis are strongly encouraged to take ECO 313; students planning a theoretical senior thesis are strongly encouraged to take ECO 317 and/or ECO 418.",
       "req_list": [
         {
-          "name": "Economics Electives",
+          "name": "Electives",
           "max_counted": null,
           "min_needed": 3,
           "explanation": null,
@@ -208,31 +208,80 @@
       ]
     },
     {
-      "name": "Program in Political Economy",
+      "name": "Tracks",
       "max_counted": 1,
-      "min_needed": null,
-      "explanation": "The Department offers a program in political economy track for Economics concentrators. Program participants meet all the general requirements of Economics concentrators, and, in addition: (1) complete two Politics courses at any level before entering the program; (2) complete three 300-level (or higher) Politics courses during junior and senior years, and (3) conduct junior independent work with a political economy component.\n\nOne Politics course approved as an Economics cognate may also count toward the program’s requirements. Admission to the program takes place at the beginning of the junior year, in consultation with the Political Economy Representative in Economics. Concentrators who successfully complete the program’s requirements receive a certificate in Political Economy from the Department.  The coordinator of the program is Professor Silvia Weyerbrock.",
+      "min_needed": 1,
+      "explanation": null,
       "req_list": [
         {
-          "name": "Prerequisites",
+          "name": "Economics",
           "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "In addition to the two Politics prerequisites, a student in the PPE must complete three Politics departmentals, i.e. Politics courses in the 300-level or higher, on a graded basis.<i>Note:</i> Starting with the class of 2022, POL 345 and POL 346 will not count any longer as POL courses in PPE, as they now can be used to cover the statistics prerequisite for the Economics major.",
+          "min_needed": 8,
+          "explanation": "Eight economics departmentals.",
+          "double_counting_allowed": true,
           "course_list": [
-            "POL *"
+            "ECO 3*",
+            "ECO 4*",
+            "ECO 5*",
+            "COS 445",
+            "ELE 381",
+            "HIS 474",
+            "MAT 378",
+            "ORF 307",
+            "ORF 309",
+            "ORF 311",
+            "ORF 350",
+            "ORF 360",
+            "ORF 363",
+            "ORF 405",
+            "ORF 417",
+            "ORF 474",
+            "POL 335",
+            "POL 347",
+            "POL 349",
+            "POL 352",
+            "POL 385",
+            "WWS 309",
+            "WWS 340/PSY 321",
+            "WWS 373/CHV 373",
+            "WWS 408",
+            "WWS 466/HIS 467",
+            "WWS 524",
+            "WWS 538",
+            "WWS 582C",
+            "WWS 582F"
           ]
         },
         {
-          "name": "Course Requirements",
+          "name": "Program in Political Economy",
           "max_counted": 1,
-          "min_needed": 3,
-          "explanation": null,
-          "excluded_course_list": [
-            "POL 345",
-            "POL 446"
-          ],
-          "course_list": [
-            "POL 3*"
+          "min_needed": "ALL",
+          "explanation": "The Department offers a program in political economy track for Economics concentrators. Program participants meet all the general requirements of Economics concentrators, and, in addition: (1) complete two Politics courses at any level before entering the program; (2) complete three 300-level (or higher) Politics courses during junior and senior years, and (3) conduct junior independent work with a political economy component.\n\nOne Politics course approved as an Economics cognate may also count toward the program’s requirements. Admission to the program takes place at the beginning of the junior year, in consultation with the Political Economy Representative in Economics. Concentrators who successfully complete the program’s requirements receive a certificate in Political Economy from the Department.  The coordinator of the program is Professor Silvia Weyerbrock.",
+          "req_list": [
+            {
+              "name": "Prerequisites",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Complete two Politics courses at any level before entering the program.",
+              "course_list": [
+                "POL *"
+              ]
+            },
+            {
+              "name": "Course Requirements",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": "In addition to the two Politics prerequisites, a student in the PPE must complete three Politics departmentals, i.e. Politics courses in the 300-level or higher, on a graded basis.\n\n<i>Note:</i> Starting with the class of 2022, POL 345 and POL 346 will not count any longer as POL courses in PPE, as they now can be used to cover the statistics prerequisite for the Economics major.",
+              "excluded_course_list": [
+                "POL 345",
+                "POL 446"
+              ],
+              "course_list": [
+                "POL 3*",
+                "POL 4*",
+                "POL 5*"
+              ]
+            }
           ]
         }
       ]
