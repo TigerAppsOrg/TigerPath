@@ -5,8 +5,8 @@
   "degree": "AB",
   "year": 2018,
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-philosophy#",
-    "https://philosophy.princeton.edu/"
+    "https://ua.princeton.edu/academic-units/department-philosophy",
+    "https://philosophy.princeton.edu/undergraduate/concentration-requirements"
   ],
   "contacts": [
     {
@@ -15,126 +15,515 @@
       "email": "grosen@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Stuides",
       "name": "John P. Burgess",
       "email": "jburgess@princeton.edu"
     }
   ],
   "req_list": [
     {
-      "name": "Departmental Courses",
+      "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 3,
-      "explanation": "Distribution Requirement. Six of the eight courses must be so distributed that there are two in each of three of the four areas into which philosophy courses are divided; there is no such restriction on the remaining two of the eight. The four distribution areas are as follows:",
-      "req_list": [
-        {
-          "name": "Metaphysics",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "",
-          "course_list": [
-            "PHI 203",
-            "PHI 218",
-            "PHI 237",
-            "PHI 311",
-            "PHI 313",
-            "PHI 315",
-            "PHI 317",
-            "PHI 318",
-            "PHI 337",
-            "PHI 338"
-          ]
-        },
-        {
-          "name": "Ethics and Philosophy of Value",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "",
-          "course_list": [
-            "PHI 202",
-            "PHI 306",
-            "PHI 307",
-            "PHI 309",
-            "PHI 319",
-            "PHI 320",
-            "PHI 325",
-            "PHI 326",
-            "PHI 335",
-            "PHI 360",
-            "PHI 380",
-            "PHI 384",
-            "PHI 385",
-            "PHI 390",
-            "PHI 391",
-            "PHI 419"
-          ]
-        },
-        {
-          "name": "Logic and Philosophy of Science",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "",
-          "course_list": [
-            "PHI 201",
-            "PHI 204",
-            "PHI 312",
-            "PHI 314",
-            "PHI 321",
-            "PHI 322",
-            "PHI 323",
-            "PHI 327",
-            "PHI 340",
-            "PHI 490"
-          ]
-        },
-        {
-          "name": "History of Philosophy",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "",
-          "course_list": [
-            "PHI 200",
-            "PHI 205",
-            "PHI 300",
-            "PHI 301",
-            "PHI 302",
-            "PHI 303",
-            "PHI 304",
-            "PHI 306",
-            "PHI 332",
-            "PHI 333",
-            "PHI 335",
-            "PHI 338"
-          ]
-        }
+      "min_needed": 1,
+      "explanation": "Any course in the philosophy department may serve as prerequisite for concentration. A student who has not satisfied this prerequisite and who, at the end of sophomore year, desires to enter the department must apply to the departmental representative.",
+      "double_counting_allowed": true,
+      "course_list": [
+        "PHI *"
       ]
     },
     {
-      "name": "Interdisciplinary Options",
-      "max_counted": null,
-      "min_needed": null,
-      "explanation": "",
+      "name": "Tracks",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": null,
       "req_list": [
+        {
+          "name": "Philosophy",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The departmental course requirement is eight courses. Courses taken before fall semester junior year normally may be counted, including the prerequisite course; and up to two courses may be lower division (200-level or lower). Up to two courses in other departments may be counted as cognates, if approved as contributing significantly to the student's course of study; these must normally be courses completed before spring semester senior year. Further, six out of the eight courses must be so distributed that there are two in each of three out of the four areas (metaphysics; ethics & philosophy of value; logic & philosophy of science; history of philosophy) into which philosophy courses are divided; there is no such restriction on the remaining two out of the eight. The area classification of most courses is listed in the Undergraduate Announcement; for other courses the classification will be made by the departmental representative.",
+          "req_list": [
+            {
+              "name": "Distribution Requirement",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": "Further, six out of the eight courses must be so distributed that there are two in each of three out of the four areas (metaphysics; ethics & philosophy of value; logic & philosophy of science; history of philosophy) into which philosophy courses are divided; there is no such restriction on the remaining two out of the eight.",
+              "req_list": [
+                {
+                  "name": "Metaphysics",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 203",
+                    "PHI 218",
+                    "PHI 237",
+                    "PHI 311",
+                    "PHI 313",
+                    "PHI 315",
+                    "PHI 317",
+                    "PHI 318",
+                    "PHI 337",
+                    "PHI 338"
+                  ]
+                },
+                {
+                  "name": "Ethics and Philosophy of Value",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 202",
+                    "PHI 306",
+                    "PHI 307",
+                    "PHI 309",
+                    "PHI 319",
+                    "PHI 320",
+                    "PHI 325",
+                    "PHI 326",
+                    "PHI 335",
+                    "PHI 360",
+                    "PHI 380",
+                    "PHI 384",
+                    "PHI 385",
+                    "PHI 390",
+                    "PHI 391",
+                    "PHI 419"
+                  ]
+                },
+                {
+                  "name": "Logic and Philosophy of Science",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 201",
+                    "PHI 204",
+                    "PHI 312",
+                    "PHI 314",
+                    "PHI 321",
+                    "PHI 322",
+                    "PHI 323",
+                    "PHI 327",
+                    "PHI 340",
+                    "PHI 490"
+                  ]
+                },
+                {
+                  "name": "History of Philosophy",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 200",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 302",
+                    "PHI 303",
+                    "PHI 304",
+                    "PHI 306",
+                    "PHI 332",
+                    "PHI 333",
+                    "PHI 335",
+                    "PHI 338"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "<i>Editor's Note: Some of these courses fall under this requirement but TigerPath does not verify this.</i>\n\nFor students following the regular requirements, cognates require individual approval. Cognates may not be used for both courses in a distribution area (and standards for approval are generally more liberal for courses that are not used for distribution requirements than for courses that are, and again more liberal for a first cognate than for a second). In general courses considering means other than philosophical argument (e.g. appeal to religious revelation, tradition, authority, faith) have been used to answer questions of a kind considered in philosophy, and courses considering philosophical works from a non-philosophical standpoint (e.g. as literary texts, emphasizing rhetorical style, or as historical documents, emphasizing external influences) are considered valuable supplements but not substitutes for philosophy courses, and hence not suitable as cognates.\n\nCourses that have been routinely approved as cognates in recent years include: all courses listed under the Politics department as courses in political theory; most courses listed under the History department as courses in history of science; and a few courses listed under area studies programs covering those aspects of the intellectual history of certain non-Western civilizations that invite comparison with the history of philosophy in the West. Other courses may be approved on a case-by-case basis.",
+              "course_list": [
+                "PHI *",
+                "POL *",
+                "HIS *",
+              ]
+            }
+          ]
+        },
         {
           "name": "Political Philosophy",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Political Philosophy. Senior concentrators doing their theses in political philosophy have the option of substituting for the usual distribution requirement (two courses in each of three areas plus two unrestricted courses) the following: two courses from among those listed under the Department of Politics as courses in political theory; two philosophy courses in the ethics and philosophy of value area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
-          "no_req": true
+          "explanation": "Senior concentrators doing their theses in political philosophy have the option of substituting for the usual distribution requirement (two courses in each of three areas plus two unrestricted courses) the following: two courses from among those listed under the Department of Politics as courses in political theory; two philosophy courses in the ethics and philosophy of value area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
+          "req_list": [
+            {
+              "name": "Political Theory",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two courses from among those listed under the Department of Politics as courses in political theory.",
+              "course_list": [
+                "POL 210",
+                "POL 301",
+                "POL 302",
+                "POL 303",
+                "POL 304",
+                "POL 305",
+                "POL 306",
+                "POL 307",
+                "POL 308",
+                "POL 309",
+                "POL 313",
+                "POL 315",
+                "POL 316",
+                "POL 321",
+                "POL 403",
+                "POL 410",
+                "POL 411",
+                "POL 412",
+                "POL 413",
+                "POL 416"
+              ]
+            },
+            {
+              "name": "Ethics and Philosophy of Value",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses in the ethics and philosophy of value area.",
+              "course_list": [
+                "PHI 202",
+                "PHI 306",
+                "PHI 307",
+                "PHI 309",
+                "PHI 319",
+                "PHI 320",
+                "PHI 325",
+                "PHI 326",
+                "PHI 335",
+                "PHI 360",
+                "PHI 380",
+                "PHI 384",
+                "PHI 385",
+                "PHI 390",
+                "PHI 391",
+                "PHI 419"
+              ]
+            },
+            {
+              "name": "Distribution Requirement",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Two philosophy courses in one other philosophy distribution area.",
+              "req_list": [
+                {
+                  "name": "Metaphysics",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 203",
+                    "PHI 218",
+                    "PHI 237",
+                    "PHI 311",
+                    "PHI 313",
+                    "PHI 315",
+                    "PHI 317",
+                    "PHI 318",
+                    "PHI 337",
+                    "PHI 338"
+                  ]
+                },
+                {
+                  "name": "Logic and Philosophy of Science",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 201",
+                    "PHI 204",
+                    "PHI 312",
+                    "PHI 314",
+                    "PHI 321",
+                    "PHI 322",
+                    "PHI 323",
+                    "PHI 327",
+                    "PHI 340",
+                    "PHI 490"
+                  ]
+                },
+                {
+                  "name": "History of Philosophy",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 200",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 302",
+                    "PHI 303",
+                    "PHI 304",
+                    "PHI 306",
+                    "PHI 332",
+                    "PHI 333",
+                    "PHI 335",
+                    "PHI 338"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses unrestricted as to distribution area.",
+              "course_list": [
+                "PHI *"
+              ]
+            }
+          ]
         },
         {
           "name": "Philosophy of Science",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Philosophy of Science. Senior concentrators doing their theses in philosophy of science have the option of substituting for the usual distribution requirements (two courses in each of three areas plus two unrestricted courses) the following: two upper-division (300 level or higher) courses in one relevant science (such as mathematics, computer science, physics, biology, psychology, economics); two philosophy courses in the logic and philosophy of science area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
-          "no_req": true
+          "explanation": "Senior concentrators doing their theses in philosophy of science have the option of substituting for the usual distribution requirements (two courses in each of three areas plus two unrestricted courses) the following: two upper-division (300 level or higher) courses in one relevant science (such as mathematics, computer science, physics, biology, psychology, economics); two philosophy courses in the logic and philosophy of science area; two philosophy courses in one other philosophy distribution area; and two philosophy courses unrestricted as to distribution area.",
+          "req_list": [
+            {
+              "name": "Science",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two upper-division (300 level or higher) courses in one relevant science (such as mathematics, computer science, physics, biology, psychology, economics).",
+              "course_list": [
+                "COS 3*",
+                "COS 4*",
+                "COS 5*",
+                "ECO 3*",
+                "ECO 4*",
+                "ECO 5*",
+                "EEB 3*",
+                "EEB 4*",
+                "EEB 5*",
+                "MAT 3*",
+                "MAT 4*",
+                "MAT 5*",
+                "MOL 3*",
+                "MOL 4*",
+                "MOL 5*",
+                "PHY 3*",
+                "PHY 4*",
+                "PHY 5*",
+                "PSY 3*",
+                "PSY 4*",
+                "PSY 5*"
+              ]
+            },
+            {
+              "name": "Logic and Philosophy of Science",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses in the logic and philosophy of science area.",
+              "course_list": [
+                "PHI 201",
+                "PHI 204",
+                "PHI 312",
+                "PHI 314",
+                "PHI 321",
+                "PHI 322",
+                "PHI 323",
+                "PHI 327",
+                "PHI 340",
+                "PHI 490"
+              ]
+            },
+            {
+              "name": "Distribution Requirement",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Two philosophy courses in one other philosophy distribution area.",
+              "req_list": [
+                {
+                  "name": "Metaphysics",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 203",
+                    "PHI 218",
+                    "PHI 237",
+                    "PHI 311",
+                    "PHI 313",
+                    "PHI 315",
+                    "PHI 317",
+                    "PHI 318",
+                    "PHI 337",
+                    "PHI 338"
+                  ]
+                },
+                {
+                  "name": "Ethics and Philosophy of Value",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 202",
+                    "PHI 306",
+                    "PHI 307",
+                    "PHI 309",
+                    "PHI 319",
+                    "PHI 320",
+                    "PHI 325",
+                    "PHI 326",
+                    "PHI 335",
+                    "PHI 360",
+                    "PHI 380",
+                    "PHI 384",
+                    "PHI 385",
+                    "PHI 390",
+                    "PHI 391",
+                    "PHI 419"
+                  ]
+                },
+                {
+                  "name": "History of Philosophy",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 200",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 302",
+                    "PHI 303",
+                    "PHI 304",
+                    "PHI 306",
+                    "PHI 332",
+                    "PHI 333",
+                    "PHI 335",
+                    "PHI 338"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses unrestricted as to distribution area.",
+              "course_list": [
+                "PHI *"
+              ]
+            }
+          ]
         },
         {
           "name": "Philosophy and Linguistics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Philosophy and Linguistics. Philosophy concentrators participating in the certificate program in linguistics may follow the philosophy of science option just described, taking linguistics as their science. All courses listed under the Program in Linguistics as core, other, or related courses may be considered courses in the science of linguistics for this purpose.",
-          "no_req": true
+          "explanation": "Philosophy concentrators participating in the certificate program in linguistics may follow the philosophy of science option just described, taking linguistics as their science. All courses listed under the Program in Linguistics as core, other, or related courses may be considered courses in the science of linguistics for this purpose.",
+          "req_list": [
+            {
+              "name": "Linguistics",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "All courses listed under the Program in Linguistics as core, other, or related courses may be considered courses in the science of linguistics for this purpose.",
+              "course_list": [
+                "LIN *"
+              ]
+            },
+            {
+              "name": "Logic and Philosophy of Science",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses in the logic and philosophy of science area.",
+              "course_list": [
+                "PHI 201",
+                "PHI 204",
+                "PHI 312",
+                "PHI 314",
+                "PHI 321",
+                "PHI 322",
+                "PHI 323",
+                "PHI 327",
+                "PHI 340",
+                "PHI 490"
+              ]
+            },
+            {
+              "name": "Distribution Requirement",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Two philosophy courses in one other philosophy distribution area.",
+              "req_list": [
+                {
+                  "name": "Metaphysics",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 203",
+                    "PHI 218",
+                    "PHI 237",
+                    "PHI 311",
+                    "PHI 313",
+                    "PHI 315",
+                    "PHI 317",
+                    "PHI 318",
+                    "PHI 337",
+                    "PHI 338"
+                  ]
+                },
+                {
+                  "name": "Ethics and Philosophy of Value",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 202",
+                    "PHI 306",
+                    "PHI 307",
+                    "PHI 309",
+                    "PHI 319",
+                    "PHI 320",
+                    "PHI 325",
+                    "PHI 326",
+                    "PHI 335",
+                    "PHI 360",
+                    "PHI 380",
+                    "PHI 384",
+                    "PHI 385",
+                    "PHI 390",
+                    "PHI 391",
+                    "PHI 419"
+                  ]
+                },
+                {
+                  "name": "History of Philosophy",
+                  "max_counted": 1,
+                  "min_needed": 2,
+                  "explanation": null,
+                  "course_list": [
+                    "PHI 200",
+                    "PHI 205",
+                    "PHI 300",
+                    "PHI 301",
+                    "PHI 302",
+                    "PHI 303",
+                    "PHI 304",
+                    "PHI 306",
+                    "PHI 332",
+                    "PHI 333",
+                    "PHI 335",
+                    "PHI 338"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two philosophy courses unrestricted as to distribution area.",
+              "course_list": [
+                "PHI *"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -142,16 +531,14 @@
       "name": "Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior Year. During fall semester of the junior year, independent work normally involves participation in a seminar of up to five students under the supervision of an instructor from the faculty of the department. The seminar provides a transition from course work to fully independent work. A junior seminar meets weekly for an hour or biweekly for two hours to discuss readings selected by the instructor, and each student writes a final paper, normally of at least 5,000 words, on a topic in the area defined by those readings, usually chosen by the student from a list provided by the instructor. (The student's grade for fall semester independent work will be based mainly on this paper, but it is usually based partly on shorter papers and/or oral presentations in the seminar earlier in the term.) During spring semester of the junior year, independent work consists of writing a junior paper -- an essay on a philosophical topic, normally of at least 5,000 words--under the supervision of an individual faculty adviser (different from the student's fall seminar instructor).",
-      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nDuring fall semester of the junior year, independent work normally involves participation in a seminar of up to five students under the supervision of an instructor from the faculty of the department. The seminar provides a transition from course work to fully independent work. A junior seminar meets weekly for an hour or biweekly for two hours to discuss readings selected by the instructor, and each student writes a final paper, normally of at least 5,000 words, on a topic in the area defined by those readings, usually chosen by the student from a list provided by the instructor. (The student's grade for fall semester independent work will be based mainly on this paper, but it is usually based partly on shorter papers and/or oral presentations in the seminar earlier in the term.) During spring semester of the junior year, independent work consists of writing a junior paper -- an essay on a philosophical topic, normally of at least 5,000 words--under the supervision of an individual faculty adviser (different from the student's fall seminar instructor).",
       "no_req": null
     },
     {
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Year. Senior year independent work consists of the following: writing the senior thesis, an essay or group of related essays on a topic or group of related topics in philosophy, normally of at least 10,000 words (and normally of at most 15,000 words); and preparation for the departmental examination (see below). The thesis is read, the examination is conducted, and both are graded by a committee of two members of the faculty, one primarily for advising the thesis, the other for coordinating the examination. A short thesis proposal is due just before fall recess and an interim thesis draft, normally of at least 5,000 words (not necessarily in final form), is due just after winter recess.",
-      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior year independent work consists of the following: writing the senior thesis, an essay or group of related essays on a topic or group of related topics in philosophy, normally of at least 10,000 words (and normally of at most 15,000 words); and preparation for the departmental examination (see below). The thesis is read, the examination is conducted, and both are graded by a committee of two members of the faculty, one primarily for advising the thesis, the other for coordinating the examination. A short thesis proposal is due just before fall recess and an interim thesis draft, normally of at least 5,000 words (not necessarily in final form), is due just after winter recess.",
       "no_req": null
     }
   ]
