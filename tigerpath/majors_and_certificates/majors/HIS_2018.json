@@ -118,7 +118,7 @@
             {
               "name": "Distribution Requirements",
               "max_counted": 1,
-              "min_needed": 1,
+              "min_needed": "ALL",
               "explanation": "To satisfy the department’s Distribution Requirements, students must take at least one course in each of the following four areas: European history (including Russia), United States history (including Afro-American history), Non-western history (including Asian, Near Eastern, Latin American, or African history), Pre-modern history.",
               "req_list": [
                 {
