@@ -157,18 +157,19 @@
                   "name": "Foundational Course",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "ANT 240 Medical Anthropology or ANT 340 Medicine and the Humanities or ANT 461 Disability, Difference, and Race or another approved foundational course. ANT 235, Medical Humanities, in Spring 2018, satisfies this requirement. Students who have taken ANT 235 may also take ANT 340 and ANT 461 as elective courses, but not ANT 240, as Medical Humanities (ANT 235) is considered equivalent to Medical Anthropology (ANT 240).",
+                  "explanation": "One  Foundational Medical Anthropology course offered by the Department including: Medical Anthropology (ANT 240), Medicine and the Humanities (ANT 340), Psychological Anthropology (ANT 305), Race and Medicine (ANT 403)",
                   "course_list": [
                     "ANT 240",
                     "ANT 340",
-                    "ANT 461"
+                    "ANT 305",
+                    "ANT 403"
                   ]
                 },
                 {
-                  "name": "Human Evolution",
+                  "name": "Biological Anthropology",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "A course on Human Evolution or ANT 215 Human Adaptation or ANT 309 Forensic Anthropology or ANT 201 (beginning Fall 2020) or a cognate¹ biological course. Note: The department will accept Evolutionary Biology (EEB 309) and Life on Earth (EEB 211/MOL 211) as cognates if taken in AY 2019 to AY 2021 by students declaring the ANT concentration in Spring 2020 or earlier. These courses may be used to substitute for a required biological anthropology course offered by the Anthropology Department.",
+                  "explanation": "One  Biological Anthropology course offered by the Department or a cognate Biological course including: ANT 201 (taken Fall 2020 or later), a course on human evolution, a course on human adaptation or forensic anthropology, an approved EEB or MOL course.\n\nNote: The department will accept Evolutionary Biology (EEB 309) and Life on Earth (EEB 211/MOL 211) as cognates if taken in AY 2019 to AY 2021 by students declaring the ANT concentration in Spring 2020 or earlier. These courses may be used to substitute for a required biological anthropology course offered by the Anthropology Department.",
                   "course_list": [
                     "ANT 215",
                     "ANT 309",
@@ -402,7 +403,7 @@
                   "name": "Cognates",
                   "max_counted": 2,
                   "min_needed": null,
-                  "explanation": "LPE students are allowed to take two cognates (as defined under Program of Study above). Appropriate cognates for LPE might include Introduction to Microeconomics (ECO 100), a course taught in the Politics Department, a regional studies course, courses taken during study abroad and/or anthropology courses taught outside the Law, Politics, and Economics track.",
+                  "explanation": "A cognate is a course that the director of undergraduate studies has reviewed and deemed to be relevant to a student's independent work or correspond to a student's course of study (i.e., track). LPE students are allowed to take two cognates as part of their six elective courses. Appropriate cognates for LPE might include Introduction to Microeconomics (ECO 100), a course taught in the Politics Department, a regional studies course, and/or a course taken during study abroad. Proposed cognates must be approved by the department. Approval prior to enrollment is normally expected, however, retroactive approval is granted when warranted.",
                   "course_list": [
                     "ANT *",
                     "AMS *",
