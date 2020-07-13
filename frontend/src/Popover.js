@@ -38,7 +38,14 @@ export function addPopover(course, courseKey, semIndex) {
   let courseSemList = course["semester_list"];
   if (courseSemList && courseSemList.length > 0) {
     let termCode = convertSemToTermCode(courseSemList[courseSemList.length - 1]);
-    let courseInfoLink = BASE_COURSE_OFFERINGS_URL + "?courseid=" + courseId + "&term=" + termCode;
+    // ****** TEMPORARY WORKAROUND FOR REGISTRAR MISSING F2020 COURSES ****** //
+    // revert this after July 20, 2020. See PR #338
+    let modified_termCode = termCode;
+    if (modified_termCode === "1212") {
+      modified_termCode = "1202"
+    }
+    let courseInfoLink = BASE_COURSE_OFFERINGS_URL + "?courseid=" + courseId + "&term=" + modified_termCode;
+    // ********************************************************************** //
     let courseEvalLink = BASE_COURSE_EVAL_URL + "?terminfo=" + termCode + "&courseinfo=" + courseId;
     
     content += "<div className='search-card-links'>"
