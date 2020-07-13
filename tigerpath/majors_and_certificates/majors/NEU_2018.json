@@ -21,7 +21,7 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": 3,
-      "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.",
+      "explanation": "To enter the neuroscience concentration, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I. ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
       "req_list": [
         {
           "name": null,
@@ -37,7 +37,7 @@
           "name": null,
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "ISC 236 - Biochemistry and Neuroscience offers an alternative to NEU 201 (formerly NEU 258) (a prerequisite).",
+          "explanation": null,
           "course_list": [
             "NEU 201",
             "ISC 236"
@@ -59,7 +59,7 @@
       "name": "Cognate Courses",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": null,
+      "explanation": "PHY 108 can be taken in lieu of PHY 102. The first year ISC sequence (ISC 231, 232, 233, 234) offers an alternative to the combination of MOL 214 or 215 (biology elective), COS 126 (a quantitative thinking elective), and PHY 101-102 (required courses).",
       "req_list": [
         {
           "name": null,
@@ -275,7 +275,7 @@
           "name": "Cell Biology",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Students must take one 200-level or higher course in cell biology from the following list.",
+          "explanation": "Students must take one 200-level or higher course in cell biology from the following list. The first year ISC sequence (ISC 231, 232, 233, 234) offers an alternative to the combination of MOL 214 or 215 (biology elective), COS 126 (a quantitative thinking elective), and PHY 101-102 (required courses).",
           "req_list": [
             {
               "name": null,
@@ -326,7 +326,7 @@
           "name": "Quantitative Thinking",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Students must take one course in quantitative thinking from the following list.",
+          "explanation": "Students must take one course in quantitative thinking from the following list. The first year ISC sequence (ISC 231, 232, 233, 234) offers an alternative to the combination of MOL 214 or 215 (biology elective), COS 126 (a quantitative thinking elective), and PHY 101-102 (required courses).",
           "req_list": [
             {
               "name": null,
