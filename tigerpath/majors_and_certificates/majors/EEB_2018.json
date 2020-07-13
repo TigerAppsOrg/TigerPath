@@ -27,6 +27,7 @@
       "min_needed": "ALL",
       "explanation": "The Department of Ecology and Evolutionary Biology requires the following prerequisites, which should normally be completed by the end of sophomore year.",
       "completed_by_semester": 4,
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Biology",
@@ -82,13 +83,22 @@
             },
             {
               "name": null,
-              "max_counted": 2,
+              "max_counted": 1,
               "min_needed": null,
               "explanation": null,
               "course_list": [
                 "CHM 215"
               ]
-            }
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CHM 215"
+              ]
+            },
           ]
         },
         {
@@ -129,7 +139,7 @@
             "POL 345",
             "SOC 301",
             "ECO 202",
-            "WWS 220",
+            "WWS 200",
             "WWS 332"
           ]
         }
