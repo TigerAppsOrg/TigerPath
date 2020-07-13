@@ -6,7 +6,7 @@
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-ecology-and-evolutionary-biology",
-    "https://eeb.princeton.edu/"
+    "https://eeb.princeton.edu/undergraduate/plan-study-0"
   ],
   "contacts": [
     {
@@ -15,9 +15,9 @@
       "email": "lhedin@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
-      "name": "Daniel I. Rubenstein",
-      "email": "dir@princeton.edu"
+      "type": "Director of Undergraduate Studies",
+      "name": "Jonathan Levine",
+      "email": "levinej@princeton.edu"
     }
   ],
   "req_list": [
@@ -26,18 +26,20 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "explanation": "The Department of Ecology and Evolutionary Biology requires the following prerequisites, which should normally be completed by the end of sophomore year.",
+      "completed_by_semester": 4,
+      "double_counting_allowed": true,
       "req_list": [
         {
-          "name": "Introductory Biology",
+          "name": "Biology",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Two terms of introductory biology: EEB 211 and either EEB/MOL 214 or EEB/MOL 215);",
+          "explanation": "Two terms of introductory biology: EEB 211 and either EEB/MOL 214 or EEB/MOL 215).",
           "req_list": [
             {
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "Two terms of introductory biology: EEB 211 and either EEB/MOL 214 or EEB/MOL 215);",
+              "explanation": null,
               "course_list": [
                 "EEB 211"
               ]
@@ -46,7 +48,7 @@
               "name": null,
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "Two terms of introductory biology: EEB 211 and either EEB/MOL 214 or EEB/MOL 215);",
+              "explanation": null,
               "course_list": [
                 "EEB 214/MOL 214",
                 "EEB 215/MOL 215"
@@ -55,37 +57,72 @@
           ]
         },
         {
-          "name": "Math",
+          "name": "Chemistry",
           "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Mastery of calculus to the level of MAT 103 or above, or advanced placement (an AP score of 5 on the AB test or an AP score of 4 on the BC test);",
-          "course_list": [
-            "MAT 103",
-            "MAT 104",
-            "MAT 201",
-            "MAT 202",
-            "MAT 203",
-            "MAT 204"
+          "min_needed": 2,
+          "explanation": "Two terms of introductory chemistry (or equivalent, or an AP score of 5).",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CHM 202"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CHM 201",
+                "CHM 207"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CHM 215"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CHM 215"
+              ]
+            },
           ]
         },
         {
-          "name": "Chemistry",
+          "name": "Math",
           "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "Two terms of introductory chemistry (or equivalent, or an AP score of 5);",
+          "min_needed": 1,
+          "explanation": "Mastery of calculus to the level of MAT 103 or above, or advanced placement (an AP score of 5 on the AB test or an AP score of 4 on the BC test).",
           "course_list": [
-            "CHM 201",
-            "CHM 202"
+            "MAT 103",
+            "MAT 104",
+            "MAT 175",
+            "MAT 215"
           ]
         },
         {
           "name": "Physics",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "The first term of introductory physics (or the equivalent, or an AP score of 5)",
+          "explanation": "The first term of introductory physics (or the equivalent, or an AP score of 5).",
           "course_list": [
             "PHY 101",
+            "PHY 102",
             "PHY 103",
+            "PHY 104",
             "PHY 108"
           ]
         },
@@ -97,113 +134,117 @@
           "completed_by_semester": 7,
           "course_list": [
             "SML 201",
-            "ECO 202",
             "ORF 245",
-            "POL 345",
             "PSY 251",
+            "POL 345",
+            "SOC 301",
+            "ECO 202",
+            "WWS 200",
             "WWS 332"
           ]
         }
-      ],
-      "completed_by_semester": 4
-    },
-    {
-      "name": "Required Core",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "All EEB concentrators must take EEB 309 and EEB 321 in the fall of their junior year or earlier.",
-      "completed_by_semester": 5,
-      "course_list": [
-        "EEB 309",
-        "EEB 321"
       ]
     },
     {
-      "name": "Departmental Courses",
+      "name": "Course Requirements",
       "max_counted": 1,
-      "min_needed": 8,
-      "explanation": "Students must successfully complete a minimum of eight upper-level departmental courses at least six of which must be EEB courses. The first semester of organic chemistry and biochemistry (MOL 345) can each be counted as a departmental course (the second semester of organic chemistry will not count as a departmental). Other MOL courses might count as an EEB departmental with prior approval of the departmental representative.",
-      "double_counting_allowed": true,
+      "min_needed": "ALL",
+      "explanation": "A minimum of 8 courses are required. You must receive a C- or better for departmental credit.",
       "req_list": [
         {
-          "name": "Ecology and Environment",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
-          "course_list": [
-            "EEB 321",
-            "EEB 308",
-            "EEB 346",
-            "EEB 338",
-            "EEB 417"
-          ]
-        },
-        {
-          "name": "Evolution and Genomics",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
+          "name": "Required Courses",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "EEB 309 and EEB 321 are required",
           "course_list": [
             "EEB 309",
-            "EEB 326"
+            "EEB 321"
           ]
         },
         {
-          "name": "Behavior and Organismal Biology",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
-          "course_list": [
-            "EEB 311",
-            "EEB 313",
-            "EEB 314",
-            "EEB 329",
-            "EEB 403",
-            "EEB 404",
-            "EEB 406"
+          "name": "Two Areas",
+          "max_counted": 1,
+          "min_needed": 2,
+          "explanation": "1 class from each of 2 of the following areas (2 classes total): Behavior and Organismal Biology (EEB 313, 314, 329, 403, 404*, 406*), Disease Ecology (EEB 304, 327, 328*, 351), Conservation Biology (EEB 308, 380*, 417, 303), Mathematical and Computational Biology (EEB 324, 325). *Offered as part of the semester abroad program.",
+          "req_list": [
+            {
+              "name": "Behavior and Organismal Biology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "EEB 313",
+                "EEB 314",
+                "EEB 329",
+                "EEB 403",
+                "EEB 404",
+                "EEB 406"
+              ]
+            },
+            {
+              "name": "Disease Ecology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "EEB 304",
+                "EEB 327",
+                "EEB 328",
+                "EEB 351"
+              ]
+            },
+            {
+              "name": "Conservation Biology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "EEB 303",
+                "EEB 308",
+                "EEB 380",
+                "EEB 417"
+              ]
+            },
+            {
+              "name": "Mathematical and Computational Biology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "EEB 324",
+                "EEB 325"
+              ]
+            }
           ]
         },
         {
-          "name": "Disease Ecology",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
-          "course_list": [
-            "EEB 304",
-            "EEB 327",
-            "EEB 328",
-            "EEB 351"
-          ]
-        },
-        {
-          "name": "Conservation Biology",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
-          "course_list": [
-            "EEB 308",
-            "EEB 380",
-            "EEB 417"
-          ]
-        },
-        {
-          "name": "Mathematical and Computational Biology",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "",
-          "course_list": [
-            "EEB 324",
-            "EEB 325"
-          ]
-        },
-        {
-          "name": "Other",
-          "max_counted": 5,
-          "min_needed": null,
-          "explanation": "The first semester of organic chemistry and biochemistry (MOL 345) can each be counted as a departmental course (the second semester of organic chemistry will not count as a departmental)",
-          "course_list": [
-            "CHM 301",
-            "MOL 345"
+          "name": "Upper Level Courses",
+          "max_counted": 1,
+          "min_needed": 4,
+          "explanation": "4 additional upper level (300+) EEB courses. (CHM 301 and either MOL 345 or MOL 380 can count as departmentals. Other MOL courses with prior permission of the Department Representative).",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "EEB 3*",
+                "EEB 4*",
+                "EEB 5*",
+                "CHM 301"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MOL 345",
+                "MOL 380"
+              ]
+            }
           ]
         }
       ]
@@ -216,14 +257,13 @@
       "double_counting_allowed": true,
       "course_list": [
         "EEB 321"
-        ]
+      ]
     },
     {
       "name": "Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior independent work:  Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, which will take place early in the semester, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.\nDuring the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review, or a research proposal.  The second junior paper is due in early May.",
-      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJunior independent work: Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, which will take place early in the semester, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.\n\nDuring the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review, or a research proposal. The second junior paper is due in early May.",
       "no_req": null
     },
     {
@@ -231,7 +271,6 @@
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. During the fall of the junior year each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding the senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical, or library study that will be written and presented as a senior thesis.",
       "max_counted": null,
-      "description": "Senior Thesis",
       "no_req": null
     }
   ]
