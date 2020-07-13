@@ -33,40 +33,40 @@
       ]
     },
     {
-      "name": "Departmentals",
+      "name": "Analytical Requirement",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "Concentrators are required to take a Politics course in systematic analysis, normally no later than the first semester of the junior year. The Department strongly recommends completing this requirement before the end of the sophomore year. The analytical course must be taken for a grade - not P/D/F.\n\nThe analytical requirement can be met by taking a Politics course in quantitative methods (POL 345/SOC 305/WWS 211 or POL 346), formal theory (POL 250 or POL 347/ECO 347), or experimental methods (POL 341).\n\nThe course used to fulfill the analytical requirement cannot be used to satisfy primary, secondary or third field requirements, but it does count as a departmental.",
+      "completed_by_semester": 7,
+      "course_list": [
+        "POL 250",
+        "POL 341",
+        "POL 345/SOC 305/WWS 211",
+        "POL 346",
+        "POL 347/ECO 347",
+        "POL 451",
+        "ANT 300",
+        "ANT 301",
+        "ECO 202",
+        "ECO 302",
+        "ORF 245",
+        "PHI 201",
+        "SOC 404",
+        "WWS 200",
+        "WWS 332"
+      ]
+    },
+    {
+      "name": "Field Selection",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "By the end of the senior year, all students in the Department must complete, in addition to prerequisites, no fewer than eight departmental courses, of which two may be cognates. Note that the University sets a maximum of 12 courses (plus independent work) in a given department. Additional courses in the department may be taken, but will not count towards the 31-course minimum required for graduation. Any course taken in the department counts as a POL departmental (in other words, you cannot take a POL course and not have it count as a departmental course). Note that such courses have the prefix POL in their course number. This includes courses that are cross-listed with other departments, including courses where POL is not listed first—e.g. AAS 362/WWS 386/POL 338. Note: Note it is now possible to take a 200-level course in a subfield after having taken 2, 300-level courses in that subfield. (This had not been allowed prior to Academic Year, 2020-2021.)",
+      "explanation": "Upon entering the department, students designate a primary field (American Politics, Comparative Politics, International Relations, or Political Theory). Senior theses are written on a topic within the primary field. Concentrators must take at least three courses in their primary field. In addition, concentrators must take at least two courses in a second field, and at least one course in a third field. Five areas of study are eligible for designation as secondary or tertiary field: American Politics, Comparative Politics, International Relations, Political Theory, and Methods (which includes both quantitative methods and formal theory courses). Methods may not be used as a primary field. A course taken to fulfill the Analytic Requirement cannot also be counted towards a field distribution requirement. Prerequisites may be used to satisfy field distribution requirements. Some courses are listed in more than one field, but no course may be simultaneously counted toward more than one field. The primary field may be changed at any time before the end of the first semester of the junior year.",
       "req_list": [
-        {
-          "name": "Analytical Requirement",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "Concentrators are required to take a Politics course in systematic analysis, normally no later than the first semester of the junior year. The Department strongly recommends completing this requirement before the end of the sophomore year. The analytical course must be taken for a grade - not P/D/F.\n\nThe analytical requirement can be met by taking a Politics course in quantitative methods (POL 345/SOC 305/WWS 211 or POL 346), formal theory (POL 250 or POL 347/ECO 347), or experimental methods (POL 341).\n\nThe course used to fulfill the analytical requirement cannot be used to satisfy primary, secondary or third field requirements, but it does count as a departmental.",
-          "completed_by_semester": 7,
-          "course_list": [
-            "POL 250",
-            "POL 341",
-            "POL 345/SOC 305/WWS 211",
-            "POL 346",
-            "POL 347/ECO 347",
-            "POL 451",
-            "ANT 300",
-            "ANT 301",
-            "ECO 202",
-            "ECO 302",
-            "ORF 245",
-            "PHI 201",
-            "SOC 404",
-            "WWS 200",
-            "WWS 332"
-          ]
-        },
         {
           "name": "Primary Field",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Upon entering the department, students designate a primary field (American Politics, Comparative Politics, International Relations, or Political Theory). Senior theses are written on a topic within the primary field. Concentrators must take at least three courses in their primary field. In addition, concentrators must take at least two courses in a second field, and at least one course in a third field. Five areas of study are eligible for designation as secondary or tertiary field: American Politics, Comparative Politics, International Relations, Political Theory, and Methods (which includes both quantitative methods and formal theory courses). Methods may not be used as a primary field. A course taken to fulfill the Analytic Requirement cannot also be counted towards a field distribution requirement. Prerequisites may be used to satisfy field distribution requirements. Some courses are listed in more than one field, but no course may be simultaneously counted toward more than one field. The primary field may be changed at any time before the end of the first semester of the junior year.",
+          "explanation": "Concentrators must take at least three courses in their primary field. The primary field may be changed at any time before the end of the first semester of the junior year.",
           "req_list": [
             {
               "name": "Political Theory",
@@ -412,21 +412,23 @@
       ]
     },
     {
-      "name": "Track",
+      "name": "Departmentals",
       "max_counted": 1,
-      "min_needed": 1,
+      "min_needed": 8,
+      "explanation": "By the end of the senior year, all students in the Department must complete, in addition to prerequisites, no fewer than eight departmental courses, of which two may be cognates. Note that the University sets a maximum of 12 courses (plus independent work) in a given department. Additional courses in the department may be taken, but will not count towards the 31-course minimum required for graduation.\n\nCourses taken as prerequisites will be counted as departmentals. Any course taken in the department counts as a POL departmental (in other words, you cannot take a POL course and not have it count as a departmental course). Note that such courses have the prefix POL in their course number. This includes courses that are cross-listed with other departments, including courses where POL is not listed first—e.g. AAS 362/WWS 386/POL 338. Note: Note it is now possible to take a 200-level course in a subfield after having taken 2, 300-level courses in that subfield. (This had not been allowed prior to Academic Year, 2020-2021.)",
+      "double_counting_allowed": true,
+      "course_list": [
+        "POL *"
+      ]
+    },
+    {
+      "name": "Optional Tracks",
+      # the following line is a hack to allow for an unproductive requirement that still gets checked. See discussion at PR #296
+      "max_counted": 0.000000000001,
+      "min_needed": 0,
       "explanation": "All students who declare their concentration in Politics are eligible to pursue one of the three tracks and should inform the Undergraduate Program Manager of their intention to pursue a program upon declaring the concentration in April of their sophomore year, and no later than February 1 of their junior year. The tracks provide additional guidance for structuring the program of study as a Politics concentrator, but students are not required to select a track to graduate with a degree in Politics. Students who pursue a program will still need to fulfill the requirements of a Politics concentrator. Courses may simultaneously fulfill both the program requirements and the Politics concentration requirements.",
       "double_counting_allowed": true,
       "req_list": [
-        {
-          "name": "Politics",
-          "max_counted": 1,
-          "min_needed": 8,
-          "explanation": "By the end of the senior year, all students in the Department must complete, in addition to prerequisites, no fewer than eight departmental courses, of which two may be cognates.",
-          "course_list": [
-            "POL *"
-          ]
-        },
         {
           "name": "American Ideas and Institutions",
           "max_counted": 1,
