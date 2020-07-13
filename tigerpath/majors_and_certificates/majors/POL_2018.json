@@ -37,7 +37,7 @@
       "max_counted": 1,
       "min_needed": 1,
       "explanation": "Concentrators are required to take a Politics course in systematic analysis, normally no later than the first semester of the junior year. The Department strongly recommends completing this requirement before the end of the sophomore year. The analytical course must be taken for a grade - not P/D/F.\n\nThe analytical requirement can be met by taking a Politics course in quantitative methods (POL 345/SOC 305/WWS 211 or POL 346), formal theory (POL 250 or POL 347/ECO 347), or experimental methods (POL 341).\n\nThe course used to fulfill the analytical requirement cannot be used to satisfy primary, secondary or third field requirements, but it does count as a departmental.",
-      "completed_by_semester": 7,
+      "completed_by_semester": 5,
       "course_list": [
         "POL 250",
         "POL 341",
@@ -122,6 +122,7 @@
                 "POL 420",
                 "POL 422",
                 "POL 423",
+                "POL 426",
                 "POL 428",
                 "POL 429"
               ]
@@ -229,6 +230,7 @@
                 "POL 420",
                 "POL 422",
                 "POL 423",
+                "POL 426",
                 "POL 428",
                 "POL 429"
               ]
@@ -349,6 +351,7 @@
                 "POL 420",
                 "POL 422",
                 "POL 423",
+                "POL 426",
                 "POL 428",
                 "POL 429"
               ]
@@ -414,7 +417,7 @@
     {
       "name": "Departmentals",
       "max_counted": 1,
-      "min_needed": 8,
+      "min_needed": 10,
       "explanation": "By the end of the senior year, all students in the Department must complete, in addition to prerequisites, no fewer than eight departmental courses, of which two may be cognates. Note that the University sets a maximum of 12 courses (plus independent work) in a given department. Additional courses in the department may be taken, but will not count towards the 31-course minimum required for graduation.\n\nCourses taken as prerequisites will be counted as departmentals. Any course taken in the department counts as a POL departmental (in other words, you cannot take a POL course and not have it count as a departmental course). Note that such courses have the prefix POL in their course number. This includes courses that are cross-listed with other departments, including courses where POL is not listed first—e.g. AAS 362/WWS 386/POL 338. Note: Note it is now possible to take a 200-level course in a subfield after having taken 2, 300-level courses in that subfield. (This had not been allowed prior to Academic Year, 2020-2021.)",
       "double_counting_allowed": true,
       "course_list": [
@@ -459,7 +462,7 @@
             },
             {
               "name": "The Constitution and the Courts",
-              "max_counted": 2,
+              "max_counted": 1,
               "min_needed": 1,
               "explanation": null,
               "course_list": [
@@ -472,7 +475,7 @@
             },
             {
               "name": "American Political, Legal, and Constitutional Thought",
-              "max_counted": 2,
+              "max_counted": 1,
               "min_needed": 1,
               "explanation": null,
               "course_list": [
@@ -487,9 +490,9 @@
               ]
             },
             {
-              "name": "Additional Course",
+              "name": "5 total courses",
               "max_counted": 1,
-              "min_needed": 1,
+              "min_needed": 5,
               "explanation": null,
               "course_list": [
                 "POL 325",
@@ -654,7 +657,7 @@
               "req_list": [
                 {
                   "name": "Quantitative Analysis",
-                  "max_counted": null,
+                  "max_counted": 3,
                   "min_needed": 1,
                   "explanation": null,
                   "course_list": [
@@ -665,7 +668,7 @@
                 },
                 {
                   "name": "Game Theory and Applications",
-                  "max_counted": null,
+                  "max_counted": 3,
                   "min_needed": 1,
                   "explanation": null,
                   "course_list": [
