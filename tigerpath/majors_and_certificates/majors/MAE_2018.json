@@ -26,7 +26,7 @@
       "name": "Introductory Courses",
       "max_counted": 1,
       "min_needed": 5,
-      "explanation": "Some of the above can be satisfied by equivalent courses. For example, students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223; and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.",
+      "explanation": "The required introductory courses that are prerequisites for the Departmental upper class courses, normally completed by the end of the sophomore year, are: MAE 206 Introduction to Engineering Dynamics, MAE 221 Thermodynamics, MAE 222 Mechanics of Fluids, MAE 223 Modern Solid Mechanics1, MAE 224 Integrated Laboratory.Students with an interest in structures may take CEE 205 Mechanics of Solids in place of MAE 223 and students with an interest in engineering physics may take PHY 205 Classical Mechanics or PHY 207 Mechanics and Waves in place of MAE 206.",
       "completed_by_semester": 4,
       "req_list": [
         {
@@ -176,7 +176,7 @@
                       "name": "Structures",
                       "max_counted": 1,
                       "min_needed": 1,
-                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers.",
+                      "explanation": "MAE 323 or CEE 312 or 361 required for Mechanical and Aerospace Engineers.",
                       "course_list": [
                         "MAE 323: Aerospace Structures",
                         "CEE 312: Statics of Structures",
@@ -186,7 +186,7 @@
                   ]
                 },
                 {
-                  "name": "Electives",
+                  "name": "Additional Course",
                   "max_counted": 1,
                   "min_needed": 1,
                   "explanation": null,
@@ -333,7 +333,7 @@
                   ]
                 },
                 {
-                  "name": "Electives",
+                  "name": "Additional Course",
                   "max_counted": 1,
                   "min_needed": 1,
                   "explanation": null,
