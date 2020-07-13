@@ -4,9 +4,10 @@
   "code": "ENG",
   "degree": "AB",
   "year": 2018,
+  "explanation": "English concentrators must take a total of 10 courses: the Junior Seminar (JRS), and nine departmental courses. The Junior Seminar is a topical introduction to research methods in the discipline, and prepares students for their independent work. Of the remaining nine required courses, one is in Literary and Cultural History (LCH); these courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study. Five courses meet distribution requirements, and three more are additional ENG or ENG cross-listed courses.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-english",
-    "https://english.princeton.edu/"
+    "https://english.princeton.edu/undergraduate/program"
   ],
   "contacts": [
     {
@@ -15,7 +16,7 @@
       "email": "sgikandi@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Tamsen O. Wolff",
       "email": "twolff@princeton.edu"
     }
@@ -24,143 +25,362 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
+      "min_needed": 1,
+      "explanation": "There are no specific prerequisite courses for the concentration in English, but prospective concentrators should take at least one course in English in the first and second years. The department offers several 200-level Gateway Courses each year, both lectures and seminars, which are a particularly good way to begin, although they can be taken at any time.",
+      "double_counting_allowed": true,
+      "course_list": [
+        "ENG 2*"
+      ]
+    },
+    {
+      "name": "Distribution Requirements",
+      "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "English department prerequisites provide a background in literary history and familiarity with one of the major genres. Concentrators take both ENG 200 (British Literature from the 14th to the 18th Centuries) and one of the 200-level Reading Literature courses: ENG 205 (Poetry), ENG 206 (Fiction), ENG 207 (Drama), or ENG 208 (The Essay) or ENG 209 (Theory).",
+      "explanation": "Departmental distribution requirements ensure breadth in each concentrator's program of study. Everyone must take at least one course in each of the following areas for a total of 10 courses: Literary and Cultural History (LCH), Literature and Culture before 1700 (pre-1700), Literature and Culture from 1700-1900 (1700-1900), Literature and Culture from 1900-present (post-1900), Difference and Diversity (D&D), Theory and Criticism provides tools for thinking critically across all these periods, identities, and genres (T&C), Junior Seminar (ENG 300), Three additional ENG or ENG cross-listed courses.",
       "req_list": [
         {
-          "name": "British Literature 14th to 18th Centuries",
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
-          "course_list": [
-            "ENG 200"
-          ]
-        },
-        {
-          "name": "Reading Literature",
+          "name": "Literary and Cultural History",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>\n\nLiterary and Cultural History (LCH) courses ask questions about tradition and transmission over longer periods, and provide background for more specialized study.",
           "course_list": [
-            "ENG 205",
-            "ENG 206",
-            "ENG 207",
-            "ENG 208",
-            "ENG 209"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Departmental Courses",
-      "max_counted": 1,
-      "min_needed": 8,
-      "explanation": "English concentrators must take a total of 11 courses: two 200-level prerequisites, the Junior Seminar, and eight departmental courses, seven of which must be at the 300 level or above. With the permission of the departmental representative, concentrators may count one cognate course from another department, where that course adds depth or perspective to their studies in English. (Some optional tracks may permit more cognates or specify their nature: see below.)",
-      "req_list": [
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "1 can be any level",
-          "course_list": [
-            "ENG 2*"
+            "ENG 200: Literary History",
+            "ENG 301:	Word Love: A History of English for Readers",
+            "ENG 353: Melodrama, from Uncle Tom's Cabin to Grey's Anatomy",
+            "ENG 415/JRN 415/COM 446: Topics in Literature and Ethics: Imagining Human Rights",
+            "AAS 353/ENG 352: African American Literature: Origins to 1910",
+            "COM 339/ECS 351/ENG 239/HUM 399: Politcal Novel and Cinema"
           ]
         },
         {
-          "name": null,
-          "max_counted": 8,
-          "min_needed": null,
-          "explanation": "7 have to be 300 or higher",
+          "name": "Literature and Culture before 1700",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
           "course_list": [
-            "ENG 3*",
-            "ENG 4*",
-            "ENG 5*"
+            "ENG 310/MED 210: The Old English Period",
+            "ENG 311/MED 309: The Medieval Period",
+            "ENG 312/MED 312: Chaucer",
+            "ENG 313/MED 315/COM 358: Worlds Made with Words: Select Old English Literature",
+            "ENG 320/THR 310: Shakespeare I",
+            "ENG 321: Shakespeare II",
+            "ENG 325: Milton",
+            "ENG 326: The 17th Century: Tolerance and Its Critics",
+            "ENG 327/GSS 410: The English Drama to 1700",
+            "ENG 328: Topics in the Renaissance: Erotic Poetry",
+            "ENG 381: Laughter, Vice and Delusion: Satire and Satirists, 1500‐1700",
+            "ENG 390/COM 392/HUM 390: Bible as Literature",
+            "ENG 400/MED 400: Touching Books: An Introduction to the History of the Book",
+            "ENG 421/MED 421: Beowulf",
+            "ENG 448/THR 448/HUM 448/COM 440: Early Modern Amsterdam",
+            "COM 212/THR 212/ENG 425: Learning Shakespeare by Doing",
+            "COM 345/JDS 345/ENG 246: One Text, Many Angles: Merchant of Venice",
+            "HUM 320/HIS 346/MED 322/ENG 233: Making Medieval Worlds: Methods and Materials",
+            "REL 350/ENG 442/CLA 352/HIS 353: God, Satan, Goddesses, and Monsters: How Their Stories Play in Art, Culture, and Politics"
           ]
-        }
-      ]
-    },
-    {
-      "name": "Tracks (Optional)",
-      "max_counted": 1,
-      "min_needed": null,
-      "explanation": "Students must complete four core requirements. It is recommended that students complete some of these core requirements by the end of the sophomore year. Completing these core courses early gives more options for junior and senior independent work. Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
-      "req_list": [
-        {
-          "name": "British",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Four courses in British literature; one junior paper and the senior thesis on a British topic. One cognate course in another department (history, art and archaeology, etc.) on a British topic may be counted.",
-          "no_req": null
         },
         {
-          "name": "American",
+          "name": "Literature and Culture from 1700-1900",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature and culture of the territories that became the United States, from native peoples and the first European settlers to the present day. Requirements: four courses in American literature (including at least one of ENG 201, ENG 353, or ENG 366); one junior paper and the senior thesis on an American topic. One cognate course in another department (history, art and archaeology, etc.) on an American topic may be counted. This track is often combined with a certificate in American studies or African American studies.",
-          "no_req": null
+          "min_needed": 1,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
+          "course_list": [
+            "ENG 202: The American Short Story from Irving to Wharton",
+            "ENG 339: Topics in 18th-Century Literature: Jane Austin",
+            "ENG 340: Romanticism and the Age of Revolution",
+            "ENG 341: The Later Romantics",
+            "ENG 345: Nineteenth-Century Fiction",
+            "ENG 385: Children's Literature",
+            "ENG 350: Literature of the American Renaissance, 1820‐1860",
+            "ENG 351: American Literature: 1865‐1930",
+            "ENG 357: Topics in American Literature: Henry James and William Faulkner",
+            "ENG 411/AAS 413/AMS 411: Major Authors: Emerson & Douglass",
+            "ENG 432/HUM 433: Fashioning the Self, Rendering Others: Literary and Visual Portraiture, 18th C to the Present",
+            "AAS 353/ENG 352: African American Literature: Origins to 1910",
+            "COM 372/ENG 303: The Gothic Tradition",
+            "COM 421/ENG 241: Lyric Language and Form I: Renaissance to Romantic"
+          ]
         },
         {
-          "name": "Anglophone",
+          "name": "Literature and Culture from 1900-Present",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature and culture of English as a global language. Requirements: four courses in Anglophone literature; one junior paper and the senior thesis on an Anglophone topic. Up to two cognate courses in another department (history, art and archaeology, etc.) on an Anglophone topic may be counted.",
-          "no_req": null
+          "min_needed": 1,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
+          "course_list": [
+            "ENG 203: The Essay",
+            "ENG 204: Historical Fiction/Fictional History",
+            "ENG 206: Making and Remaking Fiction",
+            "ENG 208: Reading Literature: The Essay",
+            "ENG 214: Coming of Age Literature",
+            "ENG 308: American Cinema",
+            "ENG 309: Graphic Novels and Comics",
+            "ENG 317: Historical Fiction/Fictional History",
+            "ENG 324: James Joyce's Ulysses",
+            "ENG 333: Mostly Middlemarch",
+            "ENG 343: Word and Image",
+            "ENG 345: Nineteenth‐Century Fiction",
+            "ENG 351: American Literature: 1865‐1930",
+            "ENG 354/AAS 354/THR 351: Black Dramatists in the English-Speaking World",
+            "ENG 355: British Cinema",
+            "ENG 356: Topics in American Literature",
+            "ENG 357: Topics in American Literature: James and Faulkner",
+            "ENG 360: Modern Fiction",
+            "ENG 362: Modern Poetry",
+            "ENG 363: Virtual Victorians",
+            "ENG 364/COM 321/THR 364: Modern Drama I",
+            "ENG 368/AMS 340: American Literature: 1930-Present",
+            "ENG 369: Contemporary Science Fiction/Speculative Fiction",
+            "ENG 372/THR 372: Contemporary Drama",
+            "ENG 374: Fighting Words, or Cultures of Protest",
+            "ENG 376/THR 376: Curious Aesthetics: Twentieth‐Century American Musical Theatre",
+            "ENG 377/COM 386: Bollywood Cinema",
+            "ENG 379/AAS 379/AMS 389/ART 380: Black Aesthetics: Art, Literature, and Politics in the African Diaspora",
+            "ENG 380/THR 380: World Drama",
+            "ENG 382/THR 382: International Theatre: Plays and Politics",
+            "ENG 384/ENV 383: Environmental Justice Through Literature and Film",
+            "ENG 385: Children's Literature",
+            "ENG 387: Writing about Family",
+            "ENG 388/GSS 399: The Female Literary Tradition",
+            "ENG 391A/AAS 391: Experimenting in Dark Times: 19th C. African American Literature and Culture",
+            "ENG 391B/URB 391/ARC 200: Experimenting in Dark Times: 19th C. African American Literature and Culture",
+            "ENG 395/AMS 384/GSS 301: Literature, Food, and the American Racial Diet",
+            "ENG 397/AAS 397/COM 348: New Diasporas: Black British Literature",
+            "ENG 401: Forms of Literature",
+            "ENG 403: Forms of Literature: Literature and War",
+            "ENG 405: Topics in Poetry",
+            "ENG 406: Magical Realism",
+            "ENG 409/THR 410: Topics in Drama: The Antigone Project",
+            "ENG 411/AAS 413/AMS 411/THR 412: Major Authors: August Wilson",
+            "ENG 412: Major Author(s): Dickens, Bronte, Eliot",
+            "ENG 414: Major Authors",
+            "ENG 416/AMS 416: Topics in Literature and Ethics: Minority Literatures and Ethical Reading",
+            "ENG 428/AMS 428/THR 428: Sex, Violence, Death, and Other Entertainments for Kids: Challenging Drama for Youth",
+            "ENG 432/HUM 433: Fashioning the Self, Rendering Others: Literary and Visual Portraiture, 18th C to the Present",
+            "ENG 433: Interpreting Brexit",
+            "ENG 444/ASA 444/AMS 443: Global Novel",
+            "ENG 445/ART 457/GSS 445: Between Desire and Disgust",
+            "ENG 446: The Novel Since 2000",
+            "AAS 359/ENG 366: African American Literature: Harlem Renaissance to Present",
+            "AAS 363/ENG 439/AMS 362: Blackness and Media",
+            "AAS 392/ENG 392: Topics in African American Literature: Reading Toni Morrison",
+            "AAS 499/ENG 499/AMS 499: Theoretical Approaches in Black Studies",
+            "AMS 301/ENG 432/GSS 338/ASA 301: Science Fiction and Fact",
+            "AMS 310/ENG 434/ASA 310: Multiethnic American Short Stories: Tales We Tell Ourselves",
+            "AMS 317/MTD 321/THR 322/ENG 249: Sondheim's Musicals and the Making of America	",
+            "AMS 335/JDS 320/GSS 323/ENG 441: American Jews and Sexual Freedom",
+            "AMS 351/ENG 451: Asian American Affect",
+            "AMS 365/ENG 365/GSS 365/MTD 365: Isn't It Romantic? The Broadway Musical from Rodgers and Hammerstein to Sondheim",
+            "AMS 367/ENG 267: American Noir: Crime Fiction and Film",
+            "ASA 224/ENG 224/GSS 226: Asian American Literature and Culture",
+            "ASA 347/AMS 347/ENG 426/GSS 358: The Asian American Family",
+            "COM 306/ENG 440: The Modern European Novel",
+            "COM 339/ECS 351/ENG 239/HUM 399: Politcal Novel and Cinema",
+            "COM 416/ECS 416/ENG 430/GSS 416: Class, Desire, and the Novel",
+            "COM 422/ENG 423/GER 422/FRE 422: Modern Poetry and Poetics: Baudelaire to the Present",
+            "COM 435/ENG 438/GSS 404: What is Passing? Cultural Encounters in Race, Ethnicity, and Sexuality",
+            "ECS 342/COM 342/ENG 349: Literature and Photography",
+            "ENV 363/ENG 337: Writing the Environment through Creative Nonfiction",
+            "ENV 369/ENG 383: Environmental Imagings and Global Change",
+            "ENV 375/ENG 275/JRN 375: Crossing the Climate Change Divide",
+            "GSS 303/ENG 466: Feminist Futures: Contemporary Science Fiction by Women",
+            "GSS 319/AMS 320/ENG 436: U.S. Women Writers",
+            "GSS 373/AMS 383/ENG 332: Graphic Memoir",
+            "HUM 328/ENG 270/ART 396: Language To Be Looked At",
+            "MTD 310/THR 310/ENG 318: The Musical Theatre of Stephen Sondheim: Process to Production",
+            "SLA 417/COM 406/ENG 424/RES 417: Vladimir Nabokov",
+            "THR 343/ENG 304/HUM 343: Some Contemporary Shakespearean Afterlives",
+            "THR 348/ENG 448: Bernard Shaw: Theater, Sex and Celebrity",
+            "THR 350/ENG 449: Playing Dead: Corpses in Theater and Cinema",
+            "THR 359/ENG 447: Plays and Films of Martin McDonagh",
+            "THR 406/CWR 406/ENG 250/MTD 406: Theater Writing Studio"
+          ]
         },
         {
-          "name": "Arts and Media",
+          "name": "Difference and Diversity",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Literature in relation to other arts, including architecture, visual art, film, photography, music (classical, popular, or other); and/or in relation to its circumstances of production and transmission, from manuscript to print to radio, television, and the Internet. Requirements: three courses in topics related to the arts and media, including up to two cognates from other departments; one junior paper and the senior thesis on a related topic.",
-          "no_req": null
-        },
-        {
-          "name": "Comparative Literatures",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "English in relation to the literature of another language. Requirements: at least three and no more than four 300-level courses in a single foreign language (with no other cognates permitted); one junior paper and the senior thesis on a comparative topic (including translation). With permission of the departmental representative, some foreign language classes may be used to satisfy the departmental distribution requirements.",
-          "no_req": null
+          "min_needed": 1,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>",
+          "course_list": [
+            "ENG 204: Historical Fiction/Fictional History",
+            "ENG 229/AMS 229: Introduction to Indigenous Literatures",
+            "ENG 317: Historical Fiction, Fictional History",
+            "ENG 326: The 17th Century: Tolerance and Its Critics",
+            "ENG 354/AAS 354/THR 351: Black Dramatists in the English-Speaking World",
+            "ENG 354/AMS 454/LAO 354: An Introduction to Latino Literature and Culture: Latina/o Literary Worlds",
+            "ENG 356: Topics in American Literature",
+            "ENG 374: Fighting Words, or Cultures of Protest",
+            "ENG 377/COM 386: Bollywood Cinema",
+            "ENG 379/AAS 379/AMS 389/ART 380: Black Aesthetics: Art, Literature, and Politics in the African Diaspora",
+            "ENG 380/THR 380: World Drama",
+            "ENG 382/THR 382: International Theatre: Plays and Politics",
+            "ENG 391A/AAS 391: Experimenting in Dark Times: 19th C. African American Literature and Culture",
+            "ENG 391B/URB 391/ARC 200: Experimenting in Dark Times: 19th C. African American Literature and Culture",
+            "ENG 395/AMS 384/GSS 301: Literature, Food, and the American Racial Diet",
+            "ENG 397/AAS 397/COM 348: New Diasporas: Black British Literature",
+            "ENG 398/GSS 403: The Disabled Body",
+            "ENG 406: Magical Realism",
+            "ENG 408/GSS 415/AMS 418: Queer Literatures: Theory, Narrative, and Aesthetics",
+            "ENG 411/AAS 413/AMS 411/THR 412: Major Authors",
+            "ENG 415/JRN 415/COM 446: Topics in Literature and Ethics: Imagining Human Rights",
+            "ENG 416: Topics in Literature and Ethics",
+            "ENG 444/ASA 444/AMS 443: Global Novel",
+            "ENG 446: The Novel Since 2000",
+            "AAS 353/ENG 352: African American Literature: Origins to 1910",
+            "AAS 359/ENG 366: African American Literature: Harlem Renaissance to the Present",
+            "AAS 363/ENG 439/AMS 362: Blackness and Media",
+            "AAS 392/ENG 392: Topics in African American Literature: Reading Toni Morrison",
+            "AAS 499/ENG 499/AMS 499: Theoretical Approaches in Black Studies",
+            "AMS 310/ENG 434/ASA 310: Multiethnic American Short Stories: Tales We Tell Ourselves",
+            "AMS 335/JDS 320/GSS 323/ENG 441: American Jews and Sexual Freedom",
+            "AMS 351/ENG 451: Asian American Affect",
+            "AMS 360/ENG 387/AAS 360: Afro‐Asian Masculinities",
+            "AMS 406/ENG 319: About Faces: Case Studies in the History of Reading Faces",
+            "ASA 224/ENG 224/GSS 226: Asian American Literature and Culture",
+            "ASA 225/ENG 225/GSS 224: Too Cute!: Race, Style, and Asiamania",
+            "ASA 347/AMS 347/ENG 426/GSS 358: The Asian American Family",
+            "ASA 360/AAS 360/ENG 285: Black and Asian in America",
+            "COM 351/TRA 351/ENG 361: Great Books from Little Languages",
+            "COM 435/ENG 438/GSS 404: What is Passing? Cultural Encounters in Race, Ethnicity, and Sexuality",
+            "GSS 345/AAS 355/ENG 399/AMS 373: Pleasure, Power and Profit: Race and Sexualities in a Global Era",
+            "GSS 373/AMS 383/ENG 332: Graphic Memoir",
+            "GSS 400/ENG 264: Contemporary Theories of Gender and Sexuality",
+            "LCA 213/AAS 213/ENG 213/HUM 213: The Lucid Black and Proud Musicology of Leroi Jones/Amiri Baraka",
+            "MUS 307/HUM 307/ENG 313: The Irish Oral Tradition",
+            "THR 406/CWR 406/ENG 250/MTD 406: Theater Writing Studio"
+          ]
         },
         {
           "name": "Theory and Criticism",
           "max_counted": 1,
-          "min_needed": null,
-          "explanation": "For students interested in thinking about the underlying principles by which we understand literature. Considers the history and theory of literary interpretation from Plato to the present, including such methods and movements as linguistics, structuralism, feminism, psychoanalysis, Marxism, cultural studies, gender and sexuality studies, race studies, postcolonial studies, and deconstruction. Requirements: three courses in literary or cultural theory and literary criticism, including either ENG 305 or ENG 306; one junior paper and the senior thesis on a topic in theory and criticism, or making imaginative use of critical methodologies.",
-          "no_req": null
-        },
-        {
-          "name": "Theater and Performance Studies",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "A home for the study of dramatic literature, performance culture, and/or performance studies. Includes traditional theater, live and recorded music, popular culture performances, avant-garde arts, stand-up comedy, street theater, contemporary dance, and slam poetry. Requirements: one introductory class in theater by the end of sophomore year; at least two and not more than three 300- or 400-level courses in theater, counted as departmental courses (no other cognates are allowed); departmental courses must also include one upper-level Shakespeare course, one course in drama and/or performance before 1700, and one course in drama and/or performance after 1700; one junior paper and the senior thesis on a related topic.",
-          "no_req": null
-        },
-        {
-          "name": "Creative Writing",
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "Students elect the creative writing track provisionally; final admission depends on the permission of the Program in Creative Writing to write a creative thesis. The Department of English recommends that students take at least one 200-level creative writing course by the end of sophomore year. Requirements: a minimum of two and a maximum of three courses at the 300 level or above in creative writing counted as departmental courses (no other cognates are allowed); creative thesis. Students not approved to write a creative thesis revert to one of the other tracks. One 300-level creative writing class may be used as a cognate.",
-          "double_counting_allowed": true,
-          "completed_by_semester": 4,
+          "min_needed": 1,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester. Some courses may fulfill different requirements depending on their content each semester.</i>\n\nTheory and Criticism (T&C) provides tools for thinking critically across all these periods, identities, and genres.",
           "course_list": [
-            "CWR 3*"
+            "ENG 203: The Essay",
+            "ENG 305: Contemporary Literary Criticism",
+            "ENG 306: History of Literary Criticism",
+            "ENG 308: American Cinema",
+            "ENG 319/AMS 322: About Faces: Case Studies in the History of Reading Faces",
+            "ENG 328: Topics in the Renaissance: Erotic Poetry",
+            "ENG 343: Word and Image",
+            "ENG 355: British Cinema",
+            "ENG 369: Contemporary Science Fiction/Speculative Fiction",
+            "ENG 376/THR 376: Curious Aesthetics: Twentieth‐Century American Musical Theatre",
+            "ENG 379/AAS 379/AMS 389/ART 380: Black Aesthetics: Art, Literature, and Politics in the African Diaspora",
+            "ENG 384/ENV 383: Environmental Justice Through Literature and Film",
+            "ENG 386/ENV 386: Literature and Environment",
+            "ENG 394/GSS 398: Ghosts, Zombies and Liminal Creatures in Film, Literature and Photography",
+            "ENG 398/GSS 403: The Disabled Body",
+            "ENG 401: Literature & Science, from Frankenstein to the 21st Century",
+            "ENG 402: Forms of Literature: The Love Poem",
+            "ENG 403: Forms of Literature: Literature and War",
+            "ENG 409/THR 409: Theater & Philosophy: From Plato to Hegel and Beyond",
+            "ENG 411/AAS 413/AMS 411: Major Authors: Emerson & Douglass",
+            "ENG 414/AAS 455: Major Authors: Toni Morrison and the Ethics of Reading",
+            "ENG 416: Topics in Literature & Ethics",
+            "ENG 444/ASA 444/AMS 443: Global Novel",
+            "ENG 445/ART 457/GSS 445: Between Desire and Disgust",
+            "AAS 499/ENG 499/AMS 499: Theoretical Approaches in Black Studies",
+            "AMS 367/ENG 267: American Noir: Crime Fiction and Film",
+            "COM 351/TRA 351/ENG 361: Great Books from Little Languages",
+            "COM 441/PHI 441/HUM 441/ENG 281: Saying 'I': First Person Point of View in Literature and Philosophy",
+            "ECS 342/COM 342/ENG 349: Literature and Photography",
+            "ENV 323/ENG 315: The Nature of the City",
+            "ENV 357/AMS 457/GSS 357/ENG 315: Empire of the Ark: The Animal Question in Film, Photography and Popular Culture",
+            "ENV 363/ENG 337: Writing the Environment through Creative Nonfiction",
+            "ENV 369/ENG 383: Environmental Imagings and Global Change",
+            "GSS 400/ENG 264: Contemporary Theories of Gender and Sexuality",
+            "HUM 328/ENG 270/ART 396: Language To Be Looked At",
+            "HUM 470/ENG 482/MUS 433: Interdisciplinary Studies in the Humanities: Voice",
+            "MUS 307/HUM 307/ENG 313: The Irish Oral Tradition",
+            "REL 350/ENG 442/CLA 352/HIS 353: God, Satan, Goddesses, and Monsters: How Their Stories Play in Art, Culture, and Politics",
+            "THR 350/ENG 449: Playing Dead: Corpses in Theater and Cinema"
           ]
         }
       ]
     },
     {
-      "name": "Independent Work",
-      "max_counted": null,
-      "min_needed": null,
-      "description": "Independent Work",
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nConcentrators write one junior paper, which is begun in conjunction with the fall junior seminar but completed in the spring semester of the junior year. The senior thesis is written with an adviser chosen in the spring of junior year.",
-      "no_req": null
+      "name": "Tracks",
+      "max_counted": 1,
+      "min_needed": 1,
+      "explanation": null,
+      "req_list": [
+        {
+          "name": "English",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Three additional ENG or ENG cross-listed courses.",
+          "course_list": [
+            "ENG *"
+          ]
+        },
+        {
+          "name": "Creative Writing",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Creative Writing: students accepted to the certificate program in Creative Writing may cognate two CWR courses as departmental courses in English, and may substitute a thesis in CWR for the thesis in English. Final admission depends on the permission of the Program in Creative Writing to write a creative thesis in the spring of junior year. Students not approved to write a creative thesis may cognate one course in CWR.",
+          "req_list": [
+            {
+              "name": "English",
+              "max_counted": null,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "ENG *"
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 2,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CWR *"
+              ]
+            },
+          ]
+        },
+        {
+          "name": "Theater",
+          "max_counted": 1,
+          "min_needed": 3,
+          "explanation": "Theater: students accepted to the certificate program in Theater may cognate two THR courses as departmental courses in English.",
+          "req_list": [
+            {
+              "name": "English",
+              "max_counted": null,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "ENG *"
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 2,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "THR *"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Junior Seminar",
+      "max_counted": 1,
+      "min_needed": "ALL",
+      "explanation": "The Junior Seminar (ENG 300). The JRS is an introduction to the methods of research and the arts of criticism, taken in the fall of the junior year. During the Sophomore Sign-ins, concentrators can apply to study abroad in London to complete their junior seminar, or they can participate in a lotto draw for placement into one of four seminars at Princeton. The Junior Seminar instructor advises each member of the seminar on class selection for the spring.\n\nThe Junior Paper. English requires one 20-30 page JP, which is begun in conjunction with the Junior Seminar, with the seminar instructor continuing as the independet work adviser throughout the spring.",
+      "course_list": [
+        "ENG 300"
+      ]
     },
     {
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "description": "Senior Thesis",
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nFor English concentrators, senior theses are 60-75 pages in length, on a topic chosen in collaboration with the thesis adviser and approved by the committee of departmental studies. One chapter or 20 pages of the thesis is due in December.",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe Senior Thesis. Theses are 60-75 pages in length, on a topic chosen in collaboration with the thesis adviser. One chapter or 20 pages of the thesis is due in December.",
       "no_req": null
     }
   ]
