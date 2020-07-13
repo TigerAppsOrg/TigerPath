@@ -118,7 +118,7 @@
           "name": "Data and Information",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": null,
+          "explanation": "Only one Machine Learning course may be applied to this concentration.",
           "req_list": [
             {
               "name": null,
@@ -142,7 +142,7 @@
               "name": null,
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "Only one Machine Learning course may be applied to this concentration",
+              "explanation": "Only one Machine Learning course may be applied to this concentration.",
               "course_list": [
                 "ELE 364",
                 "ELE 435",
@@ -191,7 +191,7 @@
           "name": "Robotics and Cyberphysical Systems",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": null,
+          "explanation": "Only one Machine Learning course may be used for this concentration.",
           "req_list": [
             {
               "name": null,
@@ -212,7 +212,7 @@
               "name": null,
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "Only one Machine Learning course may be used for this concentration",
+              "explanation": "Only one Machine Learning course may be used for this concentration.",
               "course_list": [
                 "ELE 364",
                 "ELE 435",
@@ -226,18 +226,18 @@
           "name": "Quantum Information and Applied Physics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": null,
+          "explanation": "null",
           "req_list": [
             {
               "name": "Required",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": null,
+              "explanation": "PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement.",
               "req_list": [
                 {
                   "name": null,
                   "max_counted": 1,
-                  "min_needed": null,
+                  "min_needed": "ALL",
                   "explanation": null,
                   "course_list": [
                     "ELE 342"
@@ -246,8 +246,8 @@
                 {
                   "name": null,
                   "max_counted": 1,
-                  "min_needed": 2,
-                  "explanation": "PHY208 and 305 can be taken in lieu of ELE342, but are counted as one course for the concentration requirement",
+                  "min_needed": "ALL",
+                  "explanation": null,
                   "course_list": [
                     "PHY 208",
                     "PHY 305"
@@ -280,7 +280,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "One required course.",
+              "explanation": null,
               "course_list": [
                 "COS 432/ELE 432"
               ]
@@ -289,7 +289,7 @@
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": null,
+              "explanation": "Only one Machine Learning course may be applied towards this concentraiton.",
               "req_list": [
                 {
                   "name": null,
@@ -309,7 +309,7 @@
                   "name": null,
                   "max_counted": 1,
                   "min_needed": null,
-                  "explanation": "Only one Machine Learning course may be applied towards this concentraiton",
+                  "explanation": null,
                   "course_list": [
                     "ELE 364",
                     "ELE 435",
@@ -332,7 +332,7 @@
               "name": "Required",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": null,
+              "explanation": "ELE308 does not count if taken as part of the Foundation Requirement.",
               "course_list": [
                 "ELE 308",
                 "ELE 341"
@@ -342,7 +342,7 @@
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": null,
+              "explanation": "Only one circuits (304 or 481) course may be applied towards this concentration.",
               "req_list": [
                 {
                   "name": null,
@@ -365,7 +365,7 @@
                   "name": null,
                   "max_counted": 1,
                   "min_needed": null,
-                  "explanation": "Only one circuits (304 or 481) course may be applied towards this concentration",
+                  "explanation": null,
                   "course_list": [
                     "ELE 304",
                     "ELE 481"
@@ -408,10 +408,10 @@
               ]
             },
             {
-              "name": "Two courses from",
+              "name": "Electives",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": null",
+              "explanation": null,
               "course_list": [
                 "ELE 342",
                 "ELE 452",
@@ -735,6 +735,10 @@
             "ELE 3*",
             "ELE 4*",
             "ELE 5*"
+          ],
+          "excluded_course_list": [
+            "ELE 497",
+            "ELE 498"
           ]
         },
         {
