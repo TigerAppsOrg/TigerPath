@@ -37,7 +37,7 @@
               "name": "Molecular Biology",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": null,
+              "explanation": "To enter the Department of Molecular Biology, students must have completed MOL 214 with a grade of C or better.",
               "course_list": [
                 "MOL 214"
               ]
@@ -46,7 +46,7 @@
               "name": "Chemistry",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": null,
+              "explanation": "CHM 201/207 and 202, or one unit of chemistry AP credit and CHM 202 or 215, or two units of chemistry AP credit, are also required to enter the department.",
               "req_list": [
                 {
                   "name": null,
@@ -263,16 +263,32 @@
       "max_counted": 1,
       "min_needed": 4,
       "explanation": "All students must take a total of at least eight departmentals. In addition to the four departmental core courses, students must take at least one 300, 400, or 500-level course with MOL as the primary listing. The remaining three departmentals can be chosen from among all 300-or-higher-level MOL, MOL-crosslisted, or other approved courses. Note that CHM 301/303, 302/304/304B, and CHM 337 qualify as departmentals. Only courses taken at Princeton count as departmentals; there are no exceptions to this rule.",
-      "course_list": [
-        "MOL 3*",
-        "MOL 4*",
-        "MOL 5*",
-        "CHM 301",
-        "CHM 302",
-        "CHM 303",
-        "CHM 304",
-        "CHM 304B",
-        "CHM 337"
+      "req_list": [
+        {
+          "name": "Molecular Biology",
+          "max_counted": null,
+          "min_needed": 1,
+          "explanation": "In addition to the four departmental core courses, students must take at least one 300, 400, or 500-level course with MOL as the primary listing.",
+          "course_list": [
+            "MOL 3*",
+            "MOL 4*",
+            "MOL 5*"
+          ]
+        },
+        {
+          "name": "Cognates",
+          "max_counted": 3,
+          "min_needed": null,
+          "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement.</i>\n\nThe remaining three departmentals can be chosen from among all 300-or-higher-level MOL, MOL-crosslisted, or other approved courses. Note that CHM 301/303, 302/304/304B, and CHM 337 qualify as departmentals.",
+          "course_list": [
+            "CHM 301",
+            "CHM 302",
+            "CHM 303",
+            "CHM 304",
+            "CHM 304B",
+            "CHM 337"
+          ]
+        }
       ]
     },
     {
