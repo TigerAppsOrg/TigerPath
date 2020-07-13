@@ -4,9 +4,10 @@
   "code": "ANT",
   "degree": "AB",
   "year": 2018,
+  "explanation": "Anthropology concentrators select a track and take nine departmental courses within their selected track, including two core courses (ANT 300 and ANT 301). All concentrators are required to participate in a senior seminar in the fall semester of their senior year. The seminar is designed to help students write their senior thesis.",
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-department-anthropology#",
-    "https://anthropology.princeton.edu/"
+    "https://ua.princeton.edu/academic-units/department-department-anthropology",
+    "https://anthropology.princeton.edu/undergraduate/majoring-anthropology"
   ],
   "contacts": [
     {
@@ -15,9 +16,14 @@
       "email": "crouse@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
-      "name": "Lauren Coyle-Rosen",
-      "email": "laurencoylerosen@princeton.edu"
+      "type": "Acting Chair",
+      "name": "Serguei A. Oushakine",
+      "email": "oushakin@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Ryo Morimoto",
+      "email": "ryo.morimoto@princeton.edu"
     }
   ],
   "req_list": [
@@ -47,11 +53,35 @@
               "name": "Required Courses",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "",
-              "course_list": [
-                "ANT 300*",
-                "ANT 301*",
-                "ANT 390*"
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 300*"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 301*"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 390*"
+                  ]
+                }
               ]
             },
             {
@@ -59,12 +89,13 @@
               "max_counted": 1,
               "min_needed": "ALL",
               "explanation": "Two foundational 200-level courses (one may be a cognate approved at this level)\r\nOne 300-level course in addition to 300, 301, 390 (may be a cognate approved at this level)\r\nOne advanced 400-level topical course (may be a cognate approved at this level)\r\nTwo free electives (may be another ANT course at any level and/or a cognate)",
+              "double_counting_allowed": false,
               "req_list": [
                 {
                   "name": "200-level",
                   "max_counted": 1,
                   "min_needed": 2,
-                  "explanation": "",
+                  "explanation": "Two foundational 200-level courses (one may be a cognate approved at this level)",
                   "course_list": [
                     "ANT 2*"
                   ]
@@ -73,7 +104,7 @@
                   "name": "300-level",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "",
+                  "explanation": "One 300-level course in addition to 300, 301, 390 (may be a cognate approved at this level)",
                   "excluded_course_list": [
                     "ANT 300*",
                     "ANT 301*",
@@ -87,7 +118,7 @@
                   "name": "400-level",
                   "max_counted": 1,
                   "min_needed": 1,
-                  "explanation": "",
+                  "explanation": "One advanced 400-level topical course (may be a cognate approved at this level)",
                   "course_list": [
                     "ANT 4*"
                   ]
@@ -96,7 +127,7 @@
                   "name": "Electives",
                   "max_counted": 1,
                   "min_needed": 2,
-                  "explanation": "",
+                  "explanation": "Two free electives (may be another ANT course at any level and/or a cognate)",
                   "excluded_course_list": [
                     "ANT 300*",
                     "ANT 301*",
@@ -120,54 +151,138 @@
               "name": "Required Courses",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "",
-              "course_list": [
-                "ANT 240",
-                "ANT 206*",
-                "ANT 300*",
-                "ANT 301*"
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": "Foundational Course",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "One  Foundational Medical Anthropology course offered by the Department including: Medical Anthropology (ANT 240), Medicine and the Humanities (ANT 340), Psychological Anthropology (ANT 305), Race and Medicine (ANT 403)",
+                  "course_list": [
+                    "ANT 240",
+                    "ANT 340",
+                    "ANT 305",
+                    "ANT 403"
+                  ]
+                },
+                {
+                  "name": "Biological Anthropology",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": "One  Biological Anthropology course offered by the Department or a cognate Biological course including: ANT 201 (taken Fall 2020 or later), a course on human evolution, a course on human adaptation or forensic anthropology, an approved EEB or MOL course.\n\nNote: The department will accept Evolutionary Biology (EEB 309) and Life on Earth (EEB 211/MOL 211) as cognates if taken in AY 2019 to AY 2021 by students declaring the ANT concentration in Spring 2020 or earlier. These courses may be used to substitute for a required biological anthropology course offered by the Anthropology Department.",
+                  "course_list": [
+                    "ANT 215",
+                    "ANT 309",
+                    "ANT 201",
+                    "EEB 309",
+                    "EEB 211/MOL 211"
+                  ]
+                },
+                {
+                  "name": "Required Courses",
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": null,
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": 1,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 300*"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": 1,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 301*"
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 5,
-              "explanation": "Examples of MedAnth electives are shown below. Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved MedAnth courses will be published each semester before course enrollment begins.",
+              "explanation": "Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved MedAnth courses will be published each semester before course enrollment begins.",
               "req_list": [
                 {
-                  "name": "Mind",
-                  "max_counted": 5,
-                  "min_needed": null,
-                  "explanation": "Courses pertaining to the mind: Psychological Anthropology (ANT 305); Mind, Body, and Bioethics in Japan and Beyond (EAS 312/ANT 312)",
-                  "course_list": [
-                    "ANT 305",
-                    "EAS 312/ANT 312"
+                  "name": "MedAnth Electives",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation": null,
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 201",
+                        "ANT 206",
+                        "ANT 215",
+                        "ANT 219",
+                        "ANT 235",
+                        "ANT 240",
+                        "GSS 203/ANT 243",
+                        "ANT 272",
+                        "ANT 305",
+                        "ANT 309A",
+                        "ANT 309B",
+                        "EAS 312/ANT 312",
+                        "ANT 331",
+                        "ANT 340",
+                        "ANT 360",
+                        "GHP 304/ANT 376",
+                        "AAS 302/ANT 378",
+                        "GHP 350/ANT 380",
+                        "WWS 375/ANT 388",
+                        "ANT 405",
+                        "ANT 442",
+                        "ANT 446",
+                        "ANT 461"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "CLA 231",
+                        "SLA 368"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "name": "Body",
-                  "max_counted": 5,
+                  "name": "Cognates",
+                  "max_counted": 2,
                   "min_needed": null,
-                  "explanation": "Courses pertaining to the body: Race and Medicine (ANT 403); Forensic Anthropology and Epigenetics (ANT 309B); Death, Aging, and Mortality: Cultural and Biosocial Perspectives (ANT 442). Note: Students can take both Human Evolution (ANT 206) and Human Adaptation (ANT 215), one as a required and one as an elective course.",
+                  "explanation": "MedAnth students are allowed to take two cognates (as defined under Program of Study above). A department cognate for a MedAnth student might include a course taught in departments or programs such as the History of Science, African American Studies, Gender and Sexuality Studies, Sociology, Psychology, Molecular Biology, Engineering, Global Health, regional studies classes including AMS, EAS, LAS, NES, courses taken during study abroad and/or anthropology courses taught outside the Medical Anthropology Track.",
                   "course_list": [
-                    "ANT 403",
-                    "ANT 309B",
-                    "ANT 442",
-                    "ANT 206*",
-                    "ANT 215"
-                  ]
-                },
-                {
-                  "name": "Cultural Systems and Structures",
-                  "max_counted": 5,
-                  "min_needed": null,
-                  "explanation": "Courses pertaining to cultural systems and structures: Critical Perspectives in Global Health (GHP350/ANT 380); Catastrophes across Cultures: The Anthropology of Disaster (ANT 219), Forensic Anthropology and Epigenetics (ANT 309A); Ethics in Context (ANT 360); Global Pharmaceuticals: Science, Political Economy, Ethics (ANT 405)\r\n",
-                  "course_list": [
-                    "GHP 350/ANT 380",
-                    "ANT 219",
-                    "ANT 309A",
-                    "ANT 360",
-                    "ANT 405"
+                    "AAS *",
+                    "AMS *",
+                    "ANT *",
+                    "EAS *",
+                    "EGR *",
+                    "GHP *",
+                    "GSS *",
+                    "HOS *",
+                    "LAS *",
+                    "MOL *",
+                    "NES *",
+                    "PSY *",
+                    "SOC *"
+                  ],
+                  "excluded_course_list": [
+                    "ANT 300*",
+                    "ANT 301*"
                   ]
                 }
               ]
@@ -184,60 +299,124 @@
               "name": "Required Courses",
               "max_counted": 1,
               "min_needed": "ALL",
-              "explanation": "",
-              "course_list": [
-                "ANT 300*",
-                "ANT 301*",
-                "ANT 390*"
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 300*"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 301*"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "ANT 390*"
+                  ]
+                }
               ]
             },
             {
               "name": "Electives",
               "max_counted": 1,
               "min_needed": 6,
-              "explanation": "Examples of LPE electives are shown below. Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved LPE courses will be published each semester before course enrollment begins.",
+              "explanation": "Elective courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved LPE courses will be published each semester before course enrollment begins.",
               "req_list": [
                 {
-                  "name": "Economics",
-                  "max_counted": 6,
-                  "min_needed": null,
-                  "explanation": "Economic Life in Cultural Context (ANT 203); Debt (ANT 225); Economic Experience in Cultural Context (303); Ethnography and Wicked Problems (EGR 385/ANT 385); The Resource Curse and Development in Africa (ANT 421)",
-                  "course_list": [
-                    "ANT 203",
-                    "ANT 225",
-                    "ANT 303",
-                    "EGR 385/ANT 385",
-                    "ANT 421"
+                  "name": "LPE Electives",
+                  "max_counted": null,
+                  "min_needed": 4,
+                  "explanation": null,
+                  "req_list": [
+                    {
+                      "name": null,
+                      "max_counted": null,
+                      "explanation": null,
+                      "course_list": [
+                        "ANT 201",
+                        "ANT 203",
+                        "ANT 219",
+                        "ANT 223",
+                        "ANT 225",
+                        "ANT 227",
+                        "ANT 231",
+                        "ANT 232",
+                        "ANT 246",
+                        "ANT 272",
+                        "ANT 304",
+                        "ANT 306",
+                        "ANT 309A",
+                        "ANT 314",
+                        "ANT 319",
+                        "EAS 225/ANT 323",
+                        "ANT 336",
+                        "ANT 337",
+                        "LAS 217/ANT 339",
+                        "ANT 342",
+                        "ANT 363",
+                        "ANT 369",
+                        "AAS 302/ANT 378",
+                        "AFS 205/ANT 384",
+                        "EGR 385/ANT 385",
+                        "LAS 307/ANT 387",
+                        "NES 391/ANT 391",
+                        "ANT 405",
+                        "ANT 406",
+                        "ANT 407",
+                        "ANT 419",
+                        "ANT 421",
+                        "ANT 434",
+                        "ANT 446",
+                        "ANT 452",
+                        "ANT 453",
+                        "ANT 461",
+                        "LAS 486/ANT 486"
+                      ]
+                    },
+                    {
+                      "name": null,
+                      "max_counted": 1,
+                      "min_needed": null,
+                      "explanation": null,
+                      "course_list": [
+                        "LAS 218",
+                        "LAS 313"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "name": "Politics",
-                  "max_counted": 6,
+                  "name": "Cognates",
+                  "max_counted": 2,
                   "min_needed": null,
-                  "explanation": "Political Anthropology (ANT 304); Rituals of Governing (ANT 453); Power and Politics in Southeast Asia (ANT 332); Revolt (319), Anthropologies of Water (ANT 416); Catastrophes across Cultures: The Anthropology of Disaster (ANT 219); Communist Modernity: The Politics and Culture of Soviet Utopia (SLA 420/ANT 420); Infrastructures of Modernity in the Middle East (ANT 404); Conspiracy Theory and Social Theory (ANT 406)",
+                  "explanation": "A cognate is a course that the director of undergraduate studies has reviewed and deemed to be relevant to a student's independent work or correspond to a student's course of study (i.e., track). LPE students are allowed to take two cognates as part of their six elective courses. Appropriate cognates for LPE might include Introduction to Microeconomics (ECO 100), a course taught in the Politics Department, a regional studies course, and/or a course taken during study abroad. Proposed cognates must be approved by the department. Approval prior to enrollment is normally expected, however, retroactive approval is granted when warranted.",
                   "course_list": [
-                    "ANT 304",
-                    "ANT 453",
-                    "ANT 322",
-                    "ANT 319",
-                    "ANT 416",
-                    "ANT 219",
-                    "SLA 420/ANT 420",
-                    "ANT 404",
-                    "ANT 406"
-                  ]
-                },
-                {
-                  "name": "Law",
-                  "max_counted": 6,
-                  "min_needed": null,
-                  "explanation": "The Anthropology of Law (ANT 342); The American Family in Law and Society (ANT 207); Social Live, Social Forces (ANT 232); Labors of Consciousness: Culture, Capital, Moral Economy (ANT 417); Democracy and Ethnography in the United States (ANT 427)",
-                  "course_list": [
-                    "ANT 342",
-                    "ANT 207",
-                    "ANT 232",
-                    "ANT 417",
-                    "ANT 427"
+                    "ANT *",
+                    "AMS *",
+                    "EAS *",
+                    "ECO 100",
+                    "LAS *",
+                    "NES *",
+                    "POL *"
+                  ],
+                  "excluded_course_list": [
+                    "ANT 300*",
+                    "ANT 301*",
+                    "ANT 390*"
                   ]
                 }
               ]
@@ -251,7 +430,6 @@
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIndependent work in the junior year involves an original paper, usually based on library research. Normally, field research is not appropriate for this paper. In the fall, students develop a detailed problem statement and annotated bibliography on a subject relevant to the student's interests, as a research proposal for approval by the department. In the spring, students write a paper based on the research initiated in the fall, in consultation with their adviser. Since the junior paper topic is chosen before the deadline for declaring a track, junior papers, unlike senior theses, do not have to be related to a student’s chosen track. Junior independent work, regardless of track, is meant to teach students how to do a review of the anthropological literatures related to a student’s area of interest.",
-      "description": "Independent Work",
       "no_req": null
     },
     {
@@ -259,7 +437,6 @@
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the senior year, the independent work consists of a thesis, or a comparable project including a substantial written component, on a subject relevant to the student's interests and approved by the department. Field work is encouraged but not required. The required senior seminar is designed to support seniors' independent work during the fall term. Students enrolled in ANT 390B during their senior year are automatically enrolled in the senior seminar; students not taking ANT 390B during senior year will also enroll in the senior seminar by individual arrangement with the department.",
-      "description": "Senior Thesis",
       "no_req": null
     }
   ]
