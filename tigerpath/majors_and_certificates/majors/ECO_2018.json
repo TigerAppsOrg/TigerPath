@@ -162,13 +162,13 @@
       ]
     },
     {
-      "name": "Economics",
+      "name": "Departmentals",
       "max_counted": 1,
       "min_needed": 5,
       "explanation": "In addition to the three core courses, concentrators must pass, on a graded basis, five other departmental courses. Departmentals can be any 300-, 400-, or 500-level Economics courses, or an approved cognate (see Cognates).\n\nStudents planning a senior thesis with empirical emphasis are strongly encouraged to take ECO 313; students planning a theoretical senior thesis are strongly encouraged to take ECO 317 and/or ECO 418.",
       "req_list": [
         {
-          "name": "Electives",
+          "name": "Economics",
           "max_counted": null,
           "min_needed": 3,
           "explanation": null,
@@ -217,50 +217,11 @@
     },
     {
       "name": "Optional Tracks",
-      # the following line is a hack to allow for an unproductive requirement that still gets checked. See discussion at PR #296 
+      # the following line is a hack to allow for an unproductive requirement that still gets checked. See discussion at PR #296
       "max_counted": 0.000000000001,
       "min_needed": 0,
       "explanation": null,
       "req_list": [
-        {
-          "name": "Economics",
-          "max_counted": 1,
-          "min_needed": 8,
-          "explanation": "Eight economics departmentals.",
-          "double_counting_allowed": true,
-          "course_list": [
-            "ECO 3*",
-            "ECO 4*",
-            "ECO 5*",
-            "COS 445",
-            "ELE 381",
-            "HIS 474",
-            "MAT 378",
-            "ORF 307",
-            "ORF 309",
-            "ORF 311",
-            "ORF 350",
-            "ORF 360",
-            "ORF 363",
-            "ORF 405",
-            "ORF 417",
-            "ORF 474",
-            "POL 335",
-            "POL 347",
-            "POL 349",
-            "POL 352",
-            "POL 385",
-            "WWS 309",
-            "WWS 340/PSY 321",
-            "WWS 373/CHV 373",
-            "WWS 408",
-            "WWS 466/HIS 467",
-            "WWS 524",
-            "WWS 538",
-            "WWS 582C",
-            "WWS 582F"
-          ]
-        },
         {
           "name": "Program in Political Economy",
           "max_counted": 1,
