@@ -147,6 +147,7 @@
               "max_counted": 1,
               "min_needed": 2,
               "explanation": "Two of the following transnational courses",
+              "double_counting_allowed": true,
               "course_list": [
                 "HIS 207/EAS 207",
                 "HIS 208/EAS 208",
