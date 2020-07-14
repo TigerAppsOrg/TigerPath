@@ -110,6 +110,7 @@ export default class App extends Component {
       course['title'] = searchResultsCourse['title'];
       course['dist_area'] = searchResultsCourse['dist_area'];
       course['semester'] = searchResultsCourse['semester'];
+      course['semester_list'] = searchResultsCourse['semester_list'];
       course['settled'] = [];
       schedule[destSemId].splice(destCourseIndex, 0, course);
     } else {
