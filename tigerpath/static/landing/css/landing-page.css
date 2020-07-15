@@ -48,7 +48,7 @@ header.masthead {
   transform: skewY(-12deg) translateY(-60px);
   -webkit-transform-origin: 0;
   transform-origin: 0;
-  background: linear-gradient(180deg, #47d1ff 15%, #d2f4ff 70%, #fff 85%);
+  background: linear-gradient(180deg, #b9ebfb 15%, #d2f4ff 70%, #fff 85%);
   z-index: -1;
 }
 
