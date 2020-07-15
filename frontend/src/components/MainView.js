@@ -70,7 +70,7 @@ export default class MainView extends Component {
     let externalCreditsTabActive = this.state.currentTab === TABS.EXTERNAL_CREDITS_TAB;
     return (
       <React.Fragment>
-        <Nav className="dont-print">
+        <Nav id="main-view-tabs" className="dont-print">
           <NavButton active={scheduleTabActive} onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}>Schedule</NavButton>
           <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>AP/External Credits</NavButton>
         </Nav>
