@@ -3,8 +3,7 @@ import CourseCard from 'components/CourseCard';
 import { Draggable } from 'react-beautiful-dnd';
 
 const RADIX = 10;
-const BASE_COURSE_OFFERINGS_URL = 'https://registrar.princeton.edu/course-offerings/course_details.xml';
-const BASE_COURSE_EVAL_URL = 'https://reg-captiva.princeton.edu/chart/index.php';
+const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 
 export default class SearchCard extends Component {
   /* Helper function to convert a semester into readable form */
@@ -67,8 +66,7 @@ export default class SearchCard extends Component {
     let courseSemList = course["semester_list"];
     let termCode = this.convertSemToTermCode(courseSemList[courseSemList.length - 1]);
 
-    let courseInfoLink = `${BASE_COURSE_OFFERINGS_URL}?courseid=${courseId}&term=${termCode}`;
-    let courseEvalLink = `${BASE_COURSE_EVAL_URL}?terminfo=${termCode}&courseinfo=${courseId}`;
+    let courseInfoLink = `${BASE_COURSE_OFFERINGS_URL}${termCode}${courseId}`;
     let prevOfferedSemList = this.getPrevOfferedSemList(courseSemList);
 
     return (
@@ -85,9 +83,6 @@ export default class SearchCard extends Component {
             <div className="search-card-links">
               <a href={courseInfoLink} target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-info-circle fa-lg fa-fw course-info" />
-              </a>
-              <a href={courseEvalLink} target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-chart-bar fa-lg fa-fw course-eval" />
               </a>
             </div>
           </div>
