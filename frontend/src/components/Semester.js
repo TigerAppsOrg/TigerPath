@@ -35,9 +35,9 @@ const SemesterHeader = styled.div`
 `;
 
 const SemesterBody = styled.div`
-  list-style-type: none;
+  flex: 1;
   padding: 0 0.5rem 0.5rem 0.5rem;
-  height: 100%;
+
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -54,6 +54,8 @@ const SemesterBody = styled.div`
 `;
 
 const SemesterStyled = styled.div`
+  display: flex;
+  flex-direction: column;
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getSemesterNames } from 'utils/SemesterUtils';
 
 const Semesters = styled.div`
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   padding: 0.25rem;

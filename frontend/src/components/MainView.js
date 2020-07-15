@@ -6,11 +6,7 @@ import Loader from './Loader';
 
 const Content = styled.div`
   height: calc(100vh - 93px);
-  ${({ isLoading }) =>
-    isLoading &&
-    css`
-      display: flex;
-    `}
+  display: flex;
 `;
 
 const Nav = styled.div`
