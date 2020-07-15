@@ -36,6 +36,11 @@ function startIntro() {
           'If you have AP credits, summer courses, or other external credits you want to show up in your requirements, you can switch tabs here and add them.',
       },
       {
+        element: '#print-btn',
+        intro:
+          "Once you are happy with the courses you've added, you can print or export your schedule here to share with your advisors.",
+      },
+      {
         element: '#netid-btn',
         intro:
           "Click here to change your major and year in the settings.<br><br>If you've missed anything, you can also view the tutorial here at any time.<br><br>We hope you enjoy using TigerPath!",
