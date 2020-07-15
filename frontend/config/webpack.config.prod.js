@@ -174,9 +174,6 @@ module.exports = {
                 {
                   fallback: {
                     loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                    },
                   },
                   use: [
                     {
@@ -195,7 +192,7 @@ module.exports = {
                         plugins: () => [
                           require('postcss-flexbugs-fixes'),
                           autoprefixer({
-                            browsers: [
+                            overrideBrowserslist: [
                               '>1%',
                               'last 4 versions',
                               'Firefox ESR',
