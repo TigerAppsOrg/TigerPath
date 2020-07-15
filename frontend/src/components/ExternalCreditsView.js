@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Semester from 'components/Semester';
 import CourseCard from 'components/CourseCard';
 import ExternalCreditForm from 'components/ExternalCreditForm';
@@ -10,8 +10,7 @@ const ECContent = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-gap: 20px;
-  grid-template-areas:
-    "sem add";
+  grid-template-areas: 'sem add';
   padding: 20px 10px 20px 10px;
 `;
 
@@ -30,13 +29,19 @@ export default class ExternalCreditsView extends Component {
         {courseList.map((course, courseIndex) => {
           let courseKey = `course-card-${semIndex}-${courseIndex}`;
           return (
-            <CourseCard key={courseKey} course={course} showSearchInfo={false}
-                        onCourseRemove={this.removeCourse} semIndex={semIndex} courseIndex={courseIndex} />
+            <CourseCard
+              key={courseKey}
+              course={course}
+              showSearchInfo={false}
+              onCourseRemove={this.removeCourse}
+              semIndex={semIndex}
+              courseIndex={courseIndex}
+            />
           );
         })}
       </React.Fragment>
     );
-  }
+  };
 
   render() {
     return (
@@ -48,8 +53,12 @@ export default class ExternalCreditsView extends Component {
         >
           Your External Credits
         </ECSemester>
-        <ECForm onChange={this.props.onChange} profile={this.props.profile}
-                schedule={this.props.schedule} requirements={this.props.requirements} />
+        <ECForm
+          onChange={this.props.onChange}
+          profile={this.props.profile}
+          schedule={this.props.schedule}
+          requirements={this.props.requirements}
+        />
       </ECContent>
     );
   }
