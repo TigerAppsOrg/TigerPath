@@ -5,7 +5,7 @@ import ExternalCreditsView from 'components/ExternalCreditsView';
 import Loader from './Loader';
 
 const Content = styled.div`
-  height: calc(100vh - 98px);
+  height: calc(100vh - 93px);
   ${({ isLoading }) =>
     isLoading &&
     css`

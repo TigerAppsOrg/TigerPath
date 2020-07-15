@@ -6,7 +6,7 @@ import { getSemesterNames } from 'utils/SemesterUtils';
 const Semesters = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 0.5rem;
+  padding: 0.25rem;
   height: 100%;
   overflow-y: auto;
 `;
@@ -14,9 +14,9 @@ const Semesters = styled.div`
 const ScheduleSemester = styled(Semester)`
   display: flex;
   flex-direction: column;
-  width: calc(25% - 1rem);
-  height: calc(50% - 1rem);
-  margin: 0.5rem;
+  width: calc(25% - 0.5rem);
+  height: calc(50% - 0.5rem);
+  margin: 0.25rem;
 `;
 
 const Schedule = (props) => {
