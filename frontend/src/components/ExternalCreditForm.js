@@ -9,7 +9,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import RequirementsDropdown from 'components/RequirementsDropdown';
 import { DEFAULT_SCHEDULE, EXTERNAL_CREDITS_SEMESTER_INDEX, getSemesterNames } from 'utils/SemesterUtils';
-import uuidv1 from 'uuid/v1';
+import { v1 as uuidv1 } from 'uuid';
 
 const ECCardHeader = styled(Card.Header)`
   padding: 2px;
