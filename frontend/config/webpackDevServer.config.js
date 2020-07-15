@@ -9,7 +9,7 @@ const paths = require('./paths');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
-module.exports = function(proxy, allowedHost) {
+module.exports = function (proxy, allowedHost) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
     // websites from potentially accessing local content through DNS rebinding:
@@ -74,7 +74,7 @@ module.exports = function(proxy, allowedHost) {
     https: protocol === 'https',
     host: host,
     headers: {
-        'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*',
     },
     overlay: false,
     historyApiFallback: {
@@ -92,7 +92,7 @@ module.exports = function(proxy, allowedHost) {
       // We do this in development to avoid hitting the production cache if
       // it used the same host and port.
       // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
-      app.use(noopServiceWorkerMiddleware());
+      app.use(noopServiceWorkerMiddleware(''));
     },
   };
 };
