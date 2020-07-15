@@ -76,7 +76,7 @@ const CoursePopover = (props) => {
         {courseInfoLink && (
           <CourseInfoLinks>
             <a href={courseInfoLink} target="_blank" rel="noopener noreferrer">
-              <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+              <i className="fas fa-info-circle fa-lg course-info" />
             </a>
           </CourseInfoLinks>
         )}

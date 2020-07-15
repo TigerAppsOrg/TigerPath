@@ -181,7 +181,7 @@ export default class ExternalCreditForm extends Component {
                       </Tooltip>
                     }
                   >
-                    <InfoIcon className="fas fa-info-circle fa-lg fa-fw ml-1" />
+                    <InfoIcon className="fas fa-info-circle fa-lg ml-1" />
                   </OverlayTrigger>
                 </Form.Label>
                 <SemesterDropdown>

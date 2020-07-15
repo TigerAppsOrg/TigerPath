@@ -139,7 +139,7 @@ export default class SearchCard extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+                <i className="fas fa-info-circle fa-lg course-info" />
               </a>
             </SearchCardLinks>
           </SearchCardInfo>
