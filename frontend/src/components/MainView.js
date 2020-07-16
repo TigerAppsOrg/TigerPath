@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Schedule from 'components/Schedule';
 import ExternalCreditsView from 'components/ExternalCreditsView';
 
@@ -8,18 +8,20 @@ const Content = styled.div`
 `;
 
 const Nav = styled.div`
-  ${({ theme }) => `
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    border: 2px solid ${theme.lightGrey};
-    border-radius: 2px;
-    margin: 5px 25%;
-  `}
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  border: 2px solid ${({ theme }) => theme.lightGrey};
+  border-radius: 2px;
+  margin: 5px 25%;
+
+  @media print {
+    display: none;
+  }
 `;
 
 const NavButton = styled.button`
-  ${({ theme, active }) => `
+  ${({ theme, active }) => css`
     flex: 1;
     border: none;
     cursor: pointer;
@@ -32,13 +34,11 @@ const NavButton = styled.button`
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
 
-    ${
-      active &&
-      `
+    ${active &&
+    `
       background: ${theme.lightGrey};
       color: white;
-    `
-    };
+    `};
 
     &:hover {
       background: ${theme.darkGrey};
@@ -46,7 +46,7 @@ const NavButton = styled.button`
     }
 
     &:focus {
-      outline: none
+      outline: none;
     }
   `}
 `;
@@ -74,7 +74,7 @@ export default class MainView extends Component {
       this.state.currentTab === TABS.EXTERNAL_CREDITS_TAB;
     return (
       <React.Fragment>
-        <Nav id="main-view-tabs" className="dont-print">
+        <Nav id="main-view-tabs">
           <NavButton
             active={scheduleTabActive}
             onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}
