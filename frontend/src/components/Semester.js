@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CourseCard from 'components/CourseCard';
-import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import {
   SEMESTER_TYPE,
@@ -74,26 +74,14 @@ export default class Semester extends Component {
         {semester[semIndex].map((course, courseIndex) => {
           let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
           return (
-            <Draggable
+            <CourseCard
               key={courseKey}
-              draggableId={courseKey}
-              index={courseIndex}
-              isDragDisabled={semIndex === EXTERNAL_CREDITS_SEMESTER_INDEX}
-            >
-              {(provided, snapshot) => (
-                <CourseCard
-                  innerRef={provided.innerRef}
-                  draggable={provided.draggableProps}
-                  dragHandle={provided.dragHandleProps}
-                  course={course}
-                  courseKey={courseKey}
-                  isDragging={snapshot.isDragging}
-                  onCourseRemove={this.removeCourse}
-                  semIndex={semIndex}
-                  courseIndex={courseIndex}
-                />
-              )}
-            </Draggable>
+              course={course}
+              courseKey={courseKey}
+              onCourseRemove={this.removeCourse}
+              semIndex={semIndex}
+              courseIndex={courseIndex}
+            />
           );
         })}
       </React.Fragment>

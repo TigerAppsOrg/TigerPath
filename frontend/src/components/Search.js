@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import SearchCard from 'components/SearchCard';
-import { Droppable } from 'react-beautiful-dnd';
 
 export default class Search extends Component {
   constructor(props) {
@@ -65,29 +64,19 @@ export default class Search extends Component {
           <span>Search Results</span>
           <i id="spinner" className="fas fa-circle-notch fa-spin"></i>
         </div>
-        <Droppable droppableId="search-results" isDropDisabled={true}>
-          {(provided, snapshot) => (
-            <React.Fragment>
-              <div
-                id="display-courses"
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {this.props.searchResults.map((course, courseIndex) => {
-                  let courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
-                  return (
-                    <SearchCard
-                      key={courseKey}
-                      courseKey={courseKey}
-                      index={courseIndex}
-                      course={course}
-                    />
-                  );
-                })}
-              </div>
-            </React.Fragment>
-          )}
-        </Droppable>
+        <div id="display-courses">
+          {this.props.searchResults.map((course, courseIndex) => {
+            const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
+            return (
+              <SearchCard
+                key={courseKey}
+                courseKey={courseKey}
+                index={courseIndex}
+                course={course}
+              />
+            );
+          })}
+        </div>
       </React.Fragment>
     );
   }
