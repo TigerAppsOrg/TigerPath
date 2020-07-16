@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Semester from 'components/Semester';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { getSemesterNames } from 'utils/SemesterUtils';
 import { addPopover } from 'Popover';
 
@@ -19,13 +19,13 @@ export default class Schedule extends Component {
     if (this.props.schedule === null) {
       // get existing schedule and populate semesters
       $.ajax({
-        url: "/api/v1/get_schedule/",
+        url: '/api/v1/get_schedule/',
         datatype: 'json',
         type: 'GET',
         success: (schedule) => {
           if (schedule) this.props.onChange('schedule', schedule);
           this.addPopovers(schedule);
-        }
+        },
       });
     } else {
       this.addPopovers(this.props.schedule);
@@ -38,15 +38,19 @@ export default class Schedule extends Component {
     }
   }
 
-  addPopovers = schedule => {
+  addPopovers = (schedule) => {
     for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
-      for (let courseIndex = 0; courseIndex < schedule[semIndex].length; courseIndex++) {
+      for (
+        let courseIndex = 0;
+        courseIndex < schedule[semIndex].length;
+        courseIndex++
+      ) {
         let course = schedule[semIndex][courseIndex];
-        let courseKey = `course-card-${course["semester"]}-${semIndex}-${courseIndex}`;
+        let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
         addPopover(course, courseKey, semIndex);
       }
     }
-  }
+  };
 
   semesters = () => {
     let profile = this.props.profile;
@@ -67,13 +71,9 @@ export default class Schedule extends Component {
       );
     });
     return semesters;
-  }
+  };
 
   render() {
-    return (
-      <Semesters id="semesters">
-        {this.semesters()}
-      </Semesters>
-    );
+    return <Semesters id="semesters">{this.semesters()}</Semesters>;
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Schedule from 'components/Schedule';
 import ExternalCreditsView from 'components/ExternalCreditsView';
 
@@ -32,10 +32,13 @@ const NavButton = styled.button`
     -o-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
 
-    ${active && `
+    ${
+      active &&
+      `
       background: ${theme.lightGrey};
       color: white;
-    `};
+    `
+    };
 
     &:hover {
       background: ${theme.darkGrey};
@@ -63,25 +66,44 @@ export default class MainView extends Component {
 
   setTab = (tab) => {
     this.setState({ currentTab: tab });
-  }
+  };
 
   render() {
     let scheduleTabActive = this.state.currentTab === TABS.SCHEDULE_TAB;
-    let externalCreditsTabActive = this.state.currentTab === TABS.EXTERNAL_CREDITS_TAB;
+    let externalCreditsTabActive =
+      this.state.currentTab === TABS.EXTERNAL_CREDITS_TAB;
     return (
       <React.Fragment>
         <Nav id="main-view-tabs" className="dont-print">
-          <NavButton active={scheduleTabActive} onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}>Schedule</NavButton>
-          <NavButton active={externalCreditsTabActive} onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}>AP/External Credits</NavButton>
+          <NavButton
+            active={scheduleTabActive}
+            onClick={(e) => this.setTab(TABS.SCHEDULE_TAB, e)}
+          >
+            Schedule
+          </NavButton>
+          <NavButton
+            active={externalCreditsTabActive}
+            onClick={(e) => this.setTab(TABS.EXTERNAL_CREDITS_TAB, e)}
+          >
+            AP/External Credits
+          </NavButton>
         </Nav>
         <Content>
-          {scheduleTabActive &&
-            <Schedule onChange={this.props.onChange} profile={this.props.profile} schedule={this.props.schedule} />
-          }
-          {externalCreditsTabActive &&
-            <ExternalCreditsView onChange={this.props.onChange} profile={this.props.profile}
-                                 schedule={this.props.schedule} requirements={this.props.requirements} />
-          }
+          {scheduleTabActive && (
+            <Schedule
+              onChange={this.props.onChange}
+              profile={this.props.profile}
+              schedule={this.props.schedule}
+            />
+          )}
+          {externalCreditsTabActive && (
+            <ExternalCreditsView
+              onChange={this.props.onChange}
+              profile={this.props.profile}
+              schedule={this.props.schedule}
+              requirements={this.props.requirements}
+            />
+          )}
         </Content>
       </React.Fragment>
     );

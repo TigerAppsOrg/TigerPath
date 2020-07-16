@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -8,7 +8,11 @@ import Alert from 'react-bootstrap/Alert';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import RequirementsDropdown from 'components/RequirementsDropdown';
-import { DEFAULT_SCHEDULE, EXTERNAL_CREDITS_SEMESTER_INDEX, getSemesterNames } from 'utils/SemesterUtils';
+import {
+  DEFAULT_SCHEDULE,
+  EXTERNAL_CREDITS_SEMESTER_INDEX,
+  getSemesterNames,
+} from 'utils/SemesterUtils';
 import { v1 as uuidv1 } from 'uuid';
 
 const ECCardHeader = styled(Card.Header)`
@@ -27,7 +31,7 @@ const Submit = styled(Button)`
   margin-right: 0;
 `;
 
-const DEFAULT_NAME = { label: '', value: ''};
+const DEFAULT_NAME = { label: '', value: '' };
 
 const FORM_STATE = Object.freeze({
   NOT_SUBMITTED: Symbol('formNotSubmitted'),
@@ -48,13 +52,17 @@ export default class ExternalCreditForm extends Component {
 
   handleChange = (stateName, eventLabel, eventKey) => {
     this.setState({ [stateName]: { label: eventLabel, value: eventKey } });
-  }
+  };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const form = event.currentTarget;
 
     // check to see that the form has been completely filled out
-    if (form.checkValidity() === false || !this.state.selectedSemester || !this.state.selectedRequirement) {
+    if (
+      form.checkValidity() === false ||
+      !this.state.selectedSemester ||
+      !this.state.selectedRequirement
+    ) {
       this.setState({ formState: FORM_STATE.FAILURE });
       event.preventDefault();
       event.stopPropagation();
@@ -65,7 +73,7 @@ export default class ExternalCreditForm extends Component {
     let semIndex = this.state.selectedSemester.value;
 
     // populate the course values
-    let course = {}
+    let course = {};
     course['id'] = uuidv1();
     course['external'] = true;
     course['name'] = this.state.name.value;
@@ -89,16 +97,18 @@ export default class ExternalCreditForm extends Component {
       formState: FORM_STATE.SUCCESS,
       name: DEFAULT_NAME,
       selectedSemester: null,
-      selectedRequirement: null
+      selectedRequirement: null,
     });
 
     event.preventDefault();
-  }
+  };
 
   render() {
     let profile = this.props.profile;
     let selectedSem = this.state.selectedSemester;
-    let semesterDropdownLabel = selectedSem ? selectedSem.label : 'Select a semester';
+    let semesterDropdownLabel = selectedSem
+      ? selectedSem.label
+      : 'Select a semester';
     let reqName = this.state.name;
 
     return (
@@ -106,25 +116,48 @@ export default class ExternalCreditForm extends Component {
         <Card>
           <ECCardHeader>Add external credit</ECCardHeader>
           <Card.Body>
-            <Alert variant="success" show={this.state.formState === FORM_STATE.SUCCESS}
-                   onClose={() => this.setState({ formState: FORM_STATE.NOT_SUBMITTED })} dismissible={true}>
+            <Alert
+              variant="success"
+              show={this.state.formState === FORM_STATE.SUCCESS}
+              onClose={() =>
+                this.setState({ formState: FORM_STATE.NOT_SUBMITTED })
+              }
+              dismissible={true}
+            >
               Your external credit has been successfully created!
             </Alert>
-            <Alert variant="danger" show={this.state.formState === FORM_STATE.FAILURE}
-                   onClose={() => this.setState({ formState: FORM_STATE.NOT_SUBMITTED })} dismissible={true}>
+            <Alert
+              variant="danger"
+              show={this.state.formState === FORM_STATE.FAILURE}
+              onClose={() =>
+                this.setState({ formState: FORM_STATE.NOT_SUBMITTED })
+              }
+              dismissible={true}
+            >
               Please fill out all of the fields.
             </Alert>
 
             <Form onSubmit={this.handleSubmit} validated={this.state.validated}>
               <Form.Group controlId="formExternalCreditName">
                 <Form.Label>Name of external credit:</Form.Label>
-                <Form.Control required type="text" placeholder="e.g. AP Calculus BC" value={reqName.value} onChange={(e) => this.handleChange("name", e.target.value, e.target.value)} />
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="e.g. AP Calculus BC"
+                  value={reqName.value}
+                  onChange={(e) =>
+                    this.handleChange('name', e.target.value, e.target.value)
+                  }
+                />
               </Form.Group>
 
               <Form.Group controlId="formRequirement">
                 <Form.Label>Requirement you want to satisfy:</Form.Label>
-                <RequirementsDropdown requirements={this.props.requirements} handleChange={this.handleChange}
-                                      selectedRequirement={this.state.selectedRequirement} />
+                <RequirementsDropdown
+                  requirements={this.props.requirements}
+                  handleChange={this.handleChange}
+                  selectedRequirement={this.state.selectedRequirement}
+                />
               </Form.Group>
 
               <Form.Group controlId="formSemester">
@@ -134,7 +167,11 @@ export default class ExternalCreditForm extends Component {
                     placement="top"
                     overlay={
                       <Tooltip>
-                        For AP credits, waivers, or other external credits that don't fit in a semester, choose "N/A" - they will appear in "Your External Credits" on the left. For a summer course, choose either the semester before or after the summer in which you took it.
+                        For AP credits, waivers, or other external credits that
+                        don't fit in a semester, choose "N/A" - they will appear
+                        in "Your External Credits" on the left. For a summer
+                        course, choose either the semester before or after the
+                        summer in which you took it.
                       </Tooltip>
                     }
                   >
@@ -146,14 +183,29 @@ export default class ExternalCreditForm extends Component {
                     {semesterDropdownLabel}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item eventKey="N/A" onSelect={e => this.handleChange("selectedSemester", "N/A", e)}>N/A</Dropdown.Item>
-                    { profile && profile.classYear &&
-                      getSemesterNames(profile.classYear).map((semName, index) =>
-                        <Dropdown.Item key={semName} eventKey={index} onSelect={(e) => this.handleChange("selectedSemester", semName, e)}>
-                          {semName}
-                        </Dropdown.Item>
-                      )
-                    }
+                    <Dropdown.Item
+                      eventKey="N/A"
+                      onSelect={(e) =>
+                        this.handleChange('selectedSemester', 'N/A', e)
+                      }
+                    >
+                      N/A
+                    </Dropdown.Item>
+                    {profile &&
+                      profile.classYear &&
+                      getSemesterNames(profile.classYear).map(
+                        (semName, index) => (
+                          <Dropdown.Item
+                            key={semName}
+                            eventKey={index}
+                            onSelect={(e) =>
+                              this.handleChange('selectedSemester', semName, e)
+                            }
+                          >
+                            {semName}
+                          </Dropdown.Item>
+                        )
+                      )}
                   </Dropdown.Menu>
                 </SemesterDropdown>
               </Form.Group>
