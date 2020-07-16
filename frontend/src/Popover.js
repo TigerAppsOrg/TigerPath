@@ -66,7 +66,12 @@ export function addPopover(course, courseKey, semIndex) {
 
   // Show the popover when it's hovered over
   courseElement
-    .popover({ trigger: 'manual', html: true, animation: true })
+    .popover({
+      trigger: 'manual',
+      html: true,
+      animation: true,
+      sanitize: false,
+    })
     .on('mouseenter', () => {
       courseElement.popover('show');
       $('.popover').on('mouseleave', () => {
