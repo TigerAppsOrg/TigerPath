@@ -422,8 +422,6 @@ def _assign_settled_courses_to_reqs(req, courses):
     old_deficit = req["min_needed"] - req["count"]
     if (req["max_counted"] != None):
         old_available = req["max_counted"] - req["count"]
-        if old_available <= 0: # already saturated, nothing to update
-            return 0
     was_satisfied = (old_deficit <= 0)
     newly_satisfied = 0
     if "req_list" in req: # recursively check subrequirements
@@ -448,7 +446,7 @@ def _assign_settled_courses_to_reqs(req, courses):
         if req["max_counted"] == None: # unlimited
             return newly_satisfied
         else:
-            return min(old_available,newly_satisfied) # cut off at old_available
+            return min(old_available, newly_satisfied) # cut off at old_available
     else: # requirement still not satisfied
         return 0
 

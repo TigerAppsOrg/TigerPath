@@ -426,8 +426,7 @@
     },
     {
       "name": "Optional Tracks",
-      # the following line is a hack to allow for an unproductive requirement that still gets checked. See discussion at PR #296
-      "max_counted": 0.000000000001,
+      "max_counted": 0,
       "min_needed": 0,
       "explanation": "All students who declare their concentration in Politics are eligible to pursue one of the three tracks and should inform the Undergraduate Program Manager of their intention to pursue a program upon declaring the concentration in April of their sophomore year, and no later than February 1 of their junior year. The tracks provide additional guidance for structuring the program of study as a Politics concentrator, but students are not required to select a track to graduate with a degree in Politics. Students who pursue a program will still need to fulfill the requirements of a Politics concentrator. Courses may simultaneously fulfill both the program requirements and the Politics concentration requirements.",
       "double_counting_allowed": true,
