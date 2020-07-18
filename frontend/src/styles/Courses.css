@@ -128,23 +128,12 @@
   z-index: 1;
 }
 
-.course-card:hover:active, .course-card-shadow {
-  cursor: grabbing;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  z-index: 1;
-}
-
-/* don't show react-beautiful-dnd's placeholder in search results */
-.placeholder-course + div {
-  display: none !important;
-}
-
 .course-info:hover, .course-eval:hover {
   color: #5a6268;
 }
 
 /* add delete button on course hover in semesters */
-.semester .course-card:hover .delete-course {
+.course-card:hover .delete-course {
   display: block;
 }
 

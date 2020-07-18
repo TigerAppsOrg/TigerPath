@@ -104,7 +104,7 @@ export default class App extends Component {
     let destCourseIndex = result.destination.index;
     let sourceCourseIndex = result.source.index;
 
-    if (result.source.droppableId === 'search-results') {
+    if (result.source.droppableId.includes('search-result-droppable')) {
       // moving course from search results to schedule
       let searchResultsCourse = searchResults[sourceCourseIndex];
       let course = {};

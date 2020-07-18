@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CourseCard from 'components/CourseCard';
-import { Draggable } from 'react-beautiful-dnd';
+import SearchCourseCard from './SearchCourseCard';
 
 const RADIX = 10;
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
@@ -51,31 +50,6 @@ export default class SearchCard extends Component {
     return code;
   };
 
-  courseCard = (provided, snapshot) => {
-    let course = this.props.course;
-    let courseKey = this.props.courseKey;
-    return (
-      <React.Fragment>
-        <CourseCard
-          innerRef={provided.innerRef}
-          draggable={provided.draggableProps}
-          dragHandle={provided.dragHandleProps}
-          course={course}
-          courseKey={courseKey}
-          isDragging={snapshot.isDragging}
-        />
-        {snapshot.isDragging && (
-          <CourseCard
-            course={course}
-            courseKey={`${courseKey}-placeholder`}
-            isPlaceholder={true}
-            isDragging={false}
-          />
-        )}
-      </React.Fragment>
-    );
-  };
-
   render() {
     let course = this.props.course;
     let courseId = course['id'];
@@ -89,13 +63,12 @@ export default class SearchCard extends Component {
 
     return (
       <div className={`search-card ${course['semester']}`}>
-        <React.Fragment>
-          <Draggable
-            draggableId={this.props.courseKey}
-            index={this.props.index}
-          >
-            {(provided, snapshot) => this.courseCard(provided, snapshot)}
-          </Draggable>
+        <>
+          <SearchCourseCard
+            course={course}
+            courseKey={this.props.courseKey}
+            courseIndex={this.props.index}
+          />
           <div className="search-card-info">
             <div>
               <div className="course-title">{course['title']}</div>
@@ -111,7 +84,7 @@ export default class SearchCard extends Component {
               </a>
             </div>
           </div>
-        </React.Fragment>
+        </>
       </div>
     );
   }
