@@ -5,19 +5,35 @@
   "degree": "AB",
   "year": 2018,
   "urls": [
+    # update this link once the UA updates
     "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
     "https://spia.princeton.edu/undergraduate-program/curriculum-requirements"
   ],
   "contacts": [
     {
-      "type": "Dean",
-      "name": "Cecilia E. Rouse",
-      "email": "rouse@princeton.edu"
+      "type": "Associate Dean for Undergraduate Education",
+      "name": "Paul Lipton",
+      "email": "plipton@princeton.edu"
     },
     {
-      "type": "Vice Dean",
-      "name": "Miguel Centeno",
-      "email": "cenmiga@princeton.edu"
+      "type": "Director, Undergraduate Program and Career Services",
+      "name": "Monica Ruscil",
+      "email": "mgruscil@princeton.edu"
+    },
+    {
+      "type": "Academic Coordinator, Undergraduate Program",
+      "name": "Jan Burch",
+      "email": "jburch@princeton.edu"
+    },
+    {
+      "type": "Administrative Coordinator, Undergraduate Program",
+      "name": "Georgette Harrison",
+      "email": "gharriso@princeton.edu"
+    },
+    {
+      "type": "Undergraduate Program Office",
+      "name": "Undergraduate Program Office",
+      "email": "ugradwws@princeton.edu"
     }
   ],
   "req_list": [
