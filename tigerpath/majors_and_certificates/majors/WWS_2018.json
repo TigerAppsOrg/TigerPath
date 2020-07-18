@@ -41,8 +41,9 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": null,
+      "explanation": "All courses taken to meet these prerequisites must be taken on a graded basis (no P/D/F option). Students must receive a grade of C or higher in all courses used to meet the prerequisites.\n\nAP courses or freshman seminars may not be used to fulfill prerequisites. One course may not be used to fulfill more than one prerequisite.\n\nA summer course or a course taken abroad might meet the prerequisite requirement, but only if approved by the School's Undergraduate Program Office.",
       "completed_by_semester": 4,
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "Statistics",
@@ -61,7 +62,7 @@
           "name": "Microeconomics",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Microeconomics (One Course Required). Note: AP Microeconomic does not fulfill this prerequisite.",
+          "explanation": "Microeconomics (One Course Required). Note: AP Microeconomics does not fulfill this prerequisite.",
           "course_list": [
             "ECO 100",
             "ECO 300",
@@ -83,6 +84,10 @@
           "max_counted": 1,
           "min_needed": 1,
           "explanation": "Any course with a POL, SOC, or PSY listing or cross-listed course with a POL, SOC or PSY listing. A course taken to meet the statistics requirement cannot be used to meet this requirement.",
+          "excluded_course_list": [
+            "POL 345",
+            "POL 346"
+          ],
           "course_list": [
             "POL *",
             "SOC *",
