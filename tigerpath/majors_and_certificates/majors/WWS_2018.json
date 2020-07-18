@@ -960,37 +960,17 @@
     },
 
     {
-      "name": "Language Requirement",
+      "name": "Additional Language",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "Students majoring in the Princeton School of Public and International Affairs must complete at least one foreign language course beyond the current University requirement. This can be done:\n- By taking an additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a subject matter course taught in the foreign language will count, or\n- By taking a course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.\n\nCourses used to meet this requirement may be taken at Princeton University or elsewhere; all courses must be taken on a graded basis.\n\nStudents who are bilingual may apply to have this requirement waived.",
-      "req_list": [
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": null,
-          "explanation": "An additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a course taught in the foreign language may be used.",
-          "note": "LANG stands for any one single language",
-          "course_list": [
-            "LANG 2**",
-            "LANG 3**"
-          ]
-        },
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "A course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.",
-          "course_list": [
-            "LANG 102",
-            "LANG 103",
-            "LANG 104",
-            "LANG 105",
-            "LANG 106",
-            "LANG 107",
-            "LANG 108"
-          ]
-        }
+      "explanation": "<i>Editor's Note: TigerPath does not verify that this language is in addition to the one satisfying the AB requirements.</i>\n\nStudents majoring in the Princeton School of Public and International Affairs must complete at least one foreign language course beyond the current University requirement. This can be done:\n- By taking an additional course (200 or 300 level) in the language used to meet the University requirement. Either a language course or a subject matter course taught in the foreign language will count, or\n- By taking a course at least at the 102 level in a language other than the one used to fulfill the University foreign language requirement.\n\nCourses used to meet this requirement may be taken at Princeton University or elsewhere; all courses must be taken on a graded basis.\n\nStudents who are bilingual may apply to have this requirement waived.",
+      "excluded_course_list": [
+        "LANG 101"
+      ],
+      "course_list": [
+        "LANG 1**",
+        "LANG 2**",
+        "LANG 3**"
       ]
     },
     {
