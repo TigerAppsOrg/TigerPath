@@ -131,12 +131,12 @@
           "min_needed": 1,
           "explanation": "One Course in Sociology or Psychology.",
           "course_list": [
-            "WWS 345/AAS 384/PSY 384",
             "WWS 330",
+            "WWS 331/SOC 312/AAS 317",
             "WWS 333/SOC 326",
-            "WWS 331",
             "WWS 340/PSY 321",
-            "WWS 344/PSY 312"
+            "WWS 344/PSY 312",
+            "WWS 345/AAS 384/PSY 384"
           ]
         },
         {
@@ -146,8 +146,8 @@
           "explanation": "One Course in Science Policy.",
           "course_list": [
             "WWS 350",
-            "WWS 351",
-            "WWS 353",
+            "WWS 351/SOC 353/COS 351",
+            "WWS 353/MAE 353",
             "WWS 354",
             "CEE 334/WWS 452",
             "ENV 304/WWS 455",
@@ -161,12 +161,12 @@
           "explanation": "One Course in Ethics.",
           "course_list": [
             "WWS 370/POL 308",
-            "POL 307",
-            "POL 313",
             "CHV 310/PHI 385",
             "PHI 307/CHV 311",
             "PHI 309/CHV 309",
             "PHI 319/CHV 319",
+            "POL 307",
+            "POL 313",
             "REL 261/CHV 261"
           ]
         }
