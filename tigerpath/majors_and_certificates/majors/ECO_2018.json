@@ -217,8 +217,7 @@
     },
     {
       "name": "Optional Tracks",
-      # the following line is a hack to allow for an unproductive requirement that still gets checked. See discussion at PR #296
-      "max_counted": 0.000000000001,
+      "max_counted": 0,
       "min_needed": 0,
       "explanation": null,
       "req_list": [
