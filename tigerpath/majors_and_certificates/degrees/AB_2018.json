@@ -9,11 +9,48 @@
   ],
   "req_list": [
     {
-      "name": "Total Courses",
+      "name": "Degree Progress",
       "max_counted": 1,
-      "explanation": "With the exception of students who receive one or two terms of advanced standing, all A.B. students must successfully complete a minimum of 31 courses and two years of departmental independent work in eight terms of study. An extra term or year of study is granted by the Faculty Committee on Examinations and Standing to a student making normal progress toward the degree only under extraordinary circumstances.",
+      "min_needed": "ALL",
+      "explanation": "With the exception of students who receive one or two terms of advanced standing, all A.B. students must successfully complete a minimum of 31 courses and two years of departmental independent work in eight terms of study. An extra term or year of study is granted by the Faculty Committee on Examinations and Standing to a student making normal progress toward the degree only under extraordinary circumstances.\n\nThe normal course load for first-years, sophomores, and juniors is four courses each term, with the exception of one term in the first or sophomore year when a student typically will need to take five courses in order to meet the expectation that 17 courses will have been completed by the start of junior year.\n\nRegardless of the number of courses completed prior to entering senior year, all seniors must, with the exception of the two programs listed below, complete a minimum of six courses in senior year. This is most often accomplished by enrolling in three courses each term but students may take four courses in one term and two courses in the other. Students in the Program in Teacher Preparation who have taken an extra course in an earlier year or a student who is participating in the University Scholar Program may be permitted to reduce their course load by one course in the senior year.",
       "completed_by_semester": 8,
-      "num_courses": 31
+      "req_list": [
+        {
+          "name": "By first semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 1,
+          "num_courses": 4
+        },
+        {
+          "name": "By second semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 2,
+          "num_courses": 8
+        },
+        {
+          "name": "By fourth semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 4,
+          "num_courses": 17
+        },
+        {
+          "name": "By sixth semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 6,
+          "num_courses": 25
+        },
+        {
+          "name": "Total courses",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 8,
+          "num_courses": 31
+        }
+      ]
     },
     {
       "name": "Writing Seminar",
