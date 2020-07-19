@@ -92,7 +92,7 @@
           "name": "Electives",
           "max_counted": 1,
           "min_needed": 5,
-          "explanation": "In addition to SOC 101, SOC 300, SOC 301, and SOC 302, students are required to take at least one course at the 300-level or higher in order to graduate.",
+          "explanation": "Complete a minimum of nine (9) departmental (including cognate) courses. Students may include among these nine courses up to two cognate courses, which are defined as courses in other departments that are directly related to a student's sociological interests. To be included as part of one's departmental program, cognates must be pre-approved by the Director of Undergraduate Studies.\n\nIn addition to SOC 101, SOC 300, SOC 301, and SOC 302, students are required to take at least one course at the 300-level or higher in order to graduate.",
           "req_list": [
             {
               "name": null,
