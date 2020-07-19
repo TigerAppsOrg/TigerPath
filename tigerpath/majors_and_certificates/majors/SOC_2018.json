@@ -45,11 +45,47 @@
           "min_needed": "ALL",
           "explanation": "Within the nine sociology courses, the following four must be taken: SOC 101: Introduction to Sociology (taught in the fall and the spring and can be taken anytime, even after taking mid- and upper-level sociology courses), SOC 300: Claims and Evidence (taken in the Fall of the junior year to prepare students for the Junior Paper), SOC 301: Statistical Methods in Sociology, SOC 302: Sociological Theory.",
           "completed_by_semester": 6,
-          "course_list": [
-            "SOC 101",
-            "SOC 300",
-            "SOC 301",
-            "SOC 302"
+          "req_list": [
+            {
+              "name": "Introduction to Sociology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 101"
+              ]
+            },
+            {
+              "name": "Claims and Evidence in Sociology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 300"
+              ]
+            },
+            {
+              "name": "Statistics",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "The following courses can count in place of sociology's statistics course, SOC 301, Statistical Methods in Sociology:\n- ORF 245/EGR 245, Fundamentals of Statistics\n- POL 345/SOC 305/WWS 211, Introduction to Quantitative Social Science\n- PSY 251, Quantitative Methods\n- WWS 200, Statistics for Social Science",
+              "course_list": [
+                "SOC 301",
+                "ORF 245/EGR 245",
+                "POL 345/SOC 305/WWS 211",
+                "PSY 251",
+                "WWS 200"
+              ]
+            },
+            {
+              "name": "Sociological Theory",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 302"
+              ]
+            }
           ]
         },
         {
