@@ -23,6 +23,13 @@
           "num_courses": 4
         },
         {
+          "name": "By second semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 2,
+          "num_courses": 9
+        },
+        {
           "name": "By fourth semester",
           "max_counted": 1,
           "explanation": null,
