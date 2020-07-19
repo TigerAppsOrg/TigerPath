@@ -15,41 +15,32 @@
       "name": "Degree Progress",
       "max_counted": 1,
       "min_needed": "ALL",
-      "description": null,
       "explanation": "B.S.E. students enroll in four courses for the first term of the freshman year and in four or five courses in each succeeding term, following a sequence appropriate to their individual programs. The school requirement for the B.S.E. degree is at least 36 courses in the four years of study. Sophomores, juniors, and seniors must complete at least four courses each term, with a minimum of 17 courses by the start of junior year and 26 courses by the start of senior year.",
       "req_list": [
         {
-          "name": null,
+          "name": "By first semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 1,
           "num_courses": 4
         },
         {
-          "name": null,
+          "name": "By fourth semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 4,
           "num_courses": 17
         },
         {
-          "name": null,
+          "name": "By sixth semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 6,
           "num_courses": 26
         },
         {
-          "name": null,
+          "name": "Total courses",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 8,
           "num_courses": 36

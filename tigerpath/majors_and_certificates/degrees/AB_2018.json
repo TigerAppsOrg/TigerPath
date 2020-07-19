@@ -10,22 +10,11 @@
   ],
   "req_list": [
     {
-      "name": "Degree Progress",
+      "name": "Total Courses",
       "max_counted": 1,
-      "min_needed": "ALL",
-      "description": null,
       "explanation": "With the exception of students who receive one or two terms of advanced standing, all A.B. students must successfully complete a minimum of 31 courses and two years of departmental independent work in eight terms of study. An extra term or year of study is granted by the Faculty Committee on Examinations and Standing to a student making normal progress toward the degree only under extraordinary circumstances.",
-      "req_list": [
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
-          "explanation": null,
-          "completed_by_semester": 8,
-          "num_courses": 31
-        }
-      ]
+      "completed_by_semester": 8,
+      "num_courses": 31
     },
     {
       "name": "Writing Seminar",
