@@ -6,7 +6,8 @@
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-sociology",
-    "https://sociology.princeton.edu/"
+    "https://sociology.princeton.edu/undergraduate-program/current-majors/requirements",
+    "https://sociology.princeton.edu/sites/sociology/files/undergraduate_handbook_201920.pdf"
   ],
   "contacts": [
     {
@@ -15,9 +16,9 @@
       "email": "mduneier@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
-      "name": "Frederick F. Wherry",
-      "email": "ffwherry@princeton.edu"
+      "type": "Director of Undergraduate Studies",
+      "name": "Timothy Nelson",
+      "email": "tjnelson@princeton.edu"
     }
   ],
   "req_list": [
@@ -36,49 +37,105 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Students are required to take a minimum of nine courses in sociology, including an upper limit of two cognate courses in other departments which must receive approval from Sociology in order to count toward the required nine. A cognate course is a Princeton class offered by another department that has substantial sociological content. All departmental courses or approved cognates that count toward the required nine must be taken for a grade and cannot be taken pass/D/fail. SOC 101, SOC 300, POL 345/SOC 305, and SOC 302 are requirements for the major. Collectively they are designed to help students carry out their junior and senior independent work. These courses expose students to the nature of sociological problems and theory, the logic of inquiry, the techniques of empirical investigation, and the elements of statistics. SOC 300 and POL 345/SOC 305 are usually taken in the fall of the junior year and are offered at that time to facilitate students who wish to study abroad in the spring. SOC 302 is normally offered in the spring.",
+      "explanation": "Sociology majors must take nine courses within the department. Up to two courses can be courses with sociological content that come from other departments. (The Director of Undergraduate Studies has to approve those courses after seeing a syllabus.) Within the nine sociology courses, the following four must be taken: SOC 101: Introduction to Sociology (taught in the fall and the spring and can be taken anytime, even after taking mid- and upper-level sociology courses), SOC 300: Claims and Evidence (taken in the Fall of the junior year to prepare students for the Junior Paper), SOC 301: Statistical Methods in Sociology, SOC 302: Sociological Theory.",
       "req_list": [
         {
           "name": "Required",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "",
-          "course_list": [
-            "SOC 101",
-            "SOC 300",
-            "POL 345/SOC 305",
-            "SOC 302"
+          "explanation": "Within the nine sociology courses, the following four must be taken: SOC 101: Introduction to Sociology (taught in the fall and the spring and can be taken anytime, even after taking mid- and upper-level sociology courses), SOC 300: Claims and Evidence (taken in the Fall of the junior year to prepare students for the Junior Paper), SOC 301: Statistical Methods in Sociology, SOC 302: Sociological Theory.",
+          "completed_by_semester": 6,
+          "req_list": [
+            {
+              "name": "Introduction to Sociology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 101"
+              ]
+            },
+            {
+              "name": "Claims and Evidence in Sociology",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 300"
+              ]
+            },
+            {
+              "name": "Statistics",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "The following courses can count in place of sociology's statistics course, SOC 301, Statistical Methods in Sociology:\n- ORF 245/EGR 245, Fundamentals of Statistics\n- POL 345/SOC 305/WWS 211, Introduction to Quantitative Social Science\n- PSY 251, Quantitative Methods\n- WWS 200, Statistics for Social Science",
+              "course_list": [
+                "SOC 301",
+                "ORF 245/EGR 245",
+                "POL 345/SOC 305/WWS 211",
+                "PSY 251",
+                "WWS 200"
+              ]
+            },
+            {
+              "name": "Sociological Theory",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "SOC 302"
+              ]
+            }
           ]
         },
         {
           "name": "Electives",
           "max_counted": 1,
           "min_needed": 5,
-          "explanation": "",
-          "course_list": [
-            "SOC *"
+          "explanation": "Complete a minimum of nine (9) departmental (including cognate) courses. Students may include among these nine courses up to two cognate courses, which are defined as courses in other departments that are directly related to a student's sociological interests. To be included as part of one's departmental program, cognates must be pre-approved by the Director of Undergraduate Studies.\n\nIn addition to SOC 101, SOC 300, SOC 301, and SOC 302, students are required to take at least one course at the 300-level or higher in order to graduate.",
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 4,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "SOC 2*"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "SOC 3*",
+                "SOC 4*",
+                "SOC 5*"
+              ],
+              "excluded_course_list": [
+                "SOC 300",
+                "SOC 301",
+                "SOC 302",
+                "POL 345/SOC 305"
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "name": "Independent Work",
+      "name": "Junior Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "The junior paper is written with SOC 300 and POL 345/SOC 305 providing the basic research tools to formulate the project. Junior papers require students to conduct limited data analysis, whether of primary data (generated by students themselves) or secondary data (derived from existing data sources). In some cases, the junior paper becomes the foundation for the student's senior thesis. All junior papers are graded by a second reader, in addition to the major adviser.",
-      "description": "Independent Work",
-      "double_counting_allowed": true,
-      "course_list": [
-        "SOC 300",
-        "POL 345/SOC 305"
-      ]
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nJuniors begin their independent work in the fall of their junior year, but the work is due at the end of the spring semester.\n\nThe junior paper is written with SOC 300 and POL 345/SOC 305 providing the basic research tools to formulate the project. Junior papers require students to conduct limited data analysis, whether of primary data (generated by students themselves) or secondary data (derived from existing data sources). In some cases, the junior paper becomes the foundation for the student's senior thesis. All junior papers are graded by a second reader, in addition to the major adviser.",
+      "no_req": null
     },
     {
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior Independent Work. Senior independent work consists of completing a thesis that (a) explores the various theoretical approaches that have been used to explain a particular social phenomenon and (b) examines that phenomenon through extensive analysis of data, whether primary (generated by students themselves) or secondary (derived from existing data sources). Students whose thesis topics require advanced quantitative skills may acquire the necessary competence by enrolling in suitable statistics courses. Students who are contemplating collecting their own data may need the prior approval of the University's Institutional Review Board for Human Subjects.",
-      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior independent work consists of completing a thesis that (a) explores the various theoretical approaches that have been used to explain a particular social phenomenon and (b) examines that phenomenon through extensive analysis of data, whether primary (generated by students themselves) or secondary (derived from existing data sources). Students whose thesis topics require advanced quantitative skills may acquire the necessary competence by enrolling in suitable statistics courses. Students who are contemplating collecting their own data may need the prior approval of the University's Institutional Review Board for Human Subjects.",
       "no_req": null
     }
   ]
