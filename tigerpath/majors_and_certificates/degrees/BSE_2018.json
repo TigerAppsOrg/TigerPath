@@ -57,7 +57,7 @@
       "name": "Mathematics",
       "max_counted": 1,
       "min_needed": 4,
-      "explanation": "<b>Mathematics</b><br><i>four semesters</i>",
+      "explanation": "<i>Four semesters</i>",
       "pdfs_allowed": false,
       "double_counting_allowed": true,
       "req_list": [
@@ -114,7 +114,7 @@
       "name": "Physics",
       "max_counted": 1,
       "min_needed": 2,
-      "explanation": "<b>Physics</b><br><i>two semesters, must be completed by the end of the first year</i>",
+      "explanation": "<i>Two semesters, must be completed by the end of the first year</i>",
       "pdfs_allowed": false,
       "double_counting_allowed": true,
       "completed_by_semester": 2,
@@ -161,7 +161,7 @@
       "name": "Chemistry",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "<b>Chemistry</b><br><i>one semester, must be completed by the end of the first year</i><hr>207 Advanced General Chemistry: Materials Chemistry, or 201 General Chemistry, or equivalent",
+      "explanation": "<i>One semester, must be completed by the end of the first year</i>\n\n207 Advanced General Chemistry: Materials Chemistry, or 201 General Chemistry, or equivalent",
       "pdfs_allowed": false,
       "double_counting_allowed": true,
       "completed_by_semester": 2,
@@ -196,7 +196,7 @@
       "name": "Computer Science",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "<b>Computer Science</b><br><i>one semester, must be completed by the end of the second year</i><hr>Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
+      "explanation": "<i>One semester, must be completed by the end of the second year</i>\n\nComputer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
       "pdfs_allowed": false,
       "double_counting_allowed": true,
       "completed_by_semester": 4,
@@ -230,7 +230,7 @@
       "name": "Writing Seminar",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "<b>Writing Seminar</b><br><i>one course, completed in the first year</i><hr>All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nMore information:\n<a href=\"https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars</a>\n\nEnrollment process:\n<a href=\"https://writing.princeton.edu/seminars/how-enroll\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/seminars/how-enroll</a>",
+      "explanation": "<i>One course, completed in the first year</i>\n\nAll Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nMore information:\n<a href=\"https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars</a>\n\nEnrollment process:\n<a href=\"https://writing.princeton.edu/seminars/how-enroll\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/seminars/how-enroll</a>",
       "pdfs_allowed": false,
       "completed_by_semester": 2,
       "course_list": [
@@ -241,7 +241,7 @@
       "name": "Humanities and Social Sciences",
       "max_counted": 1,
       "min_needed": 2,
-      "explanation": "<b>Humanities and social science</b><br><i>7 total courses in 4 areas</i>",
+      "explanation": "<i>7 total courses in 4 areas</i>",
       "pdfs_allowed": true,
       "req_list": [
         {
@@ -254,21 +254,21 @@
               "name": "Epistemology and Cognition",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Epistemology and Cognition (EC)</b><hr>The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
+              "explanation": "The requirement in Epistemology and Cognition (EC) will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
               "dist_req": "EC"
             },
             {
               "name": "Ethical Thought and Moral Values",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Ethical Thought and Moral Values (EM)</b><hr>The requirement in ethical thought and moral values is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
+              "explanation": "The requirement in Ethical Thought and Moral Values (EM) is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
               "dist_req": "EM"
             },
             {
               "name": "Foreign Language",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Foreign Language</b><br><i>a language course at the 107/108 level or above</i><hr>When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
+              "explanation": "<i>A language course at the 107/108 level or above</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
               "course_list": [
                 "LANG 1027",
                 "LANG 107",
@@ -283,21 +283,21 @@
               "name": "Historical Analysis",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Historical Analysis (HA)</b><hr>Historical analysis begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
+              "explanation": "Historical Analysis (HA) begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
               "dist_req": "HA"
             },
             {
               "name": "Literature and the Arts",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Literature and the Arts (LA)</b><hr>The requirement in literature and the arts allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
+              "explanation": "The requirement in Literature and the Arts (LA) allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
               "dist_req": "LA"
             },
             {
               "name": "Social Analysis",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<b>Social Analysis (SA)</b><hr>The requirement in social analysis is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
+              "explanation": "The requirement in Social Analysis (SA) is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
               "dist_req": "SA"
             }
           ]
