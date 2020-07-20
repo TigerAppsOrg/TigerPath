@@ -336,8 +336,8 @@ def _init_req_fields(req):
             _init_req_fields(subreq)
     elif "course_list" in req and "excluded_course_list" not in req:
         req["excluded_course_list"] = []
-    elif "num_courses" in req and req["name"] == None and "completed_by_semester" in req:
-        req["name"] = "Complete " + str(req["num_courses"]) + " courses by Semester " + str(req["completed_by_semester"])
+    elif "num_courses" in req:
+        req["min_needed"] = req["num_courses"]
     return req
 
 def _init_min_ALL(req):
@@ -535,10 +535,7 @@ def _check_degree_progress(req, courses):
         by_semester = len(courses)
     for i in range(by_semester):
         num_courses += len(courses[i])
-    if num_courses >= req["num_courses"]:
-        return 1
-    else:
-        return 0
+    return num_courses
 
 def _course_match(course_name, pattern):
     pattern = pattern.split(':')[0] # remove course title

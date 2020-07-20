@@ -3,24 +3,50 @@
   "name": "A.B.",
   "code": "AB",
   "year": 2018,
+  "description": "The A.B. program at Princeton is intended to stretch students' minds and challenge their imaginations--to teach them to think and reason and document and prove, to cast a critical eye on conventional wisdom, to make sense of evidence, to read a text with care and critical insight, to conceptualize and solve problems, and to express themselves clearly and convincingly on paper and in discussion. Working within the general curricular framework, each undergraduate pursuing the A.B. degree is encouraged to develop an academic program in response to personal aspirations and interests. Each student's program of study encompasses a combination of courses that satisfy general education and departmental requirements, and substantial independent work during the junior and senior years.",
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-arts",
-    "https://ua.princeton.edu/contents/general-education-requirements",
-    "https://writing.princeton.edu/seminars/fall-seminars"
+    "https://ua.princeton.edu/contents/general-education-requirements"
   ],
   "req_list": [
     {
       "name": "Degree Progress",
       "max_counted": 1,
       "min_needed": "ALL",
-      "description": null,
-      "explanation": "With the exception of students who receive one or two terms of advanced standing, all A.B. students must successfully complete a minimum of 31 courses and two years of departmental independent work in eight terms of study. An extra term or year of study is granted by the Faculty Committee on Examinations and Standing to a student making normal progress toward the degree only under extraordinary circumstances.",
+      "explanation": "With the exception of students who receive one or two terms of advanced standing, all A.B. students must successfully complete a minimum of 31 courses and two years of departmental independent work in eight terms of study. An extra term or year of study is granted by the Faculty Committee on Examinations and Standing to a student making normal progress toward the degree only under extraordinary circumstances.\n\nThe normal course load for first-years, sophomores, and juniors is four courses each term, with the exception of one term in the first or sophomore year when a student typically will need to take five courses in order to meet the expectation that 17 courses will have been completed by the start of junior year.\n\nRegardless of the number of courses completed prior to entering senior year, all seniors must, with the exception of the two programs listed below, complete a minimum of six courses in senior year. This is most often accomplished by enrolling in three courses each term but students may take four courses in one term and two courses in the other. Students in the Program in Teacher Preparation who have taken an extra course in an earlier year or a student who is participating in the University Scholar Program may be permitted to reduce their course load by one course in the senior year.",
+      "completed_by_semester": 8,
       "req_list": [
         {
-          "name": null,
+          "name": "By first semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
+          "explanation": null,
+          "completed_by_semester": 1,
+          "num_courses": 4
+        },
+        {
+          "name": "By second semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 2,
+          "num_courses": 8
+        },
+        {
+          "name": "By fourth semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 4,
+          "num_courses": 17
+        },
+        {
+          "name": "By sixth semester",
+          "max_counted": 1,
+          "explanation": null,
+          "completed_by_semester": 6,
+          "num_courses": 25
+        },
+        {
+          "name": "Total courses",
+          "max_counted": 1,
           "explanation": null,
           "completed_by_semester": 8,
           "num_courses": 31
@@ -31,8 +57,7 @@
       "name": "Writing Seminar",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Writing Seminar — one course",
-      "explanation": "All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nEnrollment process:\nhttps://writing.princeton.edu/seminars/how-enroll",
+      "explanation": "<i>One course, completed in the first year</i>\n\nAll Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nMore information:\n<a href=\"https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars</a>\n\nEnrollment process:\n<a href=\"https://writing.princeton.edu/seminars/how-enroll\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/seminars/how-enroll</a>",
       "pdfs_allowed": false,
       "completed_by_semester": 2,
       "course_list": [
@@ -43,10 +68,10 @@
       "name": "Foreign Language",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Foreign Language — one to four terms to complete, depending on the language students study and the level at which they start",
-      "explanation": "When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world. All candidates for the A.B. degree at Princeton must demonstrate proficiency in a foreign language before graduation. Many undergraduates satisfy the foreign language requirement by demonstrating proficiency when they enter the University. In order to fulfill the language requirement through coursework, we expect successful completion of courses normally numbered through 107/108. ",
+      "explanation": "<i>One to four terms to complete, depending on the language students study and the level at which they start</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world. All candidates for the A.B. degree at Princeton must demonstrate proficiency in a foreign language before graduation. Many undergraduates satisfy the foreign language requirement by demonstrating proficiency when they enter the University. In order to fulfill the language requirement through coursework, we expect successful completion of courses normally numbered through 107/108. ",
       "double_counting_allowed": false,
       "course_list": [
+        "LANG 1027",
         "LANG 107",
         "LANG 108",
         "LANG 2**",
@@ -59,71 +84,62 @@
       "name": "Epistemology and Cognition",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Epistemology and Cognition (EC) — one course",
-      "explanation": "The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
+      "explanation": "<i>One course</i>\n\nThe requirement in Epistemology and Cognition (EC) will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
       "dist_req": "EC"
     },
     {
       "name": "Ethical Thought and Moral Values",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Ethical Thought and Moral Values (EM) — one course",
-      "explanation": "The requirement in ethical thought and moral values is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
+      "explanation": "<i>One course</i>\n\nThe requirement in Ethical Thought and Moral Values (EM) is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
       "dist_req": "EM"
     },
     {
       "name": "Historical Analysis",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Historical Analysis (HA) — one course",
-      "explanation": "Historical analysis begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
+      "explanation": "<i>One course</i>\n\nHistorical Analysis (HA) begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
       "dist_req": "HA"
     },
     {
       "name": "Literature and the Arts",
       "max_counted": 1,
       "min_needed": 2,
-      "description": "Literature and the Arts (LA) — two courses",
-      "explanation": "The requirement in literature and the arts allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
+      "explanation": "<i>Two courses</i>\n\nThe requirement in Literature and the Arts (LA) allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
       "dist_req": "LA"
     },
     {
       "name": "Social Analysis",
       "max_counted": 1,
       "min_needed": 2,
-      "description": "Social Analysis (SA) — two courses",
-      "explanation": "The requirement in social analysis is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
+      "explanation": "<i>Two courses</i>\n\nThe requirement in Social Analysis (SA) is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
       "dist_req": "SA"
     },
     {
       "name": "Quantitative Reasoning",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Quantitative Reasoning (QR) — one course",
-      "explanation": "Quantitative reasoning is a process in which complex problems are described mathematically and solved within a structured mathematical framework. Courses in this area involve the manipulation and interpretation of numerical and categorical information and the quantification of inferences drawn from that information. The goal of courses in this category is to give you some understanding of basic mathematical methods and their applications; to provide you with an ability to understand and appreciate quantitative issues that have become part of everyday life; and to instill in you a lasting interest in quantitative methods and their applications.",
+      "explanation": "<i>One course</i>\n\nQuantitative Reasoning (QR) is a process in which complex problems are described mathematically and solved within a structured mathematical framework. Courses in this area involve the manipulation and interpretation of numerical and categorical information and the quantification of inferences drawn from that information. The goal of courses in this category is to give you some understanding of basic mathematical methods and their applications; to provide you with an ability to understand and appreciate quantitative issues that have become part of everyday life; and to instill in you a lasting interest in quantitative methods and their applications.",
       "dist_req": "QR"
     },
     {
       "name": "Science and Technology",
       "max_counted": 1,
       "min_needed": 2,
-      "description": "Science and Technology (STL/STN) — two courses. \nAt least one course must be a science and technology course with laboratory (STL). Students may elect a second laboratory science course, or a nonlaboratory science course (STN).",
-      "explanation": "The requirement in science and technology is designed to give you a basic knowledge of the capabilities and limitations of scientific inquiry and technological development. The common purpose of courses in this area is to instill a lasting interest in science and technology; to impart some understanding of the value of scientific thinking and its relation to societal issues; to foster an appreciation of the essential role of experimentation and measurement; and to convey the excitement of doing scientific research. The laboratory component is essential to an understanding of how scientific concepts are tested and of the limitations of the scientific method, including the concepts of error and reproducibility.",
+      "explanation": "<i>Two courses</i>\n\nThe requirement in Science and Technology (STL/STN) is designed to give you a basic knowledge of the capabilities and limitations of scientific inquiry and technological development. The common purpose of courses in this area is to instill a lasting interest in science and technology; to impart some understanding of the value of scientific thinking and its relation to societal issues; to foster an appreciation of the essential role of experimentation and measurement; and to convey the excitement of doing scientific research. The laboratory component is essential to an understanding of how scientific concepts are tested and of the limitations of the scientific method, including the concepts of error and reproducibility.\n\nAt least one course must be a science and technology course with laboratory (STL). Students may elect a second laboratory science course, or a nonlaboratory science course (STN).",
       "req_list": [
         {
           "name": "Science and Technology with Lab",
           "max_counted": null,
-          "min_needed": null,
-          "description": "Science and Technology with Lab (STL)",
-          "explanation": null,
+          "min_needed": 1,
+          "explanation": "Science and Technology with Lab (STL)",
           "dist_req": "STL"
         },
         {
           "name": "Science and Technology without Lab",
           "max_counted": 1,
           "min_needed": null,
-          "description": "Science and Technology without Lab (STN)",
-          "explanation": null,
+          "explanation": "Science and Technology without Lab (STN)",
           "dist_req": "STN"
         }
       ]

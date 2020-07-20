@@ -3,53 +3,50 @@
   "name": "B.S.E.",
   "code": "BSE",
   "year": 2018,
+  "description": "The B.S.E. program at Princeton is intended to educate future leaders in many different areas – including engineering practice and research, business and finance, public service, and other professions – through the teaching of fundamental engineering principles and techniques with their applications to modern problems in a global societal context. To this end, B.S.E. students are challenged to conceptualize and solve technical problems, work together in teams, express themselves clearly and convincingly, evaluate evidence critically, and appreciate the ethical, social, economic, and cultural environments in which they will live and work.",
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering",
     "https://ua.princeton.edu/contents/general-education-requirements",
-    "https://lsi.princeton.edu/integratedscience/freshman-year",
-    "https://writing.princeton.edu/seminars/fall-seminars",
-    "https://kellercenter.princeton.edu/learn/freshman-course-sequence"
+    "https://lsi.princeton.edu/integratedscience/freshman-year"
   ],
   "req_list": [
     {
       "name": "Degree Progress",
       "max_counted": 1,
       "min_needed": "ALL",
-      "description": null,
       "explanation": "B.S.E. students enroll in four courses for the first term of the freshman year and in four or five courses in each succeeding term, following a sequence appropriate to their individual programs. The school requirement for the B.S.E. degree is at least 36 courses in the four years of study. Sophomores, juniors, and seniors must complete at least four courses each term, with a minimum of 17 courses by the start of junior year and 26 courses by the start of senior year.",
       "req_list": [
         {
-          "name": null,
+          "name": "By first semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 1,
           "num_courses": 4
         },
         {
-          "name": null,
+          "name": "By second semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
+          "explanation": null,
+          "completed_by_semester": 2,
+          "num_courses": 8
+        },
+        {
+          "name": "By fourth semester",
+          "max_counted": 1,
           "explanation": null,
           "completed_by_semester": 4,
           "num_courses": 17
         },
         {
-          "name": null,
+          "name": "By sixth semester",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 6,
           "num_courses": 26
         },
         {
-          "name": null,
+          "name": "Total courses",
           "max_counted": 1,
-          "min_needed": 1,
-          "description": null,
           "explanation": null,
           "completed_by_semester": 8,
           "num_courses": 36
@@ -60,16 +57,15 @@
       "name": "Mathematics",
       "max_counted": 1,
       "min_needed": 4,
-      "description": "Mathematics (four semesters)",
-      "explanation": null,
+      "explanation": "<i>Four semesters</i>",
       "pdfs_allowed": false,
+      "double_counting_allowed": true,
       "req_list": [
         {
           "name": "First Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "description": "103 Calculus",
-          "explanation": null,
+          "explanation": "<i>Must be completed by the end of the first year</i>\n\n103 Calculus",
           "completed_by_semester": 2,
           "course_list": [
             "MAT 103"
@@ -79,8 +75,7 @@
           "name": "Second Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "description": "104 Calculus",
-          "explanation": null,
+          "explanation": "<i>Must be completed by the end of the first year</i>\n\n104 Calculus",
           "completed_by_semester": 2,
           "course_list": [
             "MAT 104",
@@ -91,7 +86,6 @@
           "name": "Third Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "description": null,
           "explanation": "201 Multivariable Calculus, 203 Advanced Multivariable Calculus, 218 Analysis in Several Variables, or EGR 192 Integrated Introduction to Engineering, Mathematics, Physics",
           "course_list": [
             "MAT 201",
@@ -106,7 +100,6 @@
           "name": "Fourth Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "description": null,
           "explanation": "202 Linear Algebra with Applications, 204 Advanced Linear Algebra with Applications, or 217 Honors Linear Algebra, or equivalent",
           "course_list": [
             "MAT 202",
@@ -121,16 +114,15 @@
       "name": "Physics",
       "max_counted": 1,
       "min_needed": 2,
-      "description": "Physics (two semesters)",
-      "explanation": null,
+      "explanation": "<i>Two semesters, must be completed by the end of the first year</i>",
       "pdfs_allowed": false,
+      "double_counting_allowed": true,
       "completed_by_semester": 2,
       "req_list": [
         {
           "name": "Mechanics",
           "max_counted": 1,
           "min_needed": 1,
-          "description": null,
           "explanation": "103 General Physics, 105 Advanced Physics, or EGR 191 Integrated Introduction to Engineering, Mathematics, Physics",
           "course_list": [
             "PHY 103",
@@ -143,7 +135,6 @@
           "name": "Electromagnetism",
           "max_counted": 1,
           "min_needed": 1,
-          "description": null,
           "explanation": "104 General Physics or 106 Advanced Physics, or equivalent",
           "course_list": [
             "PHY 104",
@@ -155,8 +146,7 @@
         {
           "name": null,
           "max_counted": 2,
-          "min_needed": 4,
-          "description": null,
+          "min_needed": "ALL",
           "explanation": null,
           "course_list": [
             "ISC 231",
@@ -171,16 +161,15 @@
       "name": "Chemistry",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Chemistry (one semester)",
-      "explanation": null,
+      "explanation": "<i>One semester, must be completed by the end of the first year</i>\n\n207 Advanced General Chemistry: Materials Chemistry, or 201 General Chemistry, or equivalent",
       "pdfs_allowed": false,
+      "double_counting_allowed": true,
       "completed_by_semester": 2,
       "req_list": [
         {
           "name": null,
           "max_counted": 1,
           "min_needed": null,
-          "description": null,
           "explanation": null,
           "course_list": [
             "CHM 201",
@@ -192,8 +181,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": 4,
-          "description": null,
+          "min_needed": "ALL",
           "explanation": null,
           "course_list": [
             "ISC 231",
@@ -208,16 +196,15 @@
       "name": "Computer Science",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Computer proficiency is a requirement for the B.S.E. degree",
-      "explanation": "Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
+      "explanation": "<i>One semester, must be completed by the end of the second year</i>\n\nComputer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the pass/D/fail option. A course taken at another school may not be used to satisfy this requirement.",
       "pdfs_allowed": false,
+      "double_counting_allowed": true,
       "completed_by_semester": 4,
       "req_list": [
         {
           "name": null,
           "max_counted": 1,
           "min_needed": null,
-          "description": null,
           "explanation": null,
           "course_list": [
             "COS 126",
@@ -228,8 +215,7 @@
         {
           "name": null,
           "max_counted": 1,
-          "min_needed": 4,
-          "description": null,
+          "min_needed": "ALL",
           "explanation": null,
           "course_list": [
             "ISC 231",
@@ -244,8 +230,7 @@
       "name": "Writing Seminar",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Writing Seminar",
-      "explanation": "All Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nEnrollment process:\nhttps://writing.princeton.edu/seminars/how-enroll",
+      "explanation": "<i>One course, completed in the first year</i>\n\nAll Princeton undergraduates take a Writing Seminar in the Fall or Spring of the freshman year.\n\nThe Writing Seminars give Princeton freshmen an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You’ll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.\n\nMore information:\n<a href=\"https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/undergraduates/writing-seminars/fall-seminars</a>\n\nEnrollment process:\n<a href=\"https://writing.princeton.edu/seminars/how-enroll\" target=\"_blank\" rel=\"noopener\">https://writing.princeton.edu/seminars/how-enroll</a>",
       "pdfs_allowed": false,
       "completed_by_semester": 2,
       "course_list": [
@@ -256,40 +241,36 @@
       "name": "Humanities and Social Sciences",
       "max_counted": 1,
       "min_needed": 2,
-      "description": null,
-      "explanation": null,
+      "explanation": "<i>7 total courses in 4 areas</i>",
       "pdfs_allowed": true,
       "req_list": [
         {
           "name": "Four Areas",
           "max_counted": 1,
           "min_needed": 4,
-          "description": "Humanities and social science courses in 4 areas",
-          "explanation": "The humanities and social science courses must include one course in four of the six areas listed below:\n\nEpistemology and Cognition (EC)\n\nEthical Thought and Moral Values (EM)\n\nForeign Language (at the 107/108 level or above)\n\nHistorical Analysis (HA)\n\nLiterature and the Arts (LA)\n\nSocial Analysis (SA)",
+          "explanation": "The humanities and social science courses must include one course in four of the six areas listed below:\n\n- Epistemology and Cognition (EC)\n- Ethical Thought and Moral Values (EM)\n- Foreign Language (at the 107/108 level or above)\n- Historical Analysis (HA)\n- Literature and the Arts (LA)\n- Social Analysis (SA)",
           "req_list": [
             {
               "name": "Epistemology and Cognition",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Epistemology and Cognition (EC)",
-              "explanation": "The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
+              "explanation": "The requirement in Epistemology and Cognition (EC) will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
               "dist_req": "EC"
             },
             {
               "name": "Ethical Thought and Moral Values",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Ethical Thought and Moral Values (EM)",
-              "explanation": "The requirement in ethical thought and moral values is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
+              "explanation": "The requirement in Ethical Thought and Moral Values (EM) is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
               "dist_req": "EM"
             },
             {
               "name": "Foreign Language",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Foreign Language — a language course at the 107/108 level or above",
-              "explanation": "When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
+              "explanation": "<i>A language course at the 107/108 level or above</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
               "course_list": [
+                "LANG 1027",
                 "LANG 107",
                 "LANG 108",
                 "LANG 2**",
@@ -302,24 +283,21 @@
               "name": "Historical Analysis",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Historical Analysis (HA)",
-              "explanation": "Historical analysis begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
+              "explanation": "Historical Analysis (HA) begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
               "dist_req": "HA"
             },
             {
               "name": "Literature and the Arts",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Literature and the Arts (LA)",
-              "explanation": "The requirement in literature and the arts allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
+              "explanation": "The requirement in Literature and the Arts (LA) allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
               "dist_req": "LA"
             },
             {
               "name": "Social Analysis",
               "max_counted": 1,
               "min_needed": null,
-              "description": "Social Analysis (SA)",
-              "explanation": "The requirement in social analysis is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
+              "explanation": "The requirement in Social Analysis (SA) is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
               "dist_req": "SA"
             }
           ]
@@ -328,7 +306,6 @@
           "name": "Seven Total Courses",
           "max_counted": 1,
           "min_needed": 7,
-          "description": "7 total courses in humanities and social science",
           "explanation": "Candidates for the B.S.E. degree must take a minimum of seven courses in the humanities and social sciences.",
           "double_counting_allowed": true,
           "req_list": [
@@ -336,25 +313,23 @@
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Epistemology and Cognition (EC)",
-              "explanation": "The requirement in epistemology and cognition will introduce you to the critical study of the nature, sources and bounds of human knowledge. Courses in this category examine topics ranging from the basic perceptual capabilities that humans share with other animals to the distinctively human capacity for language; from theoretical models of human knowledge to empirical models of an individual's cognitive abilities; from the historical record of collective inquiry in the sciences and elsewhere to informed speculations on the outer limits of what is knowable.",
+              "explanation": null,
               "dist_req": "EC"
             },
             {
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Ethical Thought and Moral Values (EM)",
-              "explanation": "The requirement in ethical thought and moral values is designed to engage you in disciplined reflection on human conduct, character and ways of life. Through inquiry into questions of ethics and morality as presented in works from one or more cultural traditions, these courses will help you to discern, understand and appreciate ethical issues and to articulate, assess and defend moral judgments in an informed and thoughtful way.",
+              "explanation": null,
               "dist_req": "EM"
             },
             {
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Foreign Language — a language course at the 107/108 level or above",
-              "explanation": "When you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
+              "explanation": null,
               "course_list": [
+                "LANG 1027",
                 "LANG 107",
                 "LANG 108",
                 "LANG 2**",
@@ -367,24 +342,21 @@
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Historical Analysis (HA)",
-              "explanation": "Historical analysis begins with the problem of understanding the differences between the world of contemporary experience and the worlds of the past. Some courses in historical analysis focus on the distinctiveness of one or another part of the past, with the intention of bringing you to an understanding of political, social and cultural configurations quite different from your own. Others stress the processes of historical change through which one configuration of institutions, ideas and behavior is supplanted by another. Common to all courses in historical analysis is the presumption that the categories of social analysis are themselves historical and historically contingent, and that to understand the past requires entering imaginatively into languages, institutions and worldviews quite different from those of the present day.",
+              "explanation": null,
               "dist_req": "HA"
             },
             {
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Literature and the Arts (LA)",
-              "explanation": "The requirement in literature and the arts allows you to develop critical skills through the study of the history, aesthetics and theory of literature and the arts, and to engage in creative practice. You may choose among courses in literature (in English, English translation, or other languages), visual and performing arts, music, architecture, film and electronic media. In addition to courses emphasizing critical analysis, you may explore the creative arts through practice in creative writing; in the studio arts of architecture, painting, sculpture, drawing and photography; in the performing arts of music, theater and dance; and in the media of film and video.",
+              "explanation": null,
               "dist_req": "LA"
             },
             {
               "name": null,
               "max_counted": null,
               "min_needed": null,
-              "description": "Social Analysis (SA)",
-              "explanation": "The requirement in social analysis is designed to familiarize you with different approaches to the study of social life and to introduce you to modes of thinking about social institutions and cultural norms and their interconnectedness with forms of human behavior. Courses in this area examine how individuals interact with, and are shaped by, social groups and institutions, including those associated with politics, economics, religion, family, the arts, health and education; how and why particular forms of social organization and social relations emerge within a group or culture; and the origins, characteristics and consequences of social conflict and change.",
+              "explanation": null,
               "dist_req": "SA"
             }
           ]
