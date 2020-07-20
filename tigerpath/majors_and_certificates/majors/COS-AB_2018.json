@@ -4,26 +4,31 @@
   "code": "COS-AB",
   "degree": "AB",
   "year": 2018,
-  "description": "Computer science concentrators must take 8 departmental courses (departmentals) and do independent work.  The minimum amount of independent work depends on whether you are an AB candidate (4 semesters minimum) or a BSE candidate (1 semester minimum). Departmental courses are any computer science course at the 300 or 400 level (except 397, 398, 497 and 498) and a specific set of courses in other departments (enumerated below).  There is also a distribution requirement within the 8 departmental courses: you must take at least 2 Systems departmentals, at least 2 Theory departmentals, and at least 2 Applications departmentals.  (Notice that leaves you 6 departmentals that are constrained and 2 departmentals that are unconstrained.)  \n\nBSE candidates do independent work by signing up for COS 397 or 398 in the junior year, or COS 497 or 498 in the senior year. You encouraged to do more than one semester of independent work; the second semester of independent work may be counted as a departmental. \n\nAB candidates do 2 one-semester junior independent work projects and a full year senior thesis.  Numbered courses are not used to designate AB independent work.",
+  "description": "Computer science concentrators must take 8 departmental courses (departmentals) and do independent work. The minimum amount of independent work depends on whether you are an AB candidate (4 semesters minimum) or a BSE candidate (1 semester minimum). Departmental courses are any computer science course at the 300 or 400 level (except 397, 398, 497 and 498) and a specific set of courses in other departments (enumerated below). There is also a distribution requirement within the 8 departmental courses: you must take at least 2 Systems departmentals, at least 2 Theory departmentals, and at least 2 Applications departmentals. (Notice that leaves you 6 departmentals that are constrained and 2 departmentals that are unconstrained.)\n\nBSE candidates do independent work by signing up for COS 397 or 398 in the junior year, or COS 497 or 498 in the senior year. You encouraged to do more than one semester of independent work; the second semester of independent work may be counted as a departmental.\n\nAB candidates do 2 one-semester junior independent work projects and a full year senior thesis. Numbered courses are not used to designate AB independent work.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-computer-science-ab",
     "https://www.cs.princeton.edu/ugrad/becoming-cs-major/requirements"
   ],
   "contacts": [
     {
-      "type": "Program Coordinator",
-      "name": "Colleen Kenny",
-      "email": "ckenny@cs.princeton.edu"
+      "type": "Chair",
+      "name": "Jennifer L. Rexford",
+      "email": "jrex@cs.princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Brian Kernighan",
       "email": "bwk@cs.princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Jaswinder Singh",
       "email": "jps@cs.princeton.edu"
+    },
+    {
+      "type": "Program Coordinator",
+      "name": "Colleen Kenny",
+      "email": "ckenny@cs.princeton.edu"
     }
   ],
   "req_list": [
@@ -32,16 +37,14 @@
       "max_counted": 1,
       "min_needed": "ALL",
       "explanation": "The prerequisites for AB candidates are MAT 103, 104, and 202 or 204 or 217; COS 126, COS 217, and 226.\n\nStudents should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
-      "double_counting_allowed": false,
       "pdfs_allowed": false,
       "completed_by_semester": 4,
       "req_list": [
         {
           "name": "Calculus",
-          "max_counted": 2,
-          "min_needed": 2,
-          "description": null,
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204 or 217.",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "COS AB candidates must take Math 103-104 and one of Math 202 or 204 or 217.",
           "course_list": [
             "MAT 103",
             "MAT 104"
@@ -51,8 +54,7 @@
           "name": "Linear Algebra",
           "max_counted": 1,
           "min_needed": 1,
-          "description": null,
-          "explanation": "COS AB candidates must also take Math 103-104 and one of Math 202 or 204 or 217.",
+          "explanation": "COS AB candidates must take Math 103-104 and one of Math 202 or 204 or 217.",
           "course_list": [
             "MAT 202",
             "MAT 204",
@@ -61,9 +63,9 @@
         },
         {
           "name": "Computer Science Prerequisites",
-          "max_counted": 3,
-          "min_needed": 3,
-          "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field. ",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field.",
           "course_list": [
             "COS 126",
             "COS 217",
@@ -76,15 +78,14 @@
       "name": "Core Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the three main areas.\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.  In addition, some graduate COS courses (500-level) count as undergraduate departmentals (COS 551, COS 534), depending on their content and structure. (Please ask if you need to use a graduate course as a departmental).  However, graduate courses rarely count as special \"tracked\" departmentals (see the list below for the few exceptions).\n\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.  Note that it is very, very, very rare for courses outside the computer science department that are not cross-listed with the computer science department to count as track-specific (ie: Theory/Systems/Applications) departmentals.  Hence, in general, you will not be able to count more than 2 courses outside of the computer science department as COS departmentals.\n\nSome regular courses are COS departmentals but do not count in any specific track, such as COS 351 \"Information technology and public policy\".  COS 495, Special Topics, is a departmental but may be associated with different tracks (or no track) depending on content.  Other one-time courses may also be departmentals and may count in one of the tracks depending on level and content.   Check with your advisor or the undergraduate coordinator for up-to-date information.",
-      "double_counting_allowed": false,
+      "explanation": "Eight additional departmental courses at or above the 300 level must be elected to fulfill the departmental requirements. These eight courses must include two each from the three main areas.\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental. In addition, some graduate COS courses (500-level) count as undergraduate departmentals (COS 551, COS 534), depending on their content and structure. (Please ask if you need to use a graduate course as a departmental). However, graduate courses rarely count as special \"tracked\" departmentals (see the list below for the few exceptions).\n\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals. On occasion, special courses with computational content from other departments may fall in to this category. Note that it is very, very, very rare for courses outside the computer science department that are not cross-listed with the computer science department to count as track-specific (ie: Theory/Systems/Applications) departmentals. Hence, in general, you will not be able to count more than 2 courses outside of the computer science department as COS departmentals.\n\nSome regular courses are COS departmentals but do not count in any specific track, such as COS 351 \"Information technology and public policy\". COS 495, Special Topics, is a departmental but may be associated with different tracks (or no track) depending on content. Other one-time courses may also be departmentals and may count in one of the tracks depending on level and content. Check with your advisor or the undergraduate coordinator for up-to-date information.",
       "pdfs_allowed": false,
       "req_list": [
         {
           "name": "Theory",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems.  They all use mathematical proofs for rigorous development of the area of study.\n\nTheory courses:\n• 340 Reasoning about Computation\n• 423 Theory of Algorithms\n• 433**Cryptography\n• 445 Networks, Economics and Computing\n• 451 Computational Geometry\n• 487 Theory of Computation\n• 488 Introduction to Analytic Combinatorics\n• 510* (441) Programming Languages\n• 511 Theoretical Machine Learning\n• 516* Reasoning About Software\n• 533**  Advanced Cryptography\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
+          "explanation": "Courses in this track explore the theoretical underpinnings of computing systems. They all use mathematical proofs for rigorous development of the area of study.\n\n*If you take COS 510 (or 441) and COS 516 only one will count as a theory requirement.\n**If you take COS 433 and COS 533 only one will count as a theory requirement.",
           "req_list": [
             {
               "name": null,
@@ -98,7 +99,9 @@
                 "COS 451: Computational Geometry",
                 "COS 487: Theory of Computation",
                 "COS 488: Introduction to Analytic Combinatorics",
-                "COS 511: Theoretical Machine Learning"
+                "COS 511: Theoretical Machine Learning",
+                "COS 521: Advanced Algorithm Design",
+                "COS 522: Computational Complexity"
               ]
             },
             {
@@ -128,7 +131,7 @@
           "name": "Systems",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track study the design and implementation of the foundational hardware and software that constitute a modern computing environment.\n\nSystems courses:\n• 306 (ELE 206) Introduction to Logic Design\n• 316 Principles of Computer System Design\n• 318 Operating Systems\n• 320 Compiling Techniques\n• 333 Advanced Programming Techniques\n• 375 (ELE 375) Computer Architecture and Organization\n• 418 Distributed Systems**\n• 425 Database and Information Management Systems\n• 461 Computer Networks*\n• 463 Wireless Networks\n• 475 (ELE 475) Computer Architecture\n• 518 Advanced Computer Systems**\n• 561 Advanced Computer Networks*\n\n*If you take COS 461 and  COS 561 only one will count as a systems requirement.\n**If you take COS 418 and  COS 518 only one will count as a systems requirement.",
+          "explanation": "Courses in this track study the design and implementation of the foundational hardware and software that constitute a modern computing environment.\n\n*If you take COS 461 and  COS 561 only one will count as a systems requirement.\n**If you take COS 418 and  COS 518 only one will count as a systems requirement.",
           "req_list": [
             {
               "name": null,
@@ -173,7 +176,7 @@
           "name": "Applications",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Courses in this track treat a broad range of topics.\n\nApplications courses:\n• 314 (MUS 314) Computer and Electronic Music through Programming, Performance, and Composition (with programming precept)\n• 323 (ORF 363)  Computing and Optimization \n• 324 Introduction to Machine Learning\n• 326 Functional Programming\n• 343 Algorithms for Computational Biology\n• 360 (PSY 360) Computational Models of Cognition\n• 401 (TRA 301) Introduction To Machine Translation\n• 402 Machine Learning and Artificial Intelligence\n• 424 Fundamentals of Machine Learning\n• 426* Computer Graphics\n• 429 Computer Vision\n• 432 Information Security\n• 435 Information Retrieval, Discovery and Delivery\n• 436 Human-Computer Interface Technology\n• 455 (MOL 455) Introduction to Genomics and Computational Molecular Biology\n• 484 Natural Language Processing\n• 485 Neural Networks\n• 526* Advanced Computer Graphics\n\n*If a student takes both COS 426 and 526, only one will count as an applications requirement.",
+          "explanation": "Courses in this track treat a broad range of topics.\n\n*If a student takes both COS 426 and 526, only one will count as an applications requirement.",
           "req_list": [
             {
               "name": null,
@@ -192,7 +195,6 @@
                 "COS 424: Fundamentals of Machine Learning",
                 "COS 429: Computer Vision",
                 "COS 432: Information Security",
-                "COS 435: Information Retrieval, Discovery, and Delivery",
                 "COS 436: Human-Computer Interface Technology",
                 "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
                 "COS 484: Natural Language Processing",
@@ -215,7 +217,7 @@
           "name": "General",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "<i>Note: Beginning with the Class of 2023 CHM 301, ECO 312 and Physics courses will no longer count as COS departmentals.</i>\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals.  On occasion, special courses with computational content from other departments may fall in to this category.",
+          "explanation": "<i>Note: Beginning with the Class of 2023 CHM 301, ECO 312 and Physics courses will no longer count as COS departmentals.</i>\n\nAny computer science (COS) course at the 300 or 400 level (except independent work) counts as a computer science departmental.\nIn addition, any 300- or 400- level Math or ELE or Physics or ORF course that does not duplicate COS content, Philosophy 312, MAE 345, CHM 303(CHM 303 is now renumbered to CHM 301 as of 8/27/2018), ECO 312, MOL 437/NEU 437, NEU 330, MUS 315, and ECO 326 – Economics of the Internet count as departmentals. On occasion, special courses with computational content from other departments may fall in to this category.",
           "course_list": [
             "COS 3**",
             "COS 4**",
@@ -237,6 +239,12 @@
             "NEU 330",
             "MUS 315",
             "ECO 326"
+          ],
+          "excluded_course_list": [
+            "COS 397",
+            "COS 398",
+            "COS 497",
+            "COS 498"
           ]
         }
       ]
@@ -245,7 +253,7 @@
       "name": "Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: COS-AB majors do not enroll in any numbered course for their Independent Work, so TigerPath does not check this requirement.</i>\n\nAll A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.\n\nIndependent work is one of the unique features of a Princeton education. Independent projects typically arise either from an idea that excites you or from an idea put forth by a professor in the department. The department maintains a wiki of faculty research interests. This list is a good place to start in looking for a project or advisor. There is also some general advice on finding a topic, an adviser, and a successful outcome here.\n\nOnce you have a project, get a form (located on the bulletin board outside the Computer Science undergraduate office) and sign it along with your advisor to let us know what you'll be doing. Your project is then between you and your advisor, but there is always a COS Independent Work Coordinator who coordinates all independent work, and schedules public talks, checkpoints, and other requirements.\n\nIt is possible to do a project with a faculty member in another department if you have the approval of the Independent Work Coordinator.",
+      "explanation": "<i>Editor's Note: COS-AB majors do not normally enroll in any numbered course for their Independent Work, so TigerPath does not check this requirement.</i>\n\nAll A.B. concentrators engage in independent work supervised by a member of the department. A junior project normally involves the study and solution of specific problems, often associated with a research project. It may require a significant programming effort, a theoretical study involving the design and analysis of algorithms, or an applications problem in some other field. The results of these efforts must be presented in two written reports and posters that correspond to the work undertaken in each of the terms. The senior thesis may be a study in greater depth of one of the subjects considered in junior independent work, or it may deal with another aspect of computer science and its application.\n\nIndependent work is one of the unique features of a Princeton education. Independent projects typically arise either from an idea that excites you or from an idea put forth by a professor in the department. The department maintains a wiki of faculty research interests. This list is a good place to start in looking for a project or advisor. There is also some general advice on finding a topic, an adviser, and a successful outcome here.\n\nOnce you have a project, get a form (located on the bulletin board outside the Computer Science undergraduate office) and sign it along with your advisor to let us know what you'll be doing. Your project is then between you and your advisor, but there is always a COS Independent Work Coordinator who coordinates all independent work, and schedules public talks, checkpoints, and other requirements.\n\nIt is possible to do a project with a faculty member in another department if you have the approval of the Independent Work Coordinator.",
       "no_req": null
     }
   ]
