@@ -65,7 +65,7 @@
           "name": "First Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "103 Calculus<br><i>Must be completed by the end of the first year</i>",
+          "explanation": "<i>Must be completed by the end of the first year</i>\n\n103 Calculus",
           "completed_by_semester": 2,
           "course_list": [
             "MAT 103"
@@ -75,7 +75,7 @@
           "name": "Second Term Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "104 Calculus<br><i>Must be completed by the end of the first year</i>",
+          "explanation": "<i>Must be completed by the end of the first year</i>\n\n104 Calculus",
           "completed_by_semester": 2,
           "course_list": [
             "MAT 104",
