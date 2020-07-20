@@ -36,11 +36,14 @@
           "name": "Quantitative Methods",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "The prerequisites for entering the Department of Psychology are successful graded completion of PSY 251 (Quantitative Methods) or a pre-approved statistics course in another department (for example, ORF 245 or ECO 202).",
+          "explanation": "Successful graded completion of PSY 251 (Quantitative Methods) or a pre-approved statistics course in another department (for example, ORF 245 or ECO 202).",
           "course_list": [
             "PSY 251",
             "ORF 245",
-            "ECO 202"
+            "ECO 202",
+            "WWS 200",
+            "SML 201",
+            "POL 345",
           ]
         },
         {
