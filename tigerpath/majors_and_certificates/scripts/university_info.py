@@ -266,6 +266,7 @@ LANG_DEPTS = {
     "PLS": "Polish", # TODO: confirm
     "POR": "Portuguese", # TODO: confirm
     "RUS": "Russian",
+    "SAN": "Sanskrit",
     "SPA": "Spanish",
     "SWA": "Swahili",
     "TUR": "Turkish",
