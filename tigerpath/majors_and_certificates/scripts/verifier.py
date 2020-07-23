@@ -600,14 +600,19 @@ def _get_collapsed_course_and_dist_req_sets(req):
     Note: Sets may contain duplicate courses if a course is listed in multiple
     different ways
     """
-    if "course_list" in req:
+    if "course_list" in req or "dist_req" in req:
         course_set = set()
-        for course in req["course_list"]:
-            course = course.split(':')[0] # strip course name
-            course_set.add(course)
-        return (course_set, set())
-    if "dist_req" in req:
-        return (set(), set([req["dist_req"]]))
+        dist_req_set = set()
+        if "course_list" in req:
+            for course in req["course_list"]:
+                course = course.split(':')[0] # strip course name
+                course_set.add(course)
+        if "dist_req" in req:
+            dist = req["dist_req"]
+            if isinstance(dist, str):  # backwards compatibility with non-list dist_req
+                dist = [dist]
+            dist_req_set.update(dist)
+        return (course_set, dist_req_set)
     total_course_set = set()
     total_dist_req_set = set()
     if "req_list" in req:
