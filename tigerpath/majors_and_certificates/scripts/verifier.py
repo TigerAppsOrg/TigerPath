@@ -338,6 +338,8 @@ def _init_req_fields(req):
         req["excluded_course_list"] = []
     elif "num_courses" in req:
         req["min_needed"] = req["num_courses"]
+    if "dist_req" in req and isinstance(req["dist_req"], str):
+        req["dist_req"] = [req["dist_req"]]  # backwards compatibility with non-list dist_req
     return req
 
 def _init_min_ALL(req):
@@ -478,7 +480,7 @@ def _mark_dist(req, courses):
         for c in sem:
             if req["path_to"] in c["possible_reqs"]: # already used
                 continue
-            if c["dist_area"] == req["dist_req"]:
+            if c["dist_area"] in req["dist_req"]:
                 num_marked += 1
                 c["possible_reqs"].append(req["path_to"])
                 if not req["double_counting_allowed"]:
