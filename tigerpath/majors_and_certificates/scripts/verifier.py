@@ -409,10 +409,11 @@ def _mark_possible_reqs(req, courses):
     if "req_list" in req: # recursively check subrequirements
         for subreq in req["req_list"]:
             _mark_possible_reqs(subreq, courses)
-    elif "course_list" in req:
-        _mark_courses(req, courses)
-    elif "dist_req" in req:
-        _mark_dist(req, courses)
+    else:  # note: course_list and dist_req can both be specified for the same req
+        if "course_list" in req:
+            _mark_courses(req, courses)
+        if "dist_req" in req:
+            _mark_dist(req, courses)
 
 def _assign_settled_courses_to_reqs(req, courses):
     """
