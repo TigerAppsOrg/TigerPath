@@ -94,7 +94,7 @@
 }
 
 .course-card.fall {
-  background-color: #eaccff;
+  background-color: #d9bbed;
   color: #53008f;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .course-card.both {
-  background: linear-gradient(to right, #eaccff, #c4e3ed);
+  background: linear-gradient(to right, #d9bbed, #c4e3ed);
   color: #333;
 }
 
