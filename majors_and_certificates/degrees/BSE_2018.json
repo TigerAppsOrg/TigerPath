@@ -308,57 +308,21 @@
           "min_needed": 7,
           "explanation": "Candidates for the B.S.E. degree must take a minimum of seven courses in the humanities and social sciences.",
           "double_counting_allowed": true,
-          "req_list": [
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "dist_req": "EC"
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "dist_req": "EM"
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "course_list": [
-                "LANG 1027",
-                "LANG 107",
-                "LANG 108",
-                "LANG 2**",
-                "LANG 3**",
-                "LANG 4**",
-                "LANG 5**"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "dist_req": "HA"
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "dist_req": "LA"
-            },
-            {
-              "name": null,
-              "max_counted": null,
-              "min_needed": null,
-              "explanation": null,
-              "dist_req": "SA"
-            }
+          "dist_req": [
+            "EC",
+            "EM",
+            "HA",
+            "LA",
+            "SA"
+          ],
+          "course_list": [
+            "LANG 1027",
+            "LANG 107",
+            "LANG 108",
+            "LANG 2**",
+            "LANG 3**",
+            "LANG 4**",
+            "LANG 5**"
           ]
         }
       ]
