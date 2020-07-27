@@ -1,83 +1,93 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import SearchCard from 'components/SearchCard';
+import useSWR from 'swr';
+import styled from 'styled-components';
+import useDebounce from '../hooks/use-debounce';
+import Loader from './Loader';
 
-export default class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentRequest: null,
-    };
-  }
+const SearchInfo = styled.div`
+  margin: 0.25rem 0.75rem;
+  color: ${({ theme }) => theme.lightGrey};
+`;
 
-  // is called whenever search query is modified
-  updateSearch = (event) => {
-    $('#spinner').css('display', 'inline-block');
+const SearchResults = styled.div`
+  height: calc(100vh - 126px);
+  overflow: auto;
+`;
 
-    let searchQuery = event.target.value;
-    this.props.onChange('searchQuery', searchQuery);
-    if (searchQuery === '') searchQuery = '$'; // makes sure that there is a value, $ is dummy arg
+const GET_COURSES_URL = '/api/v1/get_courses/';
+const GET_REQ_COURSES_URL = '/api/v1/get_req_courses/';
 
-    this.setState((state) => ({
-      currentRequest: $.ajax({
-        url: '/api/v1/get_courses/' + searchQuery,
-        datatype: 'json',
-        type: 'GET',
-        cache: true,
-        beforeSend: function () {
-          // if readyState is 4, then the request is already finished
-          if (
-            state.currentRequest !== null &&
-            state.currentRequest.readyState !== 4
-          ) {
-            state.currentRequest.abort();
-          }
-        },
-        success: function (searchResults) {
-          if (searchQuery === this.props.searchQuery || searchQuery === '$') {
-            this.props.onChange('searchResults', searchResults);
-            $('#spinner').css('display', 'none');
-          }
-        }.bind(this),
-      }),
-    }));
-  };
+const Search = (props) => {
+  const {
+    searchQuery,
+    searchResults,
+    setSearchQuery,
+    setSearchResults,
+  } = props;
+  const [isLoading, setIsLoading] = useState(false);
+  const searchResultsRef = useRef(null);
+  const debouncedSearchQuery = useDebounce(searchQuery, 100);
 
-  render() {
-    return (
-      <React.Fragment>
-        <div id="search-courses">
-          <input
-            type="text"
-            id="search-text"
-            placeholder="Search Courses"
-            value={this.props.searchQuery}
-            onChange={this.updateSearch}
-            className="form-control"
-            autoFocus
-          />
-        </div>
-        <div id="search-info">
-          <div id="search-count">
-            <span id="search-count-num">{this.props.searchResults.length}</span>
-          </div>
-          <span>Search Results</span>
-          <i id="spinner" className="fas fa-circle-notch fa-spin"></i>
-        </div>
-        <div id="display-courses">
-          {this.props.searchResults.map((course, courseIndex) => {
-            const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
-            return (
-              <SearchCard
-                key={courseKey}
-                courseKey={courseKey}
-                index={courseIndex}
-                course={course}
-              />
-            );
-          })}
-        </div>
-      </React.Fragment>
-    );
-  }
-}
+  const fetchUrl = useMemo(() => {
+    if (debouncedSearchQuery.startsWith('Category: ')) {
+      let query = debouncedSearchQuery.split('Category: ')[1];
+      query = query.replace(/\/\//g, '$');
+      return GET_REQ_COURSES_URL + encodeURIComponent(query);
+    } else if (debouncedSearchQuery.length > 0) {
+      return GET_COURSES_URL + encodeURIComponent(debouncedSearchQuery);
+    } else {
+      return null;
+    }
+  }, [debouncedSearchQuery]);
+  const { data: searchResultsData } = useSWR(fetchUrl);
+
+  useEffect(() => {
+    if (!debouncedSearchQuery) return;
+    if (fetchUrl) setIsLoading(true);
+  }, [debouncedSearchQuery, fetchUrl]);
+
+  useEffect(() => {
+    if (!searchResultsData) return;
+    setSearchResults(searchResultsData);
+    searchResultsRef.current.scrollTo(0, 0);
+    setIsLoading(false);
+  }, [searchResultsData, setSearchResults]);
+
+  const onSearchQueryChange = (event) => setSearchQuery(event.target.value);
+
+  return (
+    <>
+      <div id="search-courses">
+        <input
+          type="text"
+          id="search-text"
+          placeholder="Search Courses"
+          value={searchQuery}
+          onChange={onSearchQueryChange}
+          className="form-control"
+          autoFocus
+        />
+      </div>
+      <SearchInfo>
+        <span>{searchResults.length} Search Results</span>
+        {isLoading && <Loader className="ml-2" size={10} />}
+      </SearchInfo>
+      <SearchResults ref={searchResultsRef}>
+        {searchResults.map((course, courseIndex) => {
+          const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
+          return (
+            <SearchCard
+              key={courseKey}
+              courseKey={courseKey}
+              index={courseIndex}
+              course={course}
+            />
+          );
+        })}
+      </SearchResults>
+    </>
+  );
+};
+
+export default Search;

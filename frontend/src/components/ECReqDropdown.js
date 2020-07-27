@@ -11,19 +11,15 @@ const ReqDropdownMenu = styled(Dropdown.Menu)`
   max-height: 275px;
 `;
 
-const ReqDropdownHeader = styled(({ leftPadding, ...rest }) => (
-  <Dropdown.Header {...rest}></Dropdown.Header>
-))`
+const ReqDropdownHeader = styled(Dropdown.Header)`
   padding-left: ${({ leftPadding }) => `${leftPadding}rem`};
 `;
 
-const ReqDropdownItem = styled(({ leftPadding, ...rest }) => (
-  <Dropdown.Item {...rest}></Dropdown.Item>
-))`
+const ReqDropdownItem = styled(Dropdown.Item)`
   padding-left: ${({ leftPadding }) => `${leftPadding}rem`};
 `;
 
-export default class RequirementsDropdown extends Component {
+export default class ECReqDropdown extends Component {
   populateReqTree = (reqTree, level) => {
     return reqTree['req_list'].map((requirement, index) => {
       let reqName = requirement['name'];
@@ -31,7 +27,7 @@ export default class RequirementsDropdown extends Component {
 
       if ('req_list' in requirement) {
         if (reqName === 'Degree Progress') {
-          return <React.Fragment key={reqName} />;
+          return null;
         }
         return (
           <React.Fragment key={reqName}>
@@ -43,17 +39,16 @@ export default class RequirementsDropdown extends Component {
         );
       } else {
         return (
-          <React.Fragment key={reqName}>
-            <ReqDropdownItem
-              eventKey={requirement['path_to']}
-              leftPadding={leftPadding}
-              onSelect={(e) =>
-                this.props.handleChange('selectedRequirement', reqName, e)
-              }
-            >
-              {reqName}
-            </ReqDropdownItem>
-          </React.Fragment>
+          <ReqDropdownItem
+            key={reqName}
+            eventKey={requirement['path_to']}
+            leftPadding={leftPadding}
+            onSelect={(e) =>
+              this.props.handleChange('selectedRequirement', reqName, e)
+            }
+          >
+            {reqName}
+          </ReqDropdownItem>
         );
       }
     });

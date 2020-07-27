@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CourseCard from 'components/CourseCard';
 import { Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 import {
@@ -9,6 +8,7 @@ import {
   isFallSemester,
   isSpringSemester,
 } from 'utils/SemesterUtils';
+import ScheduleCourseCard from './ScheduleCourseCard';
 
 const SEMESTER_BODY_COLOR = Object.freeze({
   GREY: Symbol('greySemBody'),
@@ -16,12 +16,11 @@ const SEMESTER_BODY_COLOR = Object.freeze({
   RED: Symbol('redSemBody'),
 });
 
-const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
+const SemesterHeader = styled.div`
   color: #ffffff;
   text-align: center;
   font-size: large;
-  border-radius: 2px 2px 0 0;
-  padding: 2px;
+  padding: 0.5rem;
 
   background-color: ${({ theme, semesterType }) => {
     switch (semesterType) {
@@ -36,11 +35,11 @@ const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
 `;
 
 const SemesterBody = styled.div`
-  list-style-type: none;
-  padding: 5px;
-  height: calc(100% - 31px);
-  min-height: 200px;
-  border-radius: 0 0 2px 2px;
+  flex: 1;
+  padding: 0 0.5rem 0.5rem 0.5rem;
+
+  overflow-y: auto;
+  overflow-x: hidden;
 
   background-color: ${({ theme, semesterBodyColor }) => {
     switch (semesterBodyColor) {
@@ -54,6 +53,14 @@ const SemesterBody = styled.div`
   }};
 `;
 
+const SemesterStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+`;
+
 export default class Semester extends Component {
   constructor(props) {
     super(props);
@@ -65,27 +72,24 @@ export default class Semester extends Component {
   removeCourse = (semIndex, courseIndex) => {
     let newSchedule = this.props.schedule.slice();
     newSchedule[semIndex].splice(courseIndex, 1);
-    this.props.onChange('schedule', newSchedule);
+    this.props.setSchedule(newSchedule);
   };
 
-  courseCardList = (semester, semIndex) => {
-    return (
-      <React.Fragment>
-        {semester[semIndex].map((course, courseIndex) => {
-          let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
-          return (
-            <CourseCard
-              key={courseKey}
-              course={course}
-              courseKey={courseKey}
-              onCourseRemove={this.removeCourse}
-              semIndex={semIndex}
-              courseIndex={courseIndex}
-            />
-          );
-        })}
-      </React.Fragment>
-    );
+  courseCardList = (semester, semIndex, isDraggingOver) => {
+    return semester[semIndex].map((course, courseIndex) => {
+      let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
+      return (
+        <ScheduleCourseCard
+          key={courseKey}
+          course={course}
+          courseKey={courseKey}
+          onCourseRemove={this.removeCourse}
+          semIndex={semIndex}
+          courseIndex={courseIndex}
+          disablePopover={isDraggingOver}
+        />
+      );
+    });
   };
 
   getSemesterBodyColor = (snapshot) => {
@@ -116,9 +120,9 @@ export default class Semester extends Component {
     if (this.props.className) className += ` ${this.props.className}`;
 
     return (
-      <div className={className}>
+      <SemesterStyled className={className}>
         <SemesterHeader semesterType={this.state.semesterType}>
-          {this.props.children}
+          {this.props.semName}
         </SemesterHeader>
         <Droppable
           key={semId}
@@ -132,12 +136,16 @@ export default class Semester extends Component {
               semesterBodyColor={this.getSemesterBodyColor(snapshot)}
             >
               {this.props.schedule &&
-                this.courseCardList(this.props.schedule, semIndex)}
+                this.courseCardList(
+                  this.props.schedule,
+                  semIndex,
+                  snapshot.isDraggingOver
+                )}
               {provided.placeholder}
             </SemesterBody>
           )}
         </Droppable>
-      </div>
+      </SemesterStyled>
     );
   }
 }

@@ -7,7 +7,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Alert from 'react-bootstrap/Alert';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import RequirementsDropdown from 'components/RequirementsDropdown';
+import ECReqDropdown from 'components/ECReqDropdown';
 import {
   DEFAULT_SCHEDULE,
   EXTERNAL_CREDITS_SEMESTER_INDEX,
@@ -29,6 +29,10 @@ const Submit = styled(Button)`
   display: block;
   margin-left: auto;
   margin-right: 0;
+`;
+
+const InfoIcon = styled.i`
+  color: ${({ theme }) => theme.lightGrey};
 `;
 
 const DEFAULT_NAME = { label: '', value: '' };
@@ -92,7 +96,7 @@ export default class ExternalCreditForm extends Component {
     scheduleSemester.splice(semLen - 1, 0, course);
 
     // update the state
-    this.props.onChange('schedule', schedule);
+    this.props.setSchedule(schedule);
     this.setState({
       formState: FORM_STATE.SUCCESS,
       name: DEFAULT_NAME,
@@ -153,7 +157,7 @@ export default class ExternalCreditForm extends Component {
 
               <Form.Group controlId="formRequirement">
                 <Form.Label>Requirement you want to satisfy:</Form.Label>
-                <RequirementsDropdown
+                <ECReqDropdown
                   requirements={this.props.requirements}
                   handleChange={this.handleChange}
                   selectedRequirement={this.state.selectedRequirement}
@@ -169,13 +173,15 @@ export default class ExternalCreditForm extends Component {
                       <Tooltip>
                         For AP credits, waivers, or other external credits that
                         don't fit in a semester, choose "N/A" - they will appear
-                        in "Your External Credits" on the left. For a summer
-                        course, choose either the semester before or after the
-                        summer in which you took it.
+                        in "Your External Credits" on the left.
+                        <br />
+                        <br />
+                        For a summer course, choose either the semester before
+                        or after the summer in which you took it.
                       </Tooltip>
                     }
                   >
-                    <i className="fas fa-info-circle fa-lg fa-fw ml-1" />
+                    <InfoIcon className="fas fa-info-circle fa-lg ml-1" />
                   </OverlayTrigger>
                 </Form.Label>
                 <SemesterDropdown>

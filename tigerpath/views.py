@@ -266,8 +266,9 @@ def populate_user_schedule(schedule):
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
+    req_body = ujson.loads(request.body.decode('utf-8'))
     current_user = request.user.profile
-    current_user.user_schedule = ujson.loads(request.POST.get('schedule', '[]'))
+    current_user.user_schedule = req_body['schedule']
     current_user.save()
     return HttpResponse(ujson.dumps(request, ensure_ascii=False), content_type='application/json')
 

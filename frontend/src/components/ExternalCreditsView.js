@@ -1,65 +1,47 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Semester from 'components/Semester';
-import CourseCard from 'components/CourseCard';
 import ExternalCreditForm from 'components/ExternalCreditForm';
 import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 
 const ECContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-gap: 20px;
-  grid-template-areas: 'sem add';
-  padding: 20px 10px 20px 10px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  overflow-y: auto;
 `;
 
 const ECSemester = styled(Semester)`
-  grid-area: sem;
+  flex: 1;
+  margin: 0.5rem;
+  height: calc(100% - 1rem);
 `;
 
 const ECForm = styled(ExternalCreditForm)`
-  grid-area: add;
+  flex: 1;
+  margin: 0.5rem;
 `;
 
-export default class ExternalCreditsView extends Component {
-  courseCardList = (courseList, semIndex) => {
-    return (
-      <React.Fragment>
-        {courseList.map((course, courseIndex) => {
-          let courseKey = `course-card-${semIndex}-${courseIndex}`;
-          return (
-            <CourseCard
-              key={courseKey}
-              course={course}
-              showSearchInfo={false}
-              onCourseRemove={this.removeCourse}
-              semIndex={semIndex}
-              courseIndex={courseIndex}
-            />
-          );
-        })}
-      </React.Fragment>
-    );
-  };
+const ExternalCreditsView = (props) => {
+  const { schedule, profile, requirements, setSchedule } = props;
 
-  render() {
-    return (
-      <ECContent>
-        <ECSemester
-          onChange={this.props.onChange}
-          schedule={this.props.schedule}
-          semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
-        >
-          Your External Credits
-        </ECSemester>
-        <ECForm
-          onChange={this.props.onChange}
-          profile={this.props.profile}
-          schedule={this.props.schedule}
-          requirements={this.props.requirements}
-        />
-      </ECContent>
-    );
-  }
-}
+  return (
+    <ECContent>
+      <ECSemester
+        schedule={schedule}
+        setSchedule={setSchedule}
+        semesterIndex={EXTERNAL_CREDITS_SEMESTER_INDEX}
+        semName="Your External Credits"
+      />
+      <ECForm
+        profile={profile}
+        schedule={schedule}
+        requirements={requirements}
+        setSchedule={setSchedule}
+      />
+    </ECContent>
+  );
+};
+
+export default ExternalCreditsView;

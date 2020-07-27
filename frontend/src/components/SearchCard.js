@@ -1,8 +1,67 @@
 import React, { Component } from 'react';
 import SearchCourseCard from './SearchCourseCard';
+import styled, { css } from 'styled-components';
 
 const RADIX = 10;
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
+
+const SearchCardLinks = styled.div`
+  visibility: hidden;
+  white-space: nowrap;
+  margin-left: 0.25rem;
+`;
+
+const SearchCardInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+`;
+
+const CourseTitle = styled.div`
+  font-weight: bold;
+`;
+
+const PreviousSemText = styled.div`
+  margin-top: 0.25rem;
+  font-size: 12px;
+`;
+
+const SearchCardStyled = styled.div`
+  font-size: 14px;
+  height: auto;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: #f5f5f5;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  ${({ theme, semester }) =>
+    (semester === 'fall' &&
+      css`
+        background-color: ${theme.fallSearchCardBgColor};
+        color: ${theme.fallCourseTextColor};
+      `) ||
+    (semester === 'spring' &&
+      css`
+        background-color: ${theme.springSearchCardBgColor};
+        color: ${theme.springCourseTextColor};
+      `) ||
+    (semester === 'both' &&
+      css`
+        background: linear-gradient(
+          to right,
+          ${theme.fallSearchCardBgColor},
+          ${theme.springSearchCardBgColor}
+        );
+        color: ${theme.bothCourseTextColor};
+      `)}
+
+  &:hover {
+    ${SearchCardLinks} {
+      visibility: visible;
+    }
+  }
+`;
 
 export default class SearchCard extends Component {
   /* Helper function to convert a semester into readable form */
@@ -62,30 +121,30 @@ export default class SearchCard extends Component {
     let prevOfferedSemList = this.getPrevOfferedSemList(courseSemList);
 
     return (
-      <div className={`search-card ${course['semester']}`}>
+      <SearchCardStyled semester={course['semester']}>
         <>
           <SearchCourseCard
             course={course}
             courseKey={this.props.courseKey}
             courseIndex={this.props.index}
           />
-          <div className="search-card-info">
+          <SearchCardInfo>
             <div>
-              <div className="course-title">{course['title']}</div>
-              <div className="course-prev-sems">{`Previously offered in ${prevOfferedSemList}`}</div>
+              <CourseTitle>{course['title']}</CourseTitle>
+              <PreviousSemText>{`Previously: ${prevOfferedSemList}`}</PreviousSemText>
             </div>
-            <div className="search-card-links">
+            <SearchCardLinks>
               <a
                 href={courseInfoLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+                <i className="fas fa-info-circle fa-lg course-info" />
               </a>
-            </div>
-          </div>
+            </SearchCardLinks>
+          </SearchCardInfo>
         </>
-      </div>
+      </SearchCardStyled>
     );
   }
 }

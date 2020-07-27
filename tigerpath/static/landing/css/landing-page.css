@@ -1,17 +1,10 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
-  font-weight: 300;
-}
-
-.navbar-brand {
-  font-weight: 400;
 }
 
 h2, h4 {
   margin-bottom: 1rem;
   line-height: 1.5;
-  font-weight: 400;
 }
 
 .navbar {

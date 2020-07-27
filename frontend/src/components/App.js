@@ -1,58 +1,52 @@
-import React, { Component } from 'react';
-import $ from 'jquery';
-import { ajaxSetup } from 'AjaxSetup';
+import React, { useEffect, useState } from 'react';
 import Search from 'components/Search';
 import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { ThemeProvider } from 'styled-components';
-import { TIGERPATH_THEME } from 'styles/theme';
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
+import styled from 'styled-components';
+import useSWR from 'swr';
+import { getPostHeaders } from '../utils/FetchUtils';
 
 const RADIX = 10;
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    ajaxSetup();
-    this.state = {
-      profile: null,
-      schedule: null,
-      requirements: null,
-      searchQuery: '',
-      searchResults: [],
-    };
-  }
+const AppStyled = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-  componentDidMount() {
-    this.fetchProfile();
-    this.fetchRequirements();
-  }
+const App = () => {
+  const [profile, setProfile] = useState(null);
+  const [schedule, setSchedule] = useState(null);
+  const [requirements, setRequirements] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const { data: scheduleData } = useSWR('/api/v1/get_schedule/');
+  const { data: profileData } = useSWR('/api/v1/get_profile/');
+  const { data: requirementsData } = useSWR('/api/v1/get_requirements/');
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.schedule !== prevState.schedule) {
-      if (prevState.schedule !== null) {
-        this.updateScheduleAndGetRequirements();
-      }
-    }
-  }
+  useEffect(() => {
+    if (!scheduleData) return;
+    setSchedule(scheduleData);
+  }, [scheduleData]);
 
-  fetchProfile = () => {
-    $.ajax({
-      url: '/api/v1/get_profile/',
-      datatype: 'json',
-      type: 'GET',
-      success: (profile) => this.setState({ profile }),
-    });
-  };
+  useEffect(() => {
+    if (!profileData) return;
+    setProfile(profileData);
+  }, [profileData]);
 
-  // gets current enrolled courses and sends post request
-  updateScheduleAndGetRequirements = () => {
-    let schedule = this.state.schedule;
+  useEffect(() => {
+    handleUpdatedRequirements(requirementsData);
+  }, [requirementsData]);
+
+  // Updates the schedule in the db and fetches new requirements
+  const updateSchedule = async (newSchedule) => {
+    setSchedule(newSchedule);
+
     let strippedSchedule = [];
-    for (let semIndex = 0; semIndex < schedule.length; semIndex++) {
+    for (let semIndex = 0; semIndex < newSchedule.length; semIndex++) {
       strippedSchedule.push([]);
-      for (let course of schedule[semIndex]) {
+      for (let course of newSchedule[semIndex]) {
         let strippedCourse = { id: course['id'], settled: course['settled'] };
         if (course['external']) {
           strippedCourse['external'] = course['external'];
@@ -62,38 +56,31 @@ export default class App extends Component {
       }
     }
 
-    $.ajax({
-      url: '/api/v1/update_schedule_and_get_requirements/',
-      type: 'POST',
-      data: { schedule: JSON.stringify(strippedSchedule) },
-      success: (data) => this.handleRequirementData(data),
+    const res = await fetch('/api/v1/update_schedule_and_get_requirements/', {
+      method: 'POST',
+      headers: getPostHeaders(),
+      body: JSON.stringify({ schedule: strippedSchedule }),
     });
-  };
 
-  fetchRequirements = () => {
-    $.ajax({
-      url: '/api/v1/get_requirements/',
-      datatype: 'json',
-      type: 'GET',
-      success: (data) => this.handleRequirementData(data),
-    });
-  };
-
-  handleRequirementData = (data) => {
-    if (data) {
-      // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
-      data = data.map((mainReq) => {
-        // if mainReq is not an array, then it is just the name of the major
-        if (!Array.isArray(mainReq)) return mainReq;
-        return mainReq[2];
-      });
-      this.setState({ requirements: data });
+    if (res.ok) {
+      const reqData = await res.json();
+      handleUpdatedRequirements(reqData);
     }
   };
 
-  onDragEnd = (result) => {
-    let schedule = (this.state.schedule || DEFAULT_SCHEDULE).slice();
-    let searchResults = this.state.searchResults;
+  const handleUpdatedRequirements = (data) => {
+    if (!data) return;
+    // there are 3 fields to the data output, the 2nd indexed field contains the requirements json which we display
+    const parsedReqData = data.map((mainReq) => {
+      // if mainReq is not an array, then it is just the name of the major
+      if (!Array.isArray(mainReq)) return mainReq;
+      return mainReq[2];
+    });
+    setRequirements(parsedReqData);
+  };
+
+  const onDragEnd = (result) => {
+    let newSchedule = (schedule || DEFAULT_SCHEDULE).slice();
 
     if (result.destination === null) return;
 
@@ -115,65 +102,66 @@ export default class App extends Component {
       course['semester'] = searchResultsCourse['semester'];
       course['semester_list'] = searchResultsCourse['semester_list'];
       course['settled'] = [];
-      schedule[destSemId].splice(destCourseIndex, 0, course);
+      newSchedule[destSemId].splice(destCourseIndex, 0, course);
     } else {
       // moving course between or within semesters
       let sourceSemId = parseInt(
         result.source.droppableId.split('sem')[1],
         RADIX
       );
-      let course = schedule[sourceSemId].splice(sourceCourseIndex, 1)[0];
-      schedule[destSemId].splice(destCourseIndex, 0, course);
+      let course = newSchedule[sourceSemId].splice(sourceCourseIndex, 1)[0];
+      newSchedule[destSemId].splice(destCourseIndex, 0, course);
     }
 
-    this.setState({ schedule: schedule });
+    updateSchedule(newSchedule);
   };
 
-  onChange = (name, value) => this.setState({ [name]: value });
+  return (
+    <AppStyled>
+      <h1 className="print-only">My Four Year Schedule</h1>
+      <p className="print-only">
+        This schedule was created using{' '}
+        <b>TigerPath - Princeton's Four-Year Course Planner</b> at{' '}
+        <a
+          href="http://www.tigerpath.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          tigerpath.io
+        </a>
+        .
+      </p>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <div
+          id="search-pane"
+          className="col-lg-2 pl-0 pr-0 border-right dont-print"
+        >
+          <Search
+            searchQuery={searchQuery}
+            searchResults={searchResults}
+            setSearchQuery={setSearchQuery}
+            setSearchResults={setSearchResults}
+          />
+        </div>
+        <div className="col-lg-8 pl-0 pr-0">
+          <MainView
+            profile={profile}
+            schedule={schedule}
+            requirements={requirements}
+            setSchedule={updateSchedule}
+          />
+        </div>
+      </DragDropContext>
+      <div className="col-lg-2 pl-0 pr-0 border-left break dont-print">
+        <Requirements
+          requirements={requirements}
+          schedule={schedule}
+          setSearchQuery={setSearchQuery}
+          setSchedule={updateSchedule}
+        />
+      </div>
+    </AppStyled>
+  );
+};
 
-  render() {
-    return (
-      <ThemeProvider theme={TIGERPATH_THEME}>
-        <React.Fragment>
-          <h1 className="print-only">My Four Year Schedule</h1>
-          <p className="print-only">
-            This schedule was created using{' '}
-            <b>TigerPath - Princeton's Four-Year Course Planner</b> at{' '}
-            <a
-              href="http://www.tigerpath.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              tigerpath.io
-            </a>
-            .
-          </p>
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
-              <Search
-                onChange={this.onChange}
-                searchQuery={this.state.searchQuery}
-                searchResults={this.state.searchResults}
-              />
-            </div>
-            <div className="col-lg-8 pl-0 pr-0">
-              <MainView
-                onChange={this.onChange}
-                profile={this.state.profile}
-                schedule={this.state.schedule}
-                requirements={this.state.requirements}
-              />
-            </div>
-          </DragDropContext>
-          <div className="col-lg-2 pl-0 pr-0 break dont-print">
-            <Requirements
-              onChange={this.onChange}
-              requirements={this.state.requirements}
-              schedule={this.state.schedule}
-            />
-          </div>
-        </React.Fragment>
-      </ThemeProvider>
-    );
-  }
-}
+export default App;
