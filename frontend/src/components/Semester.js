@@ -20,7 +20,7 @@ const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
   color: ${({ theme, semesterType }) => {
     switch (semesterType) {
       case SEMESTER_TYPE.DEFAULT:
-        return `${theme.black}`;
+        return `${theme.ECHeaderTextColor}`;
       case SEMESTER_TYPE.FALL_SEM:
         return '#ffffff';
       case SEMESTER_TYPE.SPRING_SEM:
@@ -42,7 +42,7 @@ const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
       case SEMESTER_TYPE.SPRING_SEM:
         return `${theme.springSemHeaderColor}`;
       default:
-        return `${theme.darkOrange}`;
+        return `${theme.ECHeaderBackgroundColor}`;
     }
   }};
 `;

@@ -1,6 +1,6 @@
 export const TIGERPATH_THEME = {
-  darkOrange: '#f9d4cd',
-  black: '#000000',
+  ECHeaderBackgroundColor: '#f9d4cd',
+  ECHeaderTextColor: '#543129',
 
   /* Navigation colors */
   darkGreyText: '#555555',
