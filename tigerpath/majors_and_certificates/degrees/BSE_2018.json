@@ -268,15 +268,22 @@
               "name": "Foreign Language",
               "max_counted": 1,
               "min_needed": null,
-              "explanation": "<i>A language course at the 107/108 level or above</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
+              "explanation": "<i>A Romance language course at the 107/108 level or above or a non-Romance language course at the 105 level or above</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
               "course_list": [
                 "LANG 1027",
+                "LANG 105",
                 "LANG 107",
                 "LANG 108",
                 "LANG 2**",
                 "LANG 3**",
                 "LANG 4**",
                 "LANG 5**"
+              ],
+              "excluded_course_list": [
+                "FRE 105",
+                "ITA 105",
+                "POR 105",
+                "SPA 105"
               ]
             },
             {
@@ -317,12 +324,19 @@
           ],
           "course_list": [
             "LANG 1027",
+            "LANG 105",
             "LANG 107",
             "LANG 108",
             "LANG 2**",
             "LANG 3**",
             "LANG 4**",
             "LANG 5**"
+          ],
+          "excluded_course_list": [
+            "FRE 105",
+            "ITA 105",
+            "POR 105",
+            "SPA 105"
           ]
         }
       ]
