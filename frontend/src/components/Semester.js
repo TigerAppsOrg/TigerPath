@@ -17,18 +17,7 @@ const SEMESTER_BODY_COLOR = Object.freeze({
 });
 
 const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
-  color: ${({ theme, semesterType }) => {
-    switch (semesterType) {
-      case SEMESTER_TYPE.DEFAULT:
-        return `${theme.ECHeaderTextColor}`;
-      case SEMESTER_TYPE.FALL_SEM:
-        return '#ffffff';
-      case SEMESTER_TYPE.SPRING_SEM:
-        return '#ffffff';
-      default:
-        return '#ffffff';
-    }
-  }};
+  color: #ffffff;
 
   text-align: center;
   font-size: large;
