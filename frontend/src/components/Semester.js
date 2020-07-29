@@ -18,7 +18,6 @@ const SEMESTER_BODY_COLOR = Object.freeze({
 
 const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
   color: #ffffff;
-
   text-align: center;
   font-size: large;
   border-radius: 2px 2px 0 0;
@@ -31,7 +30,7 @@ const SemesterHeader = styled(({ semesterType, ...rest }) => <div {...rest} />)`
       case SEMESTER_TYPE.SPRING_SEM:
         return `${theme.springSemHeaderColor}`;
       default:
-        return `${theme.ECHeaderBackgroundColor}`;
+        return `${theme.ECHeaderColor}`;
     }
   }};
 `;

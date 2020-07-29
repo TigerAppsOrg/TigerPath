@@ -1,6 +1,4 @@
 export const TIGERPATH_THEME = {
-  ECHeaderBackgroundColor: '#ec775f',
-
   /* Navigation colors */
   darkGreyText: '#555555',
   lightGrey: '#6c757d',
@@ -12,6 +10,7 @@ export const TIGERPATH_THEME = {
   redSemBody: '#ffc0cb',
 
   /* Should change description in tutorial.js whenever these colors are modified. */
+  ECHeaderColor: '#ec775f',
   fallSemHeaderColor: '#ad79d4',
   springSemHeaderColor: '#3aaed4',
 };
