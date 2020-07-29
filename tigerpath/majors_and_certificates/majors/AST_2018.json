@@ -73,7 +73,7 @@
         {
           "name": "Physics",
           "max_counted": 1,
-          "min_needed": 1,
+          "min_needed": "ALL",
           "explanation": "Physics up to 205 or 207",
           "req_list": [
             {
