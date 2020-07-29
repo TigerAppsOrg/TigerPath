@@ -4,18 +4,19 @@
   "code": "AST",
   "degree": "AB",
   "year": 2018,
+  "description": "The Department of Astrophysical Sciences offers an outstanding program for astrophysics majors with the flexibility to accommodate students with a broad range of interests. Many of our majors plan to continue in graduate school in astrophysics. For students with career goals in other areas such as science education, science policy, space exploration, as well as law, medicine, finance, and teaching, we offer a flexible choice of courses and research projects. The department covers all major fields in astrophysics -- from planets, to black holes, stars, galaxies, quasars, dark matter, dark energy, and the evolution of the universe from the Big Bang to today. The relatively small size of the department provides an informal, flexible, and friendly setting for students. The department is known for providing strong and supportive mentorship to all students, for cutting-edge independent research done by students for their JPs and theses, as well as for the warm and amiable atmosphere. Full accessibility to all faculty members and to the excellent departmental facilities, including our on-campus and remote telescopes and sophisticated computer system, is provided.",
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-astrophysical-sciences#",
-    "https://web.astro.princeton.edu/"
+    "https://ua.princeton.edu/academic-units/department-astrophysical-sciences",
+    "https://web.astro.princeton.edu/academic/undergraduate-program/major-requirements"
   ],
   "contacts": [
     {
       "type": "Chair",
-      "name": "James M. Stone",
-      "email": "jmstone@princeton.edu"
+      "name": "Michael A. Strauss",
+      "email": "strauss@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Neta A. Bahcall",
       "email": "neta@astro.princeton.edu"
     }
@@ -24,31 +25,32 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 2,
-      "explanation": "Mathematics 201, 202 or equivalent, and Physics 205 or 207; Astrophysical Sciences 204 is strongly recommended.",
+      "min_needed": "ALL",
+      "explanation": "Mathematics up to 201 and 202 or equivalent, and Physics up to 205 or 207.\n\nAstrophysical Sciences 204 is strongly recommended.",
+      "double_counting_allowed": true,
       "completed_by_semester": 4,
       "req_list": [
         {
           "name": "Math",
           "max_counted": 1,
-          "min_needed": 4,
-          "explanation": "",
+          "min_needed": "ALL",
+          "explanation": "Mathematics up to 201 and 202 or equivalent",
           "req_list": [
             {
-              "name": null,
-              "max_counted": 2,
-              "min_needed": null,
-              "explanation": "",
+              "name": "Calculus",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Mathematics 103 and 104",
               "course_list": [
                 "MAT 103",
                 "MAT 104"
               ]
             },
             {
-              "name": null,
+              "name": "Advanced Multivariable Calculus",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "201 or 203",
+              "explanation": "Mathematics 201 or 203 or 218",
               "course_list": [
                 "MAT 201",
                 "MAT 203",
@@ -56,10 +58,10 @@
               ]
             },
             {
-              "name": null,
+              "name": "Linear Algebra",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "202 or 204",
+              "explanation": "Mathematics 202 or 204 or 217",
               "course_list": [
                 "MAT 202",
                 "MAT 204",
@@ -72,33 +74,33 @@
           "name": "Physics",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "",
+          "explanation": "Physics up to 205 or 207",
           "req_list": [
             {
-              "name": null,
+              "name": "Mechanics",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": "Physics 103 or 105",
               "course_list": [
                 "PHY 103",
                 "PHY 105"
               ]
             },
             {
-              "name": null,
+              "name": "Electromagnetism",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": "Physics 104 or 106",
               "course_list": [
                 "PHY 104",
                 "PHY 106"
               ]
             },
             {
-              "name": null,
+              "name": "Classical Mechanics",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "",
+              "explanation": "Physics 205",
               "course_list": [
                 "PHY 205",
                 "PHY 207"
@@ -107,10 +109,10 @@
           ]
         },
         {
-          "name": "Astrophysical Sciences",
-          "max_counted": null,
-          "min_needed": null,
-          "explanation": "Strongly recommended",
+          "name": "Astrophysics",
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": "Astrophysical Sciences 204 is strongly recommended.",
           "course_list": [
             "AST 204"
           ]
@@ -127,7 +129,7 @@
           "name": "Astrophysics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": "Every student majoring in astrophysical sciences will acquire the necessary training in astrophysics by taking at least three astrophysics courses at the 300 or 400 level.",
           "course_list": [
             "AST 301",
             "AST 303",
@@ -140,7 +142,7 @@
           "name": "Physics",
           "max_counted": 1,
           "min_needed": 3,
-          "explanation": "",
+          "explanation": "In addition to these courses, departmental students will take courses in the Department of Physics that provide basic training in mechanics, quantum mechanics, electromagnetic theory, and other relevant topics.",
           "course_list": [
             "PHY 208",
             "PHY 301",
@@ -149,33 +151,39 @@
           ]
         },
         {
-          "name": "Electives",
+          "name": "Cognates",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "",
+          "explanation": "Two additional courses to complete the eight required courses",
           "course_list": [
-            "PHY 312",
-            "PHY 403",
-            "PHY 406",
-            "PHY 408",
-            "MAT 301/MAE 305",
-            "MAT 302/MAE 306",
-            "MAT 317",
-            "MAT 327",
-            "MAT 328",
-            "GEO 427",
-            "MAE 341",
-            "MAE 342"
+            "AST 301: General Relativity",
+            "AST 303: Deciphering the Universe: Research Methods in Astrophysics",
+            "AST 309/MAE 309/PHY 309/ENE 309: The Science of Nuclear Energy: Fission and Fusion",
+            "AST 401: Cosmology",
+            "AST 403: Stars and Star Formation",
+            "COS 126: General Computer Science",
+            "MAE 222: Mechanics of Fluids",
+            "MAE 305: Mathematics in Engineering I (ODE's)",
+            "MAE 306: Mathematics in Engineering II (OPDE's, complex analysis)",
+            "MAE 341: Space Flight",
+            "MAE 342: Space System Design",
+            "MAT 335: Complex Analysis",
+            "MAT 355: Differential Geometry",
+            "ORF 309: Probability and Stochastic Systems",
+            "PHY 312: Experimental Physics",
+            "PHY 403: Mathematical Methods of Physics",
+            "PHY 405: Modern Physics I:   Condense-Matter Physics",
+            "PHY 406: Modern Physics II: Nuclear and Elementary Particle Physics",
+            "PHY 408: Modern Classical Dynamics"
           ]
         }
       ]
     },
     {
-      "name": "Independent Work",
+      "name": "Junior Independent Work",
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn addition to the course work carried out during the junior year, each student carries out two junior independent research projects, one each semester. Each project is on a research topic of current interest, carried out under close supervision of a faculty adviser who is doing research in this area. The student will complete each term's independent work by submitting a written paper. The research projects can involve data analysis using astronomical data from our telescopes, including data from the Sloan Digital Sky Survey -- a unique three-dimensional map of the universe -- and the Hyper Suprime-Cam Survey with the Subaru telescope, as well as data from other national and international facilities such as the Hubble Space Telescope. Similarly, theoretical and computational projects in astrophysics are available. The topics, to be selected jointly by the student and his/her adviser, can range from areas such as cosmology and the early universe, to galaxy formation, large-scale structure of the universe, quasars, black holes, stars, extra-solar planets, high-energy astrophysics, and plasma astrophysics. Interdisciplinary projects, including astronomy and education, science policy, planetary science, astrobiology, space science exploration, and more are possible.",
-      "description": "Independent Work",
       "no_req": null
     },
     {
@@ -183,7 +191,6 @@
       "max_counted": null,
       "min_needed": null,
       "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the senior year, in addition to course work, students carry out an extensive research project with a faculty adviser for their senior thesis. The thesis is completed by submitting the final written paper summarizing the work. There is a wide range of observational and theoretical topics available, including interdisciplinary projects as discussed above. The senior thesis work is frequently published as part of a scientific paper in an astrophysical journal. After the thesis has been completed and read by the adviser and an additional faculty member, the student presents an oral summary of the work, followed by an oral defense of the thesis.",
-      "description": "Senior Thesis",
       "no_req": null
     }
   ]
