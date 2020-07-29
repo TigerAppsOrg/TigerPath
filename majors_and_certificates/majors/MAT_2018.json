@@ -6,16 +6,16 @@
   "year": 2018,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-mathematics-0#",
-    "https://www.math.princeton.edu/"
+    "https://www.math.princeton.edu/undergraduate/requirements"
   ],
   "contacts": [
     {
-      "type": "Chair",
-      "name": "David Gabai",
-      "email": "gabai@princeton.edu"
+      "type": "Director of Undergraduate Studies, Associate Chair",
+      "name": "János Kollár",
+      "email": "kollar@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
+      "type": "Associate Director of Undergraduate Studies",
       "name": "Jennifer M. Johnson",
       "email": "jmjohnso@princeton.edu"
     }
@@ -25,44 +25,47 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": 2,
-      "explanation": "Generally, either 215-217 or 216-218 or 203-204-215 are strongly recommended for admission to the department. Prospective mathematics majors should consult the department early and plan a program that includes as much of the 215-217 or 216-218 sequence as possible. Most majors begin taking courses at the 300-level by the second semester of the sophomore year, in preparation for their junior independent work.",
+      "explanation": "Generally, either 215-217 or 216-218 or 203-204-215 are strongly recommended for admission to the department. Prospective mathematics majors should consult the department early and plan a program that includes as much of the 215-217 or 216-218 sequence as possible. Most majors begin taking courses at the 300-level by the second semester of the sophomore year, in preparation for their junior independent work.\n\nSome of our successful majors became interested in mathematics as a major after taking 103 or 104. Such students should consult with the Junior Advisor or the Associate Departmental Representative as soon as possible.",
       "req_list": [
         {
           "name": null,
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
+          "max_counted": 0.5,
+          "min_needed": 1,
+          "explanation": null,
           "course_list": [
-            "MAT 215"
+            "MAT 201",
+            "MAT 203"
           ]
         },
         {
           "name": null,
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
+          "max_counted": 0.5,
+          "min_needed": 1,
+          "explanation": null,
           "course_list": [
-            "MAT 217"
-          ]
-        },
-        {
-          "name": null,
-          "max_counted": 2,
-          "min_needed": "ALL",
-          "explanation": "",
-          "course_list": [
-            "MAT 216",
-            "MAT 218"
-          ]
-        },
-        {
-          "name": null,
-          "max_counted": 1,
-          "min_needed": "ALL",
-          "explanation": "",
-          "course_list": [
-            "MAT 203",
+            "MAT 202",
             "MAT 204"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "MAT 214",
+            "MAT 215",
+            "MAT 216"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "MAT 217",
+            "MAT 218"
           ]
         }
       ]
@@ -71,60 +74,59 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Students must complete four core requirements. It is recommended that students complete some of these core requirements by the end of the sophomore year. Completing these core courses early gives more options for junior and senior independent work. Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+      "explanation": "Mathematics majors are required to take at least eight departmental courses in mathematics at the 300- and 400-level or higher. Of those eight, students must complete four core requirements.",
       "req_list": [
         {
           "name": "Real Analysis",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One course in real analysis (e.g. 320 or 325 or 425 or 385)",
+          "explanation": "One course in real analysis (from the 320s or 420s or 200 or 385 or 520)",
           "course_list": [
-            "MAT 320",
-            "MAT 325",
-            "MAT 425",
-            "MAT 385"
+            "MAT 32*",
+            "MAT 42*",
+            "MAT 200",
+            "MAT 385",
+            "MAT 520"
           ]
         },
         {
           "name": "Complex Analysis",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One course in complex analysis (e.g. 330 or 335)",
+          "explanation": "One course in complex analysis (from the 330s)",
           "course_list": [
-            "MAT 330",
-            "MAT 335"
+            "MAT 33*"
           ]
         },
         {
           "name": "Algebra",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One course in algebra (e.g. 340 or 345)",
+          "explanation": "One course in algebra (from the 340s or 440s)",
           "course_list": [
-            "MAT 340",
-            "MAT 345"
+            "MAT 34*",
+            "MAT 44*"
           ]
         },
         {
           "name": "Geometry, Topology, or Discrete Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "One course in geometry or topology (e.g. 350 or 355 or 365 or 560) Note: One course in discrete mathematics (e.g. 375, 377 or 378) can replace the geometry/topology core requirement, if desired.",
+          "explanation": "one course in geometry or topology (from the 350s or 450s or 360s or 460s, or alternatively, one course in discrete mathematics from the 370s or 470s)",
           "course_list": [
-            "MAT 350",
-            "MAT 355",
-            "MAT 365",
-            "MAT 560",
-            "MAT 375",
-            "MAT 377",
-            "MAT 378"
+            "MAT 35*",
+            "MAT 45*",
+            "MAT 36*",
+            "MAT 46*",
+            "MAT 37*",
+            "MAT 47*"
           ]
         },
         {
-          "name": "Elective",
+          "name": "Electives",
           "max_counted": 1,
           "min_needed": 4,
-          "explanation": "Students must complete an additional four courses at the 300 level or higher, up to three of which may be cognate courses outside the mathematics department, with permission from the junior or senior advisers or departmental representative.",
+          "explanation": "An additional four courses at the 300 level or higher. Up to three of these may be cognate courses outside the Mathematics Department, with permission from the junior or senior advisors or director of undergraduate studies. (Courses from other departments that are cross-listed with MAT do not need permission and do not count toward the total of three allowed cognates.)",
           "course_list": [
             "MAT 3*",
             "MAT 4*",
@@ -134,19 +136,17 @@
       ]
     },
     {
-      "name": "Independent Work",
+      "name": "Junior Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAll departmental students engage in independent work, supervised by a member of the department chosen in consultation with a departmental adviser. The independent work of the junior year generally consists of participating actively in a junior seminar in both the fall and the spring semesters. Alternatively, a student may opt to replace one junior seminar with supervised reading in a special subject and then writing a paper based on that reading. The independent work in the senior year centers on writing a senior thesis. A substantial percentage of our majors work with faculty in other departments on their senior project.",
-      "description": "Independent Work",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAll mathematics majors are expected to take a junior seminar during at least one semester of their junior year. In the other semester they can participate in a second junior seminar, or they can write a junior paper instead.",
       "no_req": null
     },
     {
       "name": "Senior Thesis",
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\n",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior theses are expected and tend to be more in-depth, more original in exposition/content, and more substantial than junior papers. However, there are no formal length requirements. Some of the best senior theses in mathematics over the years have been under 10 pages, while others have been over 100 pages, although about 20-40 pages when single-spaced seems typical. Senior theses are evaluated on the same basic criteria as junior papers, but naturally more originality and imagination in the exposition and content are expected in senior theses.\n\nThe senior thesis is due by the university set deadline (usually, the start of the spring reading period). The thesis is evaluated by both the adviser and a second reader; thus, a second reader should be arranged at least a couple of weeks before the due date of the senior thesis (ideally much sooner). The thesis is \"defended\" to both the adviser and the second reader during a thesis defense that occurs a couple of days after Dean's date, during the final examination period. The defense consists of a short (about 25 minute) presentation by the student, followed by questions from the readers pertaining to the content of the thesis. Two grades are given: one for the quality of the presentation and defense (to emphasize the importance of mathematical communication), and one for the thesis itself.\n\nThe primary adviser for the senior thesis can be a university faculty member outside the mathematics department (which is allowed, supported, and indeed occurs frequently). In this case, the second reader must be arranged within the mathematics department. (This is to help ensure uniformity in the evaluation process.)\n\nSenior thesis grades, together with grades in mathematics courses, are also taken into account when determining departmental honors.",
       "max_counted": null,
-      "description": "Senior Thesis",
       "no_req": null
     }
   ]
