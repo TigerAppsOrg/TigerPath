@@ -24,21 +24,32 @@
     {
       "name": "Prerequisites",
       "max_counted": 1,
-      "min_needed": 2,
-      "explanation": "Mathematics 201, 202 or equivalent, and Physics 205 or 207; Astrophysical Sciences 204 is strongly recommended.",
+      "min_needed": "ALL",
+      "explanation": "Mathematics up to 201 and 202 or equivalent, and Physics up to 205 or 207.\n\nAstrophysical Sciences 204 is strongly recommended.",
+      "double_counting_allowed": true,
       "completed_by_semester": 4,
       "req_list": [
         {
           "name": "Math",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Mathematics 201, 202 or equivalent",
+          "explanation": "Mathematics up to 201 and 202 or equivalent",
           "req_list": [
             {
-              "name": null,
+              "name": "Calculus",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Mathematics 103 and 104",
+              "course_list": [
+                "MAT 103",
+                "MAT 104"
+              ]
+            },
+            {
+              "name": "Advanced Multivariable Calculus",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "201 or 203",
+              "explanation": "Mathematics 201 or 203 or 218",
               "course_list": [
                 "MAT 201",
                 "MAT 203",
@@ -46,10 +57,10 @@
               ]
             },
             {
-              "name": null,
+              "name": "Linear Algebra",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "202 or 204",
+              "explanation": "Mathematics 202 or 204 or 217",
               "course_list": [
                 "MAT 202",
                 "MAT 204",
@@ -62,16 +73,44 @@
           "name": "Physics",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Physics 205 or 207",
-          "course_list": [
-            "PHY 205",
-            "PHY 207"
+          "explanation": "Physics up to 205 or 207",
+          "req_list": [
+            {
+              "name": "Mechanics",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Physics 103 or 105",
+              "course_list": [
+                "PHY 103",
+                "PHY 105"
+              ]
+            },
+            {
+              "name": "Electromagnetism",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Physics 104 or 106",
+              "course_list": [
+                "PHY 104",
+                "PHY 106"
+              ]
+            },
+            {
+              "name": "Classical Mechanics",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "Physics 205",
+              "course_list": [
+                "PHY 205",
+                "PHY 207"
+              ]
+            }
           ]
         },
         {
           "name": "Astrophysical Sciences",
-          "max_counted": null,
-          "min_needed": null,
+          "max_counted": 1,
+          "min_needed": 1,
           "explanation": "Astrophysical Sciences 204 is strongly recommended.",
           "course_list": [
             "AST 204"
