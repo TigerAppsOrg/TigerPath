@@ -10,12 +10,12 @@
   ],
   "contacts": [
     {
-      "type": "Director of Undergraduate Studies",
+      "type": "Director of Undergraduate Studies, Associate Chair",
       "name": "János Kollár",
       "email": "kollar@princeton.edu"
     },
     {
-      "type": "Director of Undergraduate Studies",
+      "type": "Associate Director of Undergraduate Studies",
       "name": "Jennifer M. Johnson",
       "email": "jmjohnso@princeton.edu"
     }
@@ -75,7 +75,7 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Mathematics majors are required to take at least eight departmental courses in mathematics at the 300- and 400-level or higher, including:",
+      "explanation": "Mathematics majors are required to take at least eight departmental courses in mathematics at the 300- and 400-level or higher. Of those eight, students must complete four core requirements.",
       "req_list": [
         {
           "name": "Real Analysis",
@@ -110,7 +110,7 @@
           ]
         },
         {
-          "name": "Geometry and Topology or Discrete Math",
+          "name": "Geometry, Topology, or Discrete Math",
           "max_counted": 1,
           "min_needed": 1,
           "explanation": "one course in geometry or topology (from the 350s or 450s or 360s or 460s, or alternatively, one course in discrete mathematics from the 370s or 470s)",
