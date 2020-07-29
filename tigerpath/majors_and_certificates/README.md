@@ -23,8 +23,7 @@ Certificates are currently not displayed to the user, but including them
 is a major future goal.
 
 The three-letter codes used for naming majors and certificates requirement
-files are listed in [`scripts/university_info.py`]
-(https://github.com/TigerPathApp/tigerpath/blob/master/tigerpath/majors_and_certificates/scripts/university_info.py).
+files are listed in [`scripts/university_info.py`](https://github.com/TigerPathApp/tigerpath/blob/master/tigerpath/majors_and_certificates/scripts/university_info.py).
 
 ## Understanding requirement files
 
@@ -44,9 +43,13 @@ Because of this, all the older requirement files are written in `JSON` format
 but any newer requirement files can be written in either the `JSON` or
 `YAML` formats.
 
+Each requirements file is structured as a tree with the full major at the root. The leaves code for the simplest kind of requirement,
+which is usually a list of courses (encoded as a `course_list` or `dist_req`). Intermediate nodes (those
+containing a `req_list`) express the relationships among their children.
+
 ### Course Code Conventions
 
-At the bottom of the requirement trees, the leaves are nearly always 
+At the bottom of the requirement trees, the leaves are nearly always
 `course_list`s. A `course_list` is just a list of possible courses that
 can count towards a requirement.
 
@@ -148,6 +151,9 @@ req_list: # the highest level **must** contain a req_list
     - NST 96 # ignored by the parser (only for human reference)
     - NST 482/ACR 382 # (see the course code conventions table above)
     - 'NST 487: The Study of Modern Names'
+    # an optional list of courses excluded from counting for this requirement
+    excluded_course_list: # the format is the same as for a course_list
+    - NST 221 # this prevents NST 221 from counting, despite NST 2** listed above
 # any requirement that TigerPath cannot possibly verify,
 # such as a Senior Thesis or internship, should contain a no_req
 # instead of a req_list or course_list. Here is an example:
@@ -163,7 +169,7 @@ the format looks instead something like the following. Note that these are
 both equivalent and equally valid `YAML` formats.
 
 ```yaml
-{ # Note: JSON does not normally allow comments, but this is JSON parsed as YAML 
+{ # Note: JSON does not normally allow comments, but this is JSON parsed as YAML
   "type": "Major", # for descriptions of these fields, see the YAML version above
   "name": "Name Studies",
   "code": "NST", respectively.
@@ -223,12 +229,17 @@ both equivalent and equally valid `YAML` formats.
 
 ### For Degrees (AB/BSE)
 
-Additional subrequiremnt types are available for use in the Degree requirement files (the requirement files for the AB and BSE degrees), but should not be used in other requirement files, except perhaps in rare scenarios.
+Additional subrequirement types are available for use in the requirement files
+for degree types (AB: "Bachelor of Arts", and BSE: "Bachelor of Science in
+Engineering"), but will normally not be used in major or certificate
+requirement files, except perhaps in rare scenarios.
 
-These include the `num_courses`, which verifies that the
-user has taken at least a certain prescribed number of courses 
-(used to track degree progress), and the `dist_req`, which allows
-any course that fall under the specified distribution area to count.
+These include the `num_courses`, which verifies that the user has taken at
+least a certain prescribed number of courses by different checkpoints in
+their 4 years (used to track degree progress), and `dist_req`, which allows
+any courses that fall under the specified
+[distribution area](https://odoc.princeton.edu/curriculum/general-education-requirements)
+to count.
 
 Here is an example of their usage:
 
@@ -251,20 +262,18 @@ Here is an example of their usage:
   ],
   "req_list": [
     {
-      "name": "Degree Progress", 
+      "name": "Degree Progress",
       "max_counted": 1,
       "min_needed": "ALL",
-      "description": null,
       "explanation": "Explanation of degree progress requirements",
       "req_list": [
         {
-          "name": null,
+          "name": "Courses completed by 6th semester",
           "max_counted": 1,
-          "min_needed": null,
-          "description": null,
           "explanation": null,
-          "completed_by_semester": 8,
+          "completed_by_semester": 6,
           "num_courses": 31 # number of course credits that must be completed
+          # note: min_needed is not present and is automatically set to num_courses
         },
         {
           ...
@@ -275,9 +284,10 @@ Here is an example of their usage:
       "name": "Epistemology and Cognition",
       "max_counted": 1,
       "min_needed": 1,
-      "description": "Description",
       "explanation": "Explanation",
-      "dist_req": "EC" # STL, STN, EC, EM, HA, etc.
+      "dist_req": [
+        "EC" # the distribution requirement code: EC, EM, HA, etc.
+      ]
     },
     {
         ... # another requirement
