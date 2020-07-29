@@ -46,7 +46,7 @@ but any newer requirement files can be written in either the `JSON` or
 
 ### Course Code Conventions
 
-At the bottom of the requirement trees, the leaves are nearly always 
+At the bottom of the requirement trees, the leaves are nearly always
 `course_list`s. A `course_list` is just a list of possible courses that
 can count towards a requirement.
 
@@ -163,7 +163,7 @@ the format looks instead something like the following. Note that these are
 both equivalent and equally valid `YAML` formats.
 
 ```yaml
-{ # Note: JSON does not normally allow comments, but this is JSON parsed as YAML 
+{ # Note: JSON does not normally allow comments, but this is JSON parsed as YAML
   "type": "Major", # for descriptions of these fields, see the YAML version above
   "name": "Name Studies",
   "code": "NST", respectively.
@@ -226,7 +226,7 @@ both equivalent and equally valid `YAML` formats.
 Additional subrequiremnt types are available for use in the Degree requirement files (the requirement files for the AB and BSE degrees), but should not be used in other requirement files, except perhaps in rare scenarios.
 
 These include the `num_courses`, which verifies that the
-user has taken at least a certain prescribed number of courses 
+user has taken at least a certain prescribed number of courses
 (used to track degree progress), and the `dist_req`, which allows
 any course that fall under the specified distribution area to count.
 
@@ -251,7 +251,7 @@ Here is an example of their usage:
   ],
   "req_list": [
     {
-      "name": "Degree Progress", 
+      "name": "Degree Progress",
       "max_counted": 1,
       "min_needed": "ALL",
       "description": null,
