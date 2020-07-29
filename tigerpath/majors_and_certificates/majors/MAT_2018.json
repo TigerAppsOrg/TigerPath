@@ -136,16 +136,16 @@
       ]
     },
     {
-      "name": "Independent Work",
+      "name": "Junior Independent Work",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe formal independent work requirements in the Mathematics Department consist of:\n-a junior seminar and a junior paper, one in each term of the junior year\n-or two junior seminars, one in each term of the junior year\n-and a senior thesis in the final year.",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nAll mathematics majors are expected to take a junior seminar during at least one semester of their junior year. In the other semester they can participate in a second junior seminar, or they can write a junior paper instead.",
       "no_req": null
     },
     {
       "name": "Senior Thesis",
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nThe formal independent work requirements in the Mathematics Department consist of:\n-a junior seminar and a junior paper, one in each term of the junior year\n-or two junior seminars, one in each term of the junior year\n-and a senior thesis in the final year.",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nSenior theses are expected and tend to be more in-depth, more original in exposition/content, and more substantial than junior papers. However, there are no formal length requirements. Some of the best senior theses in mathematics over the years have been under 10 pages, while others have been over 100 pages, although about 20-40 pages when single-spaced seems typical. Senior theses are evaluated on the same basic criteria as junior papers, but naturally more originality and imagination in the exposition and content are expected in senior theses.\n\nThe senior thesis is due by the university set deadline (usually, the start of the spring reading period). The thesis is evaluated by both the adviser and a second reader; thus, a second reader should be arranged at least a couple of weeks before the due date of the senior thesis (ideally much sooner). The thesis is \"defended\" to both the adviser and the second reader during a thesis defense that occurs a couple of days after Dean's date, during the final examination period. The defense consists of a short (about 25 minute) presentation by the student, followed by questions from the readers pertaining to the content of the thesis. Two grades are given: one for the quality of the presentation and defense (to emphasize the importance of mathematical communication), and one for the thesis itself.\n\nThe primary adviser for the senior thesis can be a university faculty member outside the mathematics department (which is allowed, supported, and indeed occurs frequently). In this case, the second reader must be arranged within the mathematics department. (This is to help ensure uniformity in the evaluation process.)\n\nSenior thesis grades, together with grades in mathematics courses, are also taken into account when determining departmental honors.",
       "max_counted": null,
       "no_req": null
     }
