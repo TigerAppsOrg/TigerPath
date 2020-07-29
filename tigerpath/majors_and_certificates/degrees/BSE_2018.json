@@ -7,7 +7,8 @@
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering",
     "https://ua.princeton.edu/contents/general-education-requirements",
-    "https://lsi.princeton.edu/integratedscience/freshman-year"
+    "https://lsi.princeton.edu/integratedscience/freshman-year",
+    "https://engineering.princeton.edu/undergraduate-studies/first-year-advising/degree-requirements"
   ],
   "req_list": [
     {
@@ -270,6 +271,7 @@
               "min_needed": null,
               "explanation": "<i>A Romance language course at the 107/108 level or above or a non-Romance language course at the 105 level or above</i>\n\nWhen you become proficient in a foreign language, you acquire more than a communication skill; you become literate in another culture and gain another perspective on the world.",
               "course_list": [
+                "GER 1025",
                 "LANG 1027",
                 "LANG 105",
                 "LANG 107",
@@ -323,6 +325,7 @@
             "SA"
           ],
           "course_list": [
+            "GER 1025",
             "LANG 1027",
             "LANG 105",
             "LANG 107",
