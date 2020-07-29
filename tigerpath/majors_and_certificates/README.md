@@ -23,8 +23,7 @@ Certificates are currently not displayed to the user, but including them
 is a major future goal.
 
 The three-letter codes used for naming majors and certificates requirement
-files are listed in [`scripts/university_info.py`]
-(https://github.com/TigerPathApp/tigerpath/blob/master/tigerpath/majors_and_certificates/scripts/university_info.py).
+files are listed in [`scripts/university_info.py`](https://github.com/TigerPathApp/tigerpath/blob/master/tigerpath/majors_and_certificates/scripts/university_info.py).
 
 ## Understanding requirement files
 
