@@ -132,13 +132,13 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Eight departmental courses (“departmentals”) fulfilling the following requirements",
+      "explanation": "Eight departmental courses (\"departmentals\") fulfilling the following requirements",
       "req_list": [
         {
-          "name": "EAS Courses",
+          "name": "Required EAS Courses",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Six EAS-prefix courses.",
+          "explanation": null,
           "req_list": [
             {
               "name": "Junior Seminar",
@@ -175,16 +175,16 @@
           ]
         },
         {
-          "name": "8 Departmentals",
+          "name": "8 Total Departmentals",
           "max_counted": 1,
           "min_needed": 8,
           "explanation": null,
           "req_list": [
             {
-              "name": "6 EAS-Prefix Courses",
+              "name": "EAS-Prefix Courses",
               "max_counted": null,
               "min_needed": 6,
-              "explanation": null,
+              "explanation": "Six EAS-prefix courses",
               "double_counting_allowed": true,
               "course_list": [
                 "EAS *"
