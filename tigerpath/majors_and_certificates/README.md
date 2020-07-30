@@ -295,3 +295,158 @@ Here is an example of their usage:
   ]
 }
 ```
+
+### Class Year Differences
+
+The requirements file format supports another primitive called `year_switch`,
+which decides from a list of possibilities depending on the user's class year.
+This is useful when the requirements differ for students in different class
+years.
+For example, the requirements for a certain major might change, but then
+only apply to the incoming class and later, or an exception might be made
+for a specific class year.
+
+A `year_switch` is formatted almost like a `req_list`, in that its value is
+a list of subrequirements.
+Each subrequirement must have a `year_code` field, a string or integer which
+specifies which class year range that the subrequirement applies to
+(refer to the [table below](#year-code-values) for possible values).
+Style dictates that, for readability, the `year_code` field should always
+appear at the top of the subrequirement.
+
+The first requirement in the list whose `year_code` matches the student's
+class year is selected, at which point its explicitly listed fields override
+those of the parent requirement (the one that contains the `year_switch`),
+and the `year_switch` and `year_code` fields are dropped.
+Interpretation of the requirements file then proceeds as usual (with any
+remaining `year_switch`s evaluated recursively).
+
+As an example, this requirement
+
+```yaml
+---
+name: A Transitioning Requirement
+max_counted: 1
+min_needed:
+explanation: Students from the class of 2021 should take any one NST course,
+  while students from the classes of 2022 and later should take one 300-level
+  and one 400-level NST course.
+year_switch:
+- year_code: 2021
+  min_needed: 1  # note that this overrides the existing min_needed if selected
+  course_list:
+  - NST *
+- year_code: ">=2022"
+  min_needed: ALL
+  double_counting_allowed: true  # any additional fields can be added here too
+  req_list:  # the structure need not be the same among the different cases
+  - name: One 300-level course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - NST 3**
+  - name: One 400-level course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - NST 4**
+- year_code: default # equivalently, null or blank
+  max_counted:
+  min_needed:
+  explanation: This requirement only applies to classes of 2021 and after,
+    so lucky you, you don't have to do anything!
+  no_req:
+```
+
+will appear differently to students of different class years.
+
+To a student of the class of 2021, it will appear as if it were
+
+```yaml
+---
+name: A Transitioning Requirement
+max_counted: 1
+min_needed: 1
+explanation: Students from the class of 2021 should take any one NST course,
+  while students from the classes of 2022 and later should take one 300-level
+  and one 400-level NST course.
+course_list:
+  - NST *
+```
+
+while to a student from the classes of 2022 and later, it will appear as
+
+```yaml
+---
+name: A Transitioning Requirement
+max_counted: 1
+min_needed: ALL
+explanation: Students from the class of 2021 should take any one NST course,
+  while students from the classes of 2022 and later should take one 300-level
+  and one 400-level NST course.
+double_counting_allowed: true
+req_list:
+- name: One 300-level course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - NST 3**
+- name: One 400-level course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - NST 4**
+```
+
+To a student of any earlier class, it would fall to the default case and look
+like
+
+```yaml
+---
+name: A Transitioning Requirement
+max_counted:
+min_needed:
+explanation: This requirement only applies to classes of 2021 and after,
+  so lucky you, you don't have to do anything!
+no_req:
+```
+
+Note that if no default case is specified, and a user's class year does not
+fall under any of the cases, then the `year_switch` is just dropped without
+modifying the parent requirement.
+This means that whatever fields are specified explicitly in the parent are
+used.
+In the example above, this would result in an incomplete requirement, since
+the parent requirement is not fully specified by itself, but this doesn't
+have to be the case.
+For example, the following requirement is fully specified with or without the
+contents of the `year_switch`.
+
+```yaml
+---
+name: Any NST Course
+max_counted: 1
+min_needed: 1
+explanation: Any one NST course. From the class of 2023, NST 300 doesn't count.
+course_list:
+- NST *
+year_switch:
+- year_code: ">=2023"
+  excluded_course_list:
+  - NST 300
+```
+
+#### Year Code Values
+
+The possible values for the `year_code` field are as follows:
+
+| code                                                       | meaning                                               |
+| ---------------------------------------------------------- | ----------------------------------------------------- |
+| "<XXXX", "<=XXXX", ">XXXX", ">=XXXX", "==XXXX", "!=XXXX"   | less than, less than or equal to, etc. the year XXXX  |
+| "XXXX" (a str) or XXXX (an int)                            | same as ==XXXX                                        |
+| "XXXX-YYYY"                                                | inclusive range of years: >=XXXX and <=YYYY           |
+| "default", null, empty or missing                          | course listing                                        |
