@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -292,11 +291,11 @@ def get_requirements(request):
     requirements = []
     if curr_user.major:
         if curr_user.major.supported:
-            requirements.append(check_major(curr_user.major.code, schedule, settings.ACTIVE_YEAR))
+            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
         else:
             # appends user major name so we can display error message
             requirements.append(curr_user.major.name)
-        requirements.append(check_degree(curr_user.major.degree, schedule, settings.ACTIVE_YEAR))
+        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 @login_required
