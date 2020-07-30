@@ -44,6 +44,8 @@
               "min_needed": 2,
               "explanation": null,
               "course_list": [
+                "CHI 1001",
+                "CHI 1002",
                 "CHI 101",
                 "CHI 102",
                 "CHI 103",
