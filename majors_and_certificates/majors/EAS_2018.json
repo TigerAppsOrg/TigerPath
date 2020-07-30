@@ -5,8 +5,8 @@
   "degree": "AB",
   "year": 2018,
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-east-asian-studies#",
-    "https://eas.princeton.edu/"
+    "https://ua.princeton.edu/academic-units/department-east-asian-studies",
+    "https://eas.princeton.edu/undergraduate/majoring-eas/requirements"
   ],
   "contacts": [
     {
@@ -15,9 +15,14 @@
       "email": "mkern@princeton.edu"
     },
     {
-      "type": "Departmental Representative",
-      "name": "Franz K. Prichard",
-      "email": "franzp@princeton.edu"
+      "type": "Undergraduate Administrator",
+      "name": "Sean Miller",
+      "email": "shmiller@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Ksenia Chizhova",
+      "email": "kchizhova@princeton.edu"
     }
   ],
   "req_list": [
@@ -25,20 +30,22 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "1. One year of language study in one East Asian language\n2. One 200-level EAS course",
+      "explanation": "One year of language study in one East Asian language. One 200-level EAS course.",
       "req_list": [
         {
           "name": "Language",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": "One year of language study in one East Asian language",
           "req_list": [
             {
               "name": "Chinese",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
+                "CHI 1001",
+                "CHI 1002",
                 "CHI 101",
                 "CHI 102",
                 "CHI 103",
@@ -59,7 +66,7 @@
               "name": "Japanese",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
                 "JPN 101",
                 "JPN 102",
@@ -75,7 +82,7 @@
               "name": "Korean",
               "max_counted": 1,
               "min_needed": 2,
-              "explanation": "",
+              "explanation": null,
               "course_list": [
                 "KOR 101",
                 "KOR 102",
@@ -95,7 +102,7 @@
           "name": "EAS Course",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "",
+          "explanation": "One 200-level EAS course",
           "double_counting_allowed": true,
           "course_list": [
             "EAS 2*"
@@ -125,47 +132,92 @@
       "name": "Departmental Courses",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "Eight departmental courses (“departmentals”) fulfilling the following requirements:",
+      "explanation": "Eight departmental courses (\"departmentals\") fulfilling the following requirements",
       "req_list": [
         {
-          "name": "Junior Seminar",
+          "name": "Required EAS Courses",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "The Junior Seminar (EAS 300) as an introductory methods survey course, generally taken fall of the junior year",
-          "course_list": [
-            "EAS 300"
+          "explanation": null,
+          "req_list": [
+            {
+              "name": "Junior Seminar",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "The Junior Seminar (EAS 300) as an introductory methods survey course, generally taken fall of the junior year",
+              "course_list": [
+                "EAS 300"
+              ]
+            },
+            {
+              "name": "Transnational Courses",
+              "max_counted": 1,
+              "min_needed": 2,
+              "explanation": "Two of the following transnational courses",
+              "double_counting_allowed": true,
+              "course_list": [
+                "HIS 207/EAS 207",
+                "HIS 208/EAS 208",
+                "HUM 233/EAS 233/COM 233",
+                "HUM 234/EAS 234/COM 234"
+              ]
+            },
+            {
+              "name": "Pre-Modern East Asia",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": "<i>Editor's Note: This does not represent a comprehensive list of courses that fulfill this requirement as courses change from semester to semester.</i>\n\nAt least one course on pre-modern East Asia\nNote: Either HIS 207 or HUM 233, when taken in fulfillment of (b), may also be used simultaneously towards requirement (c), however the course will only count towards one of the six required EAS-prefix departmentals.",
+              "course_list": [
+                "HIS 207/EAS 207",
+                "HUM 233/EAS 233/COM 233",
+              ]
+            },
           ]
         },
         {
-          "name": "Transnational Courses",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "Two of the following transnational courses:\n-History of East Asia to 1800 (HIS/EAS 207)\n-East Asia since 1800 (HIS/EAS 208)\n-Contemporary East Asia (EAS 229)\n-East Asian Humanities I: The Classical Foundations (HUM/EAS/COM 233)\n-East Asian Humanities II: Tradition and Transformations (HUM/EAS/COM 234)",
+          "name": "Gateway Courses (Optional)",
+          "max_counted": 0,
+          "min_needed": 0,
+          "explanation": "The students are encouraged to take a close look at the regularly offered gateway courses that provide a comprehensive introduction to East Asia, in a specific regional and disciplinary perspective.",
+          "double_counting_allowed": true,
           "course_list": [
-            "HIS 207/EAS 207",
-            "HIS 208/EAS 208",
-            "EAS 229",
-            "HUM 233/EAS 233/COM 233",
-            "HUM 234/EAS 234/COM 234"
+            "EAS 219: Japanese Literature to 1800",
+            "EAS 232: Introduction to Chinese Literature",
+            "EAS 216: Writing and Culture of Premodern Korea",
+            "EAS 280: Nomadic Empires",
+            "EAS 218: The Origins of Japanese Culture and Civilization",
+            "EAS 223: The Three Kingdoms Across Media",
+            "EAS 236: Chinese Cinemas",
+            "EAS 260: Japan Media Mix",
+            "EAS 225: Japanese Society and Culture"
           ]
         },
         {
-          "name": "Pre-Modern East Asia",
+          "name": "8 Total Departmentals",
           "max_counted": 1,
-          "min_needed": 1,
-          "explanation": "At least one course on pre-modern East Asia\nNote: Either HIS 207 or HUM 233, when taken in fulfillment of (b), may also be used simultaneously towards requirement (c), however the course will only count towards one of the six required EAS-prefix departmentals.",
-          "course_list": [
-            "EAS *"
-          ]
-        },
-        {
-          "name": "Additional Courses",
-          "max_counted": 1,
-          "min_needed": 2,
-          "explanation": "Two additional courses, which may be\n-EAS courses including courses cross-listed with EAS\n-Cognate courses approved by the Departmental Representative\n-Language courses at or above the 300 level (after the three-year proficiency requirement is fulfilled)\n-Any second East Asian language courses",
-          "course_list": [
-            "EAS *",
-            "CHI 101",
+          "min_needed": 8,
+          "explanation": null,
+          "req_list": [
+            {
+              "name": "EAS-Prefix Courses",
+              "max_counted": null,
+              "min_needed": 6,
+              "explanation": "Six EAS-prefix courses",
+              "double_counting_allowed": true,
+              "course_list": [
+                "EAS *"
+              ]
+            },
+            {
+              "name": "Cognates",
+              "max_counted": 2,
+              "min_needed": null,
+              "explanation": "Two additional courses, which may be\n- Regularly offered 200-level EAS gateway courses (see the list below).\n- Other EAS courses including courses cross-listed with EAS\n- Cognate courses approved by the Director of Undergraduate Studies\n- Language courses at or above the 300 level (after the three-year proficiency requirement is fulfilled)\n- Any second East Asian language courses",
+              "course_list": [
+                "LANG 3*",
+                "LANG 4*",
+                "LANG 5*",
+                "CHI 101",
                 "CHI 102",
                 "CHI 103",
                 "CHI 105",
@@ -197,27 +249,24 @@
                 "KOR 302",
                 "KOR 303",
                 "KOR 308"
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "name": "Independent Work",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "All departmental students engage in independent work, supervised by a member of the department chosen in consultation with a departmental adviser. The independent work of the junior year generally consists of participating actively in a junior seminar in both the fall and the spring semesters. Alternatively, a student may opt to replace one junior seminar with supervised reading in a special subject and then writing a paper based on that reading. The independent work in the senior year centers on writing a senior thesis. A substantial percentage of our majors work with faculty in other departments on their senior project.",
-      "description": "Independent Work",
-      "double_counting_allowed": true,
-      "course_list": [
-        "EAS 300"
-      ]
+      "name": "Junior Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the fall term the student participates in the departmental junior seminar (EAS 300), and also writes a junior independent work. In the spring, the student writes a second junior independent work under the supervision of an appropriate faculty member. At the end of the junior year, the student begins to draft a proposal for the senior thesis.",
+      "no_req": null
     },
     {
       "name": "Senior Thesis",
       "max_counted": null,
       "min_needed": null,
-      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\n",
-      "description": "Senior Thesis",
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nEach student prepares a senior thesis in consultation with an appropriate member of the faculty. The senior thesis represents the culmination of the undergraduate curriculum. It should be an original contribution to scholarship on East Asia, based at least in part on source materials in the student's language of specialization.",
       "no_req": null
     }
   ]
