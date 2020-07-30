@@ -41,7 +41,7 @@
       "explanation": "The departmental electives represent courses that further develop a student’s skills in mathematical modeling either by a more in-depth investigation of core methodologies, applying these skills in specific areas of application, or learning about closely related technologies. Students must choose ten courses from the following list, with the following constraints:\n- There must be at least four courses from ORFE\n- There can be no more than three courses from any one department (excluding ORFE)",
       "req_list": [
         {
-          "name": "ORF",
+          "name": "ORFE Departmentals",
           "max_counted": null,
           "min_needed": 4,
           "explanation": "There must be at least four courses from ORFE.",
@@ -68,169 +68,177 @@
           ]
         },
         {
-          "name": "CEE",
-          "max_counted": 3,
+          "name": "Other Departments",
+          "max_counted": 6,
           "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "CEE 304: Environmental Engineering and Energy",
-            "CEE 460: Risk Analysis"
-          ]
-        },
-        {
-          "name": "CHM",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "CHM 301: Organic Chemistry I",
-            "CHM 302: Organic Chemistry II"
-          ]
-        },
-        {
-          "name": "COS",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "COS 217: Introduction to Programming Systems",
-            "COS 226: Algorithms and Data Structures",
-            "COS 323: Computing for the Physical and Social Sciences",
-            "COS 340: Reasoning about Computation",
-            "COS 402: Artificial Intelligence and Machine Learning",
-            "COS 423: Theory of Algorithms",
-            "COS 425: Database and Information Management Systems",
-            "COS 485: Neural Networks: Theory and Application"
-          ]
-        },
-        {
-          "name": "ECO",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "ECO 310: Microeconomic Theory: A Mathematical Approach\n",
-            "ECO 311: Macroeconomics: A Mathematical Approach",
-            "ECO 312: Macroeconomics: A Mathematical Approach",
-            "ECO 317: The Economics of Uncertainty",
-            "ECO 332: Economics of Health and Health Care\n",
-            "ECO 341: Public Finance",
-            "ECO 342: Money and Banking",
-            "ECO 361: Financial Accounting",
-            "ECO 362: Financial Investments",
-            "ECO 363: Corporate Finance and Financial Institutions\n",
-            "ECO 418: Strategy and Information",
-            "ECO 462: Portfolio Theory and Asset Management",
-            "ECO 464: Corporate Restructuring",
-            "ECO 466: Fixed Income: Models and Applications",
-            "ECO 467: Institutional Finance"
-          ]
-        },
-        {
-          "name": "EEB",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "EEB 324: Theoretical Ecology"
-          ]
-        },
-        {
-          "name": "ELE",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "ELE 301: Designing Real Systems",
-            "ELE 381: Networks: Friends, Money and Bytes",
-            "ELE 485: Signal Analysis and Communication Systems",
-            "ELE 486: Digital Communication and Networks"
-          ]
-        },
-        {
-          "name": "ENV",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "ENV 302: Practical Models for Environmental Systems"
-          ]
-        },
-        {
-          "name": "MAE",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "MAE 206: Introduction to Engineering Dynamics",
-            "MAE 345: Introduction to Robotics",
-            "MAE 433: Automatic Control Systems",
-            "MAE 434: Modern Control"
-          ]
-        },
-        {
-          "name": "MAT",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE). Note: MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar",
+          "explanation": "There can be no more than three courses from any one department (excluding ORFE).\n\nNote: MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar.",
           "req_list": [
             {
               "name": null,
-              "max_counted": null,
+              "max_counted": 3,
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "MAT 320: Introduction to Real Analysis",
-                "MAT 322/APC 350: Methods in Partial Differential Equations",
-                "MAT 375: Introduction to Graph Theory",
-                "MAT 377: Combinatorial Mathematics",
-                "MAT 378: Theory of Games",
-                "MAT 385: Probability Theory",
-                "MAT 392/MAE 306: Mathematics in Engineering II",
-                "MAT 427: Ordinary Differential Equations",
-                "MAT 486: Random Process",
-                "MAT 522: Introduction to Partial Differential Equations"
+                "CEE 304: Environmental Engineering and Energy",
+                "CEE 460: Risk Analysis"
               ]
             },
             {
               "name": null,
-              "max_counted": 1,
+              "max_counted": 3,
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "MAT 391/MAE 305: Mathematics in Engineering I",
-                "MAT 427: Ordinary Differential Equations"
+                "CHM 301: Organic Chemistry I",
+                "CHM 302: Organic Chemistry II"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "COS 217: Introduction to Programming Systems",
+                "COS 226: Algorithms and Data Structures",
+                "COS 323: Computing for the Physical and Social Sciences",
+                "COS 340: Reasoning about Computation",
+                "COS 402: Artificial Intelligence and Machine Learning",
+                "COS 423: Theory of Algorithms",
+                "COS 425: Database and Information Management Systems",
+                "COS 485: Neural Networks: Theory and Application"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ECO 310: Microeconomic Theory: A Mathematical Approach\n",
+                "ECO 311: Macroeconomics: A Mathematical Approach",
+                "ECO 312: Macroeconomics: A Mathematical Approach",
+                "ECO 317: The Economics of Uncertainty",
+                "ECO 332: Economics of Health and Health Care\n",
+                "ECO 341: Public Finance",
+                "ECO 342: Money and Banking",
+                "ECO 361: Financial Accounting",
+                "ECO 362: Financial Investments",
+                "ECO 363: Corporate Finance and Financial Institutions\n",
+                "ECO 418: Strategy and Information",
+                "ECO 462: Portfolio Theory and Asset Management",
+                "ECO 464: Corporate Restructuring",
+                "ECO 466: Fixed Income: Models and Applications",
+                "ECO 467: Institutional Finance"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "EEB 324: Theoretical Ecology"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ELE 301: Designing Real Systems",
+                "ELE 381: Networks: Friends, Money and Bytes",
+                "ELE 485: Signal Analysis and Communication Systems",
+                "ELE 486: Digital Communication and Networks"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ENV 302: Practical Models for Environmental Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 206: Introduction to Engineering Dynamics",
+                "MAE 345: Introduction to Robotics",
+                "MAE 433: Automatic Control Systems",
+                "MAE 434: Modern Control"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "MAT 320: Introduction to Real Analysis",
+                    "MAT 322/APC 350: Methods in Partial Differential Equations",
+                    "MAT 375: Introduction to Graph Theory",
+                    "MAT 377: Combinatorial Mathematics",
+                    "MAT 378: Theory of Games",
+                    "MAT 385: Probability Theory",
+                    "MAT 392/MAE 306: Mathematics in Engineering II",
+                    "MAT 427: Ordinary Differential Equations",
+                    "MAT 486: Random Process",
+                    "MAT 522: Introduction to Partial Differential Equations"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar.",
+                  "course_list": [
+                    "MAT 391/MAE 305: Mathematics in Engineering I",
+                    "MAT 427: Ordinary Differential Equations"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MOL 345: Biochemistry",
+                "MOL 457: Computational Aspects of Molecular Biology"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "NEU 437: Computational Neuroscience",
+                "NEU 330: Computational Modeling of Psychological Function"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "PSY 360: Computational Models of Cognition"
               ]
             }
-          ]
-        },
-        {
-          "name": "MOL",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "MOL 345: Biochemistry",
-            "MOL 457: Computational Aspects of Molecular Biology"
-          ]
-        },
-        {
-          "name": "NEU",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "NEU 437: Computational Neuroscience",
-            "NEU 330: Computational Modeling of Psychological Function"
-          ]
-        },
-        {
-          "name": "PSY",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "There can be no more than three courses from any one department (excluding ORFE).",
-          "course_list": [
-            "PSY 360: Computational Models of Cognition"
           ]
         }
       ]
