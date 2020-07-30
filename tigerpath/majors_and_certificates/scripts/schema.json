@@ -58,18 +58,6 @@
         null
       ]
     },
-    "year": {
-      "$id": "/properties/year",
-      "type": "integer",
-      "title": "Year",
-      "description": "Year in which the requirements apply.",
-      "default": 2018,
-      "examples": [
-        2018
-      ],
-      "minimum": 2000,
-      "maximum": 2100
-    },
     "description": {
       "$id": "/properties/description",
       "type": [
