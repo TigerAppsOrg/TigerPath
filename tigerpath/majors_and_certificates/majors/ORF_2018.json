@@ -244,6 +244,112 @@
       ]
     },
     {
+      "name": "Optional Themes",
+      "max_counted": 0,
+      "min_needed": 0,
+      "explanation": "Students often wish to follow a theme in their selection of courses. These are a few possible themes.",
+      "double_counting_allowed": true,
+      "req_list": [
+        {
+          "name": "Applied Mathematics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "MAT 375",
+            "MAT 378",
+            "MAT 321",
+            # "MAE 406", # doesn't seem to exist
+            "ORF 405"
+          ]
+        },
+        {
+          "name": "Engineering Systems",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 409",
+            "ORF 467",
+            "COS 226",
+            "COS 323",
+            "ELE 301",
+            "MAE 433"
+          ]
+        },
+        {
+          "name": "Financial Engineering",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 311",
+            "ORF 350",
+            "ORF 405",
+            "ORF 435",
+            "ECO 362",
+            "ECO 465"
+          ]
+        },
+        {
+          "name": "Information Sciences",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 401",
+            "ORF 418",
+            "COS 217",
+            "COS 226",
+            # "COS 425" # doesn't seem to exist
+          ]
+        },
+        {
+          "name": "Machine Learning",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "COS 217",
+            "COS 226",
+            "ORF 350",
+            "ORF 407",
+            "ORF 411",
+            "ORF 418"
+          ]
+        },
+        {
+          "name": "Pre-Med or Health Care",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "CHM 301",
+            "CHM 302",
+            "MOL 345",
+            "ORF 350",
+            "ORF 401",
+            "ORF 411",
+            "ORF 418"
+          ]
+        },
+        {
+          "name": "Statistics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 311",
+            "ORF 350",
+            "ORF 409",
+            "ORF 418",
+            "ORF 405",
+            "ORF 467"
+          ]
+        }
+      ]
+    },
+    {
       "name": "Senior Independent Research",
       "max_counted": 1,
       "min_needed": 1,
