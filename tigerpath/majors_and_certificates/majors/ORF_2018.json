@@ -52,6 +52,7 @@
             "ORF 363: Computing and Optimization for the Physical and Social Sciences",
             "ORF 375: Junior Independent Work (Fall)",
             "ORF 376: Junior Independent Work (Spring)",
+            "ORF 387: Networks",
             "ORF 401: Electronic Commerce",
             "ORF 405: Regression and Applied Time Series",
             "ORF 406: Statistical Design of Experiments",
@@ -117,7 +118,7 @@
               "course_list": [
                 "ECO 310: Microeconomic Theory: A Mathematical Approach\n",
                 "ECO 311: Macroeconomics: A Mathematical Approach",
-                "ECO 312: Macroeconomics: A Mathematical Approach",
+                "ECO 312: Econometrics: A Mathematical Approach",
                 "ECO 317: The Economics of Uncertainty",
                 "ECO 332: Economics of Health and Health Care\n",
                 "ECO 341: Public Finance",
@@ -193,7 +194,6 @@
                     "MAT 378: Theory of Games",
                     "MAT 385: Probability Theory",
                     "MAT 392/MAE 306: Mathematics in Engineering II",
-                    "MAT 427: Ordinary Differential Equations",
                     "MAT 486: Random Process",
                     "MAT 522: Introduction to Partial Differential Equations"
                   ]
