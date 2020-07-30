@@ -4,22 +4,21 @@
   "code": "ORF",
   "degree": "BSE",
   "year": 2018,
-  "description": "Operations research and financial engineering (link is external)may be considered as the modern form of a liberal education: modern because it is based on science, mathematics, computing and technology, and liberal in the sense that it provides for broad intellectual development and can lead to many different types of careers. By choosing judiciously from courses in engineering, science, mathematics, economics, public policy, and liberal arts, each student may design a program adapted to his or her particular interests.\n\nAll students start from a common academic core consisting of statistics, probability and stochastic processes, and optimization. Related courses focus on developing computer skills and exposing students to applications in areas such as finance, operations, transportation, and logistics. Students augment the core program with a coherent sequence of departmental electives. Students may also design specialized programs in areas such as medicine and neuroscience, which must be reviewed and approved by their academic adviser and the departmental representative. Students often draw on courses from economics, computer science, applied mathematics, civil and environmental engineering, mechanical engineering, chemistry, molecular biology, psychology, and the Woodrow Wilson School of Public and International Affairs. Requirements for study in the department follow the general requirements for the School of Engineering and Applied Science and the University.",
+  "explanation": "Operations research and financial engineering may be considered as the modern form of a liberal education: modern because it is based on science, mathematics, computing and technology, and liberal in the sense that it provides for broad intellectual development and can lead to many different types of careers. By choosing judiciously from courses in engineering, science, mathematics, economics, public policy, and liberal arts, each student may design a program adapted to his or her particular interests.\n\nAll students start from a common academic core consisting of statistics, probability and stochastic processes, and optimization. Related courses focus on developing computer skills and exposing students to applications in areas such as finance, operations, transportation, and logistics. Students augment the core program with a coherent sequence of departmental electives. Students may also design specialized programs in areas such as medicine and neuroscience, which must be reviewed and approved by their academic adviser and the departmental representative. Students often draw on courses from economics, computer science, applied mathematics, civil and environmental engineering, mechanical engineering, chemistry, molecular biology, psychology, and public and international affairs. Requirements for study in the department follow the general requirements for the School of Engineering and Applied Science and the University.",
   "urls": [
-    "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering#",
-    "https://orfe.princeton.edu/",
+    "https://ua.princeton.edu/academic-units/department-operations-research-and-financial-engineering",
     "https://orfe.princeton.edu/documents/undergraduate-academic-guides"
   ],
   "contacts": [
     {
-      "type": "Departmental Representative",
-      "name": "Alain L. Kornhauser",
-      "email": "alaink@princeton.edu"
-    },
-    {
       "type": " Chair",
       "name": " K. Ronnie Sircar",
       "email": "sircar@princeton.edu"
+    },
+    {
+      "type": "Director of Undergraduate Studies",
+      "name": "Alain L. Kornhauser",
+      "email": "alaink@princeton.edu"
     }
   ],
   "req_list": [
@@ -27,7 +26,7 @@
       "name": "Core",
       "max_counted": 1,
       "min_needed": 4,
-      "explanation": "The core requirements (four courses). These form the intellectual foundation of the field and cover statistics, probability, stochastic processes, and optimization, along with more advanced courses in mathematical modeling.\n\nORF 245 Fundamentals of Engineering Statistics\nORF 307 Optimization\nORF 309 Probability and Stochastic Systems\nORF 335 Introduction to Financial Mathematics",
+      "explanation": "The core requirements (four courses). These form the intellectual foundation of the field and cover statistics, probability, stochastic processes, and optimization, along with more advanced courses in mathematical modeling.",
       "course_list": [
         "ORF 245: Fundamentals of Engineering Statistics",
         "ORF 307: Optimization",
@@ -39,14 +38,13 @@
       "name": "Departmental Electives",
       "max_counted": 1,
       "min_needed": 10,
-      "explanation": "These are courses that either extend and broaden the core, or expose the student to a significant problem area or application closely related to the core program.\n\nThe departmental electives represent courses that further develop a student's skills in mathematical modeling either by a more in-depth investigation of core disciplines, applying these skills in specific areas of application, or by learning about closely related technologies. Students must choose ten courses, as appropriate, with the following constraints:\n\n1. There must be at least four courses from the Department of Operations Research and Financial Engineering (ORF).\n2. There can be no more than three courses from any one department (excluding ORF).",
+      "explanation": "The departmental electives represent courses that further develop a student’s skills in mathematical modeling either by a more in-depth investigation of core methodologies, applying these skills in specific areas of application, or learning about closely related technologies. Students must choose ten courses from the following list, with the following constraints:\n- There must be at least four courses from ORFE\n- There can be no more than three courses from any one department (excluding ORFE)",
       "req_list": [
         {
-          "name": "ORF",
+          "name": "ORFE Departmentals",
           "max_counted": null,
           "min_needed": 4,
-          "explanation": null,
-          "double_counting_allowed": false,
+          "explanation": "There must be at least four courses from ORFE.",
           "course_list": [
             "ORF 311: Stochastic Optimization and Machine Learning in Finance",
             "ORF 350: Analysis of Big Data",
@@ -54,6 +52,7 @@
             "ORF 363: Computing and Optimization for the Physical and Social Sciences",
             "ORF 375: Junior Independent Work (Fall)",
             "ORF 376: Junior Independent Work (Spring)",
+            "ORF 387: Networks",
             "ORF 401: Electronic Commerce",
             "ORF 405: Regression and Applied Time Series",
             "ORF 406: Statistical Design of Experiments",
@@ -70,167 +69,282 @@
           ]
         },
         {
-          "name": "CEE",
-          "max_counted": 3,
+          "name": "Other Departments",
+          "max_counted": 6,
           "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "CEE 304: Environmental Engineering and Energy",
-            "CEE 460: Risk Analysis"
-          ]
-        },
-        {
-          "name": "CHM",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "CHM 303: Organic Chemistry I",
-            "CHM 304: Organic Chemistry II"
-          ]
-        },
-        {
-          "name": "COS",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "COS 217: Introduction to Programming Systems",
-            "COS 226: Algorithms and Data Structures",
-            "COS 323: Computing for the Physical and Social Sciences",
-            "COS 340: Reasoning about Computation",
-            "COS 402: Artificial Intelligence and Machine Learning",
-            "COS 423: Theory of Algorithms",
-            "COS 485: Neural Networks: Theory and Application"
-          ]
-        },
-        {
-          "name": "ECO",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "ECO 310: Microeconomic Theory: A Mathematical Approach\n",
-            "ECO 311: Macroeconomics: A Mathematical Approach",
-            "ECO 312: Macroeconomics: A Mathematical Approach",
-            "ECO 317: The Economics of Uncertainty",
-            "ECO 332: Economics of Health and Health Care\n",
-            "ECO 341: Public Finance",
-            "ECO 342: Money and Banking",
-            "ECO 361: Financial Accounting",
-            "ECO 362: Financial Investments",
-            "ECO 363: Corporate Finance and Financial Institutions\n",
-            "ECO 418: Strategy and Information",
-            "ECO 462: Portfolio Theory and Asset Management",
-            "ECO 464: Corporate Restructuring",
-            "ECO 466: Fixed Income: Models and Applications",
-            "ECO 467: Institutional Finance"
-          ]
-        },
-        {
-          "name": "EEB",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "EEB 324: Theoretical Ecology"
-          ]
-        },
-        {
-          "name": "ELE",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "ELE 301: Designing Real Systems",
-            "ELE 381: Networks: Friends, Money and Bytes",
-            "ELE 486: Digital Communication and Networks"
-          ]
-        },
-        {
-          "name": "ENV",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "ENV 302: Practical Models for Environmental Systems"
-          ]
-        },
-        {
-          "name": "MAE",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": null,
-          "double_counting_allowed": false,
-          "course_list": [
-            "MAE 206: Introduction to Engineering Dynamics",
-            "MAE 433: Automatic Control Systems",
-            "MAE 434: Modern Control\n"
-          ]
-        },
-        {
-          "name": "MAT",
-          "max_counted": 3,
-          "min_needed": null,
-          "explanation": "Note: MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar",
-          "double_counting_allowed": false,
+          "explanation": "There can be no more than three courses from any one department (excluding ORFE).\n\nNote: MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar.",
           "req_list": [
             {
               "name": null,
-              "max_counted": null,
+              "max_counted": 3,
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "MAT 320: Introduction to Real Analysis",
-                "MAT 322/APC 350: Methods in Partial Differential Equations",
-                "MAT 375: Introduction to Graph Theory",
-                "MAT 377: Combinatorial Mathematics",
-                "MAT 378: Theory of Games",
-                "MAT 385: Probability Theory",
-                "MAT 392/MAE 306: Mathematics in Engineering II",
-                "MAT 427: Ordinary Differential Equations",
-                "MAT 486: Random Process",
-                "MAT 522: Introduction to Partial Differential Equations"
+                "CEE 304: Environmental Engineering and Energy",
+                "CEE 460: Risk Analysis"
               ]
             },
             {
               "name": null,
-              "max_counted": 1,
+              "max_counted": 3,
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "MAT 391/MAE 305: Mathematics in Engineering I",
-                "MAT 427: Ordinary Differential Equations"
+                "CHM 301: Organic Chemistry I",
+                "CHM 302: Organic Chemistry II"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "COS 217: Introduction to Programming Systems",
+                "COS 226: Algorithms and Data Structures",
+                "COS 323: Computing for the Physical and Social Sciences",
+                "COS 340: Reasoning about Computation",
+                "COS 402: Artificial Intelligence and Machine Learning",
+                "COS 423: Theory of Algorithms",
+                "COS 425: Database and Information Management Systems",
+                "COS 485: Neural Networks: Theory and Application"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ECO 310: Microeconomic Theory: A Mathematical Approach\n",
+                "ECO 311: Macroeconomics: A Mathematical Approach",
+                "ECO 312: Econometrics: A Mathematical Approach",
+                "ECO 317: The Economics of Uncertainty",
+                "ECO 332: Economics of Health and Health Care\n",
+                "ECO 341: Public Finance",
+                "ECO 342: Money and Banking",
+                "ECO 361: Financial Accounting",
+                "ECO 362: Financial Investments",
+                "ECO 363: Corporate Finance and Financial Institutions\n",
+                "ECO 418: Strategy and Information",
+                "ECO 462: Portfolio Theory and Asset Management",
+                "ECO 464: Corporate Restructuring",
+                "ECO 466: Fixed Income: Models and Applications",
+                "ECO 467: Institutional Finance"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "EEB 324: Theoretical Ecology"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ELE 301: Designing Real Systems",
+                "ELE 381: Networks: Friends, Money and Bytes",
+                "ELE 485: Signal Analysis and Communication Systems",
+                "ELE 486: Digital Communication and Networks"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "ENV 302: Practical Models for Environmental Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MAE 206: Introduction to Engineering Dynamics",
+                "MAE 345: Introduction to Robotics",
+                "MAE 433: Automatic Control Systems",
+                "MAE 434: Modern Control"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": null,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "MAT 320: Introduction to Real Analysis",
+                    "MAT 322/APC 350: Methods in Partial Differential Equations",
+                    "MAT 375: Introduction to Graph Theory",
+                    "MAT 377: Combinatorial Mathematics",
+                    "MAT 378: Theory of Games",
+                    "MAT 385: Probability Theory",
+                    "MAT 392/MAE 306: Mathematics in Engineering II",
+                    "MAT 486: Random Process",
+                    "MAT 522: Introduction to Partial Differential Equations"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": "MAT 391/MAE 305 and MAT 427 cannot both be taken because the content is too similar.",
+                  "course_list": [
+                    "MAT 391/MAE 305: Mathematics in Engineering I",
+                    "MAT 427: Ordinary Differential Equations"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "MOL 345: Biochemistry",
+                "MOL 457: Computational Aspects of Molecular Biology"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "NEU 437: Computational Neuroscience",
+                "NEU 330: Computational Modeling of Psychological Function"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 3,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "PSY 360: Computational Models of Cognition"
               ]
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "name": "Optional Themes",
+      "max_counted": 0,
+      "min_needed": 0,
+      "explanation": "Students often wish to follow a theme in their selection of courses. These are a few possible themes.",
+      "double_counting_allowed": true,
+      "req_list": [
         {
-          "name": "MOL",
-          "max_counted": 3,
-          "min_needed": null,
+          "name": "Applied Mathematics",
+          "max_counted": 1,
+          "min_needed": "ALL",
           "explanation": null,
-          "double_counting_allowed": false,
           "course_list": [
-            "MOL 345: Biochemistry"
+            "MAT 375",
+            "MAT 378",
+            "MAT 321",
+            # "MAE 406", # doesn't seem to exist
+            "ORF 405"
           ]
         },
         {
-          "name": "NEU",
-          "max_counted": 3,
-          "min_needed": null,
+          "name": "Engineering Systems",
+          "max_counted": 1,
+          "min_needed": "ALL",
           "explanation": null,
-          "double_counting_allowed": false,
           "course_list": [
-            "NEU 437: Computational Neuroscience",
-            "NEU 330: Computational Modeling of Psychological Function"
+            "ORF 409",
+            "ORF 467",
+            "COS 226",
+            "COS 323",
+            "ELE 301",
+            "MAE 433"
+          ]
+        },
+        {
+          "name": "Financial Engineering",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 311",
+            "ORF 350",
+            "ORF 405",
+            "ORF 435",
+            "ECO 362",
+            "ECO 465"
+          ]
+        },
+        {
+          "name": "Information Sciences",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 401",
+            "ORF 418",
+            "COS 217",
+            "COS 226",
+            # "COS 425" # doesn't seem to exist
+          ]
+        },
+        {
+          "name": "Machine Learning",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "COS 217",
+            "COS 226",
+            "ORF 350",
+            "ORF 407",
+            "ORF 411",
+            "ORF 418"
+          ]
+        },
+        {
+          "name": "Pre-Med or Health Care",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "CHM 301",
+            "CHM 302",
+            "MOL 345",
+            "ORF 350",
+            "ORF 401",
+            "ORF 411",
+            "ORF 418"
+          ]
+        },
+        {
+          "name": "Statistics",
+          "max_counted": 1,
+          "min_needed": "ALL",
+          "explanation": null,
+          "course_list": [
+            "ORF 311",
+            "ORF 350",
+            "ORF 409",
+            "ORF 418",
+            "ORF 405",
+            "ORF 467"
           ]
         }
       ]
@@ -239,7 +353,7 @@
       "name": "Senior Independent Research",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "A full-year thesis (or a one semester project plus an additional 400-level ORFE departmental) involving an application of the techniques in the program applied to a topic that the student chooses in consultation with a faculty adviser.\n\nSenior Thesis - ORF 478 - A full year effort that involves a major application of the techniques in the program applied to a topic that a student chooses in consultation with a faculty advisor. Students interested in a full-year senior thesis must be willing to spend the appropriate time during both the fall and the spring semesters.\nStudents who are unable to make adequate progress can switch to ORF 479 and be required to take eleven departmental electives. Students will enroll in the spring and will receive credit for two course grades given in the spring.\n\nOR\n\nSenior Independent Project - ORF 479 (Spring semester only) - A short progress report will be due in January, (Dean’s Date) to make sure that the students have chosen a suitable topic and matched up with their advisor. The final outcome will be a report due at the end of the spring semester. The report will fully describe the research project and its results. Typically projects will take approximately 30 to 50 pages. (Also, students who take the independent project will need to take an additional 4XX ORFE departmental elective.)",
+      "explanation": "A full-year thesis (or a one semester project plus an additional 400-level ORFE departmental) involving an application of the techniques in the program applied to a topic that the student chooses in consultation with a faculty adviser.\n\nSenior Thesis - ORF 478 - A full year effort that involves a major application of the techniques in the program applied to a topic that a student chooses in consultation with a faculty advisor. Students interested in a full-year senior thesis must be willing to spend the appropriate time during both the fall and the spring semesters.\n\nStudents who are unable to make adequate progress can switch to ORF 479 and be required to take eleven departmental electives. Students will enroll in the spring and will receive credit for two course grades given in the spring.\n\nOR\n\nSenior Independent Project - ORF 479 (Spring semester only) - A short progress report will be due in January, (Dean’s Date) to make sure that the students have chosen a suitable topic and matched up with their advisor. The final outcome will be a report due at the end of the spring semester. The report will fully describe the research project and its results. Typically projects will take approximately 30 to 50 pages. (Also, students who take the independent project will need to take an additional 4XX ORFE departmental elective.)",
       "req_list": [
         {
           "name": "Senior Thesis",
@@ -253,12 +367,31 @@
         {
           "name": "Senior Independent Project",
           "max_counted": 1,
-          "min_needed": 2,
-          "double_counting_allowed": false,
+          "min_needed": "ALL",
           "explanation": "Senior Independent Project - ORF 479 (Spring semester only) - A short progress report will be due in January, (Dean’s Date) to make sure that the students have chosen a suitable topic and matched up with their advisor. The final outcome will be a report due at the end of the spring semester. The report will fully describe the research project and its results. Typically projects will take approximately 30 to 50 pages. (Also, students who take the independent project will need to take an additional 4XX ORFE departmental elective.)",
-          "course_list": [
-            "ORF 479: Senior Independent Project",
-            "ORF 4**"
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": null,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ORF 479: Senior Independent Project",
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "excluded_course_list": [
+                "ORF 478: Senior Thesis",
+                "ORF 479: Senior Independent Project"
+              ],
+              "course_list": [
+                "ORF 4**"
+              ]
+            }
           ]
         }
       ]
