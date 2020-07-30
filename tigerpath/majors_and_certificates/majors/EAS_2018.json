@@ -175,6 +175,24 @@
           ]
         },
         {
+          "name": "Gateway Courses (Optional)",
+          "max_counted": 0,
+          "min_needed": 0,
+          "explanation": "The students are encouraged to take a close look at the regularly offered gateway courses that provide a comprehensive introduction to East Asia, in a specific regional and disciplinary perspective.",
+          "double_counting_allowed": true,
+          "course_list": [
+            "EAS 219: Japanese Literature to 1800",
+            "EAS 232: Introduction to Chinese Literature",
+            "EAS 216: Writing and Culture of Premodern Korea",
+            "EAS 280: Nomadic Empires",
+            "EAS 218: The Origins of Japanese Culture and Civilization",
+            "EAS 223: The Three Kingdoms Across Media",
+            "EAS 236: Chinese Cinemas",
+            "EAS 260: Japan Media Mix",
+            "EAS 225: Japanese Society and Culture"
+          ]
+        },
+        {
           "name": "8 Total Departmentals",
           "max_counted": 1,
           "min_needed": 8,
