@@ -238,14 +238,11 @@
       ]
     },
     {
-      "name": "Independent Work",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "In the fall term the student participates in the departmental junior seminar (EAS 300), and also writes a junior independent work. In the spring, the student writes a second junior independent work under the supervision of an appropriate faculty member. At the end of the junior year, the student begins to draft a proposal for the senior thesis.",
-      "double_counting_allowed": true,
-      "course_list": [
-        "EAS 300"
-      ]
+      "name": "Junior Independent Work",
+      "max_counted": null,
+      "min_needed": null,
+      "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nIn the fall term the student participates in the departmental junior seminar (EAS 300), and also writes a junior independent work. In the spring, the student writes a second junior independent work under the supervision of an appropriate faculty member. At the end of the junior year, the student begins to draft a proposal for the senior thesis.",
+      "no_req": null
     },
     {
       "name": "Senior Thesis",
