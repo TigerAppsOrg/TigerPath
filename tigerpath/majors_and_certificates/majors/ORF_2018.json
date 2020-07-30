@@ -279,7 +279,8 @@
               "min_needed": 1,
               "explanation": null,
               "excluded_course_list": [
-                "ORF 478: Senior Thesis"
+                "ORF 478: Senior Thesis",
+                "ORF 479: Senior Independent Project"
               ],
               "course_list": [
                 "ORF 4**"
