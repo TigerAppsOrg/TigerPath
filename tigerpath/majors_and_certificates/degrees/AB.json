@@ -119,7 +119,10 @@
       "max_counted": 1,
       "min_needed": 1,
       "explanation": "<i>One course</i>\n\nQuantitative Reasoning (QR) is a process in which complex problems are described mathematically and solved within a structured mathematical framework. Courses in this area involve the manipulation and interpretation of numerical and categorical information and the quantification of inferences drawn from that information. The goal of courses in this category is to give you some understanding of basic mathematical methods and their applications; to provide you with an ability to understand and appreciate quantitative issues that have become part of everyday life; and to instill in you a lasting interest in quantitative methods and their applications.",
-      "dist_req": "QR"
+      "dist_req": [
+        "QR",
+        "QCR"
+      ]
     },
     {
       "name": "Science and Technology",
@@ -132,14 +135,20 @@
           "max_counted": null,
           "min_needed": 1,
           "explanation": "Science and Technology with Lab (STL)",
-          "dist_req": "STL"
+          "dist_req": [
+            "STL",
+            "SEL"
+          ]
         },
         {
           "name": "Science and Technology without Lab",
           "max_counted": 1,
           "min_needed": null,
           "explanation": "Science and Technology without Lab (STN)",
-          "dist_req": "STN"
+          "dist_req": [
+            "STN",
+            "SEN"
+          ]
         }
       ]
     }
