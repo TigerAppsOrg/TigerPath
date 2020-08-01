@@ -3,7 +3,6 @@
   "name": "Computer Science - BSE",
   "code": "COS-BSE",
   "degree": "BSE",
-  "year": 2018,
   "description": "Computer science concentrators must take 8 departmental courses (departmentals) and do independent work. The minimum amount of independent work depends on whether you are an AB candidate (4 semesters minimum) or a BSE candidate (1 semester minimum). Departmental courses are any computer science course at the 300 or 400 level (except 397, 398, 497 and 498) and a specific set of courses in other departments (enumerated below). There is also a distribution requirement within the 8 departmental courses: you must take at least 2 Systems departmentals, at least 2 Theory departmentals, and at least 2 Applications departmentals. (Notice that leaves you 6 departmentals that are constrained and 2 departmentals that are unconstrained.)\n\nBSE candidates do independent work by signing up for COS 397 or 398 in the junior year, or COS 497 or 498 in the senior year. You encouraged to do more than one semester of independent work; the second semester of independent work may be counted as a departmental.\n\nAB candidates do 2 one-semester junior independent work projects and a full year senior thesis. Numbered courses are not used to designate AB independent work.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-computer-science-bse",

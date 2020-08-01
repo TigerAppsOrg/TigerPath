@@ -98,8 +98,6 @@ name: Name Studies
 code: NST
 #* the degree type of a major. AB or BSE for majors, or null otherwise
 degree: AB
-#* year for which the requirements apply (Not yet implemented. Always put 2018.)
-year: 2018
 description: |-
   These are a few sentences describing the major/certificate.
   It is not strictly required, but should be copied from an official source.
@@ -174,7 +172,6 @@ both equivalent and equally valid `YAML` formats.
   "name": "Name Studies",
   "code": "NST", respectively.
   "degree": "AB",
-  "year": 2018,
   "description": "These are at most a couple sentences describing the Name Studies major/certificate.\nIt is not strictly required, but should be copied from an official source.",
   "allowed_majors": [
     "NST"
@@ -248,7 +245,6 @@ Here is an example of their usage:
   "type": "Degree",
   "name": "A.B.", # "A.B." or "B.S.E."
   "code": "AB", # "AB" or "BSE"
-  "year": 2018,
   "urls": [
     "https://ua.princeton.edu/contents/program-study-degree-bachelor-arts",
     ...
