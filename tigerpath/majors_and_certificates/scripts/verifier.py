@@ -45,7 +45,7 @@ def check_major(major_name, courses, year):
         raise ValueError("Major code not recognized.")
     major_filename = "%s_%d.json" % (major_name, year)
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
-    return check_requirements(major_filepath, courses)
+    return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
     """
@@ -72,7 +72,7 @@ def check_degree(degree_name, courses, year):
         raise ValueError("Invalid degree name: %s" % degree_name)
     degree_filename = "%s_%d.json" % (degree_name, year)
     degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
-    return check_requirements(degree_filepath, courses)
+    return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
     """
@@ -101,9 +101,9 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Certificate not recognized.")
     certificate_filename = "%s_%d.json" % (certificate_name, year)
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
-    return check_requirements(certificate_filepath, courses)
+    return check_requirements(certificate_filepath, courses, year)
 
-def check_requirements(req_file, courses):
+def check_requirements(req_file, courses, year):
     """
     Returns information about the requirements satisfied by the courses
     given in courses.
@@ -123,7 +123,7 @@ def check_requirements(req_file, courses):
     with open(req_file, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
     courses = _init_courses(courses, req)
-    req = _init_req(req)
+    req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
     _add_course_lists_to_req(req, courses)
@@ -175,13 +175,15 @@ def get_courses_by_path(path):
         raise ValueError("Path malformatted.")
     with open(req_filepath, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
+    _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path)
     if not subreq:
         raise ValueError("Path malformatted: " + path)
     return _get_collapsed_course_and_dist_req_sets(subreq)
 
-def _init_req(req):
+def _init_req(req, year):
     req = copy.deepcopy(req)
+    _init_year_switch(req, year)
     _init_req_fields(req)
     _init_min_ALL(req)
     _init_double_counting_allowed(req)
@@ -315,6 +317,65 @@ def _format_courses_output(courses):
             if len(course["settled"]) > 0: # only show if non-empty
                 output[i][j]["settled"] = course["settled"]
     return output
+
+def _year_matches_code(year, code):
+    """
+    Returns whether `year` falls in the range specified by `code`
+    """
+    if isinstance(code, int):  # explicitly specified year as an int
+        return year == code
+    if not code or code.lower() == "default":  # empty indicates default case
+        return True
+    code = code.replace(" ", "")  # strip it of spaces for processing
+    if code.startswith("<="):
+        return year <= int(code[2:])
+    elif code.startswith(">="):
+        return year >= int(code[2:])
+    elif code.startswith("<"):
+        return year < int(code[1:])
+    elif code.startswith(">"):
+        return year > int(code[1:])
+    elif code.startswith("=="):
+        return year == int(code[2:])
+    elif code.startswith("!="):
+        return year != int(code[2:])
+    elif "-" in code:  # range of years (inclusive), such as "2018-2020"
+        fr, to, *_ = code.split("-")
+        return year >= int(fr) and year <= int(to)
+    else:  # just the year is the same as ==
+        return year == int(code)
+
+def _init_year_switch(req, year):
+    """
+    Checks for any year_switch primitives and selects the right subrequirements.
+
+    Any requirement that contains a year_switch is overridden by the first
+    subrequirement of that year_switch whose year code matches the user's
+    class year.
+    Fields in req are overridden by any explicitly listed fields of the
+    overriding subrequirement, but any fields not specified by the
+    subrequirement remain as is (except the year_switch, which is removed).
+
+    If no year code matches, the requirement is unchanged and the year_switch
+    is just removed (that is, the year_switch is ignored and has no effect).
+    """
+    if "year_switch" in req:
+        newreq = {}
+        for subreq in req["year_switch"]:
+            code = subreq.get("year_code", None)  # year_code set to default
+            if _year_matches_code(year, code):
+                newreq = subreq
+                break  # stop at the first year code that matches
+        del req["year_switch"]
+        if "year_code" in newreq:
+            del newreq["year_code"]
+        req.update(newreq)  # override with the values from subreq
+    # Note that the recursive case below can always still happen even if the
+    # year_switch above was triggered, since it may have just gained a req_list
+    # from the overriding subrequirement.
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            _init_year_switch(subreq, year)
 
 def _init_req_fields(req):
     """
