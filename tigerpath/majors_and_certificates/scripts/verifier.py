@@ -318,7 +318,7 @@ def _format_courses_output(courses):
                 output[i][j]["settled"] = course["settled"]
     return output
 
-def _parse_year_code(code, year):
+def _year_matches_code(year, code):
     """
     Returns whether `year` falls in the range specified by `code`
     """
@@ -363,7 +363,7 @@ def _init_year_switch(req, year):
         newreq = {}
         for subreq in req["year_switch"]:
             code = subreq.get("year_code", None)  # year_code set to default
-            if _parse_year_code(code, year):
+            if _year_matches_code(year, code):
                 newreq = subreq
                 break  # stop at the first year code that matches
         del req["year_switch"]
