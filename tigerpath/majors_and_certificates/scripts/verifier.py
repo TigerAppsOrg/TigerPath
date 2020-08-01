@@ -27,8 +27,7 @@ def check_major(major_name, courses, year):
 
     :param major_name: the name of the major
     :param courses: a list of course-listings
-    :param year: the year for which to pull the requirements \
-    (by spring semester, so 2018 means 2017-2018 school year)
+    :param year: the user's class year for which to read the requirements
     :type major_name: string
     :type courses: 2D array
     :type year: int
@@ -43,7 +42,7 @@ def check_major(major_name, courses, year):
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
         raise ValueError("Major code not recognized.")
-    major_filename = "%s_%d.json" % (major_name, year)
+    major_filename = "%s_%d.json" % (major_name, 2018)  # files are still named as AAA_2018.json for now
     major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, year)
 
@@ -54,8 +53,7 @@ def check_degree(degree_name, courses, year):
 
     :param degree_name: the name of the degree
     :param courses: a list of course-listings
-    :param year: the year for which to pull the requirements \
-    (by spring semester, so 2018 means 2017-2018 school year)
+    :param year: the user's class year for which to read the requirements
     :type degree_name: string
     :type courses: 2D array
     :type year: int
@@ -70,7 +68,7 @@ def check_degree(degree_name, courses, year):
         raise ValueError("Year is invalid.")
     if degree_name not in ["AB", "BSE"]:
         raise ValueError("Invalid degree name: %s" % degree_name)
-    degree_filename = "%s_%d.json" % (degree_name, year)
+    degree_filename = "%s_%d.json" % (degree_name, 2018)  # files are still named as AAA_2018.json for now
     degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
     return check_requirements(degree_filepath, courses, year)
 
@@ -84,8 +82,7 @@ def check_certificate(certificate_name, courses, year):
 
     :param certificate_name: the name of the certificate
     :param courses: a list of course-listings
-    :param year: the year for which to pull the requirements \
-    (by spring semester, so 2018 means 2017-2018 school year)
+    :param year: the user's class year for which to read the requirements
     :type certificate_name: string
     :type courses: 2D array
     :type year: int
@@ -99,7 +96,7 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Year is invalid.")
     if (certificate_name not in university_info.CERTIFICATES):
         raise ValueError("Certificate not recognized.")
-    certificate_filename = "%s_%d.json" % (certificate_name, year)
+    certificate_filename = "%s_%d.json" % (certificate_name, 2018)  # files are still named as AAA_2018.json for now
     certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, year)
 
@@ -110,8 +107,7 @@ def check_requirements(req_file, courses, year):
 
     :param req_file: the name of a file containing a requirements JSON
     :param courses: a list of course-listings
-    :param year: the year for which to pull the requirements \
-    (by spring semester, so 2018 means 2017-2018 school year)
+    :param year: the user's class year for which to read the requirements
     :type req_file: string
     :type courses: 2D array
     :type year: int
@@ -122,7 +118,7 @@ def check_requirements(req_file, courses, year):
     """
     with open(req_file, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
-    courses = _init_courses(courses, req)
+    courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
@@ -158,7 +154,7 @@ def get_courses_by_path(path):
         raise ValueError("Path malformatted.")
     if "/" in req_type or "/" in req_name:
         raise ValueError("Path malformatted.")
-    filename = "%s_%d.json" % (req_name, year)
+    filename = "%s_%d.json" % (req_name, 2018)  # files are still named as AAA_2018.json for now
     if req_type == "Major":
         if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.BSE_CONCENTRATIONS):
             raise ValueError("Path malformatted.")
@@ -176,7 +172,7 @@ def get_courses_by_path(path):
     with open(req_filepath, 'r', encoding="utf8") as f:
         req = yaml.safe_load(f)
     _init_year_switch(req, year)
-    subreq = _get_req_by_path(req, path)
+    subreq = _get_req_by_path(req, path, year)
     if not subreq:
         raise ValueError("Path malformatted: " + path)
     return _get_collapsed_course_and_dist_req_sets(subreq)
@@ -187,7 +183,7 @@ def _init_req(req, year):
     _init_req_fields(req)
     _init_min_ALL(req)
     _init_double_counting_allowed(req)
-    _init_path_to(req)
+    _init_path_to(req, year)
     return req
 
 def _format_req_output(req):
@@ -276,7 +272,7 @@ def _add_course_lists_to_req(req, courses):
                             req["unsettled"].append(course["name"])
                             break
 
-def _init_courses(courses, req):
+def _init_courses(courses, req, year):
     if not courses:
         courses = DEFAULT_SCHEDULE
     else:
@@ -295,11 +291,11 @@ def _init_courses(courses, req):
                 course["settled"] = []
             elif req["type"] in ["Major", "Degree"]: # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["code"])):
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["code"])):
                         course["settled"].remove(path)
             else: # type must be "Certificate"
                 for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], req["year"], req["name"])):
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["name"])):
                         course["settled"].remove(path)
     return courses
 
@@ -438,7 +434,7 @@ def _init_double_counting_allowed(req, from_parent=False):
         for subreq in req["req_list"]:
             _init_double_counting_allowed(subreq, req["double_counting_allowed"])
 
-def _init_path_to(req):
+def _init_path_to(req, year):
     """
     Assign a path identifier to each node/subrequirement in the requirements
     tree with the properties:
@@ -448,9 +444,9 @@ def _init_path_to(req):
     """
     if "path_to" not in req: # only for root of the tree
         if req["type"] in ["Major", "Degree"]:
-            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["code"])
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["code"])
         else: # type must be "Certificate"
-            req["path_to"] = REQ_PATH_PREFIX % (req["type"],req["year"],req["name"])
+            req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["name"])
     if "req_list" in req:
         for i,subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number
@@ -460,7 +456,7 @@ def _init_path_to(req):
             else:
                 identifier = subreq["name"]
             subreq["path_to"] = req["path_to"] + REQ_PATH_SEPARATOR + str(identifier)
-            _init_path_to(subreq)
+            _init_path_to(subreq, year)
 
 def _json_format(obj):
     import json
@@ -642,17 +638,17 @@ def _course_match(course_name, pattern):
                 return True
     return False
 
-def _get_req_by_path(req, path_to):
+def _get_req_by_path(req, path_to, year):
     """
     Returns the subrequirement of req that is pointed to by path_to
     """
     if "path_to" not in req:
-        _init_path_to(req)
+        _init_path_to(req, year)
     if req["path_to"] == path_to:
         return req
     if "req_list" in req:
         for subreq in req["req_list"]:
-            result = _get_req_by_path(subreq, path_to)
+            result = _get_req_by_path(subreq, path_to, year)
             if result:
                 return result
     return None
