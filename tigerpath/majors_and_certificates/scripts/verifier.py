@@ -314,7 +314,7 @@ def _format_courses_output(courses):
                 output[i][j]["settled"] = course["settled"]
     return output
 
-def _parse_year_code(code, year):
+def _year_matches_code(year, code):
     """
     Returns whether `year` falls in the range specified by `code`
     """
@@ -359,7 +359,7 @@ def _init_year_switch(req, year):
         newreq = {}
         for subreq in req["year_switch"]:
             code = subreq.get("year_code", None)  # year_code set to default
-            if _parse_year_code(code, year):
+            if _year_matches_code(year, code):
                 newreq = subreq
                 break  # stop at the first year code that matches
         del req["year_switch"]
@@ -381,6 +381,10 @@ def _init_req_fields(req):
     req["count"] = 0
     if ("name" not in req) or (req["name"] == '') or (req["name"] == None):
         req["name"] = None
+    if "no_req" in req:  # enforce that no_req cannot require a non-zero count
+        req["no_req"] = None  # ignore the contents of a no_req
+        req["min_needed"] = None
+        req["max_counted"] = None
     if "min_needed" not in req or req["min_needed"] == None:
         if "type" in req: # check for root
             req["min_needed"] = "ALL"
