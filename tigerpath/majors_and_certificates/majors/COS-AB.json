@@ -65,10 +65,54 @@
           "max_counted": 1,
           "min_needed": "ALL",
           "explanation": "The three prerequisite computer science courses introduce the core concepts and techniques of the field.",
-          "course_list": [
-            "COS 126",
-            "COS 217",
-            "COS 226"
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "COS 126"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": null,
+                  "course_list": [
+                    "ISC 231",
+                    "ISC 232",
+                    "ISC 233",
+                    "ISC 234"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "COS 217"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "COS 226"
+              ]
+            }
           ]
         }
       ]
