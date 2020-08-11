@@ -35,13 +35,57 @@
       "name": "Prerequisites",
       "max_counted": 1,
       "min_needed": "ALL",
-      "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements. Students must complete 126, 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
+      "explanation": "All BSE students must meet the School of Engineering and Applied Science general requirements. Students must complete 126 (or take all of ISC 231-234), 217, and 226. Students should plan to take both 217 and 226 before the junior year. One or both of these are required prerequisites for all later computer science courses.",
       "pdfs_allowed": false,
       "completed_by_semester": 4,
-      "course_list": [
-        "COS 126",
-        "COS 217",
-        "COS 226"
+      "req_list": [
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "COS 126"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ISC 231",
+                "ISC 232",
+                "ISC 233",
+                "ISC 234"
+              ]
+            }
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "COS 217"
+          ]
+        },
+        {
+          "name": null,
+          "max_counted": 1,
+          "min_needed": 1,
+          "explanation": null,
+          "course_list": [
+            "COS 226"
+          ]
+        }
       ]
     },
     {
