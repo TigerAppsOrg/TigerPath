@@ -383,8 +383,8 @@ def _init_req_fields(req):
         req["name"] = None
     if "no_req" in req:  # enforce that no_req cannot require a non-zero count
         req["no_req"] = None  # ignore the contents of a no_req
-        req["min_needed"] = None
-        req["max_counted"] = None
+        req["min_needed"] = 0
+        req["max_counted"] = 0
     if "min_needed" not in req or req["min_needed"] == None:
         if "type" in req: # check for root
             req["min_needed"] = "ALL"
