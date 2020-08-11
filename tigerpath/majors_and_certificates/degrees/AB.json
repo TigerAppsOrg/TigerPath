@@ -115,31 +115,40 @@
       "dist_req": "SA"
     },
     {
-      "name": "Quantitative Reasoning",
+      "name": "Quantitative and Computational Reasoning",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "<i>One course</i>\n\nQuantitative Reasoning (QR) is a process in which complex problems are described mathematically and solved within a structured mathematical framework. Courses in this area involve the manipulation and interpretation of numerical and categorical information and the quantification of inferences drawn from that information. The goal of courses in this category is to give you some understanding of basic mathematical methods and their applications; to provide you with an ability to understand and appreciate quantitative issues that have become part of everyday life; and to instill in you a lasting interest in quantitative methods and their applications.",
-      "dist_req": "QR"
+      "explanation": "<i>One course</i>\n\nQuantitative and Computational Reasoning (QCR) is a process in which complex problems are described mathematically and solved within a structured mathematical framework. Courses in this area involve the manipulation and interpretation of numerical and categorical information and the quantification of inferences drawn from that information. The goal of courses in this category is to give you some understanding of basic mathematical methods and their applications; to provide you with an ability to understand and appreciate quantitative issues that have become part of everyday life; and to instill in you a lasting interest in quantitative methods and their applications.",
+      "dist_req": [
+        "QR",
+        "QCR"
+      ]
     },
     {
-      "name": "Science and Technology",
+      "name": "Science and Engineering",
       "max_counted": 1,
       "min_needed": 2,
-      "explanation": "<i>Two courses</i>\n\nThe requirement in Science and Technology (STL/STN) is designed to give you a basic knowledge of the capabilities and limitations of scientific inquiry and technological development. The common purpose of courses in this area is to instill a lasting interest in science and technology; to impart some understanding of the value of scientific thinking and its relation to societal issues; to foster an appreciation of the essential role of experimentation and measurement; and to convey the excitement of doing scientific research. The laboratory component is essential to an understanding of how scientific concepts are tested and of the limitations of the scientific method, including the concepts of error and reproducibility.\n\nAt least one course must be a science and technology course with laboratory (STL). Students may elect a second laboratory science course, or a nonlaboratory science course (STN).",
+      "explanation": "<i>Two courses</i>\n\nThe requirement in Science and Engineering (SEL/SEN) is designed to give you a basic knowledge of the capabilities and limitations of scientific inquiry and technological development. The common purpose of courses in this area is to instill a lasting interest in science and technology; to impart some understanding of the value of scientific thinking and its relation to societal issues; to foster an appreciation of the essential role of experimentation and measurement; and to convey the excitement of doing scientific research. The laboratory component is essential to an understanding of how scientific concepts are tested and of the limitations of the scientific method, including the concepts of error and reproducibility.\n\nAt least one course must be a science and technology course with laboratory (SEL). Students may elect a second laboratory science course, or a nonlaboratory science course (SEN).",
       "req_list": [
         {
-          "name": "Science and Technology with Lab",
+          "name": "Science and Engineering with Lab",
           "max_counted": null,
           "min_needed": 1,
-          "explanation": "Science and Technology with Lab (STL)",
-          "dist_req": "STL"
+          "explanation": "Science and Engineering with Lab (SEL)",
+          "dist_req": [
+            "STL",
+            "SEL"
+          ]
         },
         {
-          "name": "Science and Technology without Lab",
+          "name": "Science and Engineering without Lab",
           "max_counted": 1,
           "min_needed": null,
-          "explanation": "Science and Technology without Lab (STN)",
-          "dist_req": "STN"
+          "explanation": "Science and Engineering without Lab (SEN)",
+          "dist_req": [
+            "STN",
+            "SEN"
+          ]
         }
       ]
     }
