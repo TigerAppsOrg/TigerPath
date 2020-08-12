@@ -253,7 +253,7 @@
             {
               "name": "Culture and Difference",
               "max_counted": 1,
-              "min_needed": 1,
+              "min_needed": null,
               "explanation": "The requirement in Culture and Difference (CD) begins with the premise that human beings experience the world through their respective cultures—the ideas, meanings, norms, and habituations – that are represented in the arts and literature, laws and institutions, and social practices of human societies whose histories and power relationships often differ from one another. Found across a wide range of disciplines, these courses use cultural analysis to trace the ways in which human beings construct meaning both within and across groups. Culture and Difference courses offer students a lens through which other forms of disciplinary inquiry are enhanced, critiqued, and clarified, often paying close attention to the experiences and perspectives of groups who have historically been excluded from dominant cultural narratives or structures of social power.",
               "dist_req": "CD",
               "year_switch": [
