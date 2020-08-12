@@ -248,7 +248,7 @@
           "name": "Four Areas",
           "max_counted": 1,
           "min_needed": 4,
-          "explanation": "The humanities and social science courses must include one course in four of the six areas listed below:\n\n- Epistemology and Cognition (EC)\n- Ethical Thought and Moral Values (EM)\n- Foreign Language (at the 107/108 level or above)\n- Historical Analysis (HA)\n- Literature and the Arts (LA)\n- Social Analysis (SA)",
+          "explanation": "The humanities and social science courses must include one course in four of the six areas listed below.",
           "req_list": [
             {
               "name": "Culture and Difference",
