@@ -133,3 +133,7 @@ venv.bak/
 
 # vscode
 .vscode
+
+# Jetbrains
+
+.idea/
