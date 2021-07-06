@@ -160,6 +160,7 @@ def scrape_parse_semester(term_code):
             return found
         elif (found is None or found.text is None):
             ParseError("key " + key + " does not exist")
+            return ''
         else:
             return h.unescape(found.text)
 
@@ -242,7 +243,7 @@ def scrape_parse_semester(term_code):
             return {
                 "title": get_text('title', course),
                 "guid": get_text('guid', course),
-                "distribution_area": get_text('distribution_area', course, fail_ok=True),
+                "distribution_area": get_text('distribution_area', course),
                 "description": none_to_empty(course.find('detail').find('description').text),
                 "semester": get_current_semester(),
                 "professors": [parse_prof(x) for x in course.find('instructors')],

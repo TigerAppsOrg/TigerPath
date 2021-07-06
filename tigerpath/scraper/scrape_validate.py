@@ -79,6 +79,7 @@ def validate_course(course):
         'title': validate_string_not_empty,
         'guid': validate_string_not_empty,
         'description': validate_string,
+        'distribution_area': validate_string,
         'semester': lambda x: validate_dict(x, semester_validator),
         'professors': lambda array: validate_array(array, lambda prof: validate_dict(prof, professor_validator)),
         'course_listings': lambda array: validate_array(array, lambda listing: validate_dict(listing, listing_validator)),

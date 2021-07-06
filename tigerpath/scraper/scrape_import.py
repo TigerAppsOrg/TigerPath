@@ -37,9 +37,8 @@ def _create_course_listing(listing, course_object, counter):
 
 def _create_semester(semester):
     semester_object, _ = Semester.objects.get_or_create(
-        start_date=semester['start_date'],
-        end_date=semester['end_date'],
-        term_code=semester['term_code']
+        term_code=semester['term_code'],
+        defaults={'start_date': semester['start_date'], 'end_date': semester['end_date']}
     )
     return semester_object
 
