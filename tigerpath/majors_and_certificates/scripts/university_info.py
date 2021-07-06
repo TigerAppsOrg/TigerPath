@@ -28,6 +28,7 @@ DEPTS = {
     "CZE": "Czech",
     "DAN": "Dance",
     "EAS": "East Asian Studies",
+    "ECE": "Electrical and Computer Engineering",
     "ECO": "Economics",
     "ECS": "European Cultural Studies",
     "EEB": "Ecology and Evol Biology",
