@@ -32,127 +32,152 @@
       ]
     },
     {
-      "name": "Subfields",
-      "max_counted": 1,
-      "min_needed": "ALL",
-      "explanation": "Students will select at least one course from each of the five subfields of the faculty: Islam, Religion and Critical Thought, Religion in America, Religions of Asia, Religions of the Ancient Mediterranean.",
+      "name":"Departmentals",
+      "max_counted":null,
+      "min_needed":"ALL",
       "req_list": [
         {
-          "name": "Islam",
+          "name": "Streams",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "REL 235/NES 235",
-            "REL 239/NES 239",
-            "REL 327/GSS 298",
-            "REL 328/GSS 328",
-            "REL 333/NES 333",
-            "REL 335/NES 356",
-            "NES 240/REL 240"
+          "explanation":"Undergraduate courses in the Department of Religion are classified in two ways: 1) Traditions and 2) Themes. Concentrators must take at least three courses in either a particular tradition in a Traditions stream or a particular theme in a Thematic stream. Students will choose one of the two streams in conversation with the Director of Undergraduate Studies during their Junior Fall.",
+          "req_list": [
+            {
+              "name":"Traditions",
+              "max_counted": 1,
+              "min_needed": 1,
+              "req_list": [
+                {
+                  "name":"Ancient Judaism, Christianity, and Greek and Roman Religions",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "course_list": [
+                    "REL 246/JDS 246",
+                    "REL 251/HLS 251/MED 251",
+                    "REL 352",
+                    "REL 230/JDS 230",
+                    "REL 244/NES 244/MED 246",
+                    "REL 252",
+                    "REL 261/CHV 261",
+                    "REL 304/JDS 314",
+                    "REL 341/JDS 341",
+                    "REL 342/JDS 343",
+                    "REL 350/CLA 352/ENG 442/HIS 353",
+                    "REL 355/HLS 356",
+                    "REL 410/JDS 411",
+                    "JDS 202/REL 202"
+                  ]
+                },
+                {
+                  "name":"Islam",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "course_list": [
+                    "REL 236/NES 236",
+                    "REL 235/NES 235",
+                    "REL 239/NES 239",
+                    "REL 327/GSS 298",
+                    "REL 328/GSS 328",
+                    "REL 333/NES 333",
+                    "REL 335/NES 356",
+                    "NES 240/REL 240"
+                  ]
+                },
+                {
+                  "name":"Religion in America",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "course_list": [
+                    "REL 254",
+                    "REL 357/HIS 310",
+                    "REL 250/AAS 250",
+                    "REL 256/AAS 256",
+                    "REL 259/GSS 278/LAS 259",
+                    "REL 271/AMS 341",
+                    "REL 275/LAS 275",
+                    "REL 359/LAS 388",
+                    "REL 360/GSS 360/AMS 369",
+                    "REL 371",
+                    "REL 373",
+                    "REL 377/AAS 376/AMS 378",
+                    "REL 383",
+                    "AAS 305/REL 391/AMS 355",
+                    "AAS 318/REL 318",
+                    "AAS 358/REL 379/GSS 359"
+                  ]
+                },
+                {
+                  "name":"Religions of Asia",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "course_list": [
+                    "REL 210",
+                    "REL 216/SAS 216/PHI 216",
+                    "REL 225",
+                    "REL 226/EAS 226",
+                    "REL 228/EAS 228",
+                    "REL 280/EAS 281",
+                    "REL 307/SAS 307",
+                    "REL 308/SAS 308",
+                    "REL 322/EAS 322",
+                    "REL 324",
+                    "REL 329/SAS 329"
+                  ]
+                },
+                {
+                  "name":"Philosophical and Ethical Approaches to Religion",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "course_list": [
+                    "REL 263",
+                    "REL394/CHV 394"
+                  ]
+                }
+              ]
+            },
+            {
+              "name":"Themes",
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation":"Students have the option of concentrating their course work in a thematic area that crosses traditions, time periods, and geographies. Each student will establish their thematic designation in conversation with the Director of Undergraduate Studies (DUS) when they enter the Department in the Spring of their sophomore year. Students may also name and design their own theme and identify courses they consider pertinent. The DUS will suggest courses and, in conversation with the faculty, grant final approval to students’ course plans.",
+              "req_list": [
+                {
+                  "name":"Religion and Political Life",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation":"<i>Editor's Note: This is not a comprehensive list of courses that fulfill this theme.</i>\n\nStudents in this thematic examine the relationship between religion and politics in multiple domains of life. Questions range from the notion of a just society to legal debates over religious freedom. How do human values relate to power? How do religious traditions characterize justice, community, and a good society? What role does religion play in political life and organizations? How can we think about changing configurations of religion, politics, the state, the secular, and the private sphere?",
+                  "course_list": [
+                    "REL *"
+                  ]
+                },
+                {
+                  "name":"Religion, Text, and Media",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation":"<i>Editor's Note: This is not a comprehensive list of courses that fulfill this theme.</i>\n\nHow does one define a “religious text?” How can one analyze and interpret religion through art, literature, music, and poetry? How are canons of knowledge and authority in religious traditions established? Who is included and excluded? How do sources outside of the elite canon of religious literature such as material culture, artifacts, and print/electronic media redefine or undermine dominant conceptions of traditional canons? These are the sort of questions explored in this thematic.",
+                  "course_list": [
+                    "REL *"
+                  ]
+                },
+                {
+                  "name":"Religion and Social Identities",
+                  "max_counted": null,
+                  "min_needed": 3,
+                  "explanation":"<i>Editor's Note: This is not a comprehensive list of courses that fulfill this theme.</i>\n\nHow do different religious and philosophical traditions understand and contest questions of gender and sexuality? How do race and religion intersect in different contexts in the Global North and South? How do mainstream as well as marginalized groups and identities find expression and political agency in and through religious discourse? In what ways is the academic study of religion itself implicated in histories of colonialism, racism, and empire? These are among the questions that guide this thematic.",
+                  "course_list": [
+                    "REL *"
+                  ]
+                }
+              ]
+            }
           ]
         },
-        {
-          "name": "Religion and Critical Thought",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "REL 215",
-            "REL 260/GHP 270",
-            "REL 261/CHV 261",
-            "REL 263",
-            "REL 264/CHV 264/PHI 264",
-            "REL 292",
-            "REL 293",
-            "REL 306",
-            "REL 311",
-            "REL 330/HUM 330/JDS 331/COM 382",
-            "REL 347/JDS 347",
-            "REL 364/HUM 364/GSS 412",
-            "REL 394",
-            "REL 398/JDS 398",
-            "REL 402/PHI 402/CHV 407",
-            "REL 420"
-          ]
-        },
-        {
-          "name": "Religion in America",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "REL 250/AAS 250",
-            "REL 256/AAS 256",
-            "REL 259/GSS 278/LAS 259",
-            "REL 271/AMS 341",
-            "REL 275/LAS 275",
-            "REL 357/HIS 310",
-            "REL 359/LAS 388",
-            "REL 360/GSS 360/AMS 369",
-            "REL 371",
-            "REL 373",
-            "REL 377/AAS 376/AMS 378",
-            "REL 383",
-            "AAS 305/REL 391/AMS 355",
-            "AAS 318/REL 318",
-            "AAS 358/REL 379/GSS 359"
-          ]
-        },
-        {
-          "name": "Religions of Asia",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "REL 210",
-            "REL 216/SAS 216/PHI 216",
-            "REL 225",
-            "REL 226/EAS 226",
-            "REL 228/EAS 228",
-            "REL 280/EAS 281",
-            "REL 307/SAS 307",
-            "REL 308/SAS 308",
-            "REL 322/EAS 322",
-            "REL 324",
-            "REL 329/SAS 329"
-          ]
-        },
-        {
-          "name": "Religions of the Ancient Mediterranean",
-          "max_counted": 1,
-          "min_needed": 1,
-          "explanation": null,
-          "course_list": [
-            "REL 230/JDS 230",
-            "REL 244/NES 244/MED 246",
-            "REL 246/JDS 246",
-            "REL 251/HLS 251/MED 251",
-            "REL 252",
-            "REL 261/CHV 261",
-            "REL 304/JDS 314",
-            "REL 341/JDS 341",
-            "REL 342/JDS 343",
-            "REL 350/CLA 352/ENG 442/HIS 353",
-            "REL 352",
-            "REL 355/HLS 356",
-            "REL 410/JDS 411",
-            "JDS 202/REL 202"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Additional Courses",
-      "max_counted": 1,
-      "min_needed": 3,
-      "explanation": "Students will take three additional courses taught by department faculty. At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" At least one such course will be offered every academic year. Please note: Critical Approaches courses do not double-count for subfield distributions.",
-      "req_list": [
         {
           "name": "Critical Approaches to the Study of Religion",
-          "max_counted": null,
+          "max_counted": 1,
           "min_needed": 1,
-          "explanation": "At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" Please note: Critical Approaches courses do not double-count for subfield distributions.",
+          "explanation": "At least one course taught by Department faculty and designated “Critical Approaches to the Study of Religion.” At least one such course will be offered every academic year. Please note: Critical Approaches courses do not double-count for Requirement 1. Critical Approaches designations appear in the list of undergraduate courses posted on the department website in advance of each term: https://religion.princeton.edu/courses/.",
+          "double_counting_allowed":false,
           "course_list": [
             "REL 244/NES 244/MED 246",
             "REL 261/CHV 261",
@@ -164,37 +189,187 @@
           ]
         },
         {
-          "name": "Department Courses",
-          "max_counted": 2,
-          "min_needed": null,
-          "explanation": null,
+          "name": "Electives",
+          "max_counted": 1,
+          "min_needed": 4,
+          "explanation": "Four Elective Courses. Up to two of these courses may be approved cognate courses taught by faculty outside of the Department of Religion that supplement coursework in the department. The Director of Undergraduate Studies must approve cognate courses. Please note that other than these two electives, all courses toward the concentration must be taught by department faculty. Religion majors are required to take Religion courses for a letter grade. However, once senior religion majors have satisfied all departmental and area requirements, they are allowed to P/D/F departmental courses with permission from the departmental representative. Majors must obtain the written approval of the department representative prior to choosing this grading option.",
           "course_list": [
             "REL *"
-          ],
-          "excluded_course_list": [
-            "REL 219/SOC 219",
-            "REL 343/JDS 339/HEB 343",
-            "REL 354",
-            "AAS 321/REL 321",
-            "ANT 208/REL 208",
-            "ART 310/HLS 354/MED 307/REL 305",
-            "ART 409/REL 409",
-            "ART 431/MED 431/REL 431",
-            "COM 202/JDS 203/REL 203",
-            "HUM 315/CLA 315/REL 301",
-            "JDS 204/REL 204",
-            "JDS 224/REL 217",
-            "JDS 302/NES 302/REL 302/HEB 322",
-            "JDS 305/REL 305",
-            "JDS 307/REL 307",
-            "JDS 321/REL 384",
-            "NES 221/JDS 223/REL 216",
-            "NES 339/REL 339",
-            "NES 379/JDS 378/GSS 380/REL 376",
-            "NES 545/MED 545/REL 548/JDS 545",
-            "NES 556/REL 556",
-            "POL 309/REL 309",
-            "SAS 345/REL 345"
+          ]
+        }
+      ],
+      "year_switch": [
+        {
+          "year_code": "<=2022",
+          "req_list": [
+            {
+              "name": "Subfields",
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": "Students will select at least one course from each of the five subfields of the faculty: Islam, Religion and Critical Thought, Religion in America, Religions of Asia, Religions of the Ancient Mediterranean.",
+              "req_list": [
+                {
+                  "name": "Islam",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "REL 235/NES 235",
+                    "REL 239/NES 239",
+                    "REL 327/GSS 298",
+                    "REL 328/GSS 328",
+                    "REL 333/NES 333",
+                    "REL 335/NES 356",
+                    "NES 240/REL 240"
+                  ]
+                },
+                {
+                  "name": "Religion and Critical Thought",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "REL 215",
+                    "REL 260/GHP 270",
+                    "REL 261/CHV 261",
+                    "REL 263",
+                    "REL 264/CHV 264/PHI 264",
+                    "REL 292",
+                    "REL 293",
+                    "REL 306",
+                    "REL 311",
+                    "REL 330/HUM 330/JDS 331/COM 382",
+                    "REL 347/JDS 347",
+                    "REL 364/HUM 364/GSS 412",
+                    "REL 394",
+                    "REL 398/JDS 398",
+                    "REL 402/PHI 402/CHV 407",
+                    "REL 420"
+                  ]
+                },
+                {
+                  "name": "Religion in America",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "REL 250/AAS 250",
+                    "REL 256/AAS 256",
+                    "REL 259/GSS 278/LAS 259",
+                    "REL 271/AMS 341",
+                    "REL 275/LAS 275",
+                    "REL 357/HIS 310",
+                    "REL 359/LAS 388",
+                    "REL 360/GSS 360/AMS 369",
+                    "REL 371",
+                    "REL 373",
+                    "REL 377/AAS 376/AMS 378",
+                    "REL 383",
+                    "AAS 305/REL 391/AMS 355",
+                    "AAS 318/REL 318",
+                    "AAS 358/REL 379/GSS 359"
+                  ]
+                },
+                {
+                  "name": "Religions of Asia",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "REL 210",
+                    "REL 216/SAS 216/PHI 216",
+                    "REL 225",
+                    "REL 226/EAS 226",
+                    "REL 228/EAS 228",
+                    "REL 280/EAS 281",
+                    "REL 307/SAS 307",
+                    "REL 308/SAS 308",
+                    "REL 322/EAS 322",
+                    "REL 324",
+                    "REL 329/SAS 329"
+                  ]
+                },
+                {
+                  "name": "Religions of the Ancient Mediterranean",
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "REL 230/JDS 230",
+                    "REL 244/NES 244/MED 246",
+                    "REL 246/JDS 246",
+                    "REL 251/HLS 251/MED 251",
+                    "REL 252",
+                    "REL 261/CHV 261",
+                    "REL 304/JDS 314",
+                    "REL 341/JDS 341",
+                    "REL 342/JDS 343",
+                    "REL 350/CLA 352/ENG 442/HIS 353",
+                    "REL 352",
+                    "REL 355/HLS 356",
+                    "REL 410/JDS 411",
+                    "JDS 202/REL 202"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Additional Courses",
+              "max_counted": 1,
+              "min_needed": 3,
+              "explanation": "Students will take three additional courses taught by department faculty. At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" At least one such course will be offered every academic year. Please note: Critical Approaches courses do not double-count for subfield distributions.",
+              "req_list": [
+                {
+                  "name": "Critical Approaches to the Study of Religion",
+                  "max_counted": null,
+                  "min_needed": 1,
+                  "explanation": "At least one of these courses must be a course designated \"Critical Approaches to the Study of Religion.\" Please note: Critical Approaches courses do not double-count for subfield distributions.",
+                  "course_list": [
+                    "REL 244/NES 244/MED 246",
+                    "REL 261/CHV 261",
+                    "REL 263",
+                    "REL 264/CHV 264/PHI 264",
+                    "REL 347/JDS 347",
+                    "REL 364/HUM 364/GSS 412",
+                    "REL 383"
+                  ]
+                },
+                {
+                  "name": "Department Courses",
+                  "max_counted": 2,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "REL *"
+                  ],
+                  "excluded_course_list": [
+                    "REL 219/SOC 219",
+                    "REL 343/JDS 339/HEB 343",
+                    "REL 354",
+                    "AAS 321/REL 321",
+                    "ANT 208/REL 208",
+                    "ART 310/HLS 354/MED 307/REL 305",
+                    "ART 409/REL 409",
+                    "ART 431/MED 431/REL 431",
+                    "COM 202/JDS 203/REL 203",
+                    "HUM 315/CLA 315/REL 301",
+                    "JDS 204/REL 204",
+                    "JDS 224/REL 217",
+                    "JDS 302/NES 302/REL 302/HEB 322",
+                    "JDS 305/REL 305",
+                    "JDS 307/REL 307",
+                    "JDS 321/REL 384",
+                    "NES 221/JDS 223/REL 216",
+                    "NES 339/REL 339",
+                    "NES 379/JDS 378/GSS 380/REL 376",
+                    "NES 545/MED 545/REL 548/JDS 545",
+                    "NES 556/REL 556",
+                    "POL 309/REL 309",
+                    "SAS 345/REL 345"
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
