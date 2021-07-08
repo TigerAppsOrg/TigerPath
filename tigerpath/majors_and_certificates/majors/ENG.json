@@ -16,8 +16,8 @@
     },
     {
       "type": "Director of Undergraduate Studies",
-      "name": "Tamsen O. Wolff",
-      "email": "twolff@princeton.edu"
+      "name": "Jeff Dolven",
+      "email": "jdolven@princeton.edu"
     }
   ],
   "req_list": [
@@ -28,7 +28,7 @@
       "explanation": "There are no specific prerequisite courses for the concentration in English, but prospective concentrators should take at least one course in English in the first and second years. The department offers several 200-level Gateway Courses each year, both lectures and seminars, which are a particularly good way to begin, although they can be taken at any time.",
       "double_counting_allowed": true,
       "course_list": [
-        "ENG 2*"
+        "ENG *"
       ]
     },
     {
