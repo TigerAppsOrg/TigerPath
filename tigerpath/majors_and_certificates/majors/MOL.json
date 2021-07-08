@@ -5,7 +5,7 @@
   "degree": "AB",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-molecular-biology",
-    "https://molbio.princeton.edu/"
+    "https://molbio.princeton.edu/undergraduate/major/requirements"
   ],
   "contacts": [
     {
@@ -99,11 +99,12 @@
                 {
                   "name": null,
                   "max_counted": 1,
-                  "min_needed": "ALL",
+                  "min_needed": 1,
                   "explanation": "",
                   "completed_by_semester": 4,
                   "course_list": [
-                    "CHM 301"
+                    "CHM 301",
+                    "CHM 303"
                   ]
                 },
                 {
@@ -114,7 +115,8 @@
                   "completed_by_semester": 4,
                   "course_list": [
                     "CHM 302",
-                    "CHM 304"
+                    "CHM 304",
+                    "CHM 304B"
                   ]
                 }
               ]
@@ -135,7 +137,7 @@
           "name": "Quantitative",
           "max_counted": 1,
           "min_needed": "ALL",
-          "explanation": "Students satisfy the quantitative requirement by taking one course in statistics (SML 201, NEU 314, or ORF 245) and one course in either computer science (COS 126 or above) or math (MAT 103, 104, 175, 192, or any 200-level MAT course). SML 201 and COS 126 are the recommended choices for most students. AP credit cannot be used toward the fulfillment of the quantitative requirement. Courses taken at other institutions can be substituted for the second required course (but not for the statistics course), if approved by the corresponding department.",
+          "explanation": "Students satisfy the quantitative requirement by taking one course in statistics (SML 201, ORF 245, or MOL 290) and one course in either computer science (COS 126 or above) or math (MAT 103, 104, 175, 192, or any 200-level MAT course). SML 201 and COS 126 are the recommended choices for most students. AP credit cannot be used toward the fulfillment of the quantitative requirement. Courses taken at other institutions can be substituted for the second required course (but not for the statistics course), if approved by the corresponding department.",
           "req_list": [
             {
               "name": "Statistics",
@@ -145,7 +147,8 @@
               "course_list": [
                 "SML 201",
                 "NEU 314",
-                "ORF 245"
+                "ORF 245",
+                "MOL 290"
               ]
             },
             {
@@ -257,13 +260,35 @@
       "explanation": "All students must take a total of at least eight departmentals. In addition to the four departmental core courses, students must take at least one 300, 400, or 500-level course with MOL as the primary listing. The remaining three departmentals can be chosen from among all 300-or-higher-level MOL, MOL-crosslisted, or other approved courses (see list on department website). Note that CHM 301, CHM 302/304, and CHM 337 qualify as departmentals. Only courses taken at Princeton count as departmentals; there are no exceptions to this rule.",
       "double_counting_allowed": true,
       "course_list": [
+        "CBE 419",
+        "CBE 433",
+        "CBE 439",
+        "CBE 440",
+        "CBE 447",
         "CHM 301",
         "CHM 302",
+        "CHM 303",
         "CHM 304",
+        "CHM 304B",
         "CHM 337",
+        "CHM 403",
+        "CHM 440",
+        "CHM 515",
+        "CHM 516",
+        "CHM 538",
+        "CHM 541/QCB 541",
+        "CHM 544/ENV 433",
+        "COS 343",
+        "COS 557",
+        "GEO 523/CEE 572",
+        "MAE 344/MSE 364",
         "MOL 3*",
         "MOL 4*",
-        "MOL 5*"
+        "MOL 5*",
+        "NEU 430",
+        "NEU 501*",
+        "PHY 412",
+        "QCB 408"
       ]
     },
     {
