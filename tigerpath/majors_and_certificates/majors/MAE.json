@@ -6,7 +6,7 @@
   "urls": [
     "https://ua.princeton.edu/academic-units/department-mechanical-and-aerospace-engineering-0",
     "https://mae.princeton.edu/undergraduate/programs",
-    "http://mae.princeton.edu/sites/default/files/MAE-UG%20HANDBOOK%202017-2018-Class%202021-%20WEB%20Final.pdf"
+    "https://mae.princeton.edu/sites/default/files/MAE-UG%20HANDBOOK%20AY%202021-2022%20Classes%202022%20-2025%20for%20Web%20April%202021.pdf"
   ],
   "contacts": [
     {
@@ -176,8 +176,9 @@
                       "name": "Structures",
                       "max_counted": null,
                       "min_needed": 1,
-                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "explanation": "MAE 323 or CEE 312 or 361 required for Mechanical and Aerospace Engineers",
                       "course_list": [
+                        "MAE 323: Aerospace Structures",
                         "CEE 312: Statics of Structures",
                         "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods"
                       ]
@@ -241,6 +242,7 @@
                     "ORF 307: Optimization",
                     "ORF 309/MAT 380/ELE 380: Probability and Stochastic Systems",
                     "ORF 363/COS 323: Computing and Optimization for the Physical and Social Sciences",
+                    "COS 302: Mathematics for Numerical Computing and Machine Learning",
                     "COS 340: Reasoning About Computation",
                     "MAT 330: Complex Analysis with Applications",
                     "MAT 393: Mathematical Programming",
@@ -259,9 +261,9 @@
           "req_list": [
             {
               "name": "Engineering Science Courses",
-              "max_counted": 5,
-              "min_needed": 5,
-              "explanation": "Five Engineering Science courses are required",
+              "max_counted": 6,
+              "min_needed": 6,
+              "explanation": "Six Engineering Science courses are required",
               "req_list": [
                 {
                   "name": "Dynamics and Control",
@@ -362,8 +364,9 @@
                       "name": "Structures",
                       "max_counted": null,
                       "min_needed": 1,
-                      "explanation": "CEE 312 or 361 required for Mechanical and Aerospace Engineers",
+                      "explanation": "MAE 323 or CEE 312 or 361 required for Mechanical and Aerospace Engineers",
                       "course_list": [
+                        "MAE 323: Aerospace Structures",
                         "CEE 312: Statics of Structures",
                         "CEE 361/MAE 325: Structural Analysis and Intro to Finite Element Methods"
                       ]
