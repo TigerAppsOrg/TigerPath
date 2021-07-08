@@ -122,14 +122,26 @@
                             "explanation": "",
                             "course_list": [
                                 "NEU 301: Cellular Neurobiology",
+                                "NEU 385: Circuits for survival: The neuroscience of innate behaviors",
+                                "NEU 402: Introduction to Clinical Neuropsychology",
+                                "NEU 430: Epigenetics in Neuroscience and Behavior",
+                                "NEU 443: Computational Psychiatry",
+                                "NEU 460: The Cerebellum in Action and Cognition",
+                                "NEU 490: Brain plasticity in health and disease",
+                                "NEU 428/PSY 428: Neurodevelopmental disorders: Neural basis, clinic, and interventions",
                                 "EEB 403/NEU 403: Genes and Neurons Underlying Behavioral Evolution",
                                 "NEU 413/PSY 413: The Neurobiology of Stress",
+                                "MOL 250: Food, Drugs and Society",
+                                "MOL 433: Biotechnology",
                                 "MOL 447/NEU 447: Neuroimmunology",
                                 "MOL 451/NEU 451: Genes, Brains, Minds",
                                 "MOL 459: Basic Virology",
                                 "MOL 458: Psychopharmacology",
                                 "NEU 475: Basal Ganglia in Health and Disease",
-                                "NEU 501A: Molecules to Systems"
+                                "NEU 501A: Molecules to Systems",
+                                "ELE 452: Biomedical Imaging",
+                                "PHY 562: Biophysics",
+                                "QCB 515: Method and Logic of Quantitative Biology"
                             ]
                         },
                         {
@@ -141,13 +153,23 @@
                                 "PSY 330/NEU 330: Connectionist Modeling",
                                 "PSY 338/NEU 338: Animal Learning & Decision-making",
                                 "PSY 340/NEU 340: Neuroeconomics",
+                                "NEU 395: Topics in Scientific Data Exploration",
                                 "NEU 437: Computational Neuroscience",
+                                "NEU 443: Computational Psychiatry",
                                 "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
+                                "COS 226: Algorithms & Data Structures",
+                                "COS 343: Algorithms for Computational Biology",
+                                "COS 302/SML 305: Mathematics for Numerical Computing and Machine Learning",
+                                "COS 424/SML 302: Fundamentals of Machine Learning",
+                                "COS 429: Computer Vision",
                                 "COS 402: Artificial Intelligence",
                                 "COS 324: Fundamentals of Machine Learning",
                                 "COS 485: Neural Networks: Theory and Applications",
                                 "ELE 364: Machine Learning for Predictive Data Analytics",
-                                "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience"
+                                "ELE 452: Biomedical Imaging",
+                                "MAT 323/APC 323: Topics in Mathematical Modeling - Mathematical Neuroscience",
+                                "PSY 360: Computational Models of Cognition",
+                                "QCB 515: Method and Logic of Quantitative Biology"
                             ]
                         },
                         {
@@ -164,11 +186,15 @@
                                 "NEU 413/PSY 413: The Neurobiology of Stress",
                                 "NEU 200: Functional Neuroanatomy",
                                 "NEU 422/PSY 422: Neural Dynamics of Cognition",
+                                "NEU 385: Circuits for survival: The neuroscience of innate behaviors",
+                                "NEU 422/PSY 422: Neural Dynamics of Cognition",
                                 "NEU 427: Systems Neuroscience",
+                                "NEU 428/PSY 428: Neurodevelopmental disorders: Neural basis, clinic, and interventions",
                                 "NEU 457: Measurement and Analysis of Neural Circuit Dynamics",
                                 "NEU 475: Basal Ganglia in Health and Disease",
                                 "NEU 501A: Molecules to Systems",
-                                "NEU 502A: From Molecules to Systems to Behavior"
+                                "NEU 502A: From Molecules to Systems to Behavior",
+                                "PHY 562: Biophysics"
                             ]
                         },
                         {
@@ -177,8 +203,10 @@
                             "min_needed": null,
                             "explanation": "",
                             "course_list": [
+                                "PSY 248: Music Cognition",
                                 "PSY 306/NEU 306: Memory and Cognition",
                                 "PSY 316/NEU 316: Cog. Neuroscience of Selective Attention",
+                                "PSY 318: The Psychological and Neural Basis of High Level Visual Processing",
                                 "PSY 330/NEU 330: Connectionist Modeling",
                                 "PSY 331/NEU 331: Introduction to Clinical Neuropsychology",
                                 "PSY 337/NEU 337: Neuroscience of Social Cognition and Emotion",
@@ -186,13 +214,15 @@
                                 "PSY 340/NEU 340: Neuroeconomics",
                                 "PSY 405/NEU 405: Developmental Cognitive Neuroscience",
                                 "NEU 200: Functional Neuroanatomy",
+                                "NEU 402: Introduction to Clinical Neuropsychology",
                                 "NEU 422/PSY 422: Neural Dynamics of Cognition",
                                 "MOL 451/NEU 451: Genes, Brains, Minds",
                                 "PSY 480/NEU 480: fMRI Decoding",
                                 "PSY 516/NEU 516: Brain Imaging in Cognitive Neuroscience Research",
                                 "NEU 502A: From Molecules to Systems to Behavior",
                                 "PSY 409: Cyborg Psychology",
-                                "PSY 411: Psychology of Face Perception"
+                                "PSY 411: Psychology of Face Perception",
+                                "ELE 480: fMRI Decoding"
                             ]
                         }
                     ]
