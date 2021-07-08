@@ -17,8 +17,8 @@
     },
     {
       "type": "Director of Undergraduate Studies",
-      "name": "Juri Seo",
-      "email": "juri@princeton.edu"
+      "name": "Donnacha M. Dennehy",
+      "email": "donnacha@princeton.edu"
     }
   ],
   "req_list": [
@@ -153,7 +153,17 @@
             "MUS 4*",
             "MUS 5*"
           ]
+        },
+        {
+          "name": "Music Performance",
+          "max_counted": 1,
+          "min_needed": null,
+          "explanation": "Music majors in the Program in Music Performance certificate may use one performance course (such as MPP 213, 214, 215, 216, 219) as a departmental.",
+          "course_list": [
+            "MPP *"
+          ]
         }
+
       ]
     },
     {
