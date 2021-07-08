@@ -4,8 +4,7 @@
   "code": "WWS",
   "degree": "AB",
   "urls": [
-    # update this link once the UA updates
-    "https://ua.princeton.edu/academic-units/woodrow-wilson-school",
+    "https://ua.princeton.edu/academic-units/spia",
     "https://spia.princeton.edu/undergraduate-program/curriculum-requirements"
   ],
   "contacts": [
@@ -32,7 +31,7 @@
     {
       "type": "Undergraduate Program Office",
       "name": "Undergraduate Program Office",
-      "email": "ugradwws@princeton.edu"
+      "email": "spiaugrd@princeton.edu"
     }
   ],
   "req_list": [
@@ -150,7 +149,8 @@
             "WWS 354",
             "CEE 334/WWS 452",
             "ENV 304/WWS 455",
-            "GEO 366/WWS 451"
+            "GEO 366/WWS 451",
+            "GHP 351"
           ]
         },
         {
@@ -208,7 +208,8 @@
                 "REL 328: Women and Gender in Islamic Societies",
                 "SOC 313: Inequality: Dimensions and Intersections",
                 "SOC 354: Contemporary Issues in African Societies",
-                "WWS 354: Modern Genetics and Public Policy"
+                "WWS 354: Modern Genetics and Public Policy",
+                "SPI 373: Women, Law, and Public Policy"
               ]
             },
             {
@@ -221,6 +222,7 @@
                 "AMS 306: Issues in American Public Health",
                 "ANT 403: Race and Medicine",
                 "ANT 461",
+                "CBE 411: Antibiotics: From Cradle to Grave",
                 "CHV 370: Capitalism, Utopia and Social Justice",
                 "EAS 312: Mind, Body, and Bioethics in Japan and Beyond",
                 "ECO 332: Economics of Health Care",
@@ -246,7 +248,8 @@
                 "WWS 355",
                 "WWS 393: Health Reform in the U.S: The Affordable Care Act’s Origins, Impact and Implementation Challenges",
                 "WWS 407: Economics of Health in Developing Countries (WWS 476)",
-                "WWS 453: Health and Human Rights"
+                "WWS 453: Health and Human Rights",
+                "SPI 324"
               ]
             },
             {
@@ -286,7 +289,9 @@
                 "PSY 307",
                 "URB 300",
                 "WWS 307",
-                "WWS 387"
+                "WWS 387",
+                "SPI 328",
+                "SPI 396"
               ]
             },
             {
@@ -295,6 +300,7 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "AAS 306: Topics in Race and Public Policy: Race and Inequality in American Democracy",
                 "AAS 313: Modern Caribbean History",
                 "AAS 362: Race and the American Legal Process",
                 "ECO 331: Economics of the Labor Market",
@@ -306,6 +312,7 @@
                 "HIS 465: Latino Urban History",
                 "HIS 471",
                 "LAS 317",
+                "LAS 324",
                 "LAS 374: Politics and Social Change in Latin America, 1968-Present",
                 "NES 391",
                 "POL 313: Global Justice",
@@ -354,7 +361,9 @@
                 "SOC 366: Social and Economic Determinants of Health",
                 "SOC 369",
                 "WWS 307: Public Economics",
-                "WWS 361"
+                "WWS 361",
+                "SPI 328",
+                "SPI 394"
               ]
             },
             {
@@ -363,9 +372,11 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "AAS 306: Topics in Race and Public Policy: Race and Inequality in American Democracy",
                 "AAS 302: Political Bodies: The Social Anatomy of Power and Difference",
                 "AAS 313: Modern Caribbean History",
                 "AAS 322",
+                "AAS 331",
                 "AAS 350: Rats, Riots, and Revolution: Housing in the Metropolitan United States",
                 "AAS 362: Race and the American Legal Process",
                 "AAS 367",
@@ -395,6 +406,7 @@
                 "HIS 465: Latino Urban History",
                 "HIS 471",
                 "HIS 474: Violence in America",
+                "HIS 482",
                 "JDS 312: The Politics of American Jewish Power and Powerlessness",
                 "LAS 317",
                 "LAS 376",
@@ -415,7 +427,10 @@
                 "SOC 369",
                 "WWS 331: Race and Public Policy",
                 "WWS 345",
-                "WWS 354: Modern Genetics and Public Policy"
+                "WWS 354: Modern Genetics and Public Policy",
+                "SPI 373",
+                "SPI 394",
+                "SPI 396"
               ]
             },
             {
@@ -543,6 +558,7 @@
                 "ENV 316: Communicating Climate Change",
                 "ENV 318",
                 "ENV 327: Investigating and Ethos of Sustainability at Princeton",
+                "ENV 380",
                 "ENV 381",
                 "ENV 405",
                 "GEO 362: Earth’s Climate History",
@@ -654,6 +670,8 @@
                 "HIS 350",
                 "HIS 403: The History of Free Speech",
                 "HIS 406",
+                "HIS 425",
+                "NES 385",
                 "WWS 356"
               ]
             },
@@ -663,6 +681,7 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "CEE 334",
                 "LAS 374",
                 "NES 385",
                 "POL 313: Global Justice",
@@ -697,12 +716,14 @@
                 "HIS 459: The History of Incarceration in the U.S.",
                 "HIS 471",
                 "HIS 474: Violence in America",
+                "LAS 324",
                 "NES 327: France, Muslims and Islam Before and After the Terror Attacks",
                 "NES 345: Introduction to Islamic Law",
                 "NES 347: Islamic Family Law",
                 "PHI 411",
                 "POL 314: American Constitutional Development",
                 "POL 315: Constitutional Interpretation",
+                "POL 318",
                 "POL 339",
                 "POL 342",
                 "POL 380: Human Rights",
@@ -743,6 +764,7 @@
                 "POL 305: Radical Political Thought",
                 "POL 314: American Constitutional Development",
                 "POL 316: Civil Liberties",
+                "POL 318",
                 "POL 322: Public Opinion",
                 "POL 325",
                 "POL 326",
@@ -768,7 +790,8 @@
                 "WWS 315: Grand Strategy",
                 "WWS 319",
                 "WWS 360: Authoritarianism (WWS 478)",
-                "WWS 391: Engendering Security and Democracy"
+                "WWS 391: Engendering Security and Democracy",
+                "SPI 324"
               ]
             },
             {
@@ -828,6 +851,7 @@
                 "ANT 421",
                 "ENV 407: Feeding Africa",
                 "HIS 316: South African History, 1497 to the Present",
+                "HIS 425",
                 "HIS 473: White Hunters, Black Poachers: Africa and the Science of Conservation",
                 "HIS 492",
                 "NES 394: Colonialism, Post-Colonialism and Islam: North Africa (1830-2011)",
@@ -891,7 +915,8 @@
                 "LAS 371: Cuban History, Politics and Culture",
                 "LAS 374: Politics and Social Change in Latin America, 1968-Present",
                 "POL 367: Politics of Latin America",
-                "WWS 364"
+                "WWS 364",
+                "SPI 396"
               ]
             },
             {
@@ -900,10 +925,12 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "HIS 482",
                 "NES 315: War and Politics in the Modern Middle East",
                 "NES 326: U.S. Foreign Policy and the Middle East since 1979",
                 "NES 338: The Arab-Israeli Conflict",
                 "NES 340: Muslim South Asia",
+                "NES 365",
                 "NES 374: Global Feminisms: Feminist Movements in the Middle East and Beyond",
                 "NES 385: Jihadism in the Modern Middle East",
                 "NES 395",
@@ -933,6 +960,7 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "AAS 306",
                 "AAS 322",
                 "AAS 350: Rats, Riots, and Revolution: Housing in the Metropolitan United States",
                 "AAS 367",
@@ -967,7 +995,8 @@
                 "WWS 319",
                 "WWS 327: American Trade Politics and Policy",
                 "WWS 387: Education Policy in the United States",
-                "WWS 393: Health Reform in the U.S.: The Affordable Care Act's Origins, Impact and Implementation Challenges"
+                "WWS 393: Health Reform in the U.S.: The Affordable Care Act's Origins, Impact and Implementation Challenges",
+                "SPI 328"
               ]
             }
           ]
