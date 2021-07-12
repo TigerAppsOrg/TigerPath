@@ -6,13 +6,13 @@
   "urls": [
     "https://ua.princeton.edu/academic-units/department-art-and-archaeology",
     "https://artandarchaeology.princeton.edu/",
-    "https://cms.artandarchaeology.princeton.edu/media/files/2019a-and-augradhandbook-1.pdf"
+    "https://art-info.princeton.edu/wp-content/uploads/sites/727/2021/04/a-and-a-ugrad-handbook-2020-21.pdf"
   ],
   "contacts": [
     {
       "type": "Chair",
-      "name": "Michael Koortbojian",
-      "email": "romanist@princeton.edu"
+      "name": "Rachael Z. DeLue",
+      "email": "rdelue@princeton.edu"
     },
     {
       "type": "Director of Undergraduate Studies",
@@ -88,7 +88,7 @@
               "course_list": [
                 "ART 400"
               ]
-            },
+            }
           ]
         },
         {
@@ -185,7 +185,7 @@
                       "course_list": [
                         "VIS *"
                       ]
-                    },
+                    }
                   ]
                 },
                 {
@@ -261,7 +261,7 @@
               "explanation": "<i>Editor's Note: Concentrators of this major do not enroll in any numbered course for this requirement, so TigerPath does not check it.</i>\n\nDuring their junior year, each student is assigned a studio work space in the Room 401 loft of 185 Nassau. In consultation with their faculty advisers, students prepare independent work in their studios. This year-long project culminates in an exhibition as part of the spring Junior Group Thesis Show.\n\nFilm students work with one adviser throughout their junior year to create a junior film.",
               "description": "Independent Work",
               "no_req": null
-            },
+            }
           ]
         }
       ]
