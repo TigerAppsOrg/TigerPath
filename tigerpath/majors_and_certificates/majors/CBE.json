@@ -11,9 +11,9 @@
     ],
     "contacts": [
         {
-            "type": "Departmental Representative",
-            "name": "A. James Link",
-            "email": "ajlink@princeton.edu"
+            "type": "Chair",
+            "name": "Athanassios Z. Panagiotopoulos",
+            "email": "azp@princeton.edu"
         },
         {
             "type": "Director of Undergraduate Studies",
@@ -154,6 +154,7 @@
             "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.\n\nAdvanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
             "double_counting_allowed": false,
             "pdfs_allowed": false,
+            "note": "excluding CHM 303 or other course used for organic chemistry requirement",
             "req_list": [
                 {
                     "name": "Advanced Chemistry or Advanced Biology",
@@ -214,6 +215,8 @@
                         "CBE 5**"
                     ],
                     "excluded_course_list": [
+                        "CBE 351",
+                        "CBE 352",
                         "CBE 451",
                         "CBE 452",
                         "CBE 454"
@@ -356,11 +359,11 @@
                         "CHM 525/ENV 525",
                         "ECO 429",
                         "ELE 431",
+                        "ENE 318/CBE 318",
+                        "ENE 410/CBE 410/MAE 410",
                         "ENE 414",
                         "ENE 418/CBE 418",
                         "ENE 431",
-                        "ENE 318/CBE 318",
-                        "ENE 410/CBE 410/MAE 410",
                         "ENV 200*",
                         "ENV 201A",
                         "ENV 201B",
@@ -476,7 +479,6 @@
                         "ORF 406",
                         "ORF 409",
                         "ORF 411",
-                        "ORF 417",
                         "SML 201",
                         "SML 305/ECE 305/COS 302"
                     ]
@@ -499,6 +501,9 @@
                                 "CBE 342",
                                 "CBE 421",
                                 "CBE 427",
+                                "CHM 302",
+                                "CHM 304",
+                                "CHM 403",
                                 "MAE 306",
                                 "MAE 336",
                                 "MAE 423",
@@ -668,11 +673,11 @@
                         "CHM 525/ENV 525",
                         "ECO 429",
                         "ELE 431",
+                        "ENE 318/CBE 318",
+                        "ENE 410/CBE 410/MAE 410",
                         "ENE 414",
                         "ENE 418/CBE 418",
                         "ENE 431",
-                        "ENE 318/CBE 318",
-                        "ENE 410/CBE 410/MAE 410",
                         "ENV 200*",
                         "ENV 201A",
                         "ENV 201B",
@@ -767,7 +772,6 @@
                         "ORF 406",
                         "ORF 409",
                         "ORF 411",
-                        "ORF 417",
                         "SML 201",
                         "SML 305/ECE 305/COS 302"
                     ]
@@ -783,6 +787,9 @@
                         "CBE 342",
                         "CBE 421",
                         "CBE 427",
+                        "CHM 302",
+                        "CHM 304",
+                        "CHM 403",
                         "MAE 306",
                         "MAE 336",
                         "MAE 423",
