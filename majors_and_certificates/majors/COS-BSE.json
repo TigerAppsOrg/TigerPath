@@ -210,6 +210,7 @@
                 "COS 429: Computer Vision",
                 "COS 432: Information Security",
                 "COS 436: Human-Computer Interface Technology",
+                "COS 454/PSY 454: Probabilistic Models of Cognition",
                 "COS 455/MOL 455: Introduction to Genomics and Computational Molecular Biology",
                 "COS 484: Natural Language Processing",
                 "COS 485: Neural Networks"
@@ -260,7 +261,8 @@
                 "MOL 437/NEU 437",
                 "NEU 330",
                 "MUS 315",
-                "ECO 326"
+                "ECO 326",
+                "SOC 414"
               ],
               "excluded_course_list": [
                 "COS 397",
@@ -292,7 +294,8 @@
                     "MOL 437/NEU 437",
                     "NEU 330",
                     "MUS 315",
-                    "ECO 326"
+                    "ECO 326",
+                    "SOC 414"
                   ]
                 }
               ]
