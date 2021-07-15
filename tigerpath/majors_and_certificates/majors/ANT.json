@@ -15,14 +15,9 @@
       "email": "crouse@princeton.edu"
     },
     {
-      "type": "Acting Chair",
-      "name": "Serguei A. Oushakine",
-      "email": "oushakin@princeton.edu"
-    },
-    {
       "type": "Director of Undergraduate Studies",
-      "name": "Ryo Morimoto",
-      "email": "ryo.morimoto@princeton.edu"
+      "name": "Carolyn M. Rouse",
+      "email": "crouse@princeton.edu"
     }
   ],
   "req_list": [
@@ -244,7 +239,10 @@
                         "ANT 405",
                         "ANT 442",
                         "ANT 446",
-                        "ANT 461"
+                        "ANT 461",
+                        "ANT 387",
+                        "LAS 390/ANT 392",
+                        "ANT 426"
                       ]
                     },
                     {
@@ -354,6 +352,7 @@
                         "ANT 227",
                         "ANT 231",
                         "ANT 232",
+                        "ANT 244",
                         "ANT 246",
                         "ANT 272",
                         "ANT 304",
@@ -383,7 +382,10 @@
                         "ANT 452",
                         "ANT 453",
                         "ANT 461",
-                        "LAS 486/ANT 486"
+                        "LAS 486/ANT 486",
+                        "LAS 317/ANT 317",
+                        "LAS 324/ANT 324",
+                        "ANT 387"
                       ]
                     },
                     {
