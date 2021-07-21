@@ -52,7 +52,7 @@
       "name": "Track",
       "max_counted": 1,
       "min_needed": 1,
-      "explanation": "<p>At the end of their fall semester, juniors declare a subfield to pursue, selecting from the following courses:</p><ul><li>African American Culture and Life (AACL)</li><li>Global Race and Ethnicity (GRE)</li><li>Race and Public Policy (RPP)</li></ul><p>Four (4) courses must be taken in the chosen subfield, with two (2) additional courses as follows:</p><ul><li>If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.</li><li>If the chosen subfield is GRE, then one (1) must be an AACL course, and one (1) must be an RPP course.</li></ul><p>Students are permitted to take <em>up to two (2)</em> approved cognate courses in other departments. See the <a href=\"https://aas.princeton.edu/courses\" target=\"_blank\" rel=\"noopener\">departmental website</a> for the lists of courses and approved cognates by subfield.</p>",
+      "explanation": "<p>If not selected at the time the concentration was declared, at the end of their fall semester, juniors declare a subfield to pursue, selecting from the following courses:</p><ul><li>African American Culture and Life (AACL)</li><li>Global Race and Ethnicity (GRE)</li><li>Race and Public Policy (RPP)</li></ul><p>Four (4) courses must be taken in the chosen subfield, with two (2) additional courses as follows:</p><ul><li>If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.</li><li>If the chosen subfield is GRE, then one (1) must be an AACL course, and one (1) must be an RPP course.</li></ul><p>Students are permitted to take <em>up to two (2)</em> approved cognate courses in other departments. See the <a href=\"https://aas.princeton.edu/courses\" target=\"_blank\" rel=\"noopener\">departmental website</a> for the lists of courses and approved cognates by subfield.</p>",
       "req_list": [
         {
           "name": "African American Culture and Life",
@@ -72,6 +72,7 @@
                 "AAS 230: Topics in African American Studies: Remembering and Forgetting: Race, Violence, and History in the US",
                 "AAS 230/ENG 231",
                 "AAS 235/SOC 236",
+                "AAS 244/ART 262/ LAS 244",
                 "AAS 245/ART 245",
                 "AAS 274/COM 274",
                 "AAS 301/SOC 367",
@@ -85,6 +86,7 @@
                 "AAS 326",
                 "AAS 327/ENG 379/GSS 368",
                 "AAS 330",
+                "AAS 331/HIS 382",
                 "AAS 332/REL 332",
                 "AAS 337/GSS 388",
                 "AAS 346/REL 367",
@@ -112,6 +114,7 @@
                 "AMS 342/HIS 442",
                 "AMS 395/THR 395/AAS 395/HIS 296",
                 "ANT 210",
+                "ANT 244/AAS 243",
                 "ANT 301",
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 389/AAS 333/AMS 339",
@@ -122,6 +125,7 @@
                 "ASA 360/AAS 360",
                 "CLA 225/MED 225/AAS 263/HLS 225",
                 "CLA 310/CHV 314/AAS 311/POL 310",
+                "COM 373/AAS 383/AMS 388",
                 "COM 376/AAS 371/GSS 381",
                 "CWR 316/LAO 316/AAS 336/AMS 396",
                 "DAN 211/AAS 211",
@@ -143,6 +147,7 @@
                 "GSS 208/AAS 208",
                 "HIS 306/LAO 306/LAS 326",
                 "HIS 376",
+                "HIS 388/URB 388/AMS 380/AAS 388",
                 "HIS 390/AAS 394/GSS 390",
                 "HIS 402/AAS 402/AMS 412",
                 "HIS 456/AAS 456/URB 456/HUM 456",
@@ -169,7 +174,8 @@
                 "SPA 387/AAS 387",
                 "THR 332/AMS 346/GSS 342/LAO 332",
                 "THR 340/AAS 343/CWR 340/HUM 340",
-                "VIS 307/AAS 307"
+                "VIS 307/AAS 307",
+                "VIS 373/AAS 398/ART 372/GSS 440"
               ]
             },
             {
@@ -178,6 +184,7 @@
               "min_needed": 2,
               "explanation": "If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.",
               "course_list": [
+                "AAS 244/ART 262/LAS 244",
                 "AAS 274/COM 274",
                 "AAS 303",
                 "AAS 304/GSS 325/HUM 303",
@@ -273,6 +280,7 @@
                 "POR 309/LAS 393",
                 "REL 310/AAS 310",
                 "REL 328/GSS 328",
+                "REL 373/AAS 320/LAS 322",
                 "SOC 210/LAS 210/URB 210/LAO 210",
                 "SOC 216",
                 "SOC 227/URB 227",
@@ -285,7 +293,8 @@
                 "SPA 365/LAO 365/URB 365",
                 "SPA 366/AMS 326/LAO 366/GSS 364",
                 "SPA 387/AAS 387",
-                "SWA 200/COM 200"
+                "SWA 200/COM 200",
+                "THR 355/AAS 399"
               ]
             }
           ]
@@ -302,6 +311,7 @@
               "min_needed": 4,
               "explanation": null,
               "course_list": [
+                "AAS 244/ART 262/LAS 244",
                 "AAS 274/COM 274",
                 "AAS 303",
                 "AAS 304/GSS 325/HUM 303",
@@ -397,6 +407,7 @@
                 "POR 309/LAS 393",
                 "REL 310/AAS 310",
                 "REL 328/GSS 328",
+                "REL 373/AAS 320/LAS 322",
                 "SOC 210/LAS 210/URB 210/LAO 210",
                 "SOC 216",
                 "SOC 227/URB 227",
@@ -409,7 +420,8 @@
                 "SPA 365/LAO 365/URB 365",
                 "SPA 366/AMS 326/LAO 366/GSS 364",
                 "SPA 387/AAS 387",
-                "SWA 200/COM 200"
+                "SWA 200/COM 200",
+                "THR 355/AAS 399"
               ]
             },
             {
@@ -424,6 +436,7 @@
                 "AAS 230: Topics in African American Studies: Remembering and Forgetting: Race, Violence, and History in the US",
                 "AAS 230/ENG 231",
                 "AAS 235/SOC 236",
+                "AAS 244/ART 262/ LAS 244",
                 "AAS 245/ART 245",
                 "AAS 274/COM 274",
                 "AAS 301/SOC 367",
@@ -437,6 +450,7 @@
                 "AAS 326",
                 "AAS 327/ENG 379/GSS 368",
                 "AAS 330",
+                "AAS 331/HIS 382",
                 "AAS 332/REL 332",
                 "AAS 337/GSS 388",
                 "AAS 346/REL 367",
@@ -464,6 +478,7 @@
                 "AMS 342/HIS 442",
                 "AMS 395/THR 395/AAS 395/HIS 296",
                 "ANT 210",
+                "ANT 244/AAS 243",
                 "ANT 301",
                 "ANT 379/AMS 379/HUM 379/AAS 375",
                 "ANT 389/AAS 333/AMS 339",
@@ -474,6 +489,7 @@
                 "ASA 360/AAS 360",
                 "CLA 225/MED 225/AAS 263/HLS 225",
                 "CLA 310/CHV 314/AAS 311/POL 310",
+                "COM 373/AAS 383/AMS 388",
                 "COM 376/AAS 371/GSS 381",
                 "CWR 316/LAO 316/AAS 336/AMS 396",
                 "DAN 211/AAS 211",
@@ -495,6 +511,7 @@
                 "GSS 208/AAS 208",
                 "HIS 306/LAO 306/LAS 326",
                 "HIS 376",
+                "HIS 388/URB 388/AMS 380/AAS 388",
                 "HIS 390/AAS 394/GSS 390",
                 "HIS 402/AAS 402/AMS 412",
                 "HIS 456/AAS 456/URB 456/HUM 456",
@@ -521,7 +538,8 @@
                 "SPA 387/AAS 387",
                 "THR 332/AMS 346/GSS 342/LAO 332",
                 "THR 340/AAS 343/CWR 340/HUM 340",
-                "VIS 307/AAS 307"
+                "VIS 307/AAS 307",
+                "VIS 373/AAS 398/ART 372/GSS 440"
               ]
             },
             {
@@ -534,6 +552,7 @@
                 "AAS 247/POL 363",
                 "AAS 301/SOC 367",
                 "AAS 302/SOC 303/ANT 378/GHP 302",
+                "AAS 303/GSS 406/HUM 314",
                 "AAS 306",
                 "AAS 330",
                 "AAS 339/EGR 339",
@@ -553,6 +572,7 @@
                 "AMS 342/HIS 442",
                 "ANT 210",
                 "ANT 223/AMS 223/AAS 224/URB 224",
+                "ANT 244/AAS 243",
                 "ANT 301",
                 "ANT 350",
                 "ANT 363/AAS 369",
@@ -609,6 +629,7 @@
                 "AAS 247/POL 363",
                 "AAS 301/SOC 367",
                 "AAS 302/SOC 303/ANT 378/GHP 302",
+                "AAS 303/GSS 406/HUM 314",
                 "AAS 306",
                 "AAS 330",
                 "AAS 339/EGR 339",
@@ -628,6 +649,7 @@
                 "AMS 342/HIS 442",
                 "ANT 210",
                 "ANT 223/AMS 223/AAS 224/URB 224",
+                "ANT 244/AAS 243",
                 "ANT 301",
                 "ANT 350",
                 "ANT 363/AAS 369",
@@ -672,6 +694,7 @@
               "min_needed": 2,
               "explanation": "If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.",
               "course_list": [
+                "AAS 244/ART 262/LAS 244",
                 "AAS 274/COM 274",
                 "AAS 303",
                 "AAS 304/GSS 325/HUM 303",
@@ -767,6 +790,7 @@
                 "POR 309/LAS 393",
                 "REL 310/AAS 310",
                 "REL 328/GSS 328",
+                "REL 373/AAS 320/LAS 322",
                 "SOC 210/LAS 210/URB 210/LAO 210",
                 "SOC 216",
                 "SOC 227/URB 227",
@@ -779,7 +803,8 @@
                 "SPA 365/LAO 365/URB 365",
                 "SPA 366/AMS 326/LAO 366/GSS 364",
                 "SPA 387/AAS 387",
-                "SWA 200/COM 200"
+                "SWA 200/COM 200",
+                "THR 355/AAS 399"
               ]
             }
           ]
