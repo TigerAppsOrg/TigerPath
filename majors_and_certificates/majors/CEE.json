@@ -7,11 +7,11 @@
   "min_needed": 1,
   "urls": [
     "https://ua.princeton.edu/academic-units/department-civil-and-environmental-engineering",
-    "http://www.princeton.edu/cee/forms/Yellow_Book_for_Class_of_2020_Mar.2017_3.7.pdf"
+    "https://cee.princeton.edu/undergraduate/paths-graduation"
   ],
   "contacts": [
     {
-      "type": "Departmental Representative",
+      "type": "Director of Undergraduate Studies",
       "name": "Branko Glišić",
       "email": "bglisic@princeton.edu"
     },
@@ -33,7 +33,7 @@
           "name": "Engineering science requirements",
           "max_counted": 1,
           "min_needed": 8,
-          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 207 Introduction to Environmental Engineering, or CEE 302 Practical Models for Environmental Systems, or CEE 306 Hydrology\nCEE 312 Statics of Structures\nCEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\nCEE 364 Materials in Civil Engineering\nCEE 365 Soil Mechanics\nARC 374 Computational Design or CEE 463 A Social and Multi-Dimensional Exploration of Structures",
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": null,
@@ -41,12 +41,21 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "CEE 205: Mechanics of Solids",
-                "CEE 262A: Structures and the Urban Environment",
+                "CEE 262B: Structures and the Urban Environment",
                 "CEE 312: Statics of Structures",
                 "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods",
                 "CEE 364: Materials in Civil Engineering",
                 "CEE 365: Soil Mechanics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "MAE 223: Modern Solid Mechanics"
               ]
             },
             {
@@ -181,10 +190,19 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "CEE 205: Mechanics of Solids",
                 "CEE 262A: Structures and the Urban Environment",
                 "CEE 364: Materials in Civil Engineering",
                 "ARC 311: Building Science and Technology: Building Systems"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "MAE 223: Modern Solid Mechanics"
               ]
             },
             {
@@ -314,7 +332,7 @@
           "name": "Engineering science requirements",
           "max_counted": 1,
           "min_needed": 8,
-          "explanation": "Engineering science requirements (eight courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering\nCEE 302 Practical Models for Environmental Systems \nCEE 305 Environmental Fluid Mechanics\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Lab\nCEE 311 Global Air Pollution\nCEE 364 Materials in Civil Engineering or CEE 365 Soil Mechanics",
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": null,
@@ -322,10 +340,9 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "CEE 205: Mechanics of Solids",
                 "CEE 207: Introduction to Environmental Engineering",
-                "CEE 302: Practical Models for Environmental Systems",
                 "CEE 305: Environmental Fluid Mechanics",
+                "CEE 306: Hydrology",
                 "CEE 308: Environmental Engineering Lab",
                 "CEE 311: Global Air Pollution"
               ]
@@ -336,8 +353,18 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "CEE 306: Hydrology",
-                "CEE 307: Field Ecohydrology"
+                "CEE 205: Mechanics of Solids",
+                "MAE 223: Modern Solid Mechanics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
+                "CEE 302: Practical Models for Environmental Systems",
+                "CEE 304: Environmental Engineering and Energy"
               ]
             },
             {
@@ -356,7 +383,7 @@
           "name": "Engineering design",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Engineering design (two courses):\n\nCEE 471 Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
+          "explanation": "Engineering design (two courses):\nCEE 471: Introduction to Water Pollution Technology,\nCEE 477: Engineering Design for Sustainable Development",
           "course_list": [
             "CEE 471: Introduction to Water Pollution Technology",
             "CEE 477: Engineering Design for Sustainable Development"
@@ -458,52 +485,43 @@
           "name": "Engineering science requirements",
           "max_counted": 1,
           "min_needed": 8,
-          "explanation": "Engineering science requirements (eight courses):\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)\n\nOne course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": "Engineering science requirement (7 required courses)",
               "max_counted": 7,
               "min_needed": 7,
-              "explanation": "Engineering science requirement (7 required courses):\n\nCEE 205 Mechanics of Solids\nCEE 207 Introduction to Environmental Engineering or CEE 302 Practical Models for Environmental Systems\nCEE 305 (GEO 375) Environmental Fluid Mechanics\nCEE 311 (GEO 311) Global Air Pollution\nCEE 306 Hydrology or CEE 307 Field Ecohydrology\nCEE 308 Environmental Engineering Laboratory or GEO 300 Summer Course in Geologic Field Methods\nCEE 365 Soil Mechanics (lab), or CEE 370 (GEO 370) Sedimentology (field course)",
+              "explanation": "Engineering science requirement (7 required courses)",
               "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 205: Mechanics of Solids",
+                    "MAE 223: Modern Solid Mechanics"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": null,
+                  "explanation": null,
+                  "course_list": [
+                    "CEE 304: Environmental Engineering",
+                    "CEE 302: Practical Models for Environmental Systems"
+                  ]
+                },
                 {
                   "name": null,
                   "max_counted": null,
                   "min_needed": null,
                   "explanation": null,
                   "course_list": [
-                    "CEE 205: Mechanics of Solids",
-                    "CEE 304: Environmental Implications of Energy Technology"
-                  ]
-                },
-                {
-                  "name": null,
-                  "max_counted": 1,
-                  "min_needed": null,
-                  "explanation": null,
-                  "course_list": [
                     "CEE 207: Introduction to Environmental Engineering",
-                    "CEE 302: Practical Models for Environmental Systems"
-                  ]
-                },
-                {
-                  "name": null,
-                  "max_counted": 1,
-                  "min_needed": null,
-                  "explanation": null,
-                  "course_list": [
-                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
-                    "CEE 311/GEO 311: Global Air Pollution"
-                  ]
-                },
-                {
-                  "name": null,
-                  "max_counted": 1,
-                  "min_needed": null,
-                  "explanation": null,
-                  "course_list": [
-                    "CEE 305/GEO 375: Environmental Fluid Mechanics",
-                    "CEE 311/GEO 311: Global Air Pollution"
+                    "CEE 311/GEO 311: Global Air Pollution",
+                    "CEE 460: Risk Analysis"
                   ]
                 },
                 {
@@ -522,8 +540,8 @@
                   "min_needed": null,
                   "explanation": null,
                   "course_list": [
-                    "CEE 306: Hydrology",
-                    "CEE 307: Field Ecohydrology"
+                    "CEE 305: Environmental Fluid Mechanics",
+                    "CEE 306: Hydrology"
                   ]
                 },
                 {
@@ -539,10 +557,10 @@
               ]
             },
             {
-              "name": "Engineering science requirement (1 from this list)",
+              "name": "Track specific requirement (1 from this list)",
               "max_counted": 1,
               "min_needed": 1,
-              "explanation": "One course selected from the following list:\nCEE 360 (GEO 361) - Physics of the Ocean and Atmosphere\nGEO 363 Environmental Geochemistry\nGEO 366 - Current and Future Climate\nCEE 417 (GEO 417) - Environmental Microbiology\nGEO 418 - Environmental Aqueous Geochemistry\nCEE 424 (GEO 424) - Seismology\nGEO 430 - Climate and The Terrestrial Biosphere\nGEO 441 - Computational Geophysics\nGEO 470 - Environmental Chemistry of Soils\nGEO 499 - Environmental Change, Poverty and Conflict",
+              "explanation": "One course from the list",
               "course_list": [
                 "CEE 360/GEO 361: Physics of the Ocean and Atmospher",
                 "GEO 363: Environmental Geochemistry",
@@ -562,7 +580,7 @@
           "name": "Engineering design requirements",
           "max_counted": 1,
           "min_needed": 2,
-          "explanation": "Engineering design requirements (two courses):\nCEE 471 (GEO 471) Introduction to Water Pollution Technology\nCEE 477 Engineering Design for Sustainable Development",
+          "explanation": "Engineering design requirements (two courses)",
           "course_list": [
             "CEE 471/GEO 471: Introduction to Water Pollution Technology",
             "CEE 477: Engineering Design for Sustainable Development"
@@ -673,7 +691,7 @@
           "name": "Engineering science requirements",
           "max_counted": 1,
           "min_needed": 8,
-          "explanation": "Engineering science requirements (eight courses):\n\nCEE 205 Mechanics of Solids\nCEE 262A Structures and the Urban Environment\nCEE 207 Introduction to Environmental Engineering, or CEE 302 Practical Models for Environmental Systems\nCEE 306 Hydrology, or CEE 305 Environmental Fluid Mechanics\nCEE 312 Statics of Structures\nCEE 361 Matrix Structural Analysis and Introduction to Finite-Element Methods\n\n\nAny two from:\n\nCEE 308 Environmental Engineering Laboratory, CEE 364 Materials in Civil Engineering, or CEE 365 Soil Mechanics",
+          "explanation": "Engineering science requirements (eight courses)",
           "req_list": [
             {
               "name": null,
@@ -681,8 +699,7 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
-                "CEE 205: Mechanics of Solids",
-                "CEE 262A: Structures and the Urban Environment",
+                "CEE 262B: Structures and the Urban Environment",
                 "CEE 312: Statics of Structures",
                 "CEE 361: Matrix Structural Analysis and Introduction to Finite-Element Methods"
               ]
@@ -693,8 +710,19 @@
               "min_needed": null,
               "explanation": null,
               "course_list": [
+                "CEE 205: Mechanics of Solids",
+                "MAE 223: Modern Solid Mechanics"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": null,
+              "explanation": null,
+              "course_list": [
                 "CEE 207: Introduction to Environmental Engineering",
-                "CEE 302: Practical Models for Environmental Systems"
+                "CEE 302: Practical Models for Environmental Systems",
+                "CEE 304: Environmental Engineering and Energy"
               ]
             },
             {
