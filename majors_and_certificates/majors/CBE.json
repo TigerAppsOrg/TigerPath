@@ -11,9 +11,14 @@
     ],
     "contacts": [
         {
-            "type": "Departmental Representative",
-            "name": "A. James Link",
-            "email": "ajlink@princeton.edu"
+            "type": "Chair",
+            "name": "Athanassios Z. Panagiotopoulos",
+            "email": "azp@princeton.edu"
+        },
+        {
+            "type": "Director of Undergraduate Studies",
+            "name": "Mark P. Brynildsen",
+            "email": "mbrynild@princeton.edu"
         }
     ],
     "req_list": [
@@ -120,7 +125,7 @@
             "name": "Mathematics Requirement",
             "max_counted": 1,
             "min_needed": 1,
-            "explanation": null,
+            "explanation": "Many processes in chemical and biological engineering are described by differential equations. All students in Chemical and Biological Engineering must complete a course in differential equations (MAE 305 or MAT 427 or APC 350) by the end of the fall term of the junior year.",
             "double_counting_allowed": false,
             "pdfs_allowed": false,
             "completed_by_semester": 5,
@@ -149,29 +154,58 @@
             "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.\n\nAdvanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
             "double_counting_allowed": false,
             "pdfs_allowed": false,
+            "note": "excluding CHM 303 or other course used for organic chemistry requirement",
             "req_list": [
                 {
-                    "name": "Advanced Chemistry",
+                    "name": "Advanced Chemistry or Advanced Biology",
                     "max_counted": 1,
                     "min_needed": 1,
-                    "explanation": "Advanced Chemistry. The advanced chemistry course provides a greater depth in the underlying science of chemistry. The course may be any 300-level-or-above chemistry course, including those cross-listed by the chemistry department. With the approval of the departmental representative, the advanced chemistry requirement may be selected from another science department.",
+                    "explanation": "Students must take one advanced chemistry or biology course at the 300-level or above (excluding independent work courses, and student elected PDF courses).",
                     "double_counting_allowed": false,
                     "pdfs_allowed": false,
-                    "note": "excluding CHM 303 or other course used for organic chemistry requirement",
                     "course_list": [
                         "CHM 3**",
                         "CHM 4**",
                         "CHM 5**",
+                        "CBE 411/MOL 411",
                         "CBE 415: Polymers",
                         "CBE 421: Catalytic Chemistry",
-                        "GEO 418: Environmental Aqueous Geochemistry"
+                        "EEB 309",
+                        "EEB 320",
+                        "EEB 325",
+                        "EEB 327",
+                        "EEB 328",
+                        "GEO 353/ENV 333/CEE 353",
+                        "GEO 360",
+                        "GEO 363",
+                        "GEO 417",
+                        "GEO 418: Environmental Aqueous Geochemistry",
+                        "MOL 310/NEU 301",
+                        "MOL 340",
+                        "MOL 342",
+                        "MOL 345/CHM 345",
+                        "MOL 348",
+                        "MOL 380",
+                        "MOL 415",
+                        "MOL 425/WWS 355/GHP 425",
+                        "MOL 431",
+                        "MOL 433/CBE 434/GHP 433",
+                        "MOL 455/QCB 455/COS 455",
+                        "MOL 459/GHP 459",
+                        "MOL 485/QCB 485",
+                        "MOL 490/QCB 490"
+                    ],
+                    "excluded_course_list": [
+                        "CHM 301",
+                        "CHM 303",
+                        "CHM 337"
                     ]
                 },
                 {
-                    "name": "Advanced Chemical Engineering",
+                    "name": "Advanced Chemical and Biological Engineering",
                     "max_counted": 1,
                     "min_needed": 1,
-                    "explanation": "Advanced Chemical Engineering. One advanced chemical engineering course is also required. This can be any 300-level-or-above course (excluding independent work) offered by the Department of Chemical and Biological Engineering.",
+                    "explanation": "Advanced Chemical and Biological Engineering. Students must take one advanced CBE course from any 300/400/500-level CBE courses for a grade. Independent work courses, CBE 351, CBE 352, CBE 451, and CBE 452, cannot be used to fulfill this requirement.",
                     "double_counting_allowed": false,
                     "pdfs_allowed": false,
                     "note": "excluding IW, ie. CBE 451, 452, and 454",
@@ -179,6 +213,13 @@
                         "CBE 3**",
                         "CBE 4**",
                         "CBE 5**"
+                    ],
+                    "excluded_course_list": [
+                        "CBE 351",
+                        "CBE 352",
+                        "CBE 451",
+                        "CBE 452",
+                        "CBE 454"
                     ]
                 }
             ]
@@ -207,6 +248,7 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": false,
                     "course_list": [
+                        "CBE 411/MOL 411",
                         "CBE 419",
                         "CBE 423",
                         "CBE 432",
@@ -229,6 +271,7 @@
                         "EEB 325",
                         "EEB 327/MOL 327",
                         "ENE 418/CBE 418",
+                        "GEO 417",
                         "GEO 428",
                         "ISC 326/EEB 326/MOL 326",
                         "MAE 344",
@@ -238,6 +281,7 @@
                         "MOL 348",
                         "MOL 408",
                         "MOL 410",
+                        "MOL 415",
                         "MOL 433/CBE 434",
                         "MOL 434",
                         "MOL 435",
@@ -253,6 +297,7 @@
                         "NEU 437/MOL 437/PSY 437",
                         "PSY 406",
                         "PSY 407",
+                        "MOL 455/QCB 455/COS 455",
                         "QCB 511/CBE 511"
                     ]
                 },
@@ -272,6 +317,7 @@
                         "ECO 310",
                         "ECO 311",
                         "EGR 437/MAE 437/ELE 437",
+                        "EGR 491/ORF 491",
                         "EGR 492",
                         "EGR 494",
                         "EGR 495",
@@ -283,6 +329,7 @@
                         "ORF 335",
                         "ORF 360",
                         "ORF 435",
+                        "SML 201",
                         "WWS 327/CHM 443",
                         "ECO 362"
                     ]
@@ -297,6 +344,7 @@
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
+                        "CBE 421",
                         "CEE 207",
                         "CEE 304/ENE 304/ENV 300",
                         "CEE 305/GEO 375/ENE 305",
@@ -311,8 +359,12 @@
                         "CHM 525/ENV 525",
                         "ECO 429",
                         "ELE 431",
+                        "ENE 318/CBE 318",
+                        "ENE 410/CBE 410/MAE 410",
                         "ENE 414",
                         "ENE 418/CBE 418",
+                        "ENE 431",
+                        "ENV 200*",
                         "ENV 201A",
                         "ENV 201B",
                         "ENV 202A",
@@ -324,6 +376,7 @@
                         "GEO 220A",
                         "GEO 220B",
                         "GEO 322",
+                        "GEO 360/ENV 356",
                         "GEO 361/ENV 361/CEE 360",
                         "GEO 363/CHM 331/ENV 331",
                         "GEO 364/CHM 364",
@@ -358,6 +411,7 @@
                                 "CBE 422",
                                 "CBE 423",
                                 "CBE 425",
+                                "CBE 430",
                                 "CBE 433",
                                 "CBE 526/CHM 527/MSE 526",
                                 "CEE 364",
@@ -411,8 +465,12 @@
                         "COS 343",
                         "COS 402",
                         "COS 424",
+                        "COS 485",
                         "ECO 317",
                         "EEB 355",
+                        "ENE 410/CBE 410/MAE 410",
+                        "MAE 433",
+                        "MAE 434",
                         "ORF 245",
                         "ORF 307",
                         "ORF 309",
@@ -421,7 +479,8 @@
                         "ORF 406",
                         "ORF 409",
                         "ORF 411",
-                        "ORF 417"
+                        "SML 201",
+                        "SML 305/ECE 305/COS 302"
                     ]
                 },
                 {
@@ -440,7 +499,11 @@
                             "pdfs_allowed": false,
                             "course_list": [
                                 "CBE 342",
+                                "CBE 421",
                                 "CBE 427",
+                                "CHM 302",
+                                "CHM 304",
+                                "CHM 403",
                                 "MAE 306",
                                 "MAE 336",
                                 "MAE 423",
@@ -484,7 +547,7 @@
             ]
         },
         {
-            "name": "Technical Diversity",
+            "name": "Breadth",
             "max_counted": 1,
             "min_needed": 3,
             "explanation": "In addition, students are required to take at least one course each from two of the advanced areas outside their area of concentration to provide technical diversity.\nNote that this is checked by requiring courses in 3 different concentrations.",
@@ -499,6 +562,7 @@
                     "double_counting_allowed": true,
                     "pdfs_allowed": false,
                     "course_list": [
+                        "CBE 411/MOL 411",
                         "CBE 419",
                         "CBE 423",
                         "CBE 432",
@@ -521,6 +585,7 @@
                         "EEB 325",
                         "EEB 327/MOL 327",
                         "ENE 418/CBE 418",
+                        "GEO 417",
                         "GEO 428",
                         "ISC 326/EEB 326/MOL 326",
                         "MAE 344",
@@ -530,6 +595,7 @@
                         "MOL 348",
                         "MOL 408",
                         "MOL 410",
+                        "MOL 415",
                         "MOL 433/CBE 434",
                         "MOL 434",
                         "MOL 435",
@@ -545,6 +611,7 @@
                         "NEU 437/MOL 437/PSY 437",
                         "PSY 406",
                         "PSY 407",
+                        "MOL 455/QCB 455/COS 455",
                         "QCB 511/CBE 511"
                     ]
                 },
@@ -564,6 +631,7 @@
                         "ECO 310",
                         "ECO 311",
                         "EGR 437/MAE 437/ELE 437",
+                        "EGR 491/ORF 491",
                         "EGR 492",
                         "EGR 494",
                         "EGR 495",
@@ -575,6 +643,7 @@
                         "ORF 335",
                         "ORF 360",
                         "ORF 435",
+                        "SML 201",
                         "WWS 327/CHM 443",
                         "ECO 362"
                     ]
@@ -589,6 +658,7 @@
                     "course_list": [
                         "AST 309/MAE 309/PHY 309",
                         "CBE 335",
+                        "CBE 421",
                         "CEE 207",
                         "CEE 304/ENE 304/ENV 300",
                         "CEE 305/GEO 375/ENE 305",
@@ -603,8 +673,12 @@
                         "CHM 525/ENV 525",
                         "ECO 429",
                         "ELE 431",
+                        "ENE 318/CBE 318",
+                        "ENE 410/CBE 410/MAE 410",
                         "ENE 414",
                         "ENE 418/CBE 418",
+                        "ENE 431",
+                        "ENV 200*",
                         "ENV 201A",
                         "ENV 201B",
                         "ENV 202A",
@@ -616,6 +690,7 @@
                         "GEO 220A",
                         "GEO 220B",
                         "GEO 322",
+                        "GEO 360/ENV 356",
                         "GEO 361/ENV 361/CEE 360",
                         "GEO 363/CHM 331/ENV 331",
                         "GEO 364/CHM 364",
@@ -642,6 +717,7 @@
                         "CBE 422",
                         "CBE 423",
                         "CBE 425",
+                        "CBE 430",
                         "CBE 433",
                         "CBE 526/CHM 527/MSE 526",
                         "CEE 364",
@@ -682,8 +758,12 @@
                         "COS 343",
                         "COS 402",
                         "COS 424",
+                        "COS 485",
                         "ECO 317",
                         "EEB 355",
+                        "ENE 410/CBE 410/MAE 410",
+                        "MAE 433",
+                        "MAE 434",
                         "ORF 245",
                         "ORF 307",
                         "ORF 309",
@@ -692,7 +772,8 @@
                         "ORF 406",
                         "ORF 409",
                         "ORF 411",
-                        "ORF 417"
+                        "SML 201",
+                        "SML 305/ECE 305/COS 302"
                     ]
                 },
                 {
@@ -704,7 +785,11 @@
                     "pdfs_allowed": false,
                     "course_list": [
                         "CBE 342",
+                        "CBE 421",
                         "CBE 427",
+                        "CHM 302",
+                        "CHM 304",
+                        "CHM 403",
                         "MAE 306",
                         "MAE 336",
                         "MAE 423",
