@@ -48,10 +48,31 @@
               "max_counted": 1,
               "min_needed": 1,
               "explanation": null,
-              "course_list": [
-                "EEB 214/MOL 214",
-                "EEB 215/MOL 215"
+              "req_list": [
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": 1,
+                  "explanation": null,
+                  "course_list": [
+                    "EEB 214/MOL 214",
+                    "EEB 215/MOL 215"
+                  ]
+                },
+                {
+                  "name": null,
+                  "max_counted": 1,
+                  "min_needed": "ALL",
+                  "explanation": null,
+                  "course_list": [
+                    "ISC 231",
+                    "ISC 232",
+                    "ISC 233",
+                    "ISC 234"
+                  ]
+                }
               ]
+              
             }
           ]
         },
@@ -98,6 +119,18 @@
                 "CHM 215"
               ]
             },
+            {
+              "name": null,
+              "max_counted": 2,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ISC 231",
+                "ISC 232",
+                "ISC 233",
+                "ISC 234"
+              ]
+            }
           ]
         },
         {
@@ -117,12 +150,32 @@
           "max_counted": 1,
           "min_needed": 1,
           "explanation": "The first term of introductory physics (or the equivalent, or an AP score of 5).",
-          "course_list": [
-            "PHY 101",
-            "PHY 102",
-            "PHY 103",
-            "PHY 104",
-            "PHY 108"
+          "req_list": [
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": 1,
+              "explanation": null,
+              "course_list": [
+                "PHY 101",
+                "PHY 102",
+                "PHY 103",
+                "PHY 104",
+                "PHY 108"
+              ]
+            },
+            {
+              "name": null,
+              "max_counted": 1,
+              "min_needed": "ALL",
+              "explanation": null,
+              "course_list": [
+                "ISC 231",
+                "ISC 232",
+                "ISC 233",
+                "ISC 234"
+              ]
+            }
           ]
         },
         {
