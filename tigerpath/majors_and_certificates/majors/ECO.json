@@ -5,7 +5,7 @@
   "degree": "AB",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-economics",
-    "https://economics.princeton.edu/undergraduate-program/requirements/"
+    "https://economics.princeton.edu/undergraduate-program/concentration-requirements/"
   ],
   "contacts": [
     {
@@ -77,16 +77,19 @@
           "name": "Math",
           "max_counted": 1,
           "min_needed": 1,
-          "explanation": "Incoming majors must complete MAT 175 (or equivalent) by the end of their sophomore year and earn a letter grade of C or better.\n\nStudents will only be exempt from the Economics Department’s MAT 175 pre-requisite if they have already taken an acceptable college level course in multivariate calculus and earned a grade of C or better. Please note that the AP BC calculus curriculum is not sufficient since it only teaches univariate calculus, while MAT 175 focuses on multivariate calculus.\n\nStudents who wish to take math-track econometrics (ECO 312), upper level finance certificate courses (such as ECO 462, ECO 465 and ECO 466), or pursue graduate studies in economics and finance should take MAT 201 and MAT 202 instead of MAT 175. Both courses should be taken for a letter grade by this subset of students. The finance certificate program strongly advises that you take both MAT 201 and MAT 202; only the highest of the two grades is recorded for the purpose of fulfilling the entry requirements. Students who choose to fulfill this requirement by taking the one-semester MAT 175 will be responsible for mastering the linear algebra part of the curriculum on their own.",
+          "explanation": "Incoming majors must complete MAT 175 (or equivalent) by the end of their sophomore year and earn a letter grade of C or better. MAT 201 or EGR 156 can be used as a substitute for MAT 175 for entry into the department.\n\nStudents will only be exempt from the Economics Department’s MAT 175 pre-requisite if they have already taken an acceptable college level course in multivariate calculus and earned a grade of C or better. Please note that the AP BC calculus curriculum is not sufficient since it only teaches univariate calculus, while MAT 175 focuses on multivariate calculus.\n\nStudents who wish to take math-track econometrics (ECO 312), upper level finance certificate courses (such as ECO 462, ECO 465 and ECO 466), or pursue graduate studies in economics and finance should take MAT 201 and MAT 202 instead of MAT 175. Both courses should be taken for a letter grade by this subset of students. The finance certificate program strongly advises that you take both MAT 201 and MAT 202; only the highest of the two grades is recorded for the purpose of fulfilling the entry requirements. Students who choose to fulfill this requirement by taking the one-semester MAT 175 will be responsible for mastering the linear algebra part of the curriculum on their own.",
           "completed_by_semester": 4,
           "req_list": [
             {
               "name": null,
               "max_counted": 1,
-              "min_needed": null,
+              "min_needed": 1,
               "explanation": null,
               "course_list": [
-                "MAT 175"
+                "MAT 175",
+                "MAT 201",
+                "MAT 203",
+                "EGR 156"
               ]
             },
             {
@@ -102,7 +105,7 @@
                   "explanation": null,
                   "course_list": [
                     "MAT 201",
-                    "MAT 203",
+                    "MAT 203"
                   ]
                 },
                 {
@@ -185,6 +188,7 @@
           "course_list": [
             "COS 445",
             "ELE 381",
+            "ENE 422/MAE 422",
             "HIS 474",
             "MAT 378",
             "ORF 307",
@@ -195,12 +199,17 @@
             "ORF 363",
             "ORF 405",
             "ORF 417",
+            "ORF 473",
             "ORF 474",
             "POL 335",
             "POL 347",
             "POL 349",
             "POL 352",
             "POL 385",
+            "POL 432",
+            "POL 505",
+            "SPI 329/POL 350",
+            "SPI 522",
             "WWS 309",
             "WWS 340/PSY 321",
             "WWS 373/CHV 373",
