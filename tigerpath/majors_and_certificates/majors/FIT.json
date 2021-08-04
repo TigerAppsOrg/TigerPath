@@ -6,8 +6,7 @@
   "explanation": "The Department of French and Italian offers four tracks for concentrators and a flexible, individualized approach to course planning. Students either pursue a course of study entirely in French or Italian, or combine this specialization with another language, academic discipline, or creative art. FIT encourages innovative and interdisciplinary approaches to the study of the Italian, French, and francophone worlds, tailored to the unique academic and professional interests of students.",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-french-and-italian",
-    "https://fit.princeton.edu/undergraduate/concentrating/plan-study",
-    "https://fit.princeton.edu/sites/fit/files/fit_undergraduate_handbook_2019-20_new_0.pdf"
+    "https://fit.princeton.edu/undergraduate/concentrating/plan-study"
   ],
   "contacts": [
     {
@@ -124,10 +123,27 @@
                   "max_counted": null,
                   "min_needed": 3,
                   "explanation": null,
-                  "course_list": [
-                    "FRE 3*",
-                    "FRE 4*",
-                    "FRE 5*"
+                  "req_list": [
+                    {
+                      "name": "Junior Seminar",
+                      "max_counted": 1,
+                      "min_needed": "ALL",
+                      "explanation": "For concentrators in French in the classes of 2021 and beyond, the Junior Seminar (FRE 398), is mandatory.",
+                      "course_list": [
+                        "FRE 398"
+                      ]
+                    },
+                    {
+                      "name": "Other Upper-Level Courses",
+                      "max_counted": null,
+                      "min_needed": 2,
+                      "explanation": null,
+                      "course_list": [
+                        "FRE 3*",
+                        "FRE 4*",
+                        "FRE 5*"
+                      ]
+                    }
                   ]
                 }
               ]
