@@ -5,7 +5,8 @@
   "degree": "AB",
   "urls": [
     "https://ua.princeton.edu/academic-units/department-geosciences",
-    "https://geosciences.princeton.edu/undergraduate/programs-of-study"
+    "https://geosciences.princeton.edu/undergraduate/programs-of-study",
+    "https://geosciences.princeton.edu/sites/geosciences/files/media/information_and_departmental_plan_of_study-revised-02.pdf"
   ],
   "contacts": [
     {
@@ -15,8 +16,8 @@
     },
     {
       "type": "Associate Chair",
-      "name": "Thomas S. Duffy",
-      "email": "duffy@princeton.edu"
+      "name": "Frederik J. Simons",
+      "email": "fjsimons@princeton.edu"
     },
     {
       "type": "Director of Undergraduate Studies",
