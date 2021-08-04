@@ -121,19 +121,7 @@
             },
             {
               "name": null,
-              "max_counted": 1,
-              "min_needed": "ALL",
-              "explanation": null,
-              "course_list": [
-                "ISC 231",
-                "ISC 232",
-                "ISC 233",
-                "ISC 234"
-              ]
-            },
-            {
-              "name": null,
-              "max_counted": 1,
+              "max_counted": 2,
               "min_needed": "ALL",
               "explanation": null,
               "course_list": [
@@ -189,7 +177,6 @@
               ]
             }
           ]
-          
         },
         {
           "name": "Statistics",
