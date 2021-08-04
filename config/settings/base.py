@@ -146,4 +146,7 @@ CAS_LOGOUT_COMPLETELY = False
 #
 # For example, the Fall 2016 term is 1172 - the ending year is 2017.
 # Similarly, the Spring 2017 term is 1174 - the ending year is 2017.
-ACTIVE_TERMS = [1162, 1164, 1172, 1174, 1182, 1184, 1192, 1194, 1202]
+#
+# By convention, we keep the 8 most recent semesters in this array.
+# Please update this array if you are scraping for new courses.
+ACTIVE_TERMS = [1184, 1192, 1194, 1202, 1204, 1212, 1214, 1222]
