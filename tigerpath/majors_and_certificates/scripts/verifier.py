@@ -602,9 +602,14 @@ def _check_degree_progress(req, courses):
     return num_courses
 
 def _course_match(course_name, pattern):
-    pattern = pattern.split(':')[0] # remove course title
-    pattern = ["".join(p.split()).upper() for p in pattern.split('/')] # split by '/' and
-    course = ["".join(c.split()).upper() for c in course_name.split('/')] # remove spaces
+    # remove course title
+    pattern = pattern.split(':')[0]
+    # equate SPI and WWS courses
+    course_name = course_name.replace("WWS", "SPI")
+    pattern = pattern.replace("WWS", "SPI")
+    # split by '/' and remove spaces
+    pattern = ["".join(p.split()).upper() for p in pattern.split('/')]
+    course = ["".join(c.split()).upper() for c in course_name.split('/')]
     for c in course:
         for p in pattern:
             if c == p: # exact name matched
@@ -668,6 +673,11 @@ def _get_collapsed_course_and_dist_req_sets(req):
             for course in req["course_list"]:
                 course = course.split(':')[0] # strip course name
                 course_set.add(course)
+                # if it's a SPI/WWS course, include both variations
+                if "WWS" in course:
+                    course_set.add(course.replace("WWS", "SPI"))
+                if "SPI" in course:
+                    course_set.add(course.replace("SPI", "WWS"))
         if "dist_req" in req:
             dist = req["dist_req"]
             if isinstance(dist, str):  # backwards compatibility with non-list dist_req
