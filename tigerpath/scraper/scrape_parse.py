@@ -216,11 +216,14 @@ def scrape_parse_semester(term_code):
         try:
             #global new_course_count
             #global course_count
-            print(course)
+            details = MobileApp().get_course_details(term=TERM_CODE, course_id=course['course_id'])
+            distribution_area = none_to_empty(details['course_details']['course_detail']['distribution_area_short'])
+            distribution_area = ''.join(distribution_area.split(' or '))
+
             return {
                 "title": course['title'],
                 "guid": course['guid'],
-                "distribution_area": '', # TODO: use /courses/details API to get this
+                "distribution_area": distribution_area,
                 "description": none_to_empty(course['detail']['description']),
                 "semester": get_current_semester(data),
                 "professors": [parse_prof(x) for x in course['instructors']],
