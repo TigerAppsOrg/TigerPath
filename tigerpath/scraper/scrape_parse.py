@@ -187,12 +187,19 @@ def scrape_parse_semester(term_code):
         """ Scrape all events listed under department
         """
         data = MobileApp().get_courses(term=TERM_CODE, subject=department)
+        if data['term'][0].get('subjects') is None:
+            print('Empty MobileApp response')
+            return []
         parsed_courses = []
-        for subject in data['term'][0]['subjects']:
-            for course in subject['courses']:
-                x = parse_course(data, course, subject)
-                if x is not None:
-                    parsed_courses.append(x)
+        try:
+            for subject in data['term'][0]['subjects']:
+                for course in subject['courses']:
+                    x = parse_course(data, course, subject)
+                    if x is not None:
+                        parsed_courses.append(x)
+        except Exception:
+            print('Potential missing key')
+            return []
         return parsed_courses
 
     def none_to_empty(text):
@@ -279,8 +286,8 @@ def scrape_parse_semester(term_code):
             # the times are in the format:
             # HH:MM AM/PM
             return {
-                'start_time': get_text('start_time', meeting),
-                'end_time': get_text('end_time', meeting),
+                'start_time': '01:00 AM' if 'start_time' not in meeting else meeting['start_time'],
+                'end_time': '01:00 AM' if 'end_time' not in meeting else meeting['end_time'],
                 'days': get_days(meeting),
                 'location': get_location(meeting),
             }
