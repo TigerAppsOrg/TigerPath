@@ -9,7 +9,8 @@ Procedure:
 from lxml import etree
 from html.parser import HTMLParser
 from urllib.request import urlopen
-import re
+
+from tigerpath.scraper.mobileapp import MobileApp
 
 # This should technically be imported from
 # ../majors_and_certificates/scripts/university_info.py
@@ -141,42 +142,26 @@ class ParseError(Exception):
 
 def scrape_parse_semester(term_code):
     TERM_CODE = term_code
-    COURSE_OFFERINGS = "http://registrar.princeton.edu/course-offerings/"
-    FEED_PREFIX = "http://etcweb.princeton.edu/webfeeds/courseofferings/"
-
-    # Could also use 'current' instead of str(TERM_CODE), which automatically
-    # gets the current semester. caveat: cannot get next semester's schedule
-    # ahead of time
-    TERM_PREFIX = FEED_PREFIX + "?term=" + str(TERM_CODE)
-    DEP_PREFIX = TERM_PREFIX + "&subject="
-    VERSION_PREFIX = "&vers=1.5"
 
     CURRENT_SEMESTER = ['']
 
     h = HTMLParser()
 
     def get_text(key, object, fail_ok=False):
-        found = object.find(key)
-        if fail_ok and (found is None or found.text is None):
+        found = object.get(key)
+        if fail_ok and found is None:
             return found
-        elif (found is None or found.text is None):
+        elif found is None:
             ParseError("key " + key + " does not exist")
             return ''
         else:
-            return h.unescape(found.text)
+            return h.unescape(found)
 
-    def get_current_semester():
+    def get_current_semester(data):
         """ get semester according to TERM_CODE
         """
-        #global CURRENT_SEMESTER
-        # for now hardwire the namespaces--too annoying
-        PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_4'
         if not CURRENT_SEMESTER[0]:
-            parser = etree.XMLParser(ns_clean=True)
-            termxml = urlopen(TERM_PREFIX)
-            tree = etree.parse(termxml, parser)
-            remove_namespace(tree, PTON_NAMESPACE)
-            term = tree.getroot().find('term')
+            term = data['term'][0]
             CURRENT_SEMESTER[0] = {
                 'start_date': get_text('start_date', term),
                 'end_date': get_text('end_date', term),
@@ -201,23 +186,13 @@ def scrape_parse_semester(term_code):
     def scrape(department):
         """ Scrape all events listed under department
         """
-        # for now hardwire the namespaces--too annoying
-        PTON_NAMESPACE = u'http://as.oit.princeton.edu/xml/courseofferings-1_5'
-        parser = etree.XMLParser(ns_clean=True)
-        link = DEP_PREFIX + department + VERSION_PREFIX
-        xmldoc = urlopen(link)
-        tree = etree.parse(xmldoc, parser)
-        dep_courses = tree.getroot()
-        remove_namespace(dep_courses, PTON_NAMESPACE)
+        data = MobileApp().get_courses(term=TERM_CODE, subject=department)
         parsed_courses = []
-        for term in dep_courses:
-            for subjects in term:
-                for subject in subjects:
-                    for courses in subject:
-                        for course in courses:
-                            x = parse_course(course, subject)
-                            if x is not None:
-                                parsed_courses.append(x)
+        for subject in data['term'][0]['subjects']:
+            for course in subject['courses']:
+                x = parse_course(data, course, subject)
+                if x is not None:
+                    parsed_courses.append(x)
         return parsed_courses
 
     def none_to_empty(text):
@@ -235,21 +210,22 @@ def scrape_parse_semester(term_code):
     # Parse it for courses, sections, and lecture times (as recurring events)
     # If the course with this ID exists in the database, we update the course
     # Otherwise, create new course with the information
-    def parse_course(course, subject):
+    def parse_course(data, course, subject):
         """ create a course with basic information.
         """
         try:
             #global new_course_count
             #global course_count
+            print(course)
             return {
-                "title": get_text('title', course),
-                "guid": get_text('guid', course),
-                "distribution_area": get_text('distribution_area', course),
-                "description": none_to_empty(course.find('detail').find('description').text),
-                "semester": get_current_semester(),
-                "professors": [parse_prof(x) for x in course.find('instructors')],
+                "title": course['title'],
+                "guid": course['guid'],
+                "distribution_area": '', # TODO: use /courses/details API to get this
+                "description": none_to_empty(course['detail']['description']),
+                "semester": get_current_semester(data),
+                "professors": [parse_prof(x) for x in course['instructors']],
                 "course_listings": parse_listings(course, subject),
-                "sections": [parse_section(x) for x in course.find('classes')]
+                "sections": [parse_section(x) for x in course['classes']]
             }
         except Exception as inst:
             # print inst
@@ -260,21 +236,21 @@ def scrape_parse_semester(term_code):
     # do a map
     def parse_prof(prof):
         return {
-            "full_name": get_text('full_name', prof)
+            "full_name": prof['full_name']
         }
 
     def parse_listings(course, subject):
         def parse_cross_listing(cross_listing):
             return {
-                'dept': get_text('subject', cross_listing),
-                'code': get_text('catalog_number', cross_listing),
+                'dept': cross_listing['subject'],
+                'code': cross_listing['catalog_number'],
                 'is_primary': False
             }
         cross_listings = [parse_cross_listing(
-            x) for x in none_to_empty_list(course.find('crosslistings'))]
+            x) for x in none_to_empty_list(course['crosslistings'])]
         primary_listing = {
             'dept': get_text('code', subject),
-            'code': get_text('catalog_number', course),
+            'code': course['catalog_number'],
             'is_primary': True
         }
         return cross_listings + [primary_listing]
@@ -283,15 +259,15 @@ def scrape_parse_semester(term_code):
         def parse_meeting(meeting):
             def get_days(meeting):
                 days = ""
-                for day in meeting.find('days'):
-                    days += day.text + ' '
+                for day in meeting['days']:
+                    days += day + ' '
                 return days[:10]
 
             def get_location(meeting):
                 location = ''
                 try:
-                    building = meeting.find('building').find('name').text
-                    room = meeting.find('room').text
+                    building = meeting['building']['name']
+                    room = meeting['room']
                     location = building + " " + room
                 except Exception as e:
                     raise e
@@ -307,9 +283,9 @@ def scrape_parse_semester(term_code):
             }
         # NOTE: section.find('schedule') doesn't seem to be used
         meetings = None
-        schedule = section.find('schedule')
+        schedule = section['schedule']
         if schedule is not None:
-            meetings = schedule.find('meetings')
+            meetings = schedule['meetings']
         return {
             'registrar_id': get_text('class_number', section),
             'name': get_text('section', section),
