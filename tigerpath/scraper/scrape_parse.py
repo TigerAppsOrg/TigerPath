@@ -2,133 +2,12 @@
 Scrapes OIT's Web Feeds to add courses and sections to database.
 Procedure:
 - Get list of departments (3-letter department codes)
-- Run this: http://etcweb.princeton.edu/webfeeds/courseofferings/?term=current&subject=COS
+- Get data from MobileApp/StudentApp API provided by OIT
 - Parse it for courses, sections, and lecture times (as recurring events)
 """
 
-from lxml import etree
-from html.parser import HTMLParser
-from urllib.request import urlopen
-
 from tigerpath.scraper.mobileapp import MobileApp
-
-# This should technically be imported from
-# ../majors_and_certificates/scripts/university_info.py
-# but this import currently fails.
-# TODO: find out why and merge these lists.
-#       Possibly refactor this and move it somewhere else entirely.
-DEPTS = {
-    "AAS": "African American Studies",
-    "AFS": "African Studies",
-    "AMS": "American Studies",
-    "ANT": "Anthropology",
-    "AOS": "Atmospheric & Oceanic Sciences",
-    "APC": "Appl and Computational Math",
-    "ARA": "Arabic",
-    "ARC": "Architecture",
-    "ART": "Art and Archaeology",
-    "ASA": "Asian American Studies",
-    "AST": "Astrophysical Sciences",
-    "ATL": "Atelier",
-    "BCS": "Bosnian-Croatian-Serbian",
-    "CBE": "Chemical and Biological Engr",
-    "CEE": "Civil and Environmental Engr",
-    "CGS": "Cognitive Science",
-    "CHI": "Chinese",
-    "CHM": "Chemistry",
-    "CHV": "Center for Human Values",
-    "CLA": "Classics",
-    "CLG": "Classical Greek",
-    "COM": "Comparative Literature",
-    "COS": "Computer Science",
-    "CTL": "Center for Teaching & Learning",
-    "CWR": "Creative Writing",
-    "CZE": "Czech",
-    "DAN": "Dance",
-    "EAS": "East Asian Studies",
-    "ECE": "Electrical and Computer Engineering",
-    "ECO": "Economics",
-    "ECS": "European Cultural Studies",
-    "EEB": "Ecology and Evol Biology",
-    "EGR": "Engineering",
-    "ELE": "Electrical Engineering",
-    "ENE": "Energy Studies",
-    "ENG": "English",
-    "ENT": "Entrepreneurship",
-    "ENV": "Environmental Studies",
-    "EPS": "Contemporary European Politics",
-    "FIN": "Finance",
-    "FRE": "French",
-    "FRS": "Freshman Seminars",
-    "GEO": "Geosciences",
-    "GER": "German",
-    "GHP": "Global Health & Health Policy",
-    "GLS": "Global Seminar",
-    "GSS": "Gender and Sexuality Studies",
-    "HEB": "Hebrew",
-    "HIN": "Hindi",
-    "HIS": "History",
-    "HLS": "Hellenic Studies",
-    "HOS": "History of Science",
-    "HPD": "History/Practice of Diplomacy",
-    "HUM": "Humanistic Studies",
-    "ISC": "Integrated Science Curriculum",
-    "ITA": "Italian",
-    "JDS": "Judaic Studies",
-    "JPN": "Japanese",
-    "JRN": "Journalism",
-    "KOR": "Korean",
-    "LAO": "Latino Studies",
-    "LAS": "Latin American Studies",
-    "LAT": "Latin",
-    "LCA": "Lewis Center for the Arts",
-    "LIN": "Linguistics",
-    "MAE": "Mech and Aerospace Engr",
-    "MAT": "Mathematics",
-    "MED": "Medieval Studies",
-    "MOD": "Media and Modernity",
-    "MOG": "Modern Greek",
-    "MOL": "Molecular Biology",
-    "MPP": "Music Performance",
-    "MSE": "Materials Science and Engr",
-    "MTD": "Music Theater",
-    "MUS": "Music",
-    "NES": "Near Eastern Studies",
-    "NEU": "Neuroscience",
-    "ORF": "Oper Res and Financial Engr",
-    "PAW": "Ancient World",
-    "PER": "Persian",
-    "PHI": "Philosophy",
-    "PHY": "Physics",
-    "PLS": "Polish",
-    "POL": "Politics",
-    "POP": "Population Studies",
-    "POR": "Portuguese",
-    "PSY": "Psychology",
-    "QCB": "Quantitative Computational Bio",
-    "REL": "Religion",
-    "RES": "Russian, East Europ, Eurasian",
-    "RUS": "Russian",
-    "SAN": "Sanskrit",
-    "SAS": "South Asian Studies",
-    "SLA": "Slavic Languages and Lit",
-    "SML": "Statistics & Machine Learning",
-    "SOC": "Sociology",
-    "SPA": "Spanish",
-    "SPI": "Public and International Affairs",
-    "STC": "Science and Technology Council",
-    "SWA": "Swahili",
-    "THR": "Theater",
-    "TPP": "Teacher Preparation",
-    "TRA": "Translation, Intercultural Com",
-    "TUR": "Turkish",
-    "TWI": "Twi",
-    "URB": "Urban Studies",
-    "URD": "Urdu",
-    "VIS": "Visual Arts",
-    "WRI": "Princeton Writing Program",
-    "WWS": "Public and International Affairs",
-}
+from tigerpath.majors_and_certificates.scripts.university_info import DEPTS
 
 
 class ParseError(Exception):
@@ -145,8 +24,6 @@ def scrape_parse_semester(term_code):
 
     CURRENT_SEMESTER = ['']
 
-    h = HTMLParser()
-
     def get_text(key, object, fail_ok=False):
         found = object.get(key)
         if fail_ok and found is None:
@@ -155,7 +32,7 @@ def scrape_parse_semester(term_code):
             ParseError("key " + key + " does not exist")
             return ''
         else:
-            return h.unescape(found)
+            return found
 
     def get_current_semester(data):
         """ get semester according to TERM_CODE
@@ -304,14 +181,5 @@ def scrape_parse_semester(term_code):
             'enrollment': get_text('enrollment', section),
             'meetings': [parse_meeting(x) for x in none_to_empty_list(meetings)]
         }
-
-    def remove_namespace(doc, namespace):
-        """Hack to remove namespace in the document in place.
-        """
-        ns = u'{%s}' % namespace
-        nsl = len(ns)
-        for elem in doc.getiterator():
-            if elem.tag.startswith(ns):
-                elem.tag = elem.tag[nsl:]
 
     return scrape_all()
