@@ -29,6 +29,14 @@ class MobileApp:
         kwargs["fmt"] = "json"
         return self._getJSON(self.configs.COURSE_COURSES, **kwargs)
 
+    # wrapper function for _getJSON with the courses/details endpoint.
+    # kwargs must contain key "term" with the current term code, as well
+    # as "course_id"
+
+    def get_course_details(self, **kwargs):
+        kwargs["fmt"] = "json"
+        return self._getJSON(self.configs.COURSE_DETAILS, **kwargs)
+
     # returns a commma-separated string of all department codes
 
     def get_all_dept_codes_csv(self):
@@ -56,7 +64,6 @@ class MobileApp:
             headers={"Authorization": "Bearer " + self.configs.ACCESS_TOKEN},
         )
         text = req.text
-        print(text)
 
         # Check to see if the response failed due to invalid credentials
         text = self._updateConfigs(text, endpoint, **kwargs)
@@ -103,7 +110,8 @@ class Configs:
 
 def main():
     api = MobileApp()
-    print(api.get_courses(term="1224", search="COS333"))
+    # print(api.get_courses(term="1224", search="COS333"))
+    print(api.get_course_details(term="1232", course_id="010402"))
 
 
 if __name__ == '__main__':
