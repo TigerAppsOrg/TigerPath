@@ -102,7 +102,7 @@ def scrape_parse_semester(term_code):
             #global course_count
             details = MobileApp().get_course_details(term=TERM_CODE, course_id=course['course_id'])
             distribution_area = none_to_empty(details['course_details']['course_detail']['distribution_area_short'])
-            distribution_area = ''.join(distribution_area.split(' or '))
+            distribution_area = ','.join(distribution_area.split(' or '))
 
             return {
                 "title": course['title'],
