@@ -149,4 +149,4 @@ CAS_LOGOUT_COMPLETELY = False
 #
 # By convention, we keep the 8 most recent semesters in this array.
 # Please update this array if you are scraping for new courses.
-ACTIVE_TERMS = [1184, 1192, 1194, 1202, 1204, 1212, 1214, 1222]
+ACTIVE_TERMS = [1194, 1202, 1204, 1212, 1214, 1222, 1224, 1232]
