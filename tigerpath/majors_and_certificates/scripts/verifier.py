@@ -541,7 +541,8 @@ def _mark_dist(req, courses):
         for c in sem:
             if req["path_to"] in c["possible_reqs"]: # already used
                 continue
-            if c["dist_area"] in req["dist_req"]:
+            dist_areas = c["dist_area"].split(',')
+            if bool(set(dist_areas) & set(req["dist_req"])):
                 num_marked += 1
                 c["possible_reqs"].append(req["path_to"])
                 if not req["double_counting_allowed"]:
