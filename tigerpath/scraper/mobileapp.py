@@ -111,7 +111,7 @@ class Configs:
 def main():
     api = MobileApp()
     # print(api.get_courses(term="1224", search="COS333"))
-    print(api.get_course_details(term="1232", course_id="010402"))
+    print(api.get_courses(term="1232", subject="AMS,COS"))
 
 
 if __name__ == '__main__':

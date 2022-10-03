@@ -49,15 +49,8 @@ def scrape_parse_semester(term_code):
     def scrape_all():
         """ scrape all events from Princeton's course webfeed
         """
-        #global course_count
-        #global section_count
-        departments = list(DEPTS.keys())
-        length = len(departments)
-        courses = []
-        for index, department in enumerate(departments):
-            print('Scraping department {} of {}: {}'.format(index+1, length, department))
-            courses += scrape(department)
-        return courses
+        departments = ','.join(list(DEPTS.keys()))
+        return scrape(departments)
 
     # goes through the listings for this department
     def scrape(department):
