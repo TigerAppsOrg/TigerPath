@@ -541,6 +541,8 @@ def _mark_dist(req, courses):
         for c in sem:
             if req["path_to"] in c["possible_reqs"]: # already used
                 continue
+            if dist_areas is None:
+                continue
             dist_areas = c["dist_area"].split(',')
             if bool(set(dist_areas) & set(req["dist_req"])):
                 num_marked += 1
