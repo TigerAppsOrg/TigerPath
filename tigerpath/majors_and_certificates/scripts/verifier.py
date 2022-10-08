@@ -541,9 +541,15 @@ def _mark_dist(req, courses):
         for c in sem:
             if req["path_to"] in c["possible_reqs"]: # already used
                 continue
-            if dist_areas is None:
+            print("in _mark_dist")
+            print("c['dist_area']")
+            print(c["dist_area"])
+            print(type(c["dist_area"]))
+            if c["dist_area"] is None:
                 continue
             dist_areas = c["dist_area"].split(',')
+            print("after split")
+            print(dist_areas)
             if bool(set(dist_areas) & set(req["dist_req"])):
                 num_marked += 1
                 c["possible_reqs"].append(req["path_to"])
