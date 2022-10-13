@@ -57,10 +57,7 @@ def index(request):
 
 # landing page
 def landing(request):
-    try:
-        return render(request, 'tigerpath/landing.html', None)
-    except Exception as e:
-        print(e)
+    return render(request, 'tigerpath/landing.html', None)
 
 # about page
 def about(request):
