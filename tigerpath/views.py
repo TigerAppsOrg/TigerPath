@@ -31,27 +31,30 @@ def logout(request):
 def index(request):
     # check if the user is authenticated
     if request.user.is_authenticated:
-        instance = models.UserProfile.objects.get(user_id=request.user.id)
-        # add settings form
-        settings_form = forms.SettingsForm(instance=instance)
-        context = {'settings_form': settings_form}
+        try:
+            instance = models.UserProfile.objects.get(user_id=request.user.id)
+            # add settings form
+            settings_form = forms.SettingsForm(instance=instance)
+            context = {'settings_form': settings_form}
 
-        # check user state
-        user_state = request.user.profile.user_state
-        if 'onboarding_complete' not in user_state or not user_state['onboarding_complete']:
-            # the user has completed the onboarding form but not the tutorial
-            if not request.user.profile.major:
-                # add onboarding form
-                initial_values = get_onboarding_initial_values(request.user.username)
-                onboarding_form = forms.OnboardingForm(initial=initial_values)
-                context['onboarding_form'] = onboarding_form
-            else:
-                # show tutorial
-                context['show_tutorial'] = True
-                user_state['onboarding_complete'] = True
-                request.user.profile.save()
+            # check user state
+            user_state = request.user.profile.user_state
+            if 'onboarding_complete' not in user_state or not user_state['onboarding_complete']:
+                # the user has completed the onboarding form but not the tutorial
+                if not request.user.profile.major:
+                    # add onboarding form
+                    initial_values = get_onboarding_initial_values(request.user.username)
+                    onboarding_form = forms.OnboardingForm(initial=initial_values)
+                    context['onboarding_form'] = onboarding_form
+                else:
+                    # show tutorial
+                    context['show_tutorial'] = True
+                    user_state['onboarding_complete'] = True
+                    request.user.profile.save()
 
-        return render(request, 'tigerpath/index.html', context)
+            return render(request, 'tigerpath/index.html', context)
+        except Exception as e:
+            print(e)
     else:
         return landing(request)
 
