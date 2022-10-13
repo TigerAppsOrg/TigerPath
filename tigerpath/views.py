@@ -36,6 +36,7 @@ def index(request):
             # add settings form
             settings_form = forms.SettingsForm(instance=instance)
             context = {'settings_form': settings_form}
+            print(context)
 
             # check user state
             user_state = request.user.profile.user_state
