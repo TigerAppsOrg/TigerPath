@@ -55,6 +55,8 @@ def index(request):
             return render(request, 'tigerpath/index.html', context)
         except Exception as e:
             print(e)
+            import traceback
+            traceback.print_exc()
     else:
         return landing(request)
 
