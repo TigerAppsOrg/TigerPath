@@ -29,8 +29,11 @@ def logout(request):
 
 # index page
 def index(request):
+    print("1")
+    print(request)
     # check if the user is authenticated
     if request.user.is_authenticated:
+        print("2")
         instance = models.UserProfile.objects.get(user_id=request.user.id)
         # add settings form
         settings_form = forms.SettingsForm(instance=instance)
@@ -53,10 +56,13 @@ def index(request):
 
         return render(request, 'tigerpath/index.html', context)
     else:
+        print("3")
         return landing(request)
 
 # landing page
 def landing(request):
+    print("4")
+    print(request)
     return render(request, 'tigerpath/landing.html', None)
 
 # about page
