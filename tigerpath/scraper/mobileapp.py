@@ -48,6 +48,41 @@ class MobileApp:
     def get_all_dept_codes_json(self):
         return self._getJSON(self.configs.COURSE_COURSES, 'subject=list')
 
+    # wrapper function for _getJSON with the courses/terms endpoint.
+    # takes no arguments.
+
+    def get_terms(self):
+        return self._getJSON(self.configs.COURSE_TERMS, fmt="json")
+
+    # generates the n_recent_terms (default 3) most recent term codes
+
+    def get_active_term_codes(self, n_recent_terms=3):
+        def construct_prev_term_code(curr):
+            # curr is Spring, so just change last digit
+            if curr[-1] == "4":
+                return curr[:-1] + "2"
+
+            # curr is Fall, so decrement middle two digits and change last digit
+            year = curr[1:3]
+            new_year = str(int(year) - 1)
+            return "1" + new_year + "4"
+
+        if n_recent_terms < 1:
+            raise Exception("n_recent_terms must be >= 1")
+
+        res = self.get_terms()
+        try:
+            term_codes = [res["term"][0]["code"]]
+            curr = term_codes[0]
+            for _ in range(n_recent_terms - 1):
+                prev_term_code = construct_prev_term_code(curr)
+                term_codes.append(prev_term_code)
+                curr = prev_term_code
+            term_codes.reverse()
+            return [str(e) for e in term_codes]
+        except:
+            return []
+
     '''
     This function allows a user to make a request to 
     a certain endpoint, with the BASE_URL of 
@@ -92,6 +127,7 @@ class Configs:
         self.BASE_URL = 'https://api.princeton.edu:443/student-app/1.0.1'
         self.COURSE_COURSES = '/courses/courses'
         self.COURSE_DETAILS = '/courses/details'
+        self.COURSE_TERMS = "/courses/terms"
         self.REFRESH_TOKEN_URL = 'https://api.princeton.edu:443/token'
         self._refreshToken(grant_type='client_credentials')
 
@@ -111,7 +147,8 @@ class Configs:
 def main():
     api = MobileApp()
     # print(api.get_courses(term="1224", search="COS333"))
-    print(api.get_courses(term="1232", subject="AMS,COS"))
+    # print(api.get_courses(term="1232", subject="AMS,COS"))
+    print(api.get_active_term_codes(n_recent_terms=8))
 
 
 if __name__ == '__main__':
