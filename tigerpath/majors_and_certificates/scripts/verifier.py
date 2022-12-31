@@ -119,7 +119,6 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    print("check_requirements", REMOTE_DATA_REPO_URL + req_file)
     data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
     req = yaml.safe_load(data)
     courses = _init_courses(courses, req, year)
@@ -173,7 +172,6 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    print("get_courses_by_path", REMOTE_DATA_REPO_URL + req_filepath)
     data = requests.get(REMOTE_DATA_REPO_URL + req_filepath).text
     req = yaml.safe_load(data)
     _init_year_switch(req, year)
