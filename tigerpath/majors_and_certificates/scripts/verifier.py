@@ -284,7 +284,7 @@ def _init_courses(courses, req, year):
         courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
-            course["name"] = course["name"].split(':')[0]
+            course["name"] = _get_course_name_from_pattern(course["name"])
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
             course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
@@ -610,8 +610,7 @@ def _check_degree_progress(req, courses):
     return num_courses
 
 def _course_match(course_name, pattern):
-    print(pattern)
-    pattern = pattern.split(':')[0] # remove course title
+    pattern = _get_course_name_from_pattern(pattern)
     pattern = ["".join(p.split()).upper() for p in pattern.split('/')] # split by '/' and
     course = ["".join(c.split()).upper() for c in course_name.split('/')] # remove spaces
     for c in course:
@@ -675,7 +674,7 @@ def _get_collapsed_course_and_dist_req_sets(req):
         dist_req_set = set()
         if "course_list" in req:
             for course in req["course_list"]:
-                course = course.split(':')[0] # strip course name
+                course = _get_course_name_from_pattern(course)
                 course_set.add(course)
         if "dist_req" in req:
             dist = req["dist_req"]
@@ -693,6 +692,12 @@ def _get_collapsed_course_and_dist_req_sets(req):
             if dist_req_set:
                 total_dist_req_set |= dist_req_set # union of both sets
     return (total_course_set, total_dist_req_set)
+
+def _get_course_name_from_pattern(pattern):
+    if type(pattern) == dict:
+        return list(pattern.keys())[0]
+    
+    return pattern.split(':')[0] # remove course title
 
 def main():
     with open ("verifier_tests/1.test", "r", encoding="utf8") as f:
