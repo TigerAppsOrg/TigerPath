@@ -610,6 +610,7 @@ def _check_degree_progress(req, courses):
     return num_courses
 
 def _course_match(course_name, pattern):
+    print(pattern)
     pattern = pattern.split(':')[0] # remove course title
     pattern = ["".join(p.split()).upper() for p in pattern.split('/')] # split by '/' and
     course = ["".join(c.split()).upper() for c in course_name.split('/')] # remove spaces
