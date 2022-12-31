@@ -122,6 +122,8 @@ def check_requirements(req_file, courses, year):
     print("check_requirements", REMOTE_DATA_REPO_URL + req_file)
     data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
     req = yaml.safe_load(data)
+    print(data)
+    print(req)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
