@@ -117,6 +117,7 @@ def check_requirements(req_file, courses, year):
     :rtype: (bool, dict, dict)
     """
     with open(req_file, 'r', encoding="utf8") as f:
+        print("check_requirements", req_file)
         req = yaml.safe_load(f)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
@@ -170,6 +171,7 @@ def get_courses_by_path(path):
     else:
         raise ValueError("Path malformatted.")
     with open(req_filepath, 'r', encoding="utf8") as f:
+        print("get_courses_by_path", req_filepath)
         req = yaml.safe_load(f)
     _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path, year)
