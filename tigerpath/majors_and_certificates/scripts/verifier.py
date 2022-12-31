@@ -122,8 +122,6 @@ def check_requirements(req_file, courses, year):
     print("check_requirements", REMOTE_DATA_REPO_URL + req_file)
     data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
     req = yaml.safe_load(data)
-    print(data)
-    print(req)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
@@ -175,11 +173,9 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-
     print("get_courses_by_path", REMOTE_DATA_REPO_URL + req_filepath)
     data = requests.get(REMOTE_DATA_REPO_URL + req_filepath).text
     req = yaml.safe_load(data)
-
     _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path, year)
     if not subreq:
