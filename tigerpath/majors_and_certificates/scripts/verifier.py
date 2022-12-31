@@ -6,12 +6,15 @@ import sys
 import collections
 import time
 import copy
+import requests
 
 from . import university_info
 
-MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
-CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
-DEGREES_LOCATION = "../degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
+REMOTE_DATA_REPO_URL = "https://raw.githubusercontent.com/PrincetonUSG/Princeton-Departmental-Data/main/"
+
+MAJORS_LOCATION = "majors/" # relative path to folder containing the major requirements JSONs
+CERTIFICATES_LOCATION = "certificates/" # relative path to folder containing the certificate requirements JSONs
+DEGREES_LOCATION = "degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
 
 REQ_PATH_SEPARATOR = '//'
 # REQ_PATH_PREFIX := <type>//<year>//<dept_code or degree_code or certificate_name>
@@ -42,8 +45,8 @@ def check_major(major_name, courses, year):
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
         raise ValueError("Major code not recognized.")
-    major_filename = "%s.json" % major_name
-    major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
+    major_filename = "%s.yaml" % major_name
+    major_filepath = os.path.join(MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
@@ -68,8 +71,8 @@ def check_degree(degree_name, courses, year):
         raise ValueError("Year is invalid.")
     if degree_name not in ["AB", "BSE"]:
         raise ValueError("Invalid degree name: %s" % degree_name)
-    degree_filename = "%s.json" % degree_name
-    degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
+    degree_filename = "%s.yaml" % degree_name
+    degree_filepath = os.path.join(DEGREES_LOCATION, degree_filename)
     return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
@@ -96,8 +99,8 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Year is invalid.")
     if (certificate_name not in university_info.CERTIFICATES):
         raise ValueError("Certificate not recognized.")
-    certificate_filename = "%s.json" % certificate_name
-    certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
+    certificate_filename = "%s.yaml" % certificate_name
+    certificate_filepath = os.path.join(CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, year)
 
 def check_requirements(req_file, courses, year):
@@ -116,9 +119,9 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    with open(req_file, 'r', encoding="utf8") as f:
-        print("check_requirements", req_file)
-        req = yaml.safe_load(f)
+    print("check_requirements", REMOTE_DATA_REPO_URL + req_file)
+    data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
+    req = yaml.safe_load(data)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
@@ -155,24 +158,26 @@ def get_courses_by_path(path):
         raise ValueError("Path malformatted.")
     if "/" in req_type or "/" in req_name:
         raise ValueError("Path malformatted.")
-    filename = "%s.json" % req_name
+    filename = "%s.yaml" % req_name
     if req_type == "Major":
         if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.BSE_CONCENTRATIONS):
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
+        req_filepath = os.path.join(MAJORS_LOCATION, filename)
     elif req_type == "Certificate":
         if req_name not in university_info.CERTIFICATES:
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, filename)
+        req_filepath = os.path.join(CERTIFICATES_LOCATION, filename)
     elif req_type == "Degree":
         if req_name not in ["AB", "BSE"]:
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
+        req_filepath = os.path.join(DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    with open(req_filepath, 'r', encoding="utf8") as f:
-        print("get_courses_by_path", req_filepath)
-        req = yaml.safe_load(f)
+
+    print("get_courses_by_path", REMOTE_DATA_REPO_URL + req_filepath)
+    data = requests.get(REMOTE_DATA_REPO_URL + req_filepath).text
+    req = yaml.safe_load(data)
+
     _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path, year)
     if not subreq:
