@@ -1,6 +1,8 @@
 import os
 import dj_database_url
 
+from tigerpath.scraper.mobileapp import MobileApp
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -149,4 +151,4 @@ CAS_LOGOUT_COMPLETELY = False
 #
 # By convention, we keep the 8 most recent semesters in this array.
 # Please update this array if you are scraping for new courses.
-ACTIVE_TERMS = [1194, 1202, 1204, 1212, 1214, 1222, 1224, 1232]
+ACTIVE_TERMS = MobileApp().get_active_term_codes(n_recent_terms=8)

@@ -296,6 +296,7 @@ def get_requirements(request):
             # appends user major name so we can display error message
             requirements.append(curr_user.major.name)
         requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
+
     return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 @login_required

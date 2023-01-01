@@ -6,12 +6,15 @@ import sys
 import collections
 import time
 import copy
+import requests
 
 from . import university_info
 
-MAJORS_LOCATION = "../majors/" # relative path to folder containing the major requirements JSONs
-CERTIFICATES_LOCATION = "../certificates/" # relative path to folder containing the certificate requirements JSONs
-DEGREES_LOCATION = "../degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
+REMOTE_DATA_REPO_URL = "https://raw.githubusercontent.com/PrincetonUSG/Princeton-Departmental-Data/main/"
+
+MAJORS_LOCATION = "majors/" # relative path to folder containing the major requirements JSONs
+CERTIFICATES_LOCATION = "certificates/" # relative path to folder containing the certificate requirements JSONs
+DEGREES_LOCATION = "degrees/" # relative path to the folder containing the AB/BSE requirements JSONs
 
 REQ_PATH_SEPARATOR = '//'
 # REQ_PATH_PREFIX := <type>//<year>//<dept_code or degree_code or certificate_name>
@@ -42,8 +45,8 @@ def check_major(major_name, courses, year):
     if (major_name not in university_info.AB_CONCENTRATIONS
             and major_name not in university_info.BSE_CONCENTRATIONS):
         raise ValueError("Major code not recognized.")
-    major_filename = "%s.json" % major_name
-    major_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, major_filename)
+    major_filename = "%s.yaml" % major_name
+    major_filepath = os.path.join(MAJORS_LOCATION, major_filename)
     return check_requirements(major_filepath, courses, year)
 
 def check_degree(degree_name, courses, year):
@@ -68,8 +71,8 @@ def check_degree(degree_name, courses, year):
         raise ValueError("Year is invalid.")
     if degree_name not in ["AB", "BSE"]:
         raise ValueError("Invalid degree name: %s" % degree_name)
-    degree_filename = "%s.json" % degree_name
-    degree_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, degree_filename)
+    degree_filename = "%s.yaml" % degree_name
+    degree_filepath = os.path.join(DEGREES_LOCATION, degree_filename)
     return check_requirements(degree_filepath, courses, year)
 
 def check_certificate(certificate_name, courses, year):
@@ -96,8 +99,8 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Year is invalid.")
     if (certificate_name not in university_info.CERTIFICATES):
         raise ValueError("Certificate not recognized.")
-    certificate_filename = "%s.json" % certificate_name
-    certificate_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, certificate_filename)
+    certificate_filename = "%s.yaml" % certificate_name
+    certificate_filepath = os.path.join(CERTIFICATES_LOCATION, certificate_filename)
     return check_requirements(certificate_filepath, courses, year)
 
 def check_requirements(req_file, courses, year):
@@ -116,8 +119,8 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    with open(req_file, 'r', encoding="utf8") as f:
-        req = yaml.safe_load(f)
+    data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
+    req = yaml.safe_load(data)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
@@ -154,23 +157,23 @@ def get_courses_by_path(path):
         raise ValueError("Path malformatted.")
     if "/" in req_type or "/" in req_name:
         raise ValueError("Path malformatted.")
-    filename = "%s.json" % req_name
+    filename = "%s.yaml" % req_name
     if req_type == "Major":
         if (req_name not in university_info.AB_CONCENTRATIONS and req_name not in university_info.BSE_CONCENTRATIONS):
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), MAJORS_LOCATION, filename)
+        req_filepath = os.path.join(MAJORS_LOCATION, filename)
     elif req_type == "Certificate":
         if req_name not in university_info.CERTIFICATES:
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), CERTIFICATES_LOCATION, filename)
+        req_filepath = os.path.join(CERTIFICATES_LOCATION, filename)
     elif req_type == "Degree":
         if req_name not in ["AB", "BSE"]:
             raise ValueError("Path malformatted.")
-        req_filepath = os.path.join(_get_dir_path(), DEGREES_LOCATION, filename)
+        req_filepath = os.path.join(DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    with open(req_filepath, 'r', encoding="utf8") as f:
-        req = yaml.safe_load(f)
+    data = requests.get(REMOTE_DATA_REPO_URL + req_filepath).text
+    req = yaml.safe_load(data)
     _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path, year)
     if not subreq:
@@ -279,7 +282,7 @@ def _init_courses(courses, req, year):
         courses = copy.deepcopy(courses)
     for sem_num,semester in enumerate(courses):
         for course in semester:
-            course["name"] = course["name"].split(':')[0]
+            course["name"] = _get_course_name_from_pattern(course["name"])
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
             course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
@@ -605,7 +608,7 @@ def _check_degree_progress(req, courses):
     return num_courses
 
 def _course_match(course_name, pattern):
-    pattern = pattern.split(':')[0] # remove course title
+    pattern = _get_course_name_from_pattern(pattern)
     pattern = ["".join(p.split()).upper() for p in pattern.split('/')] # split by '/' and
     course = ["".join(c.split()).upper() for c in course_name.split('/')] # remove spaces
     for c in course:
@@ -669,7 +672,7 @@ def _get_collapsed_course_and_dist_req_sets(req):
         dist_req_set = set()
         if "course_list" in req:
             for course in req["course_list"]:
-                course = course.split(':')[0] # strip course name
+                course = _get_course_name_from_pattern(course)
                 course_set.add(course)
         if "dist_req" in req:
             dist = req["dist_req"]
@@ -687,6 +690,12 @@ def _get_collapsed_course_and_dist_req_sets(req):
             if dist_req_set:
                 total_dist_req_set |= dist_req_set # union of both sets
     return (total_course_set, total_dist_req_set)
+
+def _get_course_name_from_pattern(pattern):
+    if type(pattern) == dict:
+        return list(pattern.keys())[0]
+    
+    return pattern.split(':')[0] # remove course title
 
 def main():
     with open ("verifier_tests/1.test", "r", encoding="utf8") as f:
