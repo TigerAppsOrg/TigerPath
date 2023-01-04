@@ -285,23 +285,19 @@ def get_schedule(request):
 # returns requirements satisfied
 @login_required
 def get_requirements(request):
-    try:
-        curr_user = request.user.profile
-        schedule = populate_user_schedule(curr_user.user_schedule)
+    curr_user = request.user.profile
+    schedule = populate_user_schedule(curr_user.user_schedule)
 
-        requirements = []
-        if curr_user.major:
-            if curr_user.major.supported:
-                requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
-            else:
-                # appends user major name so we can display error message
-                requirements.append(curr_user.major.name)
-            requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
+    requirements = []
+    if curr_user.major:
+        if curr_user.major.supported:
+            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
+        else:
+            # appends user major name so we can display error message
+            requirements.append(curr_user.major.name)
+        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
 
-        return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
-    except:
-        import traceback
-        print(traceback.format_exc())
+    return HttpResponse(ujson.dumps(requirements, ensure_ascii=False), content_type='application/json')
 
 @login_required
 def update_schedule_and_get_requirements(request):
