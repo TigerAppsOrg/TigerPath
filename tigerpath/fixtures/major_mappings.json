@@ -343,8 +343,8 @@
     "model": "tigerpath.major",
     "pk": 35,
     "fields": {
-      "name": "Electrical Engineering",
-      "code": "ELE",
+      "name": "Electrical and Computer Engineering",
+      "code": "ECE",
       "degree": "BSE",
       "supported": true
     }
