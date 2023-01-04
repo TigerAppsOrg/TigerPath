@@ -2,97 +2,142 @@
 {% load render_bundle from webpack_loader %}
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="TigerPath helps Princeton University students plan out their four-year course schedules.">
 
-    <title>TigerPath - Four-Year Course Planner</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+        content="TigerPath helps Princeton University students plan out their four-year course schedules.">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>TigerPath - Four-Year Course Planner</title>
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet"
+        type="text/css">
 
-    <!-- Intro JS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
+  <!-- FontAwesome -->
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
+  <!-- Intro JS -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'app/css/app-style.css' %}" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+        integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
 
-    {% include 'includes/analytics/analytics_head.html' %}
-  </head>
-  <body>
-    {% include 'includes/analytics/analytics_body.html' %}
+  <!-- Custom styles for this template -->
+  <link href="{% static 'app/css/app-style.css' %}"
+        rel="stylesheet">
 
-    <!-- Banner shown on mobile -->
-    <div id="banner">
-      <div id="banner-content">
-        TigerPath is optimized for desktops/laptops. Please use a device with a larger screen size to get the best experience.
-      </div>
+  {% include 'includes/analytics/analytics_head.html' %}
+</head>
+
+<body>
+  {% include 'includes/analytics/analytics_body.html' %}
+
+  <!-- Banner shown on mobile -->
+  <div id="banner">
+    <div id="banner-content">
+      TigerPath is optimized for desktops/laptops. Please use a device with a larger screen size to
+      get the best experience.
     </div>
+  </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'index' %}">TigerPath</a>
-        <div>
-          <a class="btn nav-btn" href="{% url 'about' %}" target="_blank" rel="noopener noreferrer">About</a>
-          <a class="btn nav-btn" href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank" rel="noopener noreferrer">Feedback</a>
-          <a class="btn nav-btn" href="https://github.com/TigerPathApp/tigerpath" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-          <a id="print-btn" class="btn nav-btn" href="javascript:window.print()" rel="noopener noreferrer"><i class="fas fa-print"></i></a>
-          <div class="dropdown">
-            <a id="netid-btn" class="btn nav-btn dropdown-toggle" href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
-            <div id="netid-dropdown" class="dropdown-menu">
-              <a class="dropdown-item" href="#" id="help-btn">Tutorial<i class="far fa-question-circle ml-2"></i></a>
-              <a class="dropdown-item" href="#" id="settings-btn">Settings</a>
-              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-            </div>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand"
+         href="{% url 'index' %}">TigerPath</a>
+      <div>
+        <a class="btn nav-btn"
+           href="{% url 'about' %}"
+           target="_blank"
+           rel="noopener noreferrer">About</a>
+        <a class="btn nav-btn"
+           href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1"
+           target="_blank"
+           rel="noopener noreferrer">Feedback</a>
+        <a class="btn nav-btn"
+           href="https://github.com/PrincetonUSG/TigerPath"
+           target="_blank"
+           rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+        <a id="print-btn"
+           class="btn nav-btn"
+           href="javascript:window.print()"
+           rel="noopener noreferrer"><i class="fas fa-print"></i></a>
+        <div class="dropdown">
+          <a id="netid-btn"
+             class="btn nav-btn dropdown-toggle"
+             href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
+          <div id="netid-dropdown"
+               class="dropdown-menu">
+            <a class="dropdown-item"
+               href="#"
+               id="help-btn">Tutorial<i class="far fa-question-circle ml-2"></i></a>
+            <a class="dropdown-item"
+               href="#"
+               id="settings-btn">Settings</a>
+            <a class="dropdown-item"
+               href="{% url 'logout' %}">Logout</a>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <div id="app" class="row"></div>
+  <div id="app"
+       class="row"></div>
 
-    <!-- external scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+  <!-- external scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"
+          integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i"
+          crossorigin="anonymous"></script>
 
-    <!-- onboarding and tutorial -->
-    <script src="{% static 'app/js/tutorial.js' %}"></script>
-    {% if onboarding_form %}
-      {% include 'tigerpath/onboarding.html' %}
-      <script src="{% static 'app/js/onboarding.js' %}"></script>
-    {% elif show_tutorial %}
-      <script>
-        $(function() {
-          // start the intro
-          startIntro();
-        });
-      </script>
-    {% endif %}
+  <!-- onboarding and tutorial -->
+  <script src="{% static 'app/js/tutorial.js' %}"></script>
+  {% if onboarding_form %}
+  {% include 'tigerpath/onboarding.html' %}
+  <script src="{% static 'app/js/onboarding.js' %}"></script>
+  {% elif show_tutorial %}
+  <script>
+    $(function () {
+      // start the intro
+      startIntro();
+    });
+  </script>
+  {% endif %}
 
-    <!-- react webpack -->
-    {% render_bundle 'main' %}
+  <!-- react webpack -->
+  {% render_bundle 'main' %}
 
-    <!-- settings -->
-    {% include 'tigerpath/settings.html' %}
-    <script src="{% static 'app/js/settings.js' %}"></script>
+  <!-- settings -->
+  {% include 'tigerpath/settings.html' %}
+  <script src="{% static 'app/js/settings.js' %}"></script>
 
-    <!-- dropdown menu -->
-    <script src="{% static 'app/js/dropdown.js' %}"></script>
+  <!-- dropdown menu -->
+  <script src="{% static 'app/js/dropdown.js' %}"></script>
 
-    <!-- show messages to the user -->
-    {% include 'includes/messages.html' %}
-  </body>
+  <!-- show messages to the user -->
+  {% include 'includes/messages.html' %}
+</body>
+
 </html>

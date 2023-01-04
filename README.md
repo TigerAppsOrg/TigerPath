@@ -4,7 +4,7 @@ TigerPath is a web app that helps Princeton University students plan out their f
 
 You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
-To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/TigerPathApp/tigerpath/blob/master/CONTRIBUTING.md).
+To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
 ## Setup
 
@@ -21,20 +21,21 @@ To learn about contributing to TigerPath, take a look at the [contributing guide
 5. You can start a server with the environment variables in the file `.env` by running `pipenv run python manage.py runserver`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend". Then you can navigate to `http://localhost:8000/` to see the app.
 
 ### Docker Community Edition
-*Note: this installation method is not recommended because you have to re-build and re-run for every change you make.*
 
-1. `git clone` this repository. `cd` into the directory you just cloned. 
+_Note: this installation method is not recommended because you have to re-build and re-run for every change you make._
+
+1. `git clone` this repository. `cd` into the directory you just cloned.
 
 2. Install the [Docker Community Edition](https://www.docker.com/community-edition). Make sure you also have [Docker Compose](https://docs.docker.com/compose/install) installed (should be automatically installed on Windows and Mac).
 
 3. Run `cp .env-example .env`. Then, set the environment variables in your `.env` file; specifically, you should replace the value of `DATABASE_URL` with the proper database URL for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields if you want the prepopulation of the user's year and major in the onboarding flow to work (you can get a TigerBook API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
 
 4. Use the following commands to build your project and run it on a local server:
-    ```
-    docker-compose build                                    # Build code changes
-    docker-compose up                                       # Run a local server at http://localhost:8000
-    docker-compose down                                     # Stop the server
-    ```
+   ```
+   docker-compose build                                    # Build code changes
+   docker-compose up                                       # Run a local server at http://localhost:8000
+   docker-compose down                                     # Stop the server
+   ```
 
 ## Development
 
@@ -72,6 +73,7 @@ python manage.py loaddata major_mappings
 Heroku deploys are set up to happen automatically based on the code in GitHub. You shouldn't need to deploy manually.
 
 However, in the rare case that you do, then you can run the following command:
+
 ```
 git push heroku <local_branch_name>:master                    # Push to the Heroku server
 ```
