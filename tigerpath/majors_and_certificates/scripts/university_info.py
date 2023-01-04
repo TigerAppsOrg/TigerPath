@@ -184,7 +184,7 @@ BSE_CONCENTRATIONS = {
     "CBE": "Chemical and Biological Engineering",
     "CEE": "Civil and Environmental Engineering",
     "COS-BSE": "Computer Science - B.S.E.",
-    "ELE": "Electrical Engineering",
+    "ECE": "Electrical and Computer Engineering",
     "MAE": "Mechanical and Aerospace Engineering",
     "ORF": "Operations Research and Financial Engineering",
 }
