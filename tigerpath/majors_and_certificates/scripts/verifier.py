@@ -119,6 +119,7 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
+    print(REMOTE_DATA_REPO_URL + req_file)
     data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
     req = yaml.safe_load(data)
     courses = _init_courses(courses, req, year)
@@ -288,6 +289,7 @@ def _init_courses(courses, req, year):
             course["reqs_double_counted"] = [] # reqs satisfied for which double counting allowed
             course["semester_number"] = sem_num
             course["num_settleable"] = 0 # number of reqs to which can be settled. autosettled if 1
+            print(req)
             if "external" not in course:
                 course["external"] = False
             if "settled" not in course or course["settled"] == None:
