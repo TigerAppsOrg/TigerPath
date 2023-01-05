@@ -1,1 +1,0 @@
-# Majors (Concentrations)
