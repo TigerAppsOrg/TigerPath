@@ -142,8 +142,8 @@ AB_DEPTS = {
     "REL": "Religion",
     "SLA": "Slavic Languages and Lit",
     "SOC": "Sociology",
+    "SPI": "Public and International Affairs",
     "SPO": "Spanish and Portuguese",
-    "WWS": "Public and International Affairs",
 }
 
 AB_CONCENTRATIONS = {
@@ -176,8 +176,8 @@ AB_CONCENTRATIONS = {
     "REL": "Religion",
     "SLA": "Slavic Languages and Literatures",
     "SOC": "Sociology",
+    "SPI": "Public and International Affairs",
     "SPO": "Spanish and Portuguese",
-    "WWS": "Public and International Affairs",
 }
 
 BSE_CONCENTRATIONS = {
