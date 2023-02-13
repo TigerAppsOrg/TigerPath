@@ -3,7 +3,7 @@ import os
 
 
 DEBUG = False
-ADMIN_ENABLED = DEBUG
+ADMIN_ENABLED = True
 
 WEBPACK_LOADER = {
     'DEFAULT': {
