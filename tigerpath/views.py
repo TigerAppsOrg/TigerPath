@@ -51,8 +51,8 @@ def index(request):
             # the user has completed the onboarding form but not the tutorial
             if not request.user.profile.major:
                 # add onboarding form
-                initial_values = get_onboarding_initial_values(request.user.username)
-                onboarding_form = forms.OnboardingForm(initial=initial_values)
+                # initial_values = get_onboarding_initial_values(request.user.username)
+                onboarding_form = forms.OnboardingForm()
                 context["onboarding_form"] = onboarding_form
             else:
                 # show tutorial
