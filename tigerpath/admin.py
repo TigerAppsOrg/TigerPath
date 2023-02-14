@@ -9,6 +9,7 @@ from tigerpath.models import (
     Section,
     Semester,
     UserProfile,
+    UserProfileAdmin,
 )
 
 # Register your models here.
@@ -19,4 +20,4 @@ admin.site.register(Section)
 admin.site.register(Meeting)
 admin.site.register(Course_Listing)
 admin.site.register(Major)
-admin.site.register(UserProfile)
+admin.site.register(UserProfile, UserProfileAdmin)

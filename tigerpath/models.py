@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.postgres.fields import JSONField, ArrayField
+from django.contrib import admin
 
 import uuid
 
@@ -161,6 +162,9 @@ class UserProfile(models.Model):
     user_state = JSONField(null=True, blank=True)
     user_schedule = JSONField(null=True, blank=True)
 
+
+class UserProfileAdmin(admin.ModelAdmin):
+    search_fields = ["user", "major", "year"]
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
