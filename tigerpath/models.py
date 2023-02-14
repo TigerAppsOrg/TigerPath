@@ -20,15 +20,16 @@ class Semester(models.Model):
     1132 = 1213Fall
     """
     term_code = models.CharField(
-        max_length=4, default=max(settings.ACTIVE_TERMS), db_index=True, unique=True)
+        max_length=4, default=max(settings.ACTIVE_TERMS), db_index=True, unique=True
+    )
 
     def __unicode__(self):
         end_year = int(self.term_code[1:3])
         start_year = end_year - 1
         if int(self.term_code[3]) == 2:
-            sem = 'Fall'
+            sem = "Fall"
         else:
-            sem = 'Spring'
+            sem = "Spring"
         return str(start_year) + "-" + str(end_year) + " " + sem
 
 
@@ -57,9 +58,14 @@ class Course(models.Model):
 
     def course_listings(self):
         # + ' ' + ': ' + self.title
-        return " / ".join([unicode(course_listing) for course_listing in self.course_listing_set.all().order_by('dept')])
+        return " / ".join(
+            [
+                unicode(course_listing)
+                for course_listing in self.course_listing_set.all().order_by("dept")
+            ]
+        )
 
-    course_listings.admin_order_field = 'course_listings'
+    course_listings.admin_order_field = "course_listings"
 
     def primary_listing(self):
         """
@@ -69,10 +75,16 @@ class Course(models.Model):
 
     def __unicode__(self):
         # + ' ' + ': ' + self.title
-        return " / ".join([unicode(course_listing) for course_listing in self.course_listing_set.all().order_by('dept')])
+        return " / ".join(
+            [
+                unicode(course_listing)
+                for course_listing in self.course_listing_set.all().order_by("dept")
+            ]
+        )
 
     class Meta:
         pass
+
     # ordering = ['semester', 'course_listings']
 
 
@@ -97,14 +109,16 @@ class Section(models.Model):
         (TYPE_LECTURE, "lecture"),
         (TYPE_PRECEPT, "precept"),
         (TYPE_SEMINAR, "seminar"),
-        (TYPE_STUDIO, "studio")
+        (TYPE_STUDIO, "studio"),
     )
 
     # relationships
-    course = models.ForeignKey(Course, related_name="sections", on_delete=models.CASCADE)
+    course = models.ForeignKey(
+        Course, related_name="sections", on_delete=models.CASCADE
+    )
 
     # fields
-    name = models.CharField(max_length=100, default='')
+    name = models.CharField(max_length=100, default="")
 
     """ if true, then everyone in the course is automatically enrolled in this section """
     isDefault = models.BooleanField(default=False)
@@ -114,35 +128,39 @@ class Section(models.Model):
     section_registrar_id = models.CharField(max_length=20, default="")
 
     def __unicode__(self):
-        return self.course.primary_listing() + ' - ' + self.name
+        return self.course.primary_listing() + " - " + self.name
 
     class Meta:
-        ordering = ['course', 'name']
+        ordering = ["course", "name"]
 
 
 class Meeting(models.Model):
-    section = models.ForeignKey(Section, related_name="meetings", on_delete=models.CASCADE)
+    section = models.ForeignKey(
+        Section, related_name="meetings", on_delete=models.CASCADE
+    )
     start_time = models.CharField(max_length=20)
     end_time = models.CharField(max_length=20)
     days = models.CharField(max_length=10)
     location = models.CharField(max_length=50)
 
     def __unicode__(self):
-        return unicode(self.section) + ' - ' + self.location
+        return unicode(self.section) + " - " + self.location
 
 
 class Course_Listing(models.Model):
-    course = models.ForeignKey(Course, related_name="course_listing_set", on_delete=models.CASCADE)
+    course = models.ForeignKey(
+        Course, related_name="course_listing_set", on_delete=models.CASCADE
+    )
     # Even though the max_length should be 3~4, there are extreme cases.
     dept = models.CharField(max_length=10)
     number = models.CharField(max_length=10)
     is_primary = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return self.dept + ' ' + self.number
+        return self.dept + " " + self.number
 
     class Meta:
-        ordering = ['dept', 'number']
+        ordering = ["dept", "number"]
 
 
 class Major(models.Model):
@@ -153,11 +171,11 @@ class Major(models.Model):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User,
-                                on_delete=models.CASCADE,
-                                related_name='profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
     nickname = models.CharField(max_length=50, null=True, blank=True)
-    major = models.ForeignKey(Major, related_name="+", on_delete=models.CASCADE, null=True)
+    major = models.ForeignKey(
+        Major, related_name="+", on_delete=models.CASCADE, null=True
+    )
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
     user_schedule = JSONField(null=True, blank=True)
@@ -166,9 +184,10 @@ class UserProfile(models.Model):
 class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ["user", "major", "year"]
 
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
-        profile = UserProfile.objects.create(user=instance, user_state={
-            'onboarding_complete': False
-            })
+        profile = UserProfile.objects.create(
+            user=instance, user_state={"onboarding_complete": False}
+        )

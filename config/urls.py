@@ -19,9 +19,14 @@ from django.conf import settings
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', include('tigerpath.urls')),
+    path("", include("tigerpath.urls")),
 ]
 
 if settings.ADMIN_ENABLED:
-    urlpatterns.append(path('admin/', admin.site.urls))
-    urlpatterns.append(path('login/admin', auth_views.LoginView.as_view(template_name='admin/login.html')))
+    urlpatterns.append(path("admin/", admin.site.urls))
+    urlpatterns.append(
+        path(
+            "login/admin",
+            auth_views.LoginView.as_view(template_name="admin/login.html"),
+        )
+    )

@@ -250,9 +250,9 @@ CERTIFICATES = {
 # language departments
 LANG_DEPTS = {
     "ARA": "Arabic",
-    "BCS": "Bosnian-Croatian-Serbian", # TODO: confirm
-    #"???": "Bulgarian" # TODO: confirm
-    "SLA": "Slavic Languages and Lit", # TODO: confirm
+    "BCS": "Bosnian-Croatian-Serbian",  # TODO: confirm
+    # "???": "Bulgarian" # TODO: confirm
+    "SLA": "Slavic Languages and Lit",  # TODO: confirm
     "CHI": "Chinese",
     "CZE": "Czech",
     "FRE": "French",
@@ -266,13 +266,13 @@ LANG_DEPTS = {
     "KOR": "Korean",
     "LAT": "Latin",
     "PER": "Persian",
-    "PLS": "Polish", # TODO: confirm
-    "POR": "Portuguese", # TODO: confirm
+    "PLS": "Polish",  # TODO: confirm
+    "POR": "Portuguese",  # TODO: confirm
     "RUS": "Russian",
     "SAN": "Sanskrit",
     "SPA": "Spanish",
     "SWA": "Swahili",
     "TUR": "Turkish",
-    "TWI": "Twi", # TODO: confirm
+    "TWI": "Twi",  # TODO: confirm
     "URD": "Urdu",
-} # unsure if some of these can count for AB foreign language requirement. TODO: confirm
+}  # unsure if some of these can count for AB foreign language requirement. TODO: confirm

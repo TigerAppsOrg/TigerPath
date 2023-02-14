@@ -11,12 +11,11 @@ import base64
 from os import environ
 
 
-CONSUMER_KEY = environ['CONSUMER_KEY']
-CONSUMER_SECRET = environ['CONSUMER_SECRET']
+CONSUMER_KEY = environ["CONSUMER_KEY"]
+CONSUMER_SECRET = environ["CONSUMER_SECRET"]
 
 
 class MobileApp:
-
     def __init__(self):
         self.configs = Configs()
 
@@ -40,13 +39,13 @@ class MobileApp:
     # returns a commma-separated string of all department codes
 
     def get_all_dept_codes_csv(self):
-        data = self._getJSON(self.configs.COURSE_COURSES, 'subject=list')
-        return ','.join([e['code'] for e in data['term'][0]['subjects']])
+        data = self._getJSON(self.configs.COURSE_COURSES, "subject=list")
+        return ",".join([e["code"] for e in data["term"][0]["subjects"]])
 
     # returns a raw JSON of all department codes
 
     def get_all_dept_codes_json(self):
-        return self._getJSON(self.configs.COURSE_COURSES, 'subject=list')
+        return self._getJSON(self.configs.COURSE_COURSES, "subject=list")
 
     # wrapper function for _getJSON with the courses/terms endpoint.
     # takes no arguments.
@@ -83,14 +82,14 @@ class MobileApp:
         except:
             return []
 
-    '''
+    """
     This function allows a user to make a request to 
     a certain endpoint, with the BASE_URL of 
     https://api.princeton.edu:443/mobile-app
 
     The parameters kwargs are keyword arguments. It
     symbolizes a variable number of arguments 
-    '''
+    """
 
     def _getJSON(self, endpoint, **kwargs):
         req = requests.get(
@@ -124,24 +123,27 @@ class Configs:
     def __init__(self):
         self.CONSUMER_KEY = CONSUMER_KEY
         self.CONSUMER_SECRET = CONSUMER_SECRET
-        self.BASE_URL = 'https://api.princeton.edu:443/student-app/1.0.1'
-        self.COURSE_COURSES = '/courses/courses'
-        self.COURSE_DETAILS = '/courses/details'
+        self.BASE_URL = "https://api.princeton.edu:443/student-app/1.0.1"
+        self.COURSE_COURSES = "/courses/courses"
+        self.COURSE_DETAILS = "/courses/details"
         self.COURSE_TERMS = "/courses/terms"
-        self.REFRESH_TOKEN_URL = 'https://api.princeton.edu:443/token'
-        self._refreshToken(grant_type='client_credentials')
+        self.REFRESH_TOKEN_URL = "https://api.princeton.edu:443/token"
+        self._refreshToken(grant_type="client_credentials")
 
     def _refreshToken(self, **kwargs):
         req = requests.post(
             self.REFRESH_TOKEN_URL,
             data=kwargs,
             headers={
-                'Authorization': 'Basic ' + base64.b64encode(bytes(self.CONSUMER_KEY + ':' + self.CONSUMER_SECRET, 'utf-8')).decode('utf-8')
+                "Authorization": "Basic "
+                + base64.b64encode(
+                    bytes(self.CONSUMER_KEY + ":" + self.CONSUMER_SECRET, "utf-8")
+                ).decode("utf-8")
             },
         )
         text = req.text
         response = json.loads(text)
-        self.ACCESS_TOKEN = response['access_token']
+        self.ACCESS_TOKEN = response["access_token"]
 
 
 def main():
@@ -151,5 +153,5 @@ def main():
     print(api.get_active_term_codes(n_recent_terms=8))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

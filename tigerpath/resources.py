@@ -5,20 +5,23 @@ from .models import Course
 from .models import Professor
 from .models import Section
 
+
 class ProfessorResource(ModelResource):
     class Meta:
         queryset = Professor.objects.all()
-        resource_name = 'professor'
+        resource_name = "professor"
         limit = 0
+
 
 class CourseResource(ModelResource):
     class Meta:
         queryset = Course.objects.all()
-        resource_name = 'course'
+        resource_name = "course"
         limit = 0
+
 
 class SectionResource(ModelResource):
     class Meta:
         queryset = Section.objects.all()
-        resource_name = 'section'
+        resource_name = "section"
         limit = 0
