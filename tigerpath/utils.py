@@ -6,6 +6,7 @@ import requests
 
 TIGERBOOK_BASE_URL = "https://tigerbook.herokuapp.com/api/v1/undergraduates/"
 
+# DO NOT CALL THIS METHOD WHILE TIGERBOOK API IS DOWN.
 # Get information about the student with the specified netid from Tigerbook
 def get_student_info(netid):
     url = TIGERBOOK_BASE_URL + netid
