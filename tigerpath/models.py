@@ -169,6 +169,9 @@ class Major(models.Model):
     degree = models.CharField(max_length=3)
     supported = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f"{self.code} ({self.degree})"
+
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
@@ -179,6 +182,9 @@ class UserProfile(models.Model):
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
     user_schedule = JSONField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user.username}"
 
 
 class UserProfileAdmin(admin.ModelAdmin):
