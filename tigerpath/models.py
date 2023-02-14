@@ -188,7 +188,7 @@ class UserProfile(models.Model):
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    search_fields = ["user", "major", "year"]
+    search_fields = ["user__username"]
 
 
 @receiver(post_save, sender=User)
