@@ -6,18 +6,6 @@ You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
 To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
-<!-- ## Setup
-
-1. `git clone` this repository. Install [Python 3.6](https://www.python.org), [node.js](https://nodejs.org/en/), and [pipenv](https://github.com/pypa/pipenv) (which helps you manage your dependencies).
-
-2. Run `cd tigerpath && pipenv install` to install all of the current dependencies from Pipfile.lock.
-
-3. Run `cd frontend && npm install` to install the necessary node modules for React to work.
-
-4. Run `cd .. && cp .env-example .env`. Then, set the environment variables in your `.env` file; specifically, you should replace the value of `DATABASE_URL` with the proper database URL for your Postgres server. You should also fill in the `TIGERBOOK_USERNAME` and `TIGERBOOK_API_KEY` fields if you want the prepopulation of the user's year and major in the onboarding flow to work (you can get a TigerBook API key by following the instructions [here](https://github.com/alibresco/tigerbook-api)).
-
-5. You can start a server with the environment variables in the file `.env` by running `pipenv run python manage.py runserver`. For development, run the webpack server (React) along with the Django server by calling `npm start` in the folder "frontend". Then you can navigate to `http://localhost:8000/` to see the app. -->
-
 # Running locally
 
 ## Initial setup
@@ -42,6 +30,7 @@ To learn about contributing to TigerPath, take a look at the [contributing guide
 ### Node packages
 
 1. Run `cd frontend && npm install` to install all required frontend packages
+   - You might have to install `node` if you haven't already: https://formulae.brew.sh/formula/node
 
 ## Running the dev server
 
