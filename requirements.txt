@@ -132,7 +132,7 @@ traitlets==5.9.0
 twilio==6.63.0
 tzdata==2022.7
 tzlocal==2.1
-ujson==1.35
+ujson==5.4.0
 uri-template==1.2.0
 urllib3==1.25.4
 wcwidth==0.2.6
