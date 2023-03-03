@@ -134,7 +134,7 @@ tzdata==2022.7
 tzlocal==2.1
 ujson==1.35
 uri-template==1.2.0
-urllib3==1.25.4
+urllib3==1.26.5
 wcwidth==0.2.6
 webcolors==1.12
 webdriver-manager==3.8.5
