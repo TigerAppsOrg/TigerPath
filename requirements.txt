@@ -97,7 +97,7 @@ Pygments==2.14.0
 PyJWT==1.7.1
 pymongo==3.11.3
 pyOpenSSL==23.0.0
-PyPDF2==1.27.5
+PyPDF2==1.27.9
 pyrsistent==0.19.3
 python-cas==1.4.0
 python-dateutil==2.8.2
