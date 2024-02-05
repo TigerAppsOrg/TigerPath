@@ -126,7 +126,7 @@ sqlparse==0.4.4
 stack-data==0.6.2
 terminado==0.17.1
 tinycss2==1.2.1
-tornado==6.2
+tornado==6.3.2
 tqdm==4.64.1
 traitlets==5.9.0
 twilio==6.63.0
