@@ -11,7 +11,7 @@ import requests
 from . import university_info
 
 REMOTE_DATA_REPO_URL = (
-    "https://raw.githubusercontent.com/TigerAppsOrg/Princeton-Departmental-Data/old"
+    "https://raw.githubusercontent.com/TigerAppsOrg/Princeton-Departmental-Data/old/"
 )
 
 MAJORS_LOCATION = (
