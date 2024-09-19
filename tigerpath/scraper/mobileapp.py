@@ -70,9 +70,10 @@ class MobileApp:
         if n_recent_terms < 1:
             raise Exception("n_recent_terms must be >= 1")
 
-        res = self.get_terms()
+        # res = self.get_terms()
         try:
-            term_codes = [res["term"][0]["code"]]
+            # term_codes = [res["term"][0]["code"]]
+            term_codes = [1252, 1244, 1242, 1234, 1232, 1224, 1222, 1214]
             curr = term_codes[0]
             for _ in range(n_recent_terms - 1):
                 prev_term_code = construct_prev_term_code(curr)
