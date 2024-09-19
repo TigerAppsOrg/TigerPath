@@ -101,7 +101,7 @@ class MobileApp:
 
         # Check to see if the response failed due to invalid credentials
         text = self._updateConfigs(text, endpoint, **kwargs)
-
+        print(text)
         return json.loads(text)
 
     def _updateConfigs(self, text, endpoint, **kwargs):
