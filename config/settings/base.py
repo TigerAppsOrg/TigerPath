@@ -153,4 +153,5 @@ CAS_LOGOUT_COMPLETELY = False
 #
 # By convention, we keep the 8 most recent semesters in this array.
 # Please update this array if you are scraping for new courses.
-ACTIVE_TERMS = MobileApp().get_active_term_codes(n_recent_terms=8)
+# ACTIVE_TERMS = MobileApp().get_active_term_codes(n_recent_terms=8)
+ACTIVE_TERMS = [1252, 1244, 1242, 1234, 1232, 1224, 1222, 1214]
