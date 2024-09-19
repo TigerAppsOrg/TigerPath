@@ -9,6 +9,7 @@ import requests
 import json
 import base64
 from os import environ
+import sys
 
 
 CONSUMER_KEY = environ["CONSUMER_KEY"]
@@ -102,6 +103,7 @@ class MobileApp:
         # Check to see if the response failed due to invalid credentials
         text = self._updateConfigs(text, endpoint, **kwargs)
         print(text)
+        sys.stdout.flush()
         return json.loads(text)
 
     def _updateConfigs(self, text, endpoint, **kwargs):
