@@ -101,6 +101,8 @@ DATABASES = {}
 # Keep DB connections open briefly / fail fast when unreachable to avoid H12s
 DATABASES["default"] = dj_database_url.config(conn_max_age=60)
 if DATABASES.get("default"):
+    # Health checks prevent stale pooled connections
+    DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
     DATABASES["default"].setdefault("OPTIONS", {})
     # libpq connect timeout in seconds; keeps requests from hanging a worker
     DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
