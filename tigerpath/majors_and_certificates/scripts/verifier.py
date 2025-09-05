@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import yaml
+from functools import lru_cache
 from pprint import pprint
 import os
 import sys
@@ -13,6 +14,21 @@ from . import university_info
 REMOTE_DATA_REPO_URL = (
     "https://raw.githubusercontent.com/TigerAppsOrg/Princeton-Departmental-Data/old/"
 )
+
+# connect/read timeouts so requests never hang workers indefinitely
+_HTTP_TIMEOUT = (3.05, 7)
+
+
+@lru_cache(maxsize=256)
+def _fetch_remote_yaml(path: str):
+    """
+    Fetch and parse YAML from the remote requirements repository with a timeout.
+
+    Results are cached in-process to avoid repeated network requests on hot paths.
+    """
+    resp = requests.get(REMOTE_DATA_REPO_URL + path, timeout=_HTTP_TIMEOUT)
+    resp.raise_for_status()
+    return yaml.safe_load(resp.text)
 
 MAJORS_LOCATION = (
     "majors/"  # relative path to folder containing the major requirements JSONs
@@ -131,8 +147,7 @@ def check_requirements(req_file, courses, year):
     :returns: A simplified json with info about how much of each requirement is satisfied
     :rtype: (bool, dict, dict)
     """
-    data = requests.get(REMOTE_DATA_REPO_URL + req_file).text
-    req = yaml.safe_load(data)
+    req = _fetch_remote_yaml(req_file)
     courses = _init_courses(courses, req, year)
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
@@ -188,8 +203,7 @@ def get_courses_by_path(path):
         req_filepath = os.path.join(DEGREES_LOCATION, filename)
     else:
         raise ValueError("Path malformatted.")
-    data = requests.get(REMOTE_DATA_REPO_URL + req_filepath).text
-    req = yaml.safe_load(data)
+    req = _fetch_remote_yaml(req_filepath)
     _init_year_switch(req, year)
     subreq = _get_req_by_path(req, path, year)
     if not subreq:
