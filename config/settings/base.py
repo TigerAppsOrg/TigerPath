@@ -98,7 +98,12 @@ SECRET_KEY = os.getenv(
 )
 
 DATABASES = {}
-DATABASES["default"] = dj_database_url.config()
+# Keep DB connections open briefly / fail fast when unreachable to avoid H12s
+DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+if DATABASES.get("default"):
+    DATABASES["default"].setdefault("OPTIONS", {})
+    # libpq connect timeout in seconds; keeps requests from hanging a worker
+    DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
 
 
 # Static files (CSS, JavaScript, Images)
