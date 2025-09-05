@@ -5,12 +5,13 @@ import hashlib
 import requests
 
 TIGERBOOK_BASE_URL = "https://tigerbook.herokuapp.com/api/v1/undergraduates/"
+_HTTP_TIMEOUT = (3.05, 7)
 
 # DO NOT CALL THIS METHOD WHILE TIGERBOOK API IS DOWN.
 # Get information about the student with the specified netid from Tigerbook
 def get_student_info(netid):
     url = TIGERBOOK_BASE_URL + netid
-    r = requests.get(url, headers=create_tigerbook_wsse_headers())
+    r = requests.get(url, headers=create_tigerbook_wsse_headers(), timeout=_HTTP_TIMEOUT)
     return r.json() if r.status_code == 200 else None
 
 
