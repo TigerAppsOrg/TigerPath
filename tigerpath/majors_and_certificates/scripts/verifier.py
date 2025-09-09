@@ -11,8 +11,11 @@ import requests
 
 from . import university_info
 
-REMOTE_DATA_REPO_URL = (
-    "https://raw.githubusercontent.com/TigerAppsOrg/Princeton-Departmental-Data/old/"
+# Allow overriding the data repo base via env var for easy testing
+# Must end with a trailing slash and point to a raw.githubusercontent.com base
+REMOTE_DATA_REPO_URL = os.getenv(
+    "DEPT_DATA_URL",
+    "https://raw.githubusercontent.com/TigerAppsOrg/Princeton-Departmental-Data/old/",
 )
 
 # connect/read timeouts so requests never hang workers indefinitely
@@ -237,8 +240,10 @@ def _format_req_output(req):
         output["contacts"] = []
         for contact in req["contacts"]:
             contact_copy = collections.OrderedDict()
-            for key in ["type", "name", "email"]:
-                contact_copy[key] = contact[key]
+            # Be resilient to missing fields in upstream data
+            contact_copy["type"] = contact.get("type", "")
+            contact_copy["name"] = contact.get("name", "")
+            contact_copy["email"] = contact.get("email", "")
             output["contacts"].append(contact_copy)
     for key in ["explanation", "pdfs_allowed", "completed_by_semester"]:
         if key in req:
