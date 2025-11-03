@@ -1,4 +1,6 @@
 import os
+import re
+import urllib.parse
 import dj_database_url
 
 from tigerpath.scraper.mobileapp import MobileApp
@@ -99,7 +101,46 @@ SECRET_KEY = os.getenv(
 
 DATABASES = {}
 # Keep DB connections open briefly / fail fast when unreachable to avoid H12s
-DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+# Handle URL-encoded passwords properly for dj-database-url
+database_url = os.getenv("DATABASE_URL", "")
+if database_url:
+    # dj-database-url may have issues with URL-encoded passwords containing # and !
+    # First try the standard approach
+    try:
+        DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+        # Verify it parsed correctly (check if we got a valid config)
+        if not DATABASES.get("default") or not DATABASES["default"].get("ENGINE"):
+            raise ValueError("Invalid database config")
+    except Exception:
+        # If parsing fails, manually parse and construct the config
+        # This handles URLs with special characters in passwords
+        # Extract components using regex to avoid urlparse issues with # in password
+        match = re.match(
+            r"postgresql://([^:]+):([^@]+)@([^:/]+):?(\d+)?/(.+)", database_url
+        )
+        if match:
+            username, password, hostname, port, database = match.groups()
+            # Decode URL-encoded components
+            username = urllib.parse.unquote(username)
+            password = urllib.parse.unquote(password)
+            database = urllib.parse.unquote(database)
+            port = int(port) if port else 5432
+
+            DATABASES["default"] = {
+                "ENGINE": "django.db.backends.postgresql",
+                "NAME": database,
+                "USER": username,
+                "PASSWORD": password,
+                "HOST": hostname,
+                "PORT": port,
+                "CONN_MAX_AGE": 60,
+            }
+        else:
+            # Fallback to dj_database_url if regex doesn't match
+            DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+else:
+    DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+
 if DATABASES.get("default"):
     # Health checks prevent stale pooled connections
     DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
