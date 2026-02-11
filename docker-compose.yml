@@ -11,7 +11,7 @@ services:
       - tigerpath-volume:/target
   react:
     image: react
-    command: npm start
+    command: bun run start
     ports:
       - 3000:3000
     volumes:
@@ -28,7 +28,7 @@ services:
       - tigerpath-volume:/target
   web:
     image: web
-    command: pipenv run python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
       - 8000:8000
     env_file:

@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "postinstall": "cd frontend && npm install"
+    "postinstall": "cd frontend && bun install"
   },
   "engines": {
-    "node": "10.15.x"
+    "bun": "1.3.x"
   },
   "cacheDirectories": [
     "frontend/node_modules"

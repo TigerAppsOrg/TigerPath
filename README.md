@@ -12,33 +12,34 @@ To learn about contributing to TigerPath, take a look at the [contributing guide
 
 ### Python environment
 
-1. Create a new conda environment: `conda create -n tigerpath`
-1. Activate the conda environment: `conda activate tigerpath`
-1. Install python: `conda install python=3.9`
-1. Clone this repo and `cd` into the base TigerPath directory
-1. Install dependencies: `pip install -r requirements.txt`
-   - If you're running into a `psycopg2` error (`pg_config executable not found`), you probably have to install `postgresql`: https://stackoverflow.com/a/24645416
-1. Run `conda list` to validate that all packages in `requirements.txt` were installed
-1. Set all environment variables:
+1. Install `uv`: https://docs.astral.sh/uv/getting-started/installation/
+2. Clone this repo and `cd` into the base TigerPath directory
+3. Install Python 3.11 with `uv`: `uv python install 3.11`
+4. Create a virtual environment: `uv venv --python 3.11`
+5. Activate it: `source .venv/bin/activate`
+6. Install dependencies: `uv pip sync requirements.txt`
+   - This uses `psycopg2-binary` (wheel-backed on modern Python), so you should not need local PostgreSQL headers/tools for dependency install in normal dev setups.
+7. Set all environment variables:
    - Login to Heroku and go to the Settings tab for the `tigerpath333-dev` app (do NOT use prod!)
    - Reveal Config Vars
-   - For each Config Var key-value pair, create a local environment variable: `conda env config vars set key=value` (replace `key` and `value` with the actual key and value)
-   - After setting all env vars, reactivate your conda environment: `conda activate tigerpath`
+   - Copy `.env-example` to `.env`, then add each Config Var key-value pair to `.env` (replace placeholders with real values)
    - Note that for `SECRET_KEY`, you might get an error so you can set its value to `1`
-1. Run `conda env config vars list` to validate all env vars were set
+8. Export env vars into your shell before running Django:
+   - `set -a; source .env; set +a`
 
-### Node packages
+### Frontend packages
 
-1. Run `cd frontend && npm install` to install all required frontend packages
-   - You might have to install `node` if you haven't already: https://formulae.brew.sh/formula/node
+1. Install Bun: https://bun.sh/docs/installation
+2. Run `cd frontend && bun install` to install all required frontend packages
 
 ## Running the dev server
 
 After following the initial setup steps above, you can run the local development server:
 
-1. Activate your environment: `conda activate tigerpath`
-1. Run the backend server: `python manage.py runserver`
-1. Run the frontend server in a separate terminal window: `cd frontend && npm start`
+1. Activate your environment: `source .venv/bin/activate`
+2. Export env vars: `set -a; source .env; set +a`
+3. Run the backend server: `python manage.py runserver`
+4. Run the frontend server in a separate terminal window: `cd frontend && bun run start`
    - Visit `http://localhost:8000/` to verify the server is up and running
 
 # Other important things

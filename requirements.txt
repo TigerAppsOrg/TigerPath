@@ -64,7 +64,7 @@ jupyter_server==2.3.0
 jupyter_server_terminals==0.4.4
 jupyterlab-pygments==0.2.2
 jupyterlab-widgets==3.0.5
-lxml==4.6.3
+lxml==4.9.4
 Markdown==3.3.6
 MarkupSafe==2.1.2
 matplotlib-inline==0.1.6
@@ -88,8 +88,7 @@ platformdirs==3.0.0
 prometheus-client==0.16.0
 prompt-toolkit==3.0.37
 psutil==5.9.4
-psycopg2==2.8.6
-psycopg2-binary==2.8.6
+psycopg2-binary==2.9.9
 ptyprocess==0.7.0
 pure-eval==0.2.2
 pycparser==2.21
@@ -106,7 +105,7 @@ python-http-client==3.3.7
 python-json-logger==2.0.7
 pytz==2018.9
 pytz-deprecation-shim==0.1.0.post0
-PyYAML==5.4
+PyYAML==6.0.2
 pyzmq==25.0.0
 qtconsole==5.4.0
 QtPy==2.3.0
