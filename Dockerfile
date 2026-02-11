@@ -1,28 +1,41 @@
-# Use Python
-FROM python:3.11
+# ---------- base ----------
+FROM python:3.11-slim AS base
 
-# Arguments
 ARG APP_DIR=/opt/tigerpath
-
-# Create a new folder
-RUN mkdir "$APP_DIR"
-
-# Set working directory
+RUN mkdir -p "$APP_DIR"
 WORKDIR "$APP_DIR"
 
-# Install uv and python dependencies
 RUN pip install uv
-ADD requirements.txt "$APP_DIR"
+COPY requirements.txt .
 RUN uv pip install --system -r requirements.txt
 
-# Generate webpack stats file
-RUN echo '{"status":"done","publicPath":"http://localhost:3000/","chunks":{"main":[{"name":"static/js/bundle.js","publicPath":"http://localhost:3000/static/js/bundle.js","path":"/opt/tigerpath/frontend/static/js/bundle.js"},{"name":"static/js/bundle.js.map","publicPath":"http://localhost:3000/static/js/bundle.js.map","path":"/opt/tigerpath/frontend/static/js/bundle.js.map"}]}}' > webpack-stats.dev.json
+COPY . .
 
-# Expose ports
+# ---------- development ----------
+FROM base AS development
 EXPOSE 8000
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-# Add all the files
-ADD . "$APP_DIR"
+# ---------- frontend (dev server) ----------
+FROM oven/bun:1.3.8 AS frontend
+WORKDIR /opt/tigerpath/frontend
+COPY frontend/package.json frontend/bun.lock ./
+RUN bun install --frozen-lockfile --ignore-scripts
+COPY frontend .
+EXPOSE 3000
+CMD ["bun", "run", "dev", "--host", "0.0.0.0"]
 
-# Collect static files
+# ---------- production ----------
+FROM base AS production
+
+# Build frontend assets (requires bun)
+RUN apt-get update && apt-get install -y --no-install-recommends curl unzip \
+    && curl -fsSL https://bun.sh/install | bash \
+    && export PATH="$HOME/.bun/bin:$PATH" \
+    && cd frontend && bun install --frozen-lockfile && bun run build \
+    && apt-get purge -y curl unzip && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+
 RUN python manage.py collectstatic --noinput
+
+EXPOSE 8000
+CMD ["gunicorn", "config.wsgi:application", "-w", "4", "--bind", "0.0.0.0:8000", "--timeout", "600"]

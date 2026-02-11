@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0008_course_dist_area'),
+        ("tigerpath", "0008_course_dist_area"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='course',
-            name='semesters',
-            field=models.TextField(default=''),
+            model_name="course",
+            name="semesters",
+            field=models.TextField(default=""),
         ),
     ]

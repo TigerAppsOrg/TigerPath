@@ -1,17 +1,10 @@
 from .base import *
-import os
-
 
 DEBUG = False
 ADMIN_ENABLED = True
 
-WEBPACK_LOADER = {
-    "DEFAULT": {
-        "BUNDLE_DIR_NAME": "bundles/",
-        "STATS_FILE": os.path.join(REACT_BASE_DIR, "webpack-stats.prod.json"),
-    }
-}
-
+DJANGO_VITE["default"]["dev_mode"] = False
+DJANGO_VITE["default"]["static_url_prefix"] = "dist"
 
 # Security
 CSRF_COOKIE_SECURE = True

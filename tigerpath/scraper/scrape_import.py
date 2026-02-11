@@ -1,5 +1,4 @@
 from tigerpath.models import Course, Course_Listing, Semester
-from tigerpath.scraper.scrape_dist_areas import scrape_id
 
 
 class ScrapeCounter:
@@ -58,9 +57,7 @@ def _create_semester(semester):
 
 def _append_to_all_semesters(term_code, course_object):
     year = int(term_code[1:3])
-    new_semester_code = (
-        "f{}".format(year - 1) if term_code[3] == "2" else "s{}".format(year)
-    )
+    new_semester_code = f"f{year - 1}" if term_code[3] == "2" else f"s{year}"
     if new_semester_code not in course_object.all_semesters:
         course_object.all_semesters.append(new_semester_code)
 

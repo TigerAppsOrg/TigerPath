@@ -1,20 +1,21 @@
-from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.http import HttpResponse, Http404
-from . import models, forms, utils
-from .majors_and_certificates.scripts.verifier import (
-    check_major,
-    check_degree,
-    get_courses_by_path,
-)
-from .majors_and_certificates.scripts.university_info import LANG_DEPTS
+import itertools
+import json
+import re
 
 import django_cas_ng.views
-import ujson
-import re
-import itertools
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.http import Http404, JsonResponse
+from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
+
+from . import forms, models, utils
+from .majors_and_certificates.scripts.university_info import LANG_DEPTS
+from .majors_and_certificates.scripts.verifier import (
+    check_degree,
+    check_major,
+    get_courses_by_path,
+)
 
 
 # cas auth login
@@ -43,13 +44,11 @@ def index(request):
         context = {"settings_form": settings_form}
 
         # check user state
-        user_state = request.user.profile.user_state
-        if (
-            "onboarding_complete" not in user_state
-            or not user_state["onboarding_complete"]
-        ):
-            # the user has completed the onboarding form but not the tutorial
-            if not request.user.profile.major:
+        user_state = request.user.profile.user_state or {}
+        has_major_options = models.Major.objects.exists()
+        if "onboarding_complete" not in user_state or not user_state["onboarding_complete"]:
+            # require onboarding only when major options are available
+            if not request.user.profile.major and has_major_options:
                 # add onboarding form
                 onboarding_form = forms.OnboardingForm()
                 context["onboarding_form"] = onboarding_form
@@ -57,7 +56,8 @@ def index(request):
                 # show tutorial
                 context["show_tutorial"] = True
                 user_state["onboarding_complete"] = True
-                request.user.profile.save()
+                request.user.profile.user_state = user_state
+                request.user.profile.save(update_fields=["user_state"])
 
         return render(request, "tigerpath/index.html", context)
     else:
@@ -82,8 +82,21 @@ def privacy_policy(request):
 # save the info on the onboarding page
 @login_required
 def save_onboarding(request):
-    update_profile(request, forms.OnboardingForm)
-    return redirect("index")
+    if request.method == "POST":
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        form = forms.OnboardingForm(request.POST, instance=instance)
+
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect("index")
+
+        settings_form = forms.SettingsForm(instance=instance)
+        context = {"settings_form": settings_form, "onboarding_form": form}
+        return render(request, "tigerpath/index.html", context, status=400)
+
+    raise Http404
 
 
 # save the info on the user settings page
@@ -167,7 +180,7 @@ def convert_courses(course_list, queries):
 @login_required
 def get_courses(request, search_query):
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
-    split_query = re.split("(\d.*)", search_query)
+    split_query = re.split(r"(\d.*)", search_query)
     queries = []
     # split again by spaces
     for query in split_query:
@@ -175,10 +188,7 @@ def get_courses(request, search_query):
 
     course_list = filter_courses(queries)
     course_info_list = convert_courses(course_list, queries)
-    return HttpResponse(
-        ujson.dumps(course_info_list, ensure_ascii=False),
-        content_type="application/json",
-    )
+    return JsonResponse(course_info_list, safe=False)
 
 
 # returns list of courses that match a requirement
@@ -214,10 +224,7 @@ def get_req_courses(request, req_path):
     for dist in dist_list:
         search_results.update(set(models.Course.objects.filter(dist_area=dist)))
     course_info_list = convert_courses(list(search_results), course_list)
-    return HttpResponse(
-        ujson.dumps(course_info_list, ensure_ascii=False),
-        content_type="application/json",
-    )
+    return JsonResponse(course_info_list, safe=False)
 
 
 def filter_courses(queries, allow_failure=False):
@@ -250,12 +257,7 @@ def filter_courses(queries, allow_failure=False):
             if len(filtered_results) > 0:
                 results = filtered_results
                 continue
-        if (
-            len(query) <= 3
-            and query.isdigit()
-            or len(query) == 4
-            and query[:3].isdigit()
-        ):
+        if len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
             # might be a course number
             filtered_results = list(
                 filter(
@@ -321,26 +323,22 @@ def populate_user_schedule(schedule):
 @login_required
 def update_schedule(request):
     current_user = request.user.profile
-    current_user.user_schedule = ujson.loads(request.POST.get("schedule", "[]"))
+    current_user.user_schedule = json.loads(request.POST.get("schedule", "[]"))
     current_user.save()
-    return HttpResponse(
-        ujson.dumps(request, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse({"status": "ok"})
 
 
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
     curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule)
+    schedule = populate_user_schedule(curr_user.user_schedule) or []
 
     # make sure that the schedule has 9 semesters
     while len(schedule) < 9:
         schedule.append([])
 
-    return HttpResponse(
-        ujson.dumps(schedule, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(schedule, safe=False)
 
 
 # returns requirements satisfied
@@ -352,19 +350,13 @@ def get_requirements(request):
     requirements = []
     if curr_user.major:
         if curr_user.major.supported:
-            requirements.append(
-                check_major(curr_user.major.code, schedule, curr_user.year)
-            )
+            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
         else:
             # appends user major name so we can display error message
             requirements.append(curr_user.major.name)
-        requirements.append(
-            check_degree(curr_user.major.degree, schedule, curr_user.year)
-        )
+        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
 
-    return HttpResponse(
-        ujson.dumps(requirements, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(requirements, safe=False)
 
 
 @login_required
@@ -378,6 +370,4 @@ def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
-    return HttpResponse(
-        ujson.dumps(profile, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(profile)

@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: tigerpath
+      POSTGRES_USER: tigerpath
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tigerpath"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    command: gunicorn config.wsgi:application -w 4 --bind 0.0.0.0:8000 --timeout 600
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://tigerpath:${POSTGRES_PASSWORD}@db:5432/tigerpath
+      DJANGO_SETTINGS_MODULE: config.settings.production
+      DJANGO_VITE_DEV_MODE: "False"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:

@@ -6,63 +6,113 @@ You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
 To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
-# Running locally
+# Prerequisites
 
-## Initial setup
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
+- [Bun](https://bun.sh/docs/installation) (JavaScript runtime)
+- [Docker](https://docs.docker.com/get-docker/) (for PostgreSQL — or use a local Postgres install)
+
+# Quick start
+
+```bash
+git clone https://github.com/TigerAppsOrg/TigerPath && cd TigerPath
+uv python install 3.11
+uv venv --python 3.11
+source .venv/bin/activate
+cp .env.example .env              # defaults work out of the box
+docker compose up -d db            # start Postgres
+make setup                         # install deps + run migrations
+make dev                           # start Django (:8000) + Vite asset server (:3000)
+```
+
+Open http://localhost:8000/ in your browser. (Port 3000 is the Vite asset server — you don't open it directly.)
+
+# Setup details
 
 ### Python environment
 
-1. Install `uv`: https://docs.astral.sh/uv/getting-started/installation/
-2. Clone this repo and `cd` into the base TigerPath directory
-3. Install Python 3.11 with `uv`: `uv python install 3.11`
-4. Create a virtual environment: `uv venv --python 3.11`
-5. Activate it: `source .venv/bin/activate`
-6. Install dependencies: `uv pip sync requirements.txt`
-   - This uses `psycopg2-binary` (wheel-backed on modern Python), so you should not need local PostgreSQL headers/tools for dependency install in normal dev setups.
-7. Set all environment variables:
-   - Login to Heroku and go to the Settings tab for the `tigerpath333-dev` app (do NOT use prod!)
-   - Reveal Config Vars
-   - Copy `.env-example` to `.env`, then add each Config Var key-value pair to `.env` (replace placeholders with real values)
-   - Note that for `SECRET_KEY`, you might get an error so you can set its value to `1`
-8. Export env vars into your shell before running Django:
-   - `set -a; source .env; set +a`
+1. Install Python 3.11: `uv python install 3.11`
+2. Create and activate a virtual environment:
+   ```bash
+   uv venv --python 3.11
+   source .venv/bin/activate
+   ```
+3. Install dependencies: `uv pip install -r requirements.txt`
 
 ### Frontend packages
 
-1. Install Bun: https://bun.sh/docs/installation
-2. Run `cd frontend && bun install` to install all required frontend packages
-
-## Running the dev server
-
-After following the initial setup steps above, you can run the local development server:
-
-1. Activate your environment: `source .venv/bin/activate`
-2. Export env vars: `set -a; source .env; set +a`
-3. Run the backend server: `python manage.py runserver`
-4. Run the frontend server in a separate terminal window: `cd frontend && bun run start`
-   - Visit `http://localhost:8000/` to verify the server is up and running
-
-# Other important things
-
-#### Make migrations and update database
-
-You can do this by running the following commands:
-
-```
-python manage.py makemigrations                             # Makes migrations based on models.py
-python manage.py migrate                                    # Migrates the database
+```bash
+cd frontend && bun install
 ```
 
-#### Custom django-admin commands
+### Environment variables
 
+Copy the example env file — the defaults connect to the Docker Compose Postgres and enable Vite dev mode:
+
+```bash
+cp .env.example .env
 ```
-python manage.py tigerpath_get_courses                      # Scrapes courses and puts them in the database
+
+The `.env` file is auto-loaded by `manage.py`, so you don't need to source it manually.
+
+### Database
+
+Start Postgres via Docker Compose:
+
+```bash
+docker compose up -d db
 ```
 
-#### Load static data
+Then run migrations:
 
-To load the major mappings fixture, which populates the major table in the database, run the following command:
-
+```bash
+make migrate
 ```
+
+To populate the major table:
+
+```bash
 python manage.py loaddata major_mappings
 ```
+
+# Development
+
+### Running the dev servers
+
+```bash
+make dev    # runs Django (:8000) and Vite (:3000) in parallel
+```
+
+Or run them separately:
+
+```bash
+make dev-backend     # Django on :8000
+make dev-frontend    # Vite on :3000
+```
+
+### Testing, linting, formatting
+
+```bash
+make test      # run Python and JS tests
+make lint      # ruff (Python) + eslint (JS)
+make format    # auto-format Python and JS
+```
+
+### Database commands
+
+```bash
+make migrate           # run migrations
+make makemigrations    # create new migrations
+make dbshell           # open psql shell
+make reset-db          # flush all data and re-migrate
+```
+
+### Scraping courses
+
+```bash
+python manage.py tigerpath_get_courses
+```
+
+### All Makefile targets
+
+Run `make help` to see every available command.

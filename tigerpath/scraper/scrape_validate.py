@@ -28,9 +28,7 @@ def validate_course(course):
     def validate_string_max_length(item, length):
         validate_string(item)
         if len(item) > length:
-            raise _ValidateError(
-                "String " + item + " exceeded max length of " + str(length)
-            )
+            raise _ValidateError("String " + item + " exceeded max length of " + str(length))
 
     def validate_dict(dict, rules):
         for key, validator in rules.items():

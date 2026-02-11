@@ -5,12 +5,12 @@
 # Credit: vr2amesh https://github.com/vr2amesh/COS333-API-Code-Examples
 # ----------------------------------------------------------------------
 
-import requests
-import json
 import base64
-from os import environ
+import json
 import sys
+from os import environ
 
+import requests
 
 CONSUMER_KEY = environ["CONSUMER_KEY"]
 CONSUMER_SECRET = environ["CONSUMER_SECRET"]

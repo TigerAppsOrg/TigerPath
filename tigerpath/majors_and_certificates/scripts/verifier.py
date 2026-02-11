@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-import yaml
-from functools import lru_cache
-from pprint import pprint
-import os
-import sys
 import collections
-import time
 import copy
+import os
+from functools import lru_cache
+
 import requests
+import yaml
 
 from . import university_info
 
@@ -33,10 +31,11 @@ def _fetch_remote_yaml(path: str):
     resp.raise_for_status()
     return yaml.safe_load(resp.text)
 
-MAJORS_LOCATION = (
-    "majors/"  # relative path to folder containing the major requirements JSONs
+
+MAJORS_LOCATION = "majors/"  # relative path to folder containing the major requirements JSONs
+CERTIFICATES_LOCATION = (
+    "certificates/"  # relative path to folder containing the certificate requirements JSONs
 )
-CERTIFICATES_LOCATION = "certificates/"  # relative path to folder containing the certificate requirements JSONs
 DEGREES_LOCATION = (
     "degrees/"  # relative path to the folder containing the AB/BSE requirements JSONs
 )
@@ -314,13 +313,9 @@ def _init_courses(courses, req, year):
             course["name"] = _get_course_name_from_pattern(course["name"])
             course["possible_reqs"] = []
             course["reqs_satisfied"] = []
-            course[
-                "reqs_double_counted"
-            ] = []  # reqs satisfied for which double counting allowed
+            course["reqs_double_counted"] = []  # reqs satisfied for which double counting allowed
             course["semester_number"] = sem_num
-            course[
-                "num_settleable"
-            ] = 0  # number of reqs to which can be settled. autosettled if 1
+            course["num_settleable"] = 0  # number of reqs to which can be settled. autosettled if 1
             if "external" not in course:
                 course["external"] = False
             if "settled" not in course or course["settled"] == None:
@@ -330,15 +325,11 @@ def _init_courses(courses, req, year):
                 "Degree",
             ]:  # filter out irrelevant requirements from list
                 for path in course["settled"]:
-                    if not path.startswith(
-                        REQ_PATH_PREFIX % (req["type"], year, req["code"])
-                    ):
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["code"])):
                         course["settled"].remove(path)
             else:  # type must be "Certificate"
                 for path in course["settled"]:
-                    if not path.startswith(
-                        REQ_PATH_PREFIX % (req["type"], year, req["name"])
-                    ):
+                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["name"])):
                         course["settled"].remove(path)
     return courses
 
@@ -447,9 +438,7 @@ def _init_req_fields(req):
     elif "num_courses" in req:
         req["min_needed"] = req["num_courses"]
     if "dist_req" in req and isinstance(req["dist_req"], str):
-        req["dist_req"] = [
-            req["dist_req"]
-        ]  # backwards compatibility with non-list dist_req
+        req["dist_req"] = [req["dist_req"]]  # backwards compatibility with non-list dist_req
     return req
 
 
@@ -503,11 +492,7 @@ def _init_path_to(req, year):
         for i, subreq in enumerate(req["req_list"]):
             # the identifier is the req name if present, or otherwise, an identifying number
             identifier = ""
-            if (
-                ("name" not in subreq)
-                or (subreq["name"] == "")
-                or (subreq["name"] == None)
-            ):
+            if ("name" not in subreq) or (subreq["name"] == "") or (subreq["name"] == None):
                 identifier = "%03d" % i
             else:
                 identifier = subreq["name"]
@@ -554,9 +539,7 @@ def _assign_settled_courses_to_reqs(req, courses):
             newly_satisfied += _assign_settled_courses_to_reqs(subreq, courses)
     elif req["double_counting_allowed"]:
         newly_satisfied = _mark_all(req, courses)
-    elif "course_list" in req:
-        newly_satisfied = _mark_settled(req, courses)
-    elif "dist_req" in req:
+    elif "course_list" in req or "dist_req" in req:
         newly_satisfied = _mark_settled(req, courses)
     elif "num_courses" in req:
         newly_satisfied = _check_degree_progress(req, courses)
@@ -677,19 +660,13 @@ def _check_degree_progress(req, courses):
 
 def _course_match(course_name, pattern):
     pattern = _get_course_name_from_pattern(pattern)
-    pattern = [
-        "".join(p.split()).upper() for p in pattern.split("/")
-    ]  # split by '/' and
-    course = [
-        "".join(c.split()).upper() for c in course_name.split("/")
-    ]  # remove spaces
+    pattern = ["".join(p.split()).upper() for p in pattern.split("/")]  # split by '/' and
+    course = ["".join(c.split()).upper() for c in course_name.split("/")]  # remove spaces
     for c in course:
         for p in pattern:
             if c == p:  # exact name matched
                 return True
-            if (
-                p[:4] == "LANG" and c[:3] in university_info.LANG_DEPTS
-            ):  # language course
+            if p[:4] == "LANG" and c[:3] in university_info.LANG_DEPTS:  # language course
                 if c[3:] == p[4:]:  # course numbers match
                     return True
                 if len(p) > 4 and p[4] == "*":  # 'LANG*' or 'LANG***'
@@ -698,22 +675,14 @@ def _course_match(course_name, pattern):
                     len(c) >= 4 and len(p) > 5 and p[5] == "*" and c[3:4] == p[4:5]
                 ):  # 'LANG1*' or 'LANG1**'
                     return True
-                if (
-                    len(c) >= 5 and len(p) > 6 and p[6] == "*" and c[3:5] == p[4:6]
-                ):  # 'LANG12*'
+                if len(c) >= 5 and len(p) > 6 and p[6] == "*" and c[3:5] == p[4:6]:  # 'LANG12*'
                     return True
-                if (
-                    len(c) >= 6 and len(p) > 7 and p[7] == "*" and c[3:6] == p[4:7]
-                ):  # 'LANG123*'
+                if len(c) >= 6 and len(p) > 7 and p[7] == "*" and c[3:6] == p[4:7]:  # 'LANG123*'
                     return True
             # non-language course
-            if (
-                len(c) >= 3 and len(p) > 3 and p[3] == "*" and c[:3] == p[:3]
-            ):  # 'AAA*' or 'AAA***'
+            if len(c) >= 3 and len(p) > 3 and p[3] == "*" and c[:3] == p[:3]:  # 'AAA*' or 'AAA***'
                 return True
-            if (
-                len(c) >= 4 and len(p) > 4 and p[4] == "*" and c[:4] == p[:4]
-            ):  # 'AAA1*' or 'AAA1**'
+            if len(c) >= 4 and len(p) > 4 and p[4] == "*" and c[:4] == p[:4]:  # 'AAA1*' or 'AAA1**'
                 return True
             if (
                 len(c) >= 5 and len(p) > 5 and p[5] == "*" and c[:5] == p[:5]
@@ -783,7 +752,7 @@ def _get_course_name_from_pattern(pattern):
 
 
 def main():
-    with open("verifier_tests/1.test", "r", encoding="utf8") as f:
+    with open("verifier_tests/1.test", encoding="utf8") as f:
         major_name = f.readline()[:-1]
         year = int(f.readline())
         courses = yaml.safe_load(f)

@@ -5,15 +5,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0006_auto_20180422_2234'),
+        ("tigerpath", "0006_auto_20180422_2234"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='user_schedule',
+            model_name="userprofile",
+            name="user_schedule",
             field=django.contrib.postgres.fields.jsonb.JSONField(blank=True, null=True),
         ),
     ]

@@ -1,8 +1,6 @@
 import os
+
 import dj_database_url
-
-from tigerpath.scraper.mobileapp import MobileApp
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -10,6 +8,7 @@ REACT_BASE_DIR = os.path.dirname(BASE_DIR)
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
 # Application definition
 
@@ -22,13 +21,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_cas_ng",
-    "webpack_loader",
+    "django_vite",
     "widget_tweaks",
 ]
 
 MIDDLEWARE = [
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -64,7 +63,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 # Password validation
-# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -83,28 +82,25 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/2.0/topics/i18n/
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
 TIME_ZONE = "America/New_York"
 USE_I18N = True
-USE_L10N = True
 USE_TZ = True
 
 
 # Set secret key, database
-SECRET_KEY = os.getenv(
-    "SECRET_KEY", "no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a"
-)
+SECRET_KEY = os.getenv("SECRET_KEY", "no7bxov1^uh=ksbp-xyw=#%4pn@01naitpdfj=-3*kao-3w93a")
 
 DATABASES = {}
-# Keep DB connections open briefly / fail fast when unreachable to avoid H12s
-DATABASES["default"] = dj_database_url.config(conn_max_age=60)
+DATABASES["default"] = dj_database_url.config(
+    default="postgres://tigerpath:tigerpath@localhost:5432/tigerpath",
+    conn_max_age=60,
+)
 if DATABASES.get("default"):
-    # Health checks prevent stale pooled connections
     DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
     DATABASES["default"].setdefault("OPTIONS", {})
-    # libpq connect timeout in seconds; keeps requests from hanging a worker
     DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
 
 
@@ -121,8 +117,27 @@ STATICFILES_DIRS = [
 os.makedirs(STATIC_ROOT, exist_ok=True)
 os.makedirs(REACT_STATIC_ROOT, exist_ok=True)
 
-# Enable gzip functionality for static files
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# Enable gzip functionality for static files (Django 4.2 STORAGES dict)
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
+
+# Django Vite
+
+DJANGO_VITE = {
+    "default": {
+        "dev_mode": os.getenv("DJANGO_VITE_DEV_MODE", "False").lower() in ("true", "1"),
+        "dev_server_host": "localhost",
+        "dev_server_port": 3000,
+        "manifest_path": os.path.join(REACT_BASE_DIR, "assets", "dist", "manifest.json"),
+    }
+}
 
 
 # Security

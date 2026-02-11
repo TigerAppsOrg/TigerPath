@@ -6,8 +6,8 @@ Procedure:
 - Parse it for courses, sections, and lecture times (as recurring events)
 """
 
-from tigerpath.scraper.mobileapp import MobileApp
 from tigerpath.majors_and_certificates.scripts.university_info import DEPTS
+from tigerpath.scraper.mobileapp import MobileApp
 
 
 class ParseError(Exception):
@@ -88,9 +88,7 @@ def scrape_parse_semester(term_code):
         try:
             # global new_course_count
             # global course_count
-            details = MobileApp().get_course_details(
-                term=TERM_CODE, course_id=course["course_id"]
-            )
+            details = MobileApp().get_course_details(term=TERM_CODE, course_id=course["course_id"])
             distribution_area = none_to_empty(
                 details["course_details"]["course_detail"]["distribution_area_short"]
             )
@@ -156,12 +154,8 @@ def scrape_parse_semester(term_code):
             # the times are in the format:
             # HH:MM AM/PM
             return {
-                "start_time": "01:00 AM"
-                if "start_time" not in meeting
-                else meeting["start_time"],
-                "end_time": "01:00 AM"
-                if "end_time" not in meeting
-                else meeting["end_time"],
+                "start_time": "01:00 AM" if "start_time" not in meeting else meeting["start_time"],
+                "end_time": "01:00 AM" if "end_time" not in meeting else meeting["end_time"],
                 "days": get_days(meeting),
                 "location": get_location(meeting),
             }

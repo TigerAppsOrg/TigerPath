@@ -1,5 +1,4 @@
-{% load staticfiles %}
-{% load render_bundle from webpack_loader %}
+{% load django_vite %}
 <!DOCTYPE html>
 <html>
 
@@ -12,12 +11,6 @@
 
   <title>TigerPath - Four-Year Course Planner</title>
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
         rel="stylesheet"
@@ -29,21 +22,11 @@
         integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
         crossorigin="anonymous">
 
-  <!-- Intro JS -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css">
-
-  <!-- Animate.css -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
-        integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
-        crossorigin="anonymous">
-
-  <!-- Custom styles for this template -->
-  <link href="{% static 'app/css/app-style.css' %}"
-        rel="stylesheet">
-
   {% include 'includes/analytics/analytics_head.html' %}
+
+  <!-- Vite HMR + React Refresh (must load before any React code) -->
+  {% vite_hmr_client %}
+  {% vite_react_refresh %}
 </head>
 
 <body>
@@ -82,12 +65,13 @@
         <div class="dropdown">
           <a id="netid-btn"
              class="btn nav-btn dropdown-toggle"
+             data-bs-toggle="dropdown"
              href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
           <div id="netid-dropdown"
                class="dropdown-menu">
             <a class="dropdown-item"
                href="#"
-               id="help-btn">Tutorial<i class="far fa-question-circle ml-2"></i></a>
+               id="help-btn">Tutorial<i class="far fa-question-circle ms-2"></i></a>
             <a class="dropdown-item"
                href="#"
                id="settings-btn">Settings</a>
@@ -102,41 +86,17 @@
   <div id="app"
        class="row"></div>
 
-  <!-- external scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/intro.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js"
-          integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i"
-          crossorigin="anonymous"></script>
-
-  <!-- onboarding and tutorial -->
-  <script src="{% static 'app/js/tutorial.js' %}"></script>
   {% if onboarding_form %}
-  {% include 'tigerpath/onboarding.html' %}
-  <script src="{% static 'app/js/onboarding.js' %}"></script>
+    {% include 'tigerpath/onboarding.html' %}
   {% elif show_tutorial %}
-  <script>
-    $(function () {
-      // start the intro
-      startIntro();
-    });
-  </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () { startIntro(); });
+    </script>
   {% endif %}
 
-  <!-- react webpack -->
-  {% render_bundle 'main' %}
+  {% vite_asset 'src/index.jsx' %}
 
-  <!-- settings -->
   {% include 'tigerpath/settings.html' %}
-  <script src="{% static 'app/js/settings.js' %}"></script>
-
-  <!-- dropdown menu -->
-  <script src="{% static 'app/js/dropdown.js' %}"></script>
-
-  <!-- show messages to the user -->
   {% include 'includes/messages.html' %}
 </body>
 

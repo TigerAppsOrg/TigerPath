@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0011_auto_20180426_0234'),
+        ("tigerpath", "0011_auto_20180426_0234"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='course',
-            name='cross_listings',
-            field=models.TextField(default=''),
+            model_name="course",
+            name="cross_listings",
+            field=models.TextField(default=""),
         ),
     ]
