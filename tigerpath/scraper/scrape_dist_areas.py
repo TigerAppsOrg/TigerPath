@@ -12,6 +12,7 @@ Modified by TigerPath Team
 import re
 import urllib.request
 from http.client import RemoteDisconnected
+
 from bs4 import BeautifulSoup
 
 URL_PREFIX = "http://registrar.princeton.edu/course-offerings/"
@@ -21,7 +22,7 @@ COURSE_URL_REGEX = re.compile(r"courseid=(?P<id>\d+)")
 
 def clean(str):
     """Return a string with leading and trailing whitespace gone and all other whitespace condensed to a single space."""
-    return re.sub("\s+", " ", str.strip())
+    return re.sub(r"\s+", " ", str.strip())
 
 
 def get_course_details(soup):
@@ -34,18 +35,16 @@ def get_course_details(soup):
         area = ""
 
     return {
-        "courseid": COURSE_URL_REGEX.search(
-            soup.find("a", href=COURSE_URL_REGEX)["href"]
-        ).group("id"),
+        "courseid": COURSE_URL_REGEX.search(soup.find("a", href=COURSE_URL_REGEX)["href"]).group(
+            "id"
+        ),
         "area": area,  # bwk: this was wrong[1:-1],    # trim parens #  match.group(1) if match != None else ''
     }
 
 
 def scrape_page(page):
     """Returns a dict containing as much course info as possible from the HTML contained in page."""
-    soup = BeautifulSoup(page, "lxml").find(
-        "div", id="timetable"
-    )  # was contentcontainer
+    soup = BeautifulSoup(page, "lxml").find("div", id="timetable")  # was contentcontainer
     course = get_course_details(soup)
     return course
 
@@ -53,14 +52,12 @@ def scrape_page(page):
 def scrape_id(id, TERM_CODE):
     for _ in range(3):
         try:
-            page = urllib.request.urlopen(
-                COURSE_URL.format(term=TERM_CODE, courseid=id)
-            )
+            page = urllib.request.urlopen(COURSE_URL.format(term=TERM_CODE, courseid=id))
             return scrape_page(page)
         except RemoteDisconnected as e:
-            print("Retrying scraping course id {}".format(id))
+            print(f"Retrying scraping course id {id}")
             print(e)
         else:
             break
     else:
-        raise Exception("Scraping course id {} failed".format(id))
+        raise Exception(f"Scraping course id {id} failed")

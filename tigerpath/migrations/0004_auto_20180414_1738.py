@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0003_userprofile_nickname'),
+        ("tigerpath", "0003_userprofile_nickname"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='userprofile',
-            name='major',
+            model_name="userprofile",
+            name="major",
             field=models.CharField(max_length=7, null=True),
         ),
         migrations.AlterField(
-            model_name='userprofile',
-            name='nickname',
+            model_name="userprofile",
+            name="nickname",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AlterField(
-            model_name='userprofile',
-            name='year',
+            model_name="userprofile",
+            name="year",
             field=models.PositiveSmallIntegerField(null=True),
         ),
     ]

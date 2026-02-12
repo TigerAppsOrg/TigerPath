@@ -1,20 +1,30 @@
-from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.http import HttpResponse, Http404
-from . import models, forms, utils
-from .majors_and_certificates.scripts.verifier import (
-    check_major,
-    check_degree,
-    get_courses_by_path,
-)
-from .majors_and_certificates.scripts.university_info import LANG_DEPTS
+import itertools
+import json
+import re
+import hashlib
+import time
 
 import django_cas_ng.views
-import ujson
-import re
-import itertools
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from django.http import Http404, JsonResponse
+from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt
+
+from . import forms, models, utils
+from .majors_and_certificates.scripts.university_info import LANG_DEPTS
+from .majors_and_certificates.scripts.verifier import (
+    check_degree,
+    check_major,
+    get_courses_by_path,
+)
+
+SEARCH_RESULT_LIMIT = 200
+SEARCH_CACHE_TIMEOUT_SECONDS = 300
+SEARCH_CACHE_KEY_VERSION = "v1"
+SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
 
 
 # cas auth login
@@ -43,21 +53,27 @@ def index(request):
         context = {"settings_form": settings_form}
 
         # check user state
-        user_state = request.user.profile.user_state
-        if (
-            "onboarding_complete" not in user_state
-            or not user_state["onboarding_complete"]
-        ):
-            # the user has completed the onboarding form but not the tutorial
-            if not request.user.profile.major:
-                # add onboarding form
-                onboarding_form = forms.OnboardingForm()
-                context["onboarding_form"] = onboarding_form
-            else:
-                # show tutorial
-                context["show_tutorial"] = True
-                user_state["onboarding_complete"] = True
-                request.user.profile.save()
+        user_state = instance.user_state or {}
+        has_major_options = models.Major.objects.exists()
+        needs_year = instance.year is None
+        needs_major = has_major_options and not instance.major
+        needs_onboarding = needs_year or needs_major
+
+        if needs_onboarding:
+            # Always collect missing profile basics before showing the planner UI.
+            context["onboarding_form"] = forms.OnboardingForm(instance=instance)
+
+            # Keep onboarding status in sync if this user was previously marked complete.
+            if user_state.get("onboarding_complete"):
+                user_state["onboarding_complete"] = False
+                instance.user_state = user_state
+                instance.save(update_fields=["user_state"])
+        elif not user_state.get("onboarding_complete"):
+            # show tutorial
+            context["show_tutorial"] = True
+            user_state["onboarding_complete"] = True
+            instance.user_state = user_state
+            instance.save(update_fields=["user_state"])
 
         return render(request, "tigerpath/index.html", context)
     else:
@@ -82,8 +98,21 @@ def privacy_policy(request):
 # save the info on the onboarding page
 @login_required
 def save_onboarding(request):
-    update_profile(request, forms.OnboardingForm)
-    return redirect("index")
+    if request.method == "POST":
+        instance = models.UserProfile.objects.get(user_id=request.user.id)
+        form = forms.OnboardingForm(request.POST, instance=instance)
+
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            return redirect("index")
+
+        settings_form = forms.SettingsForm(instance=instance)
+        context = {"settings_form": settings_form, "onboarding_form": form}
+        return render(request, "tigerpath/index.html", context, status=400)
+
+    raise Http404
 
 
 # save the info on the user settings page
@@ -166,19 +195,67 @@ def convert_courses(course_list, queries):
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
+    search_start = time.monotonic()
+
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
-    split_query = re.split("(\d.*)", search_query)
+    split_query = re.split(r"(\d.*)", search_query)
     queries = []
     # split again by spaces
     for query in split_query:
         queries = queries + query.split(" ")
+    queries = [query.strip() for query in queries if query.strip()]
+
+    def truncate_for_log(value):
+        if len(value) <= SEARCH_DEBUG_QUERY_LOG_MAX_LEN:
+            return value
+        return value[: SEARCH_DEBUG_QUERY_LOG_MAX_LEN - 3] + "..."
+
+    if len(queries) == 0:
+        if settings.DEBUG:
+            print("[search-cache] SKIP empty query", flush=True)
+        return JsonResponse([], safe=False)
+
+    normalized_query = " ".join(queries).lower()
+    cache_key_hash = hashlib.sha1(normalized_query.encode("utf-8")).hexdigest()
+    cache_key = f"course-search:{SEARCH_CACHE_KEY_VERSION}:{SEARCH_RESULT_LIMIT}:{cache_key_hash}"
+    cached_results = cache.get(cache_key)
+    if cached_results is not None:
+        if settings.DEBUG:
+            elapsed_ms = (time.monotonic() - search_start) * 1000
+            print(
+                "[search-cache] HIT "
+                f"key={cache_key_hash[:10]} "
+                f'query="{truncate_for_log(normalized_query)}" '
+                f"count={len(cached_results)} "
+                f"elapsed_ms={elapsed_ms:.1f}",
+                flush=True,
+            )
+        return JsonResponse(cached_results, safe=False)
+    elif settings.DEBUG:
+        print(
+            "[search-cache] MISS "
+            f"key={cache_key_hash[:10]} "
+            f'query="{truncate_for_log(normalized_query)}"',
+            flush=True,
+        )
 
     course_list = filter_courses(queries)
+    course_list = course_list.only(
+        "title", "registrar_id", "cross_listings", "all_semesters", "dist_area"
+    )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
-    return HttpResponse(
-        ujson.dumps(course_info_list, ensure_ascii=False),
-        content_type="application/json",
-    )
+    cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
+    if settings.DEBUG:
+        elapsed_ms = (time.monotonic() - search_start) * 1000
+        print(
+            "[search-cache] STORE "
+            f"key={cache_key_hash[:10]} "
+            f'query="{truncate_for_log(normalized_query)}" '
+            f"count={len(course_info_list)} "
+            f"elapsed_ms={elapsed_ms:.1f}",
+            flush=True,
+        )
+    return JsonResponse(course_info_list, safe=False)
 
 
 # returns list of courses that match a requirement
@@ -214,10 +291,7 @@ def get_req_courses(request, req_path):
     for dist in dist_list:
         search_results.update(set(models.Course.objects.filter(dist_area=dist)))
     course_info_list = convert_courses(list(search_results), course_list)
-    return HttpResponse(
-        ujson.dumps(course_info_list, ensure_ascii=False),
-        content_type="application/json",
-    )
+    return JsonResponse(course_info_list, safe=False)
 
 
 def filter_courses(queries, allow_failure=False):
@@ -230,59 +304,45 @@ def filter_courses(queries, allow_failure=False):
     Setting it to True will allow failure (filtering down to empty), and is
     useful when the searches are not user defined and should not have typos.
     """
-    # shortcut for an empty search
-    if len(queries) == 0:
-        return []
+    cleaned_queries = [query.strip() for query in queries if query and query.strip()]
+    if len(cleaned_queries) == 0:
+        return models.Course.objects.none()
+
     results = models.Course.objects.all()
-    # remember original length to check if any results have been filtered out
-    original_length = len(results)
-    for query in queries:
-        if len(results) == 0:
-            # no results remain. return empty
-            return []
-        if query == "":
-            continue
+    has_applied_filter = False
+
+    for query in cleaned_queries:
+        query_upper = query.upper()
         if len(query) == 3 and query.isalpha():
             # might be a 3-letter departmental code
-            filtered_results = list(
-                filter(lambda course: query.upper() in course.cross_listings, results)
-            )
-            if len(filtered_results) > 0:
-                results = filtered_results
-                continue
-        if (
-            len(query) <= 3
-            and query.isdigit()
-            or len(query) == 4
-            and query[:3].isdigit()
+            filtered_results = results.filter(course_listing_set__dept__iexact=query_upper)
+            filtered_results = filtered_results.distinct()
+        elif (len(query) <= 3 and query.isdigit()) or (
+            len(query) == 4 and query[:3].isdigit()
         ):
             # might be a course number
-            filtered_results = list(
-                filter(
-                    lambda course: any(
-                        [
-                            listing[3:].startswith(query.upper())
-                            for listing in re.split(" / ", course.cross_listings)
-                        ]
-                    ),
-                    results,
-                )
-            )
-            if len(filtered_results) > 0:
-                results = filtered_results
-                continue
-        # might be part of a course title
-        filtered_results = list(
-            filter(lambda course: query.lower() in course.title.lower(), results)
-        )
-        if len(filtered_results) > 0 or allow_failure:
+            filtered_results = results.filter(course_listing_set__number__istartswith=query_upper)
+            filtered_results = filtered_results.distinct()
+        else:
+            # might be part of a course title
+            filtered_results = results.filter(title__icontains=query)
+
+        if allow_failure:
             results = filtered_results
+            has_applied_filter = True
+            continue
+
+        if filtered_results.exists():
+            results = filtered_results
+            has_applied_filter = True
             continue
         # if reaches this line, query returned no results, so drop and move on
-    if len(results) == original_length:
-        # none of the queries were vaild
-        return []
-    return results
+
+    if not has_applied_filter:
+        # none of the queries were valid
+        return models.Course.objects.none()
+
+    return results.distinct()
 
 
 # returns 'fall', 'spring', or 'both' depending on the list of semesters
@@ -321,26 +381,22 @@ def populate_user_schedule(schedule):
 @login_required
 def update_schedule(request):
     current_user = request.user.profile
-    current_user.user_schedule = ujson.loads(request.POST.get("schedule", "[]"))
+    current_user.user_schedule = json.loads(request.POST.get("schedule", "[]"))
     current_user.save()
-    return HttpResponse(
-        ujson.dumps(request, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse({"status": "ok"})
 
 
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
     curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule)
+    schedule = populate_user_schedule(curr_user.user_schedule) or []
 
     # make sure that the schedule has 9 semesters
     while len(schedule) < 9:
         schedule.append([])
 
-    return HttpResponse(
-        ujson.dumps(schedule, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(schedule, safe=False)
 
 
 # returns requirements satisfied
@@ -352,19 +408,13 @@ def get_requirements(request):
     requirements = []
     if curr_user.major:
         if curr_user.major.supported:
-            requirements.append(
-                check_major(curr_user.major.code, schedule, curr_user.year)
-            )
+            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
         else:
             # appends user major name so we can display error message
             requirements.append(curr_user.major.name)
-        requirements.append(
-            check_degree(curr_user.major.degree, schedule, curr_user.year)
-        )
+        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
 
-    return HttpResponse(
-        ujson.dumps(requirements, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(requirements, safe=False)
 
 
 @login_required
@@ -378,6 +428,4 @@ def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
-    return HttpResponse(
-        ujson.dumps(profile, ensure_ascii=False), content_type="application/json"
-    )
+    return JsonResponse(profile)

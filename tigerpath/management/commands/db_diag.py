@@ -1,4 +1,5 @@
 import json
+
 from django.core.management.base import BaseCommand
 from django.db import connection
 
@@ -80,4 +81,3 @@ class Command(BaseCommand):
             report["bgwriter"] = run_sql(cur, "select * from pg_stat_bgwriter;")
 
         self.stdout.write(json.dumps(report, indent=2, default=str))
-

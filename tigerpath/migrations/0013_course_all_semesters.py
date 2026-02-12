@@ -5,15 +5,16 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0012_course_cross_listings'),
+        ("tigerpath", "0012_course_cross_listings"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='course',
-            name='all_semesters',
-            field=django.contrib.postgres.fields.ArrayField(base_field=models.CharField(max_length=4), blank=True, default=list, size=None),
+            model_name="course",
+            name="all_semesters",
+            field=django.contrib.postgres.fields.ArrayField(
+                base_field=models.CharField(max_length=4), blank=True, default=list, size=None
+            ),
         ),
     ]

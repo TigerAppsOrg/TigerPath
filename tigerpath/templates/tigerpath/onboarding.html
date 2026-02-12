@@ -1,30 +1,30 @@
-<div class="modal fade in" id="onboarding-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" aria-labelledby="onboarding-modal-label" aria-hidden="true">
+<div class="modal fade" id="onboarding-modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" data-onboarding-start-page="{% if onboarding_form.is_bound and onboarding_form.errors %}2{% else %}1{% endif %}" aria-labelledby="onboarding-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <form method="post" action="{% url 'save_onboarding' %}" class="modal-content" id="onboarding-form">
+    <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="onboarding-modal-label">Welcome to TigerPath!</h5>
       </div>
       <div class="modal-body">
-        <div class="container">
-          <div id="page-1">
-            <h6>Before we get started</h6>
-            <p>TigerPath was built because we saw a need for Princeton students to have a tool that could help them think long-term about what courses to take and how to fulfill their graduation requirements.</p>
-            <p>We do not guarantee the accuracy of the course listings and requirements information represented in TigerPath, and you should always discuss with your advisor to ensure that your four-year plan is sound and fits with your goals.</p>
-            <p>If you find any bugs or have any suggestions, we would appreciate your <a href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank" rel="noopener noreferrer">feedback</a>!</p>
-            <p>By continuing, you affirm that you have read and understood the terms outlined above and in our <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
-          </div>
-          <div id="page-2" class="hidden animated">
-            <h6>Confirm your info</h6>
-            <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
+        <div id="page-1">
+          <h6>Before we get started</h6>
+          <p>TigerPath was built because we saw a need for Princeton students to have a tool that could help them think long-term about what courses to take and how to fulfill their graduation requirements.</p>
+          <p>We do not guarantee the accuracy of the course listings and requirements information represented in TigerPath, and you should always discuss with your advisor to ensure that your four-year plan is sound and fits with your goals.</p>
+          <p>If you find any bugs or have any suggestions, we would appreciate your <a href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1" target="_blank" rel="noopener noreferrer">feedback</a>!</p>
+          <p>By continuing, you affirm that you have read and understood the terms outlined above and in our <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p>
+        </div>
+        <div id="page-2" class="hidden animated">
+          <h6>Confirm your info</h6>
+          <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
+          <form method="post" action="{% url 'save_onboarding' %}" id="onboarding-form">
             {% csrf_token %}
             {% include 'includes/bs4_form.html' with form=onboarding_form %}
-          </div>
+          </form>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" id="next-btn">Next</button>
-        <button type="submit" class="btn btn-primary hidden" id="finish-btn">Finish</button>
+        <button type="submit" form="onboarding-form" class="btn btn-primary hidden" id="finish-btn">Finish</button>
       </div>
-    </form>
+    </div>
   </div>
 </div>

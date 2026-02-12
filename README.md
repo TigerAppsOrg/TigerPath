@@ -6,62 +6,148 @@ You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
 To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
-# Running locally
+For EC2 + Nginx production setup (with Redis in Docker and external RDS), see [DEPLOYMENT.md](DEPLOYMENT.md).
 
-## Initial setup
+# Prerequisites
+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
+- [Bun](https://bun.sh/docs/installation) (JavaScript runtime)
+- [Docker](https://docs.docker.com/get-docker/) (for local PostgreSQL + Redis, or use local installs)
+
+# Quick start
+
+```bash
+git clone https://github.com/TigerAppsOrg/TigerPath && cd TigerPath
+uv python install 3.11
+uv venv --python 3.11
+source .venv/bin/activate
+cp .env.example .env              # defaults work out of the box
+make deps-up                       # start Postgres + Redis
+make setup                         # install deps + run migrations
+make seed-majors                   # load baseline major data
+# Optional: if CONSUMER_KEY and CONSUMER_SECRET are set in .env
+# make seed-courses                # import course catalog from Princeton MobileApp API
+make dev                           # start Django (:8000) + Vite asset server (:3000)
+```
+
+Open http://localhost:8000/ in your browser. (Port 3000 is the Vite asset server — you don't open it directly.)
+
+If you have Princeton MobileApp API credentials, you can also run `make seed-data` (majors + courses) instead of running `make seed-majors` and `make seed-courses` separately.
+
+# Setup details
 
 ### Python environment
 
-1. Create a new conda environment: `conda create -n tigerpath`
-1. Activate the conda environment: `conda activate tigerpath`
-1. Install python: `conda install python=3.9`
-1. Clone this repo and `cd` into the base TigerPath directory
-1. Install dependencies: `pip install -r requirements.txt`
-   - If you're running into a `psycopg2` error (`pg_config executable not found`), you probably have to install `postgresql`: https://stackoverflow.com/a/24645416
-1. Run `conda list` to validate that all packages in `requirements.txt` were installed
-1. Set all environment variables:
-   - Login to Heroku and go to the Settings tab for the `tigerpath333-dev` app (do NOT use prod!)
-   - Reveal Config Vars
-   - For each Config Var key-value pair, create a local environment variable: `conda env config vars set key=value` (replace `key` and `value` with the actual key and value)
-   - After setting all env vars, reactivate your conda environment: `conda activate tigerpath`
-   - Note that for `SECRET_KEY`, you might get an error so you can set its value to `1`
-1. Run `conda env config vars list` to validate all env vars were set
+1. Install Python 3.11: `uv python install 3.11`
+2. Create and activate a virtual environment:
+   ```bash
+   uv venv --python 3.11
+   source .venv/bin/activate
+   ```
+3. Install dependencies: `uv pip install -r requirements.txt`
 
-### Node packages
+### Frontend packages
 
-1. Run `cd frontend && npm install` to install all required frontend packages
-   - You might have to install `node` if you haven't already: https://formulae.brew.sh/formula/node
-
-## Running the dev server
-
-After following the initial setup steps above, you can run the local development server:
-
-1. Activate your environment: `conda activate tigerpath`
-1. Run the backend server: `python manage.py runserver`
-1. Run the frontend server in a separate terminal window: `cd frontend && npm start`
-   - Visit `http://localhost:8000/` to verify the server is up and running
-
-# Other important things
-
-#### Make migrations and update database
-
-You can do this by running the following commands:
-
-```
-python manage.py makemigrations                             # Makes migrations based on models.py
-python manage.py migrate                                    # Migrates the database
+```bash
+cd frontend && bun install
 ```
 
-#### Custom django-admin commands
+### Environment variables
 
-```
-python manage.py tigerpath_get_courses                      # Scrapes courses and puts them in the database
+Copy the example env file — the defaults connect to the Docker Compose Postgres and enable Vite dev mode:
+
+```bash
+cp .env.example .env
 ```
 
-#### Load static data
+The `.env` file is auto-loaded by `manage.py`, so you don't need to source it manually.
 
-To load the major mappings fixture, which populates the major table in the database, run the following command:
+To enable Redis-backed search caching locally, set:
 
+```bash
+REDIS_URL=redis://localhost:6379/1
 ```
-python manage.py loaddata major_mappings
+
+Cache growth safeguards:
+- Redis (Docker) defaults to `REDIS_MAXMEMORY=256mb` with `allkeys-lru` eviction.
+- Non-Redis local cache is capped by `CACHE_MAX_ENTRIES` (default `2000`).
+
+### Database
+
+Start Postgres and Redis via Docker Compose:
+
+```bash
+make deps-up
 ```
+
+Then run migrations:
+
+```bash
+make migrate
+```
+
+To populate majors and courses in one step:
+
+```bash
+make seed-data
+```
+
+Note: `make seed-courses` / `make seed-data` require Princeton MobileApp API credentials in `.env`:
+`CONSUMER_KEY` and `CONSUMER_SECRET`.
+If Princeton changes API paths, you can also set `MOBILEAPP_BASE_URL`.
+
+Or run them separately:
+
+```bash
+make seed-majors
+make seed-courses
+```
+
+# Development
+
+### Running the dev servers
+
+```bash
+make dev    # runs Django (:8000) and Vite (:3000) in parallel
+```
+
+Or run them separately:
+
+```bash
+make dev-backend     # Django on :8000
+make dev-frontend    # Vite on :3000
+```
+
+### Testing, linting, formatting
+
+```bash
+make test      # run Python and JS tests
+make lint      # ruff (Python) + eslint (JS)
+make format    # auto-format Python and JS
+```
+
+### Database commands
+
+```bash
+make migrate           # run migrations
+make makemigrations    # create new migrations
+make dbshell           # open psql shell
+make reset-db          # flush all data and re-migrate
+make deps-up           # start local Postgres + Redis in Docker
+make seed-data         # load majors + scrape/import courses
+```
+
+### Scraping courses
+
+```bash
+make seed-courses
+```
+
+This command requires:
+- `CONSUMER_KEY`
+- `CONSUMER_SECRET`
+- (optional) `MOBILEAPP_BASE_URL` override when OIT changes endpoint versions
+
+### All Makefile targets
+
+Run `make help` to see every available command.

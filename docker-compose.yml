@@ -1,42 +1,74 @@
-version: '3.6'
-
 services:
-  build_react:
-    image: react
-    build:
-      context: .
-      dockerfile: Dockerfile-react
-    command: cp -a /opt/tigerpath/ /target
-    volumes:
-      - tigerpath-volume:/target
-  react:
-    image: react
-    command: npm start
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: tigerpath
+      POSTGRES_USER: tigerpath
+      POSTGRES_PASSWORD: tigerpath
     ports:
-      - 3000:3000
+      - "5432:5432"
     volumes:
-      - tigerpath-volume:/target
-    depends_on:
-      - build_react
-  build_web:
-    image: web
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tigerpath"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    command:
+      [
+        "redis-server",
+        "--maxmemory",
+        "${REDIS_MAXMEMORY:-256mb}",
+        "--maxmemory-policy",
+        "${REDIS_MAXMEMORY_POLICY:-allkeys-lru}",
+      ]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  backend:
     build:
       context: .
       dockerfile: Dockerfile
-    command: cp -a /opt/tigerpath/ /target
-    volumes:
-      - tigerpath-volume:/target
-  web:
-    image: web
-    command: pipenv run python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - 8000:8000
+      - "8000:8000"
     env_file:
       - .env
+    environment:
+      DATABASE_URL: postgres://tigerpath:tigerpath@db:5432/tigerpath
+      REDIS_URL: redis://redis:6379/1
     volumes:
-      - tigerpath-volume:/target
+      - .:/opt/tigerpath
     depends_on:
-      - build_web
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend
+    command: bun run dev --host 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/opt/tigerpath/frontend
+      - /opt/tigerpath/frontend/node_modules
+    depends_on:
+      - backend
 
 volumes:
-  tigerpath-volume: {}
+  pgdata:
+  redisdata:

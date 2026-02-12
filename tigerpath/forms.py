@@ -1,6 +1,8 @@
-from django import forms
-from tigerpath.models import UserProfile, Major
 import datetime
+
+from django import forms
+
+from tigerpath.models import Major, UserProfile
 
 
 # returns a list of tuples (year int, year string)
@@ -11,15 +13,30 @@ def create_year_choices():
     return [(now.year + i, str(now.year + i)) for i in range(offset, offset + 4)]
 
 
-# returns a list of tuples (major code, major name)
-def create_major_choices():
-    return Major.objects.order_by("name").values_list("id", "name")
+def create_major_queryset():
+    return Major.objects.order_by("name")
+
+
+def configure_major_field(field):
+    majors = create_major_queryset()
+    has_majors = majors.exists()
+
+    field.queryset = majors
+    field.required = has_majors
+    field.empty_label = "Select your major"
+
+    if not has_majors:
+        field.help_text = (
+            "Major options are currently unavailable. You can continue now "
+            "and set your major later in Settings."
+        )
+        field.widget.attrs["disabled"] = True
 
 
 class OnboardingForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(OnboardingForm, self).__init__(*args, **kwargs)
-        self.fields["major"].choices = create_major_choices()
+        configure_major_field(self.fields["major"])
 
     class Meta:
         # model and fields used for the form
@@ -34,7 +51,7 @@ class OnboardingForm(forms.ModelForm):
 class SettingsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(SettingsForm, self).__init__(*args, **kwargs)
-        self.fields["major"].choices = create_major_choices()
+        configure_major_field(self.fields["major"])
 
     class Meta:
         # model and fields used for the form

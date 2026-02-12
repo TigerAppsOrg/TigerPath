@@ -1,0 +1,101 @@
+import {
+  getSemesterType,
+  isFallSemester,
+  isSpringSemester,
+  convertSemToTermCode,
+} from 'utils/SemesterUtils';
+import { bindManualHoverPopover } from 'utils/manualHoverPopover';
+
+const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
+const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
+
+export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = null) {
+  let courseName = course['name'];
+  let courseTitle = course['title'];
+  let courseSemType = course['semester'];
+
+  const courseElement = document.getElementById(courseKey);
+  if (!courseElement) return;
+
+  const existingCleanup = courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  if (typeof existingCleanup === 'function') {
+    existingCleanup();
+  }
+
+  courseElement.setAttribute('title', courseName);
+
+  // Build content
+  let content;
+  if (!course['external']) {
+    content = courseTitle;
+  } else {
+    content = "This is an external credit that you've added.";
+  }
+
+  let duplicateCount = 0;
+  if (duplicateCourseCounts instanceof Map) {
+    const normalizedName = (courseName || '').trim().toUpperCase();
+    duplicateCount = duplicateCourseCounts.get(normalizedName) || 0;
+  }
+
+  if (duplicateCount > 1) {
+    content +=
+      "<div class='popover-warning'>This course has already been added to your schedule.</div>";
+  }
+
+  if (courseSemType === 'fall' && isSpringSemester(getSemesterType(semIndex))) {
+    content +=
+      "<div class='popover-warning'>This course has previously only been offered in the Fall.</div>";
+  } else if (
+    courseSemType === 'spring' &&
+    isFallSemester(getSemesterType(semIndex))
+  ) {
+    content +=
+      "<div class='popover-warning'>This course has previously only been offered in the Spring.</div>";
+  }
+
+  let courseId = course['id'];
+  let courseSemList = course['semester_list'];
+  if (courseSemList && courseSemList.length > 0) {
+    let termCode = convertSemToTermCode(
+      courseSemList[courseSemList.length - 1]
+    );
+    let courseInfoLink = BASE_COURSE_OFFERINGS_URL + termCode + courseId;
+
+    content += "<div class='search-card-links'>";
+    content +=
+      '<a href=' +
+      courseInfoLink +
+      " target='_blank' rel='noopener noreferrer'> ";
+    content += "<i class='fas fa-info-circle fa-lg fa-fw course-info'></i>";
+    content += '</a> ';
+    content += '</div>';
+  }
+
+  courseElement.setAttribute('data-bs-content', content);
+
+  // Use Bootstrap 5 Popover API
+  const Popover = window.bootstrap?.Popover;
+  if (!Popover) return;
+
+  // Dispose existing popover if any
+  const existing = Popover.getInstance(courseElement);
+  if (existing) existing.dispose();
+
+  const popoverInstance = new Popover(courseElement, {
+    trigger: 'manual',
+    html: true,
+    animation: true,
+    sanitize: false,
+  });
+
+  const cleanupHoverBehavior = bindManualHoverPopover(
+    courseElement,
+    popoverInstance
+  );
+  courseElement[COURSE_POPOVER_CLEANUP_KEY] = () => {
+    cleanupHoverBehavior();
+    popoverInstance.dispose();
+    delete courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  };
+}

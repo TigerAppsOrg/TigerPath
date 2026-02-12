@@ -4,16 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('tigerpath', '0002_major_userprofile'),
+        ("tigerpath", "0002_major_userprofile"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='userprofile',
-            name='nickname',
-            field=models.CharField(default='name', max_length=50),
+            model_name="userprofile",
+            name="nickname",
+            field=models.CharField(default="name", max_length=50),
             preserve_default=False,
         ),
     ]

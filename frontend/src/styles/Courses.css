@@ -53,11 +53,15 @@
   align-items: center;
 }
 
-.search-card-links {
+.search-card .search-card-links {
   visibility: hidden;
 }
 
 .search-card:hover .search-card-links {
+  visibility: visible;
+}
+
+.popover .search-card-links {
   visibility: visible;
 }
 
