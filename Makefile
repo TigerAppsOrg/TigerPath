@@ -1,4 +1,4 @@
-.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db seed-majors seed-courses seed-data build help
+.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db deps-up seed-majors seed-courses seed-data build help
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -46,6 +46,9 @@ dbshell: ## Open database shell
 reset-db: ## Reset the database (WARNING: destroys all data)
 	python manage.py flush --no-input
 	python manage.py migrate
+
+deps-up: ## Start local Postgres + Redis in Docker
+	docker compose up -d db redis
 
 seed-majors: ## Load major mappings fixture into database
 	python manage.py loaddata major_mappings

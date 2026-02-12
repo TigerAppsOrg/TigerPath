@@ -1,39 +1,72 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SearchCard from 'components/SearchCard';
+
+const SEARCH_DEBOUNCE_MS = 50;
+const MIN_QUERY_LENGTH = 3;
 
 export default function Search({ onChange, searchQuery, searchResults }) {
   const [loading, setLoading] = useState(false);
   const abortControllerRef = useRef(null);
+  const searchTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, []);
 
   const updateSearch = (event) => {
-    setLoading(true);
+    const rawQuery = event.target.value;
+    const trimmedQuery = rawQuery.trim();
+    onChange('searchQuery', rawQuery);
 
-    let query = event.target.value;
-    onChange('searchQuery', query);
-    if (query === '') query = '$';
-
-    // Abort any in-flight request
+    // Cancel pending network and delayed search work.
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+      searchTimeoutRef.current = null;
+    }
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }
 
+    if (trimmedQuery === '') {
+      onChange('searchResults', []);
+      setLoading(false);
+      return;
+    }
+
+    if (trimmedQuery.length < MIN_QUERY_LENGTH) {
+      onChange('searchResults', []);
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+
     const controller = new AbortController();
     abortControllerRef.current = controller;
 
-    fetch('/api/v1/get_courses/' + query, {
-      credentials: 'same-origin',
-      signal: controller.signal,
-    })
-      .then((res) => res.json())
-      .then((results) => {
-        onChange('searchResults', results);
-        setLoading(false);
+    searchTimeoutRef.current = setTimeout(() => {
+      fetch('/api/v1/get_courses/' + encodeURIComponent(trimmedQuery), {
+        credentials: 'same-origin',
+        signal: controller.signal,
       })
-      .catch((err) => {
-        if (err.name !== 'AbortError') {
+        .then((res) => res.json())
+        .then((results) => {
+          onChange('searchResults', results);
           setLoading(false);
-        }
-      });
+        })
+        .catch((err) => {
+          if (err.name !== 'AbortError') {
+            setLoading(false);
+          }
+        });
+    }, SEARCH_DEBOUNCE_MS);
   };
 
   const renderSearchResults = () => {
@@ -57,6 +90,14 @@ export default function Search({ onChange, searchQuery, searchResults }) {
 
     if (searchQuery.trim() === '') {
       return <p className="text-muted p-2 mb-0">Start typing to search courses.</p>;
+    }
+
+    if (searchQuery.trim().length < MIN_QUERY_LENGTH) {
+      return (
+        <p className="text-muted p-2 mb-0">
+          Type at least {MIN_QUERY_LENGTH} characters to search.
+        </p>
+      );
     }
 
     return <p className="text-muted p-2 mb-0">No courses found.</p>;

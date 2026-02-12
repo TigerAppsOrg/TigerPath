@@ -1,10 +1,14 @@
 import itertools
 import json
 import re
+import hashlib
+import time
 
 import django_cas_ng.views
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
@@ -16,6 +20,11 @@ from .majors_and_certificates.scripts.verifier import (
     check_major,
     get_courses_by_path,
 )
+
+SEARCH_RESULT_LIMIT = 200
+SEARCH_CACHE_TIMEOUT_SECONDS = 300
+SEARCH_CACHE_KEY_VERSION = "v1"
+SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
 
 
 # cas auth login
@@ -186,15 +195,66 @@ def convert_courses(course_list, queries):
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
+    search_start = time.monotonic()
+
     # split only by first digit occurrance ex: cee102a -> [cee, 102a]
     split_query = re.split(r"(\d.*)", search_query)
     queries = []
     # split again by spaces
     for query in split_query:
         queries = queries + query.split(" ")
+    queries = [query.strip() for query in queries if query.strip()]
+
+    def truncate_for_log(value):
+        if len(value) <= SEARCH_DEBUG_QUERY_LOG_MAX_LEN:
+            return value
+        return value[: SEARCH_DEBUG_QUERY_LOG_MAX_LEN - 3] + "..."
+
+    if len(queries) == 0:
+        if settings.DEBUG:
+            print("[search-cache] SKIP empty query", flush=True)
+        return JsonResponse([], safe=False)
+
+    normalized_query = " ".join(queries).lower()
+    cache_key_hash = hashlib.sha1(normalized_query.encode("utf-8")).hexdigest()
+    cache_key = f"course-search:{SEARCH_CACHE_KEY_VERSION}:{SEARCH_RESULT_LIMIT}:{cache_key_hash}"
+    cached_results = cache.get(cache_key)
+    if cached_results is not None:
+        if settings.DEBUG:
+            elapsed_ms = (time.monotonic() - search_start) * 1000
+            print(
+                "[search-cache] HIT "
+                f"key={cache_key_hash[:10]} "
+                f'query="{truncate_for_log(normalized_query)}" '
+                f"count={len(cached_results)} "
+                f"elapsed_ms={elapsed_ms:.1f}",
+                flush=True,
+            )
+        return JsonResponse(cached_results, safe=False)
+    elif settings.DEBUG:
+        print(
+            "[search-cache] MISS "
+            f"key={cache_key_hash[:10]} "
+            f'query="{truncate_for_log(normalized_query)}"',
+            flush=True,
+        )
 
     course_list = filter_courses(queries)
+    course_list = course_list.only(
+        "title", "registrar_id", "cross_listings", "all_semesters", "dist_area"
+    )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
+    cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
+    if settings.DEBUG:
+        elapsed_ms = (time.monotonic() - search_start) * 1000
+        print(
+            "[search-cache] STORE "
+            f"key={cache_key_hash[:10]} "
+            f'query="{truncate_for_log(normalized_query)}" '
+            f"count={len(course_info_list)} "
+            f"elapsed_ms={elapsed_ms:.1f}",
+            flush=True,
+        )
     return JsonResponse(course_info_list, safe=False)
 
 
@@ -244,54 +304,45 @@ def filter_courses(queries, allow_failure=False):
     Setting it to True will allow failure (filtering down to empty), and is
     useful when the searches are not user defined and should not have typos.
     """
-    # shortcut for an empty search
-    if len(queries) == 0:
-        return []
+    cleaned_queries = [query.strip() for query in queries if query and query.strip()]
+    if len(cleaned_queries) == 0:
+        return models.Course.objects.none()
+
     results = models.Course.objects.all()
-    # remember original length to check if any results have been filtered out
-    original_length = len(results)
-    for query in queries:
-        if len(results) == 0:
-            # no results remain. return empty
-            return []
-        if query == "":
-            continue
+    has_applied_filter = False
+
+    for query in cleaned_queries:
+        query_upper = query.upper()
         if len(query) == 3 and query.isalpha():
             # might be a 3-letter departmental code
-            filtered_results = list(
-                filter(lambda course: query.upper() in course.cross_listings, results)
-            )
-            if len(filtered_results) > 0:
-                results = filtered_results
-                continue
-        if len(query) <= 3 and query.isdigit() or len(query) == 4 and query[:3].isdigit():
+            filtered_results = results.filter(course_listing_set__dept__iexact=query_upper)
+            filtered_results = filtered_results.distinct()
+        elif (len(query) <= 3 and query.isdigit()) or (
+            len(query) == 4 and query[:3].isdigit()
+        ):
             # might be a course number
-            filtered_results = list(
-                filter(
-                    lambda course: any(
-                        [
-                            listing[3:].startswith(query.upper())
-                            for listing in re.split(" / ", course.cross_listings)
-                        ]
-                    ),
-                    results,
-                )
-            )
-            if len(filtered_results) > 0:
-                results = filtered_results
-                continue
-        # might be part of a course title
-        filtered_results = list(
-            filter(lambda course: query.lower() in course.title.lower(), results)
-        )
-        if len(filtered_results) > 0 or allow_failure:
+            filtered_results = results.filter(course_listing_set__number__istartswith=query_upper)
+            filtered_results = filtered_results.distinct()
+        else:
+            # might be part of a course title
+            filtered_results = results.filter(title__icontains=query)
+
+        if allow_failure:
             results = filtered_results
+            has_applied_filter = True
+            continue
+
+        if filtered_results.exists():
+            results = filtered_results
+            has_applied_filter = True
             continue
         # if reaches this line, query returned no results, so drop and move on
-    if len(results) == original_length:
-        # none of the queries were vaild
-        return []
-    return results
+
+    if not has_applied_filter:
+        # none of the queries were valid
+        return models.Course.objects.none()
+
+    return results.distinct()
 
 
 # returns 'fall', 'spring', or 'both' depending on the list of semesters

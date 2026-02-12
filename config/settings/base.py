@@ -104,6 +104,24 @@ if DATABASES.get("default"):
     DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
 
 
+# Caching
+REDIS_URL = os.getenv("REDIS_URL", "").strip()
+if REDIS_URL:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": REDIS_URL,
+        }
+    }
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+            "LOCATION": "tigerpath-default-cache",
+        }
+    }
+
+
 # Static files (CSS, JavaScript, Images)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")

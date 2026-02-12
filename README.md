@@ -57,10 +57,10 @@ The `.env` file is auto-loaded by `manage.py`, so you don't need to source it ma
 
 ### Database
 
-Start Postgres via Docker Compose:
+Start Postgres and Redis via Docker Compose:
 
 ```bash
-docker compose up -d db
+make deps-up
 ```
 
 Then run migrations:
@@ -116,6 +116,7 @@ make migrate           # run migrations
 make makemigrations    # create new migrations
 make dbshell           # open psql shell
 make reset-db          # flush all data and re-migrate
+make deps-up           # start local Postgres + Redis in Docker
 make seed-data         # load majors + scrape/import courses
 ```
 

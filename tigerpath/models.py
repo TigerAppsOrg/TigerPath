@@ -9,6 +9,13 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+def get_default_term_code():
+    active_terms = getattr(settings, "ACTIVE_TERMS", [])
+    if active_terms:
+        return str(max(active_terms))
+    return "0000"
+
+
 class Semester(models.Model):
     # fields
     start_date = models.DateField()
@@ -20,7 +27,7 @@ class Semester(models.Model):
     1132 = 1213Fall
     """
     term_code = models.CharField(
-        max_length=4, default=max(settings.ACTIVE_TERMS), db_index=True, unique=True
+        max_length=4, default=get_default_term_code, db_index=True, unique=True
     )
 
     def __str__(self):

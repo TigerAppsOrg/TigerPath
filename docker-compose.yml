@@ -15,6 +15,18 @@ services:
       timeout: 5s
       retries: 5
 
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
   backend:
     build:
       context: .
@@ -26,10 +38,13 @@ services:
       - .env
     environment:
       DATABASE_URL: postgres://tigerpath:tigerpath@db:5432/tigerpath
+      REDIS_URL: redis://redis:6379/1
     volumes:
       - .:/opt/tigerpath
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
   frontend:
@@ -48,3 +63,4 @@ services:
 
 volumes:
   pgdata:
+  redisdata:
