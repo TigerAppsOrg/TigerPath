@@ -1,4 +1,4 @@
-.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db deps-up seed-majors seed-courses seed-data build help
+.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db deps-up seed-majors seed-courses seed-data build check-osv-scanner osv-scan-python osv-scan-frontend osv-scan help
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -62,5 +62,20 @@ seed-data: ## Seed majors and courses (requires DB, network, and scraper credent
 
 build: ## Build frontend for production
 	cd frontend && bun run build
+
+check-scanner: ## Verify osv-scanner is installed
+	@command -v osv-scanner >/dev/null 2>&1 || (echo "osv-scanner not found. Install it from https://google.github.io/osv-scanner/"; exit 1)
+
+scan-python: ## Scan Python dependencies with OSV Scanner
+	@$(MAKE) check-osv-scanner
+	osv-scanner scan source -L requirements.txt
+
+scan-frontend: ## Scan frontend npm dependencies with OSV Scanner
+	@$(MAKE) check-osv-scanner
+	osv-scanner scan source -L frontend/package-lock.json
+
+scan: ## Scan Python + frontend dependencies with OSV Scanner
+	@$(MAKE) check-osv-scanner
+	osv-scanner scan source -L requirements.txt -L frontend/package-lock.json
 
 .DEFAULT_GOAL := help
