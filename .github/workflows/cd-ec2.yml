@@ -6,7 +6,7 @@ on:
     types:
       - completed
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 concurrency:
@@ -64,8 +64,8 @@ jobs:
             cd "${EC2_DEPLOY_PATH}"
 
             git fetch --prune origin
-            git checkout main
-            git pull --ff-only origin main
+            git checkout master
+            git pull --ff-only origin master
 
             docker compose -f docker-compose.prod.yml up -d --build redis web
             docker compose -f docker-compose.prod.yml exec -T web python manage.py migrate --noinput

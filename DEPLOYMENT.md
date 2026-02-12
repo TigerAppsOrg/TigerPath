@@ -82,7 +82,7 @@ Create `/etc/nginx/sites-available/tigerpath`:
 ```nginx
 server {
     listen 80;
-    server_name your-domain.com www.your-domain.com;
+    server_name path.tigerapps.org;
 
     client_max_body_size 20m;
 
@@ -106,11 +106,23 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## 7. Enable HTTPS (Let’s Encrypt)
+## 7. Configure DNS in Cloudflare (`path.tigerapps.org`)
+
+In Cloudflare (zone: `tigerapps.org`), create the DNS record:
+
+- `A` record: `path` -> `<EC2_PUBLIC_IP>`
+
+Recommended Cloudflare settings:
+
+- Start with `Proxy status = DNS only` during initial certificate setup
+- After HTTPS is working, switch to `Proxied` if you want Cloudflare proxy/CDN/WAF
+- In **SSL/TLS**, use `Full` during setup, then `Full (strict)` after Let’s Encrypt is installed
+
+## 8. Enable HTTPS (Let’s Encrypt)
 
 ```bash
 sudo apt-get install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d your-domain.com -d www.your-domain.com
+sudo certbot --nginx -d path.tigerapps.org
 ```
 
 Test renewal:
@@ -119,11 +131,11 @@ Test renewal:
 sudo certbot renew --dry-run
 ```
 
-## 8. Operational Commands
+## 9. Operational Commands
 
 ```bash
 # update app code
-git pull --ff-only origin main
+git pull --ff-only origin master
 
 # rebuild/restart app
 docker compose -f docker-compose.prod.yml up -d --build
@@ -136,7 +148,7 @@ docker compose -f docker-compose.prod.yml logs -f web
 docker compose -f docker-compose.prod.yml logs -f redis
 ```
 
-## 9. GitHub Actions CI/CD
+## 10. GitHub Actions CI/CD
 
 Two workflows are included:
 - `.github/workflows/ci.yml` (test/build on PRs + pushes)
@@ -164,7 +176,7 @@ CD workflow executes on EC2:
 3. `python manage.py migrate` inside `web`
 4. basic health output via `docker compose ps`
 
-## 10. Architecture Recap
+## 11. Architecture Recap
 
 - Postgres: external RDS (`DATABASE_URL` in `.env`)
 - Redis: local Docker container on EC2 (`redis` service)
