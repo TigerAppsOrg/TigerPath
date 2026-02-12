@@ -324,7 +324,15 @@ export default function Requirements({ onChange, requirements, schedule }) {
 
   return (
     <div id="requirements" ref={containerRef}>
-      {requirements && renderRequirements()}
+      {!requirements && (
+        <p className="text-muted p-2 mb-0">Loading requirements...</p>
+      )}
+      {requirements && requirements.length === 0 && (
+        <p className="text-muted p-2 mb-0">
+          Set your major in Settings to see requirement progress.
+        </p>
+      )}
+      {requirements && requirements.length > 0 && renderRequirements()}
     </div>
   );
 }

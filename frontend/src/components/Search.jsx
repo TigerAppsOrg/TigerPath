@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { apiFetch } from 'utils/api';
 import SearchCard from 'components/SearchCard';
 
 export default function Search({ onChange, searchQuery, searchResults }) {
@@ -37,6 +36,32 @@ export default function Search({ onChange, searchQuery, searchResults }) {
       });
   };
 
+  const renderSearchResults = () => {
+    if (searchResults.length > 0) {
+      return searchResults.map((course, courseIndex) => {
+        const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
+        return (
+          <SearchCard
+            key={courseKey}
+            courseKey={courseKey}
+            index={courseIndex}
+            course={course}
+          />
+        );
+      });
+    }
+
+    if (loading) {
+      return <p className="text-muted p-2 mb-0">Searching...</p>;
+    }
+
+    if (searchQuery.trim() === '') {
+      return <p className="text-muted p-2 mb-0">Start typing to search courses.</p>;
+    }
+
+    return <p className="text-muted p-2 mb-0">No courses found.</p>;
+  };
+
   return (
     <>
       <div id="search-courses">
@@ -60,17 +85,7 @@ export default function Search({ onChange, searchQuery, searchResults }) {
         )}
       </div>
       <div id="display-courses">
-        {searchResults.map((course, courseIndex) => {
-          const courseKey = `course-card-${course['semester']}-search-${courseIndex}`;
-          return (
-            <SearchCard
-              key={courseKey}
-              courseKey={courseKey}
-              index={courseIndex}
-              course={course}
-            />
-          );
-        })}
+        {renderSearchResults()}
       </div>
     </>
   );

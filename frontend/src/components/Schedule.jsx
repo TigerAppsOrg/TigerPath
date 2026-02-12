@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { apiFetch } from 'utils/api';
 import Semester from 'components/Semester';
 import styled from 'styled-components';
-import { getSemesterNames } from 'utils/SemesterUtils';
+import { getSemesterNames, DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 import { addPopover } from 'Popover';
 
 const Semesters = styled.div`
@@ -14,13 +14,25 @@ const Semesters = styled.div`
   padding: 0 5px;
 `;
 
+const MissingYearNotice = styled.p`
+  margin: 0;
+  padding: 0 7px 5px;
+`;
+
 export default function Schedule({ onChange, profile, schedule }) {
   useEffect(() => {
     if (schedule === null) {
-      apiFetch('/api/v1/get_schedule/').then((data) => {
-        if (data) onChange('schedule', data);
-        addPopovers(data);
-      });
+      apiFetch('/api/v1/get_schedule/')
+        .then((data) => {
+          if (data) onChange('schedule', data);
+          addPopovers(data);
+        })
+        .catch(() => {
+          onChange(
+            'schedule',
+            DEFAULT_SCHEDULE.map((semester) => semester.slice())
+          );
+        });
     } else {
       addPopovers(schedule);
     }
@@ -44,9 +56,11 @@ export default function Schedule({ onChange, profile, schedule }) {
   };
 
   const semesters = () => {
-    if (!profile || !profile.classYear) return [];
+    const classYear = profile?.classYear;
+    const semesterNames = classYear
+      ? getSemesterNames(classYear)
+      : Array.from({ length: 8 }, (_, index) => `Semester ${index + 1}`);
 
-    let semesterNames = getSemesterNames(profile.classYear);
     return semesterNames.map((semName, index) => {
       let semId = `sem${index}`;
       return (
@@ -62,5 +76,14 @@ export default function Schedule({ onChange, profile, schedule }) {
     });
   };
 
-  return <Semesters id="semesters">{semesters()}</Semesters>;
+  return (
+    <>
+      {!profile?.classYear && (
+        <MissingYearNotice className="warning-text">
+          Set your class year in Settings to label semesters correctly.
+        </MissingYearNotice>
+      )}
+      <Semesters id="semesters">{semesters()}</Semesters>
+    </>
+  );
 }

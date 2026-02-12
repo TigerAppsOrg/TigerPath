@@ -28,11 +28,15 @@ export default function App() {
   }, []);
 
   const fetchProfile = useCallback(() => {
-    apiFetch('/api/v1/get_profile/').then(setProfile);
+    apiFetch('/api/v1/get_profile/')
+      .then(setProfile)
+      .catch(() => setProfile({ classYear: null }));
   }, []);
 
   const fetchRequirements = useCallback(() => {
-    apiFetch('/api/v1/get_requirements/').then(handleRequirementData);
+    apiFetch('/api/v1/get_requirements/')
+      .then(handleRequirementData)
+      .catch(() => setRequirements([]));
   }, [handleRequirementData]);
 
   const updateScheduleAndGetRequirements = useCallback(
@@ -52,7 +56,9 @@ export default function App() {
 
       apiPost('/api/v1/update_schedule_and_get_requirements/', {
         schedule: JSON.stringify(strippedSchedule),
-      }).then(handleRequirementData);
+      })
+        .then(handleRequirementData)
+        .catch(() => {});
     },
     [handleRequirementData]
   );

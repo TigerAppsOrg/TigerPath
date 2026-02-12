@@ -45,6 +45,22 @@ class OnboardingFlowTest(TestCase):
         response = self.client.get("/")
         self.assertContains(response, 'id="onboarding-modal"')
 
+    def test_index_shows_onboarding_when_year_missing_and_no_major_choices(self):
+        """Even without majors loaded, users should still set class year."""
+        response = self.client.get("/")
+        self.assertContains(response, 'id="onboarding-modal"')
+
+    def test_index_marks_onboarding_incomplete_if_profile_fields_are_missing(self):
+        profile = self.user.profile
+        profile.user_state = {"onboarding_complete": True}
+        profile.save(update_fields=["user_state"])
+
+        response = self.client.get("/")
+        self.assertContains(response, 'id="onboarding-modal"')
+
+        profile.refresh_from_db()
+        self.assertFalse(profile.user_state["onboarding_complete"])
+
     def test_post_onboarding_without_majors_is_not_blocking(self):
         valid_year = forms.create_year_choices()[0][0]
         response = self.client.post("/onboarding/save", {"year": valid_year}, follow=True)

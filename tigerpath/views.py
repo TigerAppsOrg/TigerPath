@@ -44,20 +44,27 @@ def index(request):
         context = {"settings_form": settings_form}
 
         # check user state
-        user_state = request.user.profile.user_state or {}
+        user_state = instance.user_state or {}
         has_major_options = models.Major.objects.exists()
-        if "onboarding_complete" not in user_state or not user_state["onboarding_complete"]:
-            # require onboarding only when major options are available
-            if not request.user.profile.major and has_major_options:
-                # add onboarding form
-                onboarding_form = forms.OnboardingForm()
-                context["onboarding_form"] = onboarding_form
-            else:
-                # show tutorial
-                context["show_tutorial"] = True
-                user_state["onboarding_complete"] = True
-                request.user.profile.user_state = user_state
-                request.user.profile.save(update_fields=["user_state"])
+        needs_year = instance.year is None
+        needs_major = has_major_options and not instance.major
+        needs_onboarding = needs_year or needs_major
+
+        if needs_onboarding:
+            # Always collect missing profile basics before showing the planner UI.
+            context["onboarding_form"] = forms.OnboardingForm(instance=instance)
+
+            # Keep onboarding status in sync if this user was previously marked complete.
+            if user_state.get("onboarding_complete"):
+                user_state["onboarding_complete"] = False
+                instance.user_state = user_state
+                instance.save(update_fields=["user_state"])
+        elif not user_state.get("onboarding_complete"):
+            # show tutorial
+            context["show_tutorial"] = True
+            user_state["onboarding_complete"] = True
+            instance.user_state = user_state
+            instance.save(update_fields=["user_state"])
 
         return render(request, "tigerpath/index.html", context)
     else:
