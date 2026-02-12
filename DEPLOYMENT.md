@@ -75,6 +75,27 @@ docker compose -f docker-compose.prod.yml ps
 
 App listens on `127.0.0.1:8000` on host (intentionally not public).
 
+### If EC2 is memory-constrained
+
+For small instances, tune `.env` before `docker compose up`:
+
+- `GUNICORN_WORKERS=2` (or `1` on very small instances)
+- `GUNICORN_THREADS=2`
+- `WEB_MEM_LIMIT=768m`
+- `REDIS_MAXMEMORY=128mb`
+- `REDIS_MEM_LIMIT=192m`
+
+Optional but recommended: add swap (example: 2 GB):
+
+```bash
+sudo fallocate -l 2G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+free -h
+```
+
 ## 6. Configure Nginx Reverse Proxy
 
 Create `/etc/nginx/sites-available/tigerpath`:

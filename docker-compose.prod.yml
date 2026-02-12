@@ -2,11 +2,12 @@ services:
   redis:
     image: redis:7-alpine
     restart: unless-stopped
+    mem_limit: ${REDIS_MEM_LIMIT:-192m}
     command:
       [
         "redis-server",
         "--maxmemory",
-        "${REDIS_MAXMEMORY:-256mb}",
+        "${REDIS_MAXMEMORY:-128mb}",
         "--maxmemory-policy",
         "${REDIS_MAXMEMORY_POLICY:-allkeys-lru}",
       ]
@@ -24,7 +25,9 @@ services:
       dockerfile: Dockerfile
       target: production
     restart: unless-stopped
-    command: gunicorn config.wsgi:application -w 4 --bind 0.0.0.0:8000 --timeout 600
+    init: true
+    mem_limit: ${WEB_MEM_LIMIT:-768m}
+    command: gunicorn config.wsgi:application --worker-class gthread --workers ${GUNICORN_WORKERS:-2} --threads ${GUNICORN_THREADS:-2} --bind 0.0.0.0:8000 --timeout ${GUNICORN_TIMEOUT:-600} --max-requests ${GUNICORN_MAX_REQUESTS:-1000} --max-requests-jitter ${GUNICORN_MAX_REQUESTS_JITTER:-100}
     ports:
       - "127.0.0.1:8000:8000"
     env_file:

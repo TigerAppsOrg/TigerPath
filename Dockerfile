@@ -25,17 +25,21 @@ COPY frontend .
 EXPOSE 3000
 CMD ["bun", "run", "dev", "--host", "0.0.0.0"]
 
+# ---------- frontend build assets ----------
+FROM oven/bun:1.3.8 AS frontend-build
+WORKDIR /opt/tigerpath/frontend
+COPY frontend/package.json frontend/bun.lock ./
+RUN bun install --frozen-lockfile --ignore-scripts
+COPY frontend .
+RUN bun run build
+
 # ---------- production ----------
 FROM base AS production
 
-# Build frontend assets (requires bun)
-RUN apt-get update && apt-get install -y --no-install-recommends curl unzip \
-    && curl -fsSL https://bun.sh/install | bash \
-    && export PATH="$HOME/.bun/bin:$PATH" \
-    && cd frontend && bun install --frozen-lockfile && bun run build \
-    && apt-get purge -y curl unzip && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
+# Copy prebuilt frontend assets from dedicated Bun stage
+COPY --from=frontend-build /opt/tigerpath/assets/dist /opt/tigerpath/assets/dist
 
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
-CMD ["gunicorn", "config.wsgi:application", "-w", "4", "--bind", "0.0.0.0:8000", "--timeout", "600"]
+CMD ["gunicorn", "config.wsgi:application", "-w", "2", "--bind", "0.0.0.0:8000", "--timeout", "600"]
