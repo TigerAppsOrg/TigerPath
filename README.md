@@ -6,6 +6,8 @@ You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
 
 To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
+For EC2 + Nginx production setup (with Redis in Docker and external RDS), see [DEPLOYMENT.md](DEPLOYMENT.md).
+
 # Prerequisites
 
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
