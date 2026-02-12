@@ -106,11 +106,15 @@ if DATABASES.get("default"):
 
 # Caching
 REDIS_URL = os.getenv("REDIS_URL", "").strip()
+CACHE_DEFAULT_TIMEOUT = int(os.getenv("CACHE_DEFAULT_TIMEOUT", "300"))
+CACHE_MAX_ENTRIES = int(os.getenv("CACHE_MAX_ENTRIES", "2000"))
+CACHE_CULL_FREQUENCY = int(os.getenv("CACHE_CULL_FREQUENCY", "3"))
 if REDIS_URL:
     CACHES = {
         "default": {
             "BACKEND": "django.core.cache.backends.redis.RedisCache",
             "LOCATION": REDIS_URL,
+            "TIMEOUT": CACHE_DEFAULT_TIMEOUT,
         }
     }
 else:
@@ -118,6 +122,11 @@ else:
         "default": {
             "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
             "LOCATION": "tigerpath-default-cache",
+            "TIMEOUT": CACHE_DEFAULT_TIMEOUT,
+            "OPTIONS": {
+                "MAX_ENTRIES": CACHE_MAX_ENTRIES,
+                "CULL_FREQUENCY": CACHE_CULL_FREQUENCY,
+            },
         }
     }
 

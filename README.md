@@ -55,6 +55,16 @@ cp .env.example .env
 
 The `.env` file is auto-loaded by `manage.py`, so you don't need to source it manually.
 
+To enable Redis-backed search caching locally, set:
+
+```bash
+REDIS_URL=redis://localhost:6379/1
+```
+
+Cache growth safeguards:
+- Redis (Docker) defaults to `REDIS_MAXMEMORY=256mb` with `allkeys-lru` eviction.
+- Non-Redis local cache is capped by `CACHE_MAX_ENTRIES` (default `2000`).
+
 ### Database
 
 Start Postgres and Redis via Docker Compose:
