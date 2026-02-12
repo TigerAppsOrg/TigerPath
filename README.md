@@ -69,10 +69,21 @@ Then run migrations:
 make migrate
 ```
 
-To populate the major table:
+To populate majors and courses in one step:
 
 ```bash
-python manage.py loaddata major_mappings
+make seed-data
+```
+
+Note: `make seed-courses` / `make seed-data` require Princeton MobileApp API credentials in `.env`:
+`CONSUMER_KEY` and `CONSUMER_SECRET`.
+If Princeton changes API paths, you can also set `MOBILEAPP_BASE_URL`.
+
+Or run them separately:
+
+```bash
+make seed-majors
+make seed-courses
 ```
 
 # Development
@@ -105,13 +116,19 @@ make migrate           # run migrations
 make makemigrations    # create new migrations
 make dbshell           # open psql shell
 make reset-db          # flush all data and re-migrate
+make seed-data         # load majors + scrape/import courses
 ```
 
 ### Scraping courses
 
 ```bash
-python manage.py tigerpath_get_courses
+make seed-courses
 ```
+
+This command requires:
+- `CONSUMER_KEY`
+- `CONSUMER_SECRET`
+- (optional) `MOBILEAPP_BASE_URL` override when OIT changes endpoint versions
 
 ### All Makefile targets
 

@@ -47,6 +47,10 @@ def scrape_parse_semester(term_code):
     def scrape_all():
         """scrape all events from Princeton's course webfeed"""
         departments = ",".join(list(DEPTS.keys()))
+        print(
+            f"[scrape] Requesting course list for term {TERM_CODE} across {len(DEPTS)} departments...",
+            flush=True,
+        )
         return scrape(departments)
 
     # goes through the listings for this department
@@ -56,16 +60,44 @@ def scrape_parse_semester(term_code):
         if data["term"][0].get("subjects") is None:
             print("Empty MobileApp response")
             return []
+        subjects = data["term"][0]["subjects"]
+        total_courses = sum(len(subject.get("courses", [])) for subject in subjects)
+        print(
+            f"[scrape] Received {len(subjects)} subjects and {total_courses} courses. Parsing course details...",
+            flush=True,
+        )
+
         parsed_courses = []
-        try:
-            for subject in data["term"][0]["subjects"]:
-                for course in subject["courses"]:
+        processed_count = 0
+        failed_count = 0
+        progress_every = 25
+        for subject in subjects:
+            subject_code = subject.get("code", "<unknown>")
+            for course in subject.get("courses", []):
+                course_id = course.get("course_id", "<unknown>")
+                try:
                     x = parse_course(data, course, subject)
                     if x is not None:
                         parsed_courses.append(x)
-        except Exception:
-            print("Potential missing key")
-            return []
+                except Exception as exc:
+                    failed_count += 1
+                    print(
+                        f"[scrape][warn] Failed parsing subject={subject_code} course_id={course_id}: {exc}",
+                        flush=True,
+                    )
+
+                processed_count += 1
+                if processed_count % progress_every == 0 or processed_count == total_courses:
+                    print(
+                        "[scrape] Processed "
+                        f"{processed_count}/{total_courses} courses "
+                        f"(parsed={len(parsed_courses)}, failed={failed_count}, latest subject: {subject_code})",
+                        flush=True,
+                    )
+
+        if failed_count > 0:
+            print(f"[scrape] Completed with {failed_count} parse failures", flush=True)
+
         return parsed_courses
 
     def none_to_empty(text):
@@ -85,49 +117,45 @@ def scrape_parse_semester(term_code):
     # Otherwise, create new course with the information
     def parse_course(data, course, subject):
         """create a course with basic information."""
-        try:
-            # global new_course_count
-            # global course_count
-            details = MobileApp().get_course_details(term=TERM_CODE, course_id=course["course_id"])
-            distribution_area = none_to_empty(
-                details["course_details"]["course_detail"]["distribution_area_short"]
-            )
-            distribution_area = ",".join(distribution_area.split(" or "))
+        course_detail = course.get("detail") or {}
+        distribution_area = none_to_empty(
+            course_detail.get("distribution_area_short")
+            or course_detail.get("distribution_area")
+            or course.get("distribution_area_short")
+            or course.get("distribution_area")
+        )
+        distribution_area = ",".join(distribution_area.split(" or "))
 
-            return {
-                "title": course["title"],
-                "guid": course["guid"],
-                "distribution_area": distribution_area,
-                "description": none_to_empty(course["detail"]["description"]),
-                "semester": get_current_semester(data),
-                "professors": [parse_prof(x) for x in course["instructors"]],
-                "course_listings": parse_listings(course, subject),
-                "sections": [parse_section(x) for x in course["classes"]],
-            }
-        except Exception as inst:
-            # print inst
-            raise inst
-            return None
+        return {
+            "title": none_to_empty(course.get("title")),
+            "guid": none_to_empty(course.get("guid")),
+            "distribution_area": distribution_area,
+            "description": none_to_empty(course_detail.get("description")),
+            "semester": get_current_semester(data),
+            "professors": [parse_prof(x) for x in none_to_empty_list(course.get("instructors"))],
+            "course_listings": parse_listings(course, subject),
+            "sections": [parse_section(x) for x in none_to_empty_list(course.get("classes"))],
+        }
 
     # may decide to make this function for just one prof/listing/section, then
     # do a map
     def parse_prof(prof):
-        return {"full_name": prof["full_name"]}
+        return {"full_name": none_to_empty(prof.get("full_name"))}
 
     def parse_listings(course, subject):
         def parse_cross_listing(cross_listing):
             return {
-                "dept": cross_listing["subject"],
-                "code": cross_listing["catalog_number"],
+                "dept": none_to_empty(cross_listing.get("subject")),
+                "code": none_to_empty(cross_listing.get("catalog_number")),
                 "is_primary": False,
             }
 
         cross_listings = [
-            parse_cross_listing(x) for x in none_to_empty_list(course["crosslistings"])
+            parse_cross_listing(x) for x in none_to_empty_list(course.get("crosslistings"))
         ]
         primary_listing = {
             "dept": get_text("code", subject),
-            "code": course["catalog_number"],
+            "code": none_to_empty(course.get("catalog_number")),
             "is_primary": True,
         }
         return cross_listings + [primary_listing]
@@ -136,20 +164,16 @@ def scrape_parse_semester(term_code):
         def parse_meeting(meeting):
             def get_days(meeting):
                 days = ""
-                for day in meeting["days"]:
+                for day in meeting.get("days", []):
                     days += day + " "
                 return days[:10]
 
             def get_location(meeting):
-                location = ""
-                try:
-                    building = meeting["building"]["name"]
-                    room = meeting["room"]
-                    location = building + " " + room
-                except Exception as e:
-                    raise e
-                finally:
-                    return location
+                building = none_to_empty((meeting.get("building") or {}).get("name"))
+                room = none_to_empty(meeting.get("room"))
+                if building and room:
+                    return building + " " + room
+                return building or room
 
             # the times are in the format:
             # HH:MM AM/PM
@@ -162,9 +186,9 @@ def scrape_parse_semester(term_code):
 
         # NOTE: section.find('schedule') doesn't seem to be used
         meetings = None
-        schedule = section["schedule"]
+        schedule = section.get("schedule")
         if schedule is not None:
-            meetings = schedule["meetings"]
+            meetings = schedule.get("meetings")
         return {
             "registrar_id": get_text("class_number", section),
             "name": get_text("section", section),

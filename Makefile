@@ -1,4 +1,4 @@
-.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db build help
+.PHONY: setup dev dev-backend dev-frontend test lint format migrate makemigrations shell dbshell reset-db seed-majors seed-courses seed-data build help
 
 help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
@@ -46,6 +46,16 @@ dbshell: ## Open database shell
 reset-db: ## Reset the database (WARNING: destroys all data)
 	python manage.py flush --no-input
 	python manage.py migrate
+
+seed-majors: ## Load major mappings fixture into database
+	python manage.py loaddata major_mappings
+
+seed-courses: ## Scrape and import course data (requires CONSUMER_KEY + CONSUMER_SECRET)
+	python manage.py tigerpath_get_courses
+
+seed-data: ## Seed majors and courses (requires DB, network, and scraper credentials)
+	$(MAKE) seed-majors
+	$(MAKE) seed-courses
 
 build: ## Build frontend for production
 	cd frontend && bun run build
