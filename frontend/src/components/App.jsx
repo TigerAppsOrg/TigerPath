@@ -154,11 +154,11 @@ export default function App() {
           This schedule was created using{' '}
           <b>TigerPath - Princeton's Four-Year Course Planner</b> at{' '}
           <a
-            href="http://www.tigerpath.io/"
+            href="http://path.tigerapps.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            tigerpath.io
+            path.tigerapps.org
           </a>
           .
         </p>

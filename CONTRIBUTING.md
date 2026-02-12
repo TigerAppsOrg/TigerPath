@@ -44,7 +44,7 @@ Once you are satisfied with your changes, come back to the TigerPath GitHub and 
 branch of TigerHub (the branch that goes into production).
 
 There we will together discuss your changes and if anything needs to be ammended. If everything looks good, we will then
-merge your code into the `master` branch and deploy it to [tigerpath.io](https://www.tigerpath.io/).
+merge your code into the `master` branch and deploy it to [path.tigerapps.org](https://path.tigerapps.org/).
 
 Feel free to reach out to us through GitHub at any point to ask for help with your contributions, or reach out directly by
 email to Barak Nehoran (netid: bnehoran).

@@ -2,7 +2,7 @@
 
 TigerPath is a web app that helps Princeton University students plan out their four-year course schedules. It began as a COS 333 project by Richard Chu, Barak Nehoran, Adeniji Ogunlana, and Daniel Leung.
 
-You can visit TigerPath at [tigerpath.io](https://www.tigerpath.io).
+You can visit TigerPath at [path.tigerapps.org](https://path.tigerapps.org).
 
 To learn about contributing to TigerPath, take a look at the [contributing guidelines](https://github.com/PrincetonUSG/TigerPath/blob/master/CONTRIBUTING.md).
 
