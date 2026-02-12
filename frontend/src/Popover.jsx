@@ -4,8 +4,10 @@ import {
   isSpringSemester,
   convertSemToTermCode,
 } from 'utils/SemesterUtils';
+import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
+const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
 
 export function addPopover(course, courseKey, semIndex) {
   let courseName = course['name'];
@@ -14,6 +16,11 @@ export function addPopover(course, courseKey, semIndex) {
 
   const courseElement = document.getElementById(courseKey);
   if (!courseElement) return;
+
+  const existingCleanup = courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  if (typeof existingCleanup === 'function') {
+    existingCleanup();
+  }
 
   courseElement.setAttribute('title', courseName);
 
@@ -79,21 +86,13 @@ export function addPopover(course, courseKey, semIndex) {
     sanitize: false,
   });
 
-  courseElement.addEventListener('mouseenter', () => {
-    popoverInstance.show();
-    const popoverEl = document.querySelector('.popover');
-    if (popoverEl) {
-      popoverEl.addEventListener('mouseleave', () => {
-        popoverInstance.hide();
-      });
-    }
-  });
-
-  courseElement.addEventListener('mouseleave', () => {
-    setTimeout(() => {
-      if (!document.querySelector('.popover:hover')) {
-        popoverInstance.hide();
-      }
-    }, 100);
-  });
+  const cleanupHoverBehavior = bindManualHoverPopover(
+    courseElement,
+    popoverInstance
+  );
+  courseElement[COURSE_POPOVER_CLEANUP_KEY] = () => {
+    cleanupHoverBehavior();
+    popoverInstance.dispose();
+    delete courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  };
 }

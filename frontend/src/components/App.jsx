@@ -36,7 +36,10 @@ export default function App() {
   const fetchRequirements = useCallback(() => {
     apiFetch('/api/v1/get_requirements/')
       .then(handleRequirementData)
-      .catch(() => setRequirements([]));
+      .catch((error) => {
+        console.error('[requirements] initial fetch failed', error);
+        setRequirements([]);
+      });
   }, [handleRequirementData]);
 
   const updateScheduleAndGetRequirements = useCallback(
@@ -58,9 +61,12 @@ export default function App() {
         schedule: JSON.stringify(strippedSchedule),
       })
         .then(handleRequirementData)
-        .catch(() => {});
+        .catch((error) => {
+          console.error('[requirements] update failed', error);
+          fetchRequirements();
+        });
     },
-    [handleRequirementData]
+    [fetchRequirements, handleRequirementData]
   );
 
   useEffect(() => {
@@ -157,14 +163,14 @@ export default function App() {
           .
         </p>
         <DragDropContext onDragEnd={onDragEnd}>
-          <div id="search-pane" className="col-lg-2 pl-0 pr-0 dont-print">
+          <div id="search-pane" className="col-lg-2 p-0 dont-print">
             <Search
               onChange={onChange}
               searchQuery={searchQuery}
               searchResults={searchResults}
             />
           </div>
-          <div className="col-lg-8 pl-0 pr-0">
+          <div className="col-lg-8 p-0">
             <MainView
               onChange={onChange}
               profile={profile}
@@ -173,7 +179,7 @@ export default function App() {
             />
           </div>
         </DragDropContext>
-        <div className="col-lg-2 pl-0 pr-0 break dont-print">
+        <div className="col-lg-2 p-0 break dont-print">
           <Requirements
             onChange={onChange}
             requirements={requirements}

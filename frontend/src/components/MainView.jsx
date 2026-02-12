@@ -13,7 +13,8 @@ const Nav = styled.div`
   height: auto;
   border: 2px solid ${({ theme }) => theme.lightGrey};
   border-radius: 2px;
-  margin: 5px 25%;
+  width: min(100%, 540px);
+  margin: 5px auto;
 
   @media print {
     display: none;

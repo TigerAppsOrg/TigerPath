@@ -1,7 +1,11 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react';
 import { apiFetch } from 'utils/api';
+import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
+
+const REQUIREMENTS_POPOVER_CLEANUP_KEY = '__tigerpathReqPopoverCleanup';
+const TREE_ITEM_CLICK_HANDLER_KEY = '__tigerpathTreeItemClickHandler';
 
 export default function Requirements({ onChange, requirements, schedule }) {
   const [loading, setLoading] = useState(false);
@@ -11,26 +15,35 @@ export default function Requirements({ onChange, requirements, schedule }) {
     if (!containerRef.current) return;
     const items = containerRef.current.querySelectorAll('.tree-view_item');
     items.forEach((item) => {
-      // Remove old listeners by cloning
-      const newItem = item.cloneNode(true);
-      item.parentNode.replaceChild(newItem, item);
+      const existingHandler = item[TREE_ITEM_CLICK_HANDLER_KEY];
+      if (typeof existingHandler === 'function') {
+        item.removeEventListener('click', existingHandler);
+      }
 
-      newItem.addEventListener('click', () => {
+      const clickHandler = (event) => {
+        const interactiveTarget = event.target.closest(
+          'li.settled, li.unsettled, a, button, input, select, textarea'
+        );
+        if (interactiveTarget) return;
+
         const arrowCollapsedClass = 'tree-view_arrow-collapsed';
         const treeCollapsedClass = 'tree-view_children-collapsed';
-        const arrowItem = newItem.querySelector('.tree-view_arrow');
+        const arrowItem = item.querySelector('.tree-view_arrow');
         if (!arrowItem) return;
 
         if (arrowItem.classList.contains(arrowCollapsedClass)) {
           arrowItem.classList.remove(arrowCollapsedClass);
-          const children = newItem.parentElement.querySelector('.tree-view_children');
+          const children = item.parentElement.querySelector('.tree-view_children');
           if (children) children.classList.remove(treeCollapsedClass);
         } else {
           arrowItem.classList.add(arrowCollapsedClass);
-          const children = newItem.parentElement.querySelector('.tree-view_children');
+          const children = item.parentElement.querySelector('.tree-view_children');
           if (children) children.classList.add(treeCollapsedClass);
         }
-      });
+      };
+
+      item[TREE_ITEM_CLICK_HANDLER_KEY] = clickHandler;
+      item.addEventListener('click', clickHandler);
     });
   }, []);
 
@@ -41,6 +54,11 @@ export default function Requirements({ onChange, requirements, schedule }) {
 
     const reqLabels = containerRef.current.querySelectorAll('.reqLabel');
     reqLabels.forEach((reqLabel) => {
+      const existingCleanup = reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
+      if (typeof existingCleanup === 'function') {
+        existingCleanup();
+      }
+
       // Dispose existing popover if any
       const existing = Popover.getInstance(reqLabel);
       if (existing) existing.dispose();
@@ -49,36 +67,36 @@ export default function Requirements({ onChange, requirements, schedule }) {
         trigger: 'manual',
         html: true,
         animation: true,
+        placement: 'left',
+        fallbackPlacements: ['left'],
         boundary: 'viewport',
         template:
           '<div class="popover req-popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
         sanitize: false,
       });
 
-      reqLabel.addEventListener('mouseenter', () => {
-        popoverInstance.show();
-        // Bind search button clicks
-        document.querySelectorAll('.searchByReq').forEach((btn) => {
-          btn.onclick = () => {
-            getReqCourses(reqLabel.getAttribute('reqpath'));
-          };
-        });
-        // Hide on popover mouseleave
-        const popoverEl = document.querySelector('.popover');
-        if (popoverEl) {
-          popoverEl.addEventListener('mouseleave', () => {
-            popoverInstance.hide();
-          });
+      const cleanupHoverBehavior = bindManualHoverPopover(
+        reqLabel,
+        popoverInstance,
+        {
+          onShow: (popoverEl) => {
+            if (!popoverEl) return;
+            const reqPath = reqLabel.getAttribute('reqpath');
+            popoverEl.querySelectorAll('.searchByReq').forEach((btn) => {
+              btn.onclick = () => {
+                if (reqPath) getReqCourses(reqPath);
+                popoverInstance.hide();
+              };
+            });
+          },
         }
-      });
+      );
 
-      reqLabel.addEventListener('mouseleave', () => {
-        setTimeout(() => {
-          if (!document.querySelector('.popover:hover')) {
-            popoverInstance.hide();
-          }
-        }, 100);
-      });
+      reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY] = () => {
+        cleanupHoverBehavior();
+        popoverInstance.dispose();
+        delete reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
+      };
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -169,7 +187,6 @@ export default function Requirements({ onChange, requirements, schedule }) {
           title={'<span>' + requirement['name'] + '</span>'}
           data-bs-content={popoverContent}
         >
-          <div className="my-arrow"></div>
           <span className="reqName">{requirement['name']}</span>
           <span className="reqCount">{tag}</span>
         </div>
@@ -305,7 +322,6 @@ export default function Requirements({ onChange, requirements, schedule }) {
           title={'<span>' + name + '</span>'}
           data-bs-content={popoverContent}
         >
-          <div className="my-arrow root-arrow"></div>
           {name}
         </div>
       );

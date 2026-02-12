@@ -19,7 +19,33 @@
 #requirements .tree-view_item {
   padding-left: 3px;
   cursor: pointer;
-  display: flow-root;
+  display: flex;
+  align-items: flex-start;
+}
+
+#requirements .reqLabel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 6px;
+  align-items: end;
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+
+#requirements .reqName {
+  display: block;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+#requirements .tree-view_arrow {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 /* greyed out unsettled reqs*/
@@ -61,9 +87,11 @@
 }
 
 /* count of courses*/
-#requirements .tree-sub-reqs .reqCount {
-  float: right;
-  padding-right: 5px;
+#requirements .reqCount {
+  position: static;
+  justify-self: end;
+  align-self: end;
+  white-space: nowrap;
 }
 
 #requirements {
