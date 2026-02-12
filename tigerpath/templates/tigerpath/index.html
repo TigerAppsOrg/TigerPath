@@ -1,4 +1,4 @@
-{% load django_vite %}
+{% load django_vite static %}
 <!DOCTYPE html>
 <html>
 
@@ -10,6 +10,23 @@
         content="TigerPath helps Princeton University students plan out their four-year course schedules.">
 
   <title>TigerPath - Four-Year Course Planner</title>
+
+  <link rel="icon"
+        type="image/png"
+        href="{% static 'app/favicon-96x96.png' %}"
+        sizes="96x96" />
+  <link rel="icon"
+        type="image/svg+xml"
+        href="{% static 'app/favicon.svg' %}" />
+  <link rel="shortcut icon"
+        href="{% static 'app/favicon.ico' %}" />
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="{% static 'app/apple-touch-icon.png' %}" />
+  <meta name="apple-mobile-web-app-title"
+        content="TigerPath" />
+  <link rel="manifest"
+        href="{% static 'app/site.webmanifest' %}" />
 
   <!-- Custom fonts for this template -->
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
