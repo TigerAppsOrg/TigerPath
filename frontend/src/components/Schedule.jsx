@@ -20,6 +20,9 @@ const MissingYearNotice = styled.p`
 `;
 
 export default function Schedule({ onChange, profile, schedule }) {
+  const hasLoadedProfile = profile !== null;
+  const shouldShowMissingYearNotice = hasLoadedProfile && !profile?.classYear;
+
   useEffect(() => {
     if (schedule === null) {
       apiFetch('/api/v1/get_schedule/')
@@ -90,7 +93,7 @@ export default function Schedule({ onChange, profile, schedule }) {
 
   return (
     <>
-      {!profile?.classYear && (
+      {shouldShowMissingYearNotice && (
         <MissingYearNotice className="warning-text">
           Set your class year in Settings to label semesters correctly.
         </MissingYearNotice>
