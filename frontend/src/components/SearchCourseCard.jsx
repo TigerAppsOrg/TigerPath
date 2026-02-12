@@ -3,8 +3,8 @@ import { Draggable, Droppable } from '@hello-pangea/dnd';
 import styled, { css } from 'styled-components';
 
 const SearchCourseCardStyled = styled.div`
-  ${({ isBeingDragged }) =>
-    isBeingDragged &&
+  ${({ $isBeingDragged }) =>
+    $isBeingDragged &&
     css`
       cursor: grabbing !important;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
@@ -35,7 +35,7 @@ export default function SearchCourseCard({ courseIndex, courseKey, course }) {
                   id={courseKey}
                   title={course['name']}
                   className={`course-card ${course['semester']}`}
-                  isBeingDragged={snapshot.isDragging}
+                  $isBeingDragged={snapshot.isDragging}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
                 >
