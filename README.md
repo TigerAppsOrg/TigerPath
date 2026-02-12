@@ -12,7 +12,7 @@ For EC2 + Nginx production setup (with Redis in Docker and external RDS), see [D
 
 - [uv](https://docs.astral.sh/uv/getting-started/installation/) (Python package manager)
 - [Bun](https://bun.sh/docs/installation) (JavaScript runtime)
-- [Docker](https://docs.docker.com/get-docker/) (for PostgreSQL — or use a local Postgres install)
+- [Docker](https://docs.docker.com/get-docker/) (for local PostgreSQL + Redis, or use local installs)
 
 # Quick start
 
@@ -22,12 +22,17 @@ uv python install 3.11
 uv venv --python 3.11
 source .venv/bin/activate
 cp .env.example .env              # defaults work out of the box
-docker compose up -d db            # start Postgres
+make deps-up                       # start Postgres + Redis
 make setup                         # install deps + run migrations
+make seed-majors                   # load baseline major data
+# Optional: if CONSUMER_KEY and CONSUMER_SECRET are set in .env
+# make seed-courses                # import course catalog from Princeton MobileApp API
 make dev                           # start Django (:8000) + Vite asset server (:3000)
 ```
 
 Open http://localhost:8000/ in your browser. (Port 3000 is the Vite asset server — you don't open it directly.)
+
+If you have Princeton MobileApp API credentials, you can also run `make seed-data` (majors + courses) instead of running `make seed-majors` and `make seed-courses` separately.
 
 # Setup details
 
