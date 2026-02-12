@@ -46,11 +46,23 @@ export default function Schedule({ onChange, profile, schedule }) {
 
   const addPopovers = (sched) => {
     if (!sched) return;
+    const courseNameCounts = new Map();
+    for (const semester of sched) {
+      for (const course of semester) {
+        const normalizedName = (course?.name || '').trim().toUpperCase();
+        if (!normalizedName) continue;
+        courseNameCounts.set(
+          normalizedName,
+          (courseNameCounts.get(normalizedName) || 0) + 1
+        );
+      }
+    }
+
     for (let semIndex = 0; semIndex < sched.length; semIndex++) {
       for (let courseIndex = 0; courseIndex < sched[semIndex].length; courseIndex++) {
         let course = sched[semIndex][courseIndex];
         let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
-        addPopover(course, courseKey, semIndex);
+        addPopover(course, courseKey, semIndex, courseNameCounts);
       }
     }
   };

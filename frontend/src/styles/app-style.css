@@ -1,5 +1,7 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  overflow: hidden;
 }
 h1,
 h2,
@@ -38,6 +40,17 @@ h6 {
 .row {
   margin-right: 0;
   margin-left: 0;
+}
+
+#app {
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+#app .requirements-pane {
+  height: 100%;
+  min-height: 0;
+  display: flex;
 }
 
 .hidden {
@@ -87,5 +100,11 @@ div#banner-content {
 @media (max-width: 991.98px) {
   div#banner {
     display: block;
+  }
+}
+
+@media print {
+  body {
+    overflow: visible;
   }
 }

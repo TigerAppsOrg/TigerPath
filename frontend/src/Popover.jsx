@@ -9,7 +9,7 @@ import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
 
-export function addPopover(course, courseKey, semIndex) {
+export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = null) {
   let courseName = course['name'];
   let courseTitle = course['title'];
   let courseSemType = course['semester'];
@@ -32,10 +32,13 @@ export function addPopover(course, courseKey, semIndex) {
     content = "This is an external credit that you've added.";
   }
 
-  const addedCoursesWithSameName = document.querySelectorAll(
-    `.semester [title="${courseName}"]`
-  );
-  if (addedCoursesWithSameName.length > 1) {
+  let duplicateCount = 0;
+  if (duplicateCourseCounts instanceof Map) {
+    const normalizedName = (courseName || '').trim().toUpperCase();
+    duplicateCount = duplicateCourseCounts.get(normalizedName) || 0;
+  }
+
+  if (duplicateCount > 1) {
     content +=
       "<div class='popover-warning'>This course has already been added to your schedule.</div>";
   }
