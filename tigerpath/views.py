@@ -12,6 +12,9 @@ from django.core.cache import cache
 from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.models import User
+from functools import wraps
 
 from . import forms, models, utils
 from .majors_and_certificates.scripts.university_info import LANG_DEPTS
@@ -429,3 +432,58 @@ def get_profile(request):
     profile = {}
     profile["classYear"] = curr_user.year
     return JsonResponse(profile)
+
+def admin_required(view_func):
+    """Custom decorator to bounce non-admins to the home page with an error."""
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        # Not logged in, so send to login page
+        if not request.user.is_authenticated:
+            return redirect('login')
+        
+        # Not an admin, so send to home page
+        if not request.user.is_staff:
+            messages.error(request, "Access Denied: You must be an Admin to view the admin dashboard.")
+            return redirect('index')
+            
+        # Admin, so go to admin page
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+@admin_required
+def admin_dashboard(request):
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        netid = request.POST.get('netid')
+
+        try:
+            target_user = User.objects.get(username=netid)
+
+            if action == 'add':
+                target_user.is_staff = True
+                target_user.save()
+                messages.success(request, f"Successfully made {netid} an admin.")
+
+            elif action == 'remove':
+                # Only superusers (Owners) can remove admins
+                if not request.user.is_superuser:
+                    messages.error(request, "Action Denied: You must be an Owner to remove admins.")
+                elif target_user.is_superuser:
+                    messages.error(request, "You cannot remove an owner's admin status!")
+                else:
+                    target_user.is_staff = False
+                    target_user.save()
+                    messages.success(request, f"Successfully removed admin rights from {netid}.")
+            
+            elif action == 'add_owner':
+                target_user.is_staff = True
+                target_user.is_superuser = True
+                target_user.save()
+                messages.success(request, f"Successfully made {netid} an owner.")
+
+        except User.DoesNotExist:
+            messages.error(request, f"User with NetID {netid} not found.")
+
+        return redirect('admin_dashboard')
+
+    return render(request, 'tigerpath/admin/admin_dashboard.html')
