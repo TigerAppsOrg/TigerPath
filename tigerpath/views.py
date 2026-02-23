@@ -460,9 +460,12 @@ def admin_dashboard(request):
             target_user = User.objects.get(username=netid)
 
             if action == 'add':
-                target_user.is_staff = True
-                target_user.save()
-                messages.success(request, f"Successfully made {netid} an admin.")
+                if target_user.is_staff:
+                    messages.error(request, f"{netid} is already an admin.")
+                else:
+                    target_user.is_staff = True
+                    target_user.save()
+                    messages.success(request, f"Successfully made {netid} an admin.")
 
             elif action == 'remove':
                 # Only superusers (Owners) can remove admins
@@ -476,10 +479,15 @@ def admin_dashboard(request):
                     messages.success(request, f"Successfully removed admin rights from {netid}.")
             
             elif action == 'add_owner':
-                target_user.is_staff = True
-                target_user.is_superuser = True
-                target_user.save()
-                messages.success(request, f"Successfully made {netid} an owner.")
+                if not request.user.is_superuser:
+                    messages.error(request, "Action Denied: You must be an Owner to add owners.")
+                elif target_user.is_superuser:
+                   messages.error(request, f"{netid} is already an owner.")
+                else: 
+                    target_user.is_staff = True
+                    target_user.is_superuser = True
+                    target_user.save()
+                    messages.success(request, f"Successfully made {netid} an owner.")
 
         except User.DoesNotExist:
             messages.error(request, f"User with NetID {netid} not found.")
