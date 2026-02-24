@@ -30,4 +30,5 @@ urlpatterns = [
         views.update_schedule_and_get_requirements,
         name="update_schedule_and_get_requirements",
     ),
+    path('admin/admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
 ]

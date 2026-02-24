@@ -1,0 +1,41 @@
+<h1>TigerPath Admin Dashboard</h1>
+
+{% if messages %}
+  <ul style="color: red; font-weight: bold;">
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<hr>
+
+<h3>Add New Admin</h3>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="add">
+    <label for="add_netid">Student NetID:</label>
+    <input type="text" id="add_netid" name="netid" required>
+    <button type="submit">Make Admin</button>
+</form>
+
+{% if request.user.is_superuser %}
+<hr>
+<h3>Remove Admin (Owner Only)</h3>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="remove">
+    <label for="remove_netid">Student NetID:</label>
+    <input type="text" id="remove_netid" name="netid" required>
+    <button type="submit" style="color: red;">Remove Admin</button>
+</form>
+<hr>
+<h3>Add Owner (Owner Only)</h3>
+<form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="action" value="add_owner">
+    <label for="add_netid_superuser">Student NetID:</label>
+    <input type="text" id="add_netid_superuser" name="netid" required>
+    <button type="submit" style="color: black;">Add Owner</button>
+</form>
+{% endif %}
