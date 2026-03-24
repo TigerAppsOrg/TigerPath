@@ -1,0 +1,227 @@
+---
+type: Major
+name: Computer Science - AB
+code: COS-AB
+degree: AB
+description: |-
+  With computation and computer science now permeating all corners of 
+  society and the economy, a computer science education has become a 
+  good launching pad for almost any career. Core concepts and skills 
+  emphasized in the computer science curriculum include theoretical and 
+  quantitative analysis of computation; design/engineering principles of
+  advanced computer systems; and foundations and methods of AI and 
+  Machine Learning.
+
+  The curriculum provides additional flexibility to explore 
+  sub-disciplines of computer science (Programming Languages, 
+  Formal Methods, Software Engineering, Human-Computer Interaction, 
+  Computer Graphics, Information Security), or to branch out into 
+  exciting cross-disciplinary investigations (Neuroscience and 
+  Cognitive Science, Computational Biology, Information Policy, 
+  Robotics, Data Science, etc.). Most computer science majors enjoy 
+  programming. Quite a few start with zero or minimal background and 
+  are able to enhance their skills while progressing through the 
+  curriculum.
+contacts:
+- type: Director of Undergraduate Studies for Majors
+  name: David Walker
+  email: dpw@princeton.edu
+- type: Director of Undergraduate Studies for pre-majors, non-majors
+    and study abroad
+  name: Brian Kernighan
+  email: bwk@cs.princeton.edu
+- type: Computer Science Placement Officer
+  name: Christopher Moretti
+  email: cmoretti@princeton.edu
+- type: Undergraduate Studies Program Manager
+  name: Colleen Kenny
+  email: ckenny@cs.princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    The prerequisites are any one of MAT 202/204/217 or EGR 154; 
+    COS 126; COS 217 and 226. Students should plan to take both COS 217 
+    and COS 226 before their junior year since at least one of them is a
+    required prerequisite for all computer science departmentals.
+  pdfs_allowed: false
+  completed_by_semester: 4
+  req_list:
+    - name: Linear Algebra
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+        - MAT 202
+        - MAT 204
+        - MAT 217
+        - EGR 154
+    - name: Computer Science Prerequisites
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        The prerequisites are any one of MAT 202/204/217 or EGR 154; 
+        COS 126; COS 217 and 226. Students should plan to take both 
+        COS 217 and COS 226 before their junior year since at least one of
+        them is a required prerequisite for all computer science 
+        departmentals.
+      req_list:
+        - name: Introduction
+          max_counted: 1
+          min_needed: 1
+          explanation:
+          req_list:
+            - name: Interdisciplinary Computer Science
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - COS 126
+            - name: Integrated Science Curriculum
+              max_counted: 1
+              min_needed: 4
+              course_list:
+                - ISC 231
+                - ISC 232
+                - ISC 233
+                - ISC 234
+            - name: Autonomous Vehicles
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - ECE 115
+        - name: Systems
+          max_counted: 1
+          min_needed: 1
+          explanation:
+          course_list:
+            - COS 217
+        - name: Algorithms and Data Structures
+          max_counted: 1
+          min_needed: 1
+          explanation:
+          course_list:
+            - COS 226
+- name: Foundation
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students must take COS 240 (Reasoning about Computation), to be 
+    finished before the end of junior year.
+  pdfs_allowed: false
+  course_list:
+    - COS 240
+- name: Core Courses
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    Students must take a total of four courses, one from each of the 
+    four categories listed below.
+  pdfs_allowed: false
+  req_list:
+    - name: Computer Systems
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+        - COS 316
+        - COS 318 # Deprecated (revamped to COS 417)
+        - COS 417
+        - COS 375
+        - COS 418
+        - COS 461
+    - name: Artificial Intelligence and Machine Learning
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+        - COS 324
+        - COS 424
+        - COS 429
+        - COS 484
+    - name: Theoretical Computer Science
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+        - COS 423
+        - COS 433
+        - COS 445
+        - COS 487
+    - name: Breadth
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        This category contains courses that either explore another 
+        sub-discipline beyond Systems/Theory/AIML, or provide experience 
+        with real-world applications. At least one must be taken. At the
+        moment this is the complete list; other COS courses are electives.
+      course_list:
+        - COS 326
+        - COS 333
+        - COS 343
+        - COS 426
+        - COS 432
+        - COS 436
+        - COS 448
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: |-
+    Students must take three COS courses numbered 300 - 400 level. 
+    Graduate courses do not count as electives.
+
+    Alternatively, up to two electives may be chosen from a list of 
+    approved courses from other departments.  Any 300- or 400- level 
+    Math or ECE or ORF course that does not duplicate COS content, 
+    MAE 345, MOL 437/NEU 437, NEU 330, and ECO 326 count as electives.
+    Graduate courses in other departments may not be used as electives.
+  req_list:
+    - name:
+      max_counted: 3
+      min_needed: 1
+      explanation:
+      course_list:
+        - COS 3**
+        - COS 4**
+      excluded_course_list:
+        - COS 397
+        - COS 398
+        - COS 497
+        - COS 498
+    - name:
+      max_counted: 2
+      min_needed: 1
+      explanation:
+      course_list:
+        - MAT 3**
+        - MAT 4**
+        - ECE 3**
+        - ECE 4**
+        - ORF 3**
+        - ORF 4**
+        - MAE 345
+        - MOL 437
+        - NEU 330
+        - ECO 326
+      excluded_course_list:
+        - COS 397
+        - COS 398
+        - COS 497
+        - COS 498
+- name: Independent Work
+  max_counted:
+  min_needed:
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    All COS AB students are required to complete two semesters of junior
+    independent work and a full-year senior thesis in the following 
+    sequence:<br><br>
+
+    Junior fall: Junior Research Workshop (JRW)<br>
+    Junior spring: Single-term Independent Work project<br>
+    Senior year: full-year senior thesis project<br>
+    For more details, please see the current COS AB IW Handbook.
+  no_req:

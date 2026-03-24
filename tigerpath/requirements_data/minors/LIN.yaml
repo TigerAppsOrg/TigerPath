@@ -1,0 +1,94 @@
+---
+type: Minor
+name: Linguistics
+code: LIN
+degree:
+description:
+  Students at Princeton develop the skills of a linguist through 
+  hands-on engagement with gathering and interpreting data from many 
+  different languages, the employment of diverse methodologies, and the 
+  investigation of language through a variety of lenses, including;
+  
+  1. Working with native speakers of an unfamiliar language (Field 
+  Methods).
+  2. Engaging with descriptive grammars and large-scale statistical 
+  correlations to investigate similarities and differences across 
+  languages (Linguistic Typology).
+  3. Analyzing texts to elucidate how language changes over time 
+  (Historical Linguistics).
+  4. Modeling linguistic differences across dialects and social contexts 
+  (Sociolinguistics).
+  5. Measuring linguistic behaviors in controlled experimental contexts 
+  (Psycholinguistics).
+  6. Observing how languages develop/coexist within speakers (Language 
+  Acquisition, Bilingualism).
+urls: 
+- https://linguistics.princeton.edu/certificate/
+contacts:
+- type: Director
+  name: Adam N. Elga
+  email: adame@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisite
+  max_counted: 1
+  min_needed: 1
+  explanation: Permission may be granted to substitute a different LIN 
+    course in place of 201; decisions will be made by the Director of 
+    Undergraduate Studies on a case-by-case basis.
+  course_list:
+  - LIN 201
+- name: Coursework
+  max_counted: 1
+  min_needed: 3
+  max_common_with_major: 1
+  req_list:
+  - name: Core Courses
+    max_counted: 1
+    min_needed: 1
+    explanation: At least one course from the set of "core" courses 
+      (LIN 301, LIN 302, LIN 303, LIN 306; LIN 303 may be substituted 
+      with PHI/LIN 334)
+    pdfs_allowed: 1
+    course_list:
+    - LIN 301
+    - LIN 302
+    - LIN 303
+    - LIN 306
+    - PHI 334 / LIN 334
+  - name: Methods Courses
+    max_counted: 1
+    min_needed: 1
+    explanation: At least one course from the set of "methods" courses 
+      (LIN 210, LIN 310, LIN 355, LIN 356.
+    pdfs_allowed: 1
+    course_list:
+    - LIN 210
+    - LIN 310
+    - LIN 355
+    - LIN 356
+  - name: Elective Courses
+    max_counted: 1
+    min_needed: 2
+    explanation: Any two other LIN-designated courses at the 200-level 
+      or above (which may be drawn from the sets above). 
+      Linguistics-related courses in other departments and programs 
+      that do not have the LIN designation may be approved by the 
+      director of undergraduate program on a case-by-case basis. No 
+      more than one of these elective courses may be taken 
+      pass/D/fail.
+    pdfs_allowed: 1
+    course_list:
+    - LIN 2*
+    - LIN 3*
+    - LIN 4*
+    - LIN 5*
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Some substantial aspect of linguistics should be incorporated either into the student's junior independent work or into their senior thesis. 
+    
+    This requirement is typically met either by writing a junior paper or senior thesis on a linguistics topic or topic related to linguistics (i.e., a topic that satisfies the requirements of both the student's major and minor), or by including a chapter on a linguistics topic in a senior thesis whose general topic is not directly related to linguistics. 
+    
+    If this is not feasible, students should contact the director of undergraduate program for alternative arrangements, which in most cases will involve writing a short piece of independent work on a topic related to linguistics, supervised by a member of the LIN faculty.

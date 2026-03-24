@@ -1,0 +1,225 @@
+---
+type: Major
+name: Spanish
+code: SPA
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-spanish-and-portuguese-languages
+- https://spo.princeton.edu/undergraduate/concentration-new
+contacts:
+- type: Chair
+  name: Pedro Meira Monteiro
+  email: pmeira@princeton.edu
+- type: Chair (acting)
+  name: Christina H. Lee
+  email: chrislee@princeton.edu
+- type: Director of Undergraduate Studies (interim)
+  name: Rafael Cesar
+  email: rafaelcesar@princeton.edu
+iw_required: true
+description: |-
+  More than half a billion people across five continents speak Spanish or Portuguese as their first language, and in the United States, with more than 38 million Spanish speakers, the Hispanic legacy is embedded in myriad aspects of American politics, arts and culture. Our community of scholars studies and highlights the importance and influence of the Spanish, Latin American and Luso-Afro-Brazilian histories, cultures and languages in the Americas, Europe, Africa and Asia, from the Middle Ages and the Renaissance to our globalized present.
+req_list:
+- name: Prerequisites
+  min_needed: 2
+  max_counted: 1
+  completed_by_semester: 4
+  explanation: |-
+    Two 200-level courses in Spanish. An advanced placement examination in Spanish (language and/or literature) with a score of 5 or SAT Subject Test score of at least 760 is required to satisfy the A.B. language requirement at entrance, or for admission to a 200-level course. A score of 7 on the higher-level IB test or a grade of A on the British A-level exam also fulfills the requirement.
+  course_list:
+    - SPA 2**
+- name: Tracks
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    Departmental courses cover a wide array of literary, cultural, social, historical and political topics. Students are therefore able to pursue courses of study that are tailor-made to their own individual interests. The department offers four different tracks for majors.<br>
+    Please note that an upper division course is any course above Spanish 209 or POR 209.
+  req_list:
+    - name: One Language
+      min_needed: 8
+      max_counted: 1
+      explanation: |-
+        Major in one language, literature and culture (Spanish or Portuguese). Requires a minimum of eight upper-division courses in the language of the major. Up to two of those courses may be taken in English, in which case all written work must be completed in the target language.
+      course_list:
+        - SPA 2**
+        - SPA 3**
+        - SPA 4**
+        - SPA 5**
+      excluded_course_list:
+        - SPA 200
+        - SPA 201
+        - SPA 202
+        - SPA 203
+        - SPA 204
+        - SPA 205
+        - SPA 206
+        - SPA 207
+        - SPA 208
+    - name: Two Languages
+      min_needed: ALL
+      max_counted: 1
+      explanation: |-
+        Major in two languages, literature and cultures (Spanish and Portuguese; or Spanish/Portuguese and another language). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the second language. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.
+      req_list:
+        - name: Spanish
+          min_needed: 5
+          max_counted: 1
+          course_list:
+            - SPA 2**
+            - SPA 3**
+            - SPA 4**
+            - SPA 5**
+          excluded_course_list:
+            - SPA 200
+            - SPA 201
+            - SPA 202
+            - SPA 203
+            - SPA 204
+            - SPA 205
+            - SPA 206
+            - SPA 207
+            - SPA 208
+        - name: Other Language
+          min_needed: 3
+          max_counted: 1
+          course_list:
+            - LANG 2**
+            - LANG 3**
+            - LANG 4**
+            - LANG 5**
+          excluded_course_list:
+            - SPA ***
+    - name: Interdisciplinary Track
+      min_needed: ALL
+      max_counted: 1
+      explanation: |-
+        Major in Spanish or Portuguese with another related field (e.g., urban studies, architecture, global health and health policy, environmental studies, humanistic studies, sociology, European studies, international studies, Latino studies, Latin American studies, comparative literature, history, politics, anthropology). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the secondary field.  One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.
+      req_list:
+        - name: Spanish
+          min_needed: 5
+          max_counted: 1
+          course_list:
+            - SPA 2**
+            - SPA 3**
+            - SPA 4**
+            - SPA 5**
+          excluded_course_list:
+            - SPA 200
+            - SPA 201
+            - SPA 202
+            - SPA 203
+            - SPA 204
+            - SPA 205
+            - SPA 206
+            - SPA 207
+            - SPA 208
+        - name: Other Field
+          min_needed: 3
+          max_counted: 1
+          course_list:
+            - HIS 3**
+            - POL 3**
+            - HIS 4**
+            - POL 4**
+            - HIS 5**
+            - POL 5**
+            - URB 3**
+            - URB 4**
+            - URB 5**
+            - ARC 3**
+            - ARC 4**
+            - ARC 5**
+            - GHP 3**
+            - GHP 4**
+            - GHP 5**
+            - ENV 3**
+            - ENV 4**
+            - ENV 5**
+            - SOC 3**
+            - SOC 4**
+            - SOC 5**
+            - HUM 3**
+            - HUM 4**
+            - HUM 5**
+            - ECS 3**
+            - ECS 4**
+            - ECS 5**
+            - EPS 3**
+            - EPS 4**
+            - EPS 5**
+            - LAO 3**
+            - LAO 4**
+            - LAO 5**
+            - LAS 3**
+            - LAS 4**
+            - LAS 5**
+            - COM 3**
+            - COM 4**
+            - COM 5**
+            - ANT 3**
+            - ANT 4**
+            - ANT 5**
+    - name: Creative Arts Track
+      min_needed: 1
+      max_counted: 1
+      explanation: |-
+        Major in Spanish or Portuguese with the creative arts (e.g., creative writing, theater, visual arts, translation). Requires a combination of five upper-division courses in Spanish or Portuguese and three upper-division courses in the creative arts. One of the five upper-division courses in Spanish or Portuguese may be taken in English, in which case all written work must be completed in the target language.
+      req_list:
+        - name: Spanish
+          min_needed: 5
+          max_counted: 1
+          course_list:
+            - SPA 2**
+            - SPA 3**
+            - SPA 4**
+            - SPA 5**
+          excluded_course_list:
+            - SPA 200
+            - SPA 201
+            - SPA 202
+            - SPA 203
+            - SPA 204
+            - SPA 205
+            - SPA 206
+            - SPA 207
+            - SPA 208
+        - name: Creative Arts
+          min_needed: 3
+          max_counted: 1
+          course_list:
+            - VIS ***
+            - ART ***
+            - THR ***
+            - MTD ***
+            - DAN ***
+            - MUS ***
+            - CWR ***
+- name: Junior Papers
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Majors are strongly advised to take SPA/POR 330 during the fall of their junior year. This course is designed to introduce students to research methods and to guide them in the production of their first junior paper.<br>
+    Majors should discuss as soon as possible their area of interest with the director of undergraduate studies in order to find the most appropriate advisers for the junior papers (JPs). By the end of September (first JP), and by mid-February (second JP), all juniors should have contacted their advisers to discuss a plan of work.<br>
+    The first JP (fall semester) should be about 4,000 words, and the second JP (spring semester) should be between 5,000 and 8,000 words. Both JPs may be written in English, in which case a three-page summary in the target language must be provided. Or, the JP can be written in the target language, in which case a summary is not needed. Any extensions beyond the University deadline date need preapproval from both the director of undergraduate studies and the residential college dean. All JPs must include the University's honor pledge.<br>
+    Majors following two languages are encouraged to write one JP in each of the languages of the majors.
+  no_req:
+- name: Senior Thesis
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Majors should select a senior thesis adviser by the end of September at the latest. The senior thesis is normally written in English and should be between 15,000 and 20,000 words. Topics chosen in the past have ranged over the whole field of Spanish and Portuguese studies, from linguistic problems and literary techniques through close textual analysis to thematic and ideological studies. Students primarily interested in culture and civilization have written on art, political and economic issues, education and a variety of social questions. The senior thesis is a major commitment of a student's time and energy, and the most important yardstick for choosing a topic is willingness to spend many hours on a particular set of texts or problems. Please visit the Mudd Library website for inspiration and a listing of previous senior thesis topics over the years. More detailed information can be found in the Senior Thesis Handbook.<br>
+    Any extensions beyond the University deadline date need preapproval from both the director of undergraduate studies and the residential college dean.<br>
+    Resources are available to assist students with the costs of senior thesis research, including, when appropriate, travel abroad. The best time to use them is the summer preceding senior year.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The senior departmental/comprehensive exam will consist of an oral presentation of the thesis. It will be followed by questions regarding the thesis content and bibliography, as well as questions related to the coursework done by the student in the department.
+  no_req:

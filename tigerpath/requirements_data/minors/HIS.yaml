@@ -1,0 +1,47 @@
+---
+type: Minor
+name: History
+code: HIS
+degree:
+urls:
+- https://history.princeton.edu/undergraduate/minor-history
+description: Understanding the human past is essential to living in the
+  present and shaping the future. The themes explored in History courses
+  address questions about the transformation of societies over time and 
+  the diversity of human experience, through the study of politics and 
+  conflict, religion, race and ethnicity, gender and sexuality, or the 
+  production of knowledge (among many themes). By juxtaposing 
+  current-day assumptions and biases against the norms and prejudices 
+  from the distant past and other cultures, the study of history 
+  provides valuable insights on how we are situated in the present. For 
+  students majoring in the natural sciences or engineering, the History 
+  minor provides the opportunity to pursue a parallel intellectual 
+  journey. For students majoring in other humanities or social science 
+  disciplines, the History minor complements their course of study.
+contacts:
+- type: Chair
+  name: Angela N. Creager
+  email: creager@princeton.edu
+excluded_majors:
+- HIS
+excluded_minors:
+- HSTM
+iw_required: true
+req_list:
+  - name: History Courses
+    min_needed: 5
+    explanation: Students are required to complete five history courses. 
+      These courses may range broadly across regions, themes and time 
+      periods, or they may be focused on a single area of study.
+    double_counting_allowed: true
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - HIS *
+  - name: Independent Work
+    explanation: |- 
+      Students are required to write a research paper (minimum length of 12 pages) with substantive primary source engagement. The research paper will normally be written for a HIS course and revised as needed to meet the requirements of the minor. 
+      
+      In addition, students will submit a 500-word methodological reflection on the research and writing process. 
+      
+      The undergraduate program director for history will review the submitted work and verify that it satisfies departmental requirements.

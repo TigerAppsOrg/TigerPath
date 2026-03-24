@@ -1,0 +1,81 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Portuguese Language and Culture
+code: LAC-POR
+degree:
+description: |-
+  The program is open to all undergraduates in all departments.
+  Ordinarily, students majoring in language and literature departments, including
+  comparative literature, will be eligible for the certificate in language and culture
+  provided that: (a) the linguistic base for the language and culture certificate is
+  different from the linguistic base of the major; and (b) the work required for the
+  language and culture certificate does not duplicate the requirements of the major.<br><br>
+
+  Students pursuing area studies certificates may earn the certificate in language
+  and culture provided that (a) the courses they elect to satisfy the requirements
+  of the area studies program are different from those they elect to satisfy the
+  requirements of the language and culture certificate program (in agreement with
+  the Program in Latin American Studies, one course can be used towards both a
+  certificate in Spanish or Portuguese and a certificate in Latin American Studies;
+  and (b) they submit a piece of independent work in addition to the independent work
+  that satisfies the requirements of each area studies program.
+urls:
+- https://spo.princeton.edu/undergraduate/certificate
+contacts:
+- type: Director of Undergraduate Studies
+  name: Christina Lee
+  email: chrislee@princeton.edu
+- type: Acting Director, Portuguese Language Program
+  name: Luis Gonçalves
+  email: lgoncalv@princeton.edu
+iw_required: true
+req_list:
+- name: Core Requirement
+  max_counted: 1
+  min_needed: 3
+  description: Department Requirement
+  explanation: |-
+    Three department-based POR courses above the 100-level on the literature
+    and cultures of the Portuguese-speaking world. At least one of these three courses
+    must be at the 200-level. No course taught in English can count towards the certificate.
+    Courses must be taken for a letter grade, no Pass/D/Fail or Audit. **Due to the COVID-19
+    pandemic, spring '20 and academic year '20-'21 courses taken PDF will be accepted.** 
+    At the discretion of the Director of Undergraduate Studies, students who study abroad
+    during the academic year may count one pre-approved course per semester abroad towards
+    the certificate. One Princeton summer abroad course offered through the department would
+    also count, provided that it is taught in Portuguese. Two pre-approved courses in a summer
+    program abroad other than Princeton's can count as one course towards the certificate,
+    provided that they are taught in Portuguese. In no case, however, can more than one
+    course taken abroad count towards the certificate.
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  completed_by_semester: 8
+  req_list:
+  - name: 200-level
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    course_list:
+    - POR 2**
+  - name: Above 200-level
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - POR 3**
+    - POR 4**
+    - POR 5**
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students may complete this requirement without enrolling in any numbered course, so hoagieplan does not check it.</i><br><br>
+
+    During their senior year, students are required to submit
+    a paper on a designated topic. The paper must be written in Portuguese;
+    be at least 6,000 words in length; and be an extension of a paper written
+    for one of the courses taken towards the certificate. Advisers are not
+    assigned. One additional upper-division POR course (above the 100-level)
+    may be substituted for the independent work.
+  no_req:

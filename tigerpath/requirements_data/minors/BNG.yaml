@@ -1,0 +1,136 @@
+--- 
+type: Minor
+name: Bioengineering
+code: BNG
+degree: 
+description:  |-
+  Drawing on Princeton's strengths in bioengineering, 
+  both within the Omenn-Darling Bioengineering Institute and across 
+  the broader campus, the Bioengineering Minor will provide rigorous 
+  classroom and research experiences, enabling our students to gain 
+  expertise and make important contributions to this critically 
+  important field.
+urls: 
+- https://bioengineering.princeton.edu/undergraduate/bioengineering-minor
+contacts: 
+- type: Director of Undergraduate Studies
+  name: Jared Toettcher
+  email: toettcher@princeton.edu
+- type: Program Manager
+  name: Jessica Varela
+  email: jvarela@princeton.edu
+iw_required: true
+req_list: 
+- name: Molecular Biology
+  max_counted: 1
+  min_needed: 1
+  explanation: MOL214 or equivalent
+  course_list: 
+  - MOL 214
+- name: Computing
+  max_counted: 1
+  min_needed: 1
+  explanation: COS126 or equivalent
+  course_list: 
+  - COS 126
+  - ECE 115
+- name: Bioengineering Content
+  max_counted: 1
+  min_needed: 3
+  explanation: |-
+    Three courses with bioengineering content, selected from the
+    list established for the Engineering Biology Certificate. These courses 
+    should provide a coherent training in an area of bioengineering, such as 
+    biotechnology, molecular or cellular engineering, neuroengineering, or 
+    systems biology. One of these courses must be from outside the student's 
+    department of concentration, and at least one of these courses must not count as 
+    a departmental. 
+  course_list: 
+  - CBE 262
+  - CBE 411
+  - CBE 419
+  - CBE 433
+  - CBE 438
+  - CBE 439
+  - CBE 440
+  - CBE 447
+  - CEE 385
+  - ENV 385
+  - CEE 477
+  - CHM 542
+  - MOL 542
+  - COS 343
+  - ECE 451
+  - BNG 451
+  - EEB 325
+  - EEB 330
+  - ECE 452
+  - ENE 318
+  - MAE 344
+  - MAE 416
+  - MAE 550
+  - MOL 433
+  - NEU 314
+  - NEU 330
+  - NEU 437
+  - NEU 443
+  - PSY 443
+  - NEU 457
+  - PHY 412
+  - PHY 562
+  - QCB 311
+  - QCB 408
+  - QCB 455
+- name: Advanced Life Science Course
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    One advanced life science course, selected from the approved 
+    list. This course should provide additional insight into complex living 
+    systems and complement the bioengineering courses chosen by the student.
+    Up to 2 courses can be double counted with a student's major.
+  course_list: 
+  - ANT 405
+  - CEE 471
+  - EEB 314
+  - EEB 324
+  - EEB 403
+  - EEB 409
+  - GEO 417
+  - MOL 342
+  - MOL 345
+  - MOL 348
+  - MOL 380
+  - MOL 415
+  - MOL 423
+  - NEU 202
+  - NEU 422
+  - SPI 354
+- name: Ethical Aspects
+  max_counted: 1
+  min_needed: 1
+  description: |-
+    <i> Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+    To promote thinking about the ethical aspects of 
+    bioengineering and its effects on society, students are required to 
+    attend the Omenn-Darling Bioethics Lecture once during their Princeton 
+    career and write a short (1-2 page single spaced) reflection on what was 
+    discussed and how it relates to topics in bioengineering, due to Jessica 
+    Varela (jvarela@princeton.edu). The Lecture is typically held in early 
+    March; the reflection is due by April 1st of the same year in which the 
+    lecture was held. A recording will be made available for students who 
+    are unable to attend the lecture in person.
+  no_req:
+- name: Bioengineering research
+  max_counted: 1
+  min_needed: 1
+  description: |-
+    <i> Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+    Students are required to complete at least one semester or 
+    summer of Bioengineering research in an appropriate area of engineering 
+    biology. This research requirement can be a component of the student's 
+    senior thesis or senior independent research, or be satisfied by either 
+    of the two Bioengineering summer research programs recently established 
+    at Princeton the Bioengineering Summer Undergraduate Research Experience
+    (BE-SURE) and the iGEM Synthetic Biology research project.
+  no_req:

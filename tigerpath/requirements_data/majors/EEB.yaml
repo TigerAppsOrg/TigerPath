@@ -1,0 +1,189 @@
+---
+type: Major
+name: Ecology and Evolutionary Biology
+code: EEB
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-ecology-and-evolutionary-biology
+contacts:
+- type: Chair
+  name: Jonathan Levine
+  email: levinej@princeton.edu
+- type: Director of Undergraduate Studies
+  name: C. Jessica E. Metcalf
+  email: cmetcalf@princeton.edu
+iw_required: true
+description: |-
+  The Department of Ecology and Evolutionary Biology (EEB) emphasizes research and teaching in environmental biology — the science of nature and its interface with humanity. This integrative discipline encompasses evolution (the changing form and function of populations over time), ecology (interactions between organisms and their environment), behavior (how organisms act and respond to stimuli) and conservation (the effort to sustain healthy, natural ecosystems and biodiversity in an age when humanity dominates the biosphere). These areas of inquiry are intertwined with each other, linked to many other fields in the natural and social sciences, and approached using a range of quantitative techniques. These features make EEB a uniquely interdisciplinary department that supports a wide range of student interests. Students who are curious and passionate about the living world — from molecules to the biosphere, from disease and physiology to evolution in the Anthropocene — are encouraged to explore EEB.
+req_list:
+- name: Prerequisites
+  min_needed: ALL
+  max_counted: 1
+  explanation: |-
+    The Department of Ecology and Evolutionary Biology requires the following prerequisites, which should normally be completed by the end of sophomore year. Prerequisite courses may not be taken using the pass/D/fail grading option.
+    Two terms of introductory biology: EEB 211 and either EEB/MOL 214 or EEB/MOL 215)
+    Mastery of calculus to the level of MAT 103 or above, or advanced placement (an AP score of 5 on the BC test)
+    Two terms of introductory chemistry or equivalent (for the Class of 2027 and beyond, the equivalent is an AP score of 5 plus CHM 202 or 215, or equivalent on the department's placement test)
+    The first term of introductory physics (or the equivalent on the department's placement test)
+  req_list:
+    - name: Introductory Biology
+      min_needed: 2
+      max_counted: 1
+      completed_by_semester: 4
+      req_list:
+        - name: EEB 211
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - EEB 211
+        - name: EEB 214 or EEB 215
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - EEB 214
+            - EEB 215
+    - name: Calculus
+      min_needed: 1
+      max_counted: 1
+      completed_by_semester: 4
+      course_list:
+        - MAT 103
+        - MAT 104
+        - MAT 216
+        - MAT 218
+    - name: Introductory Chemistry
+      min_needed: 1
+      max_counted: 1
+      completed_by_semester: 4
+      req_list:
+        - name: General Chemistry
+          min_needed: 2
+          max_counted: 1
+          course_list:
+            - CHM 201
+            - CHM 202
+            - CHM 207
+        - name: Advanced Placement and Chemistry
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - CHM 202
+            - CHM 215
+    - name: Introductory Physics
+      min_needed: 1
+      max_counted: 1
+      completed_by_semester: 4
+      course_list:
+        - PHY 101
+        - PHY 103
+        - PHY 105
+        - PHY 108
+    - name: Statistics
+      min_needed: 1
+      max_counted: 1
+      completed_by_semester: 7
+      explanation: |-
+        A statistics course. SML 201 is preferred, but the following courses will fulfill the requirement: ORF 245, POL 345, PSY 251, ECO 202, SPI 200, SPI 332. It is best to fulfill the statistics requirement before junior year, but it must be fulfilled by the end of the fall term senior year.
+      course_list:
+        - SML 201
+        - ORF 245
+        - POL 345
+        - PSY 251
+        - ECO 202
+        - SPI 200
+        - SPI 332
+- name: Core
+  min_needed: 2
+  max_counted: 1
+  explanation: |-
+    All EEB majors must take EEB 309 and EEB 321 (students are encouraged to take these courses in the fall of their junior year or earlier)
+  completed_by_semester: 5
+  course_list:
+    - EEB 309
+    - EEB 321
+- name: Areas
+  min_needed: 2
+  max_counted: 1
+  explanation: |-
+    All EEB majors must take one course in two of the following areas.
+  req_list:
+    - name: Behavior and Organismal Biology
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - EEB 313
+        - EEB 314
+        - EEB 329
+        - EEB 403
+        - EEB 404
+        - EEB 406
+    - name: Disease Ecology
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - EEB 304
+        - EEB 327
+        - EEB 328
+        - EEB 351
+    - name: Conservation Biology
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - EEB 308
+        - EEB 380
+        - EEB 417
+    - name: Mathematical and Computational Biology
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - EEB 324
+        - EEB 325
+- name: Electives
+  min_needed: 4
+  max_counted: 1
+  explanation: |-
+    Students must successfully complete a minimum of eight upper-level departmental courses, at least six of which must be EEB courses (up to two courses may be offered by other departments). See the department website for a full list of courses.
+  req_list:
+    - name: EEB Departmentals
+      min_needed: 1
+      max_counted: 4
+      course_list:
+        - EEB 3**
+        - EEB 4**
+        - EEB 5**
+    - name: Other Departments
+      min_needed: 1
+      max_counted: 2
+      explanation: |-
+        For the remaining departmentals, students may select any EEB course or those offered by other departments as follows. The first semester of organic chemistry and biochemistry (MOL 345) can each be counted as a departmental course (the second semester of organic chemistry will not count). Other MOL courses might count with preapproval from the director of undergraduate studies (DUS) via the undergraduate program administrator (UPA).  With preapproval from the DUS via the UPA, students may take one science-relevant course on policy or society.
+      course_list:
+        - CHM 301
+        - MOL 345
+        - MOL 3**
+        - MOL 4**
+        - MOL 5**
+- name: Junior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Early in the fall semester, students will attend periodic meetings on Tuesday evenings that will include presentations by EEB faculty members on their research and on opportunities for senior independent work. After the faculty presentations, students will identify those faculty with whom they are interested in working. If the faculty member agrees to take on a particular student, together they will develop a plan of study.<br>
+    During the second half of the fall term, students participate in a tutorial in which they work closely with a faculty member to address a problem and write a first junior paper. In the spring semester, students carry out a program of independent research with their faculty adviser, which can include empirical or theoretical work. Students will summarize this research project in a second junior paper, which can be structured either as a research project, a literature review or a research proposal. The second junior paper is due in early May.
+  no_req:
+- name: Senior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    During the fall of junior year, each student selects a senior thesis adviser (see above). The adviser and the student choose a research project that the student generally pursues during the summer preceding senior year and both terms of the senior year. The research project can involve primarily laboratory, field, data mining, theoretical or library study that will be written and presented as a senior thesis.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    A one-hour oral examination, consisting of a defense of the thesis research and general questions in the biological sciences, will be held in May.
+  no_req:

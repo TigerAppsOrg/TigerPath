@@ -1,0 +1,237 @@
+---
+type: Minor
+name: Classics
+code: CLA
+degree:
+description: A classics minor offers students significant and coherent 
+  exposure to an area within the field of classics, which studies the 
+  cultures, languages, history, politics and intellectual traditions of 
+  the ancient Greek and Roman worlds, their contacts with other 
+  civilizations of the ancient Mediterranean, resonances in later ages 
+  and continued vitality today.
+urls:
+- https://classics.princeton.edu/minors-certificates
+contacts:
+- type: Department Chair
+  name: Barbara Graziosi
+  email: barbara.graziosi@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: A course with CLA designation, CLG 108, LAT 108 or 
+    HUM 216-217.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 1
+  course_list:
+  - CLA *
+  - CLG 108
+  - LAT 108
+  completed_by_semester: 6
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: Students pursuing a minor in classics choose one of two 
+    pathways. These can combine courses taught in the original language 
+    and in translation. Each pathway requires the completion of five 
+    courses, four of which must be CLA, CLG 108 or above, or LAT 108 or 
+    above. The fifth can be a relevant course offered in another 
+    department approved by the DUS.
+  req_list:
+  - name: Classical Studies with a focal point
+    max_counted: 1
+    min_needed: 3
+    explanation: Focal points include, but are not limited to Greek 
+      Language, Literature, and Culture; Latin Language, Literature and
+      Roman Culture Classics and Reception; Medicine, Science, and the
+      Body.
+    req_list:
+    - name: Basic Requirement
+      max_counted: 1
+      min_needed: 1
+      explanation: At least one of the four classes taken in the 
+        department must be CLA 203 (What Is a Classic?) OR CLA 212 
+        (Classical Mythology). It is also possible to use HUM 216–217 in 
+        lieu of this one course requirement.
+      double_counting_allowed: false
+      max_common_with_major: 1
+      pdfs_allowed: 1
+      course_list:
+      - CLA 203
+      - CLA 212
+      deadline:
+    - name: Focal Point
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      req_list:
+      - name: Greek Language, Literature, and Culture
+        max_counted: 1
+        min_needed: 2
+        explanation: |-
+          <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        double_counting_allowed: false
+        max_common_with_major: 2
+        pdfs_allowed: 2
+        course_list:
+          - CLG 108
+          - CLG 2*
+          - CLG 3*
+          - CLG 4*
+          - CLG 5*
+          - CLA 200
+          - CLA 205
+          - CLA 216
+          - CLA 217
+          - CLA 303
+          - CLA 307
+          - CLA 313
+          - CLA 319
+          - CLA 326
+          - CLA 330
+          - CLA 357
+          - CLA 400
+          - CLA 412
+          - CLA 414
+          - CLA 502
+          - CLA 505
+          - CLA 506
+          - CLA 514
+          - CLA 515
+          - CLA 531
+          - CLA 536
+          - CLA 569
+      - name: Latin Language, Literature and Roman Culture Classics and 
+          Reception
+        max_counted: 1
+        min_needed: 2
+        explanation: |-
+          <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        double_counting_allowed: false
+        max_common_with_major: 2
+        pdfs_allowed: 2
+        course_list:
+          - LAT 108
+          - LAT 2*
+          - LAT 3*
+          - LAT 4*
+          - LAT 5*
+          - CLA 240
+          - CLA 260
+          - CLA 309
+          - CLA 422
+          - CLA 503
+          - CLA 534
+          - CLA 538
+          - CLA 542
+      - name: Medicine, Science, and the Body
+        max_counted: 1
+        min_needed: 2
+        explanation: |-
+          <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        double_counting_allowed: false
+        max_common_with_major: 2
+        pdfs_allowed: 2
+        course_list:
+          - CLA 226
+          - CLA 231
+          - CLA 313
+          - CLA 315
+          - CLA 329
+          - CLA 330
+          - CLA 338
+          - CLA 531
+    - name: Relevant Course
+      max_counted: 1
+      min_needed: 1
+      explanation: The fifth course can be a relevant course offered in 
+        another department approved by the DUS.
+      double_counting_allowed: false
+      max_common_with_major: 1
+      pdfs_allowed: 1
+      course_list:
+      - CLA *
+      - LAT *
+      - HUM *
+      - ART *
+      - ARC *
+      - HLS *
+      - REL *
+      - PHI *
+      - CDH *
+  - name: Ancient History and Material Culture
+    max_counted: 1
+    min_needed: 3
+    explanation:
+    req_list:
+    - name: History Survey
+      max_counted: 1
+      min_needed: 2
+      explanation:
+      double_counting_allowed: false
+      max_common_with_major: 2
+      pdfs_allowed: 2
+      course_list:
+      - CLA 216
+      - CLA 217
+      - CLA 218
+      - CLA 219
+    - name: Track Requirement
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+      double_counting_allowed: false
+      max_common_with_major: 2
+      pdfs_allowed: 2
+      course_list:
+      - CLA 200
+      - CLA 202
+      - CLA 207
+      - CLA 216
+      - CLA 217
+      - CLA 218
+      - CLA 219
+      - CLA 223
+      - CLA 247
+      - CLA 309
+      - CLA 326
+      - CLA 343
+      - CLA 398
+      - CLA 412
+      - CLA 413
+      - CLA 414
+      - CLA 418
+      - CLA 520
+      - CLA 522
+      - CLA 524
+      - CLA 531
+      - CLA 536
+      - CLA 545
+      - CLA 547
+      - CLA 548
+    - name: Relevant Course
+      max_counted: 1
+      min_needed: 1
+      explanation: The fifth course can be a relevant course offered in 
+        another department approved by the DUS.
+      course_list:
+      - CLA *
+      - LAT *
+      - HUM *
+      - ART *
+      - ARC *
+      - HLS *
+      - REL *
+      - PHI *
+      - CDH *
+- name: Reflection Paper
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i>
+    
+    A short (ca. 500 words) reflection paper on how the courses add up to a coherent perspective on the ancient world and its reception is required in the student’s final semester.
+  completed_by_semester: 8

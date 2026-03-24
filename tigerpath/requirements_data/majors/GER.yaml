@@ -1,0 +1,352 @@
+---
+type: Major
+name: German
+code: GER
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-german
+- https://german.princeton.edu/programs/undergraduate/about-major
+- https://german.princeton.edu/sites/default/files/2024-11/UG%20Handbook%20final%20proofed%20AY25B.pdf
+contacts:
+- type: Chair
+  name: Devin A. Fore
+  email: dfore@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Thomas Levin
+  email: tylevin@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: The requirement for admission to the German department is
+    a satisfactory working knowledge of German demonstrated by the 
+    completion of 107, an SAT II Subject Test score of 740, or a 5 on the 
+    Advanced Placement Test. Students considering majoring in German are
+    encouraged to contact the director of undergraduate studies at any
+    point to discuss a plan of study.
+  course_list:
+    - GER 107
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: The department offers six areas of concentration, each 
+    requiring a total of eight departmental courses plus the Junior Seminar
+  req_list:
+    - name: German Literature
+      max_counted: 1
+      min_needed: 2
+      explanation: This track focuses on the major periods and forms of
+        German literature with emphasis on literary and historical
+        analysis. Students will satisfy the general University requirement
+        of eight departmental courses by taking a minimum of five courses
+        in the department (at least three of which should be 300-level
+        courses) and a maximum of three cognate courses in related
+        humanities departments such as philosophy and religion.
+      req_list:
+        - name: 300-level German
+          max_counted: 1
+          min_needed: 3
+          explanation: At least three courses in the German department
+            should be 300-level.
+          course_list:
+            - GER 3*
+        - name: German and Cognates
+          max_counted: 1
+          min_needed: 5
+          explanation: At least two more courses in the German department
+            and a maximum of three cognate courses in related humanities
+            departments such as philosophy and religion.
+          req_list:
+            - name: German
+              max_counted: 5
+              min_needed: 1
+              course_list:
+                - GER *
+            - name: Cognates
+              max_counted: 3
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The list of courses satisfying this requirement is not comprehensive.</i><br><br>
+
+                A maximum of three cognate courses in related humanities departments such as philosophy and religion.
+              course_list:
+                - PHI *
+                - REL *
+    - name: German Philosophy and Intellectual History
+      max_counted: 1
+      min_needed: 2
+      explanation: This track concentrates on philosophy, political and
+        cultural theory, or particular intellectual movements and epochs
+        in German-speaking contexts. Students are required to take a
+        minimum of five courses in the German department (at least three
+        of which should be 300-level courses) and a maximum of three
+        relevant cognate courses in history, European cultural studies or
+        philosophy.
+      req_list:
+        - name: 300-level German
+          max_counted: 1
+          min_needed: 3
+          explanation: At least three courses in the German department
+            should be 300-level.
+          course_list:
+            - GER 3*
+        - name: German and Cognates
+          max_counted: 1
+          min_needed: 5
+          explanation: At least two more courses in the German department
+            and a maximum of three relevant cognate courses in history,
+            European cultural studies or philosophy.
+          req_list:
+            - name: German
+              max_counted: 5
+              min_needed: 1
+              course_list:
+                - GER *
+            - name: Cognates
+              max_counted: 3
+              min_needed: 1
+              explanation: A maximum of three relevant cognate courses in
+                History, European Cultural Studies, Religion, or Philosophy.
+              course_list:
+                - HIS *
+                - ECS *
+                - PHI *
+                - REL *
+    - name: Media & Aesthetics
+      max_counted: 1
+      min_needed: 2
+      explanation: Designed for students who wish to focus on art, film,
+        dance, music, sound technology and/or media theory broadly
+        conceived, this track requires a minimum of five courses in the
+        German department (at least three of which should be 300-level
+        courses) and a maximum of three relevant cognate courses in art
+        and archaeology, film, music, philosophy, European cultural
+        studies, architecture and the Program in Visual Arts.
+      req_list:
+        - name: 300-level German
+          max_counted: 1
+          min_needed: 3
+          explanation: At least three courses in the German department
+            should be 300-level.
+          course_list:
+            - GER 3*
+        - name: German and Cognates
+          max_counted: 1
+          min_needed: 5
+          explanation: At least two more courses in the German department
+            and a maximum of three relevant cognate courses in art and
+            archaeology, film, music, philosophy, European cultural studies,
+            architecture and the Program in Visual Arts.
+          req_list:
+            - name: German
+              max_counted: 5
+              min_needed: 1
+              course_list:
+                - GER *
+            - name: Cognates
+              max_counted: 3
+              min_needed: 1
+              explanation: A maximum of three relevant cognate courses in
+                art and archaeology, film, music, philosophy, European
+                cultural studies, architecture and the Program in Visual Arts.
+              course_list:
+                - ART *
+                - MUS *
+                - PHI *
+                - ECS *
+                - VIS *
+    - name: Germanic Linguistics
+      max_counted: 1
+      min_needed: ALL
+      explanation: This program concentrates on the history and structure of the
+        German language. Majors who select this track are required to take the following courses;
+        LIN 201 Introduction to Language and Linguistics, LIN 210 Intro to Historical and
+        Comparative Linguistics, GER 316 Second Language Acquisition; Theory and Practice, GER
+        508 Middle High German Literature. In addition, students in this concentration will take at
+        least two courses in German Literature & Culture plus two cognate courses pertaining to
+        linguistics.
+      req_list:
+        - name: Linguistics
+          max_counted: 1
+          min_needed: 2
+          explanation: Majors who select this track are required to take the following courses;
+            LIN 201 Introduction to Language and Linguistics, LIN 210 Intro to Historical and
+            Comparative Linguistics, GER 316 Second Language Acquisition; Theory and Practice, GER
+            508 Middle High German Literature.
+          req_list:
+            - name: Linguistics & Language History
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - LIN 201
+                - LIN 210
+            - name: Second Language Acquisition
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - GER 316
+                - GER 508
+        - name: German
+          max_counted: 1
+          min_needed: 2
+          explanation: At least two courses in German literature and
+            culture.
+          course_list:
+            - GER 2*
+            - GER 3*
+            - GER 4*
+            - GER 5*
+        - name: Cognates
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            <i>Editor's Note: The list of courses satisfying this requirement is not comprehensive.</i><br><br>
+
+            Two cognate courses pertaining to linguistics.
+          course_list:
+            - LIN *
+    - name: The Study of Two Literatures
+      max_counted: 1
+      min_needed: ALL
+      explanation: This plan of study normally consists of five
+        upper-level courses in the German department (at least three of
+        which should be 300-level courses) and three upper-level courses
+        in a second literature. Students who have not completed the
+        language preparation for the second literature may enroll in this
+        track provided that they satisfy that language requirement during
+        their junior year.
+      req_list:
+        - name: German
+          max_counted: 1
+          min_needed: 5
+          explanation: Five upper-level courses in the German department
+            (at least three of which should be 300-level courses).
+          req_list:
+            - name:
+              max_counted: 5
+              min_needed: 1
+              course_list:
+                - GER 3*
+            - name:
+              max_counted: 2
+              min_needed: 1
+              course_list:
+                - GER 4*
+                - GER 5*
+        - name: Second Literature
+          max_counted: 1
+          min_needed: 3
+          explanation: |-
+            <i>Editor's Note: Not all of these courses fall under this requirement and hoagieplan does not verify this.</i><br><br>
+
+            Three upper-level courses in a second literature.
+          course_list:
+            - LANG 3*
+            - LANG 4*
+            - LANG 5*
+            - ENG 3*
+            - ENG 4*
+            - ENG 5*
+        - name: Restrictions
+          max_counted: 0
+          min_needed: 1
+          explanation: Students who have not completed the language
+            preparation for the second literature may enroll in this track
+            provided that they satisfy that language requirement during
+            their junior year.
+    - name: German Culture and Politics
+      max_counted: 1
+      min_needed: ALL
+      explanation: In cooperation with the Department of Politics,
+        students may combine a major in German intellectual history with a
+        major in German/European politics and/or political theory. In this
+        track, four courses will be taken in the German department (at
+        least two of which should be 300-level courses) and four cognate
+        courses in German/European politics or political theory will be
+        taken in the Department of Politics (at least two of which should
+        be 300-level courses). Recommended departmental courses are GER
+        207, 208, 211, 306, 307, 309 and 324. Recommended cognates in 
+        Politics include POL 210, 230, 240, 301, 303, 313, 316, 349,
+        385, and 388. The senior thesis may focus on any political 
+        topic with a substantive German-related component. 
+      req_list:
+        - name: German
+          max_counted: 1
+          min_needed: 4
+          explanation: Four courses will be taken in the German department
+            (at least two of which should be 300-level courses). Recommended
+            departmental courses are GER 207, 208, 211, 306, 307, 309 and
+            324.
+          req_list:
+            - name:
+              max_counted: 4
+              min_needed: 1
+              course_list:
+                - GER 3*
+            - name:
+              max_counted: 2
+              min_needed: 1
+              course_list:
+                - GER 2*
+                - GER 4*
+                - GER 5*
+        - name: Politics
+          max_counted: 1
+          min_needed: 4
+          explanation: |-
+            <i>Editor's Note: Not all of these courses fall under this requirement and hoagieplan does not verify this.</i><br><br>
+
+            Four cognate courses in German/European politics or political theory will be taken in the Department of Politics (at least two of which should be 300-level courses). Recommended cognates in Politics include POL 210, 230, 240, 301, 303, 313, 316, 349, 385, and 388.
+            - name:
+              max_counted: 4
+              min_needed: 1
+              course_list:
+                - POL 3*
+            - name:
+              max_counted: 2
+              min_needed: 1
+              course_list:
+                - POL 2*
+                - POL 4*
+                - POL 5*
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: Independent reading, the Junior Seminar, the Junior Paper, 
+    and the Senior Thesis constitute the student's total independent work, 
+    which is spread out over the four upperclass terms. These elements can
+    be profitably linked with departmental courses. Students will consult 
+    with the Director of Undergraduate Studies, under whose guidance they 
+    will develop their own program. During the first term of the junior 
+    year, students are required to take the Junior Seminar GER300 which 
+    serves as an intensive workshop of research and writing skills, an 
+    introduction to a wide range of approaches and methods, and an 
+    incubator for the Junior Independent Work, an essay of approximately
+    8,000 words on a subject in German philosophy, art, media, 
+    linguistics, literature or politics. This essay, as well as the 
+    senior thesis, may be written in German or English. In early May 
+    of the junior year, students should discuss plans for their senior
+    thesis with the Director of Undergraduate Studies.
+  course_list:
+    - GER 300
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    During senior year, students will write a thesis on a subject developed together with and approved by their thesis adviser. By the end of the fourth week of the first senior term, students will submit to their advisers a tentative outline of the proposed thesis. Further progress reports (as announced by the department) are required. Five weeks before the departmental examination, students must deliver to their adviser and to the director of undergraduate studies a copy of the thesis (signed and in PDF format).
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: For tracks 1 to 5, at least three, and for track 6, at
+    least two, of the departmentals should be courses taught in German.
+    For tracks 1 to 5, one of these three may be a course taught in
+    English for which there is an appropriate German-language component.
+    This option is available for all courses taught in the German
+    department, but also for some courses in other departments. Students
+    should consult with the course instructor regarding the
+    German-language component at the beginning of the semester and
+    submit the agreed-upon plan to the director of undergraduate studies
+    for approval by the end of the second week of classes.

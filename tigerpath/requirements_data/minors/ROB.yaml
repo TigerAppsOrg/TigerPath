@@ -1,0 +1,150 @@
+---
+type: Minor
+name: Robotics
+code: ROB
+urls:
+- https://robo.princeton.edu/minor
+description: The minor in robotics seeks to provide students from a 
+  diverse range of majors an opportunity to gain an appreciation for these 
+  challenges, develop an understanding of the current state of the art, 
+  explore the multidisciplinary and interdisciplinary nature of robotics, 
+  consider issues of societal significance, and put these lessons into 
+  practice through project-based assignments in courses and through an 
+  independent work project or thesis.
+contacts:
+- type: Director
+  name: Szymon Rusinkiewicz
+  email: smr@princeton.edu
+- type: Program Administrator
+  name: Mitra Kelly
+  email: mkelly@princeton.edu
+iw_required: true
+req_list:
+  - name: Prerequisites
+    min_needed: ALL
+    max_counted: 1
+    explanation: The minor is open to students from any major who have 
+      a satisfactory background in mathematics, physics, and computing.  
+      Students should have successfully completed or placed out of 
+      mathematics, introductory physics (including mechanics), and 
+      intoductory computer science.
+    req_list:
+    - name: Mathematics
+      max_counted: 1
+      min_needed: 2
+      explanation:
+      req_list:
+      - name: Multivariable Calculus
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - MAT 201
+        - MAT 203
+      - name: Linear Algebra
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - MAT 202
+        - MAT 204
+    - name: Introductory Physics
+      max_counted: 1
+      min_needed: 2
+      explanation:
+      req_list:
+      - name: Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - PHY 103
+        - PHY 105
+      - name: Electricity and Magnetism
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - PHY 104
+        - PHY 106
+    - name: Introductory Computer Science
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - COS 126
+      - ECE 115
+  - name: Core
+    min_needed: 2
+    max_counted: 1
+    explanation: 
+    course_list:
+    - MAE 345 / COS 346 / ECE 345 
+    - ECE 346 / COS 347 / MAE 346 
+    - ARC 380 
+    - CEE 374 / STC 374 
+    - ECE 302 
+    - MAE 322 
+    - MAE 412 
+    - MAE 416 / EEB 416
+  - name: Electives
+    min_needed: 3
+    max_counted: 1
+    explanation: Any of the courses in the “core” list may be counted as 
+      electives if a student takes more than two courses from that list. 
+      Additional accepted courses are listed below.
+    course_list:
+    - MAE 345 / COS 346 / ECE 345 
+    - ECE 346 / COS 347 / MAE 346 
+    - ARC 380 
+    - CEE 374 / STC 374 
+    - ECE 302 
+    - MAE 322 
+    - MAE 412 
+    - MAE 416 / EEB 416
+    - ARC 374
+    - CBE 430 / MAE 430 / MSE 430 
+    - CEE 345 / MAE 327 / MSE 345 / STC 345 
+    - COS 324 
+    - COS 350
+    - COS 429 
+    - COS 484
+    - ECE 206 / COS 306
+    - ECE 302
+    - ECE 482
+    - EEB 325 
+    - EEB 329
+    - MAE 321
+    - MAE 341
+    - MAE 342
+    - MAE 432
+    - MAE 433
+    - MAE 434
+    - ORF 307 / EGR 307 
+    - ORF 467
+    - PSY 360 / COS 360 
+    - PSY 454 / COS 454 
+    - PSY 475 / ENE 475
+    - SPI 365
+    - SPI 370 / POL 308 / CHV 301 
+  - name: Seminar Attendance
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+      Students are required to attend a minimum of five seminars
+      in the Princeton Robotics Seminar series during their course of 
+      study, and to fill out an online attendance sheet.
+    no_req:
+  - name: Senior Independent Work
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+      A one-term senior independent work project or two-term 
+      senior thesis whose topic is relevant to robotics must be 
+      completed and approved by the director through the online 
+      portal.  Junior independent work projects do not fulfill the 
+      minor requirement. A minimum grade of B– for the project or 
+      thesis is required to qualify for the minor.
+    no_req:

@@ -1,0 +1,73 @@
+---
+type: Minor
+name: Japanese Language
+code: JPN
+degree:
+urls:
+- https://eas.princeton.edu/undergraduate/language-minors/japanese
+description: The Department of East Asian Studies offers a wide range
+  of undergraduate classes at the highest standards of academic,
+  linguistic and cultural competence focused on China, Japan and Korea.
+  It provides an opportunity for students who plan to major in other
+  disciplines to simultaneously pursue a high level of proficiency in
+  one or more East Asian language (Chinese, Japanese and Korean) and
+  acquire the basic knowledge about the literature, history and culture
+  of East Asia. The student’s independent work may be supervised by
+  faculty members of the department, whose work covers East Asian
+  literature, history, film and media, and anthropology. Students are
+  also encouraged to work with other university faculty members 
+  conducting research in and teaching on East Asia.
+contacts:
+- type: Undergraduate Administrator
+  name: Anna Lovett
+  email: easugadmin@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  explanation: The program is open to undergraduates in all departments.
+    Students interested in earning a minor are encouraged to apply no 
+    earlier than the spring of sophomore year and no later than the 
+    spring of junior year. Final application materials, including the 
+    written work form, should be filed with the Department of East Asian 
+    Studies office by the deadline of one week before Dean's Date in the 
+    spring of the student's senior year, at the latest.
+- name: Language Courses
+  max_counted: 1
+  min_needed: 6
+  pdfs_allowed: 0
+  explanation: Six language courses (two or more of which must be beyond
+    the second-year level).
+  req_list:
+  - name: Advanced Language
+    max_counted: 6
+    min_needed: 1
+    course_list:
+    - JPN 3*
+    - JPN 4*
+  - name: Basic Language
+    max_counted: 4
+    min_needed: 1
+    course_list:
+    - JPN *
+- name: EAS or cognate
+  max_counted: 1
+  min_needed: 1
+  explanation: At least one EAS or cognate course.
+  pdfs_allowed: 0
+  course_list:
+  - EAS *
+- name: Research Paper
+  max_counted: 1
+  min_needed: 1
+  double_counting_allowed: true
+  explanation: |-
+    Students must also complete a substantial piece of research (20-25 pages) based at least in part on Japanese language sources dealing with aspects of East Asia. The topic must be in the humanities or social sciences. 
+    
+    The paper could be either an original piece of research, or a junior paper or senior thesis. 
+    
+    If the paper or senior thesis is written for another department, at least half of the work must be on East Asia. 
+    
+    Students should submit a signed written work form at the time of the paper’s completion or one week before Dean’s Date in the spring of senior year. 
+    
+    The student is expected be proactive in seeking out a faculty reviewer for the written work requirement. If submitting a junior paper or senior thesis, the paper’s adviser may serve as the faculty reviewer. The faculty reviewer does not need to be an EAS department faculty, but their field must have relevancy to the topic and region of the student’s written work.
+  completed_by_semester: 8

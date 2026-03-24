@@ -1,0 +1,64 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: German Language and Culture
+code: GER
+degree:
+description: The Department of German offers students an opportunity to do
+  sustained work in German language, literature, philosophy, art and media
+  while majoring in another department, leading to a certificate in German 
+  Language and Culture. Certificate students can choose from the broad range
+  of course offerings taught in both English and German. 
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/german-language-and-culture
+contacts:
+- type: Chair
+  name: Devin A. Fore
+  email: dfore@princeton.edu
+iw_required: true
+req_list:
+- name: Courses
+  max_counted: 1
+  min_needed: 4
+  explanation: |-
+    Four courses at the 200 level or higher, at least two of which must
+    be at the 300 level or higher. All courses must be taken for a grade (not pass/D/fail).<br><br>
+    
+    Evidence of substantial upper-level coursework in German. This requirement
+    will be satisfied if three of the four courses taken for the certificate were
+    conducted in German, or if two were taught in German and one was conducted in English
+    with a substantial German-language component. This option is available for all courses 
+    taught in the German department as well as courses in other departments cross-listed
+    with German. Students should consult with the course instructor regarding the
+    German-language component at the beginning of the semester and submit the agreed-upon
+    plan to the director of undergraduate studies in German for approval by the end
+    of the second week of classes.
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  req_list:
+  - name: 200-level
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - GER 2**
+  - name: 300-level or Higher
+    max_counted: 4
+    min_needed: 1
+    explanation:
+    course_list:
+    - GER 3**
+    - GER 4**
+    - GER 5**
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: If using option 1, students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    There are three ways to fulfill the certificate independent work requirement:<br>
+    1. Complete a substantial paper (15-20 pages if in English, 10-15 pages if in German),
+    which may be a revised version of a paper written for one of the four required courses.<br>
+    2. Write a chapter from the senior thesis principally devoted to a German-related topic.<br>
+    3. Complete an additional 300-level class taught in German.
+  no_req:

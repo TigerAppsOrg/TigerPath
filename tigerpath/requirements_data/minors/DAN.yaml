@@ -1,0 +1,120 @@
+---
+type: Minor
+name: Dance
+code: DAN
+degree:
+urls:
+  - https://arts.princeton.edu/academics/dance/
+description: The Program in Dance, part of the Lewis Center for the
+  Arts, welcomes all students to engage and experiment with dance. At
+  the core of the program is the belief that dance fosters an
+  integration of mind and body that allows for a greater connection to
+  ourselves and our communities. To that end, the dance minor offers
+  students deep exposure to and appreciation of dance through practice,
+  performance and critical conversation.
+contacts:
+  - type: Program Director
+    name: Susan S. Marshall
+    email: sm9@princeton.edu
+iw_required: false
+req_list:
+  - name: Prerequisites
+    max_counted: 1
+    min_needed: 2
+    explanation: |-
+      There are pathways for all students regardless of previous exposure
+      to and experience in dance. Students interested in pursuing a minor
+      in dance should enroll in a minimum of two DAN courses in their
+      first and second years. <br><br>
+
+      Students taking their first dance class or
+      expanding their experience in new directions are encouraged to
+      participate in two 200-level courses, such as DAN 213 Introduction
+      to Contemporary Dance; DAN 222 Introduction to Hip-Hop Dance; 
+      DAN 225 Introduction to Breaking: Deciphering Its Power; 
+      DAN 211 The American Experience and Dance Practices of the African
+      Diaspora; DAN 221 Stillness; or DAN 208 Body and Language. <br><br>
+
+      For those entering Princeton with previous dance experience
+      performing and choreographing, we recommend  participation in 300-
+      or 400-level courses, such as Dance Performance Workshop courses
+      (319, 320 or 419) in the fall and a spring studio course, such as
+      DAN 432 Ballet as an Evolving Form, DAN 408 Approaches to 
+      Contemporary Dance (or DAN 401, 402, 431), as these provide 
+      prospective minors with rigorous, in-depth study of specific forms
+      and methods.
+    course_list:
+      - DAN *
+    completed_by_semester: 4
+  - name: Requirements
+    max_counted: 1
+    min_needed: 4
+    explanation: |-
+      5 DAN courses including:
+      at least one studio course
+      at least one seminar course in dance studies, for example: DAN 215, 321 or another research-based scholarly course with approval of the Director of Dance. <br><br>
+      The range of required courses allows for students to focus their studies on performance, choreography, dance scholarship, or to create an interdisciplinary focus. Independent work is not required to receive a minor in dance. Students interested in pursuing independent research in their senior year must meet specific course requirements, and the substitution of requirements, if necessary, will be made with the approval of the director of dance.
+    double_counting_allowed: true
+    req_list:
+      - name: Studio Course
+        max_counted: 1
+        min_needed: 1
+        course_list:
+          - DAN 204
+          - DAN 207
+          - DAN 208
+          - DAN 211
+          - DAN 215
+          - DAN 216
+          - DAN 221
+          - DAN 229
+          - DAN 301
+          - DAN 303
+          - DAN 305
+          - DAN 324
+          - DAN 326
+          - DAN 348
+          - DAN 351
+          - DAN 354
+          - DAN 401
+          - DAN 402
+          - DAN 408
+          - DAN 419A
+          - DAN 420A
+          - DAN 431
+          - DAN 432
+      - name: Seminar
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          Complete at least one seminar course in dance studies, 
+          for example, DAN 215, 321 or another research-based scholarly course 
+          with approval of the director of dance.
+        course_list:
+          - DAN 215
+          - DAN 305
+          - DAN 308
+          - DAN 312
+          - DAN 314
+          - DAN 316
+          - DAN 317
+          - DAN 321
+          - DAN 325
+          - DAN 329
+          - DAN 348
+          - DAN 393
+          - DAN 406
+      - name: 5 courses
+        max_counted: 1
+        min_needed: 5
+        explanation:
+        course_list:
+          - DAN *
+  - name: Show Support
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      All students planning to earn the minor in dance must complete the show support requirement (formerly referred to as “tech hours”) by supporting one dance program show in a nonperforming capacity. 
+
+      Students who will propose an independent choreographic or performance project during their senior year must have completed the show support requirement by the end of their junior year.
+    completed_by_semester: 8

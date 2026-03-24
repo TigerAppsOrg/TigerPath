@@ -1,0 +1,855 @@
+---
+type: Major
+name: African American Studies
+code: AAS
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-african-american-studies
+- https://aas.princeton.edu/academics/undergraduate-program/concentration-requirements
+contacts:
+- type: Chair
+  name: Tera W. Hunter
+  email: thunter@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Kinohi Nishikawa
+  email: kinohin@princeton.edu
+description: |-
+  The Department of African American Studies (AAS) offers an undergraduate major in the study of the historic achievements and struggles of African-descended people in the United States and their relationship to African and African-descended people around the world. Drawing on methodologies from the humanities and social sciences and spanning areas of inquiry across different fields, the AAS major emphasizes the importance of interdisciplinary research and analysis to its scholarly mission.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  completed_by_semester: 4
+  double_counting_allowed: true
+  explanation: |-
+    Prerequisite for entry into the AAS major is the successful completion on a graded basis of one course survey course.
+  course_list:
+    - AAS 244
+    - AAS 245
+    - AAS 353
+    - AAS 359
+    - AAS 366
+    - AAS 367
+- name: Core Survey
+  max_counted: 1
+  min_needed: 1
+  explanation: Students complete one more core survey course in addition
+    to the prerequisite. listed below. At least one of these must be a
+    Pre-20th century course. Students are strongly encouraged to
+    complete both survey courses by the end of junior year.
+  course_list:
+    - AAS 244
+    - AAS 353
+    - AAS 366
+- name: Subfields
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    At the end of their fall semester, juniors declare a subfield to pursue, choosing from the following:
+    African American Culture and Life (AACL)
+    Global Race and Ethnicity (GRE)
+    Race and Public Policy (RPP)
+    Four courses must be taken in the chosen subfield, with two additional courses as follows:
+    If the chosen subfield is AACL or RPP, then the two additional courses must be selected from the GRE courses. 
+    If the chosen subfield is GRE, then one must be an AACL course and one must be an RPP course. 
+    Students are permitted to take up to two approved cognate courses in other departments. See the department website for the lists of courses and approved cognates by subfield.
+  req_list:
+    - name: African American Culture and Life
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        Students encounter the intellectual tradition and cultural practices that inform the emergence and development of African American Studies as a field of study in the academy. Focusing on aesthetic repertoires and historical dynamics situated primarily in the United States, students learn how to examine the patterns and practices that have defined and transformed Black people's lives. Courses in the AACL subfield are typically cross-listed with English, History, Religion, and American Studies.
+      req_list:
+        - name: AACL Courses
+          max_counted: 1
+          min_needed: 4
+          course_list:
+            - AAS 201
+            - AAS 212
+            - AAS 220
+            - AAS 230
+            - AAS 235
+            - AAS 242
+            - AAS 244
+            - AAS 245
+            - AAS 301
+            - AAS 303
+            - AAS 305
+            - AAS 306
+            - AAS 318
+            - AAS 321
+            - AAS 323
+            - AAS 326
+            - AAS 327
+            - AAS 331
+            - AAS 332
+            - AAS 336
+            - AAS 337
+            - AAS 339
+            - AAS 345
+            - AAS 349
+            - AAS 351
+            - AAS 352
+            - AAS 353
+            - AAS 358
+            - AAS 359
+            - AAS 362
+            - AAS 363
+            - AAS 365
+            - AAS 366
+            - AAS 367
+            - AAS 368
+            - AAS 372
+            - AAS 392
+            - AAS 414
+            - AAS 426
+            - AAS 477
+            - AAS 499
+            - AMS 315
+            - AMS 322
+            - AMS 334
+            - AMS 351
+            - AMS 395
+            - AMS 404
+            - ANT 244
+            - ANT 328
+            - ANT 379
+            - ANT 389
+            - ARC 396
+            - ART 373
+            - ASA 360
+            - ATL 498
+            - ATL 499
+            - CHV 247
+            - CHV 385
+            - CLA 310
+            - COM 373
+            - CWR 316
+            - DAN 211
+            - DAN 215
+            - DAN 222
+            - DAN 223
+            - DAN 229
+            - DAN 303
+            - DAN 305
+            - DAN 322
+            - DAN 323
+            - DAN 350
+            - ENG 354
+            - ENG 379
+            - ENG 391A
+            - ENG 408
+            - ENG 411
+            - ENG 414
+            - ENG 415
+            - GSS 207
+            - GSS 208
+            - GSS 345
+            - HIS 202
+            - HIS 376
+            - HIS 388
+            - HIS 393
+            - HIS 402
+            - HIS 443
+            - HIS 456
+            - HIS 485
+            - HUM 321
+            - HUM 352
+            - JRN 260
+            - LCA 213
+            - MPP 214
+            - MTD 202
+            - MUS 212
+            - MUS 262
+            - MUS 264
+            - REL 250
+            - REL 256
+            - REL 292
+            - REL 308
+            - REL 310
+            - REL 360
+            - REL 367
+            - REL 377
+            - SPA 352
+            - SPA 377
+            - SPA 387
+            - THR 203
+            - THR 313
+            - THR 332
+            - THR 340
+            - THR 392
+            - VIS 207
+            - VIS 228
+            - VIS 307
+            - VIS 373
+            - VIS 424
+        - name: GRE Courses
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            If the chosen subfield is AACL or RPP, then the two additional courses must be selected from the GRE courses.
+          course_list:
+            - AAS 242
+            - AAS 244
+            - AAS 303
+            - AAS 304
+            - AAS 306
+            - AAS 313
+            - AAS 314
+            - AAS 319
+            - AAS 322
+            - AAS 323
+            - AAS 326
+            - AAS 328
+            - AAS 337
+            - AAS 341
+            - AAS 342
+            - AAS 349
+            - AAS 353
+            - AAS 362
+            - AAS 372
+            - AAS 392
+            - AAS 411
+            - AAS 414
+            - AAS 426
+            - AAS 442
+            - AFS 310
+            - ANT 369
+            - ANT 379
+            - ANT 405
+            - ANT 419
+            - ANT 421
+            - ARC 396
+            - ART 260
+            - ART 373
+            - ART 378
+            - ART 473
+            - ART 474
+            - ART 483
+            - CLA 225
+            - CLA 310
+            - COM 239
+            - COM 241
+            - COM 376
+            - COM 434
+            - COM 476
+            - DAN 211
+            - DAN 215
+            - ENG 354
+            - ENG 358
+            - ENG 379
+            - ENG 397
+            - ENG 415
+            - FRE 334
+            - FRE 335
+            - FRE 376
+            - FRE 390
+            - FRE 403
+            - GLS 311
+            - GLS 331
+            - GLS 334
+            - GSS 218
+            - GSS 219
+            - HIS 250
+            - HIS 270
+            - HIS 306
+            - HIS 306
+            - HIS 314
+            - HIS 315
+            - HIS 316
+            - HIS 333
+            - HIS 415
+            - HIS 443
+            - HIS 473
+            - HIS 492
+            - HUM 310
+            - JRN 448
+            - LAO 265
+            - LAS 313
+            - LAS 318
+            - LAS 371
+            - LAS 395
+            - LIN 260
+            - MPP 214
+            - MUS 246
+            - MUS 258
+            - MUS 259
+            - MUS 350
+            - NES 374
+            - NES 395
+            - NES 397
+            - NES 411
+            - PHI 208
+            - POL 366
+            - POL 432
+            - POL 433
+            - POR 222
+            - POR 261
+            - POR 262
+            - POR 304
+            - POR 309
+            - POR 328
+            - POR 415
+            - REL 292
+            - REL 308
+            - REL 310
+            - REL 328
+            - REL 367
+            - REL 373
+            - SOC 210
+            - SOC 227
+            - SPA 233
+            - SPA 352
+            - SPA 363
+            - SPA 365
+            - SPA 366
+            - SPA 387
+            - SPA 408
+            - THR 355
+    - name: Global Race and Ethnicity
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        Students take up comparative methodologies in studying inter- and intraracial group dynamics in a global frame. Comparison yields an understanding of the aesthetic repertoires and historical dynamics of African and African-descended people in the diaspora outside the United States, as well as non-African-descended people of color within the United States. Courses in the GRE subfield are typically cross-listed with Comparative Literature, Art & Archaeology, and African Studies.
+      req_list:
+        - name: GRE Courses
+          max_counted: 1
+          min_needed: 4
+          course_list:
+            - AAS 242
+            - AAS 244
+            - AAS 303
+            - AAS 304
+            - AAS 306
+            - AAS 313
+            - AAS 314
+            - AAS 319
+            - AAS 322
+            - AAS 323
+            - AAS 326
+            - AAS 328
+            - AAS 337
+            - AAS 341
+            - AAS 342
+            - AAS 349
+            - AAS 353
+            - AAS 362
+            - AAS 372
+            - AAS 392
+            - AAS 411
+            - AAS 414
+            - AAS 426
+            - AAS 442
+            - AFS 310
+            - ANT 369
+            - ANT 379
+            - ANT 405
+            - ANT 419
+            - ANT 421
+            - ARC 396
+            - ART 260
+            - ART 373
+            - ART 378
+            - ART 473
+            - ART 474
+            - ART 483
+            - CLA 225
+            - CLA 310
+            - COM 239
+            - COM 241
+            - COM 376
+            - COM 434
+            - COM 476
+            - DAN 211
+            - DAN 215
+            - ENG 354
+            - ENG 358
+            - ENG 379
+            - ENG 397
+            - ENG 415
+            - FRE 334
+            - FRE 335
+            - FRE 376
+            - FRE 390
+            - FRE 403
+            - GLS 311
+            - GLS 331
+            - GLS 334
+            - GSS 218
+            - GSS 219
+            - HIS 250
+            - HIS 270
+            - HIS 306
+            - HIS 306
+            - HIS 314
+            - HIS 315
+            - HIS 316
+            - HIS 333
+            - HIS 415
+            - HIS 443
+            - HIS 473
+            - HIS 492
+            - HUM 310
+            - JRN 448
+            - LAO 265
+            - LAS 313
+            - LAS 318
+            - LAS 371
+            - LAS 395
+            - LIN 260
+            - MPP 214
+            - MUS 246
+            - MUS 258
+            - MUS 259
+            - MUS 350
+            - NES 374
+            - NES 395
+            - NES 397
+            - NES 411
+            - PHI 208
+            - POL 366
+            - POL 432
+            - POL 433
+            - POR 222
+            - POR 261
+            - POR 262
+            - POR 304
+            - POR 309
+            - POR 328
+            - POR 415
+            - REL 292
+            - REL 308
+            - REL 310
+            - REL 328
+            - REL 367
+            - REL 373
+            - SOC 210
+            - SOC 227
+            - SPA 233
+            - SPA 352
+            - SPA 363
+            - SPA 365
+            - SPA 366
+            - SPA 387
+            - SPA 408
+            - THR 355
+        - name: AACL Course
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            If the chosen subfield is GRE, then one must be an AACL course and one must be an RPP course.
+          course_list:
+            - AAS 201
+            - AAS 212
+            - AAS 220
+            - AAS 230
+            - AAS 235
+            - AAS 242
+            - AAS 244
+            - AAS 245
+            - AAS 301
+            - AAS 303
+            - AAS 305
+            - AAS 306
+            - AAS 318
+            - AAS 321
+            - AAS 323
+            - AAS 326
+            - AAS 327
+            - AAS 331
+            - AAS 332
+            - AAS 336
+            - AAS 337
+            - AAS 339
+            - AAS 345
+            - AAS 349
+            - AAS 351
+            - AAS 352
+            - AAS 353
+            - AAS 358
+            - AAS 359
+            - AAS 362
+            - AAS 363
+            - AAS 365
+            - AAS 366
+            - AAS 367
+            - AAS 368
+            - AAS 372
+            - AAS 392
+            - AAS 414
+            - AAS 426
+            - AAS 477
+            - AAS 499
+            - AMS 315
+            - AMS 322
+            - AMS 334
+            - AMS 351
+            - AMS 395
+            - AMS 404
+            - ANT 244
+            - ANT 328
+            - ANT 379
+            - ANT 389
+            - ARC 396
+            - ART 373
+            - ASA 360
+            - ATL 498
+            - ATL 499
+            - CHV 247
+            - CHV 385
+            - CLA 310
+            - COM 373
+            - CWR 316
+            - DAN 211
+            - DAN 215
+            - DAN 222
+            - DAN 229
+            - DAN 303
+            - DAN 305
+            - DAN 322
+            - DAN 323
+            - DAN 350
+            - ENG 354
+            - ENG 379
+            - ENG 391A
+            - ENG 408
+            - ENG 411
+            - ENG 414
+            - ENG 415
+            - GSS 207
+            - GSS 208
+            - GSS 345
+            - HIS 202
+            - HIS 376
+            - HIS 388
+            - HIS 393
+            - HIS 402
+            - HIS 443
+            - HIS 456
+            - HIS 485
+            - HUM 321
+            - HUM 352
+            - JRN 260
+            - LCA 213
+            - MPP 214
+            - MTD 202
+            - MUS 212
+            - MUS 262
+            - MUS 264
+            - REL 250
+            - REL 256
+            - REL 292
+            - REL 308
+            - REL 310
+            - REL 360
+            - REL 367
+            - REL 377
+            - SPA 352
+            - SPA 377
+            - SPA 387
+            - THR 203
+            - THR 313
+            - THR 332
+            - THR 340
+            - THR 392
+            - VIS 207
+            - VIS 228
+            - VIS 307
+            - VIS 373
+            - VIS 424
+        - name: RPP Course
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            If the chosen subfield is GRE, then one must be an AACL course and one must be an RPP course.
+          course_list:
+            - AAS 200
+            - AAS 230
+            - AAS 235
+            - AAS 301
+            - AAS 302
+            - AAS 303
+            - AAS 306
+            - AAS 331
+            - AAS 339
+            - AAS 345
+            - AAS 350
+            - AAS 351
+            - AAS 352
+            - AAS 362
+            - AAS 368
+            - AAS 370
+            - AAS 380
+            - AAS 381
+            - AAS 404
+            - AAS 414
+            - AMS 304
+            - AMS 311
+            - ANT 223
+            - ANT 244
+            - ANT 363
+            - ANT 403
+            - ANT 461
+            - ASA 332
+            - CLA 342
+            - DAN 302
+            - ECO 351
+            - EGR 495
+            - ENG 379
+            - HIS 388
+            - HIS 393
+            - HIS 459
+            - HIS 471
+            - HIS 483
+            - HIS 492
+            - HUM 310
+            - HUM 352
+            - JRN 448
+            - LAS 313
+            - PHI 350
+            - POL 311
+            - POL 319
+            - POL 344
+            - POL 366
+            - POL 421
+            - POL 492
+            - PSY 252
+            - SOC 207
+            - SOC 210
+            - SOC 221
+            - SOC 227
+            - SOC 314
+            - SOC 373
+            - SOC 375
+            - SOC 414
+            - SPA 360
+            - SPI 331
+            - SPI 336
+            - SPI 337
+            - SPI 345
+            - SPI 395
+    - name: Race and Public Policy
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        Students deploy and interrogate social science methodologies to examine the workings of the American state apparatus and other social and political institutions. Fostering critical approaches to empirical research and analysis, students examine the formation and development of racial and ethnic identities in the United States, with a particular focus on different perceptions and measures of inequality. Courses in the RPP subfield are typically cross-listed with the School of Public and International Affairs, Sociology, and Politics.
+      req_list:
+        - name: RPP Courses
+          max_counted: 1
+          min_needed: 4
+          course_list:
+            - AAS 200
+            - AAS 230
+            - AAS 235
+            - AAS 301
+            - AAS 302
+            - AAS 303
+            - AAS 306
+            - AAS 331
+            - AAS 339
+            - AAS 345
+            - AAS 350
+            - AAS 351
+            - AAS 352
+            - AAS 362
+            - AAS 368
+            - AAS 370
+            - AAS 380
+            - AAS 381
+            - AAS 404
+            - AAS 414
+            - AMS 304
+            - AMS 311
+            - ANT 223
+            - ANT 244
+            - ANT 363
+            - ANT 403
+            - ANT 461
+            - ASA 332
+            - CLA 342
+            - DAN 302
+            - ECO 351
+            - EGR 495
+            - ENG 379
+            - HIS 388
+            - HIS 393
+            - HIS 459
+            - HIS 471
+            - HIS 483
+            - HIS 492
+            - HUM 310
+            - HUM 352
+            - JRN 448
+            - LAS 313
+            - PHI 350
+            - POL 311
+            - POL 319
+            - POL 344
+            - POL 366
+            - POL 421
+            - POL 492
+            - PSY 252
+            - SOC 207
+            - SOC 210
+            - SOC 221
+            - SOC 227
+            - SOC 314
+            - SOC 373
+            - SOC 375
+            - SOC 414
+            - SPA 360
+            - SPI 331
+            - SPI 336
+            - SPI 337
+            - SPI 345
+            - SPI 395
+        - name: GRE Courses
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            If the chosen subfield is AACL or RPP, then the two (2) additional courses must be selected from the GRE courses.
+          course_list:
+            - AAS 242
+            - AAS 244
+            - AAS 303
+            - AAS 304
+            - AAS 306
+            - AAS 313
+            - AAS 314
+            - AAS 319
+            - AAS 322
+            - AAS 323
+            - AAS 326
+            - AAS 328
+            - AAS 337
+            - AAS 341
+            - AAS 342
+            - AAS 349
+            - AAS 353
+            - AAS 362
+            - AAS 372
+            - AAS 392
+            - AAS 411
+            - AAS 414
+            - AAS 426
+            - AAS 442
+            - AFS 310
+            - ANT 369
+            - ANT 379
+            - ANT 405
+            - ANT 419
+            - ANT 421
+            - ARC 396
+            - ART 260
+            - ART 373
+            - ART 378
+            - ART 473
+            - ART 474
+            - ART 483
+            - CLA 225
+            - CLA 310
+            - COM 239
+            - COM 241
+            - COM 376
+            - COM 434
+            - COM 476
+            - DAN 211
+            - DAN 215
+            - ENG 354
+            - ENG 358
+            - ENG 379
+            - ENG 397
+            - ENG 415
+            - FRE 334
+            - FRE 335
+            - FRE 376
+            - FRE 390
+            - FRE 403
+            - GLS 311
+            - GLS 331
+            - GLS 334
+            - GSS 218
+            - GSS 219
+            - HIS 250
+            - HIS 270
+            - HIS 306
+            - HIS 306
+            - HIS 314
+            - HIS 315
+            - HIS 316
+            - HIS 333
+            - HIS 415
+            - HIS 443
+            - HIS 473
+            - HIS 492
+            - HUM 310
+            - JRN 448
+            - LAO 265
+            - LAS 313
+            - LAS 318
+            - LAS 371
+            - LAS 395
+            - LIN 260
+            - MPP 214
+            - MUS 246
+            - MUS 258
+            - MUS 259
+            - MUS 350
+            - NES 374
+            - NES 395
+            - NES 397
+            - NES 411
+            - PHI 208
+            - POL 366
+            - POL 432
+            - POL 433
+            - POR 222
+            - POR 261
+            - POR 262
+            - POR 304
+            - POR 309
+            - POR 328
+            - POR 415
+            - REL 292
+            - REL 308
+            - REL 310
+            - REL 328
+            - REL 367
+            - REL 373
+            - SOC 210
+            - SOC 227
+            - SPA 233
+            - SPA 352
+            - SPA 363
+            - SPA 365
+            - SPA 366
+            - SPA 387
+            - SPA 408
+            - THR 355
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  completed_by_semester: 5
+  explanation: |-
+    During the fall semester, juniors enroll in AAS 300: Research and Writing in African American Studies. This course introduces students to the theories and methods of research design in the field of Black studies. During the spring semester, juniors conduct independent research and writing toward the completion of the junior paper (JP). Juniors work closely with a faculty adviser, who is assigned to them at the completion of AAS 300. The adviser assesses and assigns a grade for the JP at the end of the semester.
+  pdfs_allowed: false
+  course_list:
+    - AAS 300
+- name: Senior Colloquium/Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    In senior year, majors are required to participate in the year-long senior colloquium, which provides a space for students to share ideas and gain feedback on their step-by-step plans for the senior thesis. The colloquium adviser helps students achieve departmental benchmarks for drafting their thesis, while individual faculty advisers address students' field-specific questions and provide substantive feedback on drafts. A second reader is assigned to read the thesis at the end of the semester. The thesis adviser and second reader independently submit comments and suggest a grade. If the grades differ, then the adviser and second reader confer and collectively decide the final grade.<br><br>
+
+    The senior comprehensive statement is completed after the senior thesis and has a dual purpose: to narrate the student's scholarly development in AAS, and to describe any work beyond the classroom that reflects the student's commitment to the intellectual, political and artistic traditions of Black studies as a field. The statement is consulted during the senior departmental examination and is used to help calculate honors in the major.
+  no_req:
+- name: Senior Departmental Examination
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The senior departmental examination involves the senior thesis adviser and assigned second reader of the thesis. It consists of two parts: a 10-minute presentation articulating the thesis's main argument and responding to the readers' reports assessing the work, and a discussion of the student's independent work and course of study. Aspects of the senior comprehensive statement may be cited during the discussion part of the exam.
+  no_req:
+    

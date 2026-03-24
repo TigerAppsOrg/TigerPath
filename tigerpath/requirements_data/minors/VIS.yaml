@@ -1,0 +1,78 @@
+---
+type: Minor
+name: Visual Arts
+code: VIS
+degree:
+description: |-
+  The Visual Arts minor under the Lewis Center for the Arts, promotes an environment where students are urged to explore visual art and media through hands-on creative engagement. The curriculum spans drawing, filmmaking, graphic design, media, painting, photography, and sculpture, mentored by contemporary practicing artists. The program opens its doors to all Princeton students with a few courses reserved for VIS minors and Practice of Art track students. The minor provides two pathways for those inclined towards a thesis in studio arts or film production.
+urls:
+- https://arts.princeton.edu/academics/visual-arts/minor-in-visual-arts/
+contacts:
+- type: Program Director
+  name: Jeffrey Whetstone
+  email: whetstone@princeton.edu
+iw_required: true
+req_list:
+- name: Core Coursework
+  max_counted: 1
+  min_needed: 7
+  explanation: 
+    The core curriculum mandates seven courses including two required seminars, three visual arts studio or film production courses covering at least two different media, one 300- or 400-level course, and one course from Art and Archaeology in the modern period (19th century to the present). VIS 392 and VIS 416 are required seminars with provisions for film students.
+  double_counting_allowed: true
+  max_common_with_major: 2
+  pdfs_allowed: 0
+  req_list:
+  - name: Studio Courses
+    max_counted: 3
+    min_needed: 1
+    explanation: Three visual arts studio courses or film production courses, in at least two different media, and at least one 300- or 400-level course. For film students, screenwriting courses are accepted as a different media from film production courses.
+    course_list:
+    - VIS 3*
+    - VIS 4*
+  - name: Artist and Studio
+    max_counted: 1
+    min_needed: 1
+    explanation: VIS 392 Artist and Studio is a fall seminar required for all junior year Practice of Art students and students engaged in the visual arts minor. Concentrating on the traditions, challenges and rewards of studio practice through readings, discussions, 
+      studio critiques and a culminating exhibition of artist's books, VIS 392 provides students with historical context as well as contemporary theory of how best to engage in a meaningful studio practice. In conjunction with the seminar, each junior receives their 
+      own art studio. Please note that film students are required to take VIS 419 (The Film Seminar) in the spring of their junior year as one of the two required film seminars. They may take VIS 392 as their second required seminar or find another film-related
+      seminar on campus that qualifies, with prior approval from film faculty.
+    course_list:
+    - VIS 392
+  - name: Exhibition Issues and Methods
+    max_counted: 1
+    min_needed: 1
+    explanation: VIS 416 Exhibition Issues and Methods is a fall seminar required for all senior year Practice of Art students and students engaged in the visual arts minor. This course provides a formal structure for students to study, present and discuss 
+      various issues and strategies for exhibiting art as they prepare for their spring thesis exhibition. Throughout the course, there will be presentations from visiting artists as well as field trips to professional artists’ studios, galleries and museums. 
+      Please note that film students are not required to take VIS 416.
+    course_list:
+    - VIS 416
+  - name: Art and Archaeology
+    max_counted: 1
+    min_needed: 1
+    explanation: One course from Art and Archaeology in the modern period (19th century to the present). Please note that film students can substitute a film history/analysis course offered on campus, with prior approval from a film faculty member in consultation with the visual arts director’s office.
+    course_list:
+    - ART *
+  - name: Elective
+    max_counted: 1
+    min_needed: 1
+    explanation: As one of the seven required courses, a student can matriculate either an additional VIS studio course or any ART course. Please note that film students can substitute a film production course, film history course or relevant global seminar.
+    course_list:
+    - ART *
+    - VIS *
+- name: Junior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students will be assigned one adviser in the fall and a different adviser for the spring, both chosen from the Program in Visual Arts faculty. Each student is assigned a studio workspace for the year in the loft of 185 Nassau. In lieu of writing a fall paper, students will conceive and produce a 32-page artist's book for their fall independent work. The independent work is done in consultation with each student's adviser.
+    
+    Over the spring semester, students prepare independent work in their studios, in consultation with their spring semester adviser, culminating in an exhibition as part of the junior thesis group show.
+    
+    Please note that film students work with one adviser throughout their junior year to create a junior film.
+- name: Senior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students are assigned a primary adviser from the visual arts faculty that they will work with for the entire year. 
+    
+    Students are assigned semiprivate studios on the second floor of 185 Nassau. Each student’s independent study culminates with a thesis show that is exhibited at one of the Lewis Center galleries.
+

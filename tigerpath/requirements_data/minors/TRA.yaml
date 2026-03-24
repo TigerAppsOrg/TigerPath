@@ -1,0 +1,75 @@
+type: Minor
+name: Translation and Intercultural Communication
+code: TRA
+degree:
+description: Issues of translation and intercultural communication arise everywhere in the contemporary world. What makes a good translation? Are there different kinds of “good translations” for different circumstances? How do multilingual speakers navigate their languages, and how do 
+  translators and interpreters deal with the challenges presented by multilingual texts and contexts? How — and how well — does machine translation work? What are the challenges for sign language interpretation? How does one translate the language of a poem or a play?
+urls:
+- https://ptic.princeton.edu/undergraduate-studies/minor
+contacts:
+- type: Program Director
+  name: Prof. Karen Emmerich
+  email: karene@princeton.edu
+- type: Program Administrator
+  name: Yolanda Sullivan
+  email: ysullivan@princeton.edu
+iw_required: true
+req_list:
+- name: Core Coursework
+  max_counted: 1
+  min_needed: 5
+  explanation: 
+    The program entails two core courses - TRA 200 and TRA 400, along with three additional courses at the 200 level or above from at least two of the three categories provided, focusing on various aspects of translation and related fields.
+  double_counting_allowed: true
+  max_common_with_major: 2
+  pdfs_allowed: 0
+  req_list:
+  - name: Core Courses
+    max_counted: 1
+    min_needed: 2
+    course_list:
+    - TRA 200
+    - TRA 400
+  - name: Additional Courses
+    max_counted: 1
+    min_needed: 3
+    req_list:
+    - name: Cross-listed by TRA
+      max_counted: 2
+      min_needed: 1
+      course_list:
+      - TRA 2*
+      - TRA 3*
+      - TRA 4*
+    - name: Upper-Level Course on Translation between Languages
+      max_counted: 2
+      min_needed: 1
+      course_list:
+      - SPA 380
+      - FRE 407
+      - ARA 308
+      - CWR 206
+      - CWR 306
+    - name: Understanding of Translation
+      max_counted: 2
+      min_needed: 1
+      course_list:
+      - ANT 326
+      - COM 236
+      - HIS 397
+      - ITA 300
+      - LIN 201
+      - NES 398
+      - PHI 317
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: Students pursuing the minor must engage either in a substantial (15-to-20-page or more) project of translation or interpretation, or a project in translation studies. 
+    Students are encouraged to discuss their ideas with the program director before embarking on the project.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    Before entering the minor, students should have satisfied the University’s language requirement or demonstrated proficiency in a language through the 107/108 sequence. 
+    
+    Native or near-native fluency in a language not offered by the University can also be counted toward the language prerequisite of PTIC.

@@ -1,0 +1,57 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: 'Language and Culture: Classics'
+code: LAC-CLA
+degree:
+description: "The Certificates will continue to be available for the Class of 2024 and 2025.
+  Students pursuing a concentration other than Classics may still demonstrate command of one
+  of the classical languages and cultures by working toward a certificate in Greek Language
+  and Culture or Roman Language and Culture."
+urls:
+- https://classics.princeton.edu/programs/undergraduate/minors-certificates
+contacts:
+- type: Director of Undergraduate Studies
+  name: Daniela Mairhofer
+  email: daniela.mairhofer@princeton.edu
+iw_required: true
+req_list:
+- name: General Requirement
+  max_counted: 1
+  min_needed: 3
+  description: Greek and/or Latin Courses
+  explanation: Three CLG or three LAT courses, one of which may be at the 200-level while the others must be at the 300-level.
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  req_list:
+  - name: 200-level
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - CLG 2**
+    - LAT 2**
+  - name: 300-level
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    course_list:
+    - CLG 3**
+    - LAT 3**
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students may complete this requirement without enrolling in any numbered course, so hoagieplan does not check it.</i><br><br>
+
+    A piece of independent work. This can be satisfied in several ways:<br>
+    (a) by a substantial paper growing out of one of the courses taken to fulfill the certificate
+    requirement (this will be in addition to the work required in the course);<br>
+    (b) by a substantial independent paper advised by a member of the Classics faculty; or<br>
+    (c) with the agreement of the home department and Classics DUS, by a piece of independent
+    work that satisfies the requirements of both Classics and the home department.<br><br> 
+    
+    As a substitute for this requirement, students may take either an additional course in their
+    language (CLG or LAT) at the 200- or 300-level or a CLA course focusing on the culture of
+    their certificate program (Greek or Roman).
+  no_req:

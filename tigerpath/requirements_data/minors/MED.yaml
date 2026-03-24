@@ -1,0 +1,105 @@
+---
+type: Minor
+name: Medieval Studies
+code: MED
+degree:
+urls:
+- https://medievalstudies.princeton.edu/minor-in-medieval-studies/
+description: The Program in Medieval Studies encourages the 
+  interdisciplinary study of the Middle Ages; its art, literature (Latin 
+  and vernacular), music, religion, science, philosophy, politics, and 
+  economic and social structures. Supported by the vast resources for 
+  medieval studies at Princeton (including an outstanding medieval 
+  manuscript collection and the photographic archive known as the Index 
+  of Medieval Art), the program sponsors one course; an introductory 
+  seminar, and a (noncredit) thesis writers' colloquium for seniors. 
+  Other courses directly relevant to medieval studies are listed under 
+  the courses section.
+contacts:
+- type: Director
+  name: William C. Jordan
+  email: wchester@princeton.edu
+iw_required: true
+req_list:
+- name: Introductory Course
+  max_counted: 1
+  min_needed: 1
+  explanation: MED / HUM / HIS / HLS 227 (Worlds of the Middle Ages), 
+    offered in alternate falls, is the designated introductory course 
+    for the minor. Students may consult the director for comparably 
+    broad introductory course offerings that may be taken instead (e.g., 
+    HUM216–217, HIS210, ART228). Students are encouraged to complete 
+    their introductory class as early as possible in their course of 
+    study.
+  req_list:
+  - name: Single Course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    pdfs_allowed: 1
+    course_list:
+    - MED 227 / HUM 227 / HIS 227 / HLS 227
+    - HIS 210
+    - ART 228
+  - name: Humanities Sequence
+    max_counted: 1
+    min_needed: 2
+    explanation:
+    pdfs_allowed: 2
+    course_list:
+    - HUM 216
+    - HUM 217
+- name: Medieval Topics
+  max_counted: 1
+  min_needed: 3
+  pdfs_allowed: 3
+  course_list:
+  - ART 228
+  - ART 361
+  - CLA 565
+  - EAS 326
+  - GER 206
+  - HIS 205
+  - HIS 210
+  - HIS 344
+  - HIS 536
+  - HIS 544
+  - HUM 372
+  - MUS 338
+  - REL 251
+  - FRE 560
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: Students may complete a fifth course at the 400 level 
+    (or 500 level with the permission of the instructor) that has a 
+    substantive final paper in lieu of independent work, but are also 
+    required to present and discuss these projects in the senior thesis 
+    colloquium.
+  req_list:
+  - name: Final Project
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      One larger final project on a relevant topic completed in the senior year, amounting to the equivalent of one thesis chapter or more. 
+      
+      Project forms include a departmental senior thesis, a substantive data-based project on primary sources and materials, internships that require intensive work with primary sources. Please discuss the range of possibilities (and Princeton’s own opportunities) with the director. 
+      
+      In the senior thesis colloquium, taught by the director of the program, these projects, activities, experiences and expertise will be regularly presented and discussed during senior year.
+  - name: 400-level Course;
+    max_counted: 1
+    min_needed: 1
+    pdfs_allowed: 1
+    course_list:
+    - ART 402 / HUM 406 / MED 402 / HLS 401
+    - ART 430 / MED 430 / HLS 430
+    - ART 478 / HIS 476 / HUM 476 / MED 476
+    - CLA 565 / HLS 565 / MED 565
+    - ENG 402 / MED 401
+    - HIS 428 / HLS 428 / MED 428
+    - HIS 462 / HUM 462 / MED 462
+    - HIS 536 / HLS 536 / MED 536
+    - HIS 544 / MED 544
+    - HUM 402 / MED 403 / HIS 457
+    - NES 502 / MED 502
+    - NES 545 / MED 545 / REL 548 / JDS 545

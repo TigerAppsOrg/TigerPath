@@ -1,0 +1,125 @@
+type: Minor
+name: Theater and Music Theater
+code: TMT
+degree:
+description: The Program in Theater and Music Theater welcomes all students interested in exploring theater and music theater, with or without previous experience. We approach theater and music theater from a liberal arts perspective— as intensely collaborative 
+  art forms, as key components of world cultures and as performance genres that shape and are shaped by history, economics, politics and technology. We research, study and perform theater, from classic plays, operas and musicals to contemporary, experimental and 
+  devised plays, performances and musicals. We offer a wide-ranging, innovative and student-initiated season of theatrical explorations, produced in collaboration with professional artists and craftspeople. Our season centers on community-building and the creation 
+  of original work, in which all students can participate, We encourage artistic and academic investigations of theater and music theater in conversation with every other area of study.
+urls:
+- https://arts.princeton.edu/academics/theater/theater-minor/
+contacts:
+- type: Program Director
+  name: Jane F. Cox
+  email: janecox@princeton.edu
+iw_required: true
+req_list:
+- name: Introduction
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 0
+  course_list:
+  - THR 101
+- name: Additional Courses
+  max_counted: 1
+  min_needed: 2
+  pdfs_allowed: 0
+  course_list:
+  - THR *
+  - MTD *
+- name: Electives
+  max_counted: 1
+  min_needed: 2
+  pdfs_allowed: 0
+  course_list:
+  - THR *
+  - MTD *
+  - DAN *
+  - MUS *
+- name: Dramaturgical
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 0
+  course_list:
+  - AMS 403
+  - ATL 499
+  - DAN 305
+  - ENG 314
+  - ENG 319
+  - FRE 390
+  - GSS 337
+  - THR 308
+  - THR 316
+  - THR 355
+  - COM 212
+  - DAN 206
+  - DAN 208
+  - DAN 357
+  - ENG 354
+  - ENG 357
+  - FRE 228
+  - HUM 321
+  - HUM 352
+  - THR 223
+  - THR 300
+  - THR 313
+  - THR 350
+  - ENG 354
+  - ENG 407
+  - FRE 390
+  - HUM 340
+  - MTD 348
+  - MUS 350
+  - MUS 357
+  - THR 220
+  - THR 359
+  - THR 391
+  - THR 400
+  - THR 416
+  - VIS 354
+  - AMS 317
+  - DAN 310
+  - DAN 393
+  - ECS 362
+  - FRE 228
+  - HIN 305
+  - LAS 308
+  - MTD 202
+  - MUS 334
+  - THR 316
+  - THR 402
+  - THR 405
+  - VIS 354
+  - CLA 227
+  - DAN 215
+  - ENG 318
+  - ENG 361
+  - ENG 409
+  - FRE 390
+  - GSS 322
+  - ITA 314
+  - MUS 350
+  - THR 205
+  - THR 302
+  - THR 347
+  - THR 350
+  - THR 391
+  - THR 400
+  - ENG 319
+  - FRE 392
+  - HUM 352
+  - MTD 217
+  - THR 203
+  - THR 205
+  - THR 300
+  - THR 305
+  - THR 376
+  - THR 402
+  - FRE 389
+  - MTD 333
+  - THR 353
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |
+    Students must undertake a substantial project in translation, interpretation, or translation studies, which could be a part of their coursework or independent departmental work, but must be submitted separately to the program director for approval.

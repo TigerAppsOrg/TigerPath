@@ -1,0 +1,556 @@
+---
+type: Minor
+name: African American Studies
+code: AAS
+degree:
+description: Students in the Class of 2026 and beyond, who opt to pursue a minor in African American 
+  Studies (AAS) will gain access to an extraordinary bibliography that prepares them to think about 
+  race and power in sophisticated ways, expanding and deepening their understanding of race in the 
+  United States and in the world. Students are trained in the methods, themes and ideas that inform 
+  interdisciplinary scholarship, with a particular focus on race and racial inequality. 
+  Earning a minor is straightforward and allows students to experience an enriching course of study 
+  that complements any Princeton major.
+urls:
+- https://aas.princeton.edu/academics/undergraduate-program/minor-requirements
+contacts:
+- type: Director of Undergraduate Studies
+  name: Professor Keeanga-Yamahtta Taylor
+  email: aas21@princeton.edu
+iw_required: true
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 2
+  explanation: Students must complete two AAS core survey courses. 
+    These courses serve as an introduction to the methods and 
+    areas of interdisciplinary study in the field. 
+    They are the cornerstone of the AAS minor, and thus there 
+    are no replacements for or exemptions from this 
+    requirement.
+  double_counting_allowed: false
+  max_common_with_major: 1 
+  pdfs_allowed: 1
+  req_list:
+    - name: African American Art
+      max_counted: 2
+      min_needed: 1
+      explanation:
+      course_list:
+      - AAS 244
+      - AAS 245
+    - name: African American Literature to 1910
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - AAS 253
+      - AAS 353
+    - name: African American Literature since the Harlem Renaissance
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - AAS 254
+      - AAS 359
+    - name: African American History to 1863
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - AAS 267
+      - AAS 366
+    - name: African American History Since Emancipation
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - AAS 268
+      - AAS 367
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Students must take three additional courses in AAS, cross-listed 
+    by AAS, or from our approved cognates list (which may be accessed on the 
+    department's website). At least one of these courses must be situated 
+    in the Global Race and Ethnicity (GRE) subfield.
+  max_common_with_major: 1
+  req_list:
+  - name: AAS courses and cognates
+    max_counted: 3
+    min_needed: 1
+    explanation: Courses in AAS, cross-listed by AAS, 
+      or from the department's approved cognates list
+    double_counting_allowed: false
+    pdfs_allowed: 1
+    course_list:
+    - AAS *
+    - DAN 215
+    - AMS 304
+    - DAN 229
+    - ECO 351
+    - ENG 353
+    - ENG 358
+    - ENG 408
+    - ENG 415
+    - FRE 334
+    - FRE 335
+    - FRE 390
+    - FRE 403
+    - GLS 311
+    - HIS 250
+    - HIS 270
+    - HIS 270
+    - HIS 306
+    - HIS 314
+    - HIS 315
+    - HIS 316
+    - HIS 333
+    - HIS 376
+    - HIS 459
+    - HIS 471
+    - HIS 473
+    - HUM 310
+    - HUM 352
+    - JRN 260
+    - LIN 260
+    - MUS 212
+    - MUS 246
+    - MUS 258
+    - MUS 259
+    - MUS 264
+    - MUS 350
+    - NES 374
+    - NES 397
+    - PHI 350
+    - POL 311
+    - POL 366
+    - POL 421
+    - POL 432
+    - POL 433
+    - POR 222
+    - POR 309
+    - POR 415
+    - POR 304
+    - PSY 252
+    - REL 292
+    - REL 328
+    - REL 360
+    - SOC 207
+    - SOC 210
+    - SOC 227
+    - SOC 373
+    - SOC 375
+    - SOC 414
+    - SPA 233
+    - SPA 363
+    - SPA 365
+    - SPA 366
+    - SPA 377
+    - SPA 387
+    - SPA 408
+    - SPI 336
+    - VIS 228
+    - VIS 424
+  - name: Global Race and Ethnicity (GRE) subfield
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    double_counting_allowed: false
+    max_common_with_major: 1
+    pdfs_allowed: 1
+    course_list:
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 233
+    - LIN 233
+    - LAS 233
+    - SPA 352
+    - LAS 356
+    - AAS 352
+    - SPA 363
+    - LAS 334
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 365
+    - LAO 365
+    - URB 365
+    - SPA 366
+    - AMS 326
+    - LAO 366
+    - GSS 364
+    - SPA 387
+    - AAS 387
+    - LAO 387
+    - LAS 381
+    - SPA 408
+    - LAS 418
+    - MUS 338
+    - THR 355
+    - AAS 399
+    - THR 355
+    - AAS 399
+    - AFS 353
+    - URB 305
+    - SAS 351
+    - AAS 364
+    - ARC 325
+    - VIS 233
+    - AAS 233
+    - VIS 234
+    - AAS 234
+- name: Essay
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    Students who have completed the program of study by graduation will compose a 
+    700-word essay describing how the AAS minor has informed their independent 
+    work in the major. The reflection may touch on the Junior Paper, the Senior Thesis, 
+    or both. The reflection essay will be due during reading period of the graduating
+    semester. The AAS Curriculum Committee, which is chaired by the Director of 
+    Undergraduate Studies, will review and assess the essays, thereby approving 
+    the completion of the program of study.
+  no_req:
+- name: Restrictions
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Only one PDF can be counted towards the minor.</i><br><br>
+
+    Students may count one course taken for their major toward the minor if the course 
+    is cross-listed with AAS or has been approved as a cognate by the AAS Director of 
+    Undergraduate Studies before the course is taken. The PDF option counts toward the minor
+    if the course is primary-listed with AAS, cross-listed with AAS, or has been approved as 
+    a creative or practice-based cognate by the AAS Director of Undergraduate Studies before
+    the course is taken. Only one PDF course may count toward the minor. 
+    Students must receive passing grades in all five courses in order 
+    to complete the program of study for the minor.

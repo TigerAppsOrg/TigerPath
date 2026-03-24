@@ -111,6 +111,11 @@
     </script>
   {% endif %}
 
+  {% if preloaded_requirements_json %}
+  <script>
+    window.__TIGERPATH_PRELOADED_REQUIREMENTS__ = {{ preloaded_requirements_json|safe }};
+  </script>
+  {% endif %}
   {% vite_asset 'src/index.jsx' %}
 
   {% include 'tigerpath/settings.html' %}

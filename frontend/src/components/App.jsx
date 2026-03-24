@@ -70,9 +70,13 @@ export default function App() {
   );
 
   useEffect(() => {
-    fetchProfile();
-    fetchRequirements();
-  }, [fetchProfile, fetchRequirements]);
+      fetchProfile();
+      if (window.__TIGERPATH_PRELOADED_REQUIREMENTS__) {
+        handleRequirementData(window.__TIGERPATH_PRELOADED_REQUIREMENTS__);
+      } else {
+        fetchRequirements();
+      }
+    }, [fetchProfile, fetchRequirements, handleRequirementData]);
 
   const prevScheduleRef = React.useRef(null);
   useEffect(() => {

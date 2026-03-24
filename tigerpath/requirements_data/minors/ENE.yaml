@@ -1,0 +1,225 @@
+---
+type: Minor
+name: Sustainable Energy
+code: ENE
+degree:
+urls:
+- https://acee.princeton.edu/education/minor-in-sustainable-energy/?utm_source=education&utm_medium=moreinfo
+description: The future well-being of societies, the global economy, and the global environment will benefit greatly 
+  from collaborative research into renewable energy, alternative fuels, advanced energy conversion and storage systems, 
+  remediation of environmental degradation, technology transfer to developing countries, and prudent judgment on policies 
+  to support sustainable energy technology. Innovations and inventions require multidisciplinary approaches and 
+  entrepreneurship, as well as grounding in theory and practice, all topics that are not covered by a single department. 
+  The Minor Program in Sustainable Energy (the Minor) offers an integrated set of core and elective courses, introducing 
+  students to fundamental concepts in energy technologies and technological change, providing depth in specific fields of 
+  interest from specific energy systems to policy approaches that further sustainable energy use, exposure to laboratory 
+  practices and experiences, and setting the stage for further work in the field.  
+contacts:
+- type: Program Manager
+  name: Moira Selinka
+  email: mselinka@princeton.edu
+iw_required: true
+req_list:
+- name: Core Courses
+  min_needed: 1
+  max_counted: 1
+  completed_by_semester: 6
+  explanation: |-
+    Students take one of the following core courses in their sophomore or junior year:
+  course_list:
+  - MAE 228
+  - ENE 202
+- name: Electives
+  min_needed: 4
+  max_counted: 1
+  pdfs_allowed: 1
+  max_common_with_major: 2
+  double_counting_allowed: true
+  explanation: |-
+    Students must take four additional courses related to energy systems, technology, and policy. Students 
+    may choose from a list of approved electives that is reviewed each year by the Minor director. The list 
+    is organized by the six research foci of the Andlinger Center so that students can gain depth of knowledge 
+    in a particular area of sustainable energy, but students are free to choose any four courses from this list 
+    following these guidelines. 
+  course_list:
+  - ARC 203
+  - ARC 311
+  - ART 250
+  - CBE 430
+  - CEE 207
+  - CEE 401
+  - CEE 477
+  - ENE 202
+  - ENE 267
+  - MAE 418
+  - AST 309
+  - CBE 335
+  - CBE 341
+  - ECE 481
+  - ECE 547C
+  - ECE 557
+  - ENE 273
+  - ENE 373
+  - ENE 431
+  - MAE 328
+  - MAE 423
+  - MAE 427
+  - MAE 568
+  - CBE 421
+  - CBE 441
+  - CEE 305
+  - ENE 318
+  - ENE 422
+  - MAE 335
+  - MAE 426
+  - MAE 531
+  - NES 362
+  - NES 366
+  - CBE 225
+  - CEE 311
+  - CEE 471
+  - CEE 564
+  - ENE 321
+  - ENE 419
+  - ANT 214
+  - CBE 218
+  - CBE 260
+  - CEE 334
+  - COS 126
+  - EGR 491
+  - EGR 495
+  - ENE 372
+  - ENE 449
+  - ENE 475
+  - ENV 327
+  - ENV 343
+  - ENV 377
+  - ENV 531
+  - LAO 383
+  - LAS 312
+  - MAE 573
+  - ORF 455
+  - PHY 115A
+  - PHY 115B
+  - POL 351
+  - SOC 357
+  - SPI 306
+  - SPI 350
+  - SPI 406
+  - STC 349
+  - URB 201
+  - AOS 527
+  - CEE 306
+  - CEE 474
+  - EEB 417A
+  - ENE 308
+  - ENE 449
+  - ENV 302
+  - ENV 367
+  - ENV 380
+  - GEO 102A
+  - GEO 203
+  - GEO 363
+  - GEO 425
+  - GEO 427
+  - HIS 394
+- name: Advanced courses
+  min_needed: 2
+  max_counted: 1
+  double_counting_allowed: true
+  explanation: |-
+    Two of the four electives must be at the 300-level or above.
+  course_list:
+  - ARC 311
+  - CBE 430
+  - CEE 401
+  - CEE 477
+  - MAE 418
+  - AST 309
+  - CBE 335
+  - CBE 341
+  - ECE 481
+  - ECE 547C
+  - ECE 557
+  - ENE 373
+  - ENE 431
+  - MAE 328
+  - MAE 423
+  - MAE 427
+  - MAE 568
+  - CBE 421
+  - CBE 441
+  - CEE 305
+  - ENE 318
+  - ENE 422
+  - MAE 335
+  - MAE 426
+  - MAE 531
+  - NES 362
+  - NES 366
+  - CEE 311
+  - CEE 471
+  - CEE 564
+  - ENE 321
+  - ENE 419
+  - CEE 334
+  - EGR 491
+  - EGR 495
+  - ENE 372
+  - ENE 449
+  - ENE 475
+  - ENV 327
+  - ENV 343
+  - ENV 377
+  - ENV 531
+  - LAO 383
+  - LAS 312
+  - MAE 573
+  - ORF 455
+  - POL 351
+  - SOC 357
+  - SPI 306
+  - SPI 350
+  - SPI 406
+  - STC 349
+  - AOS 527
+  - CEE 306
+  - CEE 474
+  - EEB 417A
+  - ENE 308
+  - ENE 449
+  - ENV 302
+  - ENV 367
+  - ENV 380
+  - GEO 363
+  - GEO 425
+  - GEO 427
+  - HIS 394
+- name: Seminar Requirement
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Gaining knowledge about energy systems and outcomes from a variety of perspectives is an important goal of the 
+    Minor program.  The Andlinger Center for Energy and the Environment offers monthly Highlight Seminars featuring 
+    talks on energy topics given by speakers in disciplines including engineering, technology, economics, and public 
+    policy.  During their junior and senior years, students are required to attend a total of four of the Andlinger 
+    Center’s monthly Highlight Seminars* and write a short, half-page reaction paper for each seminar that should be 
+    emailed to the program manager.
+  no_req:
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Students must conduct independent research on a suitable energy topic, which can take one of the following four forms: 
+    a substantial part (e.g., a chapter) of their senior thesis, which topic must be approved ahead of time by the Minor 
+    director. a junior paper submitted to fulfill a departmental requirement; the topic must be approved by the Minor 
+    director ahead of time. a 10-15pp final report based on work done (at any stage of their undergrad career) during an 
+    Andlinger Center summer internship supervised by an Andlinger Center or Andlinger Center-affiliated faculty member. 
+    The supervising faculty must review and sign off on the paper as being of sufficient quality to satisfy an independent 
+    paper requirement (e.g., a JP). a 10-15pp independent paper supervised and approved by an Andlinger Center or Andlinger 
+    Center-affiliated faculty member, topic approved ahead of time by the Minor director.
+  no_req:

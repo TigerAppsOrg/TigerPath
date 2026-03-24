@@ -1,0 +1,75 @@
+---
+type: Minor
+name: Gender Sexuality Studies
+code: GSS
+degree:
+description: The undergraduate minor in Gender and Sexuality Studies is 
+  designed to help undergraduate students develop substantive 
+  methodological and theoretical expertise in the interdisciplinary 
+  field of Gender and Sexuality Studies. This training is intended to 
+  supplement their work in their primary department and to support 
+  students whose undergraduate work engages in gender and sexuality 
+  studies.
+urls:
+- https://gss.princeton.edu/programs/undergraduate-minor
+contacts:
+- type: Director
+  name: Wallace D. Best
+  email: wbest@princeton.edu
+iw_required: true
+req_list:
+- name: Introductory Course
+  max_counted: 1
+  min_needed: 1
+  explanation: The introductory course, GSS 201 or, with permission, a 
+    cross-listed 200-level or above course.
+  double_counting_allowed: false
+  pdfs_allowed: 1
+  course_list:
+  - GSS 201
+- name: Thematic Cluster Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Three elective courses in GSS or cross-listed with GSS 
+    from at least three of five thematic clusters (Transnational/Global 
+    Perspectives; Gender, Race, and Ethnicity; Bodies, Sexualities; 
+    Culture and Representation; Politics and Social Change; Historical 
+    Perspectives)
+  double_counting_allowed: false
+  pdfs_allowed: 3
+  course_list:
+  - GSS *
+- name: Additional Elective
+  max_counted: 1
+  min_needed: 1
+  explanation: One additional 300- or 400-level GSS course or
+    cross-listed with GSS.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 1
+  course_list:
+  - GSS 3*
+  - GSS 4*
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students are required to incorporate issues related to feminism, 
+    women, gender and/or sexuality into one junior paper and their 
+    senior thesis.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    The thematic cluster electives must be from at least three of the five thematic clusters:
+    
+    1. Transnational/Global Perspectives; 
+    2. Gender, Race, and Ethnicity, Bodies, Sexualities; 
+    3. Culture and Representation; 
+    4. Politics and Social Change; 
+    5. Historical Perspectives
+
+  # Note: Elective courses with thematic cluster could be encoded
+  # better, but first must make sure double counting works well in the
+  # front-end.
+ 

@@ -1,0 +1,110 @@
+---
+type: Major
+name: Psychology
+code: PSY
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-psychology
+contacts:
+- type: Chair
+  name: Kenneth A. Norman
+  email: knorman@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Michael S. Graziano
+  email: graziano@princeton.edu
+description: |-
+  The psychology major, within the Division of Natural Sciences, provides foundational and advanced undergraduate courses on a range of topics relating to the scientific study of mind and behavior. These include but are not limited to sensation, perception, movement, language, reasoning, decision-making, social interaction and computational models of the brain. Because psychological science involves working with large and complex data sets, students gain skills and knowledge in statistical methods. Additionally, since mental processes and behavior arise from the brain, students also acquire knowledge in neuroscience.
+double_counting_allowed: true
+iw_required: true
+req_list:
+- name: Prerequisites
+  min_needed: ALL
+  max_counted: 1
+  explanation: |-
+    The prerequisites for entering the Department of Psychology are the successful graded completion (without pass/D/fail) of PSY 251 (Quantitative Methods) or a preapproved statistics course in another department (for example, ORF 245 or ECO 202, SPI 200, SML 201, or POL 345), along with two other courses from the following list. <br><br>
+
+    If a student did not complete them as prerequisites, the following courses must be taken
+    as one or more of the eight departmental courses: <br><br>
+    
+    PSY 252 (Social Psychology), PSY 255 (Cognitive Psychology), and NEU 200/PSY 200
+    (Functional Neuroanatomy) or NEU 201/PSY 258 (Fundamentals of Neuroscience)
+  completed_by_semester: 4
+  req_list:
+    - name: Statistics
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - PSY 251
+        - ORF 245
+        - ECO 202
+        - SPI 200
+        - SML 201
+        - POL 345
+    - name: Introduction Psychology
+      min_needed: 2
+      max_counted: 1
+      course_list:
+        - PSY 101
+        - PSY 252
+        - PSY 254
+        - PSY 255
+        - PSY 258
+        - NEU 200
+        - NEU 201
+- name: Research Methods
+  min_needed: 1
+  max_counted: 1
+  completed_by_semester: 6
+  explanation: |-
+    One departmental course must be PSY 300 (Research Methods). This course must be
+    completed junior year. It is usually offered once per academic year, typically
+    during the fall semester.
+  course_list:
+    - PSY 300
+- name: Departmental Courses
+  max_counted: 1
+  min_needed: 8
+  double_counting_allowed: true
+  explanation: |-
+    Of the remaining eight departmental courses, at least four must be at the 300- or 400-level and all remaining must be 200-level or higher. Students can take up to two preapproved cognate courses from other departments, which count as departmental courses.
+  req_list:
+    - name: 300-Level or Higher
+      max_counted: 8
+      min_needed: 1
+      course_list:
+        - PSY 3**
+        - PSY 4**
+        - PSY 5**
+      excluded_course_list:
+        - PSY 300
+    - name: 200-Level
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - PSY 2**
+- name: Junior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    With help from the department, and by talking to faculty and researching faculty webpages, students find an adviser from the Department of Psychology. The primary goal of the fall JP in psychology is for students to practice how to formulate a question and to query the literature. The paper should involve critical analysis and original synthesis, with a topic chosen collaboratively by student and adviser. The fall JP is typically 10-20 pages and is graded by the student's adviser.<br>
+    Students may remain with the same adviser from the fall semester or find a different adviser whose interests overlap their own. The primary purpose of the spring paper is to prepare students for writing a thesis by having them formulate an original idea and embody it in a paper. The spring JP is typically 20-40 pages and is graded by the student's adviser.<br>
+    Students will give a 10-minute presentation midway through the fall and spring semesters to show their progress on their respective JP. Student presentations will occur in a group setting that includes 4-6 other juniors and a faculty member who grades the presentations.
+  no_req:
+- name: Senior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Each psychology senior works in close consultation with a faculty adviser to develop, carry out and write a senior thesis. The resulting thesis serves as the basis for the first part of the senior departmental xxam (see below). Although the length varies depending on type of thesis (experimental write-ups are often shorter), the final thesis is typically between 40 and 80 pages. The senior thesis grade is determined jointly by two readers: the student's adviser and the second reader assigned by the department. These two grades are averaged together to obtain a single grade for the written component of the senior thesis.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The Senior Departmental Exam is a 60-minute oral examination conducted by two members of the faculty, typically the student's adviser and a second reader. The exam is a defense of the senior thesis and a discussion of its implications. During the first 10-15 minutes, students present a summary of their thesis, and then answer the faculty members' questions about their thesis for the remainder of the examination time. The two faculty members present will determine an examination grade based on the quality of the presentation and the student's ability to answer questions.
+  no_req:
