@@ -62,6 +62,9 @@ export function bindManualHoverPopover(
   function onTriggerMouseEnter() {
     clearHideTimeout();
     popoverInstance.show();
+  }
+
+  function onPopoverShown() {
     attachPopoverListeners();
     if (onShow) {
       onShow(getPopoverElement(triggerElement));
@@ -87,12 +90,14 @@ export function bindManualHoverPopover(
 
   triggerElement.addEventListener('mouseenter', onTriggerMouseEnter);
   triggerElement.addEventListener('mouseleave', onTriggerMouseLeave);
+  triggerElement.addEventListener('shown.bs.popover', onPopoverShown);
   triggerElement.addEventListener('hidden.bs.popover', onPopoverHidden);
 
   return () => {
     clearHideTimeout();
     triggerElement.removeEventListener('mouseenter', onTriggerMouseEnter);
     triggerElement.removeEventListener('mouseleave', onTriggerMouseLeave);
+    triggerElement.removeEventListener('shown.bs.popover', onPopoverShown);
     triggerElement.removeEventListener('hidden.bs.popover', onPopoverHidden);
     detachPopoverListeners();
   };
