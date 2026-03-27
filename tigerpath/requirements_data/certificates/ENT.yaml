@@ -1,0 +1,160 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Entrepreneurship
+code: ENT
+urls:
+  - https://ua.princeton.edu/fields-study/certificate-programs/entrepreneurship
+contacts:
+  - type: Director
+    name: Naveen Verma
+    email: nverma@princeton.edu
+description: |-
+  Entrepreneurship the Princeton Way is defined as follows: You are an
+  entrepreneur any time you pursue societal impact through broadly sustainable
+  value creation.<br><br>
+
+  Entrepreneurship is driving enormous social and economic changes that are
+  shaping our collective future. The program has three main aims: to create
+  focused pathways through the curriculum that will allow Princeton
+  undergraduates to supplement work in their major departments with a systematic
+  and coherent understanding of, and practice in, entrepreneurship; to leverage,
+  expand and enhance the University's offerings across the liberal arts in order
+  to fulfill the previously stated aim; and to promote an interdisciplinary
+  academic community of undergraduate students, faculty members and others who
+  share an interest in and commitment to learning from and contributing to these
+  areas.
+iw_required: true
+req_list:
+  - name: Introductory Courses
+    min_needed: 2
+    max_counted: 1
+    explanation: 'Two common introductory courses: EGR 200/ENT 200 and EGR 201/ENT 201'
+    course_list:
+      - EGR 200
+      - EGR 201
+  - name: Core Courses
+    min_needed: 2
+    max_counted: 1
+    explanation: |-
+      Two core courses: must be chosen from a list, which may be updated each
+      year by the Executive Committee
+    course_list:
+      - ANT 300
+      - ANT 302
+      - ART 106
+      - COS 448
+      - EGR 219
+      - EGR 301
+      - EGR 348
+      - EGR 383
+      - EGR 395
+      - EGR 487
+      - EGR 491
+      - EGR 495
+      - EGR 497
+      - EGR 498
+      - HIS 379
+  - name: Breadth Course
+    min_needed: 1
+    max_counted: 1
+    explanation: |-
+      <i>Editor's Note: If taking a course outside the list, please manually override.</i><br><br>
+
+      One contextual breadth course: to be chosen from a list of suggestions or
+      be proposed by students to the program director. Unlike the preceding list
+      of core courses, the following list of possible breadth courses is
+      illustrative only. Each student may suggest other courses outside of this
+      list, subject to approval by the program director.
+    course_list:
+      - ANT 301
+      - ECO 317
+      - ECO 385
+      - HIS 481
+      - VIS 214
+      - VIS 439
+      - POL 377
+      - POL 349
+      - PSY 311
+      - PSY 420
+      - NEU 425
+      - SOC 346
+      - SPI 340
+  - name: Workshop
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+      
+      Workshops (without academic course credits) are offered on practical
+      skills involved in the entrepreneurship process, organized as supplements
+      to credit-bearing courses and offered currently at the E-Hub. These are
+      short-term one-off or sessional workshops, normally 3-12 hours in
+      duration, and students will be required to complete at least one of their
+      choice.
+  - name: Practicum
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+      Entrepreneurs, however smart they are and whatever ventures they pursue,
+      are, above all, doers. They apply their ideas and learning to try to
+      create value for their customers, investors, colleagues, themselves, and
+      hopefully our society. They challenge the status quo.<br><br>
+
+      This practicum is intended to give students the opportunity to fulfill
+      their version of that endeavor — a significant firsthand practical
+      experience in seeing what it takes to become a successful entrepreneur in
+      whatever context is most meaningful to them.<br><br>
+
+      It is not intended as a theoretical undertaking but a hands-on exposure to
+      the reality of the entrepreneurial odyssey, whether that unfolds in a
+      Silicon Valley-type high-tech setting or a rural village or underserved
+      urban community someplace. Accordingly, the practicum should expose
+      students to key elements of that odyssey, such as customer discovery,
+      design thinking, solution prototyping, team assembly or market validation
+      — efforts that test and refine hypotheses about what's required to create
+      a financially viable, worthwhile venture.<br><br>
+
+      OPTIONS: There are five primary options for the practicum, each designed
+      with the above objectives in mind. Any of these can provide the
+      experiential foundation for the required paper and presentation:<br><br>
+
+      Entrepreneurial Engagement<br>
+      Startup Launch<br>
+      Solution Development<br>
+      Frontline Insights<br>
+      Wild Card<br><br>
+
+      Juniors will explain their proposed practicum in the form of a poster
+      presentation at the Keller Center's Colloquium in the spring semester.<br><br>
+
+      Seniors have two final deliverables for their practicum: a ten-page paper 
+      (due two weeks before the colloquium); and a five-minute formal oral presentation 
+      to a group of reviewers at the colloquium itself.
+  - name: Colloquium
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+      Students are required to present their practicum, or a combination of
+      their academic work and practicum, at least twice before graduation.<br><br>
+
+      The required sequence is:<br><br>
+
+      April/May of junior year: Practicum proposal presented as a poster at the
+      certificate's annual colloquium.<br><br>
+
+      April of senior year: Written analysis presented to evaluation committee
+      no less than two weeks before annual colloquium.<br><br>
+
+      April/May of senior year: Oral presentation of practicum at the
+      certificate's annual colloquium.<br><br>
+
+      This social event also serves to foster community and conversation among
+      the certificate students. The mentorship of faculty in certain practicing
+      opportunities and of alumni in others will also help to build a greater
+      sense of interaction across the Princeton community of people with
+      entrepreneurial interests.

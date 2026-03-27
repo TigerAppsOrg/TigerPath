@@ -1,0 +1,149 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Geological Engineering
+code: GEO
+degree:
+description: Depending upon the selection of electives, the program
+  prepares students for graduate study or practice in geology, geochemistry,
+  geophysics, oceanography, water resources, engineering and environmental
+  geology, and civil and environmental engineering. The program is a
+  cooperative effort of the Department of Civil and Environmental Engineering
+  and the Department of Geosciences, and the program committee is drawn from
+  those departments. The student may be a candidate for either the B.S.E. or
+  the A.B. degree.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/geological-engineering
+contacts:
+- type: Director
+  name: Catherine A. Peters
+  email: cap@princeton.edu
+iw_required: true
+req_list:
+- name: BSE Requirements
+  max_counted: 1
+  min_needed: 2
+  explanation: B.S.E. mathematics, physics and chemistry requirements.
+  req_list:
+  - name: Mathematics
+    max_counted: 1
+    min_needed: 4
+    pdfs_allowed: false
+    double_counting_allowed: true
+    req_list:
+    - name: First Term Math
+      max_counted: 1
+      min_needed: 1
+      course_list:
+      - MAT 103
+    - name: Second Term Math
+      max_counted: 1
+      min_needed: 1
+      course_list:
+      - MAT 104
+      - EGR 152
+    - name: Third Term Math
+      max_counted: 1
+      min_needed: 1
+      course_list:
+      - MAT 201
+      - MAT 203
+      - MAT 216
+      - MAT 218
+      - EGR 192
+      - EGR 156
+    - name: Fourth Term Math
+      max_counted: 1
+      min_needed: 1
+      course_list:
+      - MAT 202
+      - MAT 204
+      - MAT 217
+      - EGR 154
+  - name: Science Requirements
+    max_counted: 1
+    min_needed: 1
+    explanation: Students must take one Physics, one Chemistry, and one
+      Computer Science course. Alternativaly, students can take the 
+      Integrated Science Sequence.
+    req_list:
+    - name: Regular Sequence
+      max_counted: 1
+      min_needed: ALL
+      req_list:
+      - name: Physics
+        max_counted: 1
+        min_needed: 2
+        pdfs_allowed: false
+        double_counting_allowed: true
+        req_list:
+        - name: Mechanics
+          max_counted: 1
+          min_needed: 1
+          course_list:
+          - PHY 103
+          - PHY 105
+          - EGR 191
+          - EGR 151
+        - name: Electromagnetism
+          max_counted: 1
+          min_needed: 1
+          course_list:
+          - PHY 104
+          - PHY 106
+          - EGR 193
+          - EGR 153
+      - name: Chemistry
+        max_counted: 1
+        min_needed: 1
+        pdfs_allowed: false
+        double_counting_allowed: true
+        course_list:
+        - CHM 201
+        - CHM 201A
+        - CHM 203
+        - CHM 207
+        - MOL 214
+      - name: Computer Science
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science or ECE 115 Introduction to Computing: Programming Autonomous Vehicles. Students with adequate preparation as determined by the Department of Computer Science may substitute COS 217 Introduction to Programming Systems or COS 226 Algorithms and Data Structures. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the Pass/D/Fail option. A course taken at another school may not be used to satisfy this requirement.
+        pdfs_allowed: false
+        double_counting_allowed: true
+        course_list:
+        - ECE 115
+        - COS 126
+        - COS 217
+        - COS 226
+    - name: Integrated Science Curriculum
+      max_counted: 2
+      min_needed: 1
+      course_list:
+      - ISC 231
+      - ISC 232
+      - ISC 233
+      - ISC 234
+- name: Additional Courses
+  max_counted: 1
+  min_needed: 4
+  explanation: Four program-approved courses at or above the 300 level
+    that constitute a coherent sequence (for additional details, see the geosciences
+    and civil and environmental engineering department descriptions). At least
+    two of these courses must be from a department different from that in which
+    the student is majoring.
+  pdfs_allowed: false
+  course_list:
+  - CEE 3**
+  - CEE 4**
+  - GEO 3**
+  - GEO 4**
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    A two-semester senior thesis on a geological engineering topic approved by the program committee.
+  double_counting_allowed: false
+  no_req:

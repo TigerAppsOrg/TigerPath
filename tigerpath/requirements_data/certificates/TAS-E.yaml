@@ -1,0 +1,141 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Technology and Society - Energy Track
+code: TAS-E
+degree:
+description: |-
+  One would be hard-pressed to find any aspect of society today
+  that is not influenced by evolving technology in a significant way. Similarly,
+  technology does not develop in a vacuum; by virtue of its applied nature, it is
+  shaped by the needs and desires of individuals and the societies in which they
+  live. Society and technology co-evolve, so that you cannot fully understand one
+  without knowing something about the other. This cross-disciplinary certificate
+  program is targeted to students, both engineers/scientists and humanists/social
+  scientists, who are interested in exploring this intersection in depth. Graduates
+  who earn this certificate will be effective contributors to the shaping, development
+  and deployment of technological solutions for the benefit of society.<br><br>
+
+  The intersection of technology and society is broad, touching on a wide range of
+  technologies and on a variety of societal issues and concerns. To ensure depth,
+  individual programs of study are offered along two technology tracks:
+  Information Technology and Energy.<br><br>
+
+  The Energy track is offered in partnership between the Keller Center and the
+  Andlinger Center for Energy and the Environment. Provision and use of energy and
+  atural resources in a sustainable way is the single biggest challenge for Americans
+  and citizens of the world to preserve the planet for future generations. Our economic
+  and national security as well as our overall ability to thrive as a society depends
+  on living within our resources. Rapid economic and technological growth throughout
+  the world is causing unprecedented demands for energy. Determining how to meet these
+  needs while protecting the environment is one of the most pressing challenges of our
+  times. These problems are complex and intertwined, not only involving a need for
+  advances in science and engineering, but also requiring changes in human behavior,
+  economic analyses and innovations in institutions as well as thoughtful policy.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/technology-and-society
+- https://acee.princeton.edu/education/technology-society/program-of-study/
+contacts:
+- type: Director
+  name: Naveen Verma
+  email: nverma@princeton.edu
+iw_required: true
+req_list:
+- name: Gateway Course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - EGR 277
+- name: Technology Courses
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  course_list:
+  - CBE 430
+  - CEE 207
+  - CEE 305
+  - CEE 311
+  - CEE 334
+  - CEE 477
+  - EGR 194
+  - EGR 251
+  - ENE 202
+  - ENE 267
+  - ENE 273
+  - ENE 372
+  - ENE 431
+  - ENV 302
+  - FRS 159
+  - GEO 363
+  - MAE 228
+  - MAE 328
+  - ORF 455
+- name: Societal Course
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  course_list:
+  - ANT 314
+  - ANT 387
+  - AMS 364
+  - COS 448
+  - ENE 259
+  - ENE 475
+  - ENV 305
+  - ENV 306
+  - ENV 375
+  - ENV 380
+  - HIS 295
+  - HIS 394
+  - HIS 507
+  - SOC 357
+  - STC 349
+  - URB 201
+  - SPI 306
+  - SPI 350
+  - SPI 353
+  - SPI 480
+- name: Breadth Course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - APC 199
+  - ARC 203
+  - CBE 260
+  - CEE 102
+  - CEE 262
+  - COS 109
+  - COS 126
+  - EEB 211
+  - ENV 367
+  - PHY 115
+  - EGR 200
+  - EGR 201
+  - EGR 491
+  - EGR 494
+  - EGR 495
+  - ENG 386
+  - ENV 200
+  - ENV 343
+  - FRE 338
+  - HIS 432
+  - NES 201
+  - NES 362
+  - POL 351
+  - SPI 333
+  - SPI 334
+  - SPI 340
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    All students are required to undertake a one-semester independent
+    research project in Energy. For A.B. students, this includes a junior paper. This
+    may be substituted by a significant component in their senior thesis (at least a
+    chapter). The project/thesis component requires preapproval of the student's program
+    advisor.
+  no_req:

@@ -1,0 +1,172 @@
+---
+type: Minor
+name: Humanistic Studies
+code: HUM
+degree:
+urls:
+- https://humstudies.princeton.edu/
+description: The minor in humanistic studies is open to students
+  from all majors who wish to pursue their intellectual interests
+  and commitments within an interdisciplinary curriculum. HUM
+  minors are encouraged to reflect on the presuppositions of
+  their major field and to become versatile thinkers and
+  researchers. Some HUM minors prefer to connect disciplines
+  across and within the scholarly humanities (e.g., literature
+  with philosophy); others are drawn to connect the humanities
+  to the creative arts, engineering, or social or natural sciences.
+  Still others engage with such interdisciplinary fields of study
+  as medical, environmental, urban and digital humanities.
+contacts:
+- type: Director
+  name: Esther Schor
+  email: eschor@princeton.edu
+iw_required: true
+req_list:
+- name: Humanities Sequence
+  max_counted: 1
+  min_needed: 1
+  explanation: At least one semester of a 200-level Humanities Sequence
+    course, whether double-credit (Western Humanities) or single credit
+    (East Asian and Near Eastern Humanities), normally taken in the 
+    first or second year.
+  pdfs_allowed: 1
+  max_common_with_major: 1
+  req_list:
+  - name: Western Culture I
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - HUM 216
+    - HUM 217
+  - name: Western Culture II
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - HUM 218
+    - HUM 219
+  - name: East Asian Humanities
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - HUM 233
+    - HUM 234
+  - name: Near Eastern Humanities
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - HUM 247
+    - HUM 248
+- name: Interdisciplinary Courses
+  max_counted: 1
+  min_needed: 4
+  pdfs_allowed: 4
+  max_common_with_major: 2
+  explanation: The four courses must be drawn from at least two of the 
+    following clusters, which demonstrate the broad reach of the 
+    humanities - Tradition and Transformation, Global or Comparative 
+    Humanities, Engaged or Public Humanities, Humanities and Sciences in 
+    Dialogue, Data and Culture. Each semester, students will be 
+    furnished with a list of preapproved courses for each cluster and 
+    the specific HUM courses and HUM cross-lists included in each; some 
+    courses will appear in more than one cluster.
+    Up to two courses may be double-counted with permission of the home 
+    department’s director of undergraduate studies and the humanistic 
+    studies program adviser.
+  double_counting_allowed: false
+  req_list:
+    - name: Tradition and Transformation
+      max_counted: 3
+      min_needed: 1
+      explanation: These courses deepen the study of partnerships among 
+        the possible combinations of religion, philosophy, history, 
+        literature, and the creative arts. They pay attention to the 
+        landmark achievements in an intellectual tradition, considering 
+        continuities as well as societal change, upheaval, and 
+        transformation.
+      course_list:
+      - COM 310 / ENG 390 / HUM 390
+      - HUM 216
+      - HUM 217
+      - HUM 218
+      - HUM 219
+      - HUM 230
+      - HUM 233
+      - HUM 234
+      - HUM 247
+      - HUM 248
+      - HUM 312
+      - HUM 412
+      - HUM 434
+      - MED 227 / HUM 227
+      - TRA 304 / HUM 333
+    - name: Global or Comparative Humanities
+      max_counted: 3
+      min_needed: 1
+      explanation: Illuminating their study of one culture with 
+        comparative approaches to other areas of the world, these 
+        courses investigate one or more regions through various 
+        methodologies. To enhance their intercultural studies, program 
+        students have benefited from participating in global seminars or 
+        other study abroad opportunities.
+      course_list:
+      - ART 361 / HUM 36
+      - CLA 212 / HUM 212
+      - COM 310 / HUM 312
+      - HUM 240
+      - HUM 290
+      - HUM 312
+      - HUM 335
+      - HUM 402
+      - HUM 423
+      - HUM 450
+      - HUM 470
+      - MED 227 / HUM 227
+      - TRA 304 / HUM 333
+    - name: Engaged or Public Humanities
+      max_counted: 3
+      min_needed: 1
+      explanation: These courses explore links to the social sciences 
+        through such emerging fields as cognitive science, environmental 
+        studies, medical humanities, urban humanities, indigenous 
+        studies, and disability studies, among other fields. Students 
+        may pursue community-engaged research and scholarly activism.
+      course_list:
+      - HUM 315
+      - HUM 321
+      - HUM 339
+      - HUM 352
+      - HUM 353
+      - HUM 470
+      - SLA 368 / HUM 368
+    - name: Humanities and Sciences in Dialogue
+      max_counted: 3
+      min_needed: 1
+      explanation: These courses consider how advances in natural 
+        science and engineering technology empower us to ask new kinds 
+        of questions and forge new kinds of knowledge.
+      course_list:
+      - ART 361 / HUM 361
+      - HUM 315
+      - HUM 365
+      - PSY 210 / HUM 210
+      - STC 297 / HUM 297
+    - name: Data and Culture
+      max_counted: 3
+      min_needed: 1
+      explanation: Addressing an increasingly datafied society, these 
+        courses teach the ability to contextualize and interpret data 
+        as humanistic skills.
+      course_list:
+      - HUM 346
+      - HUM 307 / ENG 277
+      - HUM 475
+
+
+# Notes: change structure after we know that double counting works
+# At least two of the four courses must be HUM courses, originating in
+# the Program in Humanistic Studies. Two of the four courses
+#    must be taken at the 300 or 400 level.

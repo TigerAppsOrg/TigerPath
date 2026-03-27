@@ -1,0 +1,116 @@
+---
+type: Minor
+name: Latin American Studies
+code: LAS
+degree:
+description: |-
+  The Program in Latin American Studies brings a global perspective to campus, 
+  offering an opportunity to engage one of the world's most rapidly changing 
+  regions. The minor in the Program in Latin American Studies is designed to 
+  encourage and support new scholarship, spark dialogue and promote first-hand 
+  engagement with leading scholars and creative thinkers. Coursework spans topics
+  and disciplines and sheds light on multiple facets of the region. The program 
+  aims to foster greater knowledge about Latin America and the Caribbean and 
+  the contributions of these areas to the global community. 
+urls: 
+- https://ua.princeton.edu/fields-study/minors/latin-american-studies
+contacts: 
+- type: Director of the Program in Latin American Studies
+  name: Gabriella Nouzeilles 
+  email: gnouzeil@princeton.edu
+iw_required: true
+req_list:
+- name: Language Requirement
+  explanation: |-
+    Completion of the language requirement in Spanish, Portuguese, French, 
+    or two semesters of a Native American language such as Maya, Nahuatl, 
+    Quechua or Mapuche. Students who placed out of the language requirement 
+    in Spanish, Portuguese or French must take a 200-level, or higher, course 
+    in the same language, or a course in another language spoken in the region.
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - SPA 107
+  - SPA 108
+  - SPA 2*
+  - SPA 3*
+  - SPA 4*
+  - SPA 5*
+  - POR 107
+  - POR 109
+  - POR 2*
+  - POR 3*
+  - POR 4*
+  - POR 5*
+  - FRE 107
+  - FRE 108
+  - FRE 2*
+  - FRE 3*
+  - FRE 4*
+  - FRE 5*
+- name: LAS courses
+  explanation: |-
+    Courses cross-listed with LAS or with a strong Latin American, 
+      Caribbean or Brazilian component, of which one must be a seminar and one 
+      must be in the humanities.
+  req_list:
+  - name: Path 1
+    max_counted: 1
+    min_needed: 5
+    explanation: |-
+      Five courses cross-listed with LAS or with a strong Latin American, 
+      Caribbean or Brazilian component, of which one must be a seminar and one 
+      must be in the humanities. Students can double-count up to two courses with 
+      their major.
+    course_list:
+    - LAS *
+  - name: Path 2
+    max_counted: 1
+    min_needed: 5
+    explanation: |-
+      Students can fulfill the minor requirements by taking four courses and, in 
+      lieu of a fifth course, completing an alternative option.
+    req_list: 
+    - name: LAS Courses
+      max_counted: 4
+      min_needed: 1
+      explanation:
+      course_list:
+      - LAS *
+    - name: Alternative options
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      req_list:
+      - name: Senior Thesis
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+          Complete a senior thesis on a Latin American or Caribbean topic, or with 
+          significant Latin American and/or Caribbean content
+        no_req:
+      - name: Structured Internship
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+          Have a meaningful, at least 6- to 10-week-long, structured experience in 
+          Latin America or the Caribbean through an internship, an independent research 
+          project or a service project. After they return, students must submit a 
+          1,000-word memo describing their international experience and its relevance 
+          to the LAS minor. Participation in the Bridge Year Program in a Latin American 
+          country may count toward the fulfillment of this requirement.
+        no_req:
+      - name: Research Paper
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+          Write a 6,000-8000-word research paper on Latin America or the Caribbean. 
+          Students can submit a relevant junior research paper or expand a course final 
+          paper under the supervision of a PLAS faculty member.
+        no_req:

@@ -1,0 +1,88 @@
+---
+type: Minor
+name: Computer Science
+code: COS
+degree:
+urls:
+- https://www.cs.princeton.edu/ugrad/minor
+description: The Computer Science Minor is designed for students who 
+  want to combine the study of computing and computers with another 
+  academic discipline. The program welcomes students not only from areas 
+  that traditionally make heavy use of computation (such as engineering, 
+  the natural sciences and mathematics) but also from newer and emerging 
+  application areas (such as neuroscience, digital humanities, 
+  technology policy, music, visual arts, economics, linguistics and 
+  philosophy).
+excluded_major: 
+- COS
+contacts:
+- type: Co-Director of Undergraduate Studies
+  name: Kevin Wayne
+  email: wayne@princeton.edu
+iw_required: false
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  req_list:
+  - name: Introduction
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    req_list:
+    - name: Introductory Course
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      double_counting_allowed: false
+      max_common_with_major: 1
+      pdfs_allowed: 1
+      course_list:
+      - COS 126
+      - ECE 115
+    - name: Integrated Science Curriculum
+      max_counted: 1
+      min_needed: 4
+      explanation:
+      double_counting_allowed: false
+      max_common_with_major: 1
+      pdfs_allowed: 1
+      course_list:
+      - ISC 231
+      - ISC 232
+      - ISC 233
+      - ISC 234
+  - name: Core Course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    double_counting_allowed: false
+    max_common_with_major: 0
+    pdfs_allowed: 1
+    course_list:
+    - COS 226
+    - COS 217
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Three additional Princeton COS course at the 200-, 300-, 
+    or 400-level, except IW courses (COS 397, 398, 497 and 498). 
+    This includes courses cross-listed in COS, regardless of the home 
+    department. It excludes graduate courses and courses taken at other 
+    institutions. If a student takes both COS 217 and COS 226, then one 
+    of them may count as an elective.
+  double_counting_allowed: false
+  max_common_with_major: 2
+  pdfs_allowed: 1
+  course_list:
+  - COS 2*
+  - COS 3*
+  - COS 4*
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    Students may use at most one course taken on a pass/D/fail basis to satisfy the program requirements.
+    
+    Students may use at most two courses to simultaneously satisfy requirements for this program and their major. 

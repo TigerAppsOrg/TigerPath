@@ -1,0 +1,232 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Technology and Society - IT Track
+code: TAS-IT
+degree:
+description: |-
+  One would be hard-pressed to find any aspect of society today
+  that is not influenced by evolving technology in a significant way. Similarly,
+  technology does not develop in a vacuum; by virtue of its applied nature, it is
+  shaped by the needs and desires of individuals and the societies in which they
+  live. Society and technology co-evolve, so that you cannot fully understand one
+  without knowing something about the other. This cross-disciplinary certificate
+  program is targeted to students, both engineers/scientists and humanists/social
+  scientists, who are interested in exploring this intersection in depth. Graduates
+  who earn this certificate will be effective contributors to the shaping, development
+  and deployment of technological solutions for the benefit of society.<br><br>
+
+  The intersection of technology and society is broad, touching on a wide range of
+  technologies and on a variety of societal issues and concerns. To ensure depth,
+  individual programs of study are offered along two technology tracks:
+  Information Technology and Energy.<br><br>
+
+  The Information Technology track is offered in partnership between the Keller Center
+  and the Center for Information Technology Policy through spring 2026. Students graduating
+  in 2025 and 2026 will be managed by CITP. Students graduating in 2027 and 2028 will be
+  managed by the Keller Center. Information technology (IT) broadly covers the computation
+  and communication technologies that permeate virtually all aspects of corporate and social
+  activity. The products and services enabled by it have had a major impact on the world
+  economy and on social interactions. As we look to the future, emerging technologies in
+  IT continue to address critical societal challenges such as economic development, health
+  care, politics, education, productivity, government and social organization. At the same
+  time, these technologies raise new challenges in security, law enforcement, privacy,
+  economic stability and justice.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/technology-and-society
+- https://citp.princeton.edu/programs/certificate/
+contacts:
+- type: Director
+  name: Naveen Verma
+  email: nverma@princeton.edu
+iw_required: true
+req_list:
+- name: Gateway Course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - EGR 277
+- name: Technology Courses
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  course_list:
+  - APC 524
+  - COS 109
+  - COS 126
+  - COS 324
+  - COS 350
+  - COS 424
+  - COS 429
+  - COS 432
+  - COS 433
+  - COS 436
+  - COS 445
+  - COS 455
+  - COS 461
+  - COS 551
+  - ECE 201
+  - ECE 206
+  - ECE 364
+  - ECE 368
+  - ECE 435
+  - ECE 464
+  - ECE 470
+  - ECE 472
+  - ECE 473
+  - ECE 535
+  - ECE 574
+  - EGR 371
+  - MAE 345
+  - ORF 387
+  - ORF 401
+  - ORF 467
+  - ORF 473
+  - POL 346
+  - QCB 455
+  - SML 354
+  - SOC 555
+  - TRA 301
+- name: Societal Course
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  course_list:
+  - AAS 301
+  - AAS 339
+  - ANT 211
+  - ANT 238
+  - ANT 455
+  - COM 332
+  - COS IW 
+  - COS 351
+  - COS 448
+  - COS 586
+  - COS 597
+  - ECO 326
+  - EGR 395
+  - EGR 495
+  - ENV 377
+  - FRS 122
+  - FRS 128
+  - FRS 159
+  - FRS 179
+  - HIS 278
+  - HIS 298
+  - HUM 331
+  - HUM 346
+  - JRN 260
+  - PHI 350
+  - PHI 371
+  - PHI 411
+  - POL 327
+  - POL 341
+  - SOC 204
+  - SOC 215
+  - SOC 306
+  - SOC 382
+  - SOC 409
+  - SOC 414
+  - SPI 334
+  - SPI 338
+  - SPI 352
+  - SPI 365
+  - SPI 492
+  - SPI 586
+- name: Breadth Course
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  course_list:
+  - ANT 325
+  - APC 199
+  - AST 309
+  - CEE 102
+  - CEE 325
+  - COS 436
+  - ECO 416
+  - EGR 421
+  - ENV 367
+  - FRS 141
+  - FRS 174
+  - MAE 228
+  - MAE 328
+  - NEU 537
+  - POL 345
+  - SOC 301
+  - SOC 555
+  - SPI 200
+  - SPI 353
+  - AMS 399
+  - ANT 302
+  - ANT 223
+  - ANT 325
+  - ANT 354
+  - ANT 360
+  - ANT 437
+  - ARC 492
+  - CBE 260
+  - CEE 102
+  - CEE 325
+  - CEE 392
+  - CEE 401
+  - CHV 333
+  - ECO 332
+  - EGR 219
+  - EGR 383
+  - EGR 421
+  - EGR 488
+  - EGR 491
+  - EGR 494
+  - EGR 497
+  - ENE 475
+  - ENV 303
+  - ENV 304
+  - ENV 316
+  - FRE 380
+  - FRS 114
+  - FRS 118
+  - FRS 139
+  - FRS 162
+  - FRS 172
+  - GER 211
+  - GHP 350
+  - HIS 295
+  - HIS 390
+  - HUM 349
+  - ITA 320
+  - NES 366
+  - PHI 277
+  - POL 345
+  - PSY 409
+  - SOC 301
+  - SOC 384
+  - SOC 373
+  - SPI 354
+  - STC 349
+  - THR 210
+  - VIS 206
+- name: Independent Work
+  max_counted: 0
+  min_needed: 0
+  explanation: |- 
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    All students are required to undertake a one-semester independent research
+    project in IT and society. This can be done four ways:
+    1) Taking the COS IW - Technology Policy seminar or SPIA Policy Task Force seminar taught by
+    CITP Clinic Lead Mihir Kshirsagar. (Please note these courses are open only to juniors of
+    COS or SPIA students and are listed on the semester by course webpage.)
+    2) Including the T&S IW research as part of a student's junior paper.
+    3) Including a chapter or two of the student's senior thesis devoted to the T&S IW research.
+    4) Performing IW solely for the T&S certificate program.<br><br>
+
+    Please note that independent work must include research of a technology that relates to
+    society. We expect independent work by students from technical disciplines to engage
+    directly with the sociological, humanistic, or policy components of the technology
+    in question. Please note that essentially all of computer science and engineering is 
+    ultimately motivated by the betterment of society, but that is not sufficient by itself.
+    Independent work must explore the interface between technology and society.
+  double_counting_allowed: false
+  no_req:

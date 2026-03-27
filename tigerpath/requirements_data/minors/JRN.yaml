@@ -1,0 +1,70 @@
+---
+type: Minor
+name: Journalism
+code: JRN
+degree:
+urls:
+- https://journalism.princeton.edu/certificate/
+description: The minor in journalism provides an interdisciplinary 
+  framework of courses through which students produce rigorous, verified 
+  journalism, developing a strong command of the literary, ethical, 
+  analytical and political dimensions of telling a compelling story in 
+  order to have a meaningful impact on public conversation.
+contacts:
+  - type: Director
+    name: Joe Stephens
+    email: js5@princeton.edu
+iw_required: true
+req_list:
+- name: Gateway Course
+  max_counted: 1
+  min_needed: 1
+  explanation: At least one gateway course (200-level) selected from 
+    the list below.
+  pdfs_allowed: 1
+  course_list:
+  - JRN 240
+  - JRN 260
+  - JRN 280
+- name: Above 300-level
+  max_counted: 1
+  min_needed: 2
+  explanation: At least two JRN courses at the 300- or 400-level 
+    (including cross-lists in which JRN is the first cross-list). 
+    These courses are taught by distinguished, practicing
+    journalists.
+  pdfs_allowed: 2
+  course_list:
+  - JRN 3*
+  - JRN 4*
+- name: Journalism Related Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: At least two journalism-related courses. Each of 
+    these courses must be approved by the program director to 
+    fulfill this requirement, unless they are cross-listed with JRN 
+    (as these will count automatically).
+  pdfs_allowed: 0
+  course_list:
+  - JRN *
+- name: Journalism Practice
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students must participate in sustained journalistic activity for a minimum of six weeks, whether working within an approved news organization or writing an independent creative nonfiction project. 
+    
+    The practice should involve reporting, interviewing, researching and writing and may also involve copyediting, web design, photography, videography, data analysis, etc. Examples include interning at a major news organization, working for an approved student journalism organization, undertaking an independent reporting and writing project advised by a Princeton faculty member, or successfully completing an intensive summer journalism seminar abroad. 
+    
+    To fulfill this requirement, students must obtain approval for their proposed journalistic practice from the program director.
+- name: Senior Colloquium
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students must produce an original piece of fact-based journalism based on field reporting or exploring the challenges facing modern journalists and, near the end of their senior year, present this work to peers and a jury of current and former Princeton journalism instructors at an interdisciplinary year-end colloquium.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    Each of the five courses must be completed with a grade of B or above.
+    
+    Students may apply for the minor after having completed one journalism course with a grade of B or above. Students apply no later than the fall semester of their junior year.

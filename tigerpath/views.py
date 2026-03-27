@@ -78,6 +78,20 @@ def index(request):
             instance.user_state = user_state
             instance.save(update_fields=["user_state"])
 
+        # Pre-compute requirements so the right sidebar renders instantly
+        preloaded_requirements = []
+        if instance.major and instance.major.supported and instance.year:
+            schedule = populate_user_schedule(instance.user_schedule)
+            try:
+                preloaded_requirements.append(
+                    check_major(instance.major.code, schedule, instance.year)
+                )
+                preloaded_requirements.append(
+                    check_degree(instance.major.degree, schedule, instance.year)
+                )
+            except Exception:
+                preloaded_requirements = []
+        context["preloaded_requirements_json"] = json.dumps(preloaded_requirements)
         return render(request, "tigerpath/index.html", context)
     else:
         return landing(request)

@@ -1,0 +1,74 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: History and the Practice of Diplomacy
+code: HPD
+degree:
+description: The Program in History and the Practice of Diplomacy (HPD)
+  offers undergraduate students the opportunity to pursue concentrated
+  interdisciplinary study of history and diplomacy in concert with internships
+  in the practice of diplomacy and related professions. Successful completion of
+  the program leads to the award of a certificate.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/history-and-practice-diplomacy
+- https://hpd.princeton.edu/
+contacts:
+- type: Co-Director
+  name: Michael A. Reynolds
+  email: mar123@princeton.edu
+- type: Co-Director
+  name: Thomas A. Shannon
+  email: tshannon@princeton.edu
+iw_required: true
+req_list:
+- name: Core Course
+  max_counted: 1
+  min_needed: 1
+  explanation: Students enrolling in the program are required to take an introductory
+    course, SPI 315, usually in the spring semester of sophomore year. In exceptional
+    circumstances and at the discretion of the director, this course may be taken other
+    than in sophomore year. In addition to its pedagogical purpose, SPI 315 is designed
+    to help create a sense of community among the cohort of students entering the program.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  course_list:
+  - SPI 315
+- name: Elective Courses
+  max_counted: 1
+  min_needed: 4
+  explanation: Two of these must be in the history department, Near Eastern studies or
+    East Asian studies, in international, global, diplomatic history or ancient history,
+    and two in the Princeton School of Public and International Affairs, politics
+    department or other departments, on subjects such as grand strategy, international
+    relations, international organizations, international political economy and other
+    subjects related to war, peace and global stability.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  req_list:
+  - name: History Courses
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - HIS ***
+    - NES ***
+    - EAS ***
+  - name: Politics Courses
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - SPI ***
+    - POL ***
+- name: Internship
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    An internship, usually during a summer, with a suitable government
+    agency or nongovernmental organization (NGO), domestic or international.  An internship
+    could include research in think tanks as well as activities described as people
+    to people diplomacy.

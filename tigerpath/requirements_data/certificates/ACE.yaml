@@ -1,0 +1,178 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Architecture and Engineering
+code: ACE
+degree:
+urls:
+- https://arch-eng.princeton.edu/program-requirements/
+description: The Program in Architecture and Engineering enables students to work
+  at the intersection of engineering and architecture.  It is a framework for interdisciplinary
+  study to tackle problems that cannot be addressed by one discipline. The certificate
+  is an opportunity to respond dynamically to evolving global challenges, where elegant
+  and effective solutions lead to more resilient and sustainable communities.
+contacts:
+- type: Program Director
+  name: Forrest Meggers
+  email: fmeggers@princeton.edu
+iw_required: false
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 2
+  explanation: Two courses are required for all students
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  req_list: # Must take ARC 203 and ARC 204/205
+  - name: Architectural Thinking
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ARC 203
+  - name: Architectural Design
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ARC 204
+    - ARC 205
+- name: Field of Expertise
+  max_counted: 1
+  min_needed: 1
+  explanation: With approval of the committee, the student may construct their own
+    “field of expertise” that demonstrates a coherent program of study addressing
+    a global challenge theme.
+  double_counting_allowed: false
+  max_common_with_major: 2
+  pdfs_allowed: 1
+  req_list: # Must select one field of expertise for the remaining courses - 1 required and 3 electives
+  - name: Structures
+    max_counted: 1
+    min_needed: 4
+    explanation:
+    req_list:
+    - name: Required
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - CEE 262A
+      - CEE 262B
+    - name: Electives
+      max_counted: 3
+      min_needed: 1
+      explanation: Courses are selected from a list of electives either following a field
+        of expertise or building a unique interdisciplinary set approved by advisor.
+      req_list:
+      - name: Structures
+        max_counted: 3
+        min_needed: 1
+        explanation:
+        course_list:
+        - ARC 204
+        - ARC 205
+        - ARC 206
+        - ARC 311
+        - ARC 374
+        - ARC 350
+        - ARC 351
+        - CEE 205
+        - CEE 312
+        - CEE 345
+        - CEE 361
+        - CEE 364
+        - CEE 366
+        - CEE 460
+        - CEE 463
+        - CEE 538
+        - CEE 546
+        - EGR 251
+        - MSE 302
+      - name: Materials
+        max_counted: 3
+        min_needed: 1
+        explanation: Either MSE 301 OR MAE 324 can count, but not both.
+        course_list:
+        - MSE 301
+        - MAE 324
+  - name: Computation
+    max_counted: 1
+    min_needed: 4
+    explanation:
+    req_list:
+    - name: Required
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - ARC 311
+    - name: Computation Electives
+      max_counted: 3
+      min_needed: 1
+      explanation: Courses are selected from a list of electives either following a field
+        of expertise or building a unique interdisciplinary set approved by advisor.
+      course_list:
+      - ARC 204
+      - ARC 205
+      - ARC 206
+      - ARC 374
+      - ARC 596
+      - CEE 374
+      - CEE 546
+      - COS 126
+      - COS 217
+      - COS 226
+      - COS 324
+      - COS 424
+      - ECE 206
+      - ECE 364
+      - MAE 418
+  - name: Environment
+    max_counted: 1
+    min_needed: 4
+    explanation:
+    req_list:
+    - name: Required
+      max_counted: 1
+      min_needed: 1
+      explanation:
+      course_list:
+      - ARC 208
+    - name: Environment Electives
+      max_counted: 3
+      min_needed: 1
+      explanation: Courses are selected from a list of electives either following a field
+        of expertise or building a unique interdisciplinary set approved by advisor.
+      req_list:
+      - name: Environment Electives
+        max_counted: 3
+        min_needed: 1
+        explanation:
+        course_list:
+        - ARC 204
+        - ARC 205
+        - EGR 251
+        - ARC 382
+        - ART 250
+        - ARC 406
+        - ARC 519
+        - ARC 509
+        - CEE 207
+        - CEE 304
+        - CEE 311
+        - CEE 344
+        - CEE 477
+        - MAE 221
+        - MAE 228
+        - MAE 328
+        - MSE 301
+        - MSE 302
+      - name: Materials
+        max_counted: 1
+        min_needed: 1
+        explanation: Either MSE 301 OR MAE 324 can count, but not both.
+        course_list:
+        - MSE 301
+        - MAE 324

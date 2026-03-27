@@ -1,0 +1,111 @@
+---
+type: Major
+name: Mathematics
+code: MAT
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-mathematics-0#
+- https://www.math.princeton.edu/undergraduate/requirements
+contacts:
+- type: Director of Undergraduate Studies, Associate Chair
+  name: János Kollár
+  email: kollar@math.princeton.edu
+- type: Associate Director of Undergraduate Studies
+  name: Jennifer M. Johnson
+  email: jmjohnso@math.princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: Generally, prospective majors with a very strong
+    background in calculus are strongly recommended to start in 215,
+    followed by 217 and 300. Prospective majors with extensive prior
+    experience with calculus and rigorous proofs can start in 216,
+    followed by 218. Students with an interest in rigorous proofs may
+    start in 210 or 214 and then continue to the 215-217-300 sequence.
+  req_list:
+    - name: 215-217-300 Sequence
+      max_counted: 1
+      min_needed: 3
+      course_list:
+        - MAT 215
+        - MAT 217
+        - MAT 300
+    - name: 216-218 Sequence
+      max_counted: 1
+      min_needed: 2
+      course_list:
+        - MAT 216
+        - MAT 218
+- name: Real Analysis
+  max_counted: 1
+  min_needed: 1
+  explanation: One course in real analysis (from the 320s or 420s or 300 or 385 or 520)
+  course_list:
+    - MAT 32*
+    - MAT 42*
+    - MAT 300
+    - MAT 385
+    - MAT 520
+- name: Complex Analysis
+  max_counted: 1
+  min_needed: 1
+  explanation: One course in complex analysis (from the 330s)
+  course_list:
+    - MAT 33*
+- name: Algebra
+  max_counted: 1
+  min_needed: 1
+  explanation: One course in algebra (from the 340s or 440s)
+  course_list:
+    - MAT 34*
+    - MAT 44*
+- name: Geometry, Topology, or Discrete Math
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    one course in geometry or topology (from the 350s or 450s or 360s or 460s,
+    or alternatively, one course in discrete mathematics from the 370s or 470s)
+  course_list:
+    - MAT 35*
+    - MAT 45*
+    - MAT 36*
+    - MAT 46*
+    - MAT 37*
+    - MAT 47*
+- name: Electives
+  max_counted: 1
+  min_needed: 4
+  explanation:
+    An additional four courses at the 300 level or higher. Up to three
+    of these may be cognate courses outside the Mathematics Department, with permission
+    from the junior or senior advisors or director of undergraduate studies. (Courses
+    from other departments that are cross-listed with MAT do not need permission
+    and do not count toward the total of three allowed cognates.)
+  course_list:
+    - MAT 3**
+    - MAT 4**
+    - MAT 5**
+- name: Junior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The junior year independent work generally consists of participating actively in a junior seminar in both the fall and spring semesters. Alternatively, a student may opt to replace one junior seminar with supervised reading in a special subject and then writing a paper based on that reading.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Senior theses are expected and tend to be more in-depth, more original in exposition/content, and more substantial than junior papers. However, there are no formal length requirements. Some of the best senior theses in mathematics over the years have been under 10 pages, while others have been over 100 pages, although about 20-40 pages when single-spaced seems typical. Senior theses are evaluated on the same basic criteria as junior papers, but naturally more originality and imagination in the exposition and content are expected in senior theses.<br><br>
+
+    The senior thesis is due by the university set deadline (usually, the start of the spring reading period). The thesis is evaluated by both the adviser and a second reader; thus, a second reader should be arranged at least a couple of weeks before the due date of the senior thesis (ideally much sooner). The thesis is "defended" to both the adviser and the second reader during a thesis defense that occurs a couple of days after Dean's date, during the final examination period. The defense consists of a short (about 25 minute) presentation by the student, followed by questions from the readers pertaining to the content of the thesis. Two grades are given: one for the quality of the presentation and defense (to emphasize the importance of mathematical communication), and one for the thesis itself.<br><br>
+
+    The primary adviser for the senior thesis can be a university faculty member outside the mathematics department (which is allowed, supported, and indeed occurs frequently). In this case, the second reader must be arranged within the mathematics department. (This is to help ensure uniformity in the evaluation process.)<br><br>
+
+    Senior thesis grades, together with grades in mathematics courses, are also taken into account when determining departmental honors.
+  no_req:

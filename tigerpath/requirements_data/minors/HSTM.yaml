@@ -1,0 +1,145 @@
+---
+type: Minor
+name: History of Science, Technology, and Medicine
+code: HSTM
+degree:
+urls:
+- https://history.princeton.edu/undergraduate/history
+- science-undergraduate-studies/minor-history-science
+description: From climate change to pandemics to the transformative 
+  effects of information technology, many of the challenges we confront 
+  today are inseparable from science, technology and medicine, whether 
+  as cause, explanation or remedy. To understand the role of HSTM in our 
+  present predicament and think through how it will shape our future, a 
+  historical perspective is vital. In the HSTM minor, students will 
+  learn from the array of methodological approaches developed by 
+  historians of science, technology and medicine, and track the 
+  evolution of modern science from antiquity to the present, in many of 
+  the world’s cultures. For students majoring in the humanities and 
+  social sciences, the HSTM minor enhances their understanding of the 
+  content, methodologies and impacts of science, technology and 
+  medicine; in a complementary fashion, the HSTM minor provides students 
+  majoring in the natural sciences or engineering a richer appreciation 
+  of the social and cultural aspects of their fields, as well as the 
+  trajectories that brought their subjects to their present state.
+contacts:
+- type: Program Director
+  name: Katja Guenther
+  email: kguenthe@princeton.edu
+- type: Administrative Coordinator
+  name: Jackie Wasneski
+  email: wasneski@princeton.edu
+iw_required: true
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 0
+  explanation:
+  course_list:
+    - HIS 390
+- name: Selected Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: Two courses in the history of science, technology, or 
+    medicine from the given list.
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  course_list:
+  - EGR 277 / HIS 277
+  - HIS 290
+  - HIS 291
+  - HIS 292
+  - HIS 293
+  - HIS 294
+  - HIS 295
+  - HIS 297 / STC 297
+  - HIS 298
+  - AAS 352 / HIS 347
+  - ART 361 / HIS 355
+  - SPI 364 / HIS 368
+  - AAS 331 / HIS 382
+  - HIS 390
+  - HIS 392
+  - HIS 393
+  - HIS 394
+  - HIS 395
+  - HIS 396
+  - HIS 397
+  - HIS 398
+  - AMS 399 / HIS 399
+  - HIS 452
+  - GSS 426
+  - HIS 472
+  - HIS 481
+  - HIS 489
+  - HIS 491
+  - HIS 492
+  - HIS 493
+  - HIS 494
+  - HIS 495
+  - HIS 496
+  - HIS 497
+  - HIS 498
+  - HIS 499
+- name: History Course
+  max_counted: 1
+  min_needed: 1
+  explanation: One history course not on the given list.
+  pdfs_allowed: 0
+  course_list:
+  - HIS *
+  excluded_course_list:
+  - EGR 277 / HIS 277
+  - HIS 290
+  - HIS 291
+  - HIS 292
+  - HIS 293
+  - HIS 294
+  - HIS 295
+  - HIS 297 / STC 297
+  - HIS 298
+  - AAS 352 / HIS 347
+  - ART 361 / HIS 355
+  - SPI 364 / HIS 368
+  - AAS 331 / HIS 382
+  - HIS 390
+  - HIS 392
+  - HIS 393
+  - HIS 394
+  - HIS 395
+  - HIS 396
+  - HIS 397
+  - HIS 398
+  - AMS 399 / HIS 399
+  - HIS 452
+  - GSS 426
+  - HIS 472
+  - HIS 481
+  - HIS 489
+  - HIS 491
+  - HIS 492
+  - HIS 493
+  - HIS 494
+  - HIS 495
+  - HIS 496
+  - HIS 497
+  - HIS 498
+  - HIS 499
+- name: HOS, HIS or Cognate
+  max_counted: 1
+  min_needed: 1
+  explanation: This course may be a HOS course, a HIS course or a 
+    cognate (with approval of the undergraduate program director for 
+    history of science).
+  pdfs_allowed: 0
+  course_list:
+  - HOS *
+  - HIS *
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students must submit a minimum 10-page paper, or equivalent, demonstrating original research in the history of science, technology and medicine. 
+    
+    This can be a segment of students’ independent written work in their majors; or a written assignment from a course; or a paper completed outside of coursework.

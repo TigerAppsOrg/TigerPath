@@ -1,0 +1,157 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Optimization and Quantitative Decision Science
+code: OQDS
+degree:
+description: |-
+  The Certificate Program in Optimization and Quantitative Decision Science
+  (OQDS) is focused on developing quantitative skills for optimal decision-making in
+  complex and uncertain environments. Through this certificate program, students will
+  learn to quantify risk and uncertainty and to view any complex decision through the
+  lens of mathematical optimization. This outlook will give them a more structured
+  understanding of the decision itself, as they learn to rigorously formulate their
+  constraints, objective function(s) and the uncertainties involved. It will also lead
+  students to the proper algorithmic tools that are needed to arrive at an optimal decision.<br><br>
+
+  The certificate program may be of interest to students in engineering, the sciences
+  and the liberal arts who wish to pursue analytical thinking and quantitative reasoning
+  for the purpose of decision-making under uncertainty. Emphasis is placed on rigorous
+  modeling and analysis, taking advantage of the vast flow of data and ubiquitous
+  computing power available today.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/optimization-and-quantitative-decision-science
+- https://orfe.princeton.edu/undergraduate/oqds-certificate
+contacts:
+- type: Director
+  name: Amir Ali Ahmadi
+  email: a_a_a@princeton.edu
+iw_required: true
+req_list:
+- name: Optimization
+  max_counted: 1
+  min_needed: 1
+  explanation: 
+  course_list:
+  - ORF 307
+  - ORF 311
+  - ORF 363
+- name: Uncertainty Analysis
+  max_counted: 1
+  min_needed: 1
+  explanation: 
+  course_list:
+  - CEE 460
+  - ECE 382
+  - ECO 202
+  - GEO 422
+  - MAT 385
+  - MAT 486
+  - ORF 245
+  - ORF 309
+  - ORF 409
+  - PHI 371
+  - POL 345
+  - PSY 251
+  - SOC 301
+  - SPI 200
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Three elective courses on applications to quantitative decision making.
+    Students may choose to take more than one course from category (1) or (2) and
+    count the additional course(s) toward category (3) as long as they take at least
+    one course from category (3).
+  req_list:
+  - name: Category 3
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    course_list:
+    - ARC 311
+    - ARC 404
+    - CBE 442
+    - CBE 449
+    - COS 324
+    - COS 484
+    - COS 510
+    - COS 598D
+    - ECE 364
+    - ECE 435
+    - ECO 312
+    - ECO 418
+    - ECO 462
+    - ECO 466
+    - EGR 395
+    - EGR 494
+    - EGR 497
+    - EGR 491
+    - MAE 331
+    - MAE 345
+    - MAE 410
+    - MAE 433
+    - MAE 434
+    - MAT 378
+    - MAT 490
+    - MOL 485
+    - MUS 314
+    - MUS 316
+    - ORF 350
+    - ORF 387
+    - ORF 401
+    - ORF 405
+    - ORF 407
+    - ORF 435
+    - ORF 467
+    - ORF 542
+    - POL 250
+    - POL 341
+    - POL 346
+    - POL 347
+    - PSY 255
+    - SPI 340
+  - name: Category 1 or 2
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - ORF 307
+    - ORF 311
+    - ORF 363
+    - CEE 460
+    - ECE 382
+    - ECO 202
+    - GEO 422
+    - MAT 385
+    - MAT 486
+    - ORF 245
+    - ORF 309
+    - ORF 409
+    - PHI 371
+    - POL 345
+    - PSY 251
+    - SOC 301
+    - SPI 200
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    A senior thesis or project must be completed and submitted to the program
+    director (oqds@princeton.edu) that demonstrates a command of some portion of the core
+    disciplines of uncertainty analysis and/or optimization. Students in engineering departments
+    that require a one-semester project can typically use a suitably designed project to satisfy
+    the requirement.<br><br>
+
+    Acceptable theses can be on a wide range of topics, but they must demonstrate a command of the
+    core disciplines of the OQDS certificate program, including stochastics and/or optimization.
+    The thesis must demonstrate, in appropriate mathematics, the ability to model a problem and
+    perform analysis that leads to some conclusion or scientific result. A thesis with minimal
+    or no mathematical modeling is not acceptable.<br><br>
+
+    Theses that do not qualify include "soft" topics such as the history of a nation's economy,
+    and hard-science theses (laboratory-based theses) that do not have a significant modeling
+    or data-analysis component (for example, collecting observations and computing basic
+    statistics is not sufficient).
+  no_req:

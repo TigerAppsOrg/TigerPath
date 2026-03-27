@@ -1,0 +1,309 @@
+---
+type: Major
+name: Neuroscience
+code: NEU
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/neuroscience-ab-through-princeton-neuroscience-institute
+- http://pni.princeton.edu/
+contacts:
+- type: Director
+  name: Mala Murthy
+  email: mmurthy@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Asif A. Ghazanfar
+  email: asifg@princeton.edu
+description: |-
+  The neuroscience major provides foundational and advanced undergraduate courses on the scientific study of the brain and biology of behavior as well as practical training in theoretical, computational and/or laboratory approaches to original neuroscience research. Students learn about different levels of analysis, from the molecular mechanisms of intercellular signaling to the formation and function of neural circuits to the generation of thought and movements via large-scale neural systems. Students also learn about cutting-edge methods in neuroscience, including laboratory techniques, computational modeling and statistics. Through their independent work, students work with faculty advisers and their teams to gain understanding of how to approach current neuroscientific problems. This work can include the generation of new data via experiments, the novel analysis of existing data sets or the formulation of new perspectives and hypotheses via the thoughtful consideration of the existing literature.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    To enter the neuroscience major, students must have completed NEU 201 Fundamentals of Neuroscience, NEU 202 Introduction to Cognitive Neuroscience, and MAT 103 Calculus I.
+  completed_by_semester: 4
+  req_list:
+    - name: Mathematics, Cognitive Neuroscience
+      max_counted: 1
+      min_needed: 2
+      course_list:
+        - MAT 103
+        - NEU 202
+    - name: Fundamentals of Neuroscience
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - NEU 201
+        - ISC 236
+- name: Core, Cell Biology
+  min_needed: 1
+  max_counted: 1
+  explanation: The first-year ISC sequence (ISC 231, 232, 233, 234)
+    offers an alternative to the combination of MOL 214 or 215
+    (biology elective), COS 126 (quantitative thinking elective), and
+    PHY 101-102 (required courses).
+  req_list:
+    - name: Standard Sequence
+      max_counted: 1
+      min_needed: ALL
+      req_list:
+        - name: Core
+          max_counted: 1
+          min_needed: 3
+          course_list:
+            - NEU 350
+            - NEU 314
+            - PHY 101
+        - name: Cell Biology
+          max_counted: 1
+          min_needed: 1
+          course_list:
+            - MOL 214
+            - MOL 215
+            - MOL 342
+            - EEB 211
+            - ISC 235
+    - name: Integrated Science Curriculum
+      max_counted: 1
+      min_needed: 4
+      course_list:
+        - ISC 231
+        - ISC 232
+        - ISC 233
+        - ISC 234
+- name: Behavior
+  min_needed: 1
+  max_counted: 1
+  course_list:
+    - PSY 207
+    - PSY 255
+    - PSY 252
+    - PSY 254
+    - PSY 338
+    - PSY 345
+    - EEB 311
+    - EEB 313
+    - EEB 323
+- name: Statistics
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    One course in statistics. SML 201 is recommended.
+  course_list:
+    - SML 201
+    - ECO 202
+    - ORF 245
+    - POL 345
+    - PSY 251
+    - SPI 200
+- name: Electives
+  min_needed: ALL
+  max_counted: 1
+  explanation: |-
+    Five neuroscience courses from three of the following four subject areas: Molecular/Cellular/Disease, Circuits and Systems, Neural Computation, and Cognitive and Social Neuroscience.
+  req_list:
+    - name: Subject Areas
+      max_counted: 1
+      min_needed: 3
+      req_list:
+        - name: Molecular/Cellular/Disease
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - NEU 301
+            - NEU 331
+            - NEU 385
+            - NEU 390
+            - NEU 400
+            - NEU 403
+            - NEU 413
+            - NEU 428
+            - NEU 430
+            - NEU 443
+            - NEU 444
+            - NEU 446
+            - NEU 447
+            - NEU 460
+            - NEU 475
+            - NEU 490
+            - NEU 501A
+            - ECE 452
+            - MOL 250
+            - MOL 433
+            - MOL 459
+            - MOL 460
+            - PHY 562
+            - QCB 515
+        - name: Circuits and Systems
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - NEU 200
+            - NEU 260
+            - NEU 301
+            - NEU 316
+            - NEU 325
+            - NEU 336
+            - NEU 385
+            - NEU 390
+            - NEU 413
+            - NEU 420
+            - NEU 422
+            - NEU 427
+            - NEU 428
+            - NEU 444
+            - NEU 460
+            - NEU 457
+            - NEU 475
+            - NEU 477
+            - NEU 501A
+            - NEU 502A
+            - PHY 562
+        - name: Neural Computation
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - NEU 330
+            - NEU 338
+            - NEU 340
+            - NEU 437
+            - NEU 443
+            - NEU 457
+            - NEU 499
+            - COS 226
+            - COS 343
+            - COS 402
+            - COS 429
+            - COS 324
+            - COS 302
+            - COS 424
+            - COS 485
+            - ECE 364
+            - ECE 452
+            - MAT 323
+            - PSY 360
+            - QCB 515
+            - SML 354
+        - name: Social and Cognitive Neuroscience
+          min_needed: 1
+          max_counted: 1
+          course_list:
+            - NEU 200
+            - NEU 306
+            - NEU 316
+            - NEU 330
+            - NEU 331
+            - NEU 337
+            - NEU 338
+            - NEU 340
+            - NEU 422
+            - NEU 446
+            - NEU 477
+            - NEU 499
+            - NEU 502A
+            - ECE 480
+            - PSY 248
+            - PSY 409
+    - name: Additional Electives
+      max_counted: 1
+      min_needed: 2
+      explanation: Two additional courses from any of the subject areas.
+      course_list:
+        - NEU 301
+        - NEU 331
+        - NEU 385
+        - NEU 400
+        - NEU 403
+        - NEU 413
+        - NEU 428
+        - NEU 430
+        - NEU 443
+        - NEU 447
+        - NEU 460
+        - NEU 475
+        - NEU 490
+        - NEU 501A
+        - ECE 452
+        - MOL 250
+        - MOL 433
+        - MOL 259
+        - MOL 460
+        - PHY 562
+        - QCB 515
+        - NEU 200
+        - NEU 260
+        - NEU 301
+        - NEU 316
+        - NEU 325
+        - NEU 336
+        - NEU 385
+        - NEU 413
+        - NEU 420
+        - NEU 422
+        - NEU 427
+        - NEU 428
+        - NEU 460
+        - NEU 457
+        - NEU 475
+        - NEU 501A
+        - NEU 502A
+        - PHY 562
+        - NEU 330
+        - NEU 338
+        - NEU 340
+        - NEU 437
+        - NEU 443
+        - NEU 457
+        - NEU 499
+        - COS 226
+        - COS 343
+        - COS 402
+        - COS 429
+        - COS 324
+        - COS 302
+        - COS 424
+        - COS 485
+        - ECE 364
+        - ECE 452
+        - MAT 323
+        - PSY 360
+        - QCB 515
+        - NEU 200
+        - NEU 306
+        - NEU 316
+        - NEU 330
+        - NEU 331
+        - NEU 337
+        - NEU 338
+        - NEU 340
+        - NEU 422
+        - NEU 499
+        - NEU 502A
+        - ECE 480
+        - PSY 248
+        - PSY 409
+- name: Junior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    In the fall semester of junior year, students are required to participate in tutorials, read papers from the original literature and prepare papers on assigned topics. In the spring term, students write a research proposal with the guidance of a faculty adviser with whom they will eventually do their senior thesis.
+  no_req:
+- name: Senior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    During the senior year each student, with the guidance of a faculty adviser, undertakes a major research effort. This research project can be a laboratory or independent study that will be written and presented as a senior thesis.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Students are required to present their work to two thesis readers during an oral exam. The exam usually takes about 30 minutes and students should be prepared to describe the background of the thesis, defend its contents and propose future directions. The grade for the oral defense will be the average of the two from the faculty members.
+  no_req:

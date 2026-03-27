@@ -1,0 +1,98 @@
+---
+type: Minor
+name: Quantitative Economics
+code: MQE
+description: The Minor in Quantitative Economics is designed for 
+  undergraduates from the natural sciences, mathematics, or engineering 
+  departments who have an interest in economics. This minor equips 
+  students to apply their mathematical knowledge to economic analysis, 
+  serving as a gateway to graduate school for non-economics majors. It 
+  introduces students to key economic concepts through a mathematically 
+  rigorous curriculum, beginning with intermediate-level courses, 
+  followed by upper-level core Economics courses, tailored to the 
+  mathematical aptitude of the students.
+urls:
+- https://economics.princeton.edu/undergraduate-program/minors/minor-in-quantitative-economics/
+contacts:
+- type: Chair
+  name: Wolfgang Pesendorfer
+  email: pesendor@princeton.edu
+excluded_majors:
+- ECO
+iw_required: false
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: ALL
+  explanation: Prerequisite courses to be completed before Junior year 
+    with a minimum grade of C.
+  double_counting_allowed: false
+  req_list:
+  - name: Multivariable Calculus
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - MAT 201
+    - ECO 201
+    - EGR 156
+    - MAT 203
+  - name: Linear Algebra
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - MAT 202
+    - EGR 154
+    - MAT 204
+  - name: Statistics
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ECO 202
+    - ORF 245
+  completed_by_semester: 4
+- name: Core Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: Two of the three math-track intermediate courses. 
+    Students do not need to take introductory economics courses.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  req_list:
+  - name: First Core Course
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - ECO 310
+    - ECO 311
+    - ECO 312
+    completed_by_semester: 6
+  - name: Second Core Course
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - ECO 310
+    - ECO 311
+    - ECO 312
+    completed_by_semester: 8
+- name: Elective Courses
+  max_counted: 1
+  min_needed: 3
+  explanation: Advanced (graduate) courses can be substituted for any 
+    of the listed courses.
+  double_counting_allowed: true
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  course_list:
+  - ECO 313
+  - ECO 315
+  - ECO 317
+  - ECO 323
+  - ECO 327
+  - ECO 416
+  - ECO 418
+  - COS 445
+  - ORF 405

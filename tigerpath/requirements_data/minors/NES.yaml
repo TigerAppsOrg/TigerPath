@@ -1,0 +1,73 @@
+type: Minor
+name: Near Eastern Studies
+code: NES
+degree:
+urls:
+  - https://ua.princeton.edu/academic-units/department-near-eastern-studies
+contacts:
+  - type: Chair (interim)
+    name: M. Sükrü Hanioglu
+    email: hanioglu@princeton.edu
+  - type: Director of Undergraduate Studies
+    name: Michael A. Reynolds
+    email: mar123@princeton.edu
+  - type: Director of Graduate Studies
+    name: Lara Harb
+    email: lharb@princeton.edu
+description: |-
+  The Department of Near Eastern Studies offers a wide variety of undergraduate classes focused on the languages, histories and cultures of the Near East. It provides opportunities for those who plan to major in other disciplines to simultaneously obtain proficiency in a language of the Near East (Arabic, Turkish, Hebrew and Persian) and to deepen their knowledge of the history, politics, literature, religion and culture of the Near Eastern region and broader Islamic world.
+  A student majoring in a department other than Near Eastern studies may earn a minor in Near Eastern studies by completing a gateway (200-level) course in Near Eastern studies, as well as at least four other courses in Near Eastern studies.
+iw_required: true
+req_list:
+  - name: Gateway Course
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      Gateway (200-level) courses, which include courses like NES 247-248 "Near Eastern Humanities," NES 240 "Muslims and the Qur'an," and NES 269 "The Politics of Modern Islam," are designed to introduce students to transregional and interdisciplinary approaches to Near Eastern studies that will inform their other coursework in the department.
+    course_list:
+      - NES 2**
+  - name: Additional Courses
+    max_counted: 1
+    min_needed: 4
+    explanation: |-
+      The remaining four courses may include two semesters of a Near Eastern language offered at Princeton (Arabic, Turkish, Hebrew or Persian) at the intermediate level (second-year, course numbers 105-107) or above. These four courses must include at least two other NES content courses in the humanities or social sciences (e.g., history, religious studies, literature, anthropology, etc.).
+    req_list:
+      - name: Language Option
+        max_counted: 2
+        min_needed: 1
+        explanation: Up to two semesters of intermediate or above language courses.
+        course_list:
+          - ARA 105
+          - ARA 107
+          - ARA 3**
+          - ARA 4**
+          - HEB 105
+          - HEB 107
+          - HEB 3**
+          - HEB 4**
+          - PER 105
+          - PER 107
+          - PER 3**
+          - PER 4**
+          - TUR 105
+          - TUR 107
+          - TUR 3**
+          - TUR 4**
+      - name: Content Courses
+        max_counted: 4
+        min_needed: 2
+        explanation: At least two NES content courses in the humanities or social sciences.
+        course_list:
+          - NES ***
+  - name: Senior Comprehensive Examination
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      At the end of their senior year, students who minor in NES will complete a comprehensive statement reflecting on their experience in Near Eastern studies. The statement should include a list of courses and a 750-1,500 word reflective essay discussing the student's scholarly life in the department.
+    no_req: 
+  - name: Study Abroad
+    max_counted: 1
+    min_needed: 0
+    explanation: |-
+      Content and language courses taken abroad during summer language programs or over the course of a semester or year at other institutions may count toward minor requirements. For more information on study abroad programs, please contact the language teachers of the relevant languages in the Department of Near Eastern Studies. Preapproval for any non-Princeton program coursework must be obtained from the NES director of undergraduate studies.
+    no_req:

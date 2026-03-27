@@ -1,0 +1,216 @@
+---
+type: Minor
+name: Cognitive Science
+code: CGS
+degree:
+urls:
+- https://cogsci.princeton.edu/certificate
+description: Cognitive science is the interdisciplinary study of the 
+  mind, brain, and intelligent systems, drawing predominantly on research 
+  from psychology, philosophy, computer science, linguistics, neuroscience, 
+  and anthropology. The interdisciplinary character of cognitive science is 
+  reflected in its reliance on many levels of analysis and its employment of 
+  a variety of methodologies appropriate to each level. The goal of cognitive 
+  science is to integrate the insights from multiple disciplines and modes of
+  research into a unified scientific account of minds - be they human or 
+  non-human, natural or artificial - and their place in nature and society.
+contacts:
+- type: Program Director
+  name: Anna Colasante
+  email: anna@princeton.edu
+iw_required: false
+req_list:
+  - name: Total Courses
+    explanation: Students are required to take five courses in cognitive science. At most, two courses counted towards the minor that are also counted towards the major. At most, one course with a primary course listing from the student's department of concentration unless permission is obtained from the faculty director."
+    min_needed: 5
+    max_counted: 1
+    req_list:
+    - name: Required Courses
+      explanation: At least one course designated with an asterisk in the list below, indicating that it is a CogSci Minor Required Course (CMRC);
+      min_needed: 1
+      max_counted: 1
+      double_counting_allowed: true
+      course_list:
+        - PHI 207
+        - PHI 322
+        - PSY 254
+        - PSY 255
+        - PSY 306
+        - PSY 309
+        - PSY 315
+        - PSY 333
+        - PSY 360
+        - PSY 454
+        - MUS 248
+    - name: Advanced Courses
+      explanation: Three courses at the 300-level or higher.
+      min_needed: 3
+      max_counted: 5
+      course_list:
+        - COS 324 
+        - COS 402
+        - COS 424
+        - COS 429
+        - COS 436
+        - COS 484
+        - COS 495
+        - LIN 301 
+        - LIN 302
+        - LIN 303 
+        - LIN 306
+        - LIN 308
+        - LIN 310
+        - LIN 355
+        - LIN 360 
+        - LIN 406 
+        - LIN 412
+        - MAE 345
+        - ENE 475
+        - ECE 364
+        - NEU 330 
+        - NEU 437
+        - PHI 311
+        - PHI 313
+        - PHI 315
+        - PHI 317
+        - PHI 321
+        - PHI 322
+        - PHI 352
+        - PHI 380
+        - PSY 304
+        - PSY 306
+        - PSY 307
+        - PSY 309
+        - PSY 315
+        - PSY 316
+        - PSY 333
+        - PSY 337
+        - PSY 338 
+        - PSY 340
+        - PSY 345
+        - PSY 360
+        - PSY 400
+        - PSY 409
+        - PSY 454
+        - SPI 305
+        - SPI 340
+        - SPI 404
+        - ECO 468
+        - TRA 301
+        - HIS 494
+        - SML 354
+  - name: Academic Units
+    explanation: "Courses must be taken in at least three different academic units."
+    min_needed: 3
+    max_counted: 1
+    double_counting_allowed: true
+    req_list:
+    - name: COS
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - COS 126
+        - COS 324
+        - COS 402
+        - COS 424
+        - COS 429
+        - COS 436
+        - COS 484
+        - COS 495
+        - TRA 301
+    - name: LIN
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - LIN 201
+        - LIN 205
+        - LIN 219
+        - LIN 250
+        - LIN 301
+        - LIN 302
+        - LIN 303 
+        - LIN 306
+        - LIN 308
+        - LIN 310
+        - LIN 355
+        - LIN 360 
+        - LIN 406 
+        - LIN 412
+    - name: MAE
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - MAE 345
+        - ENE 475
+        - ECE 364
+    - name: NEU
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+      - NEU 175
+      - NEU 200
+      - NEU 201
+      - NEU 202
+      - NEU 202B
+      - NEU 330
+      - NEU 437
+    - name: PHI
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - PHI 207
+        - PHI 218
+        - PHI 305
+        - PHI 311
+        - PHI 313
+        - PHI 315
+        - PHI 317
+        - PHI 321
+        - PHI 322
+        - PHI 352
+        - PHI 354
+        - PHI 380
+    - name: PSY
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - PSY 209
+        - PSY 254
+        - PSY 255
+        - PSY 304
+        - PSY 306
+        - PSY 307
+        - PSY 309
+        - PSY 315
+        - PSY 316
+        - PSY 333
+        - PSY 337
+        - PSY 338
+        - PSY 340
+        - PSY 345
+        - PSY 360
+        - PSY 400
+        - PSY 409
+        - PSY 454
+    - name: SPI
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - SPI 305
+        - SPI 340
+        - SPI 404
+    - name: ECO
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - ECO 468
+    - name: HIS
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - HIS 494
+    - name: SML
+      min_needed: 1
+      max_counted: 1
+      course_list: 
+        - SML 354
