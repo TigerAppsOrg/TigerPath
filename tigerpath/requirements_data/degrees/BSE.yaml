@@ -178,26 +178,6 @@ req_list:
       explanation: |-
         Human beings often disagree about matters of right and wrong, and about how we ought to organize our lives together. The ethical and moral conclusions we reach, however, are not mere matters of opinion. Ethical decisions emerge from fundamental ideas about the nature and possibility of the “good,” our duties and obligations to one another, our aspirations for a virtuous and meaningful life, and the demands of justice.  These ideas, often shaped by ancient traditions of religion and culture, guide the moral questions we ask and the conclusions we reach. Courses in Ethical Thought and Moral Values equip students to understand the basis of their own moral reasoning and ethical issues as they arise in social life, while also cultivating the possibility of a common ethical language among people whose traditions and values differ.
       dist_req: EM
-    - name: Foreign Language
-      max_counted: 1
-      min_needed: 1
-      explanation: |-
-        Although there is no foreign language requirement for B.S.E. students, intermediate-level language courses (numbered 107 and 108 in the Romance languages, 105 and 107 in all others) and higher may also count towards the seven H/SS courses.
-      course_list:
-      - GER 1025
-      - LANG 1027
-      - LANG 105
-      - LANG 107
-      - LANG 108
-      - LANG 2**
-      - LANG 3**
-      - LANG 4**
-      - LANG 5**
-      excluded_course_list:
-      - FRE 105
-      - ITA 105
-      - POR 105
-      - SPA 105
     - name: Historical Analysis
       max_counted: 1
       min_needed: 1
@@ -227,14 +207,14 @@ req_list:
       double_counting_allowed: true
       explanation: |-
         One course in the humanities and social sciences.
-      dist_req: 
+      dist_req:
       - CD
       - EC
       - EM
       - HA
       - LA
       - SA
-    - name: Foreign Language
+    - name: Language Course (counts toward H/SS total)
       max_counted: 7
       min_needed: 1
       double_counting_allowed: true

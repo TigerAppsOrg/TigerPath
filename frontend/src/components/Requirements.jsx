@@ -167,9 +167,15 @@ export default function Requirements({ onChange, requirements, schedule }) {
       if (requirement['count'] === 0 && requirement['min_needed'] === 0)
         finished = 'req-neutral';
 
+      const isOrGroup =
+        'req_list' in requirement &&
+        requirement['min_needed'] === 1 &&
+        requirement['req_list'].length > 1;
+
       let tag = '';
       if (requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
+      if (isOrGroup && finished !== 'req-done') tag += ' (any 1)';
 
       let popoverContent =
         '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
@@ -193,9 +199,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
       );
 
       if ('req_list' in requirement) {
+        let childTree = requirement;
+        if (isOrGroup && finished === 'req-done') {
+          const satisfiedChildren = requirement['req_list'].filter(
+            (r) => r['count'] >= r['min_needed']
+          );
+          if (satisfiedChildren.length > 0) {
+            childTree = { ...requirement, req_list: satisfiedChildren };
+          }
+        }
         return (
           <TreeView key={index} nodeLabel={reqLabel} itemClassName={finished}>
-            {populateReqTree(requirement)}
+            {populateReqTree(childTree)}
           </TreeView>
         );
       } else {

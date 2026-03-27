@@ -6,8 +6,11 @@ Procedure:
 - Parse it for courses, sections, and lecture times (as recurring events)
 """
 
+from concurrent.futures import ThreadPoolExecutor
+
 from tigerpath.majors_and_certificates.scripts.university_info import DEPTS
 from tigerpath.scraper.mobileapp import MobileApp
+from tigerpath.scraper.scrape_registrar import get_distribution_area, get_registrar_token
 
 
 class ParseError(Exception):
@@ -22,6 +25,23 @@ def scrape_parse_semester(term_code):
     TERM_CODE = term_code
 
     CURRENT_SEMESTER = [""]
+    api = MobileApp()
+
+    print("[scrape] Fetching registrar token...", flush=True)
+    registrar_token = get_registrar_token()
+    print("[scrape] Registrar token obtained.", flush=True)
+
+    def _fetch_detail(course_id):
+        """Return (course_id, dist_area string), or (course_id, '') on failure."""
+        try:
+            dist_area = get_distribution_area(TERM_CODE, course_id, registrar_token)
+            return course_id, dist_area
+        except Exception as exc:
+            print(
+                f"[scrape][warn] Could not fetch dist_area for course_id={course_id}: {exc}",
+                flush=True,
+            )
+            return course_id, ""
 
     def get_text(key, object, fail_ok=False):
         found = object.get(key)
@@ -56,14 +76,32 @@ def scrape_parse_semester(term_code):
     # goes through the listings for this department
     def scrape(department):
         """Scrape all events listed under department"""
-        data = MobileApp().get_courses(term=TERM_CODE, subject=department)
+        data = api.get_courses(term=TERM_CODE, subject=department)
         if data["term"][0].get("subjects") is None:
             print("Empty MobileApp response")
             return []
         subjects = data["term"][0]["subjects"]
         total_courses = sum(len(subject.get("courses", [])) for subject in subjects)
         print(
-            f"[scrape] Received {len(subjects)} subjects and {total_courses} courses. Parsing course details...",
+            f"[scrape] Received {len(subjects)} subjects and {total_courses} courses. Fetching course details...",
+            flush=True,
+        )
+
+        # Pre-fetch distribution areas in parallel from the Registrar API
+        all_course_ids = [
+            course.get("course_id")
+            for subject in subjects
+            for course in subject.get("courses", [])
+            if course.get("course_id")
+        ]
+        dist_area_by_id = {}
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            futures = [executor.submit(_fetch_detail, cid) for cid in all_course_ids]
+            for future in futures:
+                cid, dist_area = future.result()
+                dist_area_by_id[cid] = dist_area
+        print(
+            f"[scrape] Fetched dist_area for {len(dist_area_by_id)} courses. Parsing...",
             flush=True,
         )
 
@@ -76,7 +114,8 @@ def scrape_parse_semester(term_code):
             for course in subject.get("courses", []):
                 course_id = course.get("course_id", "<unknown>")
                 try:
-                    x = parse_course(data, course, subject)
+                    dist_area = dist_area_by_id.get(course.get("course_id"), "")
+                    x = parse_course(data, course, subject, dist_area=dist_area)
                     if x is not None:
                         parsed_courses.append(x)
                 except Exception as exc:
@@ -115,22 +154,14 @@ def scrape_parse_semester(term_code):
     # Parse it for courses, sections, and lecture times (as recurring events)
     # If the course with this ID exists in the database, we update the course
     # Otherwise, create new course with the information
-    def parse_course(data, course, subject):
+    def parse_course(data, course, subject, dist_area=""):
         """create a course with basic information."""
-        course_detail = course.get("detail") or {}
-        distribution_area = none_to_empty(
-            course_detail.get("distribution_area_short")
-            or course_detail.get("distribution_area")
-            or course.get("distribution_area_short")
-            or course.get("distribution_area")
-        )
-        distribution_area = ",".join(distribution_area.split(" or "))
-
+        bulk_detail = course.get("detail") or {}
         return {
             "title": none_to_empty(course.get("title")),
             "guid": none_to_empty(course.get("guid")),
-            "distribution_area": distribution_area,
-            "description": none_to_empty(course_detail.get("description")),
+            "distribution_area": dist_area,
+            "description": none_to_empty(bulk_detail.get("description")),
             "semester": get_current_semester(data),
             "professors": [parse_prof(x) for x in none_to_empty_list(course.get("instructors"))],
             "course_listings": parse_listings(course, subject),

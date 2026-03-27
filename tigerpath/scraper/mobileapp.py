@@ -92,18 +92,19 @@ class MobileApp:
     symbolizes a variable number of arguments 
     """
 
-    def _getJSON(self, endpoint, **kwargs):
+    def _getJSON(self, endpoint, _base_url=None, **kwargs):
         request_params = kwargs if "kwargs" not in kwargs else kwargs["kwargs"]
-        text = self._request(endpoint, request_params)
+        base_url = _base_url or self.configs.BASE_URL
+        text = self._request(endpoint, request_params, base_url=base_url)
 
         # Token may be expired; refresh once and retry.
         if self._is_api_fault(text):
             self.configs._refreshToken(grant_type="client_credentials")
-            text = self._request(endpoint, request_params)
+            text = self._request(endpoint, request_params, base_url=base_url)
             if self._is_api_fault(text):
                 raise RuntimeError(
                     "Princeton API returned an error for "
-                    f"{self.configs.BASE_URL}{endpoint}: {self._format_fault(text)}"
+                    f"{base_url}{endpoint}: {self._format_fault(text)}"
                 )
 
         try:
@@ -111,13 +112,14 @@ class MobileApp:
         except json.JSONDecodeError as exc:
             raise RuntimeError(
                 "Expected JSON from Princeton API but got non-JSON response for "
-                f"{self.configs.BASE_URL}{endpoint}: {self._shorten(text)}"
+                f"{base_url}{endpoint}: {self._shorten(text)}"
             ) from exc
 
-    def _request(self, endpoint, params):
+    def _request(self, endpoint, params, base_url=None):
+        url = (base_url or self.configs.BASE_URL) + endpoint
         try:
             req = requests.get(
-                self.configs.BASE_URL + endpoint,
+                url,
                 params=params,
                 headers={"Authorization": "Bearer " + self.configs.ACCESS_TOKEN},
                 timeout=30,
@@ -125,8 +127,7 @@ class MobileApp:
             return req.text
         except requests.RequestException as exc:
             raise RuntimeError(
-                "Failed to reach Princeton API at "
-                f"{self.configs.BASE_URL}{endpoint}: {exc}"
+                f"Failed to reach Princeton API at {url}: {exc}"
             ) from exc
 
     def _is_api_fault(self, text):
@@ -154,9 +155,9 @@ class MobileApp:
 
         if details["code"] == "900908":
             return (
-                "API token is not authorized for this resource "
-                f"({self.configs.BASE_URL}). In Princeton API Store, subscribe your app "
-                "to MobileApp API v1.0.6 and regenerate Production keys "
+                "API token is not authorized for this resource. "
+                "In Princeton API Store, subscribe your app to MobileApp API v1.0.6 "
+                "and StudentApp API, then regenerate Production keys "
                 "(client_credentials enabled)."
             )
 
