@@ -2,18 +2,15 @@
 import collections
 import copy
 import os
+import pathlib
 from functools import lru_cache
 
-import requests
 import yaml
 
 from . import university_info
 
-# Allow overriding the data repo base via env var for easy testing
-# Must end with a trailing slash and point to a raw.githubusercontent.com base
-import pathlib
-
 _LOCAL_DATA_DIR = pathlib.Path(__file__).resolve().parent.parent.parent / "requirements_data"
+
 
 @lru_cache(maxsize=256)
 def _load_yaml(path: str):
