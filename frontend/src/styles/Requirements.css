@@ -114,6 +114,13 @@
   margin-top: 5px;
 }
 
+/* Main-req popover only (paired classes in Requirements.jsx); resets scroll/height from .popoverContentContainer */
+.popoverContentContainer.main-req-popover-wrap {
+  max-height: none;
+  margin-top: 0;
+  overflow: visible;
+}
+
 .fa-exclamation-circle {
   color: #e74c3c;
 }

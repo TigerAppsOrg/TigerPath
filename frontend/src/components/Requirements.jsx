@@ -86,6 +86,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
         reqLabel,
         popoverInstance,
         {
+          hideDelayMs: 0,
           onShow: (popoverEl) => {
             if (!popoverEl) return;
             const reqPath = reqLabel.getAttribute('reqpath');
