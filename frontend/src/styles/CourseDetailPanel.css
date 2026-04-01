@@ -1,0 +1,250 @@
+.course-detail-panel {
+  position: fixed;
+  top: 56px; /* height of navbar */
+  right: 0;
+  width: 420px;
+  height: calc(100vh - 56px);
+  background: white;
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  z-index: 200;
+  transform: translateX(100%); /* slides off to the right when hidden */
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid #dee2e6;
+}
+
+.course-detail-panel.open {
+  transform: translateX(0);
+}
+
+/* Collapse "›" button in top-right corner */
+.panel-collapse-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  z-index: 1;
+}
+.panel-collapse-btn:hover {
+  background: #ddd;
+}
+
+/* Header: course title */
+.panel-header {
+  padding: 14px 44px 10px 16px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.panel-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Tag row: course code, PDF, QCR, Course Link */
+.panel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.panel-tag {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.tag-code { background: #ccc; color: #333; }
+.tag-pdf  { background: #f4c430; color: #333; }
+.tag-dist { background: #e87461; color: white; }
+.tag-link {
+  background: #4db8d4;
+  color: white;
+  text-decoration: none;
+}
+.tag-link:hover { background: #3aa0bc; color: white; }
+
+/* Quality of Course bar row */
+.panel-quality {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.quality-label {
+  font-size: 13px;
+  color: #555;
+  min-width: 120px;
+}
+.quality-bar-container {
+  flex: 1;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.quality-bar {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #e05252 0%,
+    #e07030 25%,
+    #c8b020 50%,
+    #90b020 70%,
+    #5cb85c 85%,
+    #2db02d 100%
+  );
+  border-radius: 3px;
+  transition: width 0.4s;
+}
+.quality-score {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.rating-na { color: #777; }
+
+/* Scrollable semester offerings table — shows ~3 rows at a time */
+.panel-offerings {
+  padding: 8px 16px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.offerings-table-scroll {
+  max-height: 72px; /* ~2 rows at 36px each */
+  overflow-y: auto;
+}
+.offerings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.offerings-table td {
+  padding: 6px 4px;
+  font-size: 13px;
+}
+.offering-sem { font-weight: 600; min-width: 90px; white-space: nowrap; }
+.offering-professors {
+  color: #555;
+  max-width: 180px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.3s;
+}
+.offering-professors.is-scrolling {
+  scrollbar-color: rgba(0,0,0,0.25) transparent;
+}
+.offering-professors::-webkit-scrollbar { height: 3px; }
+.offering-professors::-webkit-scrollbar-track { background: transparent; }
+.offering-professors::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background 0.3s;
+}
+.offering-professors.is-scrolling::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); }
+.offering-rating {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Scrollable lower body (description + grading + prereqs + comments) */
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Course description */
+.panel-description {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+.panel-section-label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+.panel-description-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #333;
+  max-height: calc(1.55em * 6);
+  overflow-y: auto;
+  margin: 0;
+}
+
+
+/* Scrollable student comments section */
+.panel-comments-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 120px;
+  padding: 10px 16px 0;
+}
+.comments-header {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+.comments-from {
+  font-weight: 400;
+  font-size: 12px;
+  color: #777;
+  margin-left: 6px;
+}
+.panel-comments {
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 16px;
+}
+.comment-card {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.panel-loading {
+  padding: 16px;
+  color: #777;
+  font-size: 13px;
+}
+
+.panel-no-data {
+  padding: 16px;
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+}
