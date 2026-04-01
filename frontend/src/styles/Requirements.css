@@ -114,6 +114,13 @@
   margin-top: 5px;
 }
 
+/* Main-req popover only (paired classes in Requirements.jsx); resets scroll/height from .popoverContentContainer */
+.popoverContentContainer.main-req-popover-wrap {
+  max-height: none;
+  margin-top: 0;
+  overflow: visible;
+}
+
 .fa-exclamation-circle {
   color: #e74c3c;
 }
@@ -132,4 +139,83 @@
   cursor: pointer;
   position: relative;
   top: -2px;
+}
+
+/* Main-req popover: gray tray (.main-req-popover-inner) + white cards */
+.main-req-popover-inner {
+  --mrp-text: #212529;
+  --mrp-link: #0d6efd;
+  --mrp-link-hover: #0a58ca;
+  --mrp-radius-card: 12px;
+  --mrp-pad-card: 12px 14px;
+  background: #e8eaed;
+  margin: -0.35rem -0.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 232px;
+  max-width: 300px;
+}
+
+.main-req-popover-inner .main-req-popover-card {
+  background: #fff;
+  border-radius: var(--mrp-radius-card);
+  padding: var(--mrp-pad-card);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.08);
+}
+
+.main-req-popover-inner .main-req-popover-card + .main-req-popover-card {
+  margin-top: 10px;
+}
+
+.main-req-popover-inner :is(.main-req-popover-card-title, .main-req-popover-contact-type) {
+  font-weight: 700;
+  color: var(--mrp-text);
+}
+
+.main-req-popover-inner .main-req-popover-card-title {
+  font-size: 1rem;
+  line-height: 1.2;
+  margin: 0 0 10px;
+}
+
+.main-req-popover-inner :is(.main-req-popover-contact-type, .main-req-popover-contact-name) {
+  font-size: 0.875rem;
+  color: var(--mrp-text);
+}
+
+.main-req-popover-inner .main-req-popover-contact-type {
+  margin-bottom: 2px;
+}
+
+.main-req-popover-inner .main-req-popover-contact + .main-req-popover-contact {
+  margin-top: 12px;
+}
+
+.main-req-popover-inner .main-req-popover-contact-name {
+  margin-bottom: 4px;
+}
+
+.main-req-popover-inner .main-req-popover-ref-row:not(:first-of-type) {
+  margin-top: 6px;
+}
+
+.main-req-popover-inner :is(.main-req-popover-email, .main-req-popover-ref-link) {
+  font-size: 0.875rem;
+  color: var(--mrp-link);
+}
+
+.main-req-popover-inner :is(.main-req-popover-email, .main-req-popover-ref-link):hover {
+  color: var(--mrp-link-hover);
+}
+
+.main-req-popover-inner .main-req-popover-email {
+  text-decoration: underline;
+}
+
+.main-req-popover-inner .main-req-popover-ref-link {
+  text-decoration: none;
+}
+
+.main-req-popover-inner .main-req-popover-ref-link:hover {
+  text-decoration: underline;
 }

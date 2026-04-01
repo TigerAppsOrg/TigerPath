@@ -12,6 +12,118 @@ function escapeHref(url) {
   return String(url).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+function escapeHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/** Degree trees use path_to like `Degree//<year>//AB` (display name may not be "AB"/"BSE"). */
+function isDegreeRequirementRoot(mainReq) {
+  if (!mainReq || typeof mainReq !== 'object') return false;
+  const path = String(mainReq.path_to || '');
+  if (path.startsWith('Degree//')) return true;
+  const code = mainReq.code;
+  if (code === 'AB' || code === 'BSE') return true;
+  const n = mainReq.name;
+  return n === 'AB' || n === 'BSE';
+}
+
+/**
+ * Labels for outward-facing URLs in the main-req popover.
+ * Degree roots (AB/BSE): second / non‑Princeton link is "More Information" instead of "Department site".
+ */
+function refLinkLabel(urls, index, isDegreeRoot) {
+  const deptLabel = isDegreeRoot ? 'More Information' : 'Department site';
+  const princetonLabel = isDegreeRoot ? 'Degree Requirements' : 'Major Offerings';
+  if (urls.length === 1) {
+    try {
+      const h = new URL(urls[0]).hostname.replace(/^www\./, '');
+      if (h === 'princeton.edu' || h.endsWith('.princeton.edu')) {
+        return princetonLabel;
+      }
+    } catch {
+      /* invalid URL */
+    }
+    return deptLabel;
+  }
+  return index === 0 ? princetonLabel : deptLabel;
+}
+
+function buildMainReqPopoverHtml(mainReq) {
+  const urls = Array.isArray(mainReq.urls) ? mainReq.urls.filter(Boolean) : [];
+  const contacts = Array.isArray(mainReq.contacts) ? mainReq.contacts : [];
+  const cards = [];
+
+  if (contacts.length > 0) {
+    const rows = contacts
+      .map((c) => {
+        const type = escapeHtml(c.type || '');
+        const contactName = escapeHtml(c.name || '');
+        const email = (c.email || '').trim();
+        let block = '<div class="main-req-popover-contact">';
+        if (type) {
+          block += `<div class="main-req-popover-contact-type">${type}:</div>`;
+        }
+        if (contactName) {
+          block += `<div class="main-req-popover-contact-name">${contactName}</div>`;
+        }
+        if (email) {
+          block +=
+            '<a class="main-req-popover-email" href="mailto:' +
+            escapeHref(email) +
+            '">' +
+            escapeHtml(email) +
+            '</a>';
+        }
+        block += '</div>';
+        return block;
+      })
+      .join('');
+    cards.push(
+      '<div class="main-req-popover-card"><div class="main-req-popover-card-title">Contacts:</div>' +
+        rows +
+        '</div>'
+    );
+  }
+
+  const showUrls = urls.slice(0, 2);
+  const degreeRoot = isDegreeRequirementRoot(mainReq);
+  if (showUrls.length > 0) {
+    const rows = showUrls
+      .map((url, i) => {
+        const label = escapeHtml(refLinkLabel(urls, i, degreeRoot));
+        return (
+          '<div class="main-req-popover-ref-row"><a href="' +
+          escapeHref(url) +
+          '" class="main-req-popover-ref-link" target="_blank" rel="noopener noreferrer">' +
+          label +
+          '</a></div>'
+        );
+      })
+      .join('');
+    cards.push(
+      '<div class="main-req-popover-card"><div class="main-req-popover-card-title">Reference links:</div>' +
+        rows +
+        '</div>'
+    );
+  }
+
+  if (cards.length === 0) {
+    cards.push(
+      '<div class="main-req-popover-card"><p class="small mb-0 text-muted">No contact or reference links on file.</p></div>'
+    );
+  }
+
+  return (
+    '<div class="popoverContentContainer main-req-popover-wrap"><div class="main-req-popover-inner">' +
+    cards.join('') +
+    '</div></div>'
+  );
+}
+
 export default function Requirements({ onChange, requirements, schedule }) {
   const [loading, setLoading] = useState(false);
   const containerRef = useRef(null);
@@ -86,6 +198,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
         reqLabel,
         popoverInstance,
         {
+          hideDelayMs: 0,
           onShow: (popoverEl) => {
             if (!popoverEl) return;
             const reqPath = reqLabel.getAttribute('reqpath');
@@ -138,7 +251,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
       });
 
       const cleanupHover = bindManualHoverPopover(icon, popoverInstance, {
-        hideDelayMs: 400,
+        hideDelayMs: 0,
       });
 
       icon[HEADER_POPOVER_CLEANUP_KEY] = () => {
@@ -307,29 +420,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
         ) {
           finished = 'req-done';
         }
-        const urls = Array.isArray(mainReq.urls)
-          ? mainReq.urls.filter(Boolean)
-          : [];
-        popoverContent = '<div class="popoverContentContainer main-req-popover">';
-        if (urls.length > 0) {
-          const show = urls.slice(0, 2);
-          const linkLabels =
-            show.length === 1
-              ? ['Department page']
-              : ['Department page', 'More information'];
-          show.forEach((url, i) => {
-            popoverContent +=
-              '<p class="mb-1"><a href="' +
-              escapeHref(url) +
-              '" class="ref-link" target="_blank" rel="noopener noreferrer">' +
-              linkLabels[i] +
-              '</a></p>';
-          });
-        } else {
-          popoverContent +=
-            '<p class="small mb-0 text-muted">No official program link is listed for this requirement.</p>';
-        }
-        popoverContent += '</div>';
+        popoverContent = buildMainReqPopoverHtml(mainReq);
       } else {
         name = mainReq;
         content = (
