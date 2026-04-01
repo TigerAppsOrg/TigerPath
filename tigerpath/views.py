@@ -4,6 +4,8 @@ import re
 import hashlib
 import time
 
+import requests
+
 import django_cas_ng.views
 from django.conf import settings
 from django.contrib import messages
@@ -193,6 +195,151 @@ def convert_courses(course_list, queries):
                 key=lambda course: not (course["name"].startswith(query.upper())),
             )
     return course_info_list
+
+
+JUNCTION_ENGINE_BASE_URL = "https://junction-engine.tigerapps.org"
+JUNCTION_EVAL_CACHE_TIMEOUT = 3600       # per-course detail cache: 1 hour
+JUNCTION_EVAL_CACHE_VERSION = "v5"       # bump to bust stale per-course entries
+JUNCTION_COURSES_ALL_CACHE_KEY = "junction_courses_all_v1"
+JUNCTION_COURSES_ALL_CACHE_TIMEOUT = 6 * 3600  # courses/all cache: 6 hours
+
+
+def _term_code_to_name(code):
+    """
+    Convert a term code integer to a human-readable semester name.
+    Format: 1{YY}{S} where YY = ending school-year digits, S = 2(Fall) or 4(Spring).
+    Examples: 1262 -> "Fall 2025", 1264 -> "Spring 2026"
+    """
+    try:
+        s = str(int(code))
+        year = int(s[1:3])
+        season = s[3]
+        if season == '2':
+            return f'Fall 20{year - 1:02d}'
+        if season == '4':
+            return f'Spring 20{year:02d}'
+    except (ValueError, IndexError, TypeError):
+        pass
+    return str(code)
+
+
+@login_required
+def get_course_details(request, course_id):
+    """
+    Fetches course evaluation data from the Junction Engine API:
+      GET /api/evaluations/{listingId}  → per-term ratings and student comments
+      GET /api/courses/all              → instructor names per term + dists + gradingBasis
+                                          (cached 6 h; covers all historical terms)
+    """
+    import logging
+    logger = logging.getLogger(__name__)
+
+    empty = {
+        "has_pdf": False,
+        "dists": [],
+        "offerings": [],
+        "quality_rating": None,
+        "comments": [],
+        "comments_semester": None,
+        "description": "",
+    }
+
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return JsonResponse(cached)
+
+    try:
+        # ── 1. Fetch per-term evaluation data ──────────────────────────────────
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return JsonResponse(empty)
+
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return JsonResponse(empty)
+
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        most_recent = evaluations[0]
+        most_recent_term = most_recent.get("evalTerm")
+
+        # ── 2. Build instructor/dist data from the shared courses/all cache ─────
+        # /api/courses/all covers every term Junction Engine has, so historical
+        # instructor names are available without per-term requests.
+        courses_all = cache.get(JUNCTION_COURSES_ALL_CACHE_KEY)
+        if courses_all is None:
+            try:
+                all_resp = requests.get(
+                    f"{JUNCTION_ENGINE_BASE_URL}/api/courses/all",
+                    timeout=30,
+                    headers={"User-Agent": "TigerPath/1.0"},
+                )
+                courses_all = all_resp.json().get("data", []) if all_resp.status_code == 200 else []
+            except Exception:
+                courses_all = []
+            cache.set(JUNCTION_COURSES_ALL_CACHE_KEY, courses_all, JUNCTION_COURSES_ALL_CACHE_TIMEOUT)
+
+        instructors_by_term = {}
+        has_pdf = False
+        dists = []
+        for c in courses_all:
+            if c.get("listingId") == course_id:
+                term_key = str(c.get("term", ""))
+                names = ", ".join(
+                    i.get("name", "") for i in c.get("instructors", []) if i.get("name")
+                )
+                if names:
+                    instructors_by_term[term_key] = names
+                if c.get("gradingBasis", "") in ("FUL", "PDF"):
+                    has_pdf = True
+                if not dists:
+                    dists = c.get("dists", [])
+
+        # ── Description from TigerPath DB ──────────────────────────────────────
+        description = ""
+        try:
+            db_course = models.Course.objects.filter(registrar_id=course_id).first()
+            if db_course:
+                description = db_course.description or ""
+        except Exception:
+            pass
+
+        # ── 3. Build per-semester offerings ────────────────────────────────────
+        offerings = []
+        for ev in evaluations:
+            term = ev.get("evalTerm")
+            raw_rating = ev.get("rating")
+            offerings.append({
+                "semester": _term_code_to_name(term),
+                "professors": instructors_by_term.get(term, ""),
+                "rating": round(float(raw_rating), 2) if raw_rating is not None else None,
+            })
+
+        # ── 4. Comments and quality rating from most recent eval term ──────────
+        comments = [c for c in most_recent.get("comments", []) if c and c.strip()]
+        comments_semester = _term_code_to_name(most_recent_term)
+        raw_rating = most_recent.get("rating")
+        quality_rating = round(float(raw_rating), 2) if raw_rating is not None else None
+
+        data = {
+            "has_pdf": has_pdf,
+            "dists": dists,
+            "offerings": offerings,
+            "quality_rating": quality_rating,
+            "comments": comments,
+            "comments_semester": comments_semester,
+            "description": description,
+        }
+        cache.set(cache_key, data, JUNCTION_EVAL_CACHE_TIMEOUT)
+        return JsonResponse(data)
+
+    except Exception as e:
+        logger.error("get_course_details(%s): %s", course_id, e)
+        return JsonResponse(empty)
 
 
 # filters courses with query from react and sends back a list of filtered courses to display

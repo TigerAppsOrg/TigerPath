@@ -54,11 +54,12 @@
 }
 
 .search-card .search-card-links {
-  visibility: hidden;
+  visibility: visible;
 }
 
-.search-card:hover .search-card-links {
-  visibility: visible;
+.search-card.selected {
+  outline: 2px solid #7c4dbf;
+  outline-offset: -2px;
 }
 
 .popover .search-card-links {
