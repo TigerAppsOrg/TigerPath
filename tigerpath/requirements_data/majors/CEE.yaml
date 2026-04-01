@@ -1,0 +1,486 @@
+---
+type: Major
+name: Civil and Environmental Engineering
+code: CEE
+degree: BSE
+description: |-
+  The department offers five tracks: architecture and engineering, 
+  environmental engineering, geological engineering, structural 
+  engineering, and engineering and the liberal arts. In the first year, 
+  students should complete the mathematics, basic science, computing and
+  writing requirements common to all B.S.E. programs. At the end of the 
+  first year, the student declares CEE as a major and selects one of the
+  tracks. Course requirements include engineering science courses, 
+  engineering design courses, a senior thesis and program electives. 
+  For all but the non-ABET accredited tracks, there are additional math 
+  and science requirements that are normally satisfied by taking MAE 305
+  Mathematics in Engineering, ORF 245 Fundamentals of Engineering 
+  Statistics and GEO 203 Fundamentals of Solid Earth Science. In total, 
+  a student's program of study must include a minimum of 14 engineering 
+  courses, with the exception of students in the non-ABET accredited 
+  tracks.
+
+  The selection of a track provides a guide in the selection of program 
+  electives. A student's program electives must provide a coherent 
+  sequence in the student's area of interest. Approval is based on 
+  agreement from the adviser and the director of studies. For a list of 
+  preapproved electives, consult the CEE Academic Guide 
+  (The Yellow Book). In addition, all candidates for the B.S.E. degree 
+  are required to satisfy the general University and School of 
+  Engineering and Applied Science requirements.
+contacts:
+- type: Chair
+  name: Branko Glišić
+  email: bglisic@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Ian C. Bourg
+  email: bourg@princeton.edu
+iw_required: true
+req_list:
+- name: Departmental Track
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  req_list:
+  - name: Architecture and Engineering
+    max_counted: 1
+    min_needed: ALL
+    explanation: |-
+      The requirements include a strong emphasis on civil and
+      environmental engineering. This track is designed for students who 
+      intend to become practicing engineers and may attend graduate school 
+      for architecture or engineering. This track is accredited by the 
+      Engineering Accreditation Commission of ABET under the program in 
+      civil engineering. This track has architecture course requirements 
+      beyond the normal requirements in civil and environmental 
+      engineering.
+    req_list:
+    - name: Engineering Science
+      max_counted: 1
+      min_needed: ALL
+      explanation:
+      req_list:
+      - name: Solid Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 205
+        - MAE 223
+      - name: Applied Structures
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 262B
+        - CEE 345
+      - name: Environmental and Water Resources Engineering
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 207
+        - ENV 302 / CEE 302 / EEB 302
+        - CEE 344
+        - CEE 306
+      - name: Structural and Systems Engineering
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 361
+        - CEE 374
+        - CEE 460
+      - name: Structures, Materials, and Soil
+        max_counted: 1
+        min_needed: 3
+        explanation:
+        course_list:
+        - CEE 312
+        - CEE 364
+        - CEE 365
+    - name: Track-Specific
+      max_counted: 1
+      min_needed: 4
+      explanation:
+      req_list:
+      - name: Architectural Thinking
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - ARC 203
+      - name: Geometry and Design
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - ARC 205
+        - ARC 206
+      - name: Architecture Elective
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - ARC *
+        excluded_course_list:
+        - ARC 203
+        - ARC 205
+        - ARC 206
+      - name: CEE Elective
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - CEE *
+    - name: Engineering Design
+      max_counted: 1
+      min_needed: ALL
+      explanation:
+      req_list:
+      - name: Steel/Concrete Structures Design
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 366
+        - CEE 467
+      - name: Buildings Design
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 461
+    - name: Program Elective
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Students in this sub-plan must take at least one more 
+        program elective and it must be an engineering course.
+      course_list:
+      - CEE 439
+      - CEE 460
+      - CEE 463
+      - CEE 467
+      - CEE 477
+      - CEE 540
+      - CEE 566
+      - CEE 568
+      - ORF 307
+      - ORF 309
+  - name: Environmental Engineering
+    max_counted: 1
+    min_needed: ALL
+    explanation: |-
+      This track is designed for students who wish to pursue 
+      a career related to the environment, whether in engineering, law, 
+      business, public policy, hydrological, or health and 
+      epidemiological sciences, and for students who wish to continue on 
+      to advanced graduate studies in environmental engineering (or a 
+      related earth science discipline). Coursework in environmental 
+      engineering focuses on analysis of a broad range of environmental 
+      problems as well as engineering design of innovative solutions to 
+      these problems. This is done through a combination of coursework 
+      in hydrological sciences, environmental sciences and geology, 
+      applied to different environmental settings, and environmental 
+      engineering design. The environmental engineering track is closely
+      linked to the Environmental Studies Program of the High Meadows 
+      Environmental Institute. This track is accredited by the 
+      Engineering Accreditation Commission of ABET under the program in 
+      civil engineering. Students normally take the following courses.
+    req_list:
+    - name: Engineering Science
+      max_counted: 1
+      min_needed: ALL
+      explanation:
+      req_list:
+      - name: Environmental Systems/Engineering
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - CEE 207
+        - ENV 302 / CEE 302 / EEB 302
+      - name: Water Resources Engineering
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - CEE 306
+        - CEE 344
+      - name: Fluid/Solid Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 305
+        - MAE 223
+      - name: Lab Courses
+        max_counted: 1
+        min_needed: 2
+        course_list:
+        - CEE 308
+        - CEE 311
+        - CEE 325
+    - name: Additional Engineering Science
+      max_counted: 1
+      min_needed: 3
+      explanation:
+      req_list:
+      - name: Solid Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 205
+        - MAE 223
+      - name: Urban Planning
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 401
+        - CEE 420
+        - CEE 444
+      - name: Sustainability and Environmental Systems
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 321
+        - CEE 343
+      - name: Seismology and Soil
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 365
+        - GEO 424 / CEE 424
+      - name: Energy
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - ENE 228
+        - ENE 372
+        - ENE 422
+      - name: Materials and Risk Analysis
+        max_counted: 1
+        min_needed: 2
+        explanation:
+        course_list:
+        - CEE 364
+        - CEE 460
+    - name: Engineering Design
+      max_counted: 1
+      min_needed: 2
+      course_list:
+      - CEE 471
+      - CEE 476
+    - name: Program Elective
+      max_counted: 1
+      min_needed: 3
+      explanation: |-
+        No more than one program elective can be at the 200 level. For 
+        the environmental engineering track, at least one of the program 
+        electives must be an engineering course.
+      req_list:
+      - name: Engineering Courses
+        max_counted: 1
+        min_needed: 2
+        course_list:
+        - CEE 334
+        - CEE 361
+        - CEE 460
+        - CEE 487
+        - CEE 566
+        - MAE 328
+        - ORF 309
+        - ECE 455
+        - ECE 428
+      - name: Geo
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - GEO 363
+        - GEO 418
+  - name: Structural Engineering
+    max_counted: 1
+    min_needed: ALL
+    explanation: |-
+      Structural engineering is concerned with the analysis and design 
+      of civil engineering structures with an emphasis on buildings, 
+      bridges, stadiums, dams and foundations. Particular emphasis is 
+      given to the design of these structures to resist earthquake and 
+      wind loads. The program is designed to meet the needs of students 
+      who are interested in continuing to advanced graduate studies or 
+      who plan to go into engineering practice and consulting. This 
+      track is accredited by the Engineering Accreditation Commission of
+      ABET under the program in civil engineering. Its basic aim is the 
+      preparation of flexible and innovative graduates who can address 
+      the novel problems of modern engineering. Students in this program
+      have the opportunity to interact directly with some of the best 
+      design and consulting companies in structural engineering. 
+      Students normally take the following courses:
+    req_list:
+    - name: Engineering Science
+      max_counted: 1
+      min_needed: ALL
+      explanation: 
+      req_list:
+      - name: Solid Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 205
+        - MAE 223
+      - name: Applied Structures
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 262B
+        - CEE 345
+      - name: Structural and Systems Engineering
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 361
+        - CEE 374
+        - CEE 460
+      - name: Environmental and Water Resources Engineering
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 207
+        - ENV 302 / CEE 302 / EEB 302
+        - CEE 344
+      - name: Hydrology and Fluid Mechanics
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 306
+        - CEE 305
+      - name: Structures, Materials, and Soil
+        max_counted: 1
+        min_needed: 3
+        explanation:
+        course_list:
+        - CEE 312
+        - CEE 364
+        - CEE 365
+    - name: Engineering Design
+      max_counted: 1
+      min_needed: 2
+      explanation:  
+      req_list:
+      - name: Steel/Concrete Structures Design
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 366
+        - CEE 467
+      - name: Buildings Design
+        max_counted: 1
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 461
+    - name: Program Electives
+      max_counted: 1
+      min_needed: 3
+      explanation: |-
+        For the structural engineering track, three program electives 
+        are required and at least one must be an engineering course.
+      course_list:
+      - CEE 376
+      - CEE 439
+      - CEE 460
+      - CEE 463
+      - CEE 467
+      - CEE 477
+      - CEE 540
+      - CEE 566
+      - ORF 307
+      - ORF 309
+  - name: Engineering and the Liberal Arts
+    max_counted: 1
+    min_needed: ALL
+    explanation: |-
+      This program is designed for students who wish to obtain an 
+      engineering background as a foundation for a wide range of 
+      careers, such as medicine, law, public policy, visual arts, or 
+      engineering studies in materials, ethics, or history. Course work
+      in this track should integrate engineering courses in a coherent
+      manner with the topic of interest to the student. The track is 
+      designed to be rigorous, yet allow for a wide degree of 
+      flexibility in the course of studies. <br><br>
+
+      All students in engineering and the liberal arts are required to 
+      take a minimum of six courses in engineering sciences that stress 
+      design and analytical methods in civil and environmental 
+      engineering. The program electives should form a coherent 
+      sequence of at least four courses in the student's area of 
+      interest, and junior independent research is strongly recommended 
+      as a program elective. This is followed by the senior thesis. In 
+      the junior independent research and senior thesis, students should
+      relate their topics of interest to engineering problems.
+    req_list:
+    - name: Engineering Science
+      max_counted: 1
+      min_needed: 6
+      explanation: |- 
+        A minimum of six CEE courses, of which at least three should be 
+        at the 300 level or above. At least one of the 300-level
+        courses has to have a laboratory component.
+      req_list:
+      - name: 300+ Level CEE
+        max_counted: 6
+        min_needed: 3
+        explanation:
+        course_list:
+        - CEE 3**
+        - CEE 4**
+        - CEE 5**
+      - name: 200- Level CEE
+        max_counted: 3
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 1**
+        - CEE 2**
+    - name: Program Electives
+      max_counted: 1
+      min_needed: 7
+      explanation: |-
+        Seven program electives are required and these should
+        include a coherent sequence of at least four courses in the 
+        student's area of interest, three of which should be at the 300 
+        level or above. Collectively, the selection of engineering 
+        science requirements and electives should form a coherent 
+        program of study, which needs to be approved by the adviser. 
+        At least eight of these courses must be the 300 level or above.
+      req_list:
+      - name: 300+ Level Liberal Arts
+        max_counted: 7
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 3**
+        - CEE 4**
+        - CEE 5**
+      - name: 200+ Level Liberal Arts
+        max_counted: 4
+        min_needed: 1
+        explanation:
+        course_list:
+        - CEE 1**
+        - CEE 2**
+- name: Independent Work
+  max_counted: 1
+  min_needed: 2
+  explanation:
+  course_list:
+  - CEE 498
+  - CEE 499

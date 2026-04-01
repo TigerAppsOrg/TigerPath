@@ -1,0 +1,88 @@
+---
+type: Minor
+name: Statistics and Machine Learning
+code: SML
+description: 
+  This minor, under the guidance of the Center for Statistics and 
+  Machine Learning (CSML), enables students to grasp the core principles 
+  of statistics, coding, and machine learning. It prepares them to apply 
+  these skills across various domains. Students are encouraged to enroll 
+  by spring of sophomore year, but no later than the start of senior 
+  year, with a declared major.
+urls:
+- https://csml.princeton.edu/undergraduate/minor-program
+contacts:
+- type: Executive Committee Statistics & Machine Learning
+  name: Daisy Yan Huang
+  email: daisyhuang@princeton.edu
+iw_required: true
+req_list:
+- name: Statistics
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - ECO 202
+  - ORF 245
+  - POL 345
+  - PSY 251
+  - SPI 200
+- name: Machine Learning
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - COS 324
+  - COS 424
+  - ECE 364
+  - ECE 435
+  - MAT 490
+  - ORF 350
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  course_list:
+  - POL 245
+  - SML 201
+  - SML 301
+  - SML 310
+  - SML 312
+  - COS 429
+  - COS 484
+  - COS 485
+  - ORF 418
+  - SOC 306
+  - SML 354
+  - ECE 434
+  - MAT 385
+  - ORF 309
+  - ORF 363
+  - AST 303
+  - CEE 460
+  - ECO 302
+  - ECO 312
+  - ECO 313
+  - ECO 491
+  - ECE 382
+  - ECE 480
+  - GEO 422
+  - MAE 345
+  - NEU 330
+  - ORF 405
+  - ORF 473
+  - POL 346
+  - PSY 360
+  - PSY 454
+  - QCB 408
+  - QCB 455
+  - SOC 400
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |- 
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Students are required to complete at least one semester of independent work in their junior or senior year on a topic that 
+    applies SML methods or investigates these methods. This work may be used to satisfy the IW requirement of the SML minor and the student's 
+    major. All work will be reviewed by the Statistics and Machine Learning Minor committee. In May, there will be an (online) poster session in 
+    which students must present their independent work to other students, researchers, and the faculty. Students must adhere to submission due 
+    dates for independent work papers and poster requirements.
+  no_req:

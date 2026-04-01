@@ -1,0 +1,104 @@
+---
+type: Minor
+name: Judaic Studies
+code: JDS
+degree:
+urls:
+- https://ua.princeton.edu/fields-study/minors/judaic-studies
+description: 
+  The Program in Judaic Studies provides students the opportunity to
+  explore more than three millennia of Jewish culture, history, religion,
+  thought, politics and literature from the Bible to contemporary Jewish
+  thought and society. A wide variety of courses, lectures, conferences,
+  film series and exhibitions taking advantage of Princeton's rich
+  resources in Judaic studies are offered. There is no "typical" Judaic
+  studies minor student; we serve students with a wide range of interests
+  and welcome all who are motivated to deepen their knowledge of Judaic
+  studies.
+contacts:
+- type: Director
+  name: Leora F. Batnitzky
+  email: batnitzk@princeton.edu
+iw_required: true
+req_list:
+- name: Required Course
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 0
+  explanation:
+    A student's coursework must include JDS 202
+  course_list:
+  - JDS 202
+- name: JDS Courses
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 0
+  explanation: 
+    A sound program of study will involve both historical range and disciplinary
+    breadth. Each student's course of study must be approved by the Judaic studies
+    director. The minor requirements are compatible with a major in any humanities
+    or social sciences department. All courses offered by Judaic studies or
+    cross-listed with JDS may be considered preapproved to count toward the
+    Judaic studies minor. Any other course requires explicit approval by the JDS
+    director. One advanced (300-level) Hebrew course may count toward the course
+    requirements if approved by the JDS director. Students will be allowed to use
+    up to two course requirements for the Judaic studies minor to count toward
+    their major.
+  req_list:
+  - name: Path 1
+    max_counted: 5
+    min_needed: 5
+    explanation:
+      Students can successfully complete five courses (including JDS 202)
+      approved to count toward the Judaic studies minor.
+    course_list:
+    - JDS *
+  - name: Path 2
+    max_counted: 5
+    min_needed: 5
+    explanation:
+      Alternatively, students can (a) successfully complete four courses
+      (including JDS 202) approved to count toward the Judaic studies minor, 
+      and (b) write a senior thesis in their major department that engages
+      an issue or issues in Judaic studies over a substantial portion of
+      the thesis (the thesis topic must be submitted to the director of
+      the JDS minor for approval).
+    req_list:
+    - name: JDS Courses
+      max_counted: 4
+      min_needed: 4
+      pdfs_allowed: 0
+      explanation:
+      course_list:
+      - JDS *
+    - name: Senior Thesis
+      max_counted: 1
+      min_needed: 1
+      pdfs_allowed: 0
+      explanation: |-
+        <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+        write a senior thesis in their major department that engages an issue
+        or issues in Judaic studies over a substantial portion of the thesis
+        (the thesis topic must be submitted to the director of the JDS minor
+        for approval)
+      no_req:
+- name: Capstone Event
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Toward the end of their senior year, students in the Judaic studies
+    minor come together at a capstone event to present some of their 
+    Judaic studies research to one another and faculty members, discuss
+    their work and respond to questions. If a student has taken Pathway 1,
+    their presentation would typically be drawn from Judaic studies work
+    they have done over the course of pursuing the minor; if a student has
+    taken Pathway 2, their presentation would typically be drawn from their
+    senior thesis. The subject matter and form of a presentation should be
+    decided in discussion with the Judaic studies director. Everyone in the
+    University's Judaic studies community is invited to this event, and
+    non-seniors in the Judaic studies minor are especially encouraged to
+    attend.
+  no_req:

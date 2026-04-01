@@ -1,0 +1,498 @@
+---
+type: Major
+name: History
+code: HIS
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-history
+- https://history.princeton.edu/academics/undergraduate
+contacts:
+- type: Chair
+  name: Angela N. Creager
+  email: creager@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: For the Class of 2025 and beyond, students are
+    required to take and pass one course at the 200 or 300 level; a
+    second course is recommended but not required.
+  completed_by_semester: 4
+  course_list:
+    - HIS 2*
+    - HIS 3*
+- name: Distribution Requirements
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    <i>Editor's Note: This does not represent an exact list of courses that fulfill these requirements as thematic designations change from semester to semester. hoagieplan also does not account for double counting of geographical distribution courses with thematic areas.</i><br><br>
+
+    Starting with the class of 2023, students must take at least one course in each of the following four thematic areas – Knowledge & Belief (KB), Power & Conflict (PC), Pre-Modern, pre-1700 (PM), Race & Difference (RD). See the department website for a list of courses satisfying each of these areas. Many courses carry more than one designation. A single course may satisfy only one thematic requirement.<br><br>
+
+    In addition to the thematic areas, at least two (2) courses must also fulfill the Geographical Distribution Requirements that are principally focused on Africa, Asia, Latin America or the Middle East. These courses may double-count with the thematic courses.
+  req_list:
+    - name: Knowledge and Belief
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - HIS 201
+        - HIS 205
+        - HIS 210
+        - HIS 211
+        - HIS 212
+        - NES 220 / HIS 220
+        - MED 227 / HIS 227
+        - JDS 232 / HIS 232
+        - HIS 241
+        - HUM 248 / NES 248 / HIS 248
+        - HIS 250
+        - NES 369 / HIS 251
+        - REL 255 / HIS 255
+        - EAS 279 / HIS 276
+        - EGR 277 / HIS 277
+        - HIS 278
+        - HIS 281
+        - HIS 292
+        - HIS 293
+        - HIS 294
+        - HIS 295
+        - STC 297 / HIS 297
+        - HIS 298
+        - AMS 306 / HIS 308
+        - REL 357 / HIS 310
+        - NES 317 / HIS 312
+        - EAS 321 / HIS 321
+        - CLA 326 / HIS 326
+        - JDS 324 / HIS 329
+        - EAS 326 / HIS 331
+        - HUM 335 / HIS 334
+        - HIS 342
+        - REL 356 / HIS 348
+        - HIS 352
+        - ECS 350 / HIS 354
+        - HIS 359
+        - HIS 360
+        - HIS 362
+        - HIS 366
+        - SPI 364 / HIS 368
+        - HIS 369
+        - HIS 375
+        - HIS 379
+        - HIS 385
+        - HIS 389
+        - HIS 391
+        - HIS 392
+        - HIS 393
+        - HIS 394
+        - HIS 395
+        - HIS 396
+        - HIS 397
+        - HIS 398
+        - AMS 399 / HIS 399
+        - HIS 403
+        - HIS 412
+        - HIS 413
+        - HIS 414
+        - HIS 415
+        - HIS 418
+        - HIS 423
+        - HIS 424
+        - HIS 425
+        - AAS 426 / HIS 426
+        - HIS 427
+        - HIS 428
+        - HIS 429
+        - HIS 432
+        - HIS 434
+        - HIS 437
+        - HIS 448
+        - HIS 449
+        - HIS 452
+        - HIS 454
+        - SPI 466 / HIS 467
+        - HIS 472
+        - HIS 474
+        - HUM 412 / HIS 475
+        - HIS 480
+        - HIS 481
+        - HIS 488
+        - HIS 489
+        - HIS 492
+        - HIS 493
+        - HIS 494
+        - HIS 495
+        - HIS 496
+        - HIS 498
+    - name: Power and Conflict
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - HIS 202
+        - HIS 207
+        - HIS 208
+        - EAS 218 / HIS 209
+        - HIS 212
+        - HIS 214
+        - NES 390 / HIS 221
+        - NES 201 / HIS 223
+        - HIS 225
+        - HIS 241
+        - HIS 249 / AFS 249
+        - AMS 361 / HIS 261
+        - HIS 262
+        - HIS 267
+        - HIS 271
+        - EAS 280 / HIS 279
+        - HIS 280
+        - HIS 281
+        - HIS 282
+        - HIS 283
+        - HIS 293
+        - AMS 395 / HIS 296
+        - HIS 301
+        - HIS 303
+        - HIS 304
+        - HIS 306
+        - HIS 307
+        - HIS 315
+        - HIS 316
+        - HIS 317
+        - COM 376 / HIS 320
+        - EAS 321 / HIS 321
+        - HIS 322
+        - HIS 324
+        - HIS 325
+        - JDS 324 / HIS 329
+        - ART 329 / HIS 330
+        - HIS 332
+        - HIS 333
+        - NES 437 / HIS 337
+        - HIS 341
+        - HIS 342
+        - HIS 343
+        - HIS 344
+        - HIS 345
+        - NES 338 / HIS 349
+        - HIS 350
+        - HIS 352
+        - HIS 358
+        - HIS 360
+        - HIS 361
+        - HIS 362
+        - HIS 363
+        - HIS 374
+        - HIS 366
+        - HIS 367
+        - SPI 364 / HIS 368
+        - HIS 370
+        - HIS 372
+        - HIS 373
+        - HIS 374
+        - HIS 376
+        - HIS 377
+        - HIS 379
+        - HIS 380
+        - URB 392 / ARC 392 / HIS 381
+        - HIS 383
+        - HIS 384
+        - AAS 367 / HIS 387
+        - HIS 388
+        - HIS 390
+        - HIS 401
+        - HIS 402
+        - HIS 403
+        - HIS 404
+        - HIS 405
+        - HIS 406
+        - HIS 409
+        - HIS 410
+        - HIS 411
+        - HIS 412
+        - HIS 417
+        - HIS 418
+        - HIS 420
+        - HIS 421
+        - HIS 425
+        - HIS 428
+        - HIS 429
+        - HIS 431
+        - HIS 432
+        - NES 433 / HIS 433
+        - HIS 434
+        - HIS 438
+        - HIS 439
+        - HIS 440
+        - HIS 441
+        - AMS 342 / HIS 442
+        - HIS 443
+        - HIS 445
+        - HIS 446
+        - HIS 450
+        - HIS 459
+        - SPI 466 / HIS 467
+        - HIS 468
+        - AAS 477 / HIS 477
+        - HIS 478
+        - HIS 479
+        - HIS 480
+        - FRE 480 / HIS 482
+        - HIS 484
+        - HIS 487
+        - HIS 488
+    - name: Race and Difference
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - HIS 202
+        - HIS 208
+        - AAS 313 / HIS 213
+        - HIS 214
+        - HIS 250
+        - HIS 270
+        - HIS 271
+        - HIS 282
+        - AMS 395 / HIS 296
+        - HIS 306
+        - HIS 307
+        - HIS 314
+        - HIS 315
+        - HIS 316
+        - HIS 322
+        - HIS 332
+        - HIS 333
+        - HUM 335 / HIS 334
+        - URB 384 / HIS 340
+        - HIS 341
+        - HIS 345
+        - AAS 352 / HIS 347
+        - REL 356 / HIS 348
+        - HIS 350
+        - HIS 359
+        - HIS 364
+        - HIS 371
+        - HIS 372
+        - HIS 373
+        - HIS 376
+        - HIS 380
+        - AAS 331 / HIS 382
+        - HIS 383
+        - HIS 384
+        - AAS 366 / HIS 386
+        - AAS 367 / HIS 387
+        - HIS 388
+        - HIS 389
+        - HIS 390
+        - HIS 393
+        - HIS 395
+        - HIS 397
+        - HIS 401
+        - HIS 402
+        - HIS 405
+        - HIS 407
+        - HIS 409
+        - HIS 411
+        - HIS 415
+        - HIS 420
+        - AMS 342 / HIS 422
+        - AAS 426 / HIS 426
+        - HIS 439
+        - HIS 441
+        - AMS 342 / HIS 442
+        - HIS 443
+        - EAS 415 / HIS 444
+        - HIS 447
+        - HIS 456
+        - HIS 459
+        - HIS 462
+        - HIS 465
+        - HIS 466
+        - HIS 468
+        - AMS 442 / HIS 470
+        - HIS 471
+        - HIS 472
+        - AAS 477 / HIS 477
+        - HIS 479
+        - HIS 484
+        - HIS 485
+        - HIS 494
+        - HIS 496
+    - name: Pre-Modern, pre-1700
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - HIS 205
+        - EAS 206 / HIS 206
+        - HIS 207
+        - EAS 218 / HIS 209
+        - HIS 210
+        - HIS 211
+        - CLA 220 / HIS 215
+        - CLA 216 / HIS 216
+        - CLA 217 / HIS 217
+        - CLA 218 / HIS 218
+        - CLA 219 / HIS 219
+        - NES 220 / HIS 220
+        - NES 390 / HIS 221
+        - HIS 222
+        - HIS 225
+        - MED 227 / HIS 227
+        - CLA 231 / HIS 231
+        - JDS 232 / HIS 232
+        - NES 350 / HIS 245
+        - HUM 248 / NES 248 / HIS 248
+        - NES 369 / HIS 251
+        - EAS 253 / HIS 253
+        - EAS 280 / HIS 279
+        - HIS 294
+        - HIS 303
+        - EAS 409 / HIS 309
+        - NES 316 / HIS 311
+        - HIS 314
+        - HIS 324
+        - CLA 326 / HIS 326
+        - CLA 327 / HIS 327
+        - CLA 324 / HIS 328
+        - HIS 332
+        - NES 437 / HIS 337
+        - HIS 343
+        - HIS 344
+        - HUM 320 / HIS 346
+        - HIS 367
+        - HUM 372 / HIS 378 / MED 372
+        - HIS 421
+        - AMS 342 / HIS 422
+        - HIS 423
+        - HIS 424
+        - HIS 437
+        - EAS 415 / HIS 444
+        - HIS 452
+        - HIS 462
+        - HUM 412 / HIS 475
+        - ART 478 / HIS 476
+        - HIS 495
+    - name: Geographical Distribution Requirement
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        <i>Editor's Note: This does not represent an exact list of courses that fulfill this requirement as courses change from semester to semester.</i><br><br>
+
+          Students are required to take at least two (2) courses that are principally focused on Africa, Asia, Latin America, or the Middle East. These courses may double count with the thematic areas.
+      course_list:
+        - HIS *
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: Majors may opt for the general History track or the
+    History of Science track.
+  req_list:
+    - name: General History
+      max_counted: 1
+      min_needed: 3
+      explanation: Departmental regulations stipulate that
+        undergraduates must pass at least 10 courses, including
+        HIS 400, in order to receive the A.B. degree. Majors in the
+        general History track can choose any departmental courses.
+      course_list:
+        - HIS *
+    - name: History of Science
+      max_counted: 1
+      min_needed: 2
+      req_list:
+        - name: Science & Engineering
+          max_counted: 1
+          min_needed: 2
+          explanation: Two courses in science, engineering, or
+            mathematics in addition to those used to fill the
+            university's science distribution requirement.
+          course_list:
+            - BNG *
+            - CBE *
+            - CDH *
+            - CEE *
+            - CGS *
+            - CHM *
+            - COS *
+            - CSE *
+            - ECO *
+            - EGR *
+            - FIN *
+            - GEO *
+            - MAE *
+            - MAT *
+            - MOL *
+            - NEU *
+            - ORF *
+            - PHY *
+            - QCB *
+            - SML *
+        - name: Selected Courses
+          max_counted: 1
+          min_needed: 4
+          explanation: |-
+            <i>Editor's Note: hoagieplan does not account for double counting of these courses with geographic and thematic distribution areas.</i><br><br>
+
+            Four of the following courses (with the permission of the director of undergraduate studies, one of these courses may be replaced by a cognate course from another department, for example, in philosophy or sociology of science). These specific courses can and almost certainly will also serve to at least partially meet the geographic and thematic requirements.
+          course_list:
+            - EGR 277 / HIS 277
+            - HIS 290
+            - HIS 291
+            - HIS 292
+            - HIS 293
+            - HIS 294
+            - HIS 295
+            - STC 297 / HIS 297
+            - HIS 298
+            - ART 361 / HIS 355
+            - AAS 331 / HIS 382
+            - HIS 391
+            - HIS 392
+            - HIS 393
+            - HIS 394
+            - HIS 395
+            - HIS 396
+            - HIS 397
+            - HIS 398
+            - HIS 399
+            - HIS 452
+            - GSS 426 / HIS 458
+            - HIS 472
+            - HIS 481
+            - HIS 488
+            - HIS 489
+            - HIS 491
+            - HIS 492
+            - HIS 493
+            - HIS 494
+            - HIS 495
+            - HIS 496
+            - HIS 497
+            - HIS 498
+            - HIS 499
+- name: Junior Seminar
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Juniors write two junior papers of roughly 25–30 pages in length, one in each semester.<br><br>
+
+    In the fall term of junior year, students are required to enroll in the HIS 400 Junior Seminars.<br><br>
+
+    In the spring term of junior year, in consultation with their adviser, the student selects a topic and writes a research paper on an independent basis. Written work equivalent to that submitted in the first term is required. The two semesters of junior independent work must be focused in two different geographical fields and in two different time periods. Students should consult their advisers about this requirement.
+  completed_by_semester: 6
+  course_list:
+    - HIS 400
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The independent work consists of writing a thesis on an approved subject of the student's choice. The thesis usually relies on research in original source materials, but it may also involve reinterpretation of familiar materials.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: University regulations stipulate that undergraduates may
+    not take more than 12 departmental courses, plus up to two
+    departmental prerequisites taken during the first or sophomore
+    years. Students who exceed the 31 courses required for graduation
+    will be permitted to take extra departmentals.

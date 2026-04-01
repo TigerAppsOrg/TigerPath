@@ -1,0 +1,114 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Quantitative and Computational Biology
+code: QCB
+degree:
+description: The Program in Quantitative and Computational Biology is offered
+  by the Lewis-Sigler Institute for Integrative Genomics and its affiliated
+  departments. The program is designed to instruct students in the theory and
+  practice of using big data sets to achieve a quantitative understanding of
+  complex biological processes. 
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/quantitative-and-computational-biology
+contacts:
+- type: Director of Undergraduate Program
+  name: Brittany Adamson
+  email: badamson@princeton.edu
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: Students must take the core course GEO 255/AST 255/EEB 255/CHM 255.
+    This course will qualify for departmental credit if the student submits a 25-page
+    term paper on astrobiology, with the emphasis in that department's discipline.
+  iw_required: true
+  req_list:
+  - name: Integrated Science Curriculum
+    max_counted: 1
+    min_needed: 4
+    course_list:
+    - ISC 231
+    - ISC 232
+    - ISC 233
+    - ISC 234
+  - name: 3 Foundational Classes
+    max_counted: 1
+    min_needed: 3
+    req_list:
+    - name: Foundation in Computer Science
+      max_counted: 1
+      min_needed: 1
+      explanation: COS 126 or approved equivalent
+      course_list:
+      - COS 126
+    - name: Foundation in Biology
+      max_counted: 1
+      min_needed: 1
+      explanation: One from the following courses or approved equivalent
+      course_list:
+      - MOL 214
+      - EEB 211
+    - name: Foundation in Math or Statistics
+      max_counted: 1
+      min_needed: 1
+      explanation: One from the following courses or approved equivalent
+      course_list:
+      - MAT 2**
+      - MAT 3**
+      - MAT 4**
+      - MAT 5**
+      - ORF 245
+- name: Electives
+  max_counted: 1
+  min_needed: 2
+  explanation: From the two lists of approved electives below, students must complete at
+    least one from each list. Students may be permitted to take a graduate-level course
+    not listed below to fulfill the elective requirement, but only with permission of the
+    program director. 
+  req_list:
+  - name: Computational Methods and Quantitative Modeling
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - COS 343
+    - COS 557
+    - EEB 325
+    - ENV 302
+    - MAT 321
+    - MOL 485
+    - NEU 314
+    - NEU 437
+    - NEU 499
+    - ORF 350
+    - QCB 505
+    - CBE 422
+  - name: Genomics, Chemical, and Systems Biology
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - CBE 433
+    - CHM 301
+    - CHM 302
+    - CHM 337
+    - CHM 541
+    - EEB 309
+    - EEB 324
+    - EEB 388
+    - MAE 344
+    - MOL 415
+    - NEU 427
+    - QCB 302
+    - QCB 408
+    - QCB 455
+    - QCB 490
+    - QCB 515
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+    
+    Junior and senior independent work must show adequate quantitative and
+    computational biology content and expand upon the existing field.
+  no_req:

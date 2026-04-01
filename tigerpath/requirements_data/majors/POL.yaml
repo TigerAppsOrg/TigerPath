@@ -1,0 +1,148 @@
+---
+type: Major
+name: Politics
+code: POL
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-department-politics
+- https://politics.princeton.edu/analytical-requirement
+contacts:
+- type: Chair
+  name: Alan W. Patten
+  email: apatten@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Matias Iaryczower
+  email: miaryc@princeton.edu
+description: |-
+  The Department of Politics expects students to accomplish each of the following key learning goals by the time of graduation:
+  Show command of the language of political science and politics in several of its subfields.
+  Understand the methods commonly used in several of its subfields.
+  Learn the material for one subfield at a level of expertise and practical application necessary to understand the scholarly discourse.
+  Command a set of tools appropriate to conduct independent and original research in one subfield. These tools differ by subfield (see below).
+  Understand the political, historical, institutional context pertaining to a particular topic of research sufficiently to conduct independent and original research in that subfield.
+iw_required: true
+req_list:
+- name: Prerequisites
+  min_needed: 2
+  max_counted: 1
+  explanation: |-
+    Normally, students entering the department must have successfully completed at least two courses offered by the Department of Politics on a graded basis before the end of sophomore year. The first two courses taken in politics are considered prerequisites. Prerequisites may not be taken as pass/D/fail. Courses taken as prerequisites will be counted as departmentals and may be used to fulfill distribution requirements. It is strongly recommended that one or both of the prerequisites be at the 200 level.<br><br>
+
+    Effective with the Class of 2025, only one of the two prerequisites may be an analytical course (e.g., POL 345). For example: (1) If a student has taken POL 345 and POL 346 as their first two politics courses, a third politics course will be required — one of which must not include a course that counts as meeting the department's analytical requirement (e.g., POL 250, POL 345, POL 347, etc.), OR (2) A student who has taken SOC 245/POL 245 and POL 345 as their first two politics courses will be required to take a third departmental in order to declare the major by the end of sophomore year.
+  double_counting_allowed: true
+  completed_by_semester: 4
+  req_list:
+    - name: Analytical
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - SOC 245
+        - POL 250
+        - POL 345
+        - POL 346
+        - POL 347
+        - ANT 301
+        - ANT 302
+        - ECO 202
+        - ECO 302
+        - ECO 312
+        - ORF 245
+        - PHI 201
+        - SOC 404
+        - SPI 200
+    - name: Non-Analytical
+      max_counted: 2
+      min_needed: 1
+      course_list:
+        - POL ***
+      excluded_course_list:
+        - SOC 245
+        - POL 250
+        - POL 345
+        - POL 346
+        - POL 347
+        - ANT 301
+        - ANT 302
+        - ECO 202
+        - ECO 302
+        - ECO 312
+        - ORF 245
+        - PHI 201
+        - SOC 404
+        - SPI 200
+- name: Analytical Requirement
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    The department maintains a list of politics courses that have an emphasis on methodological tools for research in political science. Majors are required to take a course to fulfill the analytical requirement, normally no later than the first term of their junior year. The courses used to fulfill the analytical requirement cannot be used to fulfill primary, secondary or tertiary field requirements. The analytical requirement may be satisfied by POL 250, POL 345, POL 346, or POL 347. We will also accept ANT 301, ANT 302, ECO 202, ECO 302, ECO 312, ORF 245, PHI 201, SOC 404, or SPI 200.
+  completed_by_semester: 5
+  double_counting_allowed: true
+  course_list:
+    - POL 250
+    - POL 345
+    - POL 346
+    - POL 347
+    - ANT 301
+    - ANT 302
+    - ECO 202
+    - ECO 302
+    - ECO 312
+    - ORF 245
+    - PHI 201
+    - SOC 404
+    - SPI 200
+- name: Departmentals
+  min_needed: 8
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: There are many restrictions related to subfields that hoagieplan does not check to save the editor's sanity. Please consult with the Undegraduate Announcement.</i><br><br>
+
+    Politics majors indicate a prospective primary field when they sign into the department in the spring of their sophomore year. Majors must take courses in at least three of the fields listed below — a minimum of three courses in their designated primary field, two courses in a secondary field and one course in a tertiary field. One of three courses in the primary field normally is a 200-level course. Prerequisites may be used to satisfy field distribution requirements. A course taken to satisfy the analytical requirement cannot be used to satisfy a field distribution requirement.
+  course_list:
+    - POL 2**
+    - POL 3**
+    - POL 4**
+    - POL 5**
+    - ANT 301
+    - ANT 302
+    - ECO 202
+    - ECO 302
+    - ECO 312
+    - ORF 245
+    - PHI 201
+    - SOC 404
+    - SPI 200
+- name: Research in Political Science
+  completed_by_semester: 5
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    Politics majors are required to complete POL 300 (Conducting Independent Research in Political Science) in the fall semester of junior year, beginning with the Class of 2025. POL 300 is designed to complement the fall junior independent work requirement and will count for course credit.
+  course_list:
+    - POL 300
+- name: Junior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The junior independent work (JIW) requirement in politics provides majors with an opportunity to delve into their research interests and conduct a thorough examination. The goal is for students to produce a well-reasoned and analytical essay that scrutinizes a political issue using approaches from political science. Over the course of two semesters, students will undertake two research projects. In the fall, students will be required to submit a research prospectus, while in the spring, they will write a full-length junior paper (JP). The required POL 300 will instruct students in research design and the preparation of their research prospectus. The faculty instructors for the practicum component of POL 300 will serve as fall JIW advisers. The spring JP can either build on the prospectus or explore a new topic. Each semester serves a specific purpose; the fall focuses on teaching students how to plan a research project and refine a question, while the spring is focused on executing the project and exposition. Additional information on topics such as adviser assignment and final deadlines is available in the junior independent work and senior thesis sections of the department's website.<br>
+    Students will receive one POL 981 grade (worth 2.0) at the end of the spring term that is a weighted average of fall (30%) and spring (70%) JIW grades.  Students must achieve a grade of C or better in POL 981. If a student receives a grade below C in POL 981, another JP is required with a grade that brings the average of this additional paper and the POL 981 grade to at least a grade of C. This is a prerequisite for beginning the senior year. For purposes of this requirement, the grades before the application of any late penalties are used.
+  no_req:
+- name: Senior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    During the senior year, each student writes a thesis, an essay of generally about 100 double-spaced pages and rarely fewer than 80 pages. The senior thesis normally is written on a topic within a student's primary field. The senior thesis is expected to make an original (or otherwise distinctive) contribution to broader knowledge in the field in which the student is working, and it is important that the thesis be situated explicitly in relation to existing published literature. The department encourages students to use the summer between junior and senior year for work on the senior thesis. 
+    The senior thesis may expand upon ideas that were explored in a student's JP. A student may draw on and cite their own JP just as they would use other resources. In addition, a student may re-use a limited portion of their JP in the senior thesis; for instance, the literature review could be re-used across the two. Whenever material from the JP is re-used, a student must add a footnote noting the duplication across the JP or senior thesis. Note: This policy does not affect the standard University guidelines for attributing ideas and research findings, whenever appropriate. The same policy holds with respect to incorporating the fall junior research prospectus into either the spring JP or senior thesis.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Seniors are required to prepare and present a professional poster describing their senior thesis research as the senior comprehensive exam.
+  no_req:

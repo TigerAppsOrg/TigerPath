@@ -1,0 +1,88 @@
+---
+type: Minor
+name: Values and Public Life
+code: VPL
+degree:
+description:
+  The interdisciplinary minor in values and public life, offered by the University Center for Human Values, focuses on modes of inquiry into important ethical issues in public life. The program helps students develop competence in pursuing such inquiries generally and supports them in applying these
+  intellectual skills to the advanced analysis of one or more related topics. Students who complete the minor will be equipped to bring informed discussion of values into the public sphere and to integrate a critical value perspective into their future studies and pursuits. The minor is open to rising juniors intending to major in any discipline.
+urls:
+  - https://uchv.princeton.edu/academic-programs/values-and-public-life-certificate/certificate-requirements#:-:text=minor
+contacts:
+  - type: Program Director
+    name: Sandra L. Bermann
+    email: sandralb@princeton.edu
+iw_required: true
+req_list:
+  - name: Prerequisites
+    max_counted: 1
+    min_needed: 1
+    explanation: Admission necessitates an enrollment essay, an academic referee's name submission, and a minimum GPA of 3.0. A core course completion by sophomore year's end is recommended. Applications are typically accepted in the sophomore year's second semester, with exceptions for juniors at the director's discretion.
+  - name: Core Coursework
+    max_counted: 1
+    min_needed: 3
+    explanation: |-
+      The core curriculum mandates one course each from three distinct categories: Introduction to Moral Philosophy, a political theory course, and a junior/senior seminar in values and public life or another normative issues seminar approved by the program director.
+    double_counting_allowed: false
+    max_common_with_major: 2
+    pdfs_allowed: 0
+    req_list:
+      - name: Introduction
+        max_counted: 1
+        min_needed: 1
+        course_list:
+          - PHI 202
+      - name: Political Theory Course
+        max_counted: 1
+        min_needed: 1
+        course_list:
+          - POL 210
+          - SPI 370
+          - POL 301
+          - POL 302
+          - POL 303
+          - POL 305
+          - POL 306
+          - POL 307
+          - POL 309
+          - POL 313
+      - name: Junior/Senior Seminar
+        max_counted: 1
+        min_needed: 1
+        explanation: A junior/senior seminar in values and public life (topics change from year to year) or, if necessary, another seminar on normative issues approved by the program director.
+        course_list:
+          - HIS 427
+          - CHV 479
+          - POL 403
+          - POL 477
+          - CHV 390
+          - CHV 395
+          - POL 471
+          - POL 474
+          - CHV 478
+          - PHI 380
+          - CHV 367
+          - CHV 390
+          - POL 403
+          - POL 418
+          - HIS 427
+          - PHI 411
+          - REL 394
+  - name: Thematic Courses
+    max_counted: 1
+    min_needed: 2
+    explanation: Students must delineate their thematic focus within the minor, selecting two courses with explicit values components related to this focus, in consultation with the program director.
+    course_list:
+      - PHI *
+      - POL *
+      - HIS *
+      - REL *
+      - CHV *
+  - name: Independent Work
+    max_counted: 1
+    min_needed: 1
+    explanation:
+      Students will write a senior thesis, a portion of a senior thesis (or, in exceptional circumstances, another substantial piece of independent work) on a normative topic approved
+      by both the director of the program and the normal procedures of the student's department of concentration. The thesis will be written according to the department regulations of the student's
+      major. Students will be expected to participate in non-credit-bearing senior thesis workshops convened by the minor that discuss the different aspects of ethical study presented in the participants’
+      projects and that support the writing of the thesis.

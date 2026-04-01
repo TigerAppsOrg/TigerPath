@@ -1,0 +1,69 @@
+---
+type: Minor
+name: Italian
+code: ITA
+degree:
+urls:
+- https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/french-and-italian
+description: Studying the literature, art, society and history of Italian speakers 
+  around the world allows students to learn directly about two of the richest and most influential
+  cultural traditions in world history (including Italian art). It also gives students necessary
+  insight into major historical events and processes, such as nation-building,revolution, colonialism, 
+  fascism, migration and democratization, which still resonate and continue to shape the modern world.
+contacts:
+- type: Director of Undergraduate Studies
+  name: Flora Champy
+  email: fchampy@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    To enter the minor in Italian, students are required to successfully complete the language sequence 
+    in Italian (ITA 107, 108 or 1027), or to demonstrate the equivalent level of proficiency. To enter 
+    the minor, successful completion of the language sequence is required by the fall of junior year, 
+    but students are strongly encouraged to do so by the spring of their sophomore year. Applications 
+    to the minor program are accepted until the end of spring of junior year.
+  completed_by_semester: 5
+  course_list: 
+  - ITA 107
+  - ITA 108
+  - ITA 1027
+- name: Program of Study
+  max_counted: 2
+  min_needed: 5
+  explanation: |- 
+    Students must successfully take a minimum of five courses in the relevant language, linguistics, 
+    literature or culture, excluding courses that do not have a language prerequisite and any 
+    100-level language course. At least three of these courses must be at the 300 level (or higher). 
+    Up to two of these courses may be taken at the 200 level, but ITA 207 and 208, cannot both be counted. 
+    A 200-level course is a prerequisite for taking 300-level courses in Italian.
+  req_list: 
+  - name: Advanced Level
+    max_counted: 5
+    min_needed: 3
+    course_list: 
+    - ITA 3*
+  - name: Intermediate Level
+    max_counted: 2
+    min_needed: 1
+    course_list: 
+    - ITA 2*
+    excluded_course_list:
+    - FRE 207
+    - FRE 208
+  - name: Exit Interview
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so 
+      hoagieplan does not check it.</i><br><br>
+
+      At the end of their senior year, students must successfully pass a 10-minute exit interview with 
+      a panel of three faculty members. The interview will consist in a conversation reassessing the 
+      student's experience within the department, with the purpose of assessing their proficiency in 
+      Italian.
+    no_req:
+    
+

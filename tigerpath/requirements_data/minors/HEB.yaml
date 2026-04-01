@@ -1,0 +1,66 @@
+---
+type: Minor
+name: Hebrew Language
+code: HEB
+degree:
+urls:
+- https://ua.princeton.edu/fields-study/minors/hebrew-language
+description: |-
+  The Department of Near Eastern Studies offers a
+  widevariety of undergraduate classes focused on the languages,
+  histories and cultures of the Near East. It provides opportunities
+  for those who plan to major in other disciplines to simultaneously
+  obtain proficiency in Hebrew and to deepen their knowledge of the
+  history, politics, literature, religion and culture of the premodern
+  and modern Near East.
+contacts:
+- type: Department Chair
+  name: M. Sükrü Hanioglu
+  email: hanioglu@princeton.edu
+iw_required: true
+req_list:
+- name: Hebrew Courses
+  max_counted: 1
+  min_needed: 4
+  explanation: |-
+    Include at least four courses in Hebrew taken at the intermediate
+    level (i.e., second-year, course numbers 105-107) or above
+  pdfs_allowed: 0
+  course_list:
+  - HEB *
+  excluded_course_list:
+  - HEB 101
+  - HEB 102
+  - HEB 103
+  - HEB 104
+- name: Neaer Eastern Studies Course
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Students must take a fifth Near Eastern Studies course
+    (either an additional language class or a content class
+    listed or cross-listed in Near Eastern Studies)
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  course_list:
+  - NES *
+- name: Senior Departmental Examination
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    At the end of their language study at Princeton, a student
+    minoring in Hebrew language must work to submit a polished
+    translation from a work in Hebrew in order to complete the
+    requirements of the minor. This translation could be from a
+    work of literature (e.g., an excerpt of a prose work, a poem,
+    a short story), an essay, a film, a song or another piece
+    approved by NES language faculty. Translations must be submitted
+    to the director of undergraduate studies before Dean's Date in the
+    student's final semester. This submission should also include a list
+    of the student's departmental and language courses and any other
+    courses or experience that might be relevant to the minor, such as
+    study abroad or internships related to the Near East.
+  no_req:

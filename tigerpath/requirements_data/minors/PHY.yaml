@@ -1,0 +1,101 @@
+---
+type: Minor
+name: Engineering Physics
+code: PHY
+degree:
+description: |-
+  Interdisciplinary areas in physical sciences in engineering such as energy,
+  environment, materials,microelectronics, astronautics and photonics promise
+  to become increasingly relevant in the 21st century. The Program in Engineering
+  Physics, which provides students with a fundamental knowledge of physics,
+  together with problem-solving skills and an understanding of engineering, is
+  designed to address the needs of students seeking innovative careers in today's
+  technological age. In addition, it allows students to keep their options open
+  between physical sciences and engineering. Following completion of the engineering
+  physics program, students typically enter careers in engineering,
+  applied science or applied physics through research, teaching or entrepreneurial
+  engineering. Past graduates have also pursued other careers as diverse as medicine,
+  business and law. <br><br>
+
+  The program offers a unique combination of engineering,
+  mathematics and physics. It is directed toward students who have an interest
+  and ability in both engineering and physics. For engineering majors, in addition
+  to courses in those subjects fundamental to the student's field of interest,
+  the program requires completion of courses in quantum mechanics and encourages
+  the study of subjects such as electromagnetism, statistical mechanics, thermodynamics,
+  condensed matter physics, mathematical physics, complex analysis and partial
+  differential equations. For physics majors, the program requires courses in areas
+  such as solid-state electronics, fluid mechanics, optics/optoelectronics, control
+  theory, computers and computational methods or a variety of other applied disciplines.
+  Computer science A.B. students are required to meet the technical course requirements
+  needed to satisfy the B.S.E. degree.
+urls:
+- https://ua.princeton.edu/fields-study/minors/engineering-physics
+contacts:
+- type: Director
+  name: Waseem S. Bakr
+  email: wbakr@princeton.edu
+iw_required: true
+req_list:
+- name: Math Course
+  max_counted: 1
+  min_needed: 1
+  explanation: One 300- or 400-level math course.
+  course_list:
+  - MAT 3**
+  - MAT 4**
+- name: Five Additional Courses
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 1
+  explanation: |-
+    For B.S.E. students, these should be five PHY courses at the 200 level or higher,
+    including a course in quantum mechanics (PHY 208).  Of these, at least four must be
+    listed or cross-listed as physics (PHY) courses.  A fifth may be a course with strong
+    physics content from other departments such as AST or CHM, but must be approved in
+    advance by the program's committee. <br><br>
+
+    For PHY majors, these should be five engineering courses from one or more of the
+    participating engineering departments.  In order to gain exposure to the design-oriented
+    philosophy of engineering, physics students are required to take at least two of their
+    engineering courses in a coherent area of study so that a clear engineering stem can be
+    identified.
+  req_list:
+  - name: PHY Courses
+    max_counted: 1
+    min_needed: 5
+    req_list:
+    - name: PHY 208
+      max_counted: 1
+      min_needed: 1
+      course_list:
+      - PHY 208
+    - name: Other Physics Courses
+      max_counted: 4
+      min_needed: 4
+      course_list:
+      - PHY 2**
+      - PHY 3**
+      - PHY 4**
+      - PHY 5**
+  - name: BSE Courses
+    max_counted: 1
+    min_needed: 5
+    course_list:
+    - CBE *
+    - CEE *
+    - COS *
+    - ECE *
+    - MAE *
+    - ORF *
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Close collaboration with faculty is expected. Students are required to complete,
+    with a grade of B- or better, at least one semester of independent work in an
+    appropriate area.  Physics students are encouraged to have a professor in
+    engineering serve as a reader on their senior thesis.
+  no_req:

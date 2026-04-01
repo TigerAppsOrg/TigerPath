@@ -1,0 +1,151 @@
+---
+type: Major
+name: Architecture
+code: ARC
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/school-architecture
+- https://soa.princeton.edu/content/undergraduate-program-architecture
+contacts:
+- type: Dean/Chair/DUS
+  name: Mónica Ponce de León
+  email: mpdl@princeton.edu
+- type: Associate Dean
+  name: Michael Meredith
+  email: mm0@princeton.edu
+description: |-
+  The undergraduate program at the School of Architecture is known for its rigorous and interdisciplinary approach to pre-professional education. The four-year undergraduate program leads to an A.B. with a major in architecture and offers an introduction to the discipline of architecture within the framework of a liberal arts curriculum. In addition to studying design and the history and theory of architecture and urbanism, undergraduates engage a range of disciplines that contribute to an architect's knowledge and vision, including courses in architectural analysis, representation, computing, and building technologies. Such a broad academic program also prepares students for a graduate program in architecture and other related disciplines such as landscape architecture, urban planning, civil engineering, art history and the visual arts.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    Students who wish to major in architecture are required to complete two courses during their first year or sophomore year: ARC 203 Introduction to Architectural Thinking (offered in fall) and ARC 204 Introduction to Architectural Design (offered in spring). The courses do not need to be taken in sequence. The design seminar ARC 206 Geometry and Architectural Representation is highly recommended before junior year but not required. At least one course in architectural history, taken in either the School of Architecture or the Department of Art and Archaeology, is recommended but not required to be completed before junior year.
+  completed_by_semester: 4
+  course_list:
+    - ARC 203
+    - ARC 204
+- name: Departmentals
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    In addition to the general prerequisites and the requirements for independent work, each student is required to complete 10 courses in three related areas: history and theory, technology, and design. The history and theory distribution requires six courses: three history and theory of architecture courses, two of which are ARC 308 and ARC 403; two courses in history and theory of urbanism and landscape; and two upper-level courses in art and archaeology. The technology distribution requires two courses, one of which is ARC 311: Building Science and Technology-Building Systems. The design seminar distribution requires one course, although we currently list only one undergraduate design seminar: ARC 206.<br>
+    Architecture majors take the following sequence of courses in their junior and senior years: junior studio, which consists of ARC 350 and ARC 351, and two required history and theory courses: ARC 308: History of Architectural Theory, taken in the fall of junior year; and ARC 403: Topics in the History and Theory of Architecture, in the fall semester of senior year. These courses introduce methodologies of historical analysis and research, the literature of the field and varieties of architectural writing.<br>
+    In the fall semester of their senior year, students are required to enroll in ARC 404: Advanced Design Studio. ARC 404 is centered around independent design projects that synthesize students' training and interests and investigate new approaches to representation.<br> 
+    Students should check with the academic programs office and director of undergraduate studies to determine which one-time-only courses are being offered during the academic year.
+  req_list:
+    - name: History and Theory of Architecture
+      max_counted: 1
+      min_needed: ALL
+      req_list:
+        - name: Required Courses
+          max_counted: 1
+          min_needed: ALL
+          course_list:
+            - ARC 308
+            - ARC 403
+        - name: Electives
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: The course list is not comprehensive.</i>
+          course_list:
+            - AMS 322/URB 322/ARC 326/AAS 320
+            - ARC 302/ART 347
+            - ARC 322
+            - ARC 489
+            - ARC 492
+            - ART 102
+            - ART 201
+            - ART 341
+            - ART 445
+            - ART 466
+            - ECS 343
+            - ECS 376
+            - HIS 464
+    - name: History and Theory of Urbanism and Landscape
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        <i>Editor's Note: The course list is not comprehensive.</i>
+      course_list:
+        - ARC 205
+        - ARC 303
+        - ARC 312
+        - ARC 321
+        - ARC 396
+        - ARC 449
+        - ARC 492
+        - ART 250
+        - DAN 310
+        - ENV 382
+        - ENV 424
+        - URB 201
+        - URB 300
+        - URB 385
+        - URB 401
+    - name: Art and Archaeology
+      max_counted: 1
+      min_needed: 2
+      course_list:
+        - ART 3**
+        - ART 4**
+        - ART 5**
+    - name: Building Technology
+      max_counted: 1
+      min_needed: ALL
+      req_list:
+        - name: Required Courses
+          max_counted: 1
+          min_needed: 1
+          course_list:
+            - ARC 311
+        - name: Electives
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: The course list is not comprehensive.</i>
+          course_list:
+            - ARC 374
+            - ARC 406
+            - CEE 262
+            - CEE 312
+            - CEE 364
+            - CEE 461
+            - ENE 202
+    - name: Design Seminar
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - ARC 206
+    - name: Studio Courses
+      max_counted: 1
+      min_needed: ALL
+      course_list:
+        - ARC 350
+        - ARC 351
+        - ARC 404
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    The junior independent work requirement is satisfied by a paper (about 30 pages) selected by the student in consultation with a faculty adviser. The work is initiated in the fall (topic, outline, and bibliography) and completed in the spring. Students work throughout the year in consultation with their faculty adviser. A Ph.D. student mentor also provides writing support.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 0
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The senior thesis in architecture is a year-long project that begins with ARC 403 in the fall semester. Faculty thesis advisers are assigned at the end of the fall term of senior year, and students work closely with their adviser to formulate their topic, define research methods, organize thesis material and refine the presentation of the scholarship.<br>
+    The senior thesis is intended to be a detailed project, presenting a well-argued piece of research on a precise architectural theme, and may include several forms of representation. For example, students commonly utilize architectural drawings, models, video, photographs and computer-generated drawings and models. The final presentation and oral defense of the senior thesis in the spring constitute a section of the departmental examination.
+  no_req:
+- name: Senior Departmental Examination
+  max_counted: 1
+  min_needed: 0
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    All students in the architecture program take the departmental examination [DC1] in May of their senior year. The exam consists of a dialog with one's adviser and second reader around the thesis itself and a brief (10-15 minutes) presentation summarizing the student's principal questions, findings and contribution to existing research. Students typically show images and highlight what was most interesting and exciting about the project.
+  no_req:

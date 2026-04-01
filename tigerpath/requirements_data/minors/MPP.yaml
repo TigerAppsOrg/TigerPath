@@ -1,0 +1,105 @@
+---
+type: Minor
+name: Music Performance
+code: MPP
+degree:
+description: The minor in Music Performance is a rigorous opportunity 
+  for students to study the performance of vocal and instrumental music 
+  (both jazz and classical) or conducting in the context of a liberal 
+  arts education. It provides extensive opportunities for students to 
+  hone their skills through participation in department ensembles, 
+  recitals, studio instruction and performance classes, and also 
+  requires coursework in the Culture and Criticism (C&C) and Materials 
+  and Making (M&M) distribution areas. The MPP minor provides a solid 
+  foundation for students who may wish to pursue professional music 
+  training at the graduate level. 
+urls:
+- https://music.princeton.edu/undergraduate/music-minors-program/#MPP
+contacts:
+- type: Director
+  name: Michael J. Pratt
+  email: mjpratt@princeton.edu
+iw_required: true
+req_list:
+- name: Core Course
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - MUS 105
+- name: Materials and Making Course
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - MUS 209B
+  - MUS 209A
+  - MUS 329
+  - MUS 319
+  - MUS 316
+  - MUS 312
+  - MUS 248
+  - MUS 210
+  - MUS 106
+  - MUS 345
+  - MUS 340
+  - MUS 314
+  - MUS 308
+  - MUS 106
+  - MUS 560
+  - MUS 204
+  - MUS 537
+  - MUS 528
+  - MUS 351
+  - MUS 310
+- name: Culture and Criticism Course
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - MUS 230
+  - MUS 238
+  - MUS 248
+  - MUS 262
+  - MUS 203
+  - MUS 240
+  - MUS 223
+  - MUS 232
+  - MUS 242
+  - MUS 262
+  - MUS 203
+  - MUS 350
+- name: Departmental Course
+  max_counted: 1
+  min_needed: 1
+  course_list:
+  - MPP *
+- name: Elective
+  max_counted: 1
+  min_needed: 1
+  explanation: One additional MPP or MUS elective, chosen in 
+    consultation with relevant program director. By petition to the 
+    relevant program director, one of these electives can be outside 
+    MUS, though must reflect a coherent plan of study (i.e., a 
+    particular African American studies course in support of a plan of 
+    study focusing on Jazz Performance).
+  course_list:
+  - MUS *
+  - MPP *
+- name: Ensemble Participation
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Ensemble participation in an approved faculty-led Music Department Ensemble is required in all four semesters of the junior and senior years. 
+    
+    The specific ensemble must be for the instrument and performance tradition for which the student was admitted. For cases in which the department does not offer a faculty-led ensemble for the instrument (e.g., classical piano, classical guitar, conducting), students may audition for a different faculty-led ensemble to fulfill the MPP minor ensemble participation requirement, or may pursue equivalent collaborative assignments as detailed on the Music Department website.
+- name: Studio Lessons
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Studio lessons are required and must be taken with a Department of Music studio instructor or, if applicable, a program director. 
+    
+    More specific parameters will differ depending on the instrument/performance practice for which the student is admitted. Students will have the option to enroll in lessons for credit (MPP298/299) if they want their work in lessons to be specifically reflected on their transcript. Students who choose to do so may NOT count this course toward completion of MPP course requirements.
+- name: Recital or Related Program-Specific Performance 
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    A recital or related program-specific performance is required in senior year, which would be a demonstration of core study with the program approved by both applicable studio instructor and relevant program director.
+

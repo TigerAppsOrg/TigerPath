@@ -1,0 +1,100 @@
+---
+type: Certificate
+name: Teacher Preparation
+code: TPP
+degree:
+description: |-
+  The Program in Teacher Preparation is an interdepartmental course of
+  study for undergraduates and is composed of a unique combination of coursework and
+  clinical experiences in schools at every level of the program. Graduate students
+  and alumni are eligible to complete it.<br><br>
+
+  The program, approved by the New Jersey Department of Education and by the Council
+  for the Accreditation of Educator Preparation, allows students to explore education
+  as a career choice and provides the option to become fully prepared and certified
+  to teach successfully at the middle and secondary levels within the regular
+  framework of a Princeton A.B. or B.S.E.
+urls:
+- https://ua.princeton.edu/fields-study/certificate-programs/teacher-preparation
+contacts:
+- type: Director
+  name: Todd W. Kent
+  email: twkent@princeton.edu
+iw_required: true
+req_list:
+- name: General Education Requirements
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: University distribution requirement will fulfill this, so hoagieplan does not check it.</i><br><br>
+
+    In order to become well-rounded educators, program students are required
+    to demonstrate proficiency in a variety of academic disciplines within the liberal arts
+    and sciences curriculum. A course is required in each of the following areas: humanities,
+    mathematics, science and social science. Courses taken to fulfill the University
+    distribution requirements will cover all of these areas.
+  no_req:
+- name: Teaching Area Requirements
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Departmental major requirement will fulfill this, so hoagieplan does not check it.</i><br><br>
+
+    Teaching area requirements normally correspond to departmental major
+    requirements. With careful choice of elective courses it is possible to be certified
+    to teach in one field while majoring in another. A minimum of eight courses related
+    to the area of certification are required, with three of the eight courses at the
+    advanced level (300- or 400 level for all areas except mathematics, which requires
+    three courses at the 200 level or above). Specific areas of certification may include
+    additional requirements or prescribed areas of study in the coursework, and students
+    should consult the Teacher Prep Handbook for more information.
+  no_req:
+- name: Introductory Practicum
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The practicum consists of participation in three one-hour seminar
+    sessions and 18 observation hours in school settings. Three brief written
+    assignments and selected readings are also required. The Introductory Practicum
+    is designed as a non-credit independent study to accommodate the student's and
+    the instructor's schedules and is considered the final step in the application
+    process.
+  no_req:
+- name: Professional Education Sequence
+  max_counted: 1
+  min_needed: 4
+  explanation: Students must take the core course GEO 255/AST 255/EEB 255/CHM 255.
+    This course will qualify for departmental credit if the student submits a 25-page
+    term paper on astrobiology, with the emphasis in that department's discipline.
+  course_list:
+  - PSY 307
+  - TPP 301
+  - TPP 403
+  - TPP 404
+- name: Professional Portfolio Defense
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+  
+    The Professional Portfolio is a collection of artifacts and evidence
+    gathered throughout the program, which, along with written reflections, document
+    the student's progress in their professional skill development and ultimately
+    provide a demonstrated proficiency in the New Jersey Professional Standards for
+    Teachers. The portfolio is evaluated at three checkpoints. The first evaluation
+    occurs at the end of the semester just prior to the beginning of TPP 403 and
+    TPP 404, and the candidate must receive a “Pass” on the portfolio evaluation by
+    their adviser in order to begin Practice Teaching. A second review by the adviser
+    takes place prior to the start of the TPP 405 and TPP 406 student teaching courses,
+    and a "Pass" is required to continue in those courses. The final review is a formal
+    defense of the portfolio that occurs upon completion of TPP 406. The defense must
+    be successfully completed before the student's application for certification can be
+    submitted to the New Jersey Department of Education. The portfolio must receive a
+    "Pass" by a majority of reviewers for the program to recommend the student for state
+    licensure. In addition, students will be required to successfully pass a performance
+    assessment and the appropriate Praxis subject area tests in order to earn a New Jersey
+    teaching license.
+  double_counting_allowed: false
+  no_req:

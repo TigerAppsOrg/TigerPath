@@ -1,0 +1,207 @@
+---
+type: Major
+name: Religion
+code: REL
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-religion
+- https://religion.princeton.edu/undergraduate-program/major-requirements/
+contacts:
+- type: Chair
+  name: Judith L. Weisenfeld
+  email: jweisenf@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Seth Perry
+  email: sethp@princeton.edu
+description: |-
+  The Department of Religion at Princeton aims for our students to gain content knowledge with respect to religious traditions, practice, history, ethics and philosophy, across time periods and cultural settings. In addition, we intend for our students to develop an understanding of the history of the academic study of religion and its crucial methodologies and purview. Beyond the inherent value of these mutually constitutive sets of goals, we want the development of this content knowledge and facility with religious studies as a field to cultivate methodological tools that students will take with them into other parts of their academic lives and their eventual careers: an abiding intellectual curiosity; self-motivation and initiative in research; a habit of close reading and critical empathy in the assessment of both secondary and primary sources; facility with questions of race, gender and class; and the ability to make clear, cogent and successful arguments both in writing and in discussion.
+iw_required: true
+req_list:
+- name: Prerequisites
+  min_needed: 1
+  max_counted: 1
+  double_counting_allowed: true
+  completed_by_semester: 4
+  explanation: |-
+    Any course offered by the department.
+  course_list:
+    - REL ***
+- name: Traditions and Themes
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    Undergraduate courses in the Department of Religion are classified in two ways: Traditions, and Themes. Majors must take at least three courses in either a particular tradition in a traditions stream or a particular theme in a thematic stream. <br><br>
+
+    Students will choose one of the two streams during their junior year in conversation with the director of undergraduate studies (DUS).
+  req_list:
+    - name: Traditions
+      max_counted: 1
+      min_needed: 2
+      explanation: Majors must take at least three courses in either a
+        particular tradition in a traditions stream or a particular theme
+        in a thematic stream.
+      req_list:
+        - name: Tradition of Focus
+          max_counted: 1
+          min_needed: 1
+          req_list:
+            - name: Ancient Judaism, Christianity, and Greek and Roman Religions
+              max_counted: 1
+              min_needed: 3
+              course_list:
+                - REL 202
+                - REL 230
+                - REL 234
+                - REL 244
+                - REL 246
+                - REL 251
+                - REL 252
+                - REL 348
+                - REL 350
+                - REL 352
+                - REL 353
+                - REL 411
+            - name: Religion in America
+              max_counted: 1
+              min_needed: 3
+              course_list:
+                - REL 255
+                - REL 257
+                - REL 258
+                - REL 271
+                - REL 319
+                - REL 357
+                - REL 358
+                - REL 360
+                - REL 367
+                - REL 372
+                - REL 383
+            - name: Philosophical and Ethical Approaches to Religion
+              max_counted: 1
+              min_needed: 3
+              course_list:
+                - REL 211
+                - REL 242
+                - REL 261
+                - REL 264
+                - REL 303
+                - REL 311
+                - REL 312
+                - REL 314
+                - REL 317
+                - REL 346
+                - REL 347
+                - REL 361
+                - REL 363
+                - REL 364
+                - REL 365
+            - name: Islam
+              max_counted: 1
+              min_needed: 3
+              course_list:
+                - REL 235
+                - REL 236
+                - REL 239
+                - REL 240
+                - REL 328
+                - REL 332
+                - REL 334
+                - REL 335
+                - REL 336
+                - REL 338
+                - REL 415
+            - name: Religions of Asia
+              max_counted: 1
+              min_needed: 3
+              course_list:
+                - REL 210
+                - REL 225
+                - REL 226
+                - REL 228
+                - REL 229
+                - REL 322
+                - REL 324
+                - REL 326
+                - REL 382
+        - name: Traditions Stream
+          max_counted: 1
+          min_needed: 4
+          explanation: Four more courses across the five traditions.
+          course_list:
+            - REL 230
+            - REL 251
+            - REL 252
+            - REL 350
+            - REL 352
+            - REL 353
+            - REL 258
+            - REL 319
+            - REL 357
+            - REL 358
+            - REL 360
+            - REL 367
+            - REL 242
+            - REL 261
+            - REL 311
+            - REL 312
+            - REL 317
+            - REL 346
+            - REL 347
+            - REL 363
+            - REL 364
+            - REL 235
+            - REL 236
+            - REL 240
+            - REL 328
+            - REL 334
+            - REL 335
+            - REL 336
+            - REL 338
+            - REL 225
+            - REL 226
+            - REL 228
+            - REL 229
+            - REL 322
+            - REL 326
+    - name: Themes
+      max_counted: 1
+      min_needed: 7
+      explanation: |-
+        <i>Editor's Note: The department does not offer course lists for the thematic stream, so the course list is too broad.</i><br><br>
+
+        Majors must take at least three courses in either a particular tradition in a traditions stream or a particular theme in a thematic stream.<br><br>
+
+        The themes suggested by the department are: Religion and Political Life; Religion, Text, and Media; and Religion and Social Identities.
+      course_list:
+        - REL *
+- name: Junior Colloquium
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    During the fall of their junior year, majors will enroll in REL 399, the Junior Colloquium. REL 399 is a for-credit course that counts toward a student's nine religion courses for the major and their total number of courses for graduation.
+  course_list:
+    - REL 399
+- name: Junior Paper
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    In conjunction with REL 399, the Junior Colloquium, during the fall term juniors will produce a five- to seven-page JP proposal. During the spring term, juniors will continue this independent research and write a 30-40 page junior paper under the supervision of a faculty adviser. The DUS will assign advisers. At the end of junior year, students will review their work in the department and discuss with a faculty committee their plans for senior independent work.
+  no_req:
+- name: Senior Thesis
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Every senior will prepare a 70-90 page thesis under the supervision of a faculty adviser.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    At the end of senior year, students will take an oral examination concerning their senior independent work, focus of study and work in the department generally.
+  no_req:

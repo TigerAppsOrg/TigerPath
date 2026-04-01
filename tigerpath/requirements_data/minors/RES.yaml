@@ -1,0 +1,132 @@
+---
+type: Minor
+name: Russian, East European and Eurasian Studies
+code: RES
+degree:
+urls:
+- https://reees.princeton.edu/undergraduates/minor
+description: The Program in Russian, East European, and Eurasian Studies 
+  (link is external), an affiliate of the Princeton Institute for 
+  International and Regional Studies (link is external), draws on a core 
+  faculty in the humanities, history and social sciences to support and 
+  maintain a diverse undergraduate curriculum. The program offers a 
+  minor to undergraduates who combine study of Eastern Europe, Russia 
+  and Eurasia with any other departmental major from the humanities and 
+  social sciences to the natural sciences and engineering.
+contacts:
+- type: Director
+  name: Ekaterina Pravilova
+  email: kprav@princeton.edu
+iw_required: false
+req_list:
+  - name: History and Social Sciences
+    min_needed: 2
+    max_counted: 1
+    explanation: Two upper-level courses on the history or social 
+      sciences of the Russian empire, the Soviet Union, Eastern Europe, 
+      or Eurasia.
+    max_common_with_major: 0
+    course_list:
+    - NES 362
+    - NES 364 / REL 399
+    - POL 360
+    - POL 374
+    - POL 432
+    - POL 433
+    - SLA 338 / ANT 338
+    - SLA 368 / HUM 368 / RES 368
+    - SLA 420 / ANT 420 / COM 424 / RES 420
+    - SOC 308 / RES 308
+  - name: Literature, Arts and Culture
+    min_needed: 2
+    max_counted: 1
+    explanation: Two upper-level courses in the literatures, arts or 
+      culture of Russia, Eastern Europe and/or Eurasia.
+    max_common_with_major: 0
+    course_list:
+    - ART 337 / GER 337
+    - ART 393 / SLA 393 / AMS 392 / RES 393
+    - ART 466 / SLA 466 / ECS 466
+    - COM 404
+    - COM 410 / SLA 410
+    - COM 415 / SLA 415 / RES 415
+    - ECS 360 / SLA 360
+    - ECS 391 / COM 391 / JDS 391
+    - JDS 221 / PHI 221
+    - MUS 339 / SLA 311
+    - SLA 218 / RES 218
+    - SLA 219 / RES 219
+    - SLA 220 / RES 220
+    - SLA 221 / RES 221
+    - SLA 236
+    - SLA 301 / ANT 382 / RES 301
+    - SLA 303 / ART 330
+    - SLA 304 / RES 304
+    - SLA 305 / COM 377 / RES 305 / ANT 343
+    - SLA 307
+    - SLA 308 / RES 309
+    - SLA 309
+    - SLA 310 / COM 369 / RES 310
+    - SLA 312 / RES 312
+    - SLA 313 / RES 314
+    - SLA 314
+    - SLA 319 / RES 319
+    - SLA 322 / RES 322
+    - SLA 324 / RES 324
+    - SLA 326 / SLA 326
+    - SLA 337 / RES 337
+    - SLA 345 / ECS 354 / COM 345 / RES 345
+    - SLA 347 / JDS 337
+    - SLA 350 / RES 350
+    - SLA 361 / RES 361
+    - SLA 365 / RES 365
+    - SLA 366 / ECS 356 / RES 347
+    - SLA 367 / RES 367
+    - SLA 368 / HUM 368 / RES 368 / COM 348
+    - SLA 369 / RES 369 / ENG 247
+    - SLA 395 / RES 395
+    - SLA 396 / ECS 397
+    - SLA 411 / RES 411
+    - SLA 412 / RES 412
+    - SLA 413 / RES 413
+    - SLA 415 / COM 415 / RES 415
+    - SLA 416 / RES 416
+    - SLA 417 / COM 418 / ENG 424 / RES 417
+    - SLA 422
+  - name: Language
+    min_needed: 2
+    max_counted: 1
+    explanation: The minor requires students to have a minimum of one 
+      year in any of the applicable languages offered at Princeton (such 
+      as Bosnian-Croatian-Serbian, Czech, Polish, Russian, Turkish and 
+      Ukrainian) or to demonstrate a comparable level of language 
+      proficiency (typically intermediate low). Students who satisfy 
+      this requirement with a proficiency exam must take an additional 
+      course. The additional course may be a language course at or above 
+      the 105 level, or another relevant course in culture, history or 
+      politics.
+    max_common_with_major: 2
+    course_list:
+    - CZE 101
+    - CZE 102
+    - CZE 105
+    - CZE 107
+    - PLS 101
+    - PLS 102
+    - RUS 101
+    - RUS 102
+    - RUS 103
+    - RUS 108
+    - RUS 105
+    - RUS 107
+    - RUS 207
+    - RUS 208
+    - RUS 305
+    - RUS 407
+    - RUS 408
+    - RUS 409 / RES 409
+    - TUR 101
+    - TUR 102
+    - TUR 105
+    - TUR 107
+    - TUR 305

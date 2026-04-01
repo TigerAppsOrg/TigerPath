@@ -1,0 +1,310 @@
+---
+type: Major
+name: Art and Archaeology - Practice of Art
+code: ART
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-art-and-archaeology
+- https://artandarchaeology.princeton.edu/
+- https://art-info.princeton.edu/wp-content/uploads/sites/727/2021/04/a-and-a-ugrad-handbook-2020-21.pdf
+contacts:
+- type: Chair
+  name: Rachael Z. DeLue
+  email: rdelue@princeton.edu
+- type: Acting Chair
+  name: Nathan A. Arrington
+  email: nta@princeton.edu
+- type: Director of Undergraduate Studies (spring)
+  name: Basile C. Baudez
+  email: bbaudez@princeton.edu
+- type: Director of Undergraduate Studies (fall)
+  name: Beatrice E. Kitzinger
+  email: bkitzinger@princeton.edu
+description: |-
+  The Department of Art and Archaeology is devoted to the study of the visual arts and the investigation of material artifacts from a wide range of cultures and periods. Students may pursue a major in the History of Art or the Practice of Art; information on the certificate in Archaeology is also included below. Studio art courses are taught by faculty in the Program in Visual Arts; history of art courses also frequently include practical components. Students interested in the practice of art (taught by faculty in the Program in Visual Arts) can pursue a major in the department. Working closely with faculty members in small classes and often dealing directly with original objects and primary sources, students can explore subjects as diverse as Roman or modern city planning, arts of printing and book-making in East Asia or Europe, ancient or medieval archaeology, architectural history, 19th-21st century photography and contemporary arts of Africa, Latin America and the United States.
+  Majors in this track explore the traditions, thought processes and methods of making visual art in connection with a liberal arts education. Studio courses are offered in painting, drawing, printmaking, graphic design, media, sculpture, photography, film and video production. Students also study art history and theory.
+iw_required: true
+req_list:
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: Students interested in majoring in the Department of Art
+    and Archaeology must choose one of two tracks, each of which has its
+    own admission prerequisites and curricular requirements.
+  req_list:
+    - name: Practice of Art
+      max_counted: 1
+      min_needed: ALL
+      explanation: Majors in this track explore the traditions, thought
+        processes and methods of making visual art in connection with a
+        liberal arts education. Studio courses are offered in painting,
+        drawing, printmaking, graphic design, media, sculpture,
+        photography, film and video production. Students also study art
+        history and theory.
+      req_list:
+        - name: Prerequisites
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            Two courses in the Program in Visual Arts and one course in the Department of Art and Archaeology. By the first Wednesday following spring break, sophomores submit an application and a portfolio of creative work to the Lewis Center for the Arts administrative office. By early April, the admissions committee for the Program in Visual Arts will notify students accepted into the program. No AP credit is accepted toward the Practice of Art major.
+          double_counting_allowed: true
+          req_list:
+            - name: Visual Arts
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - VIS ***
+            - name: Art and Archaeology
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - ART ***
+        - name: Practice of Art Tracks
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            A total of 10 courses, of which at least six must be from the Program in Visual Arts and four must be from the Department of Art and Archaeology and taught by Art and Archaeology faculty.
+          req_list:
+            - name: Visual Arts
+              max_counted: 1
+              min_needed: ALL
+              explanation: |-
+                The visual arts courses must include: two studio courses in at least two different media; two studio courses at the 300- or 400 level; VIS 392 Issues in Contemporary Art; and VIS 416 Exhibition Issues and Methods or VIS 417 Film Seminar.
+              req_list:
+                - name: Studio Courses
+                  max_counted: 1
+                  min_needed: 2
+                  explanation: |-
+                    <i>Editor's Note: The course list does not account for the fact that the studio courses must be in at least two different media.</i><br><br>
+
+                    Two studio courses in at least two different media.
+                  course_list:
+                    - VIS 201 / ARC 201
+                    - VIS 202 / ARC 202
+                    - VIS 203 / ARC 327
+                    - VIS 204 / ARC 328
+                    - VIS 208
+                    - VIS 213
+                    - VIS 215 / CWR 215
+                    - VIS 218
+                    - VIS 220
+                    - VIS 221
+                    - VIS 222
+                    - VIS 230
+                    - VIS 261
+                    - VIS 262
+                    - VIS 303
+                    - VIS 304
+                    - VIS 309
+                    - DAN 304 / MUS 301 / THR 321 / VIS 320
+                    - VIS 331
+                    - VIS 332
+                    - VIS 354
+                    - VIS 415
+                    - VIS 425
+                - name: Upper-level Studio Courses
+                  max_counted: 1
+                  min_needed: 2
+                  explanation: |-
+                    Two studio courses at the 300 or 400 level.
+                  course_list:
+                    - VIS 303
+                    - VIS 304
+                    - VIS 309
+                    - DAN 304 / MUS 301 / THR 321 / VIS 320
+                    - VIS 331
+                    - VIS 332
+                    - VIS 354
+                    - VIS 415
+                    - VIS 425
+                - name: Junior Seminar
+                  max_counted: 1
+                  min_needed: 1
+                  completed_by_semester: 6
+                  explanation: |-
+                    During the fall of junior year, all majors must take the junior seminar, VIS 392 Issues in Contemporary Art. Beginning with the Class of 2023, film students will also be required to take VIS 392. VIS 392 coincides with admission to the junior studios and investigates the history, challenges and rewards of studio practice. Through readings, discussions, studio critiques and a culminating exhibition of works in progress, VIS 392 provides the foundation for students' independent creative development, as well as the impetus for beginning to be able to articulate the historical precedents and ambitions of their work. Students are also strongly encouraged to take ART 400, the junior methods seminar in the Department of Art and Archaeology.
+                  course_list:
+                    - VIS 392
+                - name: Exhibition Methods or Film Seminar
+                  max_counted: 1
+                  min_needed: 1
+                  course_list:
+                    - VIS 416
+                    - VIS 417
+                - name: Art and Archaeology
+                  max_counted: 1
+                  min_needed: 4
+                  explanation: |-
+                    <i>Editor's Note: The course list does not account for chronological restrictions.</i><br><br>
+
+                    The Department of Art and Archaeology courses must include one course from Group 1 (ancient) or Group 2 (medieval/early modern) and one course from Group 3 (19th century to the present). The remaining two courses may come from any group. When multiple courses are selected from the same group, breadth in chronological and geographic focus among them is encouraged.
+                  course_list:
+                    - ART *
+            - name: Film
+              max_counted: 1
+              min_needed: ALL
+              explanation: |-
+                Courses for film students must include: two studio courses at any level in two different media (screenwriting courses are accepted as a different medium from film production courses); two studio courses at the 300- or 400 level; VIS 392; VIS 419 (taken in the spring of junior year). The Department of Art and Archaeology courses must include: one course from Group 1 (ancient) or Group 2 (medieval/early modern); one course from Group 3 (19th century to the present); and two from any group. For two ART courses, film students may substitute film courses cross-listed with ART.
+              req_list:
+                - name: Studio Courses
+                  max_counted: 1
+                  min_needed: 2
+                  explanation: |-
+                    <i>Editor's Note: The course list does not account for the fact that the studio courses must be in at least two different media.</i><br><br>
+
+                    Two studio courses in at least two different media Screenwriting courses are accepted as a different medium from film production courses.
+                  course_list:
+                    - VIS 201 / ARC 201
+                    - VIS 202 / ARC 202
+                    - VIS 203 / ARC 327
+                    - VIS 204 / ARC 328
+                    - VIS 208
+                    - VIS 213
+                    - VIS 215 / CWR 215
+                    - VIS 218
+                    - VIS 220
+                    - VIS 221
+                    - VIS 222
+                    - VIS 230
+                    - VIS 261
+                    - VIS 262
+                    - VIS 303
+                    - VIS 304
+                    - VIS 309
+                    - DAN 304 / MUS 301 / THR 321 / VIS 320
+                    - VIS 331
+                    - VIS 332
+                    - VIS 354
+                    - VIS 415
+                    - VIS 425
+                - name: Upper-level Studio Courses
+                  max_counted: 1
+                  min_needed: 2
+                  explanation: |-
+                    Two studio courses at the 300 or 400 level.
+                  course_list:
+                    - VIS 303
+                    - VIS 304
+                    - VIS 309
+                    - DAN 304 / MUS 301 / THR 321 / VIS 320
+                    - VIS 331
+                    - VIS 332
+                    - VIS 354
+                    - VIS 415
+                    - VIS 425
+                - name: Junior Seminars
+                  max_counted: 1
+                  min_needed: 2
+                  completed_by_semester: 6
+                  course_list:
+                    - VIS 419
+                    - VIS 392
+                - name: Art and Archaeology
+                  max_counted: 1
+                  min_needed: 3
+                  explanation: |-
+                    <i>Editor's Note: The course list does not account for chronological restrictions.</i><br><br>
+
+                    The Department of Art and Archaeology courses must include: one course from Group 1 (ancient) or Group 2 (medieval/early modern); one course from Group 3 (19th century to the present); and two from any group. For two ART courses, film students may substitute film courses cross-listed with ART.
+                  course_list:
+                    - ART ***
+        - name: Junior Independent Work
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            Junior independent work begins in the fall, in the context of the junior seminar. It continues into the spring in partnership with two faculty advisers, one from VIS and one from ART. Students are provided with studio space and prepare independent work over the course of the year, culminating in an exhibition as part of the Spring Junior Group Thesis Show. Film students work throughout their junior year to create a junior film.<br>
+            All Practice of Art juniors assemble a writing portfolio consisting of multiple short essays amounting to approximately 10 pages (2,500 words). The essays reflect on the creating process and discuss the relation of the work to the student's broader studies, especially in art history. The essays should include a bibliography. The grade for independent work is the average of the grade from the VIS and ART advisers. For further description of the portfolios, see the Undergraduate Handbook.<br>
+            The Junior Independent Work requirement in Practice of Art includes two colloquia with the History of Art cohort, one in the fall and one in the spring.
+          no_req:
+        - name: Senior Independent Work
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            By the end of the second week of the fall term of senior year, students must have three advisers, including one from the Department of Art and Archaeology faculty, who is selected in consultation with the director of undergraduate studies. The senior independent work is a major studio project completed by the end of the spring term, done in consultation with the student's advisers, and a writing portfolio consisting of multiple short essays amounting to approximately 20 pages (5,000 words). The essays reflect on the creating process and discuss the relation of the work to the student's broader studies, especially in art history. The essays should include a bibliography. For further description of the portfolios, see the Undergraduate Handbook. Students are assigned semiprivate studios on the second floor of 185 Nassau. Students present their work in an exhibition at the end of the year at the Lewis Center. An “Advisers' Thesis Critique” is performed by the ART and VIS advisers in the presence of the exhibit. The grade for the senior independent work is the average of the grade given by the ART and VIS advisers during the thesis critique and for the written component.<br> 
+            The senior independent work requirement in Practice of Art includes two colloquia with the History of Art cohort, one in the fall and one in the spring.
+          no_req:
+        - name: Senior Departmental Examination
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            The senior departmental examination in the Practice of Arts has two parts. (1) A one-hour critical discussion (the “Crit”) of the senior thesis exhibition in the latter half of the spring term, in the presence of each student's exhibition. The discussion is open to all Program in Visual Arts faculty and Practice of Art/certificate students. All Visual Arts faculty who attend the Crit will grade it, and those grades will be averaged. (2) Practice of Art students participate in the same comprehensive exam ("Comps") as the History of Art students (see above). The VIS primary adviser and the ART adviser will be two of the three faculty present at the comprehensive exam; the three grades will be averaged for the Comps grade. The final grade on the transcript for the departmental examination is the average of the Crit grade and the Comps grade.
+          no_req:
+    - name: History of Art
+      max_counted: 1
+      min_needed: ALL
+      explanation: Majors in this track pursue the study and criticism of
+        the visual arts and the investigation of material culture from a
+        wide range of historical periods.
+      req_list:
+        - name: Prerequisites
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            Any two courses offered by the Department of Art and Archaeology.
+          course_list:
+            - ART ***
+        - name: Departmentals
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            A total of 10 courses in the Department of Art and Archaeology, including ART 400 (Junior Seminar) and an additional two seminars at the 400- or 500-level. Seven of the 10 courses must be taught by Art and Archaeology departmental faculty. Students must take at least one course in each of the following three distribution areas: Group 1 (ancient), Group 2 (medieval/early modern), and Group 3 (19th century to the present).  ART 100, ART 400 and ART 401 count as departmentals but not as distribution courses. In choosing courses to satisfy requirements, students are encouraged to explore a range of geographies and a range of media, e.g., architecture, painting, sculpture, photography, works on paper, film.
+            No more than two cognate courses taken in other departments (including the Program in Visual Arts) may be counted toward the 10 departmentals. This includes summer courses. Students participating in the Study Abroad Program may be allowed to count more than two courses taken overseas as departmentals. All cognate courses must be approved by the director of undergraduate studies prior to enrollment, based on the submission of a syllabus and course description. Courses cross-listed with the Department of Art and Archaeology automatically count as departmentals, but do not count toward the departmental honors GPA.
+          req_list:
+            - name: Required Courses
+              max_counted: 1
+              min_needed: 7
+              explanation: |-
+                <i>Editor's Note: The course list does not account for chronological restrictions.</i><br><br>
+
+                Students must take at least one course in each of the following three distribution areas: Group 1 (ancient), Group 2 (medieval/early modern), and Group 3 (19th century to the present).
+              course_list:
+                - ART ***
+            - name: Seminars
+              max_counted: 1
+              min_needed: 2
+              explanation: |-
+                Two seminars at the 400- or 500-level.
+              course_list:
+                - ART 4*
+                - ART 5*
+            - name: Restrictions
+              max_counted: 0
+              min_needed: 1
+              explanation: Seven of the 10 courses must be taught by Art and Archaeology departmental faculty.
+        - name: Junior Seminar
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            During the fall of junior year, all majors must take the junior seminar (ART 400). The course introduces students to various methods used by art historians and archaeologists, and many assignments relate directly to their junior independent work. Students who are abroad during the fall of junior year can complete the junior seminar during the fall term of their senior year.
+          course_list:
+            - ART 400
+        - name: Junior Independent Work
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            Junior Independent Work (JIW) begins in the fall, in the context of the junior seminar (ART 400), and continues into the spring with a faculty adviser whom the student selects in consultation with the director of undergraduate studies. JIW consists of a research paper of approximately 30-40 pages (7,500-10,000 words) on any topic related to visual and material culture. Assignments in ART 400 help students conceptualize and implement their research agendas. The JIW requirement in History of Art includes two colloquia with the Practice of Art cohort, one in the fall and one in the spring.
+          no_req:
+        - name: Senior Independent Work
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            The senior independent work consists of a year-long research project of approximately 60-80 pages (15,000-20,000 words). The student selects a faculty adviser in the spring of their junior year and submits a progress report to the director of undergraduate studies by mid-November of their senior year. For further deadlines see the Undergraduate Handbook; for further details on thesis writing and research, see the Independent Work Guide in the History of Art. The thesis grade is the average of the grades given by the faculty adviser and a second faculty reader. The Senior Independent Work requirement in History of Art includes two colloquia with the Practice of Art cohort, one in the fall and one in the spring.
+          no_req:
+        - name: Senior Departmental Examination
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+            The senior comprehensive departmental examination ("Comps") consists of a one-hour oral examination discussing the senior thesis and also covering material from departmental courses. It is attended by three faculty members, consisting of the adviser of the senior thesis, the second reader, and one additional faculty member. The exam grade is the average of the grades given by the three examiners.
+          no_req:

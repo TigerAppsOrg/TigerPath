@@ -1,0 +1,118 @@
+---
+type: Minor
+name: Spanish
+code: SPA
+degree:
+urls:
+- https://spo.princeton.edu/undergraduate/minor
+description: |- 
+  Students wishing to complete a minor in the Department of Spanish and 
+  Portuguese must complete the Minor Application Form. <br> <br>
+
+  Applications may be submitted as early as the second semester of the 
+  sophomore year, after a major has been declared. We highly recommend 
+  students apply by the Spring term of their junior year to ensure 
+  course plans can be built accordingly. Applications will be accepted 
+  no later than February 15 of the senior year. <br> <br>
+
+  Students who want to minor in both Spanish or Portuguese and the 
+  Program in Latin American Studies can do so with the permission of 
+  both program directors, which includes a conversation about course 
+  plans. In agreement with the Program in Latin American Studies 
+  (PLAS), one course can be used towards both a minor in SPA or POR and 
+  a minor in PLAS.
+excluded_major: 
+- SPA
+contacts:
+- type: Director of Undergraduate Studies
+  name: Christina Lee
+  email: chrislee@princeton.edu
+- type: Graduate and Undergraduate Program Administrator
+  name: Janeth "Jane" Marquez
+  email: janeth.marquez@princeton.edu
+- type: Director of Spanish Language Program
+  name: Alberto Bruzos Moro
+  email: abruzos@princeton.edu
+iw_required: true
+req_list:
+- name: Spanish Courses
+  max_counted: 1
+  min_needed: 5
+  explanation: |-
+    Five SPA or cross-listed courses (two at the 200-level and three at 
+    the 300-level or higher). Up to one cross-listed course taken in 
+    English can count towards the minor, provided that all written work 
+    is completed in Spanish. Note that all Princeton summer courses in 
+    Spain and Argentina offered by SPO count towards the requirement. 
+    <br> <br>
+
+    Up to one course per semester taken abroad at another institution 
+    can count towards the minor with the pre-approval of the DUS. 
+    Students intending to study abroad must contact the DUS with the 
+    description and syllabus of the Spanish course they intend to have 
+    counted towards the minor to make sure that such course is 
+    equivalent to a course offered at Princeton.
+  req_list:
+  - name: 200-Level Courses
+    max_counted: 2
+    min_needed: 2
+    explanation: |-
+      At the 200-level, students are expected to progress by taking one 
+      advanced language course (SPA 204-209) and one “topics course” 
+      above SPA 209. 
+    req_list:
+    - name: Advanced Language Course
+      max_counted: 1
+      min_needed: 1
+      explanation: 
+      course_list:
+      - SPA 204
+      - SPA 205
+      - SPA 206
+      - SPA 207
+      - SPA 208
+      - SPA 209
+    - name: Topics Course
+      max_counted: 1
+      min_needed: 1
+      explanation: 
+      course_list:
+      course_list:
+        - SPA 2**
+      excluded_course_list:
+        - SPA 1**
+        - SPA 200
+        - SPA 201
+        - SPA 202
+        - SPA 203
+        - SPA 204
+        - SPA 205
+        - SPA 206
+        - SPA 207
+        - SPA 208
+        - SPA 209
+        - SPA 3**
+        - SPA 4**
+        - SPA 5**
+  - name: 300-Level Courses
+    max_counted: 3
+    min_needed: 3
+    explanation:
+    course_list:
+    - SPA 3*
+- name: Capstone Assignment
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    A capstone assignment in Spanish consisting of a 1500-word 
+    reflection on how the student’s work in the minor has informed 
+    their learning in their major coursework and potentially their 
+    independent work. <br> <br>
+
+    The assignment should be independently carried out during the 
+    student’s senior year. It must be submitted to the Undergraduate 
+    Administrator and the Director of Undergraduate Studies no later 
+    than one week after the Senior Thesis submission deadline.
+  no_req:

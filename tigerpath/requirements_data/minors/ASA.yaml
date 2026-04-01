@@ -1,0 +1,66 @@
+---
+type: Minor
+name: Asian American Studies
+code: ASA
+degree:
+description: The Program in Asian American Studies, administered by the 
+  Effron Center for the Study of America, provides students with the 
+  opportunity to gain an interdisciplinary perspective on the diversity 
+  of Asian American and Pacific Islander histories, cultures and 
+  contemporary experiences. The course of study focuses on the formative 
+  emergence of this pan-ethnic group in the United States. It also 
+  highlights Asian America’s transnational connections and contexts, 
+  including the dynamics of globalization, migration, imperialism and 
+  postcoloniality.
+urls:
+- https://effroncenter.princeton.edu/areas-study/asian-american-studies
+contacts:
+- type: Program Director
+  name: Beth Lew-Williams
+  email: bethlw@princeton.edu
+iw_required: false
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 1
+  explanation: Students are normally encouraged to take the gateway 
+    course AMS 101 prior to declaring the minor, however students may 
+    also do so at any time during their studies, including after 
+    enrollment in the minor.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 1
+  course_list:
+  - AMS 101
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Three courses in Asian American studies, either 
+    originating in the program or cross-listed, and preferably 
+    representing disciplinary breadth in the social sciences, arts and 
+    humanities. With the approval of the associate director, a student 
+    may substitute a comparative race and ethnicity course that contains 
+    substantial Asian American studies content for one of these courses.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 3
+  course_list:
+  - ASA *
+- name: Advanced Seminar
+  max_counted: 1
+  min_needed: 1
+  explanation: With the approval of the associate director, a student 
+    may substitute an advanced seminar with additional ASA elective to 
+    further their scholarship in this field.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 1
+  course_list:
+  - AMS 403
+  - AMS 404
+  - AMS 406
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    No more than one course taken in fulfillment of the student’s major may be counted toward the minor.

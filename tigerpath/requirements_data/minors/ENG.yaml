@@ -1,0 +1,77 @@
+---
+type: Minor
+name: English
+code: ENG
+degree:
+description: In the Department of English students are trained 
+  to read critically and to attend to the imbricated histories of 
+  language, literature, culture, and power. Students read widely 
+  across genres and periods of British, American, and Anglophone 
+  literature as well as across a variety of critical and theoretical 
+  approaches. In addition to lectures and seminars devoted to poetry, 
+  prose, and drama, English offers courses on cinema, photography, 
+  architecture, the public essay, and data and culture, among other 
+  media and topics. We encourage students to think across disciplines 
+  and languages, and we offer vital skills and resources that support 
+  independent research.
+urls:
+- https://english.princeton.edu/undergraduate/minor
+contacts:
+- type: Department Chair
+  name: Simon E. Gikandi
+  email: sgikandi@princeton.edu
+iw_required: true
+req_list:
+- name: Coursework
+  max_counted: 1
+  min_needed: 5
+  explanation: Five courses, at least two of them seminars. Just as 
+    there are no prerequisites, there are also no required courses for 
+    the minor. The department will offer suggestions as to possible 
+    clusters but we will also invite students to chart their own paths 
+    and propose a new cluster.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  req_list:
+  - name: Seminars
+    max_counted: 5
+    min_needed: 1
+    explanation:
+    pdfs_allowed: 1
+    course_list:
+    - ENG 256
+    - ENG 300
+    - ENG 305
+    - ENG 306
+    - ENG 310
+    - ENG 311
+    - ENG 312
+    - ENG 331
+    - ENG 334
+    - ENG 344
+    - ENG 346
+    - ENG 361
+    - ENG 379
+    - ENG 401
+    - ENG 402
+    - ENG 403
+    - ENG 404
+    - ENG 405
+    - ENG 411
+    - ENG 412
+    - ENG 413
+    - ENG 414
+    - ENG 417
+  - name: English Courses
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    pdfs_allowed: 1
+    course_list:
+    - ENG *
+- name: Reflection Paper
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    In addition, a short (ca. 500 words) reflection paper on how the courses add up to a coherent perspective on the ancient world and its reception is required in the student’s final semester.
+  completed_by_semester: 8

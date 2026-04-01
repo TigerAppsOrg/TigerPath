@@ -1,0 +1,212 @@
+---
+type: Major
+name: Anthropology
+code: ANT
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-department-anthropology
+contacts:
+- type: Chair
+  name: João Biehl
+  email: jbiehl@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Onur Gunay
+  email: ogunay@princeton.edu
+description: |-
+  Anthropology is the study of human experience and social change. Through situated and relational methods, anthropology considers the ways people think, act and make sense of their lifeworlds against the backdrop of multiple structural forces and across intersecting domains and scales. Always in a deep interdisciplinary dialogue, the connections between ethnography, theory, social engagement and storytelling are a hallmark of anthropology.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  completed_by_semester: 4
+  explanation: |-
+    Students who wish to major in the Department of Anthropology must take one anthropology course (any level) prior to junior year or have permission from the director of undergraduate studies.
+  double_counting_allowed: true
+  course_list:
+    - ANT *
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Anthropology majors must take nine departmental courses, including the core courses ANT 300 (Ethnography, Evidence and Experience) and ANT 301 (The Ethnographer's Craft). All majors are expected to participate in a senior thesis workshop during late fall semester of their senior year. The workshop is designed to help students gain traction in data analysis and writing.
+  req_list:
+    - name: Sociocultural Anthropology
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        The Sociocultural Anthropology Track (SCA) is for students who want to explore contemporary forms and trajectories of human life and who seek to understand how differently positioned people address pressing social, political, environmental, technological and ethical challenges. SCA students are immersed in the histories of the discipline and are introduced to core anthropological concepts and subfields. All are encouraged to ethnographically pursue larger questions domestically and internationally and innovate in critical theory and storytelling.
+      req_list:
+        - name: Required Courses
+          max_counted: 1
+          min_needed: ALL
+          course_list:
+            - ANT 300
+            - ANT 301
+            - ANT 390
+        - name: Electives
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            Two foundational 200-level courses (one may be a cognate approved at this level)
+            One 300-level course in addition to 300, 301, 390 (may be a cognate approved at this level)
+            One advanced 400-level topical course (may be a cognate approved at this level)
+            Two free electives (may be another ANT course at any level and/or a cognate)
+          double_counting_allowed: false
+          req_list:
+            - name: 200-level
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - ANT 2**
+            - name: 300-level
+              max_counted: 1
+              min_needed: 1
+              excluded_course_list:
+                - ANT 300
+                - ANT 301
+                - ANT 390
+              course_list:
+                - ANT 3**
+            - name: 400-level
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - ANT 4**
+            - name: Electives
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - ANT *
+    - name: Medical Anthropology
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        The Medical Anthropology Track (MedAnth) is for students interested in all aspects of medicine, from biosocial to therapeutic systems to cultural ideas about illness and practices of health and well-being. Choosing this track allows students who are interested in the sciences, policy, the humanities, and the subfield of medical anthropology to focus their undergraduate training around these topics.<br>
+        The MedAnth track requires nine courses total; four are required and the other five are electives selected from category groups explained below. Students in this track are allowed to substitute up to two of the five elective courses with a class taught within the Department of Anthropology but outside MedAnth. Students are also allowed to satisfy departmental courses using two cognates.
+      req_list:
+        - name: Core
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            ANT 300 Ethnography, Evidence and Experience and ANT 301 The Ethnographer's Craft
+          course_list:
+            - ANT 300
+            - ANT 301
+        - name: Medical Anthropology
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            One foundational Medical Anthropology course offered by the department, including: Medical Anthropology (ANT 240), Medicine and the Humanities (ANT 340), Psychological Anthropology (ANT 305), Race and Medicine (ANT 403)
+          course_list:
+            - ANT 240
+            - ANT 340
+            - ANT 305
+            - ANT 403
+        - name: Biological Anthropology
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            One Human Biology / Biological Anthropology course offered by the department, including: Human Evolution (ANT 206); Mythbusting Race and Sex: Anthropology, Biology, and 'Human Natures' (ANT 428); and newly offered biology-focused courses. Cognate biological courses in, e.g., EEB, MOL, or NEU might be approved.
+          course_list:
+            - ANT 206
+            - ANT 428
+        - name: Electives
+          max_counted: 1
+          min_needed: ALL
+          req_list:
+            - name: Medical Anthropology/Science and Technology
+              min_needed: 2
+              max_counted: 1
+              explanation: |-
+                Two medical anthropology and/or science and technology courses, such as: Introduction to Anthropology (ANT 201); Surveillance, Technoscience, and Society (ANT 211); Catastrophes across Cultures: The Anthropology of Disaster (ANT 219); Food, Culture, and Society (ANT 311); Sensory Anthropology (ANT 331); Ethics in Context: Uses and Abuses of Deception and Disclosure (ANT 360); Multispecies Ecologies in the Anthropocene (ANT 426); Disability, Difference, and Race (ANT 461); an additional foundational medical or human biology / biological anthropology course, or a course at the interface of health and environment taught by a member of the ANT faculty
+              course_list:
+                - ANT 201
+                - ANT 211
+                - ANT 219
+                - ANT 311
+                - ANT 331
+                - ANT 360
+                - ANT 426
+                - ANT 461
+            - name: Medicine and Society
+              min_needed: 1
+              max_counted: 1
+              explanation: |-
+                One medicine and society course taught outside the department (department approval is required and counts as a cognate unless cross-listed by ANT), for example: History of Science, Global Health, Gender and Sexuality Studies, Molecular Biology, Psychology, Neuroscience, Sociology, School of Public and International Affairs; or an additional Medical Anthropology and/or Science and Technology course
+              course_list:
+                - HOS ***
+                - GHP ***
+                - GSS ***
+                - MOL ***
+                - PSY ***
+                - NEU ***
+                - SOC ***
+                - SPI ***
+            - name: Extra Courses
+              min_needed: 2
+              max_counted: 1
+              explanation: |-
+                Two anthropology courses on any subject, or one ANT course and a department-approved cognate. The department encourages MedAnth students to take Histories of Anthropological Theory (ANT 390) if their schedules can accommodate it.
+              course_list:
+                - ANT ***
+    - name: Law, Politics, and Economics
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        The Law, Politics, and Economics Track (LPE) is for students interested in these three well-established fields within the discipline of anthropology. LPE students are introduced to key theories of value, exchange and justice, for example, and to the comparative studies of law, politics, development, globalization and microeconomics across societies.<br>
+        The LPE track requires nine courses total; three are required and the other six include departmental electives focused on the law, economics and politics (see examples from list below). Students in this track are allowed to substitute up to two of the six elective courses with a class taught within the Department of Anthropology but outside the LPE track. Students are also allowed to take two cognates.
+      req_list:
+        - name: Required Courses
+          max_counted: 1
+          min_needed: ALL
+          course_list:
+            - ANT 300
+            - ANT 301
+            - ANT 390
+        - name: Electives
+          max_counted: 1
+          min_needed: 6
+          explanation: |-
+            A few examples of LPE electives are shown below. These courses are typically taught every other year, although some may be offered annually and others less frequently. A list of pre-approved LPE courses will be published each semester before course enrollment begins.
+            Courses pertaining to economics: Debt (ANT 225); Economic Experience in Cultural Context (ANT 303); Food, Culture, and Society (ANT 311); The Anthropology of Development (ANT 314); Economic Anthropology and American Pop Culture (ANT 350)
+            Courses pertaining to politics: Violence (ANT 264); Political Anthropology (ANT 304); Revolt (319); Catastrophes across Cultures: The Anthropology of Disaster (ANT 219); Urban Anthropology (ANT 227); #BlackLivesMatter (ANT 244); Conspiracy Theory and Social Theory (ANT 406); Communist Modernity: The Politics and Culture of Soviet Utopia (SLA 420/ANT 420)
+            Courses pertaining to law: The Anthropology of Law (ANT 342); Policing and Militarization Today (ANT 223); Justice (ANT 263)
+            LPE students are allowed to take two cognates (as defined under Program of Study above). Appropriate cognates for LPE might include courses taught in the departments of Economics or Politics; a regional studies course; courses taken during study abroad; and/or anthropology courses taught outside the Law, Politics, and Economics track.
+          course_list:
+            - ANT 225
+            - ANT 303
+            - ANT 311
+            - ANT 314
+            - ANT 350
+            - ANT 264
+            - ANT 304
+            - ANT 319
+            - ANT 219
+            - ANT 227
+            - ANT 244
+            - ANT 406
+            - SLA 420
+            - ANT 342
+            - ANT 223
+            - ANT 263
+- name: Junior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Independent work in the junior year involves an original paper focused on an anthropological theme or debate of interest to the student. The paper is mostly based on library research and literature review and should reflect the student's growing mastery of anthropological ways of knowing and the uniqueness of ethnographic evidence-making and theorizing.  New field research is not appropriate for this exercise. In the fall, students develop a detailed problem statement and annotated bibliography on a relevant subject and present a research proposal for approval by the department. In the spring, students write a paper (about 8,000 words, excluding references) based on the research initiated in the fall, in consultation with their adviser. Advising begins in assigned groups during early fall before transitioning to individual advising with continuing group work. Opportunities for peer group support and writing workshops are offered throughout junior year independent work.<br>
+    Since the junior paper topic is chosen before the final track declaration deadline, junior papers, unlike senior theses, do not have to be related to a student's chosen track.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Independent work in the senior year consists of a thesis based on ethnographic research on a timely issue or deep analysis of the extant anthropological literature on a topic of interest. A thesis that has a central artistic component must be accompanied by a substantial written essay. Doing ethnographic or community-engaged thesis research during the summer between junior and senior years is very helpful, but not required. Students carrying out fieldwork must have IRB approval. The anthropology department encourages methodologically and theoretically innovative senior thesis projects that expand our understanding of diverse lifeworlds and reorient our ethical and political imagination.
+    Anthropology seniors are each assigned a thesis adviser early in the fall term. A senior workshop that meets periodically during the second half of the fall term is designed to help students develop their senior theses; all seniors are expected to participate.
+    Students are encouraged to utilize the VizE Lab for Ethnographic Data Visualization to receive assistance in creating multimodal senior theses that combine field-based ethnographic storytelling, visual documentary and online interactive data visualizations.
+    Anthropology theses are usually multipart or multichapter projects, ranging from 20,000 to 25,000 words.
+  no_req:

@@ -1,0 +1,87 @@
+---
+type: Minor
+name: Chinese Language
+code: CHI
+degree:
+urls:
+- https://eas.princeton.edu/undergraduate/language/chinese
+description: The Department of East Asian Studies offers a wide range of 
+  undergraduate classes at the highest standards of academic, linguistic 
+  and cultural competence focused on China, Japan and Korea. It provides 
+  an opportunity for students who plan to major in other disciplines to 
+  simultaneously pursue a high level of proficiency in one or more East 
+  Asian language (Chinese, Japanese and Korean) and acquire the basic 
+  knowledge about the literature, history and culture of East Asia.
+contacts:
+- type: Department Chair
+  name: Anna M. Shields
+  email: ashields@princeton.edu
+iw_required: true
+req_list:
+- name: Language
+  max_counted: 1
+  min_needed: 6
+  explanation: A student majoring in a department other than East Asian 
+    studies must take six language courses, two or more of which must 
+    be beyond the second-year level.
+  req_list:
+  - name: Basic Language
+    max_counted: 4
+    min_needed: 1
+    explanation:
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - CHI 1001
+    - CHI 1002
+    - CHI 101
+    - CHI 102
+    - CHI 103
+    - CHI 105
+    - CHI 107
+    - CHI 108
+  - name: Advanced Language
+    max_counted: 6
+    min_needed: 1
+    explanation:
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - CHI 303
+    - CHI 304
+    - CHI 305
+    - CHI 306
+    - CHI 403
+    - CHI 404
+    - CHI 405
+    - CHI 406
+    - CHI 451
+- name: EAS or cognate
+  max_counted: 1
+  min_needed: 1
+  explanation: A student majoring in a department other than East Asian 
+    studies must take at least one EAS or cognate course.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  course_list:
+  - EAS *
+  deadline:
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: Students must also complete a substantial piece of 
+    research (20–25 pages) based at least in part on Chinese language 
+    sources dealing with aspects of East Asia. The topic must be in the 
+    humanities or social sciences. The paper could be either an original 
+    piece of research or a junior paper or senior thesis. If the paper 
+    or senior thesis is written for another department, at least half of 
+    the work must be on East Asia.
+  completed_by_semester: 8
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    An East Asian Studies major specializing in Chinese may not earn a language minor in Chinese. 
+
+    An East Asian studies major specializing in Japanese or Korean may earn a language minor in Chinese, but may not also earn an East Asian studies minor offered by the Program in East Asian Studies.

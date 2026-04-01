@@ -1,0 +1,156 @@
+---
+type: Major
+name: Linguistics
+code: LIN
+degree:
+description:
+  Students at Princeton develop the skills of a linguist through 
+  hands-on engagement with gathering and interpreting data from many 
+  different languages, the employment of diverse methodologies, and the 
+  investigation of language through a variety of lenses, including;
+  
+  1. Working with native speakers of an unfamiliar language (Field 
+  Methods).
+  2. Engaging with descriptive grammars and large-scale statistical 
+  correlations to investigate similarities and differences across 
+  languages (Linguistic Typology).
+  3. Analyzing texts to elucidate how language changes over time 
+  (Historical Linguistics).
+  4. Modeling linguistic differences across dialects and social contexts 
+  (Sociolinguistics).
+  5. Measuring linguistic behaviors in controlled experimental contexts 
+  (Psycholinguistics).
+  6. Observing how languages develop/coexist within speakers (Language 
+  Acquisition, Bilingualism).
+urls: 
+- https://linguistics.princeton.edu/certificate/
+contacts:
+- type: Director
+  name: Adam N. Elga
+  email: adame@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisite
+  max_counted: 1
+  min_needed: 1
+  explanation: |- 
+    The student should have taken (or should be taking) LIN 201/CGS 205 
+    ("Introduction to Language and Linguistics") prior to submitting an application 
+    (i.e., during or before the Fall semester of their sophomore year). This
+    prerequisite may be waived in special circumstances with the permission of
+    the Director of Undergraduate Studies; if waived, then the student is not
+    required to take a different course in place of LIN 201/CGS 205. In addition
+    to the prerequisite, any student planning to major in Linguistics is strongly
+    encouraged to complete at least one 300-level LIN course prior to the beginning
+    of their junior year.
+  course_list:
+  - LIN 201
+- name: Core
+  max_counted: 1
+  min_needed: 3
+  explanation: The student must take at least three of the following courses, on core linguistic theory
+  course_list:
+    - LIN 301
+    - LIN 302
+    - LIN 303
+    - PHI 334 / LIN 334
+    - LIN 306
+- name: Methodology
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    (a) The student must complete LIN 400 ("Junior Seminar") in the Fall semester of
+    their junior year.
+    (b) The student must also take one other methodology class and is strongly encouraged
+    to do so before their senior year. LIN 355 ("Field Methods in Linguistics") is offered
+    regularly, and is the primary way this requirement will be fulfilled. However, in some
+    cases, a different LIN-designated course (one that is not taught regularly, e.g., LIN 356,
+    "Experimental Linguistics") may serve to fulfill this requirement.
+  pdfs_allowed: 1
+  req_list:
+  - name: Junior Seminar
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+      - LIN 400
+  - name: Additional Methodology Course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - LIN 310
+    - LIN 355
+    - LIN 356
+- name: Electives
+  max_counted: 1
+  min_needed: 4
+  explanation: |-
+    The student must take four other LIN courses, at least three of them at the 300
+    level or above; the fourth must be at the 200 level or above. (In rare cases, a
+    linguistically-oriented course without a LIN designation can count as an elective,
+    with the case-by-case approval of the Director of Undergraduate Studies.) Topics
+    that are regularly offered include bilingualism, historical linguistics, advanced
+    phonology, advanced morphology, and advanced syntax, though this short list is meant
+    to be merely illustrative and students are by no means confined to it.
+  course_list:
+  - LIN 2*
+  - LIN 3*
+  - LIN 4*
+  - LIN 5*
+- name: Junior Paper
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+  
+    The student must complete both of the following research papers, on linguistic
+    topics: a Junior Paper (JP) and a Senior Thesis (ST). Each is due in the Spring
+    semester of the relevant year, on the respective University-set deadlines. Each
+    student is encouraged to begin conceptualizing ideas for their independent work
+    projects before the academic year when the project begins, through meetings with
+    LIN faculty. The JP includes a JP prospectus, to be completed in the Fall of junior
+    year, employing the skills concurrently being developed in LIN 400, "Junior Seminar."
+    The ST includes an ST prospectus, to be completed in the Fall of senior year, as well
+    as an ST defense in the Spring of senior year.
+
+    The JP and ST may be supervised by one of the two faculty members who serve as the
+    student's faculty advisors for the independent major, but need not be. Independent
+    work advisors are determined as soon as possible; for the JP, this will be by mid-way
+    through Fall semester of junior year, and for the ST this will be by week 2 of the
+    Fall semester of senior year.
+
+    Each work requires at least one advisor who is within LIN; this is defined as someone
+    who either: (a) is a LIN-appointed faculty member, or (b) has the rank of Visiting
+    Professor,  Associate Research Scholar, Postdoctoral Research Associate, or Lecturer,
+    with “Linguistics” in their title. If a student has an independent work advisor from
+    outside of LIN, they must also have a secondary advisor who is within LIN.
+  no_req:
+- name: Senior Thesis (ST)
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+  
+    The student must complete both of the following research papers, on linguistic
+    topics: a Junior Paper (JP) and a Senior Thesis (ST). Each is due in the Spring
+    semester of the relevant year, on the respective University-set deadlines. Each
+    student is encouraged to begin conceptualizing ideas for their independent work
+    projects before the academic year when the project begins, through meetings with
+    LIN faculty. The JP includes a JP prospectus, to be completed in the Fall of junior
+    year, employing the skills concurrently being developed in LIN 400, "Junior Seminar."
+    The ST includes an ST prospectus, to be completed in the Fall of senior year, as well
+    as an ST defense in the Spring of senior year.
+
+    The JP and ST may be supervised by one of the two faculty members who serve as the
+    student's faculty advisors for the independent major, but need not be. Independent
+    work advisors are determined as soon as possible; for the JP, this will be by mid-way
+    through Fall semester of junior year, and for the ST this will be by week 2 of the
+    Fall semester of senior year.
+
+    Each work requires at least one advisor who is within LIN; this is defined as someone
+    who either: (a) is a LIN-appointed faculty member, or (b) has the rank of Visiting
+    Professor,  Associate Research Scholar, Postdoctoral Research Associate, or Lecturer,
+    with “Linguistics” in their title. If a student has an independent work advisor from
+    outside of LIN, they must also have a secondary advisor who is within LIN.
+  no_req:
