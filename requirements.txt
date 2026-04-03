@@ -20,6 +20,7 @@ python-dotenv==0.21.1
 
 # Data scraping & processing
 requests==2.32.4
+cloudscraper==1.2.71
 beautifulsoup4==4.11.2
 lxml==4.9.4
 redis==5.0.8
