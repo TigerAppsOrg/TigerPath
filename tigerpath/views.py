@@ -3,6 +3,7 @@ import json
 import re
 import hashlib
 import time
+import copy
 
 import django_cas_ng.views
 from django.conf import settings
@@ -17,8 +18,9 @@ from django.contrib.auth.models import User
 from functools import wraps
 
 from . import forms, models, utils
-from .majors_and_certificates.scripts.university_info import LANG_DEPTS
+from .majors_and_certificates.scripts.university_info import CERTIFICATES, LANG_DEPTS
 from .majors_and_certificates.scripts.verifier import (
+    check_certificate,
     check_degree,
     check_major,
     get_courses_by_path,
@@ -28,6 +30,7 @@ SEARCH_RESULT_LIMIT = 200
 SEARCH_CACHE_TIMEOUT_SECONDS = 300
 SEARCH_CACHE_KEY_VERSION = "v1"
 SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
+DEFAULT_PLAN_NAME = "My Plan"
 
 
 # cas auth login
@@ -394,25 +397,316 @@ def populate_user_schedule(schedule):
     return schedule
 
 
+def ensure_minimum_schedule(schedule):
+    populated_schedule = populate_user_schedule(schedule) or []
+    while len(populated_schedule) < 9:
+        populated_schedule.append([])
+    return populated_schedule
+
+
+def get_active_plan(profile):
+    plans = profile.schedule_plans.order_by("id")
+    if not plans.exists():
+        created_plan = models.SchedulePlan.objects.create(
+            user_profile=profile,
+            name=DEFAULT_PLAN_NAME,
+            major=profile.major,
+            minors=[],
+            schedule=profile.user_schedule or [],
+        )
+        user_state = profile.user_state or {}
+        user_state["active_plan_id"] = created_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+        return created_plan
+
+    user_state = profile.user_state or {}
+    active_plan_id = user_state.get("active_plan_id")
+    active_plan = None
+    if active_plan_id:
+        active_plan = plans.filter(id=active_plan_id).first()
+    if not active_plan:
+        active_plan = plans.first()
+        user_state["active_plan_id"] = active_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+    return active_plan
+
+
+def serialize_plan(plan, active_plan_id):
+    # Include plan-specific academic metadata so the frontend can edit/render each scenario independently.
+    minor_names = []
+    for minor_code in plan.minors or []:
+        minor_name = CERTIFICATES.get(minor_code)
+        if minor_name:
+            minor_names.append(minor_name)
+
+    return {
+        "id": plan.id,
+        "name": plan.name,
+        "isActive": plan.id == active_plan_id,
+        "majorId": plan.major_id,
+        "majorName": plan.major.name if plan.major else None,
+        "minorCodes": plan.minors or [],
+        "minorNames": minor_names,
+    }
+
+
+def get_user_plans_payload(profile):
+    active_plan = get_active_plan(profile)
+    plans = [
+        serialize_plan(plan, active_plan.id)
+        for plan in profile.schedule_plans.order_by("id")
+    ]
+    return {
+        "plans": plans,
+        "activePlanId": active_plan.id,
+    }
+
+
+def parse_plan_id(raw_plan_id):
+    try:
+        return int(raw_plan_id)
+    except (TypeError, ValueError):
+        return None
+
+
+def parse_minor_codes(raw_minor_codes):
+    if raw_minor_codes is None:
+        return []
+
+    try:
+        parsed = json.loads(raw_minor_codes)
+    except (TypeError, json.JSONDecodeError):
+        return None
+
+    if not isinstance(parsed, list):
+        return None
+
+    certificate_codes = {code for code in CERTIFICATES if code}
+    cleaned_codes = []
+    for value in parsed:
+        code = str(value).strip().upper()
+        if not code:
+            continue
+        if code in certificate_codes and code not in cleaned_codes:
+            cleaned_codes.append(code)
+
+    return cleaned_codes
+
+
+def serialize_plan_editor_options():
+    # Frontend modal uses these precomputed option lists for its major and minor selectors.
+    major_options = [
+        {
+            "id": major.id,
+            "name": major.name,
+            "code": major.code,
+            "degree": major.degree,
+        }
+        for major in models.Major.objects.order_by("name")
+    ]
+    minor_options = [
+        {
+            "code": code,
+            "name": name,
+        }
+        for code, name in sorted(CERTIFICATES.items(), key=lambda item: item[1])
+        if code and name
+    ]
+    return {
+        "majorOptions": major_options,
+        "minorOptions": minor_options,
+    }
+
+
+@login_required
+def get_plans(request):
+    return JsonResponse(get_user_plans_payload(request.user.profile))
+
+
+@login_required
+def create_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+
+    plan_count = profile.schedule_plans.count()
+    name = (request.POST.get("name") or "").strip() or f"Plan {plan_count + 1}"
+    # Creating a plan starts a fresh schedule, but inherits current plan metadata as a starting scenario.
+    created_plan = models.SchedulePlan.objects.create(
+        user_profile=profile,
+        name=name,
+        major=active_plan.major,
+        minors=active_plan.minors or [],
+        schedule=[],
+    )
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = created_plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def copy_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    source_plan_id = parse_plan_id(request.POST.get("sourcePlanId"))
+    source_plan = active_plan
+    if source_plan_id:
+        source_plan = profile.schedule_plans.filter(id=source_plan_id).first()
+        if not source_plan:
+            return JsonResponse({"error": "Source plan not found"}, status=404)
+
+    default_copy_name = f"{source_plan.name} Copy"
+    name = (request.POST.get("name") or "").strip() or default_copy_name
+    copied_schedule = copy.deepcopy(source_plan.schedule or [])
+    # Copy preserves both classes and academic metadata for quick what-if planning.
+    created_plan = models.SchedulePlan.objects.create(
+        user_profile=profile,
+        name=name,
+        major=source_plan.major,
+        minors=source_plan.minors or [],
+        schedule=copied_schedule,
+    )
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = created_plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def rename_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    name = (request.POST.get("name") or "").strip()
+    if not name:
+        return JsonResponse({"error": "Plan name is required"}, status=400)
+
+    plan.name = name
+    plan.save(update_fields=["name", "updated_at"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def delete_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plans = profile.schedule_plans.order_by("id")
+    if plans.count() <= 1:
+        return JsonResponse(
+            {"error": "At least one plan is required"},
+            status=400,
+        )
+
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    active_plan = get_active_plan(profile)
+    if active_plan.id == plan.id:
+        replacement_plan = plans.exclude(id=plan.id).first()
+        user_state = profile.user_state or {}
+        user_state["active_plan_id"] = replacement_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+
+    plan.delete()
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def set_active_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def get_plan_editor_options(request):
+    return JsonResponse(serialize_plan_editor_options())
+
+
+@login_required
+def update_plan_settings(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    name = (request.POST.get("name") or "").strip()
+    if not name:
+        return JsonResponse({"error": "Plan name is required"}, status=400)
+
+    major_id = parse_plan_id(request.POST.get("majorId"))
+    major = None
+    if major_id is not None:
+        major = models.Major.objects.filter(id=major_id).first()
+        if not major:
+            return JsonResponse({"error": "Major not found"}, status=404)
+
+    minor_codes = parse_minor_codes(request.POST.get("minorCodes"))
+    if minor_codes is None:
+        return JsonResponse({"error": "Invalid minor selections"}, status=400)
+
+    # Title, major, and minors are saved together so the popup behaves like a single form.
+    plan.name = name
+    plan.major = major
+    plan.minors = minor_codes
+    plan.save(update_fields=["name", "major", "minors", "updated_at"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
-    current_user = request.user.profile
-    current_user.user_schedule = json.loads(request.POST.get("schedule", "[]"))
-    current_user.save()
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    active_plan.schedule = json.loads(request.POST.get("schedule", "[]"))
+    active_plan.save(update_fields=["schedule", "updated_at"])
     return JsonResponse({"status": "ok"})
 
 
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule) or []
-
-    # make sure that the schedule has 9 semesters
-    while len(schedule) < 9:
-        schedule.append([])
-
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    schedule = ensure_minimum_schedule(active_plan.schedule)
     return JsonResponse(schedule, safe=False)
 
 
@@ -420,16 +714,25 @@ def get_schedule(request):
 @login_required
 def get_requirements(request):
     curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule)
+    active_plan = get_active_plan(curr_user)
+    schedule = populate_user_schedule(active_plan.schedule)
 
     requirements = []
-    if curr_user.major:
-        if curr_user.major.supported:
-            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
+    effective_major = active_plan.major or curr_user.major
+    # Requirement progress now follows the active plan's academic settings rather than only the profile default.
+    if effective_major:
+        if effective_major.supported:
+            requirements.append(check_major(effective_major.code, schedule, curr_user.year))
         else:
             # appends user major name so we can display error message
-            requirements.append(curr_user.major.name)
-        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
+            requirements.append(effective_major.name)
+        requirements.append(check_degree(effective_major.degree, schedule, curr_user.year))
+
+    for minor_code in active_plan.minors or []:
+        try:
+            requirements.append(check_certificate(minor_code, schedule, curr_user.year))
+        except ValueError:
+            continue
 
     return JsonResponse(requirements, safe=False)
 
@@ -445,6 +748,7 @@ def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
+    profile["activePlanId"] = get_active_plan(curr_user).id
     return JsonResponse(profile)
 
 def admin_required(view_func):

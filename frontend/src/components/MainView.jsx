@@ -1,100 +1,52 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import Schedule from 'components/Schedule';
-import ExternalCreditsView from 'components/ExternalCreditsView';
+import PlanHeader from 'components/PlanHeader';
 
-const Content = styled.div`
-  height: calc(100vh - 98px);
-`;
-
-const Nav = styled.div`
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  border: 2px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 2px;
-  width: min(100%, 540px);
-  margin: 5px auto;
-
-  @media print {
-    display: none;
-  }
-`;
-
-const NavButton = styled.button`
-  ${({ theme, $active }) => css`
-    flex: 1;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    background: white;
-    color: ${theme.darkGreyText};
-
-    webkit-transition: all 0.15s ease-in-out;
-    -moz-transition: all 0.15s ease-in-out;
-    -o-transition: all 0.15s ease-in-out;
-    transition: all 0.15s ease-in-out;
-
-    ${$active &&
-    `
-      background: ${theme.lightGrey};
-      color: white;
-    `};
-
-    &:hover {
-      background: ${theme.darkGrey};
-      color: white;
-    }
-
-    &:focus {
-      outline: none;
-    }
-  `}
-`;
-
-const TABS = Object.freeze({
-  SCHEDULE_TAB: Symbol('schedule'),
-  EXTERNAL_CREDITS_TAB: Symbol('externalCredits'),
+export const MAIN_VIEW_TABS = Object.freeze({
+  SCHEDULE_TAB: 'schedule',
 });
 
-export default function MainView({ onChange, profile, schedule, requirements }) {
-  const [currentTab, setCurrentTab] = useState(TABS.SCHEDULE_TAB);
+const Content = styled.div`
+  height: calc(100vh - 130px);
+`;
 
-  let scheduleTabActive = currentTab === TABS.SCHEDULE_TAB;
-  let externalCreditsTabActive = currentTab === TABS.EXTERNAL_CREDITS_TAB;
-
+export default function MainView({
+  onChange,
+  profile,
+  schedule,
+  plans,
+  activePlanId,
+  onSetActivePlan,
+  onCreatePlan,
+  onRenamePlan,
+  onUpdatePlanSettings,
+  onCopyPlan,
+  onDeletePlan,
+  planEditorOptions,
+}) {
   return (
     <>
-      <Nav id="main-view-tabs">
-        <NavButton
-          $active={scheduleTabActive}
-          onClick={() => setCurrentTab(TABS.SCHEDULE_TAB)}
-        >
-          Schedule
-        </NavButton>
-        <NavButton
-          $active={externalCreditsTabActive}
-          onClick={() => setCurrentTab(TABS.EXTERNAL_CREDITS_TAB)}
-        >
-          AP/External Credits
-        </NavButton>
-      </Nav>
+      {/* Top multi-plan bar replaces the previous second-page/tabbed plan management view. */}
+      <PlanHeader
+        plans={plans}
+        activePlanId={activePlanId}
+        onSetActivePlan={onSetActivePlan}
+        onCreatePlan={onCreatePlan}
+        onRenamePlan={onRenamePlan}
+        // The header owns the multi-plan rail and the centered edit popup workflow.
+        onUpdatePlanSettings={onUpdatePlanSettings}
+        onCopyPlan={onCopyPlan}
+        onDeletePlan={onDeletePlan}
+        planEditorOptions={planEditorOptions}
+      />
       <Content>
-        {scheduleTabActive && (
-          <Schedule
-            onChange={onChange}
-            profile={profile}
-            schedule={schedule}
-          />
-        )}
-        {externalCreditsTabActive && (
-          <ExternalCreditsView
-            onChange={onChange}
-            profile={profile}
-            schedule={schedule}
-            requirements={requirements}
-          />
-        )}
+        {/* Core scheduling UI always stays visible on this page. */}
+        <Schedule
+          onChange={onChange}
+          profile={profile}
+          schedule={schedule}
+        />
       </Content>
     </>
   );

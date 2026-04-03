@@ -28,7 +28,6 @@ export default function Schedule({ onChange, profile, schedule }) {
       apiFetch('/api/v1/get_schedule/')
         .then((data) => {
           if (data) onChange('schedule', data);
-          addPopovers(data);
         })
         .catch(() => {
           onChange(
@@ -36,10 +35,8 @@ export default function Schedule({ onChange, profile, schedule }) {
             DEFAULT_SCHEDULE.map((semester) => semester.slice())
           );
         });
-    } else {
-      addPopovers(schedule);
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [schedule, onChange]);
 
   useEffect(() => {
     if (schedule) {

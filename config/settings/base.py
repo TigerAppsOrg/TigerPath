@@ -100,8 +100,10 @@ DATABASES["default"] = dj_database_url.config(
 )
 if DATABASES.get("default"):
     DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
-    DATABASES["default"].setdefault("OPTIONS", {})
-    DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
+    # SQLite does not accept PostgreSQL connection options like `connect_timeout`.
+    if DATABASES["default"].get("ENGINE") != "django.db.backends.sqlite3":
+        DATABASES["default"].setdefault("OPTIONS", {})
+        DATABASES["default"]["OPTIONS"].setdefault("connect_timeout", 5)
 
 
 # Caching
