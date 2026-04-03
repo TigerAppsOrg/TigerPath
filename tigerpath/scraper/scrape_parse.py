@@ -1,13 +1,17 @@
 """
-Scrapes OIT's Web Feeds to add courses and sections to database.
-Procedure:
-- Get list of departments (3-letter department codes)
-- Get data from MobileApp/StudentApp API provided by OIT
-- Parse it for courses, sections, and lecture times (as recurring events)
+scrape_parse.py
+Fetches and parses Princeton course data from the Registrar front-end API.
+Replaces the deprecated OIT MobileApp/StudentApp API.
 """
 
-from tigerpath.majors_and_certificates.scripts.university_info import DEPTS
-from tigerpath.scraper.mobileapp import MobileApp
+from concurrent.futures import ThreadPoolExecutor
+
+from tigerpath.scraper.scrape_registrar import (
+    get_api_base_url,
+    get_course_ids_for_term,
+    get_full_course_details,
+    get_registrar_token,
+)
 
 
 class ParseError(Exception):
@@ -18,184 +22,179 @@ class ParseError(Exception):
         return repr(self.value)
 
 
+def _semester_from_term_code(term_code):
+    """
+    Derive semester start/end dates from a Princeton 4-digit term code.
+
+    Term code format: 1{AA}{S}
+      AA  = 2-digit academic-year-end (e.g. 26 for the 2025-26 academic year)
+      S   = 2 (Fall) or 4 (Spring)
+
+    Examples:
+      1262 → Fall 2025  (2025-26 Fall)   → Sep 1 2025 – Jan 15 2026
+      1264 → Spring 2026 (2025-26 Spring) → Feb 1 2026 – Jun 15 2026
+    """
+    tc = str(term_code)
+    aa = int(tc[1:3])
+    season = tc[3]
+    if season == "4":  # Spring
+        cal_year = 2000 + aa
+        return {
+            "term_code": tc,
+            "start_date": f"{cal_year}-02-01",
+            "end_date": f"{cal_year}-06-15",
+        }
+    else:  # Fall
+        cal_year = 2000 + aa - 1
+        return {
+            "term_code": tc,
+            "start_date": f"{cal_year}-09-01",
+            "end_date": f"{cal_year + 1}-01-15",
+        }
+
+
+def _parse_crosslistings(crosslistings_str, primary_subject, primary_catnum):
+    """
+    Parse a crosslistings string like "CEE 520 / COS 520 / SML 520" into
+    a list of {"dept": str, "code": str, "is_primary": bool} dicts.
+    """
+    primary_code = (primary_catnum or "").strip()
+    primary_subject = (primary_subject or "").strip()
+
+    if not crosslistings_str:
+        if primary_subject and primary_code:
+            return [{"dept": primary_subject, "code": primary_code, "is_primary": True}]
+        return []
+
+    listings = []
+    primary_found = False
+    for part in crosslistings_str.split(" / "):
+        tokens = part.strip().split()
+        if len(tokens) < 2:
+            continue
+        dept = tokens[0].strip()
+        code = tokens[-1].strip()
+        if not dept or not code:
+            continue
+        is_primary = dept == primary_subject and code == primary_code
+        if is_primary:
+            primary_found = True
+        listings.append({"dept": dept, "code": code, "is_primary": is_primary})
+
+    if not primary_found and primary_subject and primary_code:
+        listings.append({"dept": primary_subject, "code": primary_code, "is_primary": True})
+
+    return listings
+
+
+def _parse_course(details, semester, term_code):
+    """Build a TigerPath course dict from a get_full_course_details() result."""
+    title = (details.get("title") or "").strip()
+    if not title:
+        return None
+
+    course_id = details["course_id"]
+    guid = term_code + course_id
+
+    crosslistings = _parse_crosslistings(
+        details.get("crosslistings", ""),
+        details.get("subject", ""),
+        details.get("catnum", ""),
+    )
+    if not crosslistings:
+        return None
+
+    professors = [
+        {"full_name": i["full_name"]}
+        for i in details.get("instructors", [])
+        if i.get("full_name")
+    ]
+
+    return {
+        "title": title,
+        "guid": guid,
+        "distribution_area": details.get("distribution_area", ""),
+        "description": details.get("description") or "",
+        "semester": semester,
+        "professors": professors,
+        "course_listings": crosslistings,
+        "sections": details.get("sections", []),
+    }
+
+
 def scrape_parse_semester(term_code):
-    TERM_CODE = term_code
+    TERM_CODE = str(term_code)
+    semester = _semester_from_term_code(TERM_CODE)
 
-    CURRENT_SEMESTER = [""]
+    print("[scrape] Fetching registrar token and API base URL...", flush=True)
+    token = get_registrar_token()
+    api_base_url = get_api_base_url()
+    print(
+        f"[scrape] Token obtained. Fetching course IDs for term {TERM_CODE}...",
+        flush=True,
+    )
 
-    def get_text(key, object, fail_ok=False):
-        found = object.get(key)
-        if fail_ok and found is None:
-            return found
-        elif found is None:
-            ParseError("key " + key + " does not exist")
-            return ""
-        else:
-            return found
-
-    def get_current_semester(data):
-        """get semester according to TERM_CODE"""
-        if not CURRENT_SEMESTER[0]:
-            term = data["term"][0]
-            CURRENT_SEMESTER[0] = {
-                "start_date": get_text("start_date", term),
-                "end_date": get_text("end_date", term),
-                "term_code": str(TERM_CODE),
-            }
-        return CURRENT_SEMESTER[0]
-
-    def scrape_all():
-        """scrape all events from Princeton's course webfeed"""
-        departments = ",".join(list(DEPTS.keys()))
+    course_ids = get_course_ids_for_term(TERM_CODE, token, api_base_url)
+    if not course_ids:
         print(
-            f"[scrape] Requesting course list for term {TERM_CODE} across {len(DEPTS)} departments...",
+            f"[scrape] No courses found for term {TERM_CODE} in the registrar API "
+            "(this is expected for historical terms not yet in the system).",
             flush=True,
         )
-        return scrape(departments)
+        return []
 
-    # goes through the listings for this department
-    def scrape(department):
-        """Scrape all events listed under department"""
-        data = MobileApp().get_courses(term=TERM_CODE, subject=department)
-        if data["term"][0].get("subjects") is None:
-            print("Empty MobileApp response")
-            return []
-        subjects = data["term"][0]["subjects"]
-        total_courses = sum(len(subject.get("courses", [])) for subject in subjects)
-        print(
-            f"[scrape] Received {len(subjects)} subjects and {total_courses} courses. Parsing course details...",
-            flush=True,
-        )
+    total = len(course_ids)
+    print(
+        f"[scrape] Found {total} unique courses. Fetching course details...",
+        flush=True,
+    )
 
-        parsed_courses = []
-        processed_count = 0
-        failed_count = 0
-        progress_every = 25
-        for subject in subjects:
-            subject_code = subject.get("code", "<unknown>")
-            for course in subject.get("courses", []):
-                course_id = course.get("course_id", "<unknown>")
-                try:
-                    x = parse_course(data, course, subject)
-                    if x is not None:
-                        parsed_courses.append(x)
-                except Exception as exc:
-                    failed_count += 1
-                    print(
-                        f"[scrape][warn] Failed parsing subject={subject_code} course_id={course_id}: {exc}",
-                        flush=True,
-                    )
+    def _fetch(cid):
+        try:
+            return cid, get_full_course_details(TERM_CODE, cid, token)
+        except Exception as exc:
+            print(
+                f"[scrape][warn] course-details failed for course_id={cid}: {exc}",
+                flush=True,
+            )
+            return cid, None
 
-                processed_count += 1
-                if processed_count % progress_every == 0 or processed_count == total_courses:
-                    print(
-                        "[scrape] Processed "
-                        f"{processed_count}/{total_courses} courses "
-                        f"(parsed={len(parsed_courses)}, failed={failed_count}, latest subject: {subject_code})",
-                        flush=True,
-                    )
+    details_by_id = {}
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        for cid, details in executor.map(lambda c: _fetch(c), course_ids):
+            details_by_id[cid] = details
 
-        if failed_count > 0:
-            print(f"[scrape] Completed with {failed_count} parse failures", flush=True)
+    fetched_ok = sum(1 for v in details_by_id.values() if v is not None)
+    print(
+        f"[scrape] Fetched details for {fetched_ok}/{total} courses. Parsing...",
+        flush=True,
+    )
 
-        return parsed_courses
+    parsed_courses = []
+    failed = 0
+    for i, course_id in enumerate(course_ids, start=1):
+        details = details_by_id.get(course_id)
+        if details is None:
+            failed += 1
+            continue
+        try:
+            course = _parse_course(details, semester, TERM_CODE)
+            if course is not None:
+                parsed_courses.append(course)
+            else:
+                failed += 1
+        except Exception as exc:
+            failed += 1
+            print(
+                f"[scrape][warn] Failed parsing course_id={course_id}: {exc}",
+                flush=True,
+            )
 
-    def none_to_empty(text):
-        if text is None:
-            return ""
-        else:
-            return text
+        if i % 100 == 0 or i == total:
+            print(
+                f"[scrape] Parsed {i}/{total} "
+                f"(ok={len(parsed_courses)}, failed={failed})",
+                flush=True,
+            )
 
-    def none_to_empty_list(x):
-        if x is None:
-            return []
-        else:
-            return x
-
-    # Parse it for courses, sections, and lecture times (as recurring events)
-    # If the course with this ID exists in the database, we update the course
-    # Otherwise, create new course with the information
-    def parse_course(data, course, subject):
-        """create a course with basic information."""
-        course_detail = course.get("detail") or {}
-        distribution_area = none_to_empty(
-            course_detail.get("distribution_area_short")
-            or course_detail.get("distribution_area")
-            or course.get("distribution_area_short")
-            or course.get("distribution_area")
-        )
-        distribution_area = ",".join(distribution_area.split(" or "))
-
-        return {
-            "title": none_to_empty(course.get("title")),
-            "guid": none_to_empty(course.get("guid")),
-            "distribution_area": distribution_area,
-            "description": none_to_empty(course_detail.get("description")),
-            "semester": get_current_semester(data),
-            "professors": [parse_prof(x) for x in none_to_empty_list(course.get("instructors"))],
-            "course_listings": parse_listings(course, subject),
-            "sections": [parse_section(x) for x in none_to_empty_list(course.get("classes"))],
-        }
-
-    # may decide to make this function for just one prof/listing/section, then
-    # do a map
-    def parse_prof(prof):
-        return {"full_name": none_to_empty(prof.get("full_name"))}
-
-    def parse_listings(course, subject):
-        def parse_cross_listing(cross_listing):
-            return {
-                "dept": none_to_empty(cross_listing.get("subject")),
-                "code": none_to_empty(cross_listing.get("catalog_number")),
-                "is_primary": False,
-            }
-
-        cross_listings = [
-            parse_cross_listing(x) for x in none_to_empty_list(course.get("crosslistings"))
-        ]
-        primary_listing = {
-            "dept": get_text("code", subject),
-            "code": none_to_empty(course.get("catalog_number")),
-            "is_primary": True,
-        }
-        return cross_listings + [primary_listing]
-
-    def parse_section(section):
-        def parse_meeting(meeting):
-            def get_days(meeting):
-                days = ""
-                for day in meeting.get("days", []):
-                    days += day + " "
-                return days[:10]
-
-            def get_location(meeting):
-                building = none_to_empty((meeting.get("building") or {}).get("name"))
-                room = none_to_empty(meeting.get("room"))
-                if building and room:
-                    return building + " " + room
-                return building or room
-
-            # the times are in the format:
-            # HH:MM AM/PM
-            return {
-                "start_time": "01:00 AM" if "start_time" not in meeting else meeting["start_time"],
-                "end_time": "01:00 AM" if "end_time" not in meeting else meeting["end_time"],
-                "days": get_days(meeting),
-                "location": get_location(meeting),
-            }
-
-        # NOTE: section.find('schedule') doesn't seem to be used
-        meetings = None
-        schedule = section.get("schedule")
-        if schedule is not None:
-            meetings = schedule.get("meetings")
-        return {
-            "registrar_id": get_text("class_number", section),
-            "name": get_text("section", section),
-            "type": get_text("type_name", section)[0:3].upper(),
-            "capacity": get_text("capacity", section),
-            "enrollment": get_text("enrollment", section),
-            "meetings": [parse_meeting(x) for x in none_to_empty_list(meetings)],
-        }
-
-    return scrape_all()
+    return parsed_courses

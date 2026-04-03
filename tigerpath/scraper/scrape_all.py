@@ -23,10 +23,12 @@ def get_all_courses():
             courses = scrape_parse.scrape_parse_semester(term_code)
             print(f"Finished scraping/parsing {len(courses)} courses", flush=True)
             if len(courses) == 0:
-                raise RuntimeError(
-                    "Parsed zero courses from API response. "
-                    "Check scraper warnings above for malformed records or API payload changes."
+                print(
+                    f"[warn] Zero courses returned for term {term_code}. "
+                    "Skipping (historical term not in registrar API, or API payload change).",
+                    flush=True,
                 )
+                continue
 
             print("Validating courses", flush=True)
             total_courses = len(courses)
