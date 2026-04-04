@@ -139,7 +139,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
                         color: details.quality_rating != null ? 'white' : '#777',
                       }}
                     >
-                      {details.quality_rating ?? 'N/A'}
+                      {details.quality_rating != null ? details.quality_rating.toFixed(2) : 'N/A'}
                     </span>
                   </div>
 
@@ -173,7 +173,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
                                       color: offering.rating != null ? 'white' : '#777',
                                     }}
                                   >
-                                    {offering.rating ?? 'N/A'}
+                                    {offering.rating != null ? offering.rating.toFixed(2) : 'N/A'}
                                   </span>
                                 </td>
                               </tr>
