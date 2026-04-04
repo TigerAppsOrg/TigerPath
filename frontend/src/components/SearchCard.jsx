@@ -84,51 +84,30 @@ export default function SearchCard({ course, courseKey, index: courseIndex, onSe
       onClick={() => onSelect && onSelect(course)}
       style={{ cursor: 'pointer' }}
     >
-      <>
-        <SearchCourseCard
-          course={course}
-          courseKey={courseKey}
-          courseIndex={courseIndex}
-        />
-        <div className="search-card-info">
-          <div>
-            <div className="course-title">{course['title']}</div>
-            {/* <div className="course-prev-sems">{`Previously offered in ${prevOfferedSemList}`}</div> */}
-          </div>
-          <div className="search-card-links" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            {qualityRating != null && (
-              <span
-                className="search-card-rating"
-                style={{
-                  background: getRatingColor(qualityRating),
-                  color: 'white',
-                  borderRadius: '3px',
-                  padding: '1px 5px',
-                  fontSize: '11px',
-                  fontWeight: 'bold',
-                  lineHeight: '1.6',
-                }}
-              >
-                {qualityRating}
-              </span>
-            )}
-            <button
-              className="search-card-info-btn"
-              title="View course details"
-              onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
-              style={{
-                background: 'none',
-                border: 'none',
-                padding: 0,
-                cursor: 'pointer',
-                color: 'inherit',
-              }}
-            >
-              <i className="fas fa-info-circle fa-lg fa-fw course-info" />
-            </button>
-          </div>
-        </div>
-      </>
+      <SearchCourseCard
+        course={course}
+        courseKey={courseKey}
+        courseIndex={courseIndex}
+        qualityRating={qualityRating}
+        ratingColor={getRatingColor(qualityRating)}
+      />
+      <div className="search-card-info">
+        <div className="course-title">{course['title']}</div>
+        <button
+          className="search-card-info-btn"
+          title="View course details"
+          onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
+          style={{
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            cursor: 'pointer',
+            color: 'inherit',
+          }}
+        >
+          <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+        </button>
+      </div>
     </div>
   );
 }
