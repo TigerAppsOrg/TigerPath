@@ -14,7 +14,7 @@
         </div>
         <div id="page-2" class="hidden animated">
           <h6>Confirm your info</h6>
-          <p>Please confirm your class year and major (or the major you're planning on declaring).</p>
+          <p>Please confirm your class year.</p>
           <form method="post" action="{% url 'save_onboarding' %}" id="onboarding-form">
             {% csrf_token %}
             {% include 'includes/bs4_form.html' with form=onboarding_form %}

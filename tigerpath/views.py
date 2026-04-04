@@ -4,6 +4,7 @@ import re
 import hashlib
 import time
 import copy
+import pathlib
 
 import django_cas_ng.views
 from django.conf import settings
@@ -33,6 +34,16 @@ SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
 DEFAULT_PLAN_NAME = "My Plan"
 
 
+def get_supported_certificate_codes():
+    certificates_dir = pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
+    if not certificates_dir.exists():
+        return set()
+
+    available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
+    certificate_catalog_codes = {code for code in CERTIFICATES if code}
+    return available_codes.intersection(certificate_catalog_codes)
+
+
 # cas auth login
 @csrf_exempt
 def login(request):
@@ -60,10 +71,8 @@ def index(request):
 
         # check user state
         user_state = instance.user_state or {}
-        has_major_options = models.Major.objects.exists()
         needs_year = instance.year is None
-        needs_major = has_major_options and not instance.major
-        needs_onboarding = needs_year or needs_major
+        needs_onboarding = needs_year
 
         if needs_onboarding:
             # Always collect missing profile basics before showing the planner UI.
@@ -81,19 +90,14 @@ def index(request):
             instance.user_state = user_state
             instance.save(update_fields=["user_state"])
 
-        # Pre-compute requirements so the right sidebar renders instantly
+        # Pre-compute requirements so the right sidebar renders instantly.
+        # Requirements should always come from the active plan's major/minors settings.
         preloaded_requirements = []
-        if instance.major and instance.major.supported and instance.year:
-            schedule = populate_user_schedule(instance.user_schedule)
-            try:
-                preloaded_requirements.append(
-                    check_major(instance.major.code, schedule, instance.year)
-                )
-                preloaded_requirements.append(
-                    check_degree(instance.major.degree, schedule, instance.year)
-                )
-            except Exception:
-                preloaded_requirements = []
+        active_plan = get_active_plan(instance)
+        try:
+            preloaded_requirements = build_requirements_for_plan(instance, active_plan)
+        except Exception:
+            preloaded_requirements = []
         context["preloaded_requirements_json"] = json.dumps(preloaded_requirements)
         return render(request, "tigerpath/index.html", context)
     else:
@@ -403,6 +407,35 @@ def ensure_minimum_schedule(schedule):
         populated_schedule.append([])
     return populated_schedule
 
+def build_requirements_for_plan(profile, plan):
+    if not profile.year:
+        return []
+
+    schedule = populate_user_schedule(plan.schedule)
+    requirements = []
+
+    if plan.major:
+        if plan.major.supported:
+            try:
+                requirements.append(check_major(plan.major.code, schedule, profile.year))
+            except Exception:
+                requirements.append(plan.major.name)
+        else:
+            # appends user major name so we can display error message
+            requirements.append(plan.major.name)
+        try:
+            requirements.append(check_degree(plan.major.degree, schedule, profile.year))
+        except Exception:
+            pass
+
+    for minor_code in plan.minors or []:
+        try:
+            requirements.append(check_certificate(minor_code, schedule, profile.year))
+        except ValueError:
+            continue
+
+    return requirements
+
 
 def get_active_plan(profile):
     plans = profile.schedule_plans.order_by("id")
@@ -483,7 +516,7 @@ def parse_minor_codes(raw_minor_codes):
     if not isinstance(parsed, list):
         return None
 
-    certificate_codes = {code for code in CERTIFICATES if code}
+    certificate_codes = get_supported_certificate_codes()
     cleaned_codes = []
     for value in parsed:
         code = str(value).strip().upper()
@@ -506,13 +539,14 @@ def serialize_plan_editor_options():
         }
         for major in models.Major.objects.order_by("name")
     ]
+    supported_certificate_codes = get_supported_certificate_codes()
     minor_options = [
         {
             "code": code,
             "name": name,
         }
         for code, name in sorted(CERTIFICATES.items(), key=lambda item: item[1])
-        if code and name
+        if code and name and code in supported_certificate_codes
     ]
     return {
         "majorOptions": major_options,
@@ -715,25 +749,7 @@ def get_schedule(request):
 def get_requirements(request):
     curr_user = request.user.profile
     active_plan = get_active_plan(curr_user)
-    schedule = populate_user_schedule(active_plan.schedule)
-
-    requirements = []
-    effective_major = active_plan.major or curr_user.major
-    # Requirement progress now follows the active plan's academic settings rather than only the profile default.
-    if effective_major:
-        if effective_major.supported:
-            requirements.append(check_major(effective_major.code, schedule, curr_user.year))
-        else:
-            # appends user major name so we can display error message
-            requirements.append(effective_major.name)
-        requirements.append(check_degree(effective_major.degree, schedule, curr_user.year))
-
-    for minor_code in active_plan.minors or []:
-        try:
-            requirements.append(check_certificate(minor_code, schedule, curr_user.year))
-        except ValueError:
-            continue
-
+    requirements = build_requirements_for_plan(curr_user, active_plan)
     return JsonResponse(requirements, safe=False)
 
 

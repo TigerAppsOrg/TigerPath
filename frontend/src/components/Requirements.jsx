@@ -403,7 +403,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
       )}
       {requirements && requirements.length === 0 && (
         <p className="text-muted p-2 mb-0">
-          Set your major in Settings to see requirement progress.
+          Set a major in this plan’s edit popup to see requirement progress.
         </p>
       )}
       {requirements && requirements.length > 0 && renderRequirements()}

@@ -1,10 +1,12 @@
 import json
+import pathlib
 
 from django.contrib.auth.models import User
 from django.test import TestCase
 
 from tigerpath import forms
 from tigerpath.models import Major, SchedulePlan, UserProfile
+from tigerpath.majors_and_certificates.scripts.university_info import CERTIFICATES
 
 
 class UserProfileSignalTest(TestCase):
@@ -84,6 +86,17 @@ class OnboardingFlowTest(TestCase):
         profile = self.user.profile
         profile.refresh_from_db()
         self.assertTrue(profile.user_state["onboarding_complete"])
+
+    def test_index_does_not_require_major_for_onboarding_when_year_exists(self):
+        Major.objects.create(name="Computer Science", code="COS", degree="AB", supported=True)
+        profile = self.user.profile
+        profile.year = forms.create_year_choices()[0][0]
+        profile.major = None
+        profile.user_state = {"onboarding_complete": False}
+        profile.save(update_fields=["year", "major", "user_state"])
+
+        response = self.client.get("/")
+        self.assertNotContains(response, 'id="onboarding-modal"')
 
 
 class SchedulePlanApiTest(TestCase):
@@ -173,6 +186,14 @@ class SchedulePlanApiTest(TestCase):
             supported=True,
         )
 
+        certificates_dir = (
+            pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
+        )
+        available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
+        catalog_codes = {code for code in CERTIFICATES if code}
+        supported_codes = sorted(available_codes.intersection(catalog_codes))
+        selected_minor_codes = supported_codes[:1]
+
         options_response = self.client.get("/api/v1/get_plan_editor_options/")
         self.assertEqual(options_response.status_code, 200)
         options_payload = options_response.json()
@@ -188,7 +209,7 @@ class SchedulePlanApiTest(TestCase):
                 "planId": self.default_plan.id,
                 "name": "Econ Path",
                 "majorId": major.id,
-                "minorCodes": json.dumps(["SML"]),
+                "minorCodes": json.dumps(selected_minor_codes),
             },
         )
         self.assertEqual(update_response.status_code, 200)
@@ -196,7 +217,22 @@ class SchedulePlanApiTest(TestCase):
         self.default_plan.refresh_from_db()
         self.assertEqual(self.default_plan.name, "Econ Path")
         self.assertEqual(self.default_plan.major_id, major.id)
-        self.assertEqual(self.default_plan.minors, ["SML"])
+        self.assertEqual(self.default_plan.minors, selected_minor_codes)
+
+    def test_plan_editor_minor_options_only_include_supported_certificates(self):
+        response = self.client.get("/api/v1/get_plan_editor_options/")
+        self.assertEqual(response.status_code, 200)
+        payload = response.json()
+
+        certificates_dir = (
+            pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
+        )
+        available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
+        catalog_codes = {code for code in CERTIFICATES if code}
+        supported_codes = available_codes.intersection(catalog_codes)
+
+        option_codes = {option["code"] for option in payload.get("minorOptions", [])}
+        self.assertEqual(option_codes, supported_codes)
 
     def test_set_active_plan_and_update_schedule_are_plan_specific(self):
         second_plan = SchedulePlan.objects.create(
@@ -247,3 +283,51 @@ class SchedulePlanApiTest(TestCase):
         self.default_plan.refresh_from_db()
         self.assertEqual(second_plan.schedule, updated_schedule)
         self.assertNotEqual(self.default_plan.schedule, updated_schedule)
+
+    def test_requirements_use_active_plan_major_not_profile_major(self):
+        profile_major = Major.objects.create(
+            name="Profile Major",
+            code="PMJ",
+            degree="AB",
+            supported=False,
+        )
+
+        self.profile.year = forms.create_year_choices()[0][0]
+        self.profile.major = profile_major
+        self.profile.save(update_fields=["year", "major"])
+
+        self.default_plan.major = None
+        self.default_plan.minors = []
+        self.default_plan.save(update_fields=["major", "minors", "updated_at"])
+
+        response_without_plan_major = self.client.get("/api/v1/get_requirements/")
+        self.assertEqual(response_without_plan_major.status_code, 200)
+        self.assertEqual(response_without_plan_major.json(), [])
+
+        self.default_plan.major = profile_major
+        self.default_plan.save(update_fields=["major", "updated_at"])
+
+        response_with_plan_major = self.client.get("/api/v1/get_requirements/")
+        self.assertEqual(response_with_plan_major.status_code, 200)
+        requirements_payload = response_with_plan_major.json()
+        self.assertGreaterEqual(len(requirements_payload), 2)
+        self.assertEqual(requirements_payload[0], "Profile Major")
+
+    def test_requirements_returns_empty_when_year_missing(self):
+        major = Major.objects.create(
+            name="Economics",
+            code="ECO",
+            degree="AB",
+            supported=True,
+        )
+
+        self.profile.year = None
+        self.profile.save(update_fields=["year"])
+
+        self.default_plan.major = major
+        self.default_plan.minors = []
+        self.default_plan.save(update_fields=["major", "minors", "updated_at"])
+
+        response = self.client.get("/api/v1/get_requirements/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), [])

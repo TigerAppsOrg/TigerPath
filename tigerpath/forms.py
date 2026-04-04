@@ -34,14 +34,10 @@ def configure_major_field(field):
 
 
 class OnboardingForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(OnboardingForm, self).__init__(*args, **kwargs)
-        configure_major_field(self.fields["major"])
-
     class Meta:
         # model and fields used for the form
         model = UserProfile
-        fields = ["nickname", "year", "major"]
+        fields = ["nickname", "year"]
         widgets = {
             "nickname": forms.HiddenInput(),
             "year": forms.Select(choices=create_year_choices()),

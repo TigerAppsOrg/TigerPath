@@ -374,14 +374,19 @@ export default function PlanHeader({
     const name = draftName.trim();
     if (!name) return;
     // Persist the full modal state for the current plan in one backend update.
-    await onUpdatePlanSettings({
-      planId: activePlan.id,
-      name,
-      majorId: draftMajorId || null,
-      minorCodes: draftMinorCodes,
-    });
-    setIsMinorMenuOpen(false);
-    setIsEditing(false);
+    try {
+      await onUpdatePlanSettings({
+        planId: activePlan.id,
+        name,
+        majorId: draftMajorId || null,
+        minorCodes: draftMinorCodes,
+      });
+      setIsMinorMenuOpen(false);
+      setIsEditing(false);
+    } catch (error) {
+      const backendMessage = error?.responseJSON?.error || error?.error;
+      window.alert(backendMessage || 'Unable to save this plan.');
+    }
   };
 
   const handleMinorToggle = (minorCode) => {
