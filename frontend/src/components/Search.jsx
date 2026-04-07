@@ -89,6 +89,7 @@ export default function Search({ onChange, searchQuery, searchResults }) {
             course={course}
             onSelect={handleCourseSelect}
             isSelected={selectedCourse?.id === course.id}
+            qualityRating={course.quality_rating ?? null}
           />
         );
       });

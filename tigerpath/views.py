@@ -3,6 +3,7 @@ import json
 import re
 import hashlib
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
 
@@ -342,6 +343,61 @@ def get_course_details(request, course_id):
         return JsonResponse(empty)
 
 
+def _fetch_quality_rating(course_id):
+    """Return (course_id, quality_rating) — checks cache first, then Junction Engine."""
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return course_id, cached.get("quality_rating")
+    try:
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return course_id, None
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return course_id, None
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        raw_rating = evaluations[0].get("rating")
+        rating = round(float(raw_rating), 2) if raw_rating is not None else None
+        # Store a minimal entry so subsequent get_course_details calls can use the cache
+        existing = cache.get(cache_key)
+        if existing is None:
+            cache.set(cache_key, {"quality_rating": rating}, JUNCTION_EVAL_CACHE_TIMEOUT)
+        return course_id, rating
+    except Exception:
+        return course_id, None
+
+
+@login_required
+def get_quality_ratings(request):
+    """
+    POST {"ids": ["COS126", "MAT201", ...]}
+    Returns {"COS126": 4.2, "MAT201": null, ...}
+    Fetches all ratings in parallel; cached results resolve instantly.
+    """
+    try:
+        body = json.loads(request.body)
+        ids = body.get("ids", [])
+    except (json.JSONDecodeError, AttributeError):
+        return JsonResponse({"error": "invalid body"}, status=400)
+
+    if not ids:
+        return JsonResponse({})
+
+    ratings = {}
+    with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+        futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+        for future in as_completed(futures):
+            cid, rating = future.result()
+            ratings[cid] = rating
+
+    return JsonResponse(ratings)
+
+
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
@@ -394,6 +450,19 @@ def get_courses(request, search_query):
         "title", "registrar_id", "cross_listings", "all_semesters", "dist_area"
     )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
+
+    # Fetch quality ratings for all results in parallel and embed them
+    ids = [c["id"] for c in course_info_list]
+    if ids:
+        ratings = {}
+        with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+            futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+            for future in as_completed(futures):
+                cid, rating = future.result()
+                ratings[cid] = rating
+        for c in course_info_list:
+            c["quality_rating"] = ratings.get(c["id"])
+
     cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
     if settings.DEBUG:
         elapsed_ms = (time.monotonic() - search_start) * 1000

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SearchCourseCard from './SearchCourseCard';
 
 // const RADIX = 10;
@@ -64,18 +64,7 @@ function getRatingColor(rating) {
 //   return code;
 // }
 
-export default function SearchCard({ course, courseKey, index: courseIndex, onSelect, isSelected }) {
-  const [qualityRating, setQualityRating] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/v1/get_course_details/${encodeURIComponent(course['id'])}/`, {
-      credentials: 'same-origin',
-    })
-      .then((res) => res.json())
-      .then((data) => setQualityRating(data.quality_rating ?? null))
-      .catch(() => {});
-  }, [course['id']]);
-
+export default function SearchCard({ course, courseKey, index: courseIndex, onSelect, isSelected, qualityRating = null }) {
   // let prevOfferedSemList = getPrevOfferedSemList(course['semester_list']);
 
   return (
