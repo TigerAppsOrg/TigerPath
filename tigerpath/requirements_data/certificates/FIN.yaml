@@ -1,0 +1,192 @@
+type: Certificate
+name: Finance
+code: FIN
+urls:
+  - https://ua.princeton.edu/fields-study/minors/finance
+contacts:
+  - type: Director
+    name: Markus K. Brunnermeier
+    email: markus@princeton.edu
+  - type: Director of Undergraduate Program
+    name: Yacine Aït-Sahalia
+    email: yacine@princeton.edu
+description: >-
+  Under the auspices of the Bendheim Center for Finance, Princeton
+  undergraduates majoring in any department may earn a minor that attests to
+  their proficiency in the discipline of finance. The rapidly developing field
+  of finance focuses on the pricing of financial assets, including equities,
+  bonds, currencies and derivative securities; portfolio management and the
+  evaluation of financial risks; banking and financial intermediation; the
+  financing of corporations; corporate governance; financial market and banking
+  regulation; and many other topics. In addition to the obvious practical
+  relevance of finance, the field contains both challenging intellectual
+  problems and a distinctive formal framework within which those problems can be
+  addressed. Knowledge of modern finance is also essential to the proper
+  understanding of many other topics in economics and public policy, including
+  the determination of exchange rates and international capital flows, the
+  making of monetary and fiscal policy, the role of financial reform in
+  developing and transition economies, the regulation and taxation of financial
+  markets and financial instruments, and antitrust policy. Finally, modern
+  finance is remarkably eclectic, drawing from many disciplines besides
+  economics, including mathematics, operations research, engineering, computer
+  science, psychology, politics and history.
+declaration_limit: 4
+pdfs_allowed: 0
+req_list:
+  - name: Prerequisites
+    min_needed: ALL
+    max_counted: 1
+    explanation: >-
+      As economic theory, mathematics, and probability and statistics are
+      pervasive in modern financial analysis, completion of the finance minor
+      requires mathematical ability and preparation. The following foundation
+      courses are required for admission into the program and (except as noted)
+      must be completed by the end of sophomore year. All courses require a
+      letter grade (pass/D/fail not allowed). Students are required to take
+      courses in mathematics, economics and probability and statistics as
+      follows:
+    req_list:
+      - name: Mathematics
+        min_needed: 1
+        max_counted: 1
+        explanation: >-
+          (a) MAT175; (b) MAT201 and MAT202 or equivalent EGR154 and EGR156; or
+          (c) MAT203 and MAT204. MAT 201 and MAT 202 are both strongly
+          recommended, though only the higher of the two grades is recorded for
+          the purpose of fulfilling the entry requirements. Students who choose
+          to fulfill this requirement by taking the one-semester MAT 175 will be
+          responsible for mastering the linear algebra part of the curriculum on
+          their own.
+        req_list:
+          - name: MAT 175
+            min_needed: ALL
+            max_counted: 1
+            course_list:
+              - MAT 175
+          - name: MAT/EGR
+            min_needed: ALL
+            max_counted: 1
+            req_list:
+              - name: Multivariable Calculus
+                min_needed: 1
+                max_counted: 1
+                course_list:
+                  - MAT 201
+                  - EGR 154
+                  - MAT 203
+              - name: Linear Algebra
+                min_needed: 1
+                max_counted: 1
+                course_list:
+                  - MAT 202
+                  - EGR 156
+                  - MAT 204
+      - name: Economics
+        min_needed: 1
+        max_counted: 1
+        explanation: ECO300 OR ECO 310 (Microeconomic Theory)
+        course_list:
+          - ECO 300
+          - ECO 310
+      - name: Probability and Statistics
+        min_needed: 1
+        max_counted: 1
+        explanation: >-
+          ORF 245 (Fundamentals of Engineering Statistics), or ECO 202
+          (Statistics and Data Analysis for Economics), or PSY 251 (Quantitative
+          Methods), or SOC 301 (Sociological Research Methods), or POL 345
+          (Quantitative Analysis and Politics), or SPI 200 (Statistics for
+          Social Science). A score of 5 in AP Statistics also fulfills the
+          statistics prerequisite.
+        course_list:
+          - ORF 245
+          - ECO 202
+          - PSY 251
+          - POL 345
+          - SPI 200
+  - name: Program of Study
+    max_counted: 1
+    max_common_with_major: 2
+    explanation: >-
+      Students must take a total of five courses, at the 300 level or higher.
+      Students must receive a minimum grade of C+ averaged over the core courses
+      and the elective courses.
+    req_list:
+      - name: Core
+        min_needed: ALL
+        max_counted: 1
+        course_list:
+          - ECO 362
+          - ECO 363
+      - name: Electives
+        min_needed: ALL
+        max_counted: 1
+        req_list:
+          - name: List 1 Financial Applications
+            min_needed: 1
+            max_counted: ALL
+            course_list:
+              - ECE 473
+              - ECO 325
+              - ECO 327
+              - ECO 342
+              - ECO 353
+              - ECO 361
+              - ECO 416
+              - ECO 461
+              - ECO 462
+              - ECO 463
+              - ECO 464
+              - ECO 466
+              - ECO 467
+              - ECO 468
+              - ECO 469
+              - ECO 491
+              - ECO 492
+              - ECO 493
+              - ECO 494
+              - EGR 395
+              - EGR 475
+              - EGR 491
+              - ORF 311
+              - ORF 335
+              - ORF 435
+              - ORF 445
+              - SPI 466
+              - SPI 524
+              - SPI 582f
+          - name: List 2 Methodology for Finance
+            min_needed: 0
+            max_counted: 2
+            course_list:
+              - COS 324
+              - COS 333
+              - COS 424
+              - COS 432
+              - COS 436
+              - COS 445
+              - COS 448
+              - ECE 364
+              - ECE 435
+              - ECO 311
+              - ECO 312
+              - ECO 313
+              - ECO 317
+              - ECO 322
+              - ECO 323
+              - ECO 365
+              - ECO 414
+              - ECO 418
+              - ECO 488
+              - MAT 385
+              - MAT 486
+              - ORF 307
+              - ORF 309
+              - ORF 350
+              - ORF 363
+              - ORF 401
+              - ORF 405
+              - ORF 409
+              - ORF 455
+              - POL 337
+              - SPI 340

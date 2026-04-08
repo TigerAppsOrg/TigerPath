@@ -1,0 +1,51 @@
+type: Certificate
+name: Hellenic Studies
+code: HLS
+urls:
+  - https://ua.princeton.edu/fields-study/minors/hellenic-studies
+contacts:
+  - type: Director
+    name: Jack B. Tannous
+    email: jtannous@princeton.edu
+description: >-
+  The minor in Hellenic Studies (HLS) aims to provide students with a thorough
+  introduction to the history, literature, and culture of the Greek-speaking
+  Eastern Mediterranean over the past three thousand years. This minor will
+  allow students to engage, from a variety of disciplinary perspectives, with
+  all aspects of Hellenism, its global encounters, and cross-cultural dialogues.
+  At the same time, students in the Hellenic studies minor will acquire a strong
+  grounding in the long history of this important region of the world.
+max_common_with_major: 2
+declaration_limit: 6
+req_list:
+  - name: Gateway Seminar
+    min_needed: 1
+    max_counted: 1
+    explanation: >-
+      All students in the minor are required to take the gateway seminar HLS
+      222.
+    course_list:
+      - HLS 222
+  - name: 400-Level Seminar
+    min_needed: 1
+    max_counted: 1
+    explanation: >-
+      Students will also be required to take one 400-level HLS seminar, approved
+      by the director of the Program in Hellenic Studies.
+    course_list:
+      - HLS 4**
+  - name: Electives
+    min_needed: 3
+    max_counted: 1
+    explanation: >-
+      All HLS cross-listed courses will be designated as “HSR” (History,
+      Society, Religion), “LLP” (Language, Literature, Philosophy), or “VMM”
+      (Visual and Material Culture, and Music). Some classes may have more than
+      one designation. Students pursuing the minor will be required to take at
+      least one course from each designation. At least one of the three required
+      courses must have as its central chronological focus the post-Classical
+      Greek world, i.e., one (or more) of the following periods of Hellenism:
+      Late Antique, medieval/Byzantine, renaissance/early modern, modern, and
+      contemporary.
+    course_list:
+      - HLS ***

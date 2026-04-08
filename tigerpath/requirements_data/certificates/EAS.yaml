@@ -1,0 +1,109 @@
+type: Certificate
+name: East Asian Studies Program
+code: EAS
+urls:
+  - https://ua.princeton.edu/fields-study/minors/east-asian-studies-program
+contacts:
+  - type: Director
+    name: Thomas D. Conlan
+    email: tconlan@princeton.edu
+description: >-
+  The Program in East Asian Studies is an interdepartmental center directed by
+  representatives of the cooperating departments — Anthropology, Art and
+  Archaeology, Comparative Literature, East Asian Studies, Economics, History,
+  Music, Politics, Religion, and Sociology — as well as the School of Public and
+  International Affairs. It is designed to educate internationally minded
+  students with basic competence in East Asia. The program provides an
+  opportunity for students who plan to major in other disciplines to
+  simultaneously pursue the study of East Asian language arts, history and other
+  disciplines. East Asia is defined as those areas where Chinese, Korean, or
+  Japanese is the dominant language, although courses and independent research
+  in Vietnam may also be included as an area of study. The student's work is
+  supervised by the appropriate representative of a cooperating department in
+  consultation with the East Asian Studies program director.
+max_common_with_major: 0
+declaration_limit: 6
+pdfs_allowed: 0
+excluded_majors:
+  - EAS
+req_list:
+  - name: null
+    min_needed: 7
+    max_counted: 1
+    explanation: >-
+      Students must complete seven one-term courses in East Asian Studies to
+      earn an East Asian Studies minor.
+    req_list:
+      - name: Language
+        min_needed: 2
+        max_counted: 4
+        explanation: >-
+          At least two of these must be language courses at the second-year
+          level or higher; no more than four of the seven courses may be
+          language courses.
+        req_list:
+          - name: First-Year Level
+            min_needed: 0
+            max_counted: 2
+            course_list:
+              - CHI 101
+              - CHI 102
+              - CHI 1001
+              - CHI 1002
+              - CHI 103
+              - JPN 101
+              - JPN 102
+              - KOR 101
+              - KOR 102
+              - KOR 103
+          - name: Second-Year or Higher Level
+            min_needed: 2
+            max_counted: ALL
+            course_list:
+              - CHI 105
+              - CHI 107
+              - CHI 2**
+              - CHI 3**
+              - CHI 4**
+              - JPN 105
+              - JPN 107
+              - JPN 2**
+              - JPN 3**
+              - JPN 4**
+              - KOR 105
+              - KOR 107
+              - KOR 2**
+              - KOR 3**
+              - KOR 4**
+      - name: 200-level EAS
+        min_needed: 1
+        max_counted: 1
+        explanation: >-
+          Completion of at least one 200-level East Asian Studies content course
+          is required.
+        course_list:
+          - EAS 2**
+      - name: Other Electives
+        max_counted: ALL
+        explanation: >-
+          Cognate courses not cross-listed in the EAS Department that have more
+          than half of their content about East Asia can also be applied for the
+          minor. Examples include SOC 307/SPI308 Contemporary China, POL 434 The
+          Political Economy of China, and SPI 316 China's Foreign Relations.
+          Additional courses, including those taken abroad, may count toward the
+          minor, but they must be approved in advance by the program office.
+        course_list:
+          - EAS ***
+          - SOC 307
+          - POL 434
+          - SPI 316
+  - name: Independent Work
+    max_counted: 1
+    explanation: >-
+      In addition to the coursework, the student will submit a paper dealing
+      with an area of East Asia, for which the use of East Asian language
+      sources is strongly recommended. The student may submit the senior thesis
+      or junior paper or substitute another substantial piece of original
+      research that meets the same standards of relevance to East Asia.
+    iw_relationship: hybrid
+    no_req: null

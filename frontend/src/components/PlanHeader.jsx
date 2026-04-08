@@ -218,6 +218,11 @@ const EmptyMinorHint = styled.span`
   color: ${({ theme }) => theme.darkGreyText};
 `;
 
+const MinorSupportHint = styled.span`
+  font-size: 11px;
+  color: ${({ theme }) => theme.darkGreyText};
+`;
+
 const MultiSelectMenu = styled.div`
   position: absolute;
   top: 56px;
@@ -248,6 +253,18 @@ const MinorOptionRow = styled.button`
     background: ${({ theme }) => theme.greySemBody};
     border-radius: 6px;
   }
+`;
+
+const MinorOptionText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+`;
+
+const MinorOptionSupportText = styled.span`
+  font-size: 11px;
+  color: ${({ theme }) => theme.darkGreyText};
+  opacity: 0.8;
 `;
 
 const InfoRow = styled.div`
@@ -408,6 +425,9 @@ export default function PlanHeader({
   const selectedMinorOptions = (planEditorOptions?.minorOptions || []).filter(
     (minorOption) => draftMinorCodes.includes(minorOption.code)
   );
+  const hasUnsupportedMinorSelections = selectedMinorOptions.some(
+    (minorOption) => !minorOption.supported
+  );
 
   const handleCopy = () => {
     if (!activePlan) return;
@@ -552,7 +572,9 @@ export default function PlanHeader({
                             ×
                           </RemoveChipButton>
                           <MinorChipLabel title={minorOption.name}>
-                            {minorOption.name}
+                            {minorOption.supported
+                              ? minorOption.name
+                              : `${minorOption.name} (not fully supported)`}
                           </MinorChipLabel>
                         </MinorChip>
                       ))
@@ -575,7 +597,14 @@ export default function PlanHeader({
                             $selected={isSelected}
                             onClick={() => handleMinorToggle(minorOption.code)}
                           >
-                            <span>{minorOption.name}</span>
+                            <MinorOptionText>
+                              <span>{minorOption.name}</span>
+                              {!minorOption.supported && (
+                                <MinorOptionSupportText>
+                                  Not fully supported yet
+                                </MinorOptionSupportText>
+                              )}
+                            </MinorOptionText>
                           </MinorOptionRow>
                         );
                       })}
@@ -586,6 +615,11 @@ export default function PlanHeader({
                 <InfoValue>No minor options available</InfoValue>
               )}
             </InfoRow>
+            {hasUnsupportedMinorSelections && (
+              <MinorSupportHint>
+                Some selected minors are not fully supported yet, so requirement progress may be incomplete.
+              </MinorSupportHint>
+            )}
           </PanelSection>
           <PanelActions>
             <PanelActionButton type="button" $variant="save" onClick={handleSave}>

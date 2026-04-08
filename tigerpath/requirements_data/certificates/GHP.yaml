@@ -1,0 +1,269 @@
+type: Certificate
+name: Global Health and Health Policy
+code: GHP
+urls:
+  - https://ua.princeton.edu/fields-study/minors/global-health-and-health-policy
+contacts:
+  - type: Co-Director
+    name: Heather H. Howard
+    email: heatherh@princeton.edu
+  - type: Co-Director
+    name: C. Jessica E. Metcalf
+    email: cmetcalf@princeton.edu
+description: >-
+  Princeton students are part of a new global health generation — a generation
+  that witnesses first-hand the pressing health challenges in the world and
+  wants to do something about them. The minor in Global Health and Health Policy
+  (GHP) equips students with the cutting-edge tools, real-life experiences and
+  critical perspectives to make meaningful change in the health sphere.
+
+  The minor in Global Health and Health Policy provides students a foundational
+  grounding in the core interdisciplinary issues of global health. These include
+  the biological, social and environmental determinants of health; public health
+  policy and politics; epidemiology; comparative approaches to health-care
+  provision; medical anthropology; health ethics; and social justice.
+  Participating students learn about and collaborate with diverse communities
+  around the world and in the United States.
+max_common_with_major: null
+declaration_limit: 4
+pdfs_allowed: 1
+req_list:
+  - name: Foundations
+    min_needed: ALL
+    max_counted: 1
+    explanation: >-
+      By the end of sophomore year, prospective applicants must complete one
+      Foundations prerequisite course and one Statistics prerequisite course,
+      with a grade of B or higher.
+
+      Foundations prerequisite course options include: ANT 240, GSS 201,
+      ISC-231-234, MOL 101, MOL/EEB 211, MOL/EEB 214, SOC 217, URB 201, EEB 309,
+      EEB 314, EEB 327, and EEB 328.
+
+      Statistics prerequisite course options include: ECO 202, MOL 290, ORF 245,
+      POL 345, PSY 251, SML 201, SOC 301, SPI 200, ECO 302, ECO 312, and ORF
+      405.
+
+      Applicants should also have maintained a cumulative 3.0 GPA through the
+      time of application. Students with a cumulative GPA below 3.0, or who have
+      not completed both prerequisite courses, may still apply to the minor
+      during the sophomore spring with an explanation of any extenuating
+      circumstances.
+    req_list:
+      - name: Foundations Prerequisite
+        min_needed: 1
+        max_counted: 1
+        course_list:
+          - ANT 240
+          - GSS 201
+          - ISC 231
+          - MOL 101
+          - MOL 211
+          - MOL 214
+          - SOC 217
+          - URB 201
+          - EEB 309
+          - EEB 314
+          - EEB 327
+          - EEB 328
+      - name: Statistics
+        min_needed: 1
+        max_counted: 1
+        course_list:
+          - ECO 202
+          - MOL 290
+          - ORF 245
+          - POL 345
+          - PSY 251
+          - SML 201
+          - SOC 301
+          - SPI 200
+          - ECO 302
+          - ECO 312
+          - ORF 405
+  - name: Core Courses
+    min_needed: 2
+    max_counted: 1
+    explanation: >-
+      Students take two core GHP courses together as a cohort during their
+      junior year. They are GHP 350: Critical Perspectives in Global Health
+      Policy (fall semester) and GHP 351: Epidemiology: An Ecological and
+      Evolutionary Perspective (spring semester). Exceptions to the core courses
+      being taken during the junior year can be made when a student will be
+      studying abroad, is on a leave of absence or will otherwise be off-campus;
+      or when a student has a timing conflict with a required concentration
+      course. These core courses may not be taken on a pass/D/fail basis.
+    course_list:
+      - GHP 350
+      - GHP 351
+  - name: Electives
+    min_needed: 4
+    max_counted: 1
+    explanation: >-
+      NOTE: Due to the nature of these requirements, GHP electives may not be
+      comprehensive.
+
+      Students must take four additional elective courses in global health.
+      Students may choose from an elective list that is curated and approved in
+      advance every semester by the minor. In spring 2023 there were 60
+      preapproved GHP electives, and in fall 2022 there were 38 preapproved GHP
+      electives.
+
+      Three of the four electives must be taken in junior or senior year.
+
+      One elective may be taken in the first year or sophomore year.
+
+      Students may petition to the minor for a course to be approved as a GHP
+      elective prior to the start of the semester. Elective petitions will not
+      be accepted after the start of the semester or after the course has been
+      completed.
+
+      Elective courses may be at the 200-, 300-, or 400 level. Students may
+      petition to the minor for a 500-level course to be approved as a GHP
+      elective on an individual basis. 100-level courses will not be approved as
+      electives.
+
+      A student may count a maximum of two 200-level courses toward the four
+      elective total. If a cross-listed course carries both a 200- and
+      300-level course number, it will count as a 200-level course for purposes
+      of this requirement.
+
+      At least one elective course must not be listed or cross-listed with the
+      student's major.
+
+      One course taken off-campus, including study abroad courses, may be taken
+      as an elective with prior minor approval.
+
+      One elective course may be taken on a PDF basis. Any course taken
+      off-campus would count toward this limit.
+    course_list:
+      - AAS 303
+      - ANT 219
+      - AAS 352
+      - ANT 321
+      - ANT 339
+      - ANT 390
+      - ANT 461
+      - ART 313
+      - ART 491
+      - ASL 205
+      - CBE 411
+      - CBE 430
+      - CBE 442
+      - CEE 471
+      - CLA 227
+      - CLA 338
+      - DAN 224
+      - EAS 418
+      - EEB 308
+      - EEB 325
+      - EEB 327
+      - ENE 202
+      - ENG 359
+      - ENG 384
+      - ENV 251
+      - ENV 304
+      - ENV 343
+      - FRE 420
+      - HIS 390
+      - HUM 315
+      - LAS 229
+      - MOL 433
+      - MOL 459
+      - MOL 460
+      - NES 301
+      - NEU 385
+      - NEU 400
+      - NEU 420
+      - NEU 430
+      - PHI 356
+      - PSY 207
+      - PSY 341
+      - QCB 455
+      - SPA 205
+      - REL 361
+      - SOC 249
+      - SPI 332
+      - SPI 364
+      - SPI 394
+      - SPI 405
+      - VIS 301
+      - AAS 314
+      - AMS 305
+      - AMS 404
+      - ANT 206
+      - ANT 233
+      - ANT 238
+      - ANT 240
+      - ANT 344
+      - ANT 360
+      - ANT 446
+      - ARC 492
+      - ART 361
+      - ASA 238
+      - CBE 438
+      - CEE 311
+      - CEE 325
+      - CEE 334
+      - CHV 323
+      - CLA 326
+      - COM 329
+      - ECE 451
+      - ECE 452
+      - ECO 332
+      - ECO 355
+      - ECS 376
+      - EEB 428
+      - EGR 277
+      - ENE 321
+      - ENV 302
+      - ENV 305
+      - FRE 240
+      - GEO 360
+      - HIS 294
+      - HIS 393
+      - HIS 494
+      - HUM 360
+      - ITA 319
+      - JDS 324
+      - LAS 308
+      - MOL 340
+      - MOL 405
+      - MOL 445
+      - NEU 331
+      - NEU 447
+      - PSY 317
+      - PSY 320
+      - PSY 332
+      - QCB 311
+      - QCB 408
+      - QCB 470
+      - REL 303
+      - SPA 204
+      - SPA 205
+      - SPI 335
+      - SPI 368
+      - SPI 393
+  - name: Summer Internship
+    max_counted: 1
+    explanation: >-
+      GHP students will complete an internship or research experience during the
+      summer between junior and senior year. This provides students an
+      opportunity to apply concepts from the core GHP courses and any electives
+      taken to date in a real-world context. This experience must be full-time
+      and must be a minimum of eight weeks in duration. The internship may be
+      remote. All internships must be approved in advance by the minor.
+    iw_relationship: separate
+    no_req: null
+  - name: Capstone Research Project
+    max_counted: 1
+    explanation: >-
+      GHP students will write a senior thesis or research paper that addresses
+      or relates to global health in an interdisciplinary manner. The
+      requirement can be fulfilled in three ways, including a departmental
+      thesis that fully integrates a global health topic; a final chapter added
+      to a technical or lab-based thesis that connects the preceding content to
+      a global health topic; or an original research paper on a global health
+      topic.
+    iw_relationship: hybrid
+    no_req: null

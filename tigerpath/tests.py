@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from tigerpath import forms
+from tigerpath.majors_and_certificates.scripts.verifier import list_minor_definitions
 from tigerpath.models import Major, SchedulePlan, UserProfile
-from tigerpath.majors_and_certificates.scripts.university_info import CERTIFICATES
 
 
 class UserProfileSignalTest(TestCase):
@@ -186,12 +186,7 @@ class SchedulePlanApiTest(TestCase):
             supported=True,
         )
 
-        certificates_dir = (
-            pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
-        )
-        available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
-        catalog_codes = {code for code in CERTIFICATES if code}
-        supported_codes = sorted(available_codes.intersection(catalog_codes))
+        supported_codes = sorted(minor["code"] for minor in list_minor_definitions())
         selected_minor_codes = supported_codes[:1]
 
         options_response = self.client.get("/api/v1/get_plan_editor_options/")
@@ -224,15 +219,17 @@ class SchedulePlanApiTest(TestCase):
         self.assertEqual(response.status_code, 200)
         payload = response.json()
 
-        certificates_dir = (
-            pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
-        )
-        available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
-        catalog_codes = {code for code in CERTIFICATES if code}
-        supported_codes = available_codes.intersection(catalog_codes)
+        supported_codes = {minor["code"] for minor in list_minor_definitions()}
 
         option_codes = {option["code"] for option in payload.get("minorOptions", [])}
         self.assertEqual(option_codes, supported_codes)
+
+        supported_option_codes = {
+            option["code"]
+            for option in payload.get("minorOptions", [])
+            if option.get("supported")
+        }
+        self.assertEqual(supported_option_codes, supported_codes)
 
     def test_set_active_plan_and_update_schedule_are_plan_specific(self):
         second_plan = SchedulePlan.objects.create(

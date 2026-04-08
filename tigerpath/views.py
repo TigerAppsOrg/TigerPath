@@ -4,7 +4,6 @@ import re
 import hashlib
 import time
 import copy
-import pathlib
 
 import django_cas_ng.views
 from django.conf import settings
@@ -19,12 +18,13 @@ from django.contrib.auth.models import User
 from functools import wraps
 
 from . import forms, models, utils
-from .majors_and_certificates.scripts.university_info import CERTIFICATES, LANG_DEPTS
+from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 from .majors_and_certificates.scripts.verifier import (
-    check_certificate,
     check_degree,
     check_major,
+    check_minor,
     get_courses_by_path,
+    list_minor_definitions,
 )
 
 SEARCH_RESULT_LIMIT = 200
@@ -34,14 +34,19 @@ SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
 DEFAULT_PLAN_NAME = "My Plan"
 
 
-def get_supported_certificate_codes():
-    certificates_dir = pathlib.Path(__file__).resolve().parent / "requirements_data" / "certificates"
-    if not certificates_dir.exists():
-        return set()
+def get_minor_options_catalog():
+    return list_minor_definitions()
 
-    available_codes = {path.stem for path in certificates_dir.glob("*.yaml")}
-    certificate_catalog_codes = {code for code in CERTIFICATES if code}
-    return available_codes.intersection(certificate_catalog_codes)
+
+def get_minor_codes():
+    return {minor["code"] for minor in get_minor_options_catalog()}
+
+
+def get_minor_name_by_code(code):
+    for minor in get_minor_options_catalog():
+        if minor["code"] == code:
+            return minor["name"]
+    return None
 
 
 # cas auth login
@@ -430,7 +435,7 @@ def build_requirements_for_plan(profile, plan):
 
     for minor_code in plan.minors or []:
         try:
-            requirements.append(check_certificate(minor_code, schedule, profile.year))
+            requirements.append(check_minor(minor_code, schedule, profile.year))
         except ValueError:
             continue
 
@@ -470,7 +475,7 @@ def serialize_plan(plan, active_plan_id):
     # Include plan-specific academic metadata so the frontend can edit/render each scenario independently.
     minor_names = []
     for minor_code in plan.minors or []:
-        minor_name = CERTIFICATES.get(minor_code)
+        minor_name = get_minor_name_by_code(minor_code)
         if minor_name:
             minor_names.append(minor_name)
 
@@ -516,7 +521,7 @@ def parse_minor_codes(raw_minor_codes):
     if not isinstance(parsed, list):
         return None
 
-    certificate_codes = get_supported_certificate_codes()
+    certificate_codes = get_minor_codes()
     cleaned_codes = []
     for value in parsed:
         code = str(value).strip().upper()
@@ -539,14 +544,13 @@ def serialize_plan_editor_options():
         }
         for major in models.Major.objects.order_by("name")
     ]
-    supported_certificate_codes = get_supported_certificate_codes()
     minor_options = [
         {
-            "code": code,
-            "name": name,
+            "code": minor_option["code"],
+            "name": minor_option["name"],
+            "supported": True,
         }
-        for code, name in sorted(CERTIFICATES.items(), key=lambda item: item[1])
-        if code and name and code in supported_certificate_codes
+        for minor_option in get_minor_options_catalog()
     ]
     return {
         "majorOptions": major_options,
