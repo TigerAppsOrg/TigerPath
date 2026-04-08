@@ -86,7 +86,7 @@ export default function SearchCourseCard({ courseIndex, courseKey, course, quali
               </>
             )}
           </Draggable>
-          {provided.placeholder}
+          <div style={{ display: 'none' }}>{provided.placeholder}</div>
         </div>
       )}
     </Droppable>

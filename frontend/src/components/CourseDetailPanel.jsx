@@ -67,14 +67,12 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
 
   const hasEvalData =
     details &&
-    (details.offerings?.length > 0 ||
-      details.quality_rating != null ||
-      details.comments?.length > 0);
+    (details.offerings?.length > 0 || details.comments?.length > 0);
 
   return (
     <div className={`course-detail-panel${isOpen ? ' open' : ''}`}>
       <button className="panel-collapse-btn" onClick={onClose} title="Close panel">
-        ›
+        <i className="fas fa-times-circle" />
       </button>
 
       {course && (
@@ -111,40 +109,12 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
 
           {!loading && details && (
             <>
-              {/* ── Evaluation section (quality bar + offerings table) ── */}
-              {hasEvalData && (
-                <>
-                  <div className="panel-quality">
-                    <span className="quality-label">Quality of Course</span>
-                    <div className="quality-bar-container">
-                      <div
-                        className="quality-bar"
-                        style={(() => {
-                          const pct = details.quality_rating
-                            ? (details.quality_rating / 5) * 100
-                            : 0;
-                          return {
-                            width: `${pct}%`,
-                            // Scale gradient so it always spans the full container,
-                            // making the bar's position show how close to 5/5 it is.
-                            backgroundSize: pct > 0 ? `${(100 / pct) * 100}% 100%` : '0%',
-                          };
-                        })()}
-                      />
-                    </div>
-                    <span
-                      className="quality-score"
-                      style={{
-                        background: getRatingColor(details.quality_rating),
-                        color: details.quality_rating != null ? 'white' : '#777',
-                      }}
-                    >
-                      {details.quality_rating != null ? details.quality_rating.toFixed(2) : 'N/A'}
-                    </span>
-                  </div>
-
-                  {details.offerings?.length > 0 && (
-                    <div className="panel-offerings">
+              {/* ── Scrollable body ── */}
+              <div className="panel-body">
+                {details.offerings?.length > 0 && (
+                  <div className="panel-section">
+                    <div className="panel-section-label">Past Ratings</div>
+                    <div className="panel-card">
                       <div className="offerings-table-scroll">
                         <table className="offerings-table">
                           <tbody>
@@ -182,27 +152,24 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
                         </table>
                       </div>
                     </div>
-                  )}
-                </>
-              )}
+                  </div>
+                )}
 
-              {/* ── Scrollable body: description, grading, prereqs, comments ── */}
-              <div className="panel-body">
                 {details.description && (
-                  <div className="panel-description">
+                  <div className="panel-section">
                     <div className="panel-section-label">Description</div>
-                    <p className="panel-description-text">{details.description}</p>
+                    <div className="panel-card">
+                      <p className="panel-description-text">{details.description}</p>
+                    </div>
                   </div>
                 )}
 
                 {details.comments?.length > 0 && (
-                  <div className="panel-comments-section">
-                    <div className="comments-header">
+                  <div className="panel-section panel-section-comments">
+                    <div className="panel-section-label">
                       Student Comments
                       {details.comments_semester && (
-                        <span className="comments-from">
-                          (From {details.comments_semester})
-                        </span>
+                        <span className="comments-from">(From {details.comments_semester})</span>
                       )}
                     </div>
                     <div className="panel-comments">

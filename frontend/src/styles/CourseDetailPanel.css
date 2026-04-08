@@ -1,251 +1,220 @@
 .course-detail-panel {
   position: fixed;
-  top: 56px; /* height of navbar */
+  top: 56px;
   right: 0;
   width: 420px;
   height: calc(100vh - 56px);
   background: white;
-  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  box-shadow: -6px 0 24px rgba(0, 0, 0, 0.1);
   z-index: 200;
-  transform: translateX(100%); /* slides off to the right when hidden */
+  transform: translateX(100%);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-left: 1px solid #dee2e6;
+  border-left: 1px solid #e0e0e0;
 }
 
 .course-detail-panel.open {
   transform: translateX(0);
 }
 
-/* Collapse "›" button in top-right corner */
+/* Close button */
 .panel-collapse-btn {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
+  background: none;
+  border: none;
+  padding: 0;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 1;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0 2px 0;
-  color: #555;
+  color: #bbb;
   z-index: 1;
 }
 .panel-collapse-btn:hover {
-  background: #ddd;
+  color: #e74c3c;
 }
 
 /* Header: course title */
 .panel-header {
-  padding: 14px 44px 10px 16px;
-  border-bottom: 1px solid #eee;
+  padding: 18px 48px 14px 20px;
   flex-shrink: 0;
 }
 .panel-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   margin: 0;
+  color: #1a1a1a;
+  line-height: 1.3;
 }
 
-/* Tag row: course code, PDF, QCR, Course Link */
+/* Tag row */
 .panel-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #eee;
+  padding: 0 20px 16px;
   flex-shrink: 0;
 }
 .panel-tag {
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 13px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 12px;
   font-weight: 600;
+  letter-spacing: 0.02em;
 }
-.tag-code { background: #ccc; color: #333; }
-.tag-pdf  { background: #f4c430; color: #333; }
-.tag-dist { background: #e87461; color: white; }
+.tag-code { background: #ebebeb; color: #444; }
+.tag-pdf  { background: #fef3cd; color: #856404; }
+.tag-dist { background: #fde8e4; color: #c0392b; }
 .tag-link {
-  background: #4db8d4;
-  color: white;
+  background: #e8f6fa;
+  color: #2980b9;
   text-decoration: none;
+  border: 1px solid #c5e8f5;
 }
-.tag-link:hover { background: #3aa0bc; color: white; }
+.tag-link:hover { background: #d0ecf7; color: #1a6a9a; }
 
-/* Quality of Course bar row */
-.panel-quality {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #eee;
-  flex-shrink: 0;
-}
-.quality-label {
-  font-size: 13px;
-  color: #555;
-  min-width: 120px;
-}
-.quality-bar-container {
-  flex: 1;
-  height: 6px;
-  background: #e0e0e0;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.quality-bar {
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    #e05252 0%,
-    #e07030 25%,
-    #c8b020 50%,
-    #90b020 70%,
-    #5cb85c 85%,
-    #2db02d 100%
-  );
-  border-radius: 3px;
-  transition: width 0.4s;
-}
-.quality-score {
-  background: #e0e0e0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-.rating-na { color: #777; }
-
-/* Scrollable semester offerings table — shows ~3 rows at a time */
-.panel-offerings {
-  padding: 8px 16px;
-  border-bottom: 1px solid #eee;
-  flex-shrink: 0;
-}
-.offerings-table-scroll {
-  max-height: 72px; /* ~2 rows at 36px each */
-  overflow-y: auto;
-}
-.offerings-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-.offerings-table td {
-  padding: 6px 4px;
-  font-size: 13px;
-}
-.offering-sem { font-weight: 600; min-width: 90px; white-space: nowrap; }
-.offering-professors {
-  color: #555;
-  max-width: 180px;
-  overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
-  transition: scrollbar-color 0.3s;
-}
-.offering-professors.is-scrolling {
-  scrollbar-color: rgba(0,0,0,0.25) transparent;
-}
-.offering-professors::-webkit-scrollbar { height: 3px; }
-.offering-professors::-webkit-scrollbar-track { background: transparent; }
-.offering-professors::-webkit-scrollbar-thumb {
-  background: transparent;
-  border-radius: 3px;
-  transition: background 0.3s;
-}
-.offering-professors.is-scrolling::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.25); }
-.offering-rating {
-  background: #e0e0e0;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-/* Scrollable lower body (description + grading + prereqs + comments) */
+/* Scrollable body */
 .panel-body {
   flex: 1;
   overflow-y: auto;
   min-height: 0;
+  background: #e8eaed;
+  border-top: 1px solid #d8d8d8;
+  padding: 14px 0 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #e8eaed;
+}
+.panel-body::-webkit-scrollbar { width: 5px; }
+.panel-body::-webkit-scrollbar-track { background: #e8eaed; }
+.panel-body::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
+
+/* Section: label above + card below */
+.panel-section {
+  padding: 0 14px 12px;
+}
+.panel-section-comments {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
 }
 
-/* Course description */
-.panel-description {
-  padding: 12px 16px;
-  border-bottom: 1px solid #eee;
-}
 .panel-section-label {
+  font-size: 10.5px;
   font-weight: 700;
-  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888;
   margin-bottom: 6px;
-  flex-shrink: 0;
+  padding: 0 2px;
 }
+
+.panel-card {
+  background: white;
+  border-radius: 10px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+/* Offerings table inside panel-card */
+.offerings-table-scroll {
+  max-height: 130px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc white;
+}
+.offerings-table-scroll::-webkit-scrollbar { width: 4px; }
+.offerings-table-scroll::-webkit-scrollbar-track { background: white; }
+.offerings-table-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.offerings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.offerings-table tbody tr + tr td {
+  border-top: 1px solid #f0f0f0;
+}
+.offerings-table td {
+  padding: 7px 4px;
+  font-size: 13px;
+}
+.offerings-table td:last-child {
+  text-align: right;
+  white-space: nowrap;
+  width: 1%;
+}
+.offering-sem { font-weight: 600; min-width: 90px; white-space: nowrap; color: #444; }
+.offering-professors {
+  color: #888;
+  max-width: 180px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.offering-professors::-webkit-scrollbar { display: none; }
+.offering-rating {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Description */
 .panel-description-text {
   font-size: 13px;
-  line-height: 1.55;
-  color: #333;
-  max-height: calc(1.55em * 6);
+  line-height: 1.6;
+  color: #444;
+  max-height: calc(1.6em * 6);
   overflow-y: auto;
   margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc white;
 }
+.panel-description-text::-webkit-scrollbar { width: 4px; }
+.panel-description-text::-webkit-scrollbar-track { background: white; }
+.panel-description-text::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 
-
-/* Scrollable student comments section */
-.panel-comments-section {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 120px;
-  padding: 10px 16px 0;
-}
-.comments-header {
-  font-weight: 700;
-  font-size: 14px;
-  margin-bottom: 6px;
-  flex-shrink: 0;
-}
+/* Comments */
 .comments-from {
   font-weight: 400;
-  font-size: 12px;
-  color: #777;
+  font-size: 10.5px;
+  color: #bbb;
   margin-left: 6px;
+  text-transform: none;
+  letter-spacing: 0;
 }
 .panel-comments {
   overflow-y: auto;
   flex: 1;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc #e8eaed;
 }
+.panel-comments::-webkit-scrollbar { width: 4px; }
+.panel-comments::-webkit-scrollbar-track { background: #e8eaed; }
+.panel-comments::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
 .comment-card {
-  background: #f9f9f9;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  padding: 10px 12px;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 14px;
   margin-bottom: 8px;
   font-size: 13px;
-  line-height: 1.5;
-  color: #333;
+  line-height: 1.55;
+  color: #444;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
 }
 
 .panel-loading {
-  padding: 16px;
-  color: #777;
+  padding: 20px;
+  color: #aaa;
   font-size: 13px;
 }
-
 .panel-no-data {
-  padding: 16px;
-  color: #999;
+  padding: 20px;
+  color: #bbb;
   font-size: 13px;
   font-style: italic;
 }

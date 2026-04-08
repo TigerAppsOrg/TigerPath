@@ -567,6 +567,10 @@ def populate_user_schedule(schedule):
             course["semester"] = get_semester_type(db_course.all_semesters)
             if "settled" not in course:
                 course["settled"] = []
+            if "quality_rating" not in course:
+                cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course['id']}"
+                cached = cache.get(cache_key)
+                course["quality_rating"] = cached.get("quality_rating") if cached else None
     return schedule
 
 
@@ -588,6 +592,22 @@ def get_schedule(request):
     # make sure that the schedule has 9 semesters
     while len(schedule) < 9:
         schedule.append([])
+
+    # Fetch missing ratings for all scheduled courses in parallel
+    missing = [
+        course for semester in schedule for course in semester
+        if not course.get('external') and course.get('quality_rating') is None and course.get('id')
+    ]
+    if missing:
+        ids = [course['id'] for course in missing]
+        ratings = {}
+        with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+            futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+            for future in as_completed(futures):
+                cid, rating = future.result()
+                ratings[cid] = rating
+        for course in missing:
+            course['quality_rating'] = ratings.get(course['id'])
 
     return JsonResponse(schedule, safe=False)
 

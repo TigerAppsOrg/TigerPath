@@ -1,4 +1,4 @@
-const DEFAULT_HIDE_DELAY_MS = 120;
+const DEFAULT_HIDE_DELAY_MS = 0;
 
 function getPopoverElement(triggerElement) {
   const describedBy = triggerElement.getAttribute('aria-describedby');
@@ -62,14 +62,19 @@ export function bindManualHoverPopover(
   function onTriggerMouseEnter() {
     clearHideTimeout();
     popoverInstance.show();
-    attachPopoverListeners();
-    if (onShow) {
-      onShow(getPopoverElement(triggerElement));
-    }
+    // Listeners are attached in onPopoverShown, after the element is in the DOM
   }
 
   function onTriggerMouseLeave(event) {
     scheduleHide(event.relatedTarget);
+  }
+
+  function onPopoverShown() {
+    // Popover is fully in the DOM now — safe to attach mouse listeners
+    attachPopoverListeners();
+    if (onShow) {
+      onShow(getPopoverElement(triggerElement));
+    }
   }
 
   function onPopoverMouseEnter() {
@@ -87,12 +92,14 @@ export function bindManualHoverPopover(
 
   triggerElement.addEventListener('mouseenter', onTriggerMouseEnter);
   triggerElement.addEventListener('mouseleave', onTriggerMouseLeave);
+  triggerElement.addEventListener('shown.bs.popover', onPopoverShown);
   triggerElement.addEventListener('hidden.bs.popover', onPopoverHidden);
 
   return () => {
     clearHideTimeout();
     triggerElement.removeEventListener('mouseenter', onTriggerMouseEnter);
     triggerElement.removeEventListener('mouseleave', onTriggerMouseLeave);
+    triggerElement.removeEventListener('shown.bs.popover', onPopoverShown);
     triggerElement.removeEventListener('hidden.bs.popover', onPopoverHidden);
     detachPopoverListeners();
   };
