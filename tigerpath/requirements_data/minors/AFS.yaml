@@ -1,0 +1,191 @@
+---
+type: Minor
+name: African Studies
+code: AFS
+degree:
+description: Africa is the continent where humanity began and where its 
+  future will be determined. Princeton’s minor in African Studies 
+  provides opportunities to all Princeton students, regardless of major, 
+  to learn about the continent. Students will learn a variety of 
+  methods, interdisciplinary approaches and perspectives that will 
+  enrich them with critical and analytical tools for engaging with 
+  Africa.
+urls:
+- https://afs.princeton.edu/undergraduate-opportunities/undergraduate-mino
+contacts:
+- type: Program Director
+  name: Chika O. Okeke-Agulu
+  email: cokekeag@princeton.edu
+iw_required: true
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 1
+  explanation: Students should have at least one core course completed 
+    by the spring of their junior year. One 200- or 300-level course 
+    administered or cross-listed by the Program in African Studies will 
+    serve to fulfill this requirement.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  course_list:
+  - AFS 2*
+  - AFS 3*
+  completed_by_semester: 6
+- name: Electives
+  max_counted: 1
+  min_needed: 4
+  explanation: Five courses are required for the minor — one core course 
+    and four electives. Students are expected to take one course in the 
+    humanities, one African language course (Twi, Ge’ez or Swahili) and 
+    one course in the social sciences (History, Politics, Sociology or 
+    Anthropology).
+  max_common_with_major: 2  
+  req_list:
+  - name: Humanities
+    max_counted: 1
+    min_needed: 1
+    explanation: 
+    double_counting_allowed: false
+    pdfs_allowed: 0
+    course_list:
+    - AAS *
+    - AFS *
+    - AMS *
+    - ART *
+    - ASA *
+    - CLA *
+    - CLG *
+    - COM *
+    - CWR *
+    - DAN *
+    - EAS *
+    - ENG *
+    - ECS *
+    - GER *
+    - GSS *
+    - HIS *
+    - HLS *
+    - HUM *
+    - JDS *
+    - LAO *
+    - LAS *
+    - LAT *
+    - LIN *
+    - MED *
+    - MOG *
+    - MUS *
+    - MPP *
+    - NES *
+    - PHI *
+    - SAS *
+    - SLA *
+    - THR *
+    - TRA *
+    - URB *
+    - VIS *
+  - name: Social Sciences
+    max_counted: 1
+    min_needed: 1
+    explanation: 
+    double_counting_allowed: false
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - EPS *
+    - HIS *
+    - JRN *
+    - POL *
+    - SOC *
+    - SPI *
+    - ANT *
+  - name: Language
+    max_counted: 1
+    min_needed: 1
+    explanation: One semester of an African language course is required 
+      for the minor. The requirement can be fulfilled by one semester of 
+      an African language on campus or intense study with a summer 
+      program.
+    double_counting_allowed: false
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - TWI 101
+    - TWI 102
+    - TWI 103G
+    - TWI 105
+    - TWI 107
+    - GEZ 101
+    - SWA 101
+    - SWA 102
+    - SWA 103K
+    - SWA 105
+    - SWA 107
+  - name: Fourth Course
+    max_counted: 1
+    min_needed: 1
+    explanation: One more course in any of the areas above. Furthermore, 
+      Any courses cross-listed with the Program in African Studies are 
+      preapproved to count toward fulfillment of the minor. Courses not 
+      cross-listed with African Studies, but devoting significant course 
+      time to issues on the continent, may be submitted for review by 
+      the program director for credit.
+    double_counting_allowed: false
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - AFS *
+    - AAS *
+    - AFS *
+    - AMS *
+    - ART *
+    - ASA *
+    - CLA *
+    - CLG *
+    - COM *
+    - CWR *
+    - DAN *
+    - EAS *
+    - ENG *
+    - ECS *
+    - GER *
+    - GSS *
+    - HIS *
+    - HLS *
+    - HUM *
+    - JDS *
+    - LAO *
+    - LAS *
+    - LAT *
+    - LIN *
+    - MED *
+    - MOG *
+    - MUS *
+    - MPP *
+    - NES *
+    - PHI *
+    - SAS *
+    - SLA *
+    - THR *
+    - TRA *
+    - URB *
+    - VIS *
+    - EPS *
+    - HIS *
+    - JRN *
+    - POL *
+    - SOC *
+    - SPI *
+    - ANT *
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: In addition to the coursework, the student will submit a 
+    paper dealing with Africa. The student may submit the senior thesis 
+    or junior paper or another substantial piece of original research 
+    that meets the same standards of relevance to Africa.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    A maximum of two courses in total may be double-counted towards the student's major. 

@@ -1,0 +1,86 @@
+---
+type: Minor
+name: Music
+code: MUS
+degree:
+description: The minor in the Department of Music invites students to 
+  explore a diverse range of fields of study, from composition and 
+  electronic music, to musicology, theory, sound studies, music 
+  cognition, jazz studies and more. Students pursue work in two loosely 
+  defined areas; Culture and Criticism (C&C) and Materials and Making 
+  (M&M). M&M encompasses topics usually explored in hands-on, 
+  exploratory ways, such as composition, improvisation, theory, analysis 
+  and electronic music. The C&C area focuses on the scholarly study of 
+  music, from historical and formalist analysis to cognitive science and 
+  ethnography. While independent work is not required, there are options 
+  for students interested in pursuing private lessons (in composition 
+  and electronic music), studies in music cognition (through the Music 
+  Cognition Lab), research projects with faculty, or the Music 
+  Mentorship program that pairs music undergraduates with graduate 
+  students.
+urls:
+- https://music.princeton.edu/undergraduate/music-minors-program/#MUS
+contacts:
+- type: Chair
+  name: Daniel L. Trueman
+  email: dtrueman@princeton.edu
+iw_required: false
+req_list:
+- name: Core Course
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 1
+  course_list:
+  - MUS 105
+- name: Materials and Making Course
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 1
+  course_list:
+  - MUS 209B
+  - MUS 209A
+  - MUS 329
+  - MUS 319
+  - MUS 316
+  - MUS 312
+  - MUS 248
+  - MUS 210
+  - MUS 106
+  - MUS 345
+  - MUS 340
+  - MUS 314
+  - MUS 308
+  - MUS 106
+  - MUS 560
+  - MUS 204
+  - MUS 537
+  - MUS 528
+  - MUS 351
+  - MUS 310
+- name: Culture and Criticism Course
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 1
+  course_list:
+  - MUS 230
+  - MUS 238
+  - MUS 248
+  - MUS 262
+  - MUS 203
+  - MUS 240
+  - MUS 223
+  - MUS 232
+  - MUS 242
+  - MUS 262
+  - MUS 203
+  - MUS 350
+- name: Music Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: Two additional MUS courses. By petition to the DUS, one 
+    of these electives can be outside MUS, though must reflect a 
+    coherent plan of study (for instance, a particular psychology 
+    course in support of a plan of study focusing on music cognition).
+  pdfs_allowed: 2
+  course_list:
+  - MUS *

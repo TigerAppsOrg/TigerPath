@@ -1,0 +1,60 @@
+---
+type: Minor
+name: Philosophy
+code: PHI
+degree:
+description: Philosophy is of substantial relevance to work in a great 
+  variety of other academic subjects, many of which historically emerged 
+  originally as branches of philosophy before achieving the status of 
+  separate disciplines. The qualities of mind which the study of 
+  philosophy aims to cultivate, and which are most often cited by our 
+  alumni as their greatest benefit from majoring in the subject, 
+  including especially the ability to think and write in a clear and 
+  concise, organized and informed and disciplined way about contentious 
+  and often confusing issues, are likely to be of value in some way for 
+  virtually all students. The option of minoring in philosophy is 
+  intended to offer an opportunity to learn such lessons in a structured 
+  way, while leaving the student free to pursue virtually any major 
+  academic interest. 
+urls:
+- https://philosophy.princeton.edu/undergraduate/philosophy-minor
+contacts:
+- type: Chair
+  name: Benjamin C. Morison
+  email: bmorison@princeton.edu
+iw_required: false
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: One course in philosophy, to guarantee that students know 
+    what they will be getting into.
+  course_list:
+  - PHI *
+- name: Core Courses
+  max_counted: 1
+  min_needed: 5  
+  pdfs_allowed: 0
+  explanation: No more than one of them an approved cognate rather than 
+    a course listed or cross-listed with a PHI number; no more than two 
+    of them lower-division (200-level) courses; No more than three of 
+    them from any single one of the four distribution areas into which 
+    philosophy courses are divided in requirements for majors; and no 
+    more than two of them courses used for fulfilling the requirements 
+    of the student’s major.
+  max_common_with_major: 2
+  req_list:
+  - name: Above 200-level
+    max_counted: 5
+    min_needed: 1
+    course_list:
+    - PHI 3*
+    - PHI 4*
+    - PHI 5*
+  - name: 200 Level
+    max_counted: 2
+    min_needed: 1
+    course_list:
+    - PHI 2*
+  
+

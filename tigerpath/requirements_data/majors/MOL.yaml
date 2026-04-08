@@ -1,0 +1,268 @@
+---
+type: Major
+name: Molecular Biology
+code: MOL
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-molecular-biology
+- https://molbio.princeton.edu/undergraduate/major/requirements
+contacts:
+- type: Chair
+  name: Bonnie L. Bassler
+  email: bbassler@princeton.edu
+- type: Director
+  name: Elizabeth R. Gavis
+  email: gavis@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites & General Requirements
+  max_counted: 1
+  min_needed: 1
+  explanation: Students can take the standard path through the
+    prerequisites and science requirements, or they can take the
+    integrated science curriculum. ISC 231-234 (a full-year,
+    double-credit course) can be taken in the first year and substitutes
+    for MOL 214, CHM 201 and 202, COS 126, and PHY 103 and 104. Students
+    cannot receive credit for both an ISC course and its alternative.
+  req_list:
+    - name: Standard Path
+      max_counted: 1
+      min_needed: ALL
+      explanation: Standard path through the prerequisites and science
+        requirements.
+      req_list:
+        - name: Prerequisites
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            To enter the Department of Molecular Biology, students must have completed MOL 214 with a grade of C or better. CHM 201/207 and 202 or equivalent are also required to enter the department. (For the Class of 2027 and beyond, the equivalent is AP + CHM202/215 or requirement fulfillment through the chemistry placement test.)<br><br>
+
+            An alternate path into the department is through the integrated science curriculum (see below).
+          req_list:
+            - name: Molecular Biology
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - MOL 214
+            - name: General Chemistry
+              max_counted: 1
+              min_needed: 1
+              double_counting_allowed: true
+              req_list:
+                - name: Basic General Chemistry
+                  max_counted: 1
+                  min_needed: 2
+                  course_list:
+                    - CHM 201
+                    - CHM 202
+                - name: Advanced General Chemistry
+                  max_counted: 1
+                  min_needed: 2
+                  course_list:
+                    - CHM 207
+                    - CHM 202
+        - name: Organic Chemistry
+          max_counted: 1
+          min_needed: 1
+          explanation: CHM 301 and 304, or CHM 337. Courses taken at other
+            institutions can be used toward fulfillment of the chemistry
+            requirements with prior approval from the Department of
+            Chemistry. The organic chemistry requirement must be completed
+            before the beginning of junior year.
+          completed_by_semester: 4
+          req_list:
+            - name: Organic Chemistry Sequence
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - CHM 301
+                - CHM 304
+            - name: Bioengineering Organic Chemistry
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - CHM 337
+        - name: Quantitative
+          max_counted: 1
+          min_needed: 2
+          explanation: Students satisfy the quantitative requirement by
+            taking one course in statistics (SML 201, ORF 245, or MOL 290)
+            and one course in either computer science (COS 126 or above) or
+            math (MAT 103, 104, 175, 192, or any 200-level MAT course).
+            SML 201 and COS 126 are the recommended choices for most
+            students. AP credit cannot be used toward the fulfillment of the
+            quantitative requirement. Courses taken at other institutions
+            can be substituted for the second required course (but not for
+            the statistics course), if approved by the corresponding
+            department.
+          req_list:
+            - name: Statistics
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - SML 201
+                - ORF 245
+                - MOL 290
+            - name: CS or Mathematics
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - COS *
+                - MAT 103
+                - MAT 104
+                - MAT 175
+                - MAT 192
+                - MAT 2**
+        - name: Physics
+          max_counted: 1
+          min_needed: 1
+          explanation: Physics 108 (strongly recommended), or PHY 103 and
+            104, or PHY 101 and 102. PHY 108 is a one-semester, biologically
+            oriented alternative to the traditional full-year sequences.
+            Premedical students who need two semesters of physics can
+            combine PHY 101 or 103 with PHY 108. Neither AP credit nor
+            courses taken at other institutions can be used toward the
+            fulfillment of the physics requirement.
+          req_list:
+            - name: Physics for Life Sciences
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - PHY 108
+            - name: General Physics
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - PHY 103
+                - PHY 104
+            - name: Introductory Physics
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - PHY 101
+                - PHY 102
+    - name: Integrated Science Curriculum
+      max_counted: 1
+      min_needed: ALL
+      explanation: An alternative path into the department is through the
+        integrated science curriculum. ISC 231-234 (a full-year,
+        double-credit course) can be taken in the first year and
+        substitutes for MOL 214, CHM 201 and 202, COS 126, and PHY 103
+        and 104. Students cannot receive credit for both an ISC course and
+        its alternative. For full course descriptions and more
+        information, see the integrated science website.
+      req_list:
+        - name: Prerequisites
+          max_counted: 1
+          min_needed: 1
+          course_list:
+            - ISC 231
+            - ISC 232
+            - ISC 233
+            - ISC 234
+        - name: Organic Chemistry
+          max_counted: 1
+          min_needed: 1
+          explanation: CHM 301 and 304, or CHM 337. Courses taken at other
+            institutions can be used toward fulfillment of the chemistry
+            requirements with prior approval from the Department of
+            Chemistry. The organic chemistry requirement must be completed
+            before the beginning of junior year.
+          completed_by_semester: 4
+          req_list:
+            - name: Organic Chemistry Sequence
+              max_counted: 1
+              min_needed: 2
+              course_list:
+                - CHM 301
+                - CHM 304
+            - name: Bioengineering Organic Chemistry
+              max_counted: 1
+              min_needed: 1
+              course_list:
+                - CHM 337
+        - name: Quantitative
+          max_counted: 1
+          min_needed: 1
+          explanation: Students satisfy the quantitative requirement by
+            taking one course in statistics (SML 201, ORF 245, or MOL 290).
+            The CS or Mathematics aspect of the quantitative requirement
+            is satisfied by the integrated science sequence.
+          course_list:
+            - SML 201
+            - ORF 245
+            - MOL 290
+- name: Departmental Core Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    The following core courses are required: MOL 342, MOL 345, MOL 348 and MOL 320/350. Except under very special circumstances, these courses must be taken before senior year. MOL 350 is offered in the fall to junior majors and is the conventional path for the major. MOL 320 has limited enrollment and is offered in the spring to sophomores who intend to major in MOL and plan to study abroad, or have taken/are concurrently taking MOL 348 and want an early introduction to research methods and laboratory experience. MOL 320 and MOL 350 are considered equivalent courses and only one can be taken.<br><br>
+
+    All four departmental core courses count toward the eight required departmentals. No substitutions are allowed except in the case of study abroad which, if it entails intensive research and with advanced permission, can substitute for MOL 350.
+  completed_by_semester: 6
+  req_list:
+    - name: Genetics, Biochemistry, Cells
+      max_counted: 1
+      min_needed: 3
+      course_list:
+        - MOL 342
+        - MOL 345
+        - MOL 348
+    - name: Molecular Biology Lab
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - MOL 320
+        - MOL 350
+- name: Other Departmentals
+  max_counted: 1
+  min_needed: 3
+  explanation: |-
+    <i>Editor's Note: If a student took CHM 301 and 304, they only need to take 2 more departmentals, not 3.</i><br><br>
+
+    All students must take a total of at least eight departmentals. In addition to the four departmental core courses, students must take at least one 300-, 400-, or 500-level course with MOL as the primary listing. The remaining three departmentals can be chosen from among all 300-or-higher-level MOL, MOL-cross-listed, or other approved courses (see list on department website). Note that CHM 301, CHM 304 and CHM 337 qualify as departmentals. Only courses taken at Princeton count as departmentals; there are no exceptions to this rule.<br><br>
+
+    Any course that is a prerequisite, requirement or departmental must be taken for a letter grade (no pass/D/fail). The sole exception is that, at the point of declaring the MOL major, students may appeal to "uncover" a single P grade in order to meet a prerequisite or requirement for entry. See the Office of the Dean of the College's policy on appealing to rescind a P grade.
+  pdfs_allowed: 0
+  double_counting_allowed: true
+  course_list:
+    - CBE 419
+    - CBE 433
+    - CBE 439
+    - CBE 440
+    - CBE 447
+    - CHM 302
+    - CHM 303
+    - CHM 304B
+    - CHM 403
+    - CHM 440
+    - CHM 515
+    - CHM 516
+    - CHM 538
+    - CHM 541/QCB 541
+    - CHM 544/ENV 433
+    - COS 343
+    - COS 557
+    - GEO 523/CEE 572
+    - MAE 344/MSE 364
+    - MOL 3*
+    - MOL 4*
+    - MOL 5*
+    - NEU 430
+    - NEU 501*
+    - PHY 412
+    - QCB 408
+- name: Junior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    In the fall semester of the junior year students participate in tutorials in which they read papers from the original literature and prepare two short papers on assigned topics. In the spring semester, students carry out independent work with a faculty adviser with whom they will eventually do their senior thesis research, culminating in a paper in the form of a grant proposal.
+- name: Senior Independent work
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    During the senior year each student, with the guidance of a faculty adviser, undertakes a major research effort. This research project can be a laboratory or non-laboratory-based study that will be written and presented as a senior thesis.
+  max_counted: 1
+  min_needed: 1

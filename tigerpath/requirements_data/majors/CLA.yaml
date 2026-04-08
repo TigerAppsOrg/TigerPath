@@ -1,0 +1,337 @@
+---
+type: Major
+name: Classics
+code: CLA
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-classics
+- https://classics.princeton.edu/programs/undergraduate/tracks
+contacts:
+- type: Chair
+  name: Barbara Graziosi
+  email: barbara.graziosi@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Daniela E. Mairhofer
+  email: daniela.mairhofer@princeton.edu
+description: |-
+  The classics major is a flexible, interdisciplinary program that affords students a range of opportunities to study the cultures, languages, history, politics and intellectual traditions of the ancient Greek and Roman worlds, their contacts with other civilizations of the ancient Mediterranean, resonances in later ages and continued vitality today. The department offers two rigorous and highly flexible majors tracks, in which students chart their own paths within broad areas of study and are encouraged to develop innovative research projects, working closely with world-leading faculty, graduate students engaged in exciting scholarship and highly motivated undergraduate peers within the department. Because of the diversity of the topics studied by the faculty, ranging from Proto-Indo-European linguistics to medieval manuscripts to the cultural politics of the modern Caribbean, the department is able to support students exploring a wide range of subjects and pursuing independent work involving humanistic and social-scientific analysis, creative projects and experimental research. The unusually broad and diverse intellectual range of our program is matched by an intimate, supportive environment in which faculty and students work closely together.
+iw_required: true
+req_list:
+- name: Prerequisites
+  min_needed: 1
+  max_counted: 1
+  double_counting_allowed: true
+  explanation: |-
+    One course on classical culture, broadly defined: any departmental course, HUM 216-217, HUM 247 or other course approved by the DUS.
+  completed_by_semester: 4
+  course_list:
+  - HUM 216
+  - HUM 217
+  - HUM 247
+  - CLA ***
+- name: Tracks
+  max_counted: 1
+  min_needed: 1
+  explanation: Students may either pursue the Classical Studies track
+    or the Ancient History track.
+  double_counting_allowed: true
+  req_list:
+  - name: Classical Studies
+    max_counted: 1
+    min_needed: ALL
+    explanation: The classical studies program offers the opportunity 
+      for sustained and focused inquiry into the history, literature and 
+      culture of the ancient Mediterranean, as well as the impact of 
+      classical antiquity on later periods by using a variety of 
+      interpretative methods. The program offers students maximum 
+      flexibility to chart their course through departmental and related 
+      offerings. The particular program for each student is determined 
+      in collaboration with the DUS, and should be coherent and lead to 
+      viable research projects. Whatever the individual focus, each 
+      student’s program must contain eight courses at the 200 level or 
+      above (with limited exceptions as described below), including two 
+      at the 300 level, plus the junior seminar.
+    req_list:
+    - name: Ancient Literature
+      max_counted: 1
+      min_needed: 1
+      explanation: Of the eight courses, one must deal primarily with 
+        ancient literature, whether read in the original or in 
+        translation; the sequence of CLG/LAT 105-108 may be counted as a 
+        single departmental course and used to fulfill this requirement.
+      req_list:
+      - name: Classical Greek Sequence
+        max_counted: 1
+        min_needed: 2
+        course_list:
+        - CLG 105
+        - CLG 108
+      - name: Latin Sequence
+        max_counted: 1
+        min_needed: 2
+        course_list:
+        - LAT 105
+        - LAT 108
+      - name: Alternatives
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        course_list:
+          - CLA 212 / HUM 212 / GSS 212 / HLS 212
+          - CLA 229 / COM 230 / GSS 234 / HLS 229
+          - ENG 246 / HUM 246 / CLA 241 / CWR 246
+          - HUM 245 / CLA 246 / HLS 245
+          - CLA 357 / HUM 359 / GSS 355 / HLS 359
+          - CLA 502
+          - CLA 503
+          - CLA 514
+          - CLA 533
+          - CLA 542
+          - CLA 565 / HLS 565 / MED 565
+    - name: Ancient History
+      max_counted: 1
+      min_needed: 1
+      explanation: One course must deal primarily with ancient history; 
+        this requirement may be fulfilled by taking any of CLA 216-219 
+        (the Greek and Roman history surveys) or an approved alternative.
+      req_list:
+      - name: Classics Sequence
+        max_counted: 1
+        min_needed: 4
+        course_list:
+        - CLA 216 / HIS 216
+        - CLA 217 / HIS 217 / HLS 217
+        - CLA 218 / HIS 218
+        - CLA 219 / HIS 219
+      - name: Alternatives
+        max_counted: 1
+        min_needed: 1
+        explanation: |-
+          <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        course_list:
+        - CLA 234 / REL 248
+        - CLA 314
+        - CLA 326 / HIS 326 / HLS 373 / HUM 324
+        - CLA 324 / HIS 328 / HLS 322
+        - HIS 343 / CLA 343 / HLS 343 / MED 343
+        - REL 246 / JDS 246 / CLA 248 / NES 246
+        - CLA 326 / HIS 326 / HLS 373 / HUM 324
+        - CLA 327 / HIS 327
+        - HIS 210 / HLS 210 / CLA 202 / MED 210
+        - HIS 344 / CLA 344 / MED 344
+        - CLA 227 / HUM 226
+        - HIS 343 / CLA 343 / HLS 343 / MED 343
+        - CLA 250 / HUM 253
+        - CLA 318 / HUM 318 / NES 318 / HLS 342
+    - name: Classical Reception and Comparative Approaches
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+        
+        One course must deal substantially with classical reception or comparative approaches to the ancient world; this requirement may also be fulfilled by study of another language relevant to the student’s interests (Akkadian, Modern Greek, etc., at any course level).
+      course_list:
+      - HUM 595 / ARC 593 / CLA 595 / MOD 595
+      - CLA 208 / ENG 240 / LIN 208 / TRA 208
+      - CLA 247 / HUM 249 / STC 247 / ENV 247
+      - CLA 324 / HIS 328 / HLS 322
+      - CLA 329 / GSS 331
+      - HUM 245 / CLA 246 / HLS 245
+      - HUM 598 / HLS 594 / CLA 591 / MOD 598
+      - LIN 210 / CLA 210
+      - ART 313 / HLS 313 / CLA 313
+      - ART 411 / CLA 413 / HLS 413
+      - CLA 330 / CHV 330 / HLS 340
+      - CLA 514 / HLS 514 / CDH 514
+      - CLA 547 / PAW 503 / HLS 547 / HIS 557
+      - HUM 315 / CLA 315 / GHP 325 / CHV 325
+      - POL 301 / CLA 301 / HLS 303 / PHI 353
+      - CLA 334 / COM 334 / HLS 367
+      - CLA 355 / MED 355
+      - CLA 524
+      - ENG 246 / HUM 246 / CLA 241 / CWR 246
+      - CLA 520 / PAW 520 / HLS 521
+      - POL 491 / CLA 491 / HUM 490
+      - CLA 405 / NES 405
+      - HLS 101 / MOG 101
+      - HLS 102 / MOG 102
+      - HLS 103 / MOG 103
+      - HLS 105 / MOG 105
+      - HLS 107 / MOG 107
+      - HLS 400 / MOG 400 / CLA 400
+      - LAT 1*
+      - LAT 2*
+      excluded_course_list:
+      - LAT 204 / GSS 204
+      - LAT 210
+    - name: 200-Level or Higher
+      min_needed: 5
+      max_counted: 1
+      course_list:
+      - CLA 2**
+      - CLA 3**
+      - CLA 4**
+      - CLA 5**
+    - name: 300-Level or Higher
+      min_needed: 2
+      max_counted: 1
+      course_list:
+        - CLA 3**
+        - CLA 4**
+        - CLA 5**
+  - name: Ancient History
+    max_counted: 1
+    min_needed: ALL
+    explanation: The program offers students a pathway to explore the 
+      history of ancient Greece and Rome and their relationships with 
+      the neighboring cultures of the Near East, Europe and Africa. It 
+      is also ideal for students interested in acquiring training in the 
+      academic discipline of history while concentrating on the period 
+      spanning the Late Bronze Age (ca. 1700 B.C.E.) to the early 
+      medieval and Byzantine worlds (ca. 600 C.E.). Although students 
+      may specialize in a particular field of history (political, 
+      social, economic, cultural), geographic area or historical period 
+      of antiquity, the aim of the program is to provide well-rounded 
+      training in the field of history, with a focus on ancient history. 
+      Each student’s program must contain eight courses at the 200 level 
+      or above (with limited exceptions as described below), including 
+      two at the 300 level, plus the junior seminar.
+    req_list:
+    - name: Ancient Greek History
+      max_counted: 1
+      min_needed: 1
+      explanation: One survey course on ancient Greek history (CLA 216 
+        or 217).
+      course_list:
+      - CLA 216
+      - CLA 217
+    - name: Roman History
+      max_counted: 1
+      min_needed: 1
+      explanation: One survey course on Roman history (CLA 218 or 219).
+      course_list:
+      - CLA 218
+      - CLA 219
+    - name: Ancient Material Culture
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        <i>Editor's Note: The course list for this requirement is not comprehensive.</i><br><br>
+        
+        One course substantially dealing with ancient material culture.
+      course_list:
+      - CLA 200
+      - CLA 202
+      - CLA 207
+      - CLA 234
+      - CLA 309
+      - CLA 398
+      - CLA 412
+      - CLA 413
+      - CLA 414
+      - CLA 418
+      - CLA 522
+      - CLA 531
+      - CLA 536
+      - CLA 545
+      - CLA 547
+      - CLA 548
+    - name: Premodern History
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        <i>Editor's Note: The course list for this requirement is not exact. Please check with your academic advisor.</i><br><br>
+        
+        One course on premodern (i.e., pre-1789) history or non-industrial societies beyond Greece and Rome.
+      course_list:
+      - CLA 223
+      - CLA 247
+      - CLA 309
+      - CLA 314
+      - CLA 326 / HIS 326 / HLS 373 / HUM 324
+      - HIS 343 / CLA 343 / HLS 343 / MED 343
+      - CLA 520
+      - CLA 524
+      - CLA 547 / PAW 503 / HLS 547 / HIS 557 / ART 527
+      - REL 246 / JDS 246 / CLA 248 / NES 246
+    - name: Electives and Language
+      max_counted: 1
+      min_needed: 3
+      explanation: Students may take any course listed as CLA, CLG or 
+        LAT at the 200 level or above, and other courses may be approved 
+        by the DUS for credit toward the major. One of the courses may 
+        be fulfilled by the sequence of CLG/LAT 105–108 or study of 
+        another language relevant to the student’s interests at any 
+        level.
+      req_list:
+      - name: Electives
+        max_counted: 3
+        min_needed: 1
+        course_list:
+          - CLA 2*
+          - CLA 3*
+          - CLA 4*
+          - CLA 5*
+          - CLG 2*
+          - CLG 3*
+          - CLG 4*
+          - CLG 5*
+          - LAT 2*
+          - LAT 3*
+          - LAT 4*
+          - LAT 5*
+      - name: Language
+        max_counted: 1
+        min_needed: 1
+        req_list:
+        - name: Classical Greek
+          max_counted: 1
+          min_needed: 2
+          course_list:
+          - CLG 105
+          - CLG 108
+        - name: Latin
+          max_counted: 1
+          min_needed: 2
+          course_list:
+          - LAT 105
+          - LAT 108
+        - name: Other Language
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+          course_list:
+          - CLA 405 / NES 405
+          - HLS 101 / MOG 101
+          - HLS 102 / MOG 102
+          - HLS 103 / MOG 103
+          - HLS 105 / MOG 105
+          - HLS 107 / MOG 107
+          - HLS 400 / MOG 400 / CLA 400
+- name: Junior Seminar
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    During the fall of junior year, all majors take the junior seminar (CLA 340). The course introduces students to different fields of study within the department, including literature, ancient history, ancient culture, linguistics and reception studies. Students will gain experience in the methods of their chosen area(s) of study while acquiring an understanding of the history of the discipline and its place in the 21st century. Students will also acquire the skills necessary to pursue independent work. Students who are abroad during the fall of their junior year may complete the junior seminar during the fall semester of their senior year.
+  course_list:
+  - CLA 340
+- name: Junior Paper
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    In the fall term, each student researches and writes a paper of 12-15 pages on a topic of their choosing under the direction of a faculty adviser. The junior seminar will provide guidance in choosing and researching a topic. In the spring term, students undertake a more ambitious research paper of 20-25 pages. Each student again works closely with a member of the faculty on the project, meeting regularly over the course of the term.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    At the end of junior year, majors propose a provisional thesis topic to the DUS along with a list of potential faculty advisers, on the basis of which they are assigned a thesis adviser. The thesis in its final form shall be submitted to the DUS by April 15 (or, when this falls on a weekend, on the following Monday) of senior year.
+  no_req:
+- name: Senior Departmental Examination
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    A 30-minute oral examination focusing on the thesis and related research is administered during the Senior Comprehensive Examination Period by a committee consisting of the thesis adviser, thesis second reader and DUS.
+  no_req:

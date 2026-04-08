@@ -5,7 +5,12 @@ import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
 
 const REQUIREMENTS_POPOVER_CLEANUP_KEY = '__tigerpathReqPopoverCleanup';
+const HEADER_POPOVER_CLEANUP_KEY = '__tigerpathHeaderPopoverCleanup';
 const TREE_ITEM_CLICK_HANDLER_KEY = '__tigerpathTreeItemClickHandler';
+
+function escapeHref(url) {
+  return String(url).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
 
 export default function Requirements({ onChange, requirements, schedule }) {
   const [loading, setLoading] = useState(false);
@@ -52,7 +57,9 @@ export default function Requirements({ onChange, requirements, schedule }) {
     const Popover = window.bootstrap?.Popover;
     if (!Popover) return;
 
-    const reqLabels = containerRef.current.querySelectorAll('.reqLabel');
+    const reqLabels = containerRef.current.querySelectorAll(
+      '.reqLabel:not(.reqLabel-main)'
+    );
     reqLabels.forEach((reqLabel) => {
       const existingCleanup = reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
       if (typeof existingCleanup === 'function') {
@@ -79,6 +86,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
         reqLabel,
         popoverInstance,
         {
+          hideDelayMs: 0,
           onShow: (popoverEl) => {
             if (!popoverEl) return;
             const reqPath = reqLabel.getAttribute('reqpath');
@@ -100,6 +108,48 @@ export default function Requirements({ onChange, requirements, schedule }) {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Main-req info icon: manual trigger + shared hover bridge so the popover stays
+  // open while moving the pointer onto links (Bootstrap hover trigger closes in the gap).
+  const addHeaderPopovers = useCallback(() => {
+    if (!containerRef.current) return;
+    const Popover = window.bootstrap?.Popover;
+    if (!Popover) return;
+
+    const icons = containerRef.current.querySelectorAll('.info-icon');
+
+    icons.forEach((icon) => {
+      const existingCleanup = icon[HEADER_POPOVER_CLEANUP_KEY];
+      if (typeof existingCleanup === 'function') {
+        existingCleanup();
+      }
+
+      const existing = Popover.getInstance(icon);
+      if (existing) existing.dispose();
+
+      const popoverInstance = new Popover(icon, {
+        trigger: 'manual',
+        html: true,
+        animation: true,
+        placement: 'left',
+        fallbackPlacements: ['left', 'top', 'bottom'],
+        boundary: 'viewport',
+        template:
+          '<div class="popover req-popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
+        sanitize: false,
+      });
+
+      const cleanupHover = bindManualHoverPopover(icon, popoverInstance, {
+        hideDelayMs: 400,
+      });
+
+      icon[HEADER_POPOVER_CLEANUP_KEY] = () => {
+        cleanupHover();
+        popoverInstance.dispose();
+        delete icon[HEADER_POPOVER_CLEANUP_KEY];
+      };
+    });
+  }, []);
+
   const getReqCourses = (req_path) => {
     const searchQueryLabel = 'Satisfying: ' + req_path.split('//').pop();
     onChange('searchQuery', searchQueryLabel);
@@ -118,9 +168,10 @@ export default function Requirements({ onChange, requirements, schedule }) {
       requestAnimationFrame(() => {
         makeNodesClickable();
         addReqPopovers();
+        addHeaderPopovers();
       });
     }
-  }, [requirements, makeNodesClickable, addReqPopovers]);
+  }, [requirements, makeNodesClickable, addReqPopovers, addHeaderPopovers]);
 
   const toggleSettle = (course, pathTo, settle) => {
     let pathToType = pathTo.split('//', 3).join('//');
@@ -167,9 +218,15 @@ export default function Requirements({ onChange, requirements, schedule }) {
       if (requirement['count'] === 0 && requirement['min_needed'] === 0)
         finished = 'req-neutral';
 
+      const isOrGroup =
+        'req_list' in requirement &&
+        requirement['min_needed'] === 1 &&
+        requirement['req_list'].length > 1;
+
       let tag = '';
       if (requirement['min_needed'] === 0) tag = requirement['count'];
       else tag = requirement['count'] + '/' + requirement['min_needed'];
+      if (isOrGroup && finished !== 'req-done') tag += ' (any 1)';
 
       let popoverContent =
         '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
@@ -193,9 +250,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
       );
 
       if ('req_list' in requirement) {
+        let childTree = requirement;
+        if (isOrGroup && finished === 'req-done') {
+          const satisfiedChildren = requirement['req_list'].filter(
+            (r) => r['count'] >= r['min_needed']
+          );
+          if (satisfiedChildren.length > 0) {
+            childTree = { ...requirement, req_list: satisfiedChildren };
+          }
+        }
         return (
           <TreeView key={index} nodeLabel={reqLabel} itemClassName={finished}>
-            {populateReqTree(requirement)}
+            {populateReqTree(childTree)}
           </TreeView>
         );
       } else {
@@ -257,39 +323,27 @@ export default function Requirements({ onChange, requirements, schedule }) {
         ) {
           finished = 'req-done';
         }
-        popoverContent = '<div class="popoverContentContainer">';
-        if (mainReq.explanation) {
-          popoverContent +=
-            '<p>' + mainReq.explanation.split('\n').join('<br>') + '</p>';
-        } else if (mainReq.description) {
-          popoverContent +=
-            '<p>' + mainReq.description.split('\n').join('<br>') + '</p>';
-        }
-        if (mainReq.contacts) {
-          popoverContent += '<h6>Contacts:</h6>';
-          mainReq.contacts.forEach((contact) => {
+        const urls = Array.isArray(mainReq.urls)
+          ? mainReq.urls.filter(Boolean)
+          : [];
+        popoverContent = '<div class="popoverContentContainer main-req-popover">';
+        if (urls.length > 0) {
+          const show = urls.slice(0, 2);
+          const linkLabels =
+            show.length === 1
+              ? ['Department page']
+              : ['Department page', 'More information'];
+          show.forEach((url, i) => {
             popoverContent +=
-              '<p>' +
-              contact.type +
-              ':<br>' +
-              contact.name +
-              '<br><a href="mailto:' +
-              contact.email +
-              '">' +
-              contact.email +
-              '</a></p>';
-          });
-        }
-        if (mainReq.urls) {
-          popoverContent += '<h6>Reference Links:</h6>';
-          mainReq.urls.forEach((url) => {
-            popoverContent +=
-              '<p><a href="' +
-              url +
+              '<p class="mb-1"><a href="' +
+              escapeHref(url) +
               '" class="ref-link" target="_blank" rel="noopener noreferrer">' +
-              url +
+              linkLabels[i] +
               '</a></p>';
           });
+        } else {
+          popoverContent +=
+            '<p class="small mb-0 text-muted">No official program link is listed for this requirement.</p>';
         }
         popoverContent += '</div>';
       } else {
@@ -317,14 +371,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
       }
 
       let mainReqLabel = (
-        <div
-          className="reqLabel"
-          title={'<span>' + name + '</span>'}
-          data-bs-content={popoverContent}
-        >
-          {name}
+        <div className="reqLabel reqLabel-main">
+          <span>{name}</span>
+          <i
+            className="fa fa-info-circle info-icon"
+            data-bs-toggle="popover"
+            data-bs-html="true"
+            data-bs-content={popoverContent}
+            style={{ marginLeft: '5px', cursor: 'pointer' }}
+          ></i>
         </div>
       );
+
       return (
         <TreeView
           key={index}

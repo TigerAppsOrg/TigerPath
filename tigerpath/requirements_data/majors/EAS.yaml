@@ -1,0 +1,138 @@
+---
+type: Major
+name: East Asian Studies
+code: EAS
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-east-asian-studies
+- https://eas.princeton.edu/undergraduate/majoring-eas/requirements
+contacts:
+- type: Chair
+  name: Anna M. Shields
+  email: ashields@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Xin Wen
+  email: xinwen@princeton.edu
+description: |-
+  In the contemporary global configuration, East Asia is a center of culture, economics, science and technology. The Department of East Asian Studies (EAS) offers a wide range of undergraduate classes at the highest standards of academic, linguistic and cultural competence focused on China, Korea and Japan. While the EAS major allows in-depth study and first-hand experience of East Asia, the minor programs in Chinese, Japanese or Korean language encourage students to combine their interests in East Asian languages and civilizations with other majors they pursue at Princeton.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: ALL
+  explanation: One year of language study in one East Asian language.
+    One 200-level EAS course
+  req_list:
+    - name: Language Course
+      max_counted: 1
+      min_needed: 1
+      req_list:
+        - name: Chinese
+          max_counted: 1
+          min_needed: 2
+          course_list:
+            - CHI ***
+        - name: Japanese
+          max_counted: 1
+          min_needed: 2
+          course_list:
+            - JPN ***
+        - name: Korean
+          max_counted: 1
+          min_needed: 2
+          course_list:
+            - KOR ***
+    - name: EAS Course
+      max_counted: 1
+      min_needed: 1
+      course_list:
+        - EAS 2**
+- name: Language Proficiency
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Majors are required to achieve proficiency in one East Asian language through the third-year level.
+  course_list:
+    - CHI 304
+    - CHI 306
+    - CHI 403
+    - CHI 404
+    - CHI 405
+    - CHI 406
+    - JPN 302
+    - JPN 306
+    - KOR 302
+    - KOR 308
+- name: Six EAS Courses
+  max_counted: 1
+  min_needed: ALL
+  req_list:
+    - name: Junior Seminar
+      max_counted: 1
+      min_needed: ALL
+      explanation: |-
+        The junior seminar (EAS 300) as an introductory methods survey course, generally taken fall of junior year.
+      course_list:
+        - EAS 300
+    - name: Transnational Courses
+      max_counted: 1
+      min_needed: 2
+      explanation: Two of the following transnational courses.
+      course_list:
+        - HIS 207 / EAS 207 / MED 207
+        - HIS 208 / EAS 208
+        - EAS 229
+        - HUM 233 / EAS 233 / COM 233
+        - HUM 234 / EAS 234 / COM 234
+    - name: Premodern East Asia
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        <i>Editor's Note: The course list for this requirement is too broad. Please check with your advisor.</i><br><br>
+
+        At least one course on premodern East Asia.<br> 
+        Either HIS 207 or HUM 233, when taken in fulfillment of a transnational course (2), may also be used simultaneously toward the premodern requirement (3), however, the course will only count toward one of the six required EAS-prefix departmentals.
+      course_list:
+        - HIS 207 / EAS 207 / MED 207
+        - HUM 233 / EAS 233 / COM 233
+        - EAS *
+    - name: Electives
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        Two additional courses, which may be:<br>
+        EAS courses, including courses cross-listed with EAS.<br> 
+        Cognate courses approved by the director of undergraduate studies<br> 
+        Language courses at or above the 300 level (after the three-year proficiency requirement is fulfilled).<br> 
+        Any courses in a second East Asian language.
+      course_list:
+        - EAS ***
+        - CHI ***
+        - JPN ***
+        - KOR ***
+        - CHI ***
+- name: Junior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br> 
+
+    In the fall term the student participates in the departmental junior seminar (EAS 300) and also writes a junior independent work. In the spring, the student writes a second junior independent work under the supervision of an appropriate faculty member. At the end of junior year, the student begins to draft a proposal for the senior thesis.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Each student prepares a senior thesis in consultation with an appropriate member of the faculty. The senior thesis represents the culmination of the undergraduate curriculum. It should be an original contribution to scholarship on East Asia, based at least in part on source materials in the student's language of specialization.<br>
+    Scholarship aid is available for senior thesis research abroad. Students should review funding opportunities listed in the Student Activities Funding Engine (SAFE), and may also want to consult the websites of the Program in East Asian Studies (EAP) and the Office of the Dean of the College (ODOC) for further information.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    At the end of the spring term, the student appears before a faculty committee for an oral defense of the thesis. The defense will take the form of a conversation between the student and a faculty committee, and it will center on the senior independent work, as well as larger questions in the field of East Asian studies that inform it. Students will be asked to reflect on the process of their research: the original source of interest in their research topic; the process of fleshing out the architecture of their project; and difficulties and creative discoveries of their research and writing. The conversation will begin in the students' primary research language: Korean, Japanese or Chinese.
+  no_req:

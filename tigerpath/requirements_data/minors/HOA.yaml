@@ -1,0 +1,98 @@
+---
+type: Minor
+name: History of Art
+code: HOA
+degree:
+description: |-
+  The Department of Art and Archaeology studies artwork and 
+  material artifacts from a wide range of cultures and periods, approaching 
+  them in historical perspective. Art history's subjects include drawing, 
+  painting, sculpture, photography, architecture and the built environment, 
+  ceramics, lacquer, metalwork, glass and textiles; along with a wide range 
+  of images and phenomena or experiences shaped by artistic craft, including
+  cinema, performance, print culture, urbanism, scientific illustration and 
+  mass media. Students of art history learn to translate observations into 
+  linguistic expression, develop visual and experiential memory and make 
+  connections among a wide array of historical evidence. They practice 
+  techniques for analyzing and interpreting the visual and material world 
+  by actively engaging primary sources—often through the direct study of 
+  original works in Princeton's collections and local museums.<br><br>
+  Art historians pursue their work in many different ways, and the research 
+  questions of the field take varied forms. The fundamental methods of the 
+  discipline rely on close observation and deeply researched contextualization. 
+  The contemporary practice of art history attends not only to visual analysis 
+  and the study of materials and techniques, but also to the full spectrum of 
+  elements that bear upon art's making and its apprehension (including sound, 
+  smell, texture, motion, etc. — all in historically situated context). 
+  Art-historical research often considers the social, political, philosophical, 
+  literary, economic, scientific, technological or religious culture of a 
+  particular period, community or region. Art historians frequently collaborate 
+  with scholars in the sciences as they study the material composition of 
+  artworks, and the field is conducive to technology-based projects and methods 
+  (such as imaging technologies and data visualization).<br><br>
+  "The field is by nature interdisciplinary:" it draws on the ideas, information, 
+  theories and resources of diverse branches of knowledge, as art historians 
+  seek to understand the cultural fabric of which a given work of art forms a 
+  part. As such, a minor in the History of Art may complement a major in a wide 
+  range of disciplines across all University divisions. The skills of 
+  observation, analysis and research that students cultivate through 
+  art-historical practice prove valuable in fields from medicine and law to 
+  engineering and biological- or conservation science, along with all branches 
+  of the humanities and social sciences.
+urls:
+- https://artandarchaeology.princeton.edu/about-us/undergraduate#minorinarthistory
+contacts:
+- type: Director of Undergraduate Studies
+  name: Basile Baudez
+  email: bbaudez@princeton.edu
+iw_required: false
+req_list:
+- name: Requirements
+  max_counted: 1
+  min_needed: 4
+  explanation: |-
+    Minors may consult with Art & Archaeology's Director of 
+    Undergraduate Studies about their course planning, but are not required 
+    to do so. Five ART courses; none to be taken P/D/F.
+  double_counting_allowed: true
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  req_list:
+    - name: Introductory
+      max_counted: 1
+      min_needed: 1
+      explanation: All minors must take ART 100, the Department's introductory course
+      course_list: 
+      - ART 100
+    - name: 200 level
+      max_counted: 1
+      min_needed: 1
+      explanation: One of the five courses must be at 200-level
+      course_list: 
+      - ART 2*
+    - name: 400 level
+      max_counted: 1
+      min_needed: 1
+      explanation: One of the five courses must be at 400-level
+      course_list: 
+      - ART 4*
+    - name: 5 courses
+      max_counted: 1
+      min_needed: 5
+      explanation: Five ART courses; none to be taken pass/D/fail.
+      course_list: 
+      - ART *
+- name: Distribution Areas 
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: There is no official listing/encoding of the three distribution areas, so hoagieplan does not check it.</i><br><br>
+
+    Minors must take one course in each of the department's three 
+    distribution areas: Ancient (Group 1), Medieval and Early Modern 
+    (Group 2), Modern (Group 3). This distribution requirement may be met 
+    through courses at any level, and in any geographic area. Group 
+    designations are included in the Registrar's course listings, and will 
+    also be communicated to students through a department announcement when 
+    course registration opens.
+  no_req:

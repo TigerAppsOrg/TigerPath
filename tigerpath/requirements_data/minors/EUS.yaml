@@ -1,0 +1,83 @@
+---
+type: Minor
+name: European Studies
+code: EUS
+degree:
+urls:
+- https://ecs.princeton.edu/minor
+description: The Minor in European Studies offers a comprehensive exploration of Europe, blending 
+  the Humanities and Social Sciences. Students gain a deep understanding of Europe’s past and present 
+  through diverse coursework and engaging extra-curricular activities. You’ll explore European history, 
+  literature, art, architecture, music, cinema, theater, politics, sociology, economy, and philosophy, 
+  covering various time periods and national contexts, and develop skills in critical thinking, cultural 
+  analysis, and interdisciplinary research.
+contacts:
+- type: Director
+  name: Efthymia Rentzou
+  email: erentzou@princeton.edu
+iw_required: true
+req_list:
+- name: Prerequisites
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    One of the following core courses is required as a prerequisite: ECS 301 or EPS 302. Students who are 
+    unable to take either ECS 301 or EPS 302 may petition the directors for other courses that offer an 
+    introduction to the study of Europe from a similarly interdisciplinary point, such as HUM 216-217, 
+    HUM 218-219, or HIS 212/EPS 212.
+  course_list:
+  - ECS 301
+  - EPS 302
+- name: Electives
+  min_needed: 3
+  max_counted: 1
+  explanation: |-
+    In addition to the prerequisite course, students will be required to take four elective courses in ECS or EPS; 
+    at least one of these courses should be in ECS and one in EPS, core or cross-listed. Students who have taken a 
+    full year of the double-credit HUM 216-217 and HUM 218-219 (the Western Humanities Sequence) satisfy two of the 
+    elective courses. Students who have taken one semester of the double-credit HUM 216-217 or HUM 218-219 satisfy 
+    one of the elective courses.
+  req_list: 
+  - name: Four total courses
+    min_needed: 4
+    max_counted: 1
+    double_counting_allowed: true
+    course_list:
+    - ECS ***
+    - EPS ***
+    - HUM 216
+    - HUM 218
+  - name: ECS Course
+    min_needed: 1
+    max_counted: 1
+    double_counting_allowed: true
+    course_list:
+    - ECS ***
+  - name: EPS Course
+    min_needed: 1
+    max_counted: 1
+    double_counting_allowed: true
+    course_list:
+    - EPS ***
+- name: Thesis Colloquium
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    For a period of 6-8 weeks during the senior year, EUS seniors meet once a week to address common problems 
+    of research, conceptualization, organization, and writing under the supervision of the directors of the 
+    minor. In advance of each weekly session, two or three students submit a sample of their thesis work for 
+    close, critical reading by all members of the colloquium. During the sessions, students make introductory 
+    presentations of their projects, followed by discussions of the submitted work. Active participation in 
+    discussion is expected of all members of the colloquium each week. Students from the natural sciences or 
+    engineering who do not address European topics in their theses may submit a paper written for an EUS course 
+    for circulation and discussion, or they may opt to share material drawn from their thesis research and discuss 
+    aspects of their projects that intersect with the broader concerns of the colloquium.
+  no_req:
+- name: Department Involvement
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Participation in at least one ECS Faber lecture and Faber colloquium or in an EPS Spring lecture and students 
+    meeting event with the Speaker at least once during the four years. Participation in at least one cultural 
+    excursion organized by ECS or EPS (usually to NYC) during the four years.
+  no_req:

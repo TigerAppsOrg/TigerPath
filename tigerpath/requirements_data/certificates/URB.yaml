@@ -1,0 +1,358 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: Urban Studies
+code: URB
+degree:
+description: The Certificate Program in Urban Studies is an interdepartmental plan
+  of study for undergraduates that offers an interdisciplinary framework for the study
+  of cities, metropolitan regions, and urban and suburban landscapes. With courses
+  in diverse department, the program encourages students to think about metropolitan
+  centers in all their complexity as physical spaces; social, cultural, political,
+  and economic nexuses; and historical artifacts.
+urls:
+- http://urbanstudies.princeton.edu/
+- https://ua.princeton.edu/fields-study/certificate-programs
+contacts:
+- type: Program Director
+  name: Mario Gandelsonas
+  email: mgndlsns@princeton.edu
+iw_required: true
+req_list:
+- name: Required Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: Students must take URB 201 Introduction to Urban Studies, or with
+    approval of the director, an urban-focused elective such as URB 388.
+    Students must also take a design studio course, either ARC 205 or ARC 204.
+    Students planning to major in architecture or CEE are directed to ARC 204.
+    Note that studio courses are limited in size; students are encouraged to fulfill
+    the studio course requirement as soon as their schedule permits. The core courses
+    are designed to be accessible to all majors. To satisfy the core course
+    requirements, students must pass both required courses with a grade of B or above. 
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  req_list:
+  - name: Urban
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - URB 201
+    - URB 388
+  - name: Design Studio Course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ARC 204
+    - ARC 205
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: "In addition to the two core courses, students must complete
+    three electives: one from social sciences; one from the humanities; and one
+    from engineering or the natural sciences. A list of approved electives is
+    posted on the website. Elective courses may vary from year to year and
+    students should consult the registrar listing for URB designated courses.
+    Courses not on the approved list may be used as electives with the approval
+    of the program director. However, each selected course must contain substantial
+    urban content to fulfill the requirements of the certificate program."
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  req_list:
+  - name: Social Sciences
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ANT 311
+    - HIS 393
+    - LAS 329
+    - SOC 373
+    - AAS 350
+    - AAS 381
+    - AAS 442
+    - AMS 306
+    - AMS 311
+    - AMS 312
+    - AMS 322
+    - AMS 395
+    - AMS 403
+    - ANT 223
+    - ANT 227
+    - ANT 244
+    - ANT 309A
+    - ANT 309B
+    - ANT 311
+    - ANT 314
+    - ANT 387
+    - ARC 401
+    - ARC 303
+    - ARC 312
+    - ARC 386
+    - ARC 396
+    - ARC 401
+    - ARC 545
+    - ARC 546
+    - DAN 310
+    - ENV 305
+    - FRE 217
+    - HIS 202
+    - HIS 388
+    - HIS 393
+    - HIS 418
+    - HIS 465
+    - HIS 482
+    - HIS 484
+    - HUM 310
+    - JRN 449
+    - LAS 217
+    - LAS 218
+    - LAS 307
+    - LAS 317
+    - LAS 324
+    - LAS 329
+    - LAS 412
+    - POL 340
+    - POL 344
+    - POL 351
+    - POL 403
+    - POR 312
+    - PSY 400
+    - PSY 402
+    - SAS 355
+    - SLA 309
+    - SLA 420
+    - SOC 207
+    - SOC 210
+    - SOC 227
+    - SOC 307
+    - SOC 358
+    - SOC 360
+    - SOC 369
+    - SOC 373
+    - SOC 413
+    - SPA 227
+    - SPA 239
+    - SPI 328
+    - SPI 331
+    - SPI 336
+    - SPI 394
+    - SPI 409
+    - SPI 537
+    - URB 200
+    - URB 201
+    - URB 202
+    - URB 300
+    - URB 378
+    - URB 385
+  - name: Humanities
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 302
+    - AAS 359
+    - AAS 367
+    - ANT 311
+    - ART 329
+    - HIS 393
+    - HUM 234
+    - LAS 329
+    - SOC 373
+    - AAS 302
+    - AAS 350
+    - AAS 359
+    - AAS 381
+    - AAS 442
+    - AMS 306
+    - AMS 311
+    - AMS 312
+    - AMS 322
+    - AMS 356
+    - AMS 395
+    - AMS 403
+    - AMS 403
+    - ANT 223
+    - ANT 227
+    - ANT 244
+    - ANT 309A
+    - ANT 309B
+    - ANT 311
+    - ANT 363
+    - ANT 445
+    - ARC 204
+    - ARC 205
+    - ARC 301
+    - ARC 303
+    - ARC 312
+    - ARC 383
+    - ARC 384
+    - ARC 386
+    - ARC 389
+    - ARC 396
+    - ARC 401
+    - ARC 404
+    - ARC 492
+    - ARC 519
+    - ARC 525
+    - ARC 526
+    - ARC 533
+    - ARC 545
+    - ARC 546
+    - ART 313
+    - ART 329
+    - ART 387
+    - CEE 262A
+    - CEE 262B
+    - CEE 311
+    - CLA 250
+    - CLA 326
+    - COM 208
+    - DAN 215
+    - DAN 310
+    - DAN 322
+    - EAS 303
+    - ENG 293
+    - ENG 317
+    - ENG 326
+    - ENG 384
+    - ENG 386
+    - ENG 391B
+    - ENG 399
+    - ENV 303
+    - ENV 305
+    - ENV 345
+    - ENV 380
+    - FRE 217
+    - FRE 319
+    - GEO 202
+    - GEO 366
+    - GHP 303
+    - HIS 202
+    - HIS 371
+    - HIS 388
+    - HIS 393
+    - HIS 418
+    - HIS 451
+    - HIS 453
+    - HIS 456
+    - HIS 459
+    - HIS 464
+    - HIS 465
+    - HIS 482
+    - HIS 484
+    - HUM 234
+    - HUM 310
+    - HUM 352
+    - JRN 280
+    - JRN 449
+    - LAS 212
+    - LAS 217
+    - LAS 218
+    - LAS 307
+    - LAS 308
+    - LAS 324
+    - LAS 329
+    - LAS 392
+    - LAS 412
+    - LAS 416
+    - MAE 228
+    - MUS 258
+    - MUS 264
+    - MUS 346
+    - NES 221
+    - ORF 407
+    - POL 340
+    - POL 344
+    - POL 351
+    - POL 403
+    - POR 312
+    - PSY 400
+    - PSY 402
+    - SAS 355
+    - SLA 309
+    - SLA 420
+    - SOC 207
+    - SOC 210
+    - SOC 227
+    - SOC 307
+    - SOC 358
+    - SOC 360
+    - SOC 369
+    - SOC 373
+    - SOC 413
+    - SPA 227
+    - SPA 239
+    - SPA 304
+    - SPA 365
+    - SPA 385
+    - SPI 328
+    - SPI 331
+    - SPI 336
+    - SPI 409
+    - SPI 409
+    - SPI 537
+    - URB 200
+    - URB 201
+    - URB 202
+    - URB 300
+    - URB 378
+    - URB 385
+    - VIS 325
+  - name: Engineering / Natural Sciences
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - ARC 301
+    - ARC 384
+    - ARC 492
+    - ARC 519
+    - CEE 102A
+    - CEE 102B
+    - CEE 262A
+    - CEE 262B
+    - CEE 311
+    - CEE 334
+    - CEE 392
+    - CEE 471
+    - CEE 474
+    - CEE 477
+    - EEB 308
+    - EEB 321
+    - ENE 273
+    - ENV 303
+    - ENV 305
+    - ENV 323
+    - ENV 345
+    - ENV 348
+    - ENV 377
+    - ENV 380
+    - ENV 381
+    - GEO 102A
+    - GEO 102B
+    - GEO 202
+    - GEO 360
+    - GEO 366
+    - HIS 464
+    - MAE 228
+    - VIS 325
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    While urban studies students' senior theses or projects
+    are directed in their home departments, their work must contain an
+    urban component, approved by the program director. A faculty member
+    from the student's home department serves as the primary adviser and
+    first reader. An urban studies adviser may be selected from the
+    program's associated faculty list(Link is external) to provide additional
+    consultation and layer of expertise as students write and think about potentially
+    urban-related careers. The thesis title and abstract must be sent to the
+    program director for final approval.
+  no_req:
+

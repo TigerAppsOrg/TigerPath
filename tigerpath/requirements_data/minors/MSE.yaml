@@ -1,0 +1,135 @@
+---
+type: Minor
+name: Materials Science and Engineering
+code: MSE
+degree:
+urls:
+- https://materials.princeton.edu/education/undergraduate/mse-minor-program
+description: The program emphasizes the multidisciplinary nature of the 
+  study of materials and the engineering application of their 
+  properties. The program is designed primarily for students in science 
+  and engineering departments who are considering careers in materials, 
+  or have general interest in materials science and engineering, 
+  although students from other disciplines, with appropriate background, 
+  may join. Participants in the program will take courses in their own 
+  department together with a group of materials courses chosen from a 
+  selected list offered by the participating departments and/or the 
+  Princeton Materials Institute. Satisfactory completion of the program 
+  is recognized by the award of a minor in materials science and 
+  engineering upon graduation.
+contacts:
+- type: Director
+  name: Alejandro W. Rodriguez
+  email: arod@princeton.edu
+iw_required: true
+req_list:
+- name: General Physics
+  max_counted: 1
+  min_needed: 1
+  explanation: One year of general physics. In addition, a course in 
+    quantum mechanics is recommended.
+  req_list:
+  - name: 103-104 Sequence
+    max_counted: 1
+    min_needed: 2
+    explanation:
+    pdfs_allowed: 2
+    course_list:
+    - PHY 103
+    - PHY 104
+  - name: 105-106 Sequence
+    max_counted: 1
+    min_needed: 2
+    explanation:
+    pdfs_allowed: 2
+    course_list:
+    - PHY 105
+    - PHY 106
+- name: General Chemistry
+  max_counted: 1
+  min_needed: 1
+  explanation: One term of general chemistry with a materials focus and 
+    a laboratory. CHM 201/202 sequence also accepted.
+  req_list:
+  - name: 201-202 Sequence
+    max_counted: 1
+    min_needed: 2
+    explanation:
+    pdfs_allowed: 2
+    course_list:
+    - CHM 201
+    - CHM 202
+  - name: Chemistry Course
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    pdfs_allowed: 1
+    course_list:
+    - CHM 207
+    - CHM 215
+- name: Mathematics
+  max_counted: 1
+  min_needed: 2
+  explanation: One year of mathematics (any two courses out of MAT 103, 
+    104, 201, 202, 203 and 204).
+  pdfs_allowed: 1
+  course_list:
+  - MAT 103
+  - MAT 104
+  - MAT 201
+  - MAT 202
+  - MAT 203
+  - MAT 204
+- name: Thermodynamics
+  max_counted: 1
+  min_needed: 1
+  explanation: One course in thermodynamics.
+  pdfs_allowed: 1
+  course_list:
+  - CBE 246
+  - CHM 306
+  - CHM 406
+  - ECE 342
+  - MAE 221
+  - PHY 301
+- name: Materials
+  max_counted: 1
+  min_needed: 1
+  explanation: A core course in materials.
+  pdfs_allowed: 1
+  course_list:
+  - MSE 301
+  - CEE 364
+  - MAE 324
+- name: Experimental Methods
+  max_counted: 1
+  min_needed: 1
+  explanation: One core course in experimental methods.
+  course_list:
+  - MSE 302
+  - CHM 371
+  - ECE 308
+  - GEO 369
+- name: Program Electives
+  max_counted: 1 
+  min_needed: 3
+  pdfs_allowed: 0
+  max_common_with_major: 0
+  explanation: Three additional program-approved courses at or above the 
+    300 level, at least one of which must be from a department/program 
+    different from that in which the student is majoring.
+  course_list:
+  - MSE 3*
+  - MSE 4*
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Write a senior thesis on a topic with substantial materials content as approved by the program director.
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    Not more than four of the six courses for thermodynamics, materials, experimental and the program electives may also be used to satisfy requirements in the major.
+    
+    To be awarded the minor in materials science and engineering upon graduation, students must achieve a minimum grade average of B- in program electives.

@@ -1,0 +1,237 @@
+---
+type: Degree
+name: B.S.E.
+code: BSE
+description: |-
+  The B.S.E. program at Princeton is intended to educate future leaders in many different areas — including engineering practice and research, business and finance, public service, and other professions — through the teaching of fundamental engineering principles and techniques with their applications to modern problems in a global societal context. To this end, B.S.E. students are challenged to conceptualize and solve technical problems, work together in teams, express themselves clearly and convincingly, evaluate evidence critically, and appreciate the ethical, social, economic, and cultural environments in which they will live and work.
+urls:
+- https://ua.princeton.edu/contents/program-study-degree-bachelor-science-engineering
+- https://ua.princeton.edu/contents/general-education-requirements
+- https://lsi.princeton.edu/integratedscience/freshman-year
+- https://engineering.princeton.edu/undergraduate-studies/first-year-advising/degree-requirements
+req_list:
+- name: Degree Progress
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    B.S.E. students enroll in four courses for the first term of the first year and in four or five courses in each succeeding term, following a sequence appropriate to their individual programs. The school requirement for the B.S.E. degree is at least 36 courses in the four years of study. Sophomores, juniors, and seniors must complete at least four courses each term, with a minimum of 17 courses by the start of junior year and 26 courses by the start of senior year.
+  req_list:
+  - name: By first semester
+    max_counted: 1
+    completed_by_semester: 1
+    num_courses: 4
+  - name: By second semester
+    max_counted: 1
+    completed_by_semester: 2
+    num_courses: 8
+  - name: By fourth semester
+    max_counted: 1
+    completed_by_semester: 4
+    num_courses: 17
+  - name: By sixth semester
+    max_counted: 1
+    completed_by_semester: 6
+    num_courses: 26
+  - name: Total courses
+    max_counted: 1
+    completed_by_semester: 8
+    num_courses: 36
+- name: Mathematics
+  max_counted: 1
+  min_needed: 4
+  pdfs_allowed: false
+  double_counting_allowed: true
+  req_list:
+  - name: First Term Math
+    max_counted: 1
+    min_needed: 1
+    completed_by_semester: 2
+    course_list:
+    - MAT 103
+  - name: Second Term Math
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - MAT 104
+    - EGR 152
+  - name: Third Term Math
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - MAT 201
+    - MAT 203
+    - MAT 216
+    - MAT 218
+    - EGR 192
+    - EGR 156
+  - name: Fourth Term Math
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - MAT 202
+    - MAT 204
+    - MAT 217
+    - EGR 154
+- name: Science Requirements
+  max_counted: 1
+  min_needed: 1
+  explanation: Students must take one Physics, one Chemistry, and one
+    Computer Science course. Alternativaly, students can take the 
+    Integrated Science Sequence.
+  req_list:
+  - name: Regular Sequence
+    max_counted: 1
+    min_needed: ALL
+    req_list:
+    - name: Physics
+      max_counted: 1
+      min_needed: 2
+      pdfs_allowed: false
+      double_counting_allowed: true
+      completed_by_semester: 2
+      req_list:
+      - name: Mechanics
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - PHY 103
+        - PHY 105
+        - EGR 191
+        - EGR 151
+      - name: Electromagnetism
+        max_counted: 1
+        min_needed: 1
+        course_list:
+        - PHY 104
+        - PHY 106
+        - EGR 193
+        - EGR 153
+    - name: Chemistry
+      max_counted: 1
+      min_needed: 1
+      pdfs_allowed: false
+      double_counting_allowed: true
+      completed_by_semester: 2
+      course_list:
+      - CHM 201
+      - CHM 201A
+      - CHM 203
+      - CHM 207
+      - MOL 214
+    - name: Computer Science
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Computer proficiency is a requirement for the B.S.E. degree fulfilled by taking COS 126 General Computer Science or ECE 115 Introduction to Computing: Programming Autonomous Vehicles. Students with adequate preparation as determined by the Department of Computer Science may substitute COS 217 Introduction to Programming Systems or COS 226 Algorithms and Data Structures. This requirement must be satisfied before the beginning of the junior year. This requirement may not be satisfied by a course taken under the Pass/D/Fail option. A course taken at another school may not be used to satisfy this requirement.
+      pdfs_allowed: false
+      double_counting_allowed: true
+      completed_by_semester: 4
+      course_list:
+      - ECE 115
+      - COS 126
+      - COS 217
+      - COS 226
+  - name: Integrated Science Curriculum
+    max_counted: 2
+    min_needed: 1
+    course_list:
+    - ISC 231
+    - ISC 232
+    - ISC 233
+    - ISC 234
+- name: Writing Seminar
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    The ability to write English clearly and precisely is a University requirement that must be satisfied by completing a writing seminar in the first year. The writing seminar does not count as one of the seven humanities and social science courses.
+    The Writing Seminars give Princeton first-year students an early opportunity to belong to a lively academic community in which members investigate a shared topic and discuss their writing together, with the aim of clarifying and deepening their thinking. The seminars are interdisciplinary in nature to emphasize transferable reading, writing and research skills. You'll learn how to frame compelling questions, position your argument within a genuine academic debate, substantiate and organize claims, purposefully integrate a wide variety of sources and revise for greater cogency and clarity.
+  pdfs_allowed: false
+  completed_by_semester: 2
+  course_list:
+  - WRI 1**
+- name: Distribution Requirements
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    All students in the B.S.E. program must complete at least seven courses in the humanities and social sciences during their eight terms of study. Humanities and social science courses are defined as courses that fulfill the following University distribution areas: Culture and Difference (CD) Epistemology and Cognition (EC); Ethical Thought and Moral Values (EM); Historical Analysis (HA); Literature and the Arts (LA); and Social Analysis (SA).
+  pdfs_allowed: true
+  req_list:
+  - name: Four Areas
+    max_counted: 1
+    min_needed: 4
+    req_list:
+    - name: Culture and Difference
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        The requirement in Culture and Difference begins with the premise that human beings experience the world through their respective cultures — the ideas, meanings, norms, and habituations — that are represented in the arts and literature, laws and institutions, and social practices of human societies whose histories and power relationships often differ from one another.  Found across a wide range of disciplines, these courses use cultural analysis to trace the ways in which human beings construct meaning both within and across groups. Culture and Difference courses offer students a lens through which other forms of disciplinary inquiry are enhanced, critiqued, and clarified, often paying close attention to the experiences and perspectives of groups who have historically been excluded from dominant cultural narratives or structures of social power. The requirement in Culture and Difference is the only requirement that may be satisfied either independently or concurrently with another distribution area.
+      dist_req: CD
+    - name: Epistemology and Cognition
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Courses in Epistemology and Cognition address the nature and limits of human knowledge.  The cognitive sciences and related fields study human reasoning as it is. Epistemology — the philosophical theory of knowledge — studies human reasoning as it ought to be.  Both areas of inquiry focus simultaneously on the manifold sources of human knowledge and on the many ways in which human reasoning can be distorted or undermined. Courses in this group are offered in a number of departments, but share the common goal of encouraging students to reflect on the linguistic, psychological, and cultural structures that make knowledge possible. Individual departments may also offer courses in disciplinary “ways of knowing” that invite students to consider the epistemological assumptions and methodological principles that inform research in their fields.
+      dist_req: EC
+    - name: Ethical Thought and Moral Values
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Human beings often disagree about matters of right and wrong, and about how we ought to organize our lives together. The ethical and moral conclusions we reach, however, are not mere matters of opinion. Ethical decisions emerge from fundamental ideas about the nature and possibility of the “good,” our duties and obligations to one another, our aspirations for a virtuous and meaningful life, and the demands of justice.  These ideas, often shaped by ancient traditions of religion and culture, guide the moral questions we ask and the conclusions we reach. Courses in Ethical Thought and Moral Values equip students to understand the basis of their own moral reasoning and ethical issues as they arise in social life, while also cultivating the possibility of a common ethical language among people whose traditions and values differ.
+      dist_req: EM
+    - name: Historical Analysis
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Historical analysis invites students to enter imaginatively into languages, institutions, and worldviews of the past.  It grounds us in the awareness that human life and culture are thousands of years old, and that the world we experience in the present is only a fraction of all that it ever was.  Fundamental to historical analysis is the study of change over time:  why and how did cities rise and fall, technologies develop, social roles transform?  Because we can never directly experience the past, historical analysis depends on the subjective selection and interpretation of texts, artifacts, and other evidence, and from the same evidence many different stories can often be told. Historical analysis requires students to make critical judgments about the conclusions we can draw from the traces of the past to which we have access.
+      dist_req: HA
+    - name: Literature and the Arts
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Human beings have always used imagination to create reflections and representations of ourselves and our world, from cave paintings to symphonies to video games. In making these artistic or imaginative representations, we express ideas about our own nature and investigate the nature of the world around us, often in ways that push at the boundaries of what can be said in ordinary language. In courses in Literature and the Arts, students may produce creative, imaginative works or practice interpreting them. For example, they may choreograph dances or read Shakespeare's plays or create performance pieces that use imaginative and interpretive skills critically and physically. The skill of “close reading” is especially important in this area of inquiry: what can we learn from careful attention to the precise words, colors, or tones that an artist has chosen?
+      dist_req: LA
+    - name: Social Analysis
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        Social analysis involves the study of the structures, processes, and meanings human beings create through our interactions with one another, and the networks and institutions through which human behavior develops and evolves. The codes and narratives we share with others, often unspoken, produce our sense of “the normal” and structure our thought and behavior. These components of social life are accessible through both quantitative methods, which involve the statistical analysis of data, and qualitative methods, which rely on the interpretation of data gathered through observation and interaction.  Social analysis enables us to make sense of the social structures and processes that shape individual lives, to understand the role of institutions — such as the family, government, schools, and labor markets — in society, and to define and respond to social problems, such as inequality and violence.
+      dist_req: SA
+  - name: Seven Total Courses
+    max_counted: 1
+    min_needed: 7
+    double_counting_allowed: true
+    req_list:
+    - name: Distribution Area Course
+      max_counted: 7
+      min_needed: 1
+      double_counting_allowed: true
+      explanation: |-
+        One course in the humanities and social sciences.
+      dist_req:
+      - CD
+      - EC
+      - EM
+      - HA
+      - LA
+      - SA
+    - name: Language Course (counts toward H/SS total)
+      max_counted: 7
+      min_needed: 1
+      double_counting_allowed: true
+      explanation: |-
+        Although there is no foreign language requirement for B.S.E. students, intermediate-level language courses (numbered 107 and 108 in the Romance languages, 105 and 107 in all others) and higher may also count towards the seven H/SS courses.
+      course_list:
+      - GER 1025
+      - LANG 1027
+      - LANG 105
+      - LANG 107
+      - LANG 108
+      - LANG 2**
+      - LANG 3**
+      - LANG 4**
+      - LANG 5**
+      excluded_course_list:
+      - FRE 105
+      - ITA 105
+      - POR 105
+      - SPA 105

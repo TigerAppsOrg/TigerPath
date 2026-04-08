@@ -1,0 +1,336 @@
+---
+type: Major
+name: Mechanical and Aerospace Engineering
+code: MAE
+degree: BSE
+description: |-
+  The Department of Mechanical and Aerospace Engineering is concerned
+  with the engineering science and technologies associated with 
+  ground, air, water, and space transportation, including control and
+  dynamics of vehicles and systems, energy conversion and use, 
+  environmental effects, fluids, materials, and applied physics. To
+  accommodate this breadth of interest, the Department offers two
+  programs of study: Mechanical Engineering and Aerospace Engineering.
+  Either program may be completed individually or, through careful
+  planning and selection of technical electives, the requirements of
+  both the Mechanical and Aerospace Engineering programs may be 
+  satisfied simultaneously. (See the Director of Undergraduate 
+  Studies for further information).
+urls:
+- https://ua.princeton.edu/academic-units/department-mechanical-and-aerospace-engineering-0
+- https://mae.princeton.edu/undergraduate/programs
+- https://mae.princeton.edu/sites/default/files/2023-11/MAE-UG%20HANDBOOK%20AY%202023-2024%20Class%202026-%20final.pdf
+contacts:
+- type: Director of Undergraduate Studies
+  name: Michael G. Littman
+  email: mlittman@princeton.edu
+- type: Undergraduate Administrator
+  name: Theresa Russo
+  email: tar3@princeton.edu
+- type: Independent Work Advisor
+  name: Luigi Martinelli
+  email: martinel@princeton.edu
+iw_required: true
+req_list:
+- name: Core Requirements
+  max_counted: 1
+  min_needed: ALL
+  explanation: |-
+    Requirements for study in the department follow the general 
+    requirements for the School of Engineering and Applied Science. 
+    In addition, the following four courses and one laboratory are 
+    normally completed by departmental students before entry into the
+    junior year.
+  completed_by_semester: 4
+  pdfs_allowed: false
+  course_list:
+    - MAE 206
+    - MAE 221
+    - MAE 222
+    - MAE 223
+    - MAE 224
+- name: Applications of Mathematics
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    One upper-level course involving applications of mathematics: MAE 305 Mathematics in Engineering I
+  course_list:
+    - MAE 305
+- name: Aerospace Track
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    Six Engineering Science courses and two Engineering Design courses
+    are required for the Aerospace Track.
+  completed_by_semester: 8
+  pdfs_allowed: false
+  req_list:
+    - name: Engineering Science Courses
+      max_counted: 1
+      min_needed: 6
+      explanation: |-
+        Six courses required for the Aerospace Program.
+      double_counting_allowed: true
+      req_list:
+        - name: Flight Course
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            Required course in Flight dynamics for Aerospace Engineers.
+          course_list:
+            - MAE 331
+            - MAE 341
+        - name: Transportation and Propulsion
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 427 or 426 required for Aerospace Engineers (may be used
+            as additional engineering science elective (technical elective)
+            in the Mechanical Program.
+          course_list:
+            - MAE 426
+            - MAE 427
+        - name: Fluid Dynamics
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 335 only required for Aerospace Engineers
+          course_list:
+            - MAE 335
+        - name: Automatic Control Systems
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 433 required for Mechanical and Aerospace Engineers
+          course_list:
+            - MAE 433
+        - name: Materials Engineering
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 324 or MSE 301 required for Mechanical and 
+            Aerospace Engineers.
+          course_list:
+            - MAE 324
+            - MSE 301
+        - name: Structures
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 323 or CEE 312 or CEE 361 required for Mechanical
+            and Aerospace Engineers
+          course_list:
+            - MAE 323
+            - CEE 312
+            - CEE 361
+        - name: Optional Departmentals
+          max_counted: 0
+          min_needed: 0
+          explanation: |-
+            Optional courses for the Aerospace Track.
+          course_list:
+            - MAE 345
+            - MAE 434
+            - MAE 328
+            - MAE 335
+            - MAE 423
+            - MAE 426
+            - MAE 427
+            - MAE 438
+            - CBE 341
+            - MAE 323
+            - MAE 324
+            - MSE 301
+            - CEE 312
+            - CEE 361
+            - CEE 362
+            - CEE 364
+    - name: Engineering Design Courses
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        A minimum of three courses must be in the area of engineering
+        design, including senior independent work. At least two of these
+        must be selected from the following list.
+      req_list:
+        - name: Engineering Design
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 321 is required for Mechanical and Aerospace Engineers.
+          completed_by_semester: 8
+          pdfs_allowed: false
+          course_list:
+            - MAE 321
+        - name: Aerospace Systems Design
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 332 or MAE 342 is required for Aerospace Engineers.
+          course_list:
+            - MAE 322
+            - MAE 412
+- name: Mechanical Track
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    Five Engineering Science courses and two Engineering Design courses
+    are required for the Mechanical Track.
+  completed_by_semester: 8
+  pdfs_allowed: false
+  req_list:
+    - name: Engineering Science Courses
+      max_counted: 1
+      min_needed: 5
+      explanation: |-
+        Five required courses for the Mechanical Program.
+      req_list:
+        - name: Thermal and Electrochemical Engineering
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 335 or 423 or 438 required for Mechanical Engineers. 
+            MAE 335 only required for Aerospace Engineers.
+          course_list:
+            - MAE 335
+            - MAE 423
+            - CBE 341
+            - MAE 438
+        - name: Automatic Control Systems
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 433 required for Mechanical and Aerospace Engineers
+          course_list:
+            - MAE 433
+        - name: Materials Engineering
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 324 or MSE 301 required for Mechanical and 
+            Aerospace Engineers.
+          course_list:
+            - MAE 324
+            - MSE 301
+        - name: Structures
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 323 or CEE 312 or CEE 361 required for Mechanical
+            and Aerospace Engineer
+          course_list:
+            - MAE 323
+            - CEE 312
+            - CEE 361
+        - name: Departmental
+          max_counted: 1
+          min_needed: 1
+          explanation: The fifth course for the Engineering Science
+            requirement in the Mechanical Track can be any from this list.
+          course_list:
+            - MAE 331
+            - MAE 341
+            - MAE 345
+            - MAE 434
+            - MAE 328
+            - MAE 335
+            - MAE 423
+            - MAE 426
+            - MAE 427
+            - MAE 438
+            - CBE 341
+            - MAE 323
+            - MAE 324
+            - MSE 301
+            - CEE 312
+            - CEE 361
+            - CEE 362
+            - CEE 364
+    - name: Engineering Design Courses
+      max_counted: 1
+      min_needed: 2
+      explanation: |-
+        A minimum of three courses must be in the area of engineering
+        design, including senior independent work. At least two of these
+        must be selected from the following list:
+      req_list:
+        - name: Engineering Design
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 321 is required for Mechanical and Aerospace Engineers.
+          completed_by_semester: 8
+          pdfs_allowed: false
+          course_list:
+            - MAE 321
+        - name: Design and Control Engineering
+          max_counted: 1
+          min_needed: 1
+          explanation: |-
+            MAE 323 or CEE 312 or CEE 361 required for Mechanical
+            and Aerospace Engineer. CEE 477 is an acceptable substitute 
+            ONLY for Mechanical Engineers who are pursuing the Sustainable 
+            Energy Minor.
+          course_list:
+            - MAE 322
+            - MAE 412
+            - MAE 416
+            - CEE 477
+        - name: Restrictions
+          max_counted: 0
+          min_needed: 1
+          explanation: |-
+            CEE 477 is an acceptable substitute for the Design and Control
+            Engineering category only for Mechanical Engineers who are 
+            pursuing the Sustainable Energy Minor.
+- name: Senior Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Senior Independent Work is the culminating experience for the mechanical and aerospace
+    engineering programs. All seniors are required to participate in a research or engineering
+    project. All projects must include elements of engineering design (engineering design is the
+    process of devising a system, component, or process to meet desired needs). The following
+    courses satisfy this requirement: MAE 439 Senior Independent Work (one semester, fall);<br>
+    MAE 440 Senior Independent Work (one semester, spring);<br> MAE 442 Senior Thesis (yearlong);<br>
+    MAE 444 Senior Project (year-long).<br> Students are strongly encouraged to select
+    the year-long project or thesis option. Senior projects are intended for teams or groups
+    while senior thesis is intended for individuals. For senior project or thesis, work begins in
+    the fall but enrollment is only in spring term when a double grade is awarded. <br>Please note:
+    If a student has selected to participate in a year-long project or thesis and is enrolled in only
+    three courses during the fall semester, it is required that they will enroll in Senior Project or
+    Thesis during the spring semester. For these students, it will NOT be possible to drop-down
+    to a one-semester course of Independent Work without incurring a failure for Independent
+    Work in the fall term. In Spring term you must enroll in three courses plus senior thesis or
+    senior project (senior thesis and senior project count as two courses). Therefore your senior
+    year course load will be 3 in fall and 5 in spring as opposed to 4 in fall and 4 in spring.<br>
+    There are NO exceptions to this rule even if your total number of courses will exceed 36.
+  req_list:
+    - name: Senior Independent Work (Fall)
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        One semester's worth of independent work, to be done in the fall.
+      course_list:
+        - MAE 439
+    - name: Senior Independent Work (Spring)
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        One semester's worth of independent work, to be done in the spring.
+      course_list:
+        - MAE 440
+    - name: Senior Thesis (Year-long)
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        One semester's worth of independent work, to be done in the fall.
+      course_list:
+        - MAE 442
+    - name: Senior Project (Year-long)
+      max_counted: 1
+      min_needed: 1
+      explanation: |-
+        One semester's worth of independent work, to be done in the fall.
+      course_list:
+        - MAE 444

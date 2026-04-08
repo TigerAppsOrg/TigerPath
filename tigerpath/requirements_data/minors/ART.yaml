@@ -1,0 +1,137 @@
+---
+type: Minor
+name: Archaeology
+code: ART
+degree:
+description: |- 
+  The Program in Archaeology is designed to provide students with an
+  interdisciplinary foundation in archaeology - the study of the material
+  remains of the past - and to equip students to use archaeological evidence
+  in other fields of inquiry. The program offers courses that cover many
+  cultures and periods, including Egypt, the Near East, Greece, Rome and the
+  Americas. It encourages a deep integration of the humanities, the sciences
+  and engineering, and promotes awareness of issues of cultural heritage. <br> <br>
+
+  Once subfields of ancient art or ancient history, archaeology today
+  embraces anthropological approaches as well as the physical and social
+  sciences. Technology has transformed the practice of archaeology, with
+  tools such as ground-penetrating radar (GPR), geographic information system
+  (GIS), and photogrammetry, offering new insights. Yet archaeology is not just
+  concerned with uncovering and understanding the past; it is also devoted to
+  protecting it. Rampant looting and the destruction of sites have placed
+  archaeologists at the forefront of discussions on cultural heritage. Many
+  of the program courses, therefore, including the required methods course
+  (ART 401), highlight ethical and political dimensions of archaeology.
+urls:
+- https://ua.princeton.edu/fields-study/minors/archaeology
+contacts:
+- type: Program Director
+  name: Samuel Holzman
+  email: sholzman@princeton.edu
+iw_required: true
+req_list:
+- name: Five Courses
+  max_counted: 1
+  min_needed: 5
+  explanation: |-
+    The requirements are five courses with archaeology-related
+    material, independent work, and fieldwork.   
+  req_list:
+  - name: Methods Course
+    max_counted: 1
+    min_needed: 1
+    explanation: |-
+      Students should declare in the spring of their sophomore
+      year and take ART 401 in the spring of their junior year.
+      Juniors contemplating study abroad are strongly encouraged
+      to take the methods course in their sophomore year, but the
+      senior year is also permissible.
+    course_list:
+    - ART 401
+  - name: Other ART Courses
+    max_counted: 4
+    min_needed: 1
+    explanation: |-
+      Four other archaeology-related courses. A list of acceptable
+      courses is available from the registrar and posted on the A&A
+      website. The courses must be selected in consultation with the
+      director to form a coherent body of coursework. <br> <br>
+
+      One course may be taken pass/D/fail, with the exception of ART 401.
+      Students may double-count up to two courses toward the minor and
+      their major. 
+    pdfs_allowed: 1
+    course_list:
+    - ANT 201
+    - ANT 206
+    - ANT 300
+    - ANT 308
+    - ANT 374
+    - ANT 390
+    - ANT 422
+    - ANT 455
+    - ART 103
+    - ART 200
+    - ART 201
+    - ART 204
+    - ART 266
+    - ART 267
+    - ART 289
+    - ART 290
+    - ART 296
+    - ART 300
+    - ART 301
+    - ART 304
+    - ART 306
+    - ART 308
+    - ART 365
+    - ART 367
+    - ART 395
+    - ART 401
+    - ART 402
+    - ART 409
+    - ART 418
+    - ART 419
+    - ART 473
+    - ART 481
+    - CLA 548
+    - FRS 187
+    - GEO 102
+    - GEO 103
+    - GEO 203
+    - GEO 362
+    - GEO 365
+    - GEO 370
+    - GEO 378
+    - HIS 476
+    - HUM 350
+- name: Fieldwork
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    ART 304: Archaeology in the Field or its equivalent. <br><br>
+
+    "Fieldwork" is not limited to excavation. Sustained engagement
+    in any aspect of an archaeological project fulfills the obligation.
+    Students may, for example, assist in a geophysical survey,
+    participate in a surface survey, work in archaeological archives,
+    or intern for a zoologist. Fieldwork must be pre-approved by the program
+    director and last at least a month. Financial support for fieldwork is
+    available. There is also financial support for internships with non-profits
+    that count towards the fieldwork requirement.
+  no_req:
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+    Students undertake independent research, which may take one of three forms
+    1) a senior thesis with a substantial archaeological component; <br>
+    2) a junior paper on an archaeological topic; <br>
+    3) or a 25-page research paper on an archaeological topic. <br><br>
+
+    Independent work must be submitted by 5:00pm on Dean's Date. Only theses
+    are eligible for the Frederick Barnard White Prize in Archaeology.
+  no_req:

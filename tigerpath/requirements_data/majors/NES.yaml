@@ -1,0 +1,318 @@
+---
+type: Major
+name: Near Eastern Studies
+code: NES
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-near-eastern-studies
+- https://nes.princeton.edu/undergraduate/current-majors/concentration-requirements
+contacts:
+- type: Chair
+  name: Behrooz Ghamari-Tabrizi
+  email: behroozg@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Daniel J. Sheffield
+  email: sheffield@princeton.edu
+description: |-
+  The Department of Near Eastern Studies offers a liberal arts major designed to give students competence in a Near Eastern language and broad knowledge of the literatures, civilizations, politics and history of the late ancient, medieval and modern Near East (comprising Afghanistan, the Arab countries, Central Asia, Iran, Israel, Islamic Africa, South Asia and Turkey). Accordingly, a plan of study is built around departmental and cognate courses in history, literature, religion, law, anthropology, politics, economics and public policy, combined with the study of one or more Near Eastern languages (Arabic, Hebrew, Persian or Turkish), determined by the student's interest. In addition to serving as the focal point of a broad liberal arts education, the Near Eastern studies major can be the basis for graduate or professional study in a range of fields in the humanities and social sciences. The department's many small classes and seminars allow extensive student/teacher interaction and equip students to pursue careers in business, finance, economics, international affairs, government, diplomacy, journalism and public policy.
+iw_required: true
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    A student who has completed at least one course in the department is eligible to major in Near Eastern studies. This course may be a language class or a course or seminar offered in any of the disciplines covered by the department.
+  double_counting_allowed: true
+  course_list:
+    - NES ***
+    - ARA ***
+    - HEB ***
+    - PER ***
+    - TUR ***
+- name: Language
+  max_counted: 1
+  min_needed: 4
+  explanation: |-
+    Students must complete four semesters (i.e., through 107 level) of Arabic, Hebrew, Persian or Turkish. Students are advised to begin their language training as early as possible, and are encouraged, albeit not required, to continue language study at the advanced level and to utilize their chosen Near Eastern language for senior thesis research. The necessary language training for the A.B. degree can be acquired through a combination of language study at Princeton, intensive summer language study and study abroad programs. The department will help each undergraduate major develop a language training schedule appropriate to their planned course of study.
+  course_list:
+    - ARA 1*
+    - HEB 1*
+    - PER 1*
+    - TUR 1*
+- name: Departmentals
+  max_counted: 1
+  min_needed: ALL
+  double_counting_allowed: true
+  explanation: |-
+    Students take eight departmental courses in Near Eastern studies. Up to three of these courses may be from cognate departments, upon approval of the director of undergraduate studies. 
+    Language courses beyond the second year count as departmentals, courses in a second Near Eastern language at any level (including introductory) may likewise count as departmentals.  
+    All students are required to take NES 300 (Seminar in Research Methods) in junior year unless they are studying abroad that semester, in which case they are required to take NES 300 in their senior year. 
+    The remaining seven courses must satisfy the following chronological, regional and disciplinary distribution requirements:
+    A single course may satisfy multiple distribution requirements across these domains (historical periods, regions and disciplines). For example, a course focusing on 20th-century Turkish literature may count as modern (historical periods), Ottoman Empire/Turkey (regions), and literature (disciplines). 
+    A single course may not, however, satisfy more than one distribution requirement within a single domain; thus a course on Arabic literature that spans the premodern and modern periods would not satisfy both the premodern and modern historical periods requirements.
+    Students who wish to undertake a plan of study that does not meet these guidelines must apply for a waiver from the undergraduate committee. Waivers will be granted only in exceptional cases.
+  req_list:
+    - name: Seminar in Research Methods
+      max_counted: 1
+      min_needed: ALL
+      double_counting_allowed: true
+      course_list:
+        - NES 300
+    - name: Distribution Requirements
+      max_counted: 1
+      min_needed: ALL
+      double_counting_allowed: true
+      req_list:
+        - name: Historical Periods
+          max_counted: 1
+          min_needed: ALL
+          explanation: |-
+            Students must take at least one course that focuses on the premodern Near East and at least one course that focuses on the modern Near East.
+          req_list:
+            - name: Pre-Modern
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 201
+                - NES 208
+                - NES 212
+                - NES 221
+                - NES 229
+                - NES 240
+                - NES 251
+                - NES 269
+                - NES 339
+                - NES 345
+                - NES 347
+                - NES 348
+                - NES 350
+                - NES 351
+                - NES 367
+                - NES 369
+                - NES 379
+                - NES 385
+                - NES 387
+                - NES 390
+                - NES 437
+            - name: Modern
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 201
+                - NES 210
+                - NES 212
+                - NES 240
+                - NES 265
+                - NES 269
+                - NES 312
+                - NES 315
+                - NES 326
+                - NES 327
+                - NES 338
+                - NES 362
+                - NES 365
+                - NES 373
+                - NES 374
+                - NES 377
+                - NES 385
+                - NES 391
+                - NES 394
+                - NES 395
+                - NES 433
+                - NES 438
+        - name: Regions
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            Students must take two regionally specific courses, with each of the two courses focusing on a different one of the following six subregions of the Near East:<br>
+            Egypt, North Africa, and Andalusia<br>
+            The Levant, Iraq, and the Arabian Peninsula<br>
+            Ottoman Empire/Turkey<br>
+            Iran<br>
+            Muslim South and Central Asia<br>
+            Diasporic communities
+          req_list:
+            - name: Egypt, North Africa, and Andalusia
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 251
+                - NES 269
+                - NES 315
+                - NES 369
+                - NES 390
+                - NES 394
+                - NES 395
+            - name: The Levant, Iraq, and the Arabian Peninsula
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 221
+                - NES 269
+                - NES 326
+                - NES 338
+                - NES 373
+            - name: Ottoman Empire, Turkey
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 433
+                - NES 437
+                - NES 438
+            - name: Iran
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 210
+                - NES 212
+                - NES 229
+                - NES 269
+                - NES 365
+                - NES 367
+                - NES 377
+            - name: Muslim South and Central Asia
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 350
+                - NES 351
+                - NES 362
+            - name: Diasporic Communities
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 327
+                - NES 373
+        - name: Disciplines
+          max_counted: 1
+          min_needed: 2
+          explanation: |-
+            Students must take at least one course in two of the following four disciplines:<br>
+            History<br>
+            Literature<br>
+            Social sciences<br>
+            Religion
+          req_list:
+            - name: History
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 201
+                - NES 212
+                - NES 221
+                - NES 229
+                - NES 240
+                - NES 251
+                - NES 269
+                - NES 312
+                - NES 327
+                - NES 338
+                - NES 350
+                - NES 351
+                - NES 362
+                - NES 365
+                - NES 369
+                - NES 373
+                - NES 385
+                - NES 390
+                - NES 394
+                - NES 395
+                - NES 433
+                - NES 437
+                - NES 438
+            - name: Literature
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 208
+                - NES 387
+            - name: Social Sciences
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 210
+                - NES 265
+                - NES 269
+                - NES 312
+                - NES 315
+                - NES 326
+                - NES 365
+                - NES 374
+                - NES 377
+                - NES 385
+                - NES 391
+            - name: Religion
+              max_counted: 1
+              min_needed: 1
+              explanation: |-
+                <i>Editor's Note: The course list for this requirement is not comprehensive.</i>
+              course_list:
+                - NES 221
+                - NES 240
+                - NES 269
+                - NES 339
+                - NES 345
+                - NES 347
+                - NES 348
+                - NES 365
+                - NES 367
+                - NES 379
+                - NES 385
+    - name: Total of eight Departmentals
+      max_counted: 1
+      min_needed: 8
+      explanation: |-
+        Students take eight departmental courses in Near Eastern studies. Up to three of these courses may be from cognate departments, upon approval of the director of undergraduate studies.
+      req_list:
+        - name: NES-Prefix Courses
+          max_counted: 8
+          min_needed: 1
+          course_list:
+            - NES ***
+        - name: Cognates
+          max_counted: 3
+          min_needed: 1
+          course_list:
+            - LANG 2*
+            - LANG 3*
+            - LANG 4*
+            - LANG 5*
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    NES majors write one Junior Paper (JP) in the spring semester of their junior year. An NES JP is normally an essay of 20 to 30 double-spaced pages focusing on a topic related to the Near East. The JP most often addresses aspects of the history, societies, religions, politics and/or cultures of the Near East, but students have tackled subjects in fields as diverse as medical anthropology and the economics of the energy industry. The department does not require students to use sources in a Near Eastern language, but does strongly encourage students who are sufficiently proficient to do so.<br>
+    The Junior Paper should offer critical analysis of a specific subject or problem, not merely a passive review of the existing literature or a summary of facts. Advice on completing a work of independent research in NES, targeted towards the senior thesis, and is worth consulting early and often while writing the JP as well.
+  no_req:
+- name: Senior Thesis
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The senior thesis is the capstone of a student's training in NES. It is typically a focused essay of 70 to 100 double-spaced pages (or around 25,000 words of text excluding footnotes) that presents original research on a topic related to the history, societies, religions, politics and/or cultures of the Near East. As with the JP, the department does not require students to use sources in a Near Eastern language but does strongly encourage students who are sufficiently proficient to do so.
+  no_req:

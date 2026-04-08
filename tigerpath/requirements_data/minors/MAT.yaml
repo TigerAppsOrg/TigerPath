@@ -1,0 +1,100 @@
+---
+type: Minor
+name: Mathematics
+code: MAT
+degree:
+urls:
+- https://www.math.princeton.edu/undergraduate/minor-mathematics
+- https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/mathematics
+description: The goal of the minor in mathematics is to allow students 
+  to explore contemporary mathematics, either as a topic for its own sake 
+  or to gain a deeper knowledge of a specific area most relevant for the 
+  students’ work in their major field of concentration. In consultation 
+  with the minor program director of the mathematics department, the 
+  student should develop a plan that complements their work in their 
+  chosen field of concentration. The plan can be to gain a broad knowledge 
+  of mathematics, in which case we recommend courses in algebra, complex 
+  analysis and real analysis. Alternatively, students with a strong 
+  interest in a more specialized area of mathematics can choose a 
+  sequence of courses in that field. The student should contact the minor 
+  program director of the mathematics department during the spring of 
+  sophomore year to have a course plan approved. Later admission to the 
+  Program is allowed during the junior year, though this offers less 
+  flexibility in the choice of the required courses. 
+
+  Normally, students may not pursue both the minor in PACM and the minor 
+  in MAT. However, students who believe they have a compelling curricular 
+  reason to pursue both may apply to the directors of both programs for 
+  permission to do so.
+excluded_major: 
+- MAT
+contacts:
+- type: Director of Undergraduate Studies
+  name: János Kollár
+  email: kollar@math.princeton.edu
+iw_required: false
+req_list:
+- name: Prerequisites
+  max_counted: 1
+  min_needed: 3
+  explanation: The recommended preparation for the minor is the same as
+    for the major in math; knowledge of calculus (both single and several
+    variable), linear algebra and familiarity with proofs. With the prior 
+    approval of the minor program director, students may count one course 
+    taken in another department toward the minor prerequisites. These 
+    courses should be completed by the end of sophomore year.
+  completed_by_semester: 4
+  req_list:
+  - name: Several Variable Calculus
+    max_counted: 1
+    min_needed: 1
+    explanation: 
+    double_counting_allowed: true
+    course_list:
+    - MAT 201
+    - MAT 203
+    - MAT 218
+  - name: Linear Algebra
+    max_counted: 1
+    min_needed: 1
+    explanation: 
+    double_counting_allowed: true
+    course_list:
+    - MAT 202
+    - MAT 204
+    - MAT 217
+  - name: Familiarity with Proofs
+    max_counted: 1
+    min_needed: 1
+    explanation: 
+    double_counting_allowed: true
+    course_list:
+    - MAT 214
+    - MAT 215
+    - MAT 216
+    - MAT 217
+    - MAT 218
+- name: Core
+  max_counted: 1
+  min_needed: 4
+  explanation: The minor requires four mathematics department courses at 
+    the 300 level or higher. By permission, one of these can be a cognate 
+    if it fits into the student’s plan and is approved in advance. These 
+    courses cannot be counted for the student’s major or for other minors 
+    or certificates. 
+  double_counting_allowed: false
+  course_list:
+  - MAT 3*
+  - MAT 4*
+- name: Junior Seminar
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    One Junior Seminar in the mathematics department is 
+    required, which can be taken in the senior year. Exceptionally, if the 
+    plan of the student justifies it, the Junior Seminar can be replaced 
+    by a Junior Paper, which can be done in the senior year or as a summer 
+    project.
+  no_req:

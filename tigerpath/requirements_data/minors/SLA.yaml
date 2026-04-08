@@ -1,0 +1,52 @@
+---
+type: Minor
+name: Slavic Languages and Cultures
+code: SLA
+degree:
+description: The Slavic department welcomes students who are interested in developing a critically informed 
+  appreciation for the literature and culture of Russia and the Slavic world. Our majors attain a high level 
+  of proficiency that allows them to work with both primary and secondary sources in the target language (BCS, 
+  Czech, Polish, Russian, Ukrainian).
+urls:
+- https://slavic.princeton.edu/undergraduate-program/minor-slavic-languages-and-cultures
+contacts:
+- type: Undergraduate Coordinator
+  name: Jessica Heslin
+  email: heslin@princeton.edu
+iw_required: false
+req_list:
+- name: First Requirement
+  max_counted: 1
+  min_needed: 1
+  explanation:
+    RUS 107 (or RUS 108 for heritage speakers of Russian).
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  course_list:
+  - RUS 107
+  - RUS 108
+- name: Second Requirement
+  max_counted: 1
+  min_needed: 1
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  explanation: RUS 207 (or a 300-level course for heritage speakers of Russian).
+  course_list:
+  - RUS 207
+  - RUS 3*
+- name: Department Courses
+  max_counted: 1
+  min_needed: 3
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  explanation: Three Slavic department courses beyond RUS 207, with at least one conducted in Russian.
+  course_list:
+  - RUS 208
+  - RUS 3*
+  - RUS 4*
+  - SLA 2*
+  - SLA 3*
+  - SLA 4*

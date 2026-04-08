@@ -68,7 +68,7 @@
            target="_blank"
            rel="noopener noreferrer">About</a>
         <a class="btn nav-btn"
-           href="https://goo.gl/forms/T0pnhwdBYIS8mM6q1"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSdjBwHsURKujVqfnUk7nyocAMnFDFI6fyubDmqYMgLElpm_Nw/viewform"
            target="_blank"
            rel="noopener noreferrer">Feedback</a>
         <a class="btn nav-btn"
@@ -111,6 +111,11 @@
     </script>
   {% endif %}
 
+  {% if preloaded_requirements_json %}
+  <script>
+    window.__TIGERPATH_PRELOADED_REQUIREMENTS__ = {{ preloaded_requirements_json|safe }};
+  </script>
+  {% endif %}
   {% vite_asset 'src/index.jsx' %}
 
   {% include 'tigerpath/settings.html' %}

@@ -1,0 +1,57 @@
+---
+type: Minor
+name: Creative Writing
+code: CWR
+degree:
+urls:
+- https://arts.princeton.edu/academics/creative-writing/minor-in-creative-writing/
+description: The Program in Creative Writing, part of the Lewis Center 
+  for the Arts,  with a minor in creative writing, like our present 
+  certificate students, will encounter a rigorous framework of courses. 
+  These courses are designed, first and foremost, to teach the students 
+  how to read like a writer, thoughtfully, artistically, curiously, with 
+  an open mind attuned to the nuances of any human situation.
+contacts:
+- type: Program Director
+  name: Yiyun Li
+  email: yiyun.li@princeton.edu
+iw_required: true
+req_list:
+- name: Coursework
+  max_counted: 1
+  min_needed: 5
+  explanation: The minor in creative writing requires a total of five 
+    courses, three of which must be housed in creative writing, and two 
+    which may be cross-listed with creative writing.
+  double_counting_allowed: false
+  completed_by_semester: 6
+  req_list:
+  - name: Introductory
+    max_counted: 5
+    min_needed: 1
+    explanation:
+    max_common_with_major: 1
+    pdfs_allowed: 1
+    course_list:
+    - CWR 2*
+  - name: Advanced
+    max_counted: 3
+    min_needed: 1
+    explanation: Students who have taken two 200-level courses are allowed 
+      to register for 300- and 400-level courses.
+    max_common_with_major: 1
+    pdfs_allowed: 1
+    course_list:
+    - CWR 3*
+    - CWR 4*
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    This independent work includes weekly or biweekly conferences with the thesis advisers for two semesters. 
+  
+    Under the direction of the thesis advisers, the students will produce a full-length collection of poetry, a collection of short stories or a finished novel manuscript.
+  completed_by_semester: 8
+
+# Notes: Not sure how to encode courses housed within the department
+# vs cross-listed courses

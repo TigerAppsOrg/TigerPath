@@ -1,0 +1,64 @@
+---
+type: Minor
+name: South Asian Studies
+code: SAS
+degree:
+description: The minor in South Asian studies offers a four-term sequence of language instruction in Hindi, Urdu and Sanskrit. Completion of all four terms of a language will satisfy the University language 
+  requirement. All language instruction is offered with an emphasis on gaining knowledge of the cultural context of South Asia, with Hindi and Urdu instruction focusing on speaking, reading and writing, and 
+  Sanskrit instruction focusing on reading and interpreting a variety of traditional literary genres. The minor encourages students to take advantage of intensive summer language programs and of the numerous 
+  opportunities to study or travel in South Asia, including a semester or year abroad. For more information, contact the Office of International Programs.
+urls:
+- https://sas.princeton.edu/undergraduate-opportunities/undergraduate-minor
+contacts:
+- type: Program Director
+  name: Benjamin Conisbee Baer
+  email: bencbaer@princeton.edu
+iw_required: true
+req_list:
+- name: Language Requirement
+  max_counted: 1
+  min_needed: 1
+  explanation: Completion of HIN, URD, or SAN 107 (usually four semesters of study). Substitutions with higher-level language courses or another course in South Asian studies are permissible with program director's approval.
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  course_list:
+  - HIN 107
+  - URD 107
+  - SAN 107
+- name: Core Course
+  max_counted: 1
+  min_needed: 1
+  explanation: Successful completion of the Introduction to South Asian Studies core course, typically taken in junior year.
+  double_counting_allowed: false
+  pdfs_allowed: 0
+  course_list:
+  - SAS 200
+- name: Elective Courses
+  max_counted: 1
+  min_needed: 3
+  explanation: At least three elective courses on South Asia in any of the following departments; anthropology, comparative 
+    literature, English literature, economics, history, Near Eastern studies, politics, religion, the Princeton School of Public and 
+    International Affairs or the minor in South Asian studies. Please note; No more than two courses in any one department may be used to count toward the minor, and only 
+    one course of the four may be taken as pass/D/fail. Advanced Hindi, Urdu and Sanskrit courses (HIN-URD or SAN 300-level or higher) 
+    may count in the SAS course designation category. Students may count no more than two 
+    South Asian studies minor classes toward the requirements of their departmental major.
+  max_common_with_major: 2
+  pdfs_allowed: 1
+  course_list:
+  - ANT *
+  - COM *
+  - ENG *
+  - ECO *
+  - HIS *
+  - NES *
+  - POL *
+  - REL *
+  - SPI *
+  - SAS *
+- name: Senior thesis or Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: A senior thesis or junior independent project written in the student's major department 
+    with a significant South Asian component. If there is no possibility for South Asian content in the 
+    departmental senior thesis, students must write a separate piece of independent work focusing on 
+    South Asia; please consult with the program director.

@@ -1,0 +1,64 @@
+---
+type: Minor
+name: Climate Science
+code: CLS
+degree:
+urls:
+- https://geosciences.princeton.edu/undergraduate/climate-science-minor
+description: Climate science is math, physics, chemistry, biology and 
+  computer sciences, applied together to understand how Earth's climate 
+  works, how it has changed in the past and how it will change in the 
+  future. Whether students are interested in policymaking, 
+  sustainability, natural hazards, city planning, pollution, 
+  geoengineering, natural resources, energy or conservation, a broad and 
+  accurate understanding of climate science is required.
+contacts:
+- type: Director of Undergraduate Studies
+  name: Satish C. Myneni
+  email: smyneni@princeton.edu
+excluded_majors:
+- GEO
+iw_required: false
+req_list:
+- name: Core
+  max_counted: 1
+  min_needed: 3
+  explanation:
+  double_counting_allowed: false
+  max_common_with_major: 3
+  pdfs_allowed: 3
+  course_list:
+  - GEO 102
+  - GEO 103
+  - GEO 202
+  - GEO 203
+  - GEO 361
+  - GEO 363
+  - GEO 369
+  - GEO 370
+  - GEO 416
+  - GEO 417
+  - GEO 425
+  - GEO 428
+  - GEO 470
+- name: Capstone Electives
+  max_counted: 1
+  min_needed: 1
+  explanation:
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 1
+  course_list:
+  - GEO 360
+  - GEO 361
+  - GEO 362
+  - GEO 363
+  - GEO 366
+  - GEO 367
+  - GEO 369
+  - GEO 370
+  - GEO 416
+  - GEO 417
+  - GEO 425
+  - GEO 428
+  - GEO 470

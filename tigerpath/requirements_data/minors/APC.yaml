@@ -1,0 +1,149 @@
+---
+type: Minor
+name: Applied and Computational Math
+code: APC
+degree:
+urls:
+- https://www.pacm.princeton.edu/undergraduate
+description: At Princeton, the Program in Applied and Computational Mathematics offers a small group of undergraduate 
+  students the unique opportunity to gain exposure to the philosophy and tools of modern applied and computational 
+  mathematics in an interactive and interdisciplinary environment. The program is open to students from across campus 
+  who are looking to broaden their mathematical and computational skills. Students who complete the program requirements 
+  are awarded a Minor in Applied and Computational Mathematics.
+contacts:
+- type: PACM Undergraduate Representative
+  name: Paul Seymour
+  email: pds@math.princeton.edu
+iw_required: true
+req_list:
+- name: Minor Courses
+  min_needed: 5
+  max_counted: 1
+  max_common_with_major: 2
+  explanation: |-
+    The course requirement may be satisfied by a broad range of courses that place particular emphasis in applied 
+    mathematics, which are offered by the mathematics department and by science, engineering, and economics departments.
+    The five required courses must be distributed between the following two areas: Mathematical Foundations and Mathematical
+    Applications.
+  req_list:
+  - name: Mathematical Foundation Courses
+    min_needed: 2
+    max_counted: 3
+    course_list:
+    - APC 350
+    - AST 301
+    - CBE 448
+    - COS 323
+    - ECE 486
+    - MAE 305
+    - MAE 306
+    - MAT 305
+    - MAT 315
+    - MAT 320
+    - MAT 321
+    - MAT 325
+    - MAT 328
+    - MAT 330
+    - MAT 335
+    - MAT 340
+    - MAT 345
+    - MAT 346
+    - MAT 355
+    - MAT 365
+    - MAT 375
+    - MAT 377
+    - MAT 378
+    - MAT 385
+    - MAT 415
+    - MAT 419
+    - MAT 425
+    - MAT 427
+    - MAT 447
+    - MAT 486
+    - ORF 307
+    - ORF 309
+    - ORF 363
+  - name: Mathematical Application Courses
+    min_needed: 2
+    max_counted: 3
+    course_list:
+    - APC 490
+    - CBE 341
+    - CEE 361
+    - CHM 305
+    - CHM 306
+    - CHM 406
+    - COS 324
+    - COS 343
+    - COS 402
+    - COS 423
+    - COS 424
+    - COS 426
+    - COS 429
+    - COS 433
+    - COS 445
+    - COS 451
+    - COS 487
+    - ECO 312
+    - ECO 317
+    - ECO 414
+    - ECO 418
+    - ECO 465
+    - ECO 466
+    - ECO 481
+    - ECO 513
+    - EEB 324
+    - EEB 325
+    - EEB 424
+    - ECE 381
+    - ECE 382
+    - ECE 396
+    - ECE 482
+    - ECE 488
+    - GEO 371
+    - GEO 422
+    - GEO 424
+    - GEO 425
+    - GEO 441
+    - MAE 335
+    - MAE 336
+    - MAE 433
+    - MAE 434
+    - MAT 232
+    - MOL 436
+    - NEU 437
+    - ORF 335
+    - ORF 350
+    - ORF 387
+    - ORF 405
+    - ORF 407
+    - ORF 418
+    - ORF 435
+    - ORF 473
+    - PHY 301
+    - PHY 304
+    - PHY 305
+    - PHY 408
+    - QCB 408
+- name: Independent Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    An independent research project consisting of a paper in one of the following formats: (a) a project that you are working 
+    on with a professor; or (b) a summer research project. The research project may not be used to satisfy any requirements 
+    of your major or of any other minor or certificate. Most (but not all) majors require a senior thesis and/or junior 
+    independent work, which therefore cannot be used as such for PACM; however, a significant extension of such independent 
+    work could be used for PACM subject to approval of the PACM undergraduate representative.
+  no_req:
+- name: Colloquium
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    <i>Editor's Note: Students do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    Students are required to participate during the spring semester of their junior and senior years in a not-for-credit 
+    colloquium offered by PACM. This will provide a forum for presentation and discussion of research projects among all 
+    students in the minor and will introduce them to a broad range of areas within applied mathematics.
+  no_req:

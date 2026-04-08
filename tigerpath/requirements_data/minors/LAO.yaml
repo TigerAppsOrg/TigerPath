@@ -1,0 +1,56 @@
+---
+type: Minor
+name: Latino Studies
+code: LAO
+degree:
+urls:
+- https://effroncenter.princeton.edu/areas-study/latino-studies
+description: The Program in Latino Studies, administered by the Effron 
+  Center for the Study of America, offers an interdisciplinary 
+  curriculum that traverses the arts, humanities and social sciences. 
+  The program is designed to provide students with a broad understanding 
+  of the emergence, transformation and consolidation of Latino/a/x as a 
+  pan-ethnic group 
+  central to the development of the United States as a nation. The 
+  course of study also highlights the transnational connections and 
+  contexts of Latino/a/x peoples across the Americas, including dynamics 
+  of globalization, migration, colonialism, imperialism, citizenship and 
+  diaspora.
+contacts:
+- type: Director
+  name: Lorgia García Peña
+  email: garciapena@princeton.edu
+iw_required: false
+req_list:
+- name: Required Course
+  max_counted: 1
+  min_needed: 1
+  pdfs_allowed: 1
+  course_list:
+  - AMS 101
+- name: Breadth
+  max_counted: 1
+  min_needed: 3
+  explanation: Three courses in Latino studies, either originating in 
+    the program or cross-listed, and preferably representing 
+    disciplinary breadth in the social sciences, arts and humanities. No 
+    more than one course taken in fulfillment of the student’s 
+    concentration may be counted toward the certificate. With the 
+    approval of the associate director, a student may substitute a 
+    comparative race and ethnicity course that contains substantial 
+    Latino studies content for one of these courses.
+  pdfs_allowed: 3
+  course_list:
+  - LAO *
+- name: Advanced Seminar in American Studies
+  max_counted: 1
+  min_needed: 1
+  explanation: With the approval of the associate director, a student 
+    may substitute an advanced seminar with an additional Latino studies 
+    elective to further their scholarship in this field.
+  pdfs_allowed: 1
+  course_list:
+  - AMS 403 
+  - AMS 404 
+
+  

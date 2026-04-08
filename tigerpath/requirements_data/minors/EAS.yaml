@@ -1,0 +1,92 @@
+---
+type: Minor
+name: East Asian Studies
+code: EAS
+degree:
+description: The Program in East Asian Studies is an interdepartmental 
+  center directed by representatives of the cooperating departments — 
+  Anthropology, Art and Archaeology, Comparative Literature, East Asian 
+  Studies, Economics, History, music, Politics, Religion, and Sociology 
+  — as well as the School of Public and International Affairs. It is 
+  designed to educate internationally minded students with basic 
+  competence in East Asia. The program provides an opportunity for 
+  students who plan to major in other disciplines to simultaneously 
+  pursue the study of East Asian language arts, history and other 
+  disciplines.
+urls:
+- https://eap.princeton.edu/eas-minor
+contacts:
+- type: Program Director
+  name: Thomas D. Conlan
+  email: tconlan@princeton.edu
+iw_required: true
+req_list:
+- name: Language
+  max_counted: 1
+  min_needed: 4
+  explanation: Two years study of Chinese, Japanese, or Korean - four 
+    courses, at least two which must be at the second-year level or 
+    higher.
+  req_list:
+  - name: Basic Language
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - CHI 1*
+    - JPN 1*
+    - KOR 1*
+  - name: Advanced Language
+    max_counted: 4
+    min_needed: 1
+    explanation:
+    max_common_with_major: 1
+    pdfs_allowed: 0
+    course_list:
+    - CHI 2*
+    - CHI 3*
+    - CHI 4*
+    - CHI 5*
+    - JPN 2*
+    - JPN 3*
+    - JPN 4*
+    - JPN 5*
+    - KOR 2*
+    - KOR 3*
+    - KOR 4*
+    - KOR 5*
+- name: Content Requirement
+  max_counted: 1
+  min_needed: 3
+  explanation: Three East Asia content courses, at least 
+    one of them a 200-level course.
+  req_list:
+  - name: Content Courses
+    max_counted: 2
+    min_needed: 1
+    explanation: East Asia content courses.
+    pdfs_allowed: 1
+    course_list:
+    - EAS 1*
+    - EAS 3*
+    - EAS 4*
+    - EAS 5*
+    - POL 434
+    - SOC 307
+    - SPI 316
+  - name: Content Courses (200-level)
+    max_counted: 3
+    min_needed: 1
+    explanation: At least one 200-level East Asia content course.
+    pdfs_allowed: 1
+    course_list:
+    - EAS 2*
+- name: Written Work
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Written work, which may be a senior thesis, a junior paper, or an independent research paper with an East Asian topical component.  
+    
+    The standard way to meet the requirement for independent work is by writing a senior thesis on an East Asian topic. "East Asian Topic" means the thesis is more than half about East Asia.

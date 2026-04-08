@@ -1,0 +1,151 @@
+---
+type: Minor
+name: Religion
+code: REL
+degree:
+urls:
+- https://religion.princeton.edu/undergraduate/religion-minor
+description: The purpose of the Religion Minor is to provide an interdisciplinary framework in which students majoring in other departments can synthesize their coursework in religious studies to most effectively enrich their other academic work. This framework orients students’ personal, pre-professional, and scholarly interests in thinking about religion toward comparative cultural and social contexts. Students who complete the minor will leave Princeton with a better understanding of the artistic, economic, ethical, historical, philosophical, and political effects of religious traditions and religious thought.
+excluded_major: 
+- REL
+contacts:
+- type: Director of Undergraduate Studies
+  name: Bryan Lowe
+  email: bdlowe@princeton.edu
+iw_required: true
+req_list:
+- name: REL Minor Courses
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    Students must successfully complete five courses related to religion, fulfilling certain conditions.
+  double_counting_allowed: false
+  req_list:
+  - name: REL Courses
+    max_counted: 1
+    min_needed: 5
+    explanation: |-
+      At least four of these courses must be offered by the Department of Religion. One course may be 
+      offered elsewhere in the University, as long as it is approved as suitably relevant by the DUS. 
+      Courses cross-listed with REL may be considered pre-approved.
+    double_counting_allowed: true
+    pdfs_allowed: 1
+    course_list:
+    - REL ***
+  - name: Areas of study
+    max_counted: 1
+    min_needed: 2
+    explanation: |-
+      The five courses should not all be focused on a single religious tradition or approach, nor should they 
+      all be focused on different traditions or approaches. That is, the five courses must include courses from 
+      at least two of the five “Areas of Study” in which the Department of Religion offers courses and  two (or more) 
+      courses from one of those five areas. The five Areas of Study are Ancient Judaism, Christianity, and Greek and 
+      Roman Religions; Islam; Religion in the Americas; Religions of Asia; and Philosophical and Ethical Approaches to 
+      Religion.
+    req_list:
+    - name: Religions of Asia
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - REL 210
+        - REL 225
+        - REL 226
+        - REL 228
+        - REL 229
+        - REL 322
+        - REL 324
+        - REL 326
+        - REL 382
+    - name: Ancient Judaism, Christianity, and Greek and Roman Religions
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - REL 202
+        - REL 230
+        - REL 234
+        - REL 244
+        - REL 246
+        - REL 251
+        - REL 252
+        - REL 348
+        - REL 350
+        - REL 352
+        - REL 353
+        - REL 411
+    - name: Islam
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - REL 235
+        - REL 236
+        - REL 239
+        - REL 240
+        - REL 328
+        - REL 332
+        - REL 334
+        - REL 335
+        - REL 336
+        - REL 338
+        - REL 415
+    - name: Religion in America
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - REL 255
+        - REL 257
+        - REL 258
+        - REL 271
+        - REL 319
+        - REL 357
+        - REL 358
+        - REL 360
+        - REL 367
+        - REL 372
+        - REL 383
+    - name: Philosophical and Ethical Approaches to Religion
+      max_counted: 4
+      min_needed: 1
+      course_list:
+        - REL 211
+        - REL 242
+        - REL 261
+        - REL 264
+        - REL 303
+        - REL 311
+        - REL 312
+        - REL 314
+        - REL 317
+        - REL 346
+        - REL 347
+        - REL 361
+        - REL 363
+        - REL 364
+        - REL 365
+- name: Research Symposium
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Upon completion of the minor’s course requirements, students will participate in a research symposium and present 
+    their work to each other, the Religion majors, and members of the Religion faculty. Participating students will organize
+    these symposia at the end of each academic year with the assistance of the DUS and the Undergrad Administrator. Each participating student 
+    will present on a research project of their choice. It is anticipated that these will take the form of poster presentations, 
+    but the Department is open to other formats that would respond to a given minor cohort’s interest and initiative. 
+    Students are encouraged to present on a paper that they completed as part of one of their courses in the minor, but those desiring 
+    other options are encouraged to discuss them with the DUS. All students in the minor are encouraged to seek the advice of relevant faculty in 
+    putting together their presentations.
+  no_req:
+- name: Reflection Paper
+  max_counted: 1
+  min_needed: 1
+  explanation: |-
+    Minors are required to submit a Reflection Paper after completing the course and conference requirements for the minor. 
+    This short (2-3 page) paper will narrate the student’s coursework in the minor with particular focus on how that work has
+    related to their work in their major and/or other aspects of their time at Princeton.
+  no_req:
+- name: Restrictions
+  max_counted: 0
+  min_needed: 1
+  explanation: |-
+    No more than one elected P/D/F course may be counted towards the requirements for the minor.
+    
+    No double-counting of courses is permitted: students may not count a course toward the Religion Minor that they are counting toward their major.

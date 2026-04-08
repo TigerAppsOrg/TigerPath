@@ -172,10 +172,12 @@ AB_CONCENTRATIONS = {
     "PHI": "Philosophy",
     "PHY": "Physics",
     "POL": "Politics",
+    "POR": "Portuguese",
     "PSY": "Psychology",
     "REL": "Religion",
     "SLA": "Slavic Languages and Literatures",
     "SOC": "Sociology",
+    "SPA": "Spanish",
     "SPI": "Public and International Affairs",
     "SPO": "Spanish and Portuguese",
 }

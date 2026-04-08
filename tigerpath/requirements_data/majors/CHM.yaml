@@ -1,0 +1,189 @@
+---
+type: Major
+name: Chemistry
+code: CHM
+degree: AB
+urls:
+- https://ua.princeton.edu/academic-units/department-chemistry
+- https://chemistry.princeton.edu/
+contacts:
+- type: Chair
+  name: Paul J. Chirik
+  email: pchirik@princeton.edu
+- type: Director of Undergraduate Studies
+  name: Robert P. L'Esperance
+  email: rpl@princeton.edu
+description: |-
+  The Department of Chemistry offers a flexible program suitable for those who plan to attend graduate school, as well as for premedical students or those intending to pursue a career in secondary school teaching. A chemistry major is appropriate for anyone who wants to attain a broad background of undergraduate training in science.
+iw_required: true
+req_list:
+- name: Prerequisites
+  completed_by_semester: 4
+  min_needed: ALL
+  max_counted: 1
+  pdfs_allowed: 0
+  explanation: |-
+    Before entering the department, students are expected to complete: <br>
+    One year of general chemistry: CHM 201 and CHM 202; CHM 207 and CHM 202; one unit of advanced placement and CHM 202; one unit of advanced placement and CHM 215; or two units of advanced placement credit.<br>
+    Differential and integral calculus: MAT 103 and MAT 104, or the equivalent advanced placement credit.<br>
+    One year of general physics: PHY 101 or PHY 103 or PHY 105 and PHY 102 or PHY 104 or PHY 106 or the equivalent advanced placement credit.<br>
+    One year of organic chemistry: CHM 301 and CHM 302 or CHM 301 and CHM 304. Chemistry majors must complete this sequence at Princeton and by the end of sophomore year.<br>
+    Prerequisite courses may not be taken using the pass/D/fail grading option.
+  req_list:
+    - name: Chemistry and Physics or ISC
+      min_needed: 1
+      max_counted: 1
+      req_list:
+        - name: Chemistry and Physics
+          min_needed: ALL
+          max_counted: 1
+          req_list:
+            - name: General Chemistry
+              min_needed: 1
+              max_counted: 1
+              req_list:
+                - name: General Chemistry
+                  min_needed: ALL
+                  max_counted: 1
+                  course_list:
+                    - CHM 201
+                    - CHM 202
+                    - CHM 207
+                - name: Advanced Placement and Chemistry
+                  min_needed: ALL
+                  max_counted: 1
+                  course_list:
+                    - CHM 202
+                    - CHM 215
+            - name: Physics
+              min_needed: ALL
+              max_counted: 1
+              req_list:
+                - name: Mechanics
+                  min_needed: 1
+                  max_counted: 1
+                  course_list:
+                    - PHY 101
+                    - PHY 103
+                    - PHY 105
+                - name: Electricity and Magnetism
+                  min_needed: 1
+                  max_counted: 1
+                  course_list:
+                    - PHY 102
+                    - PHY 104
+                    - PHY 106
+        - name: Integrated Science Curriculum
+          min_needed: ALL
+          max_counted: 1
+          course_list:
+            - ISC 231
+            - ISC 232
+            - ISC 233
+            - ISC 234
+    - name: Calculus
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - MAT 103
+        - MAT 104
+    - name: Organic Chemistry I
+      min_needed: ALL
+      max_counted: 1
+      course_list:
+        - CHM 301
+    - name: Organic Chemistry II
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - CHM 302
+        - CHM 304
+- name: Core
+  min_needed: ALL
+  max_counted: 1
+  explanation: |-
+    Students must take three 300-, 400-numbered courses in chemistry and at least one term of experimental laboratory instruction at Princeton as departmental core courses. These courses must include at least one term each of organic (CHM 301, 302 or 304), physical (CHM 305, 306, 405 or 406) and inorganic chemistry (CHM 411 or 412). The experimental requirement may be fulfilled by taking either CHM 371 or MSE 302 or PHY 312 or CBE 346. Note: The experimental course must be completed by the end of junior year.
+  req_list:
+    - name: Physical Chemistry
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - CHM 305
+        - CHM 306
+        - CHM 405
+        - CHM 406
+    - name: Inorganic Chemistry
+      min_needed: 1
+      max_counted: 1
+      course_list:
+        - CHM 411
+        - CHM 412
+    - name: Experimental Laboratory
+      min_needed: 1
+      max_counted: 1
+      completed_by_semester: 6
+      course_list:
+        - CHM 371
+        - MSE 302
+        - PHY 312
+        - CBE 346
+- name: Cognates
+  min_needed: 4
+  max_counted: 1
+  explanation: |-
+    The remaining four departmental courses of the eight required by the University degree regulations can be in either chemistry or a cognate scientific area (e.g., molecular biology, engineering, geoscience, materials science, computer science, mathematics, neuroscience or physics). Many courses in the sciences at the 300-, 400-, and 500-levels are approved as departmental courses. Courses are evaluated on a case-by-case basis. To qualify as a departmental, the course must have one or more prerequisites (i.e., be non-introductory) and must have a strong chemistry component. Contact the director of undergraduate studies to discuss whether courses of interest can be counted as cognates.
+  course_list:
+    - CHM 3**
+    - CHM 4**
+    - CHM 5**
+    - MOL 3**
+    - MOL 4**
+    - MOL 5**
+    - GEO 3**
+    - GEO 4**
+    - GEO 5**
+    - MSE 3**
+    - MSE 4**
+    - MSE 5**
+    - COS 3**
+    - COS 4**
+    - COS 5**
+    - MAT 3**
+    - MAT 4**
+    - MAT 5**
+    - NEU 3**
+    - NEU 4**
+    - NEU 5**
+    - PHY 3**
+    - PHY 4**
+    - PHY 5**
+- name: Junior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    First-term Program<br>
+    The first-term program consists of two components: junior colloquium and reading groups.<br>
+    The Junior Colloquium: One evening each week throughout the fall term, junior chemistry majors and early majors are required to attend research seminars and departmental trainings. The research seminars, given by the departmental faculty, will introduce students to areas of current research not typically addressed during the coursework. The departmental training sessions include laboratory safety and responsible conduct of research, which prepare students for independent research in the spring.<br>
+    Reading Groups: Juniors will be assigned to one of several reading groups. Over the course of the semester, every group will meet with three separate instructors, one for each of three four-week reading periods. Reading group instructors will utilize current chemical literature to introduce novel research, and the mechanics of scientific writing and presentation. At the end of each reading period, students will submit a critical analysis of a research article.<br>
+    The student's final term grade is calculated by the director of undergraduate studies using the grades on the three papers plus the individual's record of attendance at the evening colloquia.<br>
+    Second-term Program<br>
+    Each student will select a faculty adviser for spring independent work by the start of the spring semester. During the semester, the student will meet regularly with the faculty adviser and begin working on preliminary research in their chosen field. At the end of the term, the student will submit a research proposal for the senior thesis. The proposal will incorporate the experimental results obtained into support for the projected thesis topics. A student's final term grade is determined by the director of undergraduate studies in conjunction with the faculty adviser's evaluation.
+  no_req:
+- name: Senior Independent Work
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    At the end of junior year, each student selects a thesis adviser (who may or may not be the same as the adviser during junior year). The adviser and the student will agree on a topic on which the student will undertake independent original research throughout both terms of senior year. This project will consist largely of original research involving wet laboratory work and/or chemical theory. On or before the University deadline, a written thesis based on this research work must be submitted to the department. The thesis will be evaluated and ranked by a committee of professors, two each from the following areas of study, as appropriate: inorganic chemistry, organic chemistry, physical chemistry, materials science and biochemistry.
+  no_req:
+- name: Senior Departmental Examination
+  min_needed: 1
+  max_counted: 1
+  explanation: |-
+    <i>Editor's Note: Majors do not enroll in any numbered course for this requirement, so hoagieplan does not check it.</i><br><br>
+
+    The comprehensive exam is an oral thesis presentation, given by each senior student to a group of three members of the faculty, including their thesis adviser, during the first part of the final exam period.
+  no_req:

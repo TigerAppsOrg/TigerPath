@@ -62,7 +62,6 @@ export function bindManualHoverPopover(
   function onTriggerMouseEnter() {
     clearHideTimeout();
     popoverInstance.show();
-    // Listeners are attached in onPopoverShown, after the element is in the DOM
   }
 
   function onTriggerMouseLeave(event) {

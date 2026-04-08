@@ -1,0 +1,145 @@
+---
+type: Minor
+name: Neuroscience
+code: NEU
+degree:
+description: The minor in neuroscience at Princeton is designed for 
+  Princeton University undergraduate students with a strong interest in 
+  the brain but whose primary studies are in a different subject area. 
+  The certificate in neuroscience has been serving this function since 
+  2006, but since neuroscience now has a major, transitioning the 
+  certificate to a minor is appropriate. The PNI faculty believe that 
+  the current requirements of the NEU certificate are sufficient for a 
+  minor and have endorsed changing the name without modifications to the 
+  requirements. The requirements for the NEU minor are all related to 
+  coursework. There is no independent work requirement for the 
+  neuroscience certificate.
+urls:
+- https://pni.princeton.edu/study/undergraduate-program/minor
+contacts:
+- type: Director
+  name: Mala Murthy
+  email: mmurthy@princeton.edu
+iw_required: false
+req_list:
+- name: Core Courses
+  max_counted: 1
+  min_needed: 2
+  req_list: 
+  - name: Fundamentals
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 200
+    - NEU 201
+  - name: Introduction Course
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 202
+- name: Electives
+  max_counted: 1
+  min_needed: 4
+  double_counting_allowed: false
+  explanation: Must come from 3 out of 4 subject areas. No double 
+    counting. You can only use NEU courses and electives one time (in 
+    one category)
+  req_list:
+  - name: Molecular/Cellular/Disease
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 301
+    - NEU 331
+    - NEU 385
+    - NEU 390
+    - NEU 400
+    - NEU 403
+    - NEU 413
+    - NEU 428
+    - NEU 430
+    - NEU 443
+    - NEU 444
+    - NEU 446
+    - NEU 447
+    - NEU 460
+    - NEU 475
+    - NEU 490
+    - NEU 501A
+    - ECE 452
+    - MOL 250
+    - MOL 433
+    - MOL 459
+    - MOL 460
+    - PHY 562
+    - QCB 515
+  - name: Circuits & Systems
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 200
+    - NEU 260
+    - NEU 301
+    - NEU 316
+    - NEU 325
+    - NEU 336
+    - NEU 385
+    - NEU 390
+    - NEU 413
+    - NEU 420
+    - NEU 422
+    - NEU 427
+    - NEU 428
+    - NEU 444
+    - NEU 460
+    - NEU 457
+    - NEU 475
+    - NEU 477
+    - NEU 501A
+    - NEU 502A
+    - PHY 562
+  - name: Neural Computation
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 330
+    - NEU 338
+    - NEU 340
+    - NEU 437
+    - NEU 443
+    - NEU 457
+    - NEU 499
+    - COS 226
+    - COS 343
+    - COS 402
+    - COS 429
+    - COS 324
+    - COS 302
+    - COS 424
+    - COS 485
+    - ECE 364
+    - ECE 452
+    - MAT 323
+    - PSY 360
+    - QCB 515
+    - SML 354
+  - name: Cognitive & Social Neuroscience
+    max_counted: 1
+    min_needed: 1
+    course_list:
+    - NEU 200
+    - NEU 306
+    - NEU 316
+    - NEU 330
+    - NEU 331
+    - NEU 337
+    - NEU 338
+    - NEU 340
+    - NEU 422
+    - NEU 446
+    - NEU 477
+    - NEU 499
+    - NEU 502A
+    - ECE 480
+    - PSY 248
+    - PSY 409

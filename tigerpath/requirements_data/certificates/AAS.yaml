@@ -1,0 +1,466 @@
+# This certificate is no longer offered
+---
+type: Certificate
+name: African American Studies
+code: AAS
+degree:
+urls:
+- https://aas.princeton.edu/academics/undergraduate-program/certificate-requirements
+description: Class of 2025 students who opt to pursue a certificate in African American
+  Studies (AAS) gain access to an extraordinary bibliography that prepares them to think
+  about difference in sophisticated ways. When you are ready to announce your intention
+  to earn the certificate, please complete the AAS Undergraduate Certificate Form. Any
+  students from the Class of 2026 and beyond, please review the AAS Undergraduate Minor
+  Requirements page.
+contacts:
+- type: Director of Undergraduate Studies
+  name: Keeanga-Yamahtta Taylor
+  email: kytaylor@princeton.edu
+iw_required: true
+req_list:
+- name: Core Survey
+  max_counted: 1
+  min_needed: 2
+  explanation: |-
+    Students must complete two AAS core survey courses from the list below.
+    The core survey courses orient students to African American Studies, and prepare
+    certificate students for independent work by grounding them in the field. 
+    Students sometimes ask to fulfill the core survey requirement with a substitute
+    course, as courses across campus and in other universities have overlapping content,
+    but the Department of African American Studies has designed the survey courses as
+    cornerstones of the undergraduate program, and therefore there are no replacements
+    or exemptions from the core survey course requirement. <br><br>
+    
+    Please note that the Department cannot offer all six survey courses each year; availability varies, 
+    and usually the Department offers at least four core survey courses per year. To be eligible for
+    Department funding, certificate students must complete both core survey courses by the
+    end of their junior year.
+  double_counting_allowed: false
+  max_common_with_major: 1
+  pdfs_allowed: 0
+  req_list:
+  - name: African American Art
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 244
+    - AAS 245
+  - name: African American Literature to 1910
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 253
+    - AAS 353
+  - name: African American Literature since the Harlem Renaissance
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 254
+    - AAS 359
+  - name: African American History to 1863
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 267
+    - AAS 366
+  - name: African American History Since Emancipation
+    max_counted: 1
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 268
+    - AAS 367
+- name: Electives
+  max_counted: 1
+  min_needed: 3
+  explanation: Students must take three additional elective courses in AAS, cross-listed
+    by AAS, or from our approved cognates list, and at least one of these must be in the
+    Global Race and Ethnicity subfield.
+  double_counting_allowed: false
+  max_common_with_major: 0
+  pdfs_allowed: 0
+  req_list:
+  - name: GRE Subfield
+    max_counted: 3
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 239
+    - AAS 303
+    - AAS 319
+    - AAS 328
+    - AAS 242
+    - AAS 330
+    - AAS 303
+    - AAS 303
+    - AAS 326
+    - AAS 303
+    - AAS 314
+    - AAS 306
+    - AAS 303
+    - AAS 306
+    - AAS 314
+    - AAS 303
+    - AAS 323
+    - AAS 244
+    - AAS 304
+    - AAS 303
+    - AAS 337
+    - AAS 313
+    - AAS 322
+    - AFS 310
+    - AAS 354
+    - AAS 362
+    - AAS 353
+    - AAS 414
+    - AAS 341
+    - AAS 392
+    - AAS 411
+    - AAS 406
+    - AAS 442
+    - AAS 426
+    - AAS 372
+    - AAS 349
+    - AAS 342
+    - ANT 223
+    - CLA 310
+    - ANT 405
+    - COM 376
+    - COM 434
+    - CLA 225
+    - ARC 396
+    - ART 473
+    - COM 239
+    - ANT 421
+    - ANT 419
+    - AFS 395
+    - ART 378
+    - ART 483
+    - ART 474
+    - ART 260
+    - COM 241
+    - ANT 369
+    - ANT 379
+    - ART 373
+    - AFS 450
+    - FRE 335
+    - FRE 376
+    - FRE 334
+    - FRE 403
+    - ENV 460
+    - GLS 331
+    - ENG 388
+    - FRE 376
+    - GLS 334
+    - DAN 211
+    - DAN 215
+    - COM 476
+    - ENG 358
+    - ENG 358
+    - GLS 311
+    - ENG 415
+    - ENG 354
+    - ENG 379
+    - FRE 390
+    - ENG 397
+    - HIS 492
+    - LAO 368
+    - HIS 333
+    - HIS 270
+    - JRN 448
+    - HIS 443
+    - LAS 313
+    - LAS 371
+    - HIS 415
+    - HIS 473
+    - LAS 318
+    - LAS 395
+    - LIN 260
+    - LAO 359
+    - HIS 250
+    - HIS 316
+    - HIS 314
+    - GSS 219
+    - GSS 345
+    - HUM 310
+    - GSS 218
+    - HIS 306
+    - HUM 360
+    - HIS 315
+    - LAO 265
+    - MUS 350
+    - REL 373
+    - REL 367
+    - POR 309
+    - SOC 227
+    - NES 374
+    - REL 292
+    - POR 304
+    - POL 433
+    - POR 261
+    - MUS 259
+    - REL 328
+    - POL 432
+    - MUS 259
+    - POR 328
+    - NES 397
+    - POR 415
+    - MPP 214
+    - NES 395
+    - SOC 210
+    - POR 262
+    - REL 308
+    - REL 310
+    - MUS 246
+    - NES 411
+    - POR 222
+    - MUS 246
+    - MUS 258
+    - POR 260
+    - POL 366
+    - VIS 233
+    - SPA 387
+    - SPA 352
+    - SPA 408
+    - URB 305
+    - SPA 366
+    - SPA 233
+    - VIS 234
+    - THR 355
+    - THR 355
+    - SPA 363
+    - SPA 365
+  - name: Non-GRE Courses
+    max_counted: 2
+    min_needed: 1
+    explanation:
+    course_list:
+    - AAS 235
+    - AAS 327
+    - AAS 306
+    - AAS 212
+    - AAS 306
+    - AAS 201
+    - AAS 306
+    - AAS 268
+    - AAS 245
+    - AAS 230
+    - AAS 200
+    - AAS 326
+    - AAS 301
+    - AAS 339
+    - AAS 326
+    - AAS 332
+    - AAS 306
+    - AAS 201
+    - AAS 331
+    - AAS 306
+    - AAS 220
+    - AAS 230
+    - AAS 318
+    - AAS 310
+    - AAS 300
+    - AAS 302
+    - AAS 321
+    - AAS 231
+    - AAS 326
+    - AAS 305
+    - AAS 230
+    - AAS 336
+    - AAS 351
+    - AFS 322
+    - AAS 365
+    - AAS 358
+    - AAS 381
+    - AAS 366
+    - AAS 368
+    - AAS 363
+    - AAS 367
+    - AAS 510
+    - AAS 404
+    - AAS 339
+    - AAS 359
+    - AAS 370
+    - AAS 477
+    - AAS 380
+    - AAS 522
+    - AAS 352
+    - AAS 500
+    - AAS 411
+    - AAS 350
+    - AAS 392
+    - AAS 353
+    - AAS 350
+    - AAS 392
+    - AAS 499
+    - AAS 345
+    - AAS 555
+    - ANT 223
+    - ANT 244
+    - ANT 363
+    - ARC 553
+    - AMS 304
+    - AMS 351
+    - AMS 311
+    - ANT 461
+    - ANT 240
+    - ANT 362
+    - ANT 437
+    - AMS 334
+    - ARC 550
+    - CHV 385
+    - ANT 363
+    - AMS 322
+    - AMS 351
+    - ANT 389
+    - CLA 342
+    - ASA 332
+    - ARC 550
+    - ATL 498
+    - AMS 395
+    - CHV 247
+    - COM 373
+    - AMS 351
+    - ASA 360
+    - ARC 386
+    - ANT 461
+    - ANT 403
+    - AMS 315
+    - AMS 304
+    - ANT 228
+    - ARC 556
+    - ART 560
+    - ART 571
+    - CHV 385
+    - ATL 499
+    - ART 529
+    - AMS 404
+    - CHV 385
+    - ANT 328
+    - AMS 404
+    - ENG 574
+    - ENG 391A
+    - GSS 207
+    - ENG 556
+    - GSS 208
+    - ECO 351
+    - DAN 223
+    - ENG 571
+    - DAN 302
+    - DAN 303
+    - ENG 414
+    - GER 520
+    - ENV 448
+    - DAN 211
+    - ENG 408
+    - DAN 215
+    - ENG 556
+    - DAN 222
+    - EGR 495
+    - ENG 411
+    - DAN 408
+    - ENG 568
+    - CWR 316
+    - DAN 350
+    - ECS 393
+    - EGR 361
+    - ENG 571
+    - DAN 305
+    - FRE 243
+    - DAN 323
+    - ENG 383
+    - DAN 322
+    - DAN 229
+    - FRE 504
+    - ENG 353
+    - ENG 411
+    - HIS 270
+    - HIS 393
+    - HIS 333
+    - LAS 313
+    - HIS 456
+    - HIS 483
+    - GSS 208
+    - LAS 229
+    - JRN 448
+    - HIS 443
+    - GSS 502
+    - HIS 578
+    - HUM 321
+    - HIS 459
+    - HIS 577
+    - HIS 461
+    - LCA 213
+    - HIS 202
+    - HIS 393
+    - HIS 485
+    - GSS 543
+    - HIS 459
+    - HIS 249
+    - HUM 352
+    - HIS 450
+    - HIS 376
+    - GSS 345
+    - HIS 402
+    - HIS 315
+    - HIS 388
+    - JRN 260
+    - HIS 471
+    - SOC 314
+    - SOC 373
+    - REL 250
+    - REL 505
+    - REL 256
+    - POR 585
+    - POR 261
+    - REL 360
+    - MPP 214
+    - MUS 264
+    - POL 421
+    - MTD 202
+    - MUS 264
+    - SOC 221
+    - PHI 208
+    - PSY 252
+    - REL 255
+    - SOC 207
+    - POL 344
+    - MUS 262
+    - SOC 373
+    - REL 372
+    - POL 319
+    - MUS 212
+    - POL 492
+    - PHI 350
+    - REL 377
+    - PHI 357
+    - POL 311
+    - POL 344
+    - THR 340
+    - SPI 331
+    - THR 332
+    - SPA 556
+    - VIS 207
+    - VIS 307
+    - SPI 395
+    - SOC 375
+    - VIS 373
+    - THR 313
+    - SPI 345
+    - VIS 234
+    - THR 203
+    - SPI 390
+    - VIS 424
+    - SPA 360
+    - SPI 337
+    - SOC 560
+    - VIS 228
+    - SOC 414
+    - SPI 336
+    - VIS 424
+    - SPA 377
+    - THR 392
