@@ -61,6 +61,14 @@
   color: white;
 }
 
+#requirements .tree-view_item.tree-root {
+  align-items: center;
+}
+
+#requirements .tree-root .tree-view_arrow {
+  margin-top: 0;
+}
+
 /* style everything except main roots*/
 #requirements .tree-sub-reqs .tree-view_item {
   border-radius: 2px;
@@ -114,29 +122,145 @@
   margin-top: 5px;
 }
 
-/* Main-req popover only (paired classes in Requirements.jsx); resets scroll/height from .popoverContentContainer */
-.popoverContentContainer.main-req-popover-wrap {
-  max-height: none;
-  margin-top: 0;
-  overflow: visible;
-}
 
 .fa-exclamation-circle {
   color: #e74c3c;
-}
-
-.ref-link {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
 }
 
 /* moves info icon a little up */
 .info-icon {
   cursor: pointer;
   position: relative;
-  top: -2px;
+  top: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+#requirements .reqLabel.reqLabel-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+#requirements .reqLabel-main-title {
+  flex: 1;
+  min-width: 0;
+  padding-right: 6px;
+}
+
+#requirements .reqLabel.reqLabel-main .info-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Outer popover — light grey background to show card separation */
+.popover.info-popover {
+  max-width: 280px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  background: #f0f0f0;
+}
+
+.popover.info-popover .popover-arrow::after {
+  border-left-color: #f0f0f0;
+}
+
+.popover.info-popover .popover-body {
+  padding: 0;
+  background: transparent;
+  border-radius: 16px;
+}
+
+/* Wrapper — gap between cards visible as grey background */
+.info-popover-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+/* Individual white card */
+.info-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.info-card-title {
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000;
+  line-height: 1.1;
+}
+
+/* Contact block */
+.info-contact {
+  margin-bottom: 8px;
+}
+
+.info-contact:last-child {
+  margin-bottom: 0;
+}
+
+.contact-role {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  display: block;
+  line-height: 1.15;
+}
+
+.contact-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: #000;
+  line-height: 1.15;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.contact-email {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d6efd;
+  text-decoration: underline;
+  display: block;
+  line-height: 1.15;
+}
+
+/* Reference link items */
+.ref-link-item {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+a.ref-link-item {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.ref-link-item.ref-link-item-disabled {
+  color: #6c757d;
+  text-decoration: none;
+  cursor: default;
+}
+
+.ref-link-item:last-child {
+  margin-bottom: 0;
+}
+
+a.ref-link-item:hover {
+  color: #0a58ca;
+  text-decoration: underline;
 }
