@@ -127,6 +127,7 @@ export default function App() {
         course['dist_area'] = searchResultsCourse['dist_area'];
         course['semester'] = searchResultsCourse['semester'];
         course['semester_list'] = searchResultsCourse['semester_list'];
+        course['quality_rating'] = searchResultsCourse['quality_rating'] ?? null;
         course['settled'] = [];
         currentSchedule[destSemId].splice(destCourseIndex, 0, course);
       } else {

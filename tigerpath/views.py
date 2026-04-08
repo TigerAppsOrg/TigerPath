@@ -226,23 +226,12 @@ def _term_code_to_name(code):
 
 @login_required
 def get_course_details(request, course_id):
-    """
-    Fetches course evaluation data from the Junction Engine API:
-      GET /api/evaluations/{listingId}  → per-term ratings and student comments
-      GET /api/courses/all              → instructor names per term + dists + gradingBasis
-                                          (cached 6 h; covers all historical terms)
-    """
     import logging
     logger = logging.getLogger(__name__)
 
     empty = {
-        "has_pdf": False,
-        "dists": [],
-        "offerings": [],
-        "quality_rating": None,
-        "comments": [],
-        "comments_semester": None,
-        "description": "",
+        "has_pdf": False, "dists": [], "offerings": [],
+        "quality_rating": None, "comments": [], "comments_semester": None, "description": "",
     }
 
     cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
@@ -251,7 +240,6 @@ def get_course_details(request, course_id):
         return JsonResponse(cached)
 
     try:
-        # ── 1. Fetch per-term evaluation data ──────────────────────────────────
         eval_resp = requests.get(
             f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
             timeout=5,
@@ -268,9 +256,6 @@ def get_course_details(request, course_id):
         most_recent = evaluations[0]
         most_recent_term = most_recent.get("evalTerm")
 
-        # ── 2. Build instructor/dist data from the shared courses/all cache ─────
-        # /api/courses/all covers every term Junction Engine has, so historical
-        # instructor names are available without per-term requests.
         courses_all = cache.get(JUNCTION_COURSES_ALL_CACHE_KEY)
         if courses_all is None:
             try:
@@ -300,7 +285,6 @@ def get_course_details(request, course_id):
                 if not dists:
                     dists = c.get("dists", [])
 
-        # ── Description from TigerPath DB ──────────────────────────────────────
         description = ""
         try:
             db_course = models.Course.objects.filter(registrar_id=course_id).first()
@@ -309,7 +293,6 @@ def get_course_details(request, course_id):
         except Exception:
             pass
 
-        # ── 3. Build per-semester offerings ────────────────────────────────────
         offerings = []
         for ev in evaluations:
             term = ev.get("evalTerm")
@@ -320,20 +303,15 @@ def get_course_details(request, course_id):
                 "rating": round(float(raw_rating), 2) if raw_rating is not None else None,
             })
 
-        # ── 4. Comments and quality rating from most recent eval term ──────────
         comments = [c for c in most_recent.get("comments", []) if c and c.strip()]
         comments_semester = _term_code_to_name(most_recent_term)
         raw_rating = most_recent.get("rating")
         quality_rating = round(float(raw_rating), 2) if raw_rating is not None else None
 
         data = {
-            "has_pdf": has_pdf,
-            "dists": dists,
-            "offerings": offerings,
-            "quality_rating": quality_rating,
-            "comments": comments,
-            "comments_semester": comments_semester,
-            "description": description,
+            "has_pdf": has_pdf, "dists": dists, "offerings": offerings,
+            "quality_rating": quality_rating, "comments": comments,
+            "comments_semester": comments_semester, "description": description,
         }
         cache.set(cache_key, data, JUNCTION_EVAL_CACHE_TIMEOUT)
         return JsonResponse(data)
@@ -344,7 +322,7 @@ def get_course_details(request, course_id):
 
 
 def _fetch_quality_rating(course_id):
-    """Return (course_id, quality_rating) — checks cache first, then Junction Engine."""
+    """Return (course_id, quality_rating) — checks cache first, then fetches evaluations only."""
     cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
     cached = cache.get(cache_key)
     if cached is not None:
@@ -363,10 +341,6 @@ def _fetch_quality_rating(course_id):
         evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
         raw_rating = evaluations[0].get("rating")
         rating = round(float(raw_rating), 2) if raw_rating is not None else None
-        # Store a minimal entry so subsequent get_course_details calls can use the cache
-        existing = cache.get(cache_key)
-        if existing is None:
-            cache.set(cache_key, {"quality_rating": rating}, JUNCTION_EVAL_CACHE_TIMEOUT)
         return course_id, rating
     except Exception:
         return course_id, None
