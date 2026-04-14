@@ -9,10 +9,32 @@ import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
 
+function getRatingColor(rating) {
+  if (rating == null) return '#e0e0e0';
+  const stops = [
+    [0,   [224, 82,  82 ]],
+    [2,   [224, 112, 48 ]],
+    [3,   [224, 144, 32 ]],
+    [3.5, [200, 176, 32 ]],
+    [4,   [144, 176, 32 ]],
+    [4.5, [92,  184, 92 ]],
+    [5,   [45,  176, 45 ]],
+  ];
+  const r = Math.max(0, Math.min(5, rating));
+  let lo = stops[0], hi = stops[stops.length - 1];
+  for (let i = 0; i < stops.length - 1; i++) {
+    if (r >= stops[i][0] && r <= stops[i + 1][0]) { lo = stops[i]; hi = stops[i + 1]; break; }
+  }
+  const t = hi[0] === lo[0] ? 0 : (r - lo[0]) / (hi[0] - lo[0]);
+  const c = lo[1].map((v, i) => Math.round(v + t * (hi[1][i] - v)));
+  return `rgb(${c[0]},${c[1]},${c[2]})`;
+}
+
 export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = null) {
   let courseName = course['name'];
   let courseTitle = course['title'];
   let courseSemType = course['semester'];
+  let qualityRating = course['quality_rating'] ?? null;
 
   const courseElement = document.getElementById(courseKey);
   if (!courseElement) return;
@@ -22,7 +44,14 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
     existingCleanup();
   }
 
-  courseElement.setAttribute('title', courseName);
+  // Build header with rating badge on the right
+  let titleHtml = `<span style="display:flex;justify-content:space-between;align-items:center;width:100%;gap:8px">
+    <span>${courseName}</span>`;
+  if (qualityRating != null) {
+    titleHtml += `<span style="background:${getRatingColor(qualityRating)};color:white;border-radius:3px;padding:1px 6px;font-size:0.85em;font-weight:bold;white-space:nowrap;flex-shrink:0">${qualityRating.toFixed(2)}</span>`;
+  }
+  titleHtml += `</span>`;
+  courseElement.setAttribute('data-bs-title', titleHtml);
 
   // Build content
   let content;

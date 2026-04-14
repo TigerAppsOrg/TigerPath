@@ -19,7 +19,27 @@ const PlaceholderCourse = styled.div`
   }
 `;
 
-export default function SearchCourseCard({ courseIndex, courseKey, course }) {
+export default function SearchCourseCard({ courseIndex, courseKey, course, qualityRating, ratingColor }) {
+  const bannerRight = (
+    <div style={{ display: 'flex', alignItems: 'center', flexShrink: 0 }}>
+      {qualityRating != null && (
+        <span
+          style={{
+            background: ratingColor,
+            color: 'white',
+            borderRadius: '3px',
+            padding: '2px 6px',
+            fontSize: '13px',
+            fontWeight: 'bold',
+            lineHeight: '1.5',
+          }}
+        >
+          {qualityRating.toFixed(2)}
+        </span>
+      )}
+    </div>
+  );
+
   return (
     <Droppable
       droppableId={`search-result-droppable-${courseKey}`}
@@ -38,21 +58,35 @@ export default function SearchCourseCard({ courseIndex, courseKey, course }) {
                   $isBeingDragged={snapshot.isDragging}
                   {...provided.draggableProps}
                   {...provided.dragHandleProps}
+                  style={{ display: 'flex', alignItems: 'center', ...provided.draggableProps.style }}
                 >
-                  <div className="course-name">{course['name']}</div>
+                  <div
+                    className="course-name"
+                    style={{ flex: 1, minWidth: 0, float: 'none', maxWidth: 'none' }}
+                  >
+                    {course['name']}
+                  </div>
+                  {bannerRight}
                 </SearchCourseCardStyled>
                 {snapshot.isDragging && (
                   <PlaceholderCourse
                     id={`${courseKey}-placeholder`}
                     className={`course-card ${course['semester']}`}
+                    style={{ display: 'flex', alignItems: 'center' }}
                   >
-                    <div className="course-name">{course['name']}</div>
+                    <div
+                      className="course-name"
+                      style={{ flex: 1, minWidth: 0, float: 'none', maxWidth: 'none' }}
+                    >
+                      {course['name']}
+                    </div>
+                    {bannerRight}
                   </PlaceholderCourse>
                 )}
               </>
             )}
           </Draggable>
-          {provided.placeholder}
+          <div style={{ display: 'none' }}>{provided.placeholder}</div>
         </div>
       )}
     </Droppable>
