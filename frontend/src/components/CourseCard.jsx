@@ -31,7 +31,6 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
           <div
             ref={provided.innerRef}
             id={courseKey}
-            title={course['name']}
             className={getClassNames(snapshot.isDragging)}
             {...provided.draggableProps}
             {...provided.dragHandleProps}

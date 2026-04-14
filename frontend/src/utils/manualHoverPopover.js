@@ -1,4 +1,4 @@
-const DEFAULT_HIDE_DELAY_MS = 120;
+const DEFAULT_HIDE_DELAY_MS = 125;
 
 function getPopoverElement(triggerElement) {
   const describedBy = triggerElement.getAttribute('aria-describedby');
@@ -53,6 +53,7 @@ export function bindManualHoverPopover(
   const scheduleHide = (relatedTarget) => {
     clearHideTimeout();
     hideTimeoutId = window.setTimeout(() => {
+      hideTimeoutId = null;
       if (!shouldRemainVisible(relatedTarget)) {
         popoverInstance.hide();
       }
@@ -64,15 +65,26 @@ export function bindManualHoverPopover(
     popoverInstance.show();
   }
 
+  function onTriggerMouseLeave(event) {
+    scheduleHide(event.relatedTarget);
+  }
+
   function onPopoverShown() {
+    // Popover is fully in the DOM now — safe to attach mouse listeners
     attachPopoverListeners();
     if (onShow) {
       onShow(getPopoverElement(triggerElement));
     }
-  }
-
-  function onTriggerMouseLeave(event) {
-    scheduleHide(event.relatedTarget);
+    // Mouse may have left while the popover was animating in — hide if so.
+    // Skip if a hide timeout is already pending (it will handle this itself).
+    // Deferred one frame so the browser settles :hover state on the new element.
+    if (hideTimeoutId === null) {
+      requestAnimationFrame(() => {
+        if (!shouldRemainVisible(null)) {
+          popoverInstance.hide();
+        }
+      });
+    }
   }
 
   function onPopoverMouseEnter() {
