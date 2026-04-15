@@ -122,53 +122,48 @@ function buildHeaderPopoverHtml(info) {
 
 // ── Styled components ──────────────────────────────────────────────────────────
 
-const ReqCard = styled.div`
+const CardWrapper = styled.div`
   flex: ${({ $flex }) => $flex ?? 1};
   min-height: 0;
   display: flex;
   flex-direction: column;
-  background: white;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 12px;
-  overflow: hidden;
 `;
 
-const CardTabRow = styled.div`
+const TabStrip = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4px;
-  background: ${({ theme }) => theme.greySemBody};
-  padding: 5px 8px;
+  align-items: flex-end;
+  padding: 0 8px;
+  gap: 2px;
+  flex-shrink: 0;
 `;
 
-const CardTab = styled.button`
-  border: none;
-  padding: 3px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: ${({ $active }) => ($active ? 700 : 400)};
-  background: ${({ $active }) => ($active ? 'white' : 'transparent')};
+const RidgeTab = styled.button`
+  border: 1px solid ${({ theme }) => theme.lightGrey};
+  border-bottom-color: ${({ $active }) => ($active ? 'white' : 'inherit')};
+  border-radius: 6px 6px 0 0;
+  background: ${({ $active, theme }) => ($active ? 'white' : theme.greySemBody)};
   color: ${({ theme }) => theme.darkGreyText};
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: ${({ $active }) => ($active ? 700 : 500)};
   cursor: pointer;
   white-space: nowrap;
-  line-height: 1.5;
+  line-height: 1.4;
+  position: relative;
+  margin-bottom: -1px;
+  z-index: 1;
 
   &:hover {
-    background: ${({ $active }) => ($active ? 'white' : 'rgba(0,0,0,0.06)')};
+    background: ${({ $active, theme }) => ($active ? 'white' : theme.lightGrey)};
   }
-`;
-
-const TabDivider = styled.span`
-  color: ${({ theme }) => theme.lightGrey};
-  user-select: none;
-  font-size: 12px;
 `;
 
 const CardInfoIcon = styled.i`
   margin-left: auto;
+  margin-bottom: 4px;
   cursor: pointer;
   color: ${({ theme }) => theme.darkGreyText};
-  opacity: 0.5;
+  opacity: 0.45;
   font-size: 13px;
   padding: 2px 4px;
   flex-shrink: 0;
@@ -176,6 +171,18 @@ const CardInfoIcon = styled.i`
   &:hover {
     opacity: 1;
   }
+`;
+
+const CardBody = styled.div`
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid ${({ theme }) => theme.lightGrey};
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
 `;
 
 const CardContent = styled.div`
@@ -645,39 +652,36 @@ export default function Requirements({ onChange, requirements, schedule }) {
     <div id="requirements" ref={containerRef}>
       {/* ── Top card: major + degree + graduation ── */}
       {topReqs.length > 0 && (
-        <ReqCard $flex={minorReqs.length > 0 ? 3 : 1}>
-          <CardTabRow>
-            <CardTab
+        <CardWrapper $flex={minorReqs.length > 0 ? 3 : 1}>
+          <TabStrip>
+            <RidgeTab
               type="button"
               $active={topTab === 'major'}
               onClick={() => setTopTab('major')}
             >
               {majorLabel}
-            </CardTab>
+            </RidgeTab>
 
             {topReqs.length > 1 && (
               <>
-                <TabDivider>|</TabDivider>
-                <CardTab
+                <RidgeTab
                   type="button"
                   $active={topTab === 'degree'}
                   onClick={() => setTopTab('degree')}
                 >
                   {degreeLabel}
-                </CardTab>
-                <TabDivider>|</TabDivider>
-                <CardTab
+                </RidgeTab>
+                <RidgeTab
                   type="button"
                   $active={topTab === 'grad'}
                   onClick={() => setTopTab('grad')}
                   aria-label="Path to graduation"
                 >
                   <i className="fas fa-graduation-cap" aria-hidden="true" />
-                </CardTab>
+                </RidgeTab>
               </>
             )}
 
-            {/* Info icon pushed to the right — shows contacts + reference links */}
             {(() => {
               const attrs = getInfoIconAttrs(selectedTopReq);
               if (!attrs) return null;
@@ -685,33 +689,32 @@ export default function Requirements({ onChange, requirements, schedule }) {
                 <CardInfoIcon
                   className="fa fa-info-circle info-icon"
                   {...attrs}
-                  style={{ cursor: 'pointer' }}
                 />
               );
             })()}
-          </CardTabRow>
+          </TabStrip>
 
-          <CardContent>
-            {renderSingleReqContent(selectedTopReq)}
-          </CardContent>
-        </ReqCard>
+          <CardBody>
+            <CardContent>
+              {renderSingleReqContent(selectedTopReq)}
+            </CardContent>
+          </CardBody>
+        </CardWrapper>
       )}
 
       {/* ── Bottom card: one tab per minor ── */}
       {minorReqs.length > 0 && (
-        <ReqCard $flex={2}>
-          <CardTabRow>
+        <CardWrapper $flex={2}>
+          <TabStrip>
             {minorReqs.map((minor, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <TabDivider>|</TabDivider>}
-                <CardTab
-                  type="button"
-                  $active={i === selectedMinorIndex}
-                  onClick={() => setSelectedMinorIndex(i)}
-                >
-                  {getMinorLabel(minor)}
-                </CardTab>
-              </React.Fragment>
+              <RidgeTab
+                key={i}
+                type="button"
+                $active={i === selectedMinorIndex}
+                onClick={() => setSelectedMinorIndex(i)}
+              >
+                {getMinorLabel(minor)}
+              </RidgeTab>
             ))}
 
             {(() => {
@@ -721,16 +724,17 @@ export default function Requirements({ onChange, requirements, schedule }) {
                 <CardInfoIcon
                   className="fa fa-info-circle info-icon"
                   {...attrs}
-                  style={{ cursor: 'pointer' }}
                 />
               );
             })()}
-          </CardTabRow>
+          </TabStrip>
 
-          <CardContent>
-            {renderSingleReqContent(selectedMinorReq)}
-          </CardContent>
-        </ReqCard>
+          <CardBody>
+            <CardContent>
+              {renderSingleReqContent(selectedMinorReq)}
+            </CardContent>
+          </CardBody>
+        </CardWrapper>
       )}
     </div>
   );

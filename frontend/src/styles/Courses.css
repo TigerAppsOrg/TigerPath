@@ -94,7 +94,7 @@
   font-size: large;
   height: 36px;
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 6px;
   margin-bottom: 5px;
 }
 
@@ -104,13 +104,13 @@
 }
 
 .course-card.spring {
-  background-color: #c4e3ed;
-  color: #004a63;
+  background-color: #eaccff;
+  color: #53008f;
 }
 
 .course-card.both {
-  background: linear-gradient(to right, #eaccff, #c4e3ed);
-  color: #333;
+  background-color: #eaccff;
+  color: #53008f;
 }
 
 .course-card.external {

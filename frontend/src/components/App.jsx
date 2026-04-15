@@ -341,7 +341,7 @@ export default function App() {
             />
           </div>
         </DragDropContext>
-        <div className="col-lg-2 p-0 break dont-print requirements-pane">
+        <div className="col-lg-2 px-0 break dont-print requirements-pane">
           <Requirements
             onChange={onChange}
             requirements={requirements}
