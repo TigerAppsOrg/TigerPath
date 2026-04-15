@@ -31,6 +31,7 @@ from .majors_and_certificates.scripts.verifier import (
 )
 
 SEARCH_RESULT_LIMIT = 200
+MAX_PLANS_PER_USER = 5
 SEARCH_CACHE_TIMEOUT_SECONDS = 300
 SEARCH_CACHE_KEY_VERSION = "v1"
 SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
@@ -763,6 +764,9 @@ def create_plan(request):
         raise Http404
 
     profile = request.user.profile
+    if profile.schedule_plans.count() >= MAX_PLANS_PER_USER:
+        return JsonResponse({"error": f"Plans are limited to {MAX_PLANS_PER_USER}."}, status=400)
+
     active_plan = get_active_plan(profile)
 
     plan_count = profile.schedule_plans.count()
@@ -788,6 +792,9 @@ def copy_plan(request):
         raise Http404
 
     profile = request.user.profile
+    if profile.schedule_plans.count() >= MAX_PLANS_PER_USER:
+        return JsonResponse({"error": f"Plans are limited to {MAX_PLANS_PER_USER}."}, status=400)
+
     active_plan = get_active_plan(profile)
     source_plan_id = parse_plan_id(request.POST.get("sourcePlanId"))
     source_plan = active_plan

@@ -1,4 +1,5 @@
-import React, { useEffect, useCallback, useRef, useState } from 'react';
+import React, { useEffect, useCallback, useRef, useState, useMemo } from 'react';
+import styled from 'styled-components';
 import { apiFetch } from 'utils/api';
 import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 import 'react-treeview/react-treeview.css';
@@ -20,7 +21,6 @@ function escapeHtml(text) {
     .replace(/"/g, '&quot;');
 }
 
-/** Map YAML `urls` to [UA major offerings, department site] when both exist. */
 function orderMajorReferenceUrls(urls) {
   if (!Array.isArray(urls) || urls.length < 2) return urls;
   const ua = urls.find((u) => /ua\.princeton\.edu/i.test(String(u)));
@@ -34,7 +34,6 @@ const COS_REFERENCE_URLS = [
   'https://www.cs.princeton.edu/',
 ];
 
-/** Ensures majors show reference links when YAML/API omits urls (COS was missing this until recently). */
 function withFallbackMajorUrls(mainReq, urlsRaw) {
   let urls = Array.isArray(urlsRaw) ? urlsRaw.filter(Boolean) : [];
   if (!mainReq || !('degree' in mainReq)) return urls;
@@ -57,10 +56,6 @@ function shortenContactRole(role) {
     .replace(/Placement Officer/i, 'Placement Officer');
 }
 
-/**
- * Build popover HTML from structured data. Do not put this HTML in a `data-bs-content`
- * attribute — long strings with many quotes break attribute parsing in the browser.
- */
 function buildHeaderPopoverHtml(info) {
   const contacts = Array.isArray(info.contacts) ? info.contacts : [];
   const isMajor = Boolean(info.isMajor);
@@ -125,9 +120,195 @@ function buildHeaderPopoverHtml(info) {
   return html;
 }
 
+// ── Styled components ──────────────────────────────────────────────────────────
+
+const ReqCard = styled.div`
+  flex: ${({ $flex }) => $flex ?? 1};
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid ${({ theme }) => theme.lightGrey};
+  border-radius: 12px;
+  overflow: hidden;
+`;
+
+const CardTabRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: ${({ theme }) => theme.greySemBody};
+  padding: 5px 8px;
+`;
+
+const CardTab = styled.button`
+  border: none;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: ${({ $active }) => ($active ? 700 : 400)};
+  background: ${({ $active }) => ($active ? 'white' : 'transparent')};
+  color: ${({ theme }) => theme.darkGreyText};
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1.5;
+
+  &:hover {
+    background: ${({ $active }) => ($active ? 'white' : 'rgba(0,0,0,0.06)')};
+  }
+`;
+
+const TabDivider = styled.span`
+  color: ${({ theme }) => theme.lightGrey};
+  user-select: none;
+  font-size: 12px;
+`;
+
+const CardInfoIcon = styled.i`
+  margin-left: auto;
+  cursor: pointer;
+  color: ${({ theme }) => theme.darkGreyText};
+  opacity: 0.5;
+  font-size: 13px;
+  padding: 2px 4px;
+  flex-shrink: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+`;
+
+const CardContent = styled.div`
+  flex: 1;
+  min-height: 0;
+  padding: 8px 10px;
+  overflow-y: auto;
+`;
+
+
+// ── Component ──────────────────────────────────────────────────────────────────
+
 export default function Requirements({ onChange, requirements, schedule }) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // eslint-disable-line no-unused-vars
   const containerRef = useRef(null);
+  const [topTab, setTopTab] = useState('major'); // 'major' | 'degree' | 'grad'
+  const [selectedMinorIndex, setSelectedMinorIndex] = useState(0);
+
+  // Partition requirements into the top card (major + degree) and the bottom card (minors).
+  //
+  // The backend always produces [major, degree, ...minors] in that order.
+  // Major: has a truthy `degree` field ("AB"/"BSE") — or is a plain string (unsupported major).
+  // Degree req: the item immediately following the major (degree field is null).
+  // Minors: everything else.
+  const { topReqs, minorReqs } = useMemo(() => {
+    if (!requirements) return { topReqs: [], minorReqs: [] };
+
+    // Locate the major (first item that is a string or has a truthy degree value)
+    let majorIdx = -1;
+    for (let i = 0; i < requirements.length; i++) {
+      const r = requirements[i];
+      if (typeof r === 'string' || (typeof r === 'object' && r && r.degree)) {
+        majorIdx = i;
+        break;
+      }
+    }
+
+    // Degree req is the item immediately after the major
+    let degreeIdx = -1;
+    if (majorIdx !== -1 && majorIdx + 1 < requirements.length) {
+      const next = requirements[majorIdx + 1];
+      if (next && typeof next === 'object' && !next.degree) {
+        degreeIdx = majorIdx + 1;
+      }
+    }
+
+    const topIndices = new Set([majorIdx, degreeIdx].filter((i) => i !== -1));
+    return {
+      topReqs: requirements.filter((_, i) => topIndices.has(i)),
+      minorReqs: requirements.filter((_, i) => !topIndices.has(i)),
+    };
+  }, [requirements]);
+
+  // Reset tab selections whenever the plan/requirements change
+  useEffect(() => { setTopTab('major'); }, [requirements]);
+  useEffect(() => {
+    setSelectedMinorIndex((prev) =>
+      minorReqs.length > 0 ? Math.min(prev, minorReqs.length - 1) : 0
+    );
+  }, [minorReqs]);
+
+  // Short tab labels for the top card
+  const majorLabel = useMemo(() => {
+    const req = topReqs[0];
+    if (!req) return 'Major';
+    if (typeof req === 'string') return String(req).split(/[\s(]/)[0];
+    if (req.code) return req.code.split('-')[0];
+    if (req.name) {
+      const m = req.name.match(/\(([A-Z]{2,6})[-\s)]/);
+      if (m) return m[1];
+      return req.name.split(' ')[0];
+    }
+    return 'Major';
+  }, [topReqs]);
+
+  const degreeLabel = useMemo(() => {
+    // Prefer the degree field on the major object ("AB" / "BSE")
+    const majorObj = topReqs.find((r) => typeof r === 'object' && 'degree' in r);
+    if (majorObj?.degree) return majorObj.degree;
+    const degreeObj = topReqs[1];
+    if (!degreeObj || typeof degreeObj === 'string') return 'Degree';
+    const match = (degreeObj.name || '').match(/\b(AB|BSE)\b/i);
+    if (match) return match[0].toUpperCase();
+    return (degreeObj.name || 'Degree').split(' ')[0];
+  }, [topReqs]);
+
+  const getMinorLabel = useCallback((req) => {
+    if (!req) return 'Minor';
+    const name = typeof req === 'object' ? (req.name || '') : String(req);
+    if (typeof req === 'object' && req.code) return req.code.replace(/-.*/, '');
+    const clean = name.replace(/\s*minor\s*/i, '').trim();
+    const STOP = new Set(['and', 'the', 'of', 'for', 'in', 'a', 'an', 'at', 'to']);
+    const words = clean.split(/\s+/).filter((w) => w && !STOP.has(w.toLowerCase()));
+    return words.map((w) => w[0].toUpperCase()).join('') || 'Minor';
+  }, []);
+
+  // Split the degree req into two filtered views:
+  //   AB/BSE tab  → everything except "Degree Progress"
+  //   🎓 tab      → only "Degree Progress"
+  const degreeReq = topReqs[1] ?? null;
+  const degreeReqWithoutProgress = degreeReq
+    ? { ...degreeReq, req_list: (degreeReq.req_list || []).filter((r) => r.name !== 'Degree Progress') }
+    : null;
+  const degreeProgressOnly = degreeReq
+    ? { ...degreeReq, req_list: (degreeReq.req_list || []).filter((r) => r.name === 'Degree Progress') }
+    : null;
+
+  const selectedTopReq =
+    topTab === 'major'  ? (topReqs[0] ?? null) :
+    topTab === 'degree' ? degreeReqWithoutProgress :
+    /* grad */            degreeProgressOnly;
+  const selectedMinorReq = minorReqs[selectedMinorIndex] ?? null;
+
+  // Build info-icon data attributes for a requirement (returns null if no info available)
+  const getInfoIconAttrs = (mainReq) => {
+    if (!mainReq || typeof mainReq !== 'object') return null;
+    const contacts = Array.isArray(mainReq.contacts) ? mainReq.contacts : [];
+    const isMajor = 'degree' in mainReq;
+    const urlsRaw = Array.isArray(mainReq.urls) ? mainReq.urls.filter(Boolean) : [];
+    const refUrls = isMajor
+      ? withFallbackMajorUrls(mainReq, urlsRaw)
+      : orderMajorReferenceUrls(urlsRaw);
+    if (contacts.length === 0 && !refUrls[0] && !refUrls[1]) return null;
+    return {
+      'data-bs-toggle': 'popover',
+      'data-bs-html': 'true',
+      'data-tp-info': JSON.stringify({ contacts, isMajor }),
+      'data-tp-ref0': refUrls[0] || '',
+      'data-tp-ref1': refUrls[1] || '',
+    };
+  };
+
+  // ── DOM helpers (unchanged logic) ─────────────────────────────────────────
 
   const makeNodesClickable = useCallback(() => {
     if (!containerRef.current) return;
@@ -175,11 +356,8 @@ export default function Requirements({ onChange, requirements, schedule }) {
     );
     reqLabels.forEach((reqLabel) => {
       const existingCleanup = reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
-      if (typeof existingCleanup === 'function') {
-        existingCleanup();
-      }
+      if (typeof existingCleanup === 'function') existingCleanup();
 
-      // Dispose existing popover if any
       const existing = Popover.getInstance(reqLabel);
       if (existing) existing.dispose();
 
@@ -195,23 +373,19 @@ export default function Requirements({ onChange, requirements, schedule }) {
         sanitize: false,
       });
 
-      const cleanupHoverBehavior = bindManualHoverPopover(
-        reqLabel,
-        popoverInstance,
-        {
-          hideDelayMs: 0,
-          onShow: (popoverEl) => {
-            if (!popoverEl) return;
-            const reqPath = reqLabel.getAttribute('reqpath');
-            popoverEl.querySelectorAll('.searchByReq').forEach((btn) => {
-              btn.onclick = () => {
-                if (reqPath) getReqCourses(reqPath);
-                popoverInstance.hide();
-              };
-            });
-          },
-        }
-      );
+      const cleanupHoverBehavior = bindManualHoverPopover(reqLabel, popoverInstance, {
+        hideDelayMs: 0,
+        onShow: (popoverEl) => {
+          if (!popoverEl) return;
+          const reqPath = reqLabel.getAttribute('reqpath');
+          popoverEl.querySelectorAll('.searchByReq').forEach((btn) => {
+            btn.onclick = () => {
+              if (reqPath) getReqCourses(reqPath);
+              popoverInstance.hide();
+            };
+          });
+        },
+      });
 
       reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY] = () => {
         cleanupHoverBehavior();
@@ -221,26 +395,19 @@ export default function Requirements({ onChange, requirements, schedule }) {
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Main-req info icon: manual trigger + shared hover bridge so the popover stays
-  // open while moving the pointer onto links (Bootstrap hover trigger closes in the gap).
   const addHeaderPopovers = useCallback(() => {
     if (!containerRef.current) return;
     const Popover = window.bootstrap?.Popover;
     if (!Popover) return;
 
     const icons = containerRef.current.querySelectorAll('.info-icon');
-
     icons.forEach((icon) => {
       const existingCleanup = icon[HEADER_POPOVER_CLEANUP_KEY];
-      if (typeof existingCleanup === 'function') {
-        existingCleanup();
-      }
+      if (typeof existingCleanup === 'function') existingCleanup();
 
       const existing = Popover.getInstance(icon);
       if (existing) existing.dispose();
 
-      // Prefer JSON in data-tp-info — long HTML in data-bs-content breaks when the browser
-      // truncates or mangles quoted attributes, which drops real <a href> links.
       let popoverBodyHtml = '';
       const structured = icon.getAttribute('data-tp-info');
       const ref0 = icon.getAttribute('data-tp-ref0') || '';
@@ -273,7 +440,6 @@ export default function Requirements({ onChange, requirements, schedule }) {
         sanitize: false,
       });
 
-      // Small delay lets the cursor move from the icon onto the popover without it closing.
       const cleanupHover = bindManualHoverPopover(icon, popoverInstance, {
         hideDelayMs: 150,
       });
@@ -298,35 +464,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
       .catch(() => setLoading(false));
   };
 
-  useEffect(() => {
-    if (requirements) {
-      // Use requestAnimationFrame to ensure DOM is rendered
-      requestAnimationFrame(() => {
-        makeNodesClickable();
-        addReqPopovers();
-        addHeaderPopovers();
-      });
-    }
-  }, [requirements, makeNodesClickable, addReqPopovers, addHeaderPopovers]);
-
   const toggleSettle = (course, pathTo, settle) => {
     let pathToType = pathTo.split('//', 3).join('//');
     let newSchedule = schedule.slice();
 
     semLoop: for (let sem_num = 0; sem_num < newSchedule.length; sem_num++) {
-      for (
-        let course_index = 0;
-        course_index < newSchedule[sem_num].length;
-        course_index++
-      ) {
+      for (let course_index = 0; course_index < newSchedule[sem_num].length; course_index++) {
         let scheduleCourse = newSchedule[sem_num][course_index];
-
         if (scheduleCourse['name'] === course && !scheduleCourse['external']) {
           let settledReqTypes = scheduleCourse['settled'].map((path) =>
             path.split('//', 3).join('//')
           );
           let indexOfPathToType = settledReqTypes.indexOf(pathToType);
-
           if (indexOfPathToType === -1 && settle) {
             scheduleCourse['settled'].push(pathTo);
             break semLoop;
@@ -346,13 +495,11 @@ export default function Requirements({ onChange, requirements, schedule }) {
       let finished = '';
       if (
         (requirement['min_needed'] === 0 && requirement['count'] >= 0) ||
-        (requirement['min_needed'] > 0 &&
-          requirement['count'] >= requirement['min_needed'])
+        (requirement['min_needed'] > 0 && requirement['count'] >= requirement['min_needed'])
       ) {
         finished = 'req-done';
       }
-      if (requirement['count'] === 0 && requirement['min_needed'] === 0)
-        finished = 'req-neutral';
+      if (requirement['count'] === 0 && requirement['min_needed'] === 0) finished = 'req-neutral';
 
       const isOrGroup =
         'req_list' in requirement &&
@@ -368,8 +515,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
         '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
       popoverContent += '<div class="popoverContentContainer">';
       if (requirement.explanation) {
-        popoverContent +=
-          '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
+        popoverContent += '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
       }
       popoverContent += '</div>';
 
@@ -404,141 +550,188 @@ export default function Requirements({ onChange, requirements, schedule }) {
         return (
           <TreeView key={index} itemClassName={finished} nodeLabel={reqLabel}>
             {requirement['settled'] &&
-              requirement['settled'].map((course, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className="settled"
-                    onClick={() => {
-                      toggleSettle(course, requirement['path_to'], false);
-                    }}
-                  >
-                    {course}
-                  </li>
-                );
-              })}
+              requirement['settled'].map((course, idx) => (
+                <li
+                  key={idx}
+                  className="settled"
+                  onClick={() => toggleSettle(course, requirement['path_to'], false)}
+                >
+                  {course}
+                </li>
+              ))}
             {requirement['unsettled'] &&
-              requirement['unsettled'].map((course, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className="unsettled text-muted"
-                    onClick={() => {
-                      toggleSettle(course, requirement['path_to'], true);
-                    }}
-                  >
-                    {course}{' '}
-                    <i
-                      className="fa fa-exclamation-circle"
-                      title="This course could satisfy multiple requirements. Click to settle it here."
-                    ></i>
-                  </li>
-                );
-              })}
+              requirement['unsettled'].map((course, idx) => (
+                <li
+                  key={idx}
+                  className="unsettled text-muted"
+                  onClick={() => toggleSettle(course, requirement['path_to'], true)}
+                >
+                  {course}{' '}
+                  <i
+                    className="fa fa-exclamation-circle"
+                    title="This course could satisfy multiple requirements. Click to settle it here."
+                  ></i>
+                </li>
+              ))}
           </TreeView>
         );
       }
     });
   };
 
-  const renderRequirements = () => {
-    return requirements.map((mainReq, index) => {
-      let name;
-      let content;
-      let finished = '';
-      let popoverContent;
-      let headerInfoPayload = null;
-      /** Reference URLs for popover (separate data attrs so hrefs are never dropped from JSON). */
-      let refUrls = [];
+  // Render the tree content for one requirement (no outer collapsible wrapper —
+  // the card + tab row already show the name)
+  const renderSingleReqContent = (mainReq) => {
+    if (!mainReq) return null;
 
-      if (typeof mainReq === 'object') {
-        name = mainReq.name;
-        content = populateReqTree(mainReq);
-
-        if (
-          (mainReq['min_needed'] === 0 && mainReq['count'] >= 0) ||
-          (mainReq['min_needed'] > 0 &&
-            mainReq['count'] >= mainReq['min_needed'])
-        ) {
-          finished = 'req-done';
-        }
-        const contacts = Array.isArray(mainReq.contacts) ? mainReq.contacts : [];
-        // Major trees have a "degree" field; degree trees (AB/BSE) do not.
-        const isMajor = 'degree' in mainReq;
-        const urlsRaw = Array.isArray(mainReq.urls) ? mainReq.urls.filter(Boolean) : [];
-        refUrls = isMajor
-          ? withFallbackMajorUrls(mainReq, urlsRaw)
-          : orderMajorReferenceUrls(urlsRaw);
-
-        headerInfoPayload = { contacts, isMajor };
-        popoverContent = '';
-      } else {
-        name = mainReq;
-        content = (
-          <div>
-            <p style={{ padding: '5px' }}>
-              The {name} major is not supported yet. If you would like to
-              request it, let us know{' '}
-              <a
-                href="https://goo.gl/forms/pKxjmubIOSCOeR8L2"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                here
-              </a>
-              .
-            </p>
-            <p style={{ padding: '5px' }}>
-              In the meantime, you can track your AB degree requirements below.
-            </p>
-          </div>
-        );
-        popoverContent = 'The ' + name + ' major is not supported yet.';
-      }
-
-      let mainReqLabel = (
-        <div className="reqLabel reqLabel-main">
-          <span className="reqLabel-main-title">{name}</span>
-          <i
-            className="fa fa-info-circle info-icon"
-            data-bs-toggle="popover"
-            data-bs-html="true"
-            {...(headerInfoPayload
-              ? {
-                  'data-tp-info': JSON.stringify(headerInfoPayload),
-                  'data-tp-ref0': refUrls[0] || '',
-                  'data-tp-ref1': refUrls[1] || '',
-                }
-              : { 'data-bs-content': popoverContent })}
-            style={{ cursor: 'pointer', padding: '4px' }}
-          ></i>
+    if (typeof mainReq !== 'object') {
+      const name = String(mainReq);
+      return (
+        <div>
+          <p style={{ padding: '5px' }}>
+            The {name} major is not supported yet. If you would like to request it, let us know{' '}
+            <a
+              href="https://goo.gl/forms/pKxjmubIOSCOeR8L2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              here
+            </a>
+            .
+          </p>
+          <p style={{ padding: '5px' }}>
+            In the meantime, you can track your AB degree requirements below.
+          </p>
         </div>
       );
+    }
 
-      return (
-        <TreeView
-          key={index}
-          itemClassName={'tree-root ' + finished}
-          childrenClassName="tree-sub-reqs"
-          nodeLabel={mainReqLabel}
-        >
-          {content}
-        </TreeView>
-      );
-    });
+    if (!mainReq.req_list) return null;
+    return <>{populateReqTree(mainReq)}</>;
   };
+
+  // Re-bind DOM popovers and click handlers whenever visible content changes
+  useEffect(() => {
+    if (requirements) {
+      requestAnimationFrame(() => {
+        makeNodesClickable();
+        addReqPopovers();
+        addHeaderPopovers();
+      });
+    }
+  }, [requirements, topTab, selectedMinorIndex, makeNodesClickable, addReqPopovers, addHeaderPopovers]);
+
+  // ── Render ─────────────────────────────────────────────────────────────────
+
+  if (!requirements) {
+    return (
+      <div id="requirements" ref={containerRef}>
+        <p className="text-muted p-2 mb-0">Loading requirements...</p>
+      </div>
+    );
+  }
+
+  if (requirements.length === 0) {
+    return (
+      <div id="requirements" ref={containerRef}>
+        <p className="text-muted p-2 mb-0">
+          Set a major in this plan&apos;s edit popup to see requirement progress.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div id="requirements" ref={containerRef}>
-      {!requirements && (
-        <p className="text-muted p-2 mb-0">Loading requirements...</p>
+      {/* ── Top card: major + degree + graduation ── */}
+      {topReqs.length > 0 && (
+        <ReqCard $flex={minorReqs.length > 0 ? 3 : 1}>
+          <CardTabRow>
+            <CardTab
+              type="button"
+              $active={topTab === 'major'}
+              onClick={() => setTopTab('major')}
+            >
+              {majorLabel}
+            </CardTab>
+
+            {topReqs.length > 1 && (
+              <>
+                <TabDivider>|</TabDivider>
+                <CardTab
+                  type="button"
+                  $active={topTab === 'degree'}
+                  onClick={() => setTopTab('degree')}
+                >
+                  {degreeLabel}
+                </CardTab>
+                <TabDivider>|</TabDivider>
+                <CardTab
+                  type="button"
+                  $active={topTab === 'grad'}
+                  onClick={() => setTopTab('grad')}
+                  aria-label="Path to graduation"
+                >
+                  <i className="fas fa-graduation-cap" aria-hidden="true" />
+                </CardTab>
+              </>
+            )}
+
+            {/* Info icon pushed to the right — shows contacts + reference links */}
+            {(() => {
+              const attrs = getInfoIconAttrs(selectedTopReq);
+              if (!attrs) return null;
+              return (
+                <CardInfoIcon
+                  className="fa fa-info-circle info-icon"
+                  {...attrs}
+                  style={{ cursor: 'pointer' }}
+                />
+              );
+            })()}
+          </CardTabRow>
+
+          <CardContent>
+            {renderSingleReqContent(selectedTopReq)}
+          </CardContent>
+        </ReqCard>
       )}
-      {requirements && requirements.length === 0 && (
-        <p className="text-muted p-2 mb-0">
-          Set a major in this plan’s edit popup to see requirement progress.
-        </p>
+
+      {/* ── Bottom card: one tab per minor ── */}
+      {minorReqs.length > 0 && (
+        <ReqCard $flex={2}>
+          <CardTabRow>
+            {minorReqs.map((minor, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && <TabDivider>|</TabDivider>}
+                <CardTab
+                  type="button"
+                  $active={i === selectedMinorIndex}
+                  onClick={() => setSelectedMinorIndex(i)}
+                >
+                  {getMinorLabel(minor)}
+                </CardTab>
+              </React.Fragment>
+            ))}
+
+            {(() => {
+              const attrs = getInfoIconAttrs(selectedMinorReq);
+              if (!attrs) return null;
+              return (
+                <CardInfoIcon
+                  className="fa fa-info-circle info-icon"
+                  {...attrs}
+                  style={{ cursor: 'pointer' }}
+                />
+              );
+            })()}
+          </CardTabRow>
+
+          <CardContent>
+            {renderSingleReqContent(selectedMinorReq)}
+          </CardContent>
+        </ReqCard>
       )}
-      {requirements && requirements.length > 0 && renderRequirements()}
     </div>
   );
 }

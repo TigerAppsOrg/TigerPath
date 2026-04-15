@@ -29,8 +29,11 @@ const PlanTabs = styled.div`
 `;
 
 const PlanTab = styled.button`
+  flex: 1;
+  min-width: 0;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   border: none;
   background: ${({ theme, $active }) =>
@@ -48,6 +51,10 @@ const PlanTab = styled.button`
 
 const TabLabel = styled.span`
   font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 `;
 
 const EditButton = styled.button`
@@ -338,6 +345,20 @@ const AddButton = styled.button`
   }
 `;
 
+const LockIcon = styled.span`
+  font-size: 16px;
+  color: ${({ theme }) => theme.darkGreyText};
+  opacity: 0.45;
+  min-width: 22px;
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+`;
+
+const MAX_PLANS = 5;
+
 export default function PlanHeader({
   plans,
   activePlanId,
@@ -352,6 +373,7 @@ export default function PlanHeader({
   // The active plan drives the schedule grid, requirements, and edit modal contents.
   const activePlan = plans.find((plan) => plan.id === activePlanId) || null;
   const canDelete = plans.length > 1;
+  const atPlanLimit = plans.length >= MAX_PLANS;
   const [isEditing, setIsEditing] = useState(false);
   const [draftName, setDraftName] = useState('');
   const [draftMajorId, setDraftMajorId] = useState('');
@@ -499,11 +521,17 @@ export default function PlanHeader({
             </React.Fragment>
           );
         })}
-        {/* Keep the add action inside the rail so it shifts right as plans are added. */}
+        {/* Keep the add/lock action inside the rail so it shifts right as plans are added. */}
         <Divider>|</Divider>
-        <AddButton type="button" onClick={handleCreate} aria-label="Create plan">
-          +
-        </AddButton>
+        {atPlanLimit ? (
+          <LockIcon aria-label="Plan limit reached" title="You can have at most 5 plans">
+            <i className="fas fa-lock" aria-hidden="true" />
+          </LockIcon>
+        ) : (
+          <AddButton type="button" onClick={handleCreate} aria-label="Create plan">
+            +
+          </AddButton>
+        )}
       </PlanTabs>
       {isEditing && <PanelBackdrop onClick={closeEditPanel} />}
       {isEditing && activePlan && (
