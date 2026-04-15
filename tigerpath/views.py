@@ -3,6 +3,10 @@ import json
 import re
 import hashlib
 import time
+import copy
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import requests
 
 import django_cas_ng.views
 from django.conf import settings
@@ -763,12 +767,11 @@ def create_plan(request):
 
     plan_count = profile.schedule_plans.count()
     name = (request.POST.get("name") or "").strip() or f"Plan {plan_count + 1}"
-    # Creating a plan starts a fresh schedule, but inherits current plan metadata as a starting scenario.
     created_plan = models.SchedulePlan.objects.create(
         user_profile=profile,
         name=name,
-        major=active_plan.major,
-        minors=active_plan.minors or [],
+        major=None,
+        minors=[],
         schedule=[],
     )
 
@@ -932,13 +935,9 @@ def update_schedule(request):
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule) or []
-
-    # make sure that the schedule has 9 semesters
-    while len(schedule) < 9:
-        schedule.append([])
-
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    schedule = ensure_minimum_schedule(active_plan.schedule)
     return JsonResponse(schedule, safe=False)
 
 
