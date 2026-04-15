@@ -1,11 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SearchCard from 'components/SearchCard';
+import CourseDetailPanel from 'components/CourseDetailPanel';
 
 const SEARCH_DEBOUNCE_MS = 50;
 const MIN_QUERY_LENGTH = 3;
 
 export default function Search({ onChange, searchQuery, searchResults }) {
   const [loading, setLoading] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const handleCourseSelect = (course) => {
+    setSelectedCourse((prev) =>
+      prev && prev.id === course.id ? null : course
+    );
+  };
   const abortControllerRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
@@ -79,6 +87,9 @@ export default function Search({ onChange, searchQuery, searchResults }) {
             courseKey={courseKey}
             index={courseIndex}
             course={course}
+            onSelect={handleCourseSelect}
+            isSelected={selectedCourse?.id === course.id}
+            qualityRating={course.quality_rating ?? null}
           />
         );
       });
@@ -105,6 +116,11 @@ export default function Search({ onChange, searchQuery, searchResults }) {
 
   return (
     <>
+      <CourseDetailPanel
+        course={selectedCourse}
+        isOpen={selectedCourse !== null}
+        onClose={() => setSelectedCourse(null)}
+      />
       <div id="search-courses">
         <input
           type="text"

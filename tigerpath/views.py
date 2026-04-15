@@ -3,7 +3,6 @@ import json
 import re
 import hashlib
 import time
-import copy
 
 import django_cas_ng.views
 from django.conf import settings
@@ -221,6 +220,180 @@ def convert_courses(course_list, queries):
     return course_info_list
 
 
+JUNCTION_ENGINE_BASE_URL = "https://junction-engine.tigerapps.org"
+JUNCTION_EVAL_CACHE_TIMEOUT = 3600       # per-course detail cache: 1 hour
+JUNCTION_EVAL_CACHE_VERSION = "v5"       # bump to bust stale per-course entries
+JUNCTION_COURSES_ALL_CACHE_KEY = "junction_courses_all_v1"
+JUNCTION_COURSES_ALL_CACHE_TIMEOUT = 6 * 3600  # courses/all cache: 6 hours
+
+
+def _term_code_to_name(code):
+    """
+    Convert a term code integer to a human-readable semester name.
+    Format: 1{YY}{S} where YY = ending school-year digits, S = 2(Fall) or 4(Spring).
+    Examples: 1262 -> "Fall 2025", 1264 -> "Spring 2026"
+    """
+    try:
+        s = str(int(code))
+        year = int(s[1:3])
+        season = s[3]
+        if season == '2':
+            return f'Fall 20{year - 1:02d}'
+        if season == '4':
+            return f'Spring 20{year:02d}'
+    except (ValueError, IndexError, TypeError):
+        pass
+    return str(code)
+
+
+@login_required
+def get_course_details(request, course_id):
+    import logging
+    logger = logging.getLogger(__name__)
+
+    empty = {
+        "has_pdf": False, "dists": [], "offerings": [],
+        "quality_rating": None, "comments": [], "comments_semester": None, "description": "",
+    }
+
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return JsonResponse(cached)
+
+    try:
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return JsonResponse(empty)
+
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return JsonResponse(empty)
+
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        most_recent = evaluations[0]
+        most_recent_term = most_recent.get("evalTerm")
+
+        courses_all = cache.get(JUNCTION_COURSES_ALL_CACHE_KEY)
+        if courses_all is None:
+            try:
+                all_resp = requests.get(
+                    f"{JUNCTION_ENGINE_BASE_URL}/api/courses/all",
+                    timeout=30,
+                    headers={"User-Agent": "TigerPath/1.0"},
+                )
+                courses_all = all_resp.json().get("data", []) if all_resp.status_code == 200 else []
+            except Exception:
+                courses_all = []
+            cache.set(JUNCTION_COURSES_ALL_CACHE_KEY, courses_all, JUNCTION_COURSES_ALL_CACHE_TIMEOUT)
+
+        instructors_by_term = {}
+        has_pdf = False
+        dists = []
+        for c in courses_all:
+            if c.get("listingId") == course_id:
+                term_key = str(c.get("term", ""))
+                names = ", ".join(
+                    i.get("name", "") for i in c.get("instructors", []) if i.get("name")
+                )
+                if names:
+                    instructors_by_term[term_key] = names
+                if c.get("gradingBasis", "") in ("FUL", "PDF"):
+                    has_pdf = True
+                if not dists:
+                    dists = c.get("dists", [])
+
+        description = ""
+        try:
+            db_course = models.Course.objects.filter(registrar_id=course_id).first()
+            if db_course:
+                description = db_course.description or ""
+        except Exception:
+            pass
+
+        offerings = []
+        for ev in evaluations:
+            term = ev.get("evalTerm")
+            raw_rating = ev.get("rating")
+            offerings.append({
+                "semester": _term_code_to_name(term),
+                "professors": instructors_by_term.get(term, ""),
+                "rating": round(float(raw_rating), 2) if raw_rating is not None else None,
+            })
+
+        comments = [c for c in most_recent.get("comments", []) if c and c.strip()]
+        comments_semester = _term_code_to_name(most_recent_term)
+        raw_rating = most_recent.get("rating")
+        quality_rating = round(float(raw_rating), 2) if raw_rating is not None else None
+
+        data = {
+            "has_pdf": has_pdf, "dists": dists, "offerings": offerings,
+            "quality_rating": quality_rating, "comments": comments,
+            "comments_semester": comments_semester, "description": description,
+        }
+        cache.set(cache_key, data, JUNCTION_EVAL_CACHE_TIMEOUT)
+        return JsonResponse(data)
+
+    except Exception as e:
+        logger.error("get_course_details(%s): %s", course_id, e)
+        return JsonResponse(empty)
+
+
+def _fetch_quality_rating(course_id):
+    """Return (course_id, quality_rating) — checks cache first, then fetches evaluations only."""
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return course_id, cached.get("quality_rating")
+    try:
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return course_id, None
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return course_id, None
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        raw_rating = evaluations[0].get("rating")
+        rating = round(float(raw_rating), 2) if raw_rating is not None else None
+        return course_id, rating
+    except Exception:
+        return course_id, None
+
+
+@login_required
+def get_quality_ratings(request):
+    """
+    POST {"ids": ["COS126", "MAT201", ...]}
+    Returns {"COS126": 4.2, "MAT201": null, ...}
+    Fetches all ratings in parallel; cached results resolve instantly.
+    """
+    try:
+        body = json.loads(request.body)
+        ids = body.get("ids", [])
+    except (json.JSONDecodeError, AttributeError):
+        return JsonResponse({"error": "invalid body"}, status=400)
+
+    if not ids:
+        return JsonResponse({})
+
+    ratings = {}
+    with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+        futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+        for future in as_completed(futures):
+            cid, rating = future.result()
+            ratings[cid] = rating
+
+    return JsonResponse(ratings)
+
+
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
@@ -273,6 +446,19 @@ def get_courses(request, search_query):
         "title", "registrar_id", "cross_listings", "all_semesters", "dist_area"
     )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
+
+    # Fetch quality ratings for all results in parallel and embed them
+    ids = [c["id"] for c in course_info_list]
+    if ids:
+        ratings = {}
+        with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+            futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+            for future in as_completed(futures):
+                cid, rating = future.result()
+                ratings[cid] = rating
+        for c in course_info_list:
+            c["quality_rating"] = ratings.get(c["id"])
+
     cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
     if settings.DEBUG:
         elapsed_ms = (time.monotonic() - search_start) * 1000
@@ -403,6 +589,10 @@ def populate_user_schedule(schedule):
             course["semester"] = get_semester_type(db_course.all_semesters)
             if "settled" not in course:
                 course["settled"] = []
+            if "quality_rating" not in course:
+                cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course['id']}"
+                cached = cache.get(cache_key)
+                course["quality_rating"] = cached.get("quality_rating") if cached else None
     return schedule
 
 
@@ -742,9 +932,13 @@ def update_schedule(request):
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    profile = request.user.profile
-    active_plan = get_active_plan(profile)
-    schedule = ensure_minimum_schedule(active_plan.schedule)
+    curr_user = request.user.profile
+    schedule = populate_user_schedule(curr_user.user_schedule) or []
+
+    # make sure that the schedule has 9 semesters
+    while len(schedule) < 9:
+        schedule.append([])
+
     return JsonResponse(schedule, safe=False)
 
 

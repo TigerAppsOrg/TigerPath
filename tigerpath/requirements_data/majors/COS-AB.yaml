@@ -36,6 +36,9 @@ contacts:
 - type: Undergraduate Studies Program Manager
   name: Colleen Kenny
   email: ckenny@cs.princeton.edu
+urls:
+- https://ua.princeton.edu/fields-study/departmental-majors-degree-bachelor-arts/computer-science
+- https://www.cs.princeton.edu/
 iw_required: true
 req_list:
 - name: Prerequisites
