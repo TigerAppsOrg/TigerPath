@@ -7,7 +7,9 @@ import './legacy/tutorial';
 
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // landing page
 import App from 'components/App';
+import Landing from 'components/Landing';
 import 'styles/app-style.css';
 import 'styles/messages.css';
 import 'styles/Courses.css';

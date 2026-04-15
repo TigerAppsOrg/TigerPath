@@ -1,0 +1,67 @@
+{% load django_vite static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+        content="TigerPath helps Princeton University students plan out their four-year course schedules.">
+
+  <title>TigerPath - Four-Year Course Planner</title>
+
+  <link rel="icon"
+        type="image/png"
+        href="{% static 'app/favicon-96x96.png' %}"
+        sizes="96x96" />
+  <link rel="icon"
+        type="image/svg+xml"
+        href="{% static 'app/favicon.svg' %}" />
+  <link rel="shortcut icon"
+        href="{% static 'app/favicon.ico' %}" />
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="{% static 'app/apple-touch-icon.png' %}" />
+  <meta name="apple-mobile-web-app-title"
+        content="TigerPath" />
+  <link rel="manifest"
+        href="{% static 'app/site.webmanifest' %}" />
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet"
+        type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Yuji+Mai&family=Yuji+Syuku&display=swap"
+        rel="stylesheet">
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+
+  {% include 'includes/analytics/analytics_head.html' %}
+
+  <!-- Vite HMR + React Refresh (must load before any React code) -->
+  {% vite_hmr_client %}
+  {% vite_react_refresh %}
+</head>
+
+<body>
+  {% include 'includes/analytics/analytics_body.html' %}
+
+  <!-- Banner shown on mobile -->
+  <div id="banner">
+    <div id="banner-content">
+      TigerPath is optimized for desktops/laptops. Please use a device with a larger screen size to
+      get the best experience.
+    </div>
+  </div>
+
+  <div id="app"
+       class="row g-0"></div>
+  {% vite_asset 'src/landing.jsx' %}
+</body>
+
+</html>

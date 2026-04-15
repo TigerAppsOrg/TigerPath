@@ -94,7 +94,7 @@ def index(request):
         context["preloaded_requirements_json"] = json.dumps(preloaded_requirements)
         return render(request, "tigerpath/index.html", context)
     else:
-        return landing(request)
+        return render(request, "tigerpath/new_landing.html")
 
 
 # landing page
