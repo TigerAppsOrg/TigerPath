@@ -35,7 +35,7 @@ REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.
 DEFAULT_SCHEDULE = [[]] * 8
 
 
-def check_major(major_name, courses, year):
+def check_major(major_name, courses, year, overrides=None):
     """
     Returns information about the major requirements satisfied by the courses
     given in courses.
@@ -43,9 +43,11 @@ def check_major(major_name, courses, year):
     :param major_name: the name of the major
     :param courses: a list of course-listings
     :param year: the user's class year for which to read the requirements
+    :param overrides: dict mapping path_to -> {count, notes} for manual overrides
     :type major_name: string
     :type courses: 2D array
     :type year: int
+    :type overrides: dict or None
     :returns: Whether the major requirements are satisfied
     :returns: The list of courses with info about the requirements they satisfy
     :returns: A simplified json with info about how much of each requirement is satisfied
@@ -61,10 +63,10 @@ def check_major(major_name, courses, year):
         raise ValueError("Major code not recognized.")
     major_filename = "%s.yaml" % major_name
     major_filepath = os.path.join(MAJORS_LOCATION, major_filename)
-    return check_requirements(major_filepath, courses, year)
+    return check_requirements(major_filepath, courses, year, overrides=overrides)
 
 
-def check_degree(degree_name, courses, year):
+def check_degree(degree_name, courses, year, overrides=None):
     """
     Returns information about the degree requirements satisfied by the courses
     given in courses.
@@ -72,9 +74,11 @@ def check_degree(degree_name, courses, year):
     :param degree_name: the name of the degree
     :param courses: a list of course-listings
     :param year: the user's class year for which to read the requirements
+    :param overrides: dict mapping path_to -> {count, notes} for manual overrides
     :type degree_name: string
     :type courses: 2D array
     :type year: int
+    :type overrides: dict or None
     :returns: Whether the degree requirements are satisfied
     :returns: The list of courses with info about the requirements they satisfy
     :returns: A simplified json with info about how much of each requirement is satisfied
@@ -88,10 +92,10 @@ def check_degree(degree_name, courses, year):
         raise ValueError("Invalid degree name: %s" % degree_name)
     degree_filename = "%s.yaml" % degree_name
     degree_filepath = os.path.join(DEGREES_LOCATION, degree_filename)
-    return check_requirements(degree_filepath, courses, year)
+    return check_requirements(degree_filepath, courses, year, overrides=overrides)
 
 
-def check_certificate(certificate_name, courses, year):
+def check_certificate(certificate_name, courses, year, overrides=None):
     """
     NOTE: Not yet fully supported. Some certificate specific functionality may not
     be present, or may break.
@@ -102,9 +106,11 @@ def check_certificate(certificate_name, courses, year):
     :param certificate_name: the name of the certificate
     :param courses: a list of course-listings
     :param year: the user's class year for which to read the requirements
+    :param overrides: dict mapping path_to -> {count, notes} for manual overrides
     :type certificate_name: string
     :type courses: 2D array
     :type year: int
+    :type overrides: dict or None
     :returns: Whether the certificate requirements are satisfied
     :returns: The list of courses with info about the requirements they satisfy
     :returns: A simplified json with info about how much of each requirement is satisfied
@@ -117,10 +123,10 @@ def check_certificate(certificate_name, courses, year):
         raise ValueError("Certificate not recognized.")
     certificate_filename = "%s.yaml" % certificate_name
     certificate_filepath = os.path.join(CERTIFICATES_LOCATION, certificate_filename)
-    return check_requirements(certificate_filepath, courses, year)
+    return check_requirements(certificate_filepath, courses, year, overrides=overrides)
 
 
-def check_requirements(req_file, courses, year):
+def check_requirements(req_file, courses, year, overrides=None):
     """
     Returns information about the requirements satisfied by the courses
     given in courses.
@@ -128,9 +134,11 @@ def check_requirements(req_file, courses, year):
     :param req_file: the name of a file containing a requirements JSON
     :param courses: a list of course-listings
     :param year: the user's class year for which to read the requirements
+    :param overrides: dict mapping path_to -> {count, notes} for manual overrides
     :type req_file: string
     :type courses: 2D array
     :type year: int
+    :type overrides: dict or None
     :returns: Whether the requirements are satisfied
     :returns: The list of courses with info about the requirements they satisfy
     :returns: A simplified json with info about how much of each requirement is satisfied
@@ -141,6 +149,8 @@ def check_requirements(req_file, courses, year):
     req = _init_req(req, year)
     _mark_possible_reqs(req, courses)
     _assign_settled_courses_to_reqs(req, courses)
+    if overrides:
+        _apply_overrides(req, overrides)
     _add_course_lists_to_req(req, courses)
     formatted_courses = _format_courses_output(courses)
     formatted_req = _format_req_output(req)
@@ -210,6 +220,57 @@ def _init_req(req, year):
     return req
 
 
+def _apply_overrides(req, overrides):
+    """
+    Applies manual count overrides to the requirement tree after normal counting.
+
+    For each node whose path_to is in overrides, the override count replaces
+    the auto-calculated count if the override is larger. If the node was previously
+    unsatisfied and the override makes it satisfied, the credit is propagated up
+    to the parent (respecting max_counted), matching the same logic as
+    _assign_settled_courses_to_reqs. The override data is stored on the node so
+    _format_req_output can include it in the output.
+
+    :param req: the requirement tree (mutated in place)
+    :param overrides: dict mapping path_to -> {"count": int, "notes": str}
+    :returns: the number of newly satisfied credits to report to this node's parent
+    :rtype: int
+    """
+    old_count = req["count"]
+    was_satisfied = old_count >= req["min_needed"]
+    if req["max_counted"] is not None:
+        old_available = req["max_counted"] - old_count
+
+    # Recurse into children first; add their returned credits to this node's count
+    if "req_list" in req:
+        for subreq in req["req_list"]:
+            req["count"] += _apply_overrides(subreq, overrides)
+
+    # Apply a direct override on this node (after incorporating children's credits)
+    path = req.get("path_to")
+    if path and path in overrides:
+        override_entry = overrides[path]
+        override_count = override_entry.get("count", 0)
+        req["override"] = override_entry
+        req["count"] += override_count
+
+    # Compute what credit to return to parent, mirroring _assign_settled_courses_to_reqs
+    now_satisfied = req["count"] >= req["min_needed"]
+    if not was_satisfied and now_satisfied:
+        if req["max_counted"] is None:
+            return req["count"]
+        else:
+            return min(req["max_counted"], req["count"])
+    elif was_satisfied and now_satisfied:
+        added = req["count"] - old_count
+        if req["max_counted"] is None:
+            return added
+        else:
+            return min(old_available, added)
+    else:
+        return 0
+
+
 def _format_req_output(req):
     """
     Enforce the type and order of fields in the req output
@@ -249,6 +310,8 @@ def _format_req_output(req):
         output["settled"] = req["settled"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
+    if "override" in req:
+        output["override"] = req["override"]
     return output
 
 

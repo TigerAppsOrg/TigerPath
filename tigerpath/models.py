@@ -181,6 +181,7 @@ class UserProfile(models.Model):
     year = models.PositiveSmallIntegerField(null=True)
     user_state = JSONField(null=True, blank=True)
     user_schedule = JSONField(null=True, blank=True)
+    user_overrides = JSONField(null=True, blank=True, default=dict)
 
     def __str__(self):
         return f"{self.user.username}"

@@ -30,5 +30,6 @@ urlpatterns = [
         views.update_schedule_and_get_requirements,
         name="update_schedule_and_get_requirements",
     ),
+    path("api/v1/set_req_override/", views.set_req_override, name="set_req_override"),
     path('admin/admin-dashboard/', views.admin_dashboard, name='admin_dashboard'),
 ]

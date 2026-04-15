@@ -140,3 +140,95 @@
   position: relative;
   top: -2px;
 }
+
+/* "Overridden" leaf item — same background as settled but italic */
+#requirements li.override-label {
+  font-style: italic;
+  cursor: pointer;
+}
+
+/* Default-view action buttons in the req popover */
+.req-action-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  color: #222;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  gap: 10px;
+}
+
+.req-action-btn:hover {
+  background-color: #e2e2e2;
+}
+
+.req-action-btn--edit {
+  background-color: #e6f4e6;
+  color: #1a5c1a;
+}
+
+.req-action-btn--edit:hover {
+  background-color: #d4ecd4;
+}
+
+.req-action-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* spacing between the two popover panels */
+.req-popover-edit .form-label {
+  margin-bottom: 2px;
+}
+
+.req-popover-edit .d-flex {
+  margin-top: 4px;
+}
+
+/* Validation error tooltip on the override count input */
+.override-input-wrap {
+  position: relative;
+}
+
+.override-error-tooltip {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 5px 9px;
+  font-size: 0.78rem;
+  color: #c0392b;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.override-error-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  border-width: 0 5px 6px 5px;
+  border-style: solid;
+  border-color: transparent transparent #ccc transparent;
+}
+
+.override-error-tooltip::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 13px;
+  border-width: 0 4px 5px 4px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}

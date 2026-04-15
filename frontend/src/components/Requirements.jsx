@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react';
-import { apiFetch } from 'utils/api';
+import { apiFetch, apiPost } from 'utils/api';
 import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
@@ -15,6 +15,9 @@ function escapeHref(url) {
 export default function Requirements({ onChange, requirements, schedule }) {
   const [loading, setLoading] = useState(false);
   const containerRef = useRef(null);
+  const popoverInstancesRef = useRef({}); // path_to -> popover instance
+  const editTriggerRef = useRef(null);    // path_to to auto-open edit form on next popover show
+  const saveOverrideRef = useRef(null);
 
   const makeNodesClickable = useCallback(() => {
     if (!containerRef.current) return;
@@ -82,6 +85,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
         sanitize: false,
       });
 
+      const reqPath = reqLabel.getAttribute('reqpath');
+      if (reqPath) {
+        popoverInstancesRef.current[reqPath] = popoverInstance;
+      }
+
+      const showEditForm = (popoverEl) => {
+        const defaultView = popoverEl.querySelector('.req-popover-default');
+        const editView = popoverEl.querySelector('.req-popover-edit');
+        if (defaultView) defaultView.style.display = 'none';
+        if (editView) editView.style.display = 'block';
+      };
+
       const cleanupHoverBehavior = bindManualHoverPopover(
         reqLabel,
         popoverInstance,
@@ -89,10 +104,68 @@ export default function Requirements({ onChange, requirements, schedule }) {
           hideDelayMs: 0,
           onShow: (popoverEl) => {
             if (!popoverEl) return;
-            const reqPath = reqLabel.getAttribute('reqpath');
+
+            // Auto-open edit form if triggered from the "Overridden" pencil
+            if (editTriggerRef.current && editTriggerRef.current === reqPath) {
+              editTriggerRef.current = null;
+              requestAnimationFrame(() => showEditForm(popoverEl));
+            }
+
             popoverEl.querySelectorAll('.searchByReq').forEach((btn) => {
               btn.onclick = () => {
                 if (reqPath) getReqCourses(reqPath);
+                popoverInstance.hide();
+              };
+            });
+
+            popoverEl.querySelectorAll('.editOverrideBtn').forEach((btn) => {
+              btn.onclick = () => showEditForm(popoverEl);
+            });
+
+            popoverEl.querySelectorAll('.cancelOverrideBtn').forEach((btn) => {
+              btn.onclick = () => {
+                const defaultView = popoverEl.querySelector('.req-popover-default');
+                const editView = popoverEl.querySelector('.req-popover-edit');
+                if (defaultView) defaultView.style.display = 'block';
+                if (editView) editView.style.display = 'none';
+              };
+            });
+
+            // Validation: flag count input red + show error tooltip when > max
+            const countInput = popoverEl.querySelector('.overrideCountInput');
+            const errorTooltip = popoverEl.querySelector('.override-error-tooltip');
+            if (countInput && errorTooltip) {
+              const validateCount = () => {
+                const max = countInput.dataset.max ? parseInt(countInput.dataset.max, 10) : null;
+                const val = parseInt(countInput.value, 10);
+                const invalid = max !== null && !isNaN(val) && val > max;
+                countInput.classList.toggle('is-invalid', invalid);
+                errorTooltip.style.display = invalid ? 'block' : 'none';
+                return !invalid;
+              };
+              countInput.addEventListener('input', validateCount);
+            }
+
+            popoverEl.querySelectorAll('.saveOverrideBtn').forEach((btn) => {
+              btn.onclick = () => {
+                const countInput = popoverEl.querySelector('.overrideCountInput');
+                const max = countInput?.dataset.max ? parseInt(countInput.dataset.max, 10) : null;
+                const countVal = countInput ? parseInt(countInput.value, 10) : 0;
+                if (max !== null && countVal > max) return; // block save when invalid
+                const notesInput = popoverEl.querySelector('.overrideNotesInput');
+                const notesVal = notesInput ? notesInput.value : '';
+                if (reqPath && saveOverrideRef.current) {
+                  saveOverrideRef.current(reqPath, countVal, notesVal);
+                }
+                popoverInstance.hide();
+              };
+            });
+
+            popoverEl.querySelectorAll('.removeOverrideBtn').forEach((btn) => {
+              btn.onclick = () => {
+                if (reqPath && saveOverrideRef.current) {
+                  saveOverrideRef.current(reqPath, null, '');
+                }
                 popoverInstance.hide();
               };
             });
@@ -103,6 +176,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
       reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY] = () => {
         cleanupHoverBehavior();
         popoverInstance.dispose();
+        if (reqPath) delete popoverInstancesRef.current[reqPath];
         delete reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
       };
     });
@@ -161,6 +235,22 @@ export default function Requirements({ onChange, requirements, schedule }) {
       })
       .catch(() => setLoading(false));
   };
+
+  const saveOverride = useCallback((pathTo, count, notes) => {
+    const data = { path_to: pathTo, notes: notes || '' };
+    data.count = count !== null ? String(count) : '';
+    apiPost('/api/v1/set_req_override/', data).then((rawResults) => {
+      const processed = rawResults.map((mainReq) => {
+        if (!Array.isArray(mainReq)) return mainReq;
+        return mainReq[2];
+      });
+      onChange('requirements', processed);
+    });
+  }, [onChange]);
+
+  useEffect(() => {
+    saveOverrideRef.current = saveOverride;
+  }, [saveOverride]);
 
   useEffect(() => {
     if (requirements) {
@@ -223,19 +313,64 @@ export default function Requirements({ onChange, requirements, schedule }) {
         requirement['min_needed'] === 1 &&
         requirement['req_list'].length > 1;
 
+      const override = requirement['override'] || null;
+
+      // Cap display count at min_needed when overridden and over the limit
+      let displayCount = requirement['count'];
+      if (override && requirement['min_needed'] > 0) {
+        displayCount = Math.min(requirement['count'], requirement['min_needed']);
+      }
+
       let tag = '';
-      if (requirement['min_needed'] === 0) tag = requirement['count'];
-      else tag = requirement['count'] + '/' + requirement['min_needed'];
+      if (requirement['min_needed'] === 0) tag = displayCount;
+      else tag = displayCount + '/' + requirement['min_needed'];
       if (isOrGroup && finished !== 'req-done') tag += ' (any 1)';
 
-      let popoverContent =
-        '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
-      popoverContent += '<div class="popoverContentContainer">';
+      // Build popover: two panels — default view and edit form
+      const existingOverrideCount = override ? override.count : 0;
+      const existingOverrideNotes = override ? (override.notes || '') : '';
+
+      const minNeeded = requirement['min_needed'];
+
+      let popoverContent = '<div class="req-popover-default">';
+      popoverContent +=
+        '<button type="button" class="req-action-btn searchByReq"><i class="fa fa-search req-action-icon"></i><span>Find satisfying courses</span></button>';
+      popoverContent +=
+        '<button type="button" class="req-action-btn req-action-btn--edit editOverrideBtn"><i class="fa fa-pencil req-action-icon"></i><span>Edit requirements satisfied</span></button>';
       if (requirement.explanation) {
         popoverContent +=
-          '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
+          '<div class="popoverContentContainer"><p>' +
+          requirement.explanation.split('\n').join('<br>') +
+          '</p></div>';
       }
       popoverContent += '</div>';
+
+      popoverContent += '<div class="req-popover-edit" style="display:none">';
+      popoverContent +=
+        '<div class="mb-2"><label class="form-label small mb-1">Override count</label>' +
+        '<div class="override-input-wrap">' +
+        '<input type="number" class="form-control form-control-sm overrideCountInput" min="0"' +
+        (minNeeded > 0 ? ' data-max="' + minNeeded + '"' : '') +
+        ' value="' + existingOverrideCount + '">' +
+        '<div class="override-error-tooltip" style="display:none">Please enter a valid number of satisfied requirements.</div>' +
+        '</div></div>';
+      popoverContent +=
+        '<div class="mb-2"><label class="form-label small mb-1">Notes (optional)</label>' +
+        '<textarea class="form-control form-control-sm overrideNotesInput" rows="2">' +
+        existingOverrideNotes.replace(/</g, '&lt;').replace(/>/g, '&gt;') +
+        '</textarea></div>';
+      popoverContent += '<div class="d-flex gap-1">';
+      popoverContent +=
+        '<button type="button" class="btn btn-primary btn-sm saveOverrideBtn">Save</button>';
+      popoverContent +=
+        '<button type="button" class="btn btn-secondary btn-sm cancelOverrideBtn">Cancel</button>';
+      if (override) {
+        popoverContent +=
+          '<button type="button" class="btn btn-outline-danger btn-sm removeOverrideBtn">Remove</button>';
+      }
+      popoverContent += '</div></div>';
+
+      const tagEl = <span className="reqCount">{tag}</span>;
 
       let reqLabel = (
         <div
@@ -245,7 +380,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
           data-bs-content={popoverContent}
         >
           <span className="reqName">{requirement['name']}</span>
-          <span className="reqCount">{tag}</span>
+          {tagEl}
         </div>
       );
 
@@ -259,46 +394,67 @@ export default function Requirements({ onChange, requirements, schedule }) {
             childTree = { ...requirement, req_list: satisfiedChildren };
           }
         }
+        const overriddenLeaf = override ? (
+          <li
+            className="settled override-label"
+            onClick={() => {
+              editTriggerRef.current = requirement['path_to'];
+              const instance = popoverInstancesRef.current[requirement['path_to']];
+              if (instance) instance.show();
+            }}
+          >
+            Overridden ({override.count}){' '}
+            <i className="fa fa-pencil" style={{ fontSize: '0.75em' }}></i>
+          </li>
+        ) : null;
         return (
           <TreeView key={index} nodeLabel={reqLabel} itemClassName={finished}>
+            {overriddenLeaf}
             {populateReqTree(childTree)}
           </TreeView>
         );
       } else {
+        const overriddenLeaf = override ? (
+          <li
+            className="settled override-label"
+            onClick={() => {
+              editTriggerRef.current = requirement['path_to'];
+              const instance = popoverInstancesRef.current[requirement['path_to']];
+              if (instance) instance.show();
+            }}
+          >
+            Overridden ({override.count}){' '}
+            <i className="fa fa-pencil" style={{ fontSize: '0.75em' }}></i>
+          </li>
+        ) : null;
+
         return (
           <TreeView key={index} itemClassName={finished} nodeLabel={reqLabel}>
-            {requirement['settled'] &&
-              requirement['settled'].map((course, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className="settled"
-                    onClick={() => {
-                      toggleSettle(course, requirement['path_to'], false);
-                    }}
-                  >
-                    {course}
-                  </li>
-                );
-              })}
-            {requirement['unsettled'] &&
-              requirement['unsettled'].map((course, idx) => {
-                return (
-                  <li
-                    key={idx}
-                    className="unsettled text-muted"
-                    onClick={() => {
-                      toggleSettle(course, requirement['path_to'], true);
-                    }}
-                  >
-                    {course}{' '}
-                    <i
-                      className="fa fa-exclamation-circle"
-                      title="This course could satisfy multiple requirements. Click to settle it here."
-                    ></i>
-                  </li>
-                );
-              })}
+            {overriddenLeaf}
+            {!override && requirement['settled'] &&
+              requirement['settled'].map((course, idx) => (
+                <li
+                  key={idx}
+                  className="settled"
+                  onClick={() => toggleSettle(course, requirement['path_to'], false)}
+                >
+                  {course}
+                </li>
+              ))}
+            {!override && requirement['unsettled'] &&
+              requirement['unsettled'].map((course, idx) => (
+                <li
+                  key={idx}
+                  className="unsettled text-muted"
+                  onClick={() => toggleSettle(course, requirement['path_to'], true)}
+                >
+                  {course}{' '}
+                  <i
+                    className="fa fa-exclamation-circle"
+                    title="This course could satisfy multiple requirements. Click to settle it here."
+                  ></i>
+                </li>
+              ))}
           </TreeView>
         );
       }

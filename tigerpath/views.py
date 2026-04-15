@@ -84,12 +84,13 @@ def index(request):
         preloaded_requirements = []
         if instance.major and instance.major.supported and instance.year:
             schedule = populate_user_schedule(instance.user_schedule)
+            overrides = instance.user_overrides or {}
             try:
                 preloaded_requirements.append(
-                    check_major(instance.major.code, schedule, instance.year)
+                    check_major(instance.major.code, schedule, instance.year, overrides=overrides)
                 )
                 preloaded_requirements.append(
-                    check_degree(instance.major.degree, schedule, instance.year)
+                    check_degree(instance.major.degree, schedule, instance.year, overrides=overrides)
                 )
             except Exception:
                 preloaded_requirements = []
@@ -568,17 +569,37 @@ def get_schedule(request):
 def get_requirements(request):
     curr_user = request.user.profile
     schedule = populate_user_schedule(curr_user.user_schedule)
+    overrides = curr_user.user_overrides or {}
 
     requirements = []
     if curr_user.major:
         if curr_user.major.supported:
-            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
+            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year, overrides=overrides))
         else:
             # appends user major name so we can display error message
             requirements.append(curr_user.major.name)
-        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
+        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year, overrides=overrides))
 
     return JsonResponse(requirements, safe=False)
+
+
+@login_required
+def set_req_override(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST required"}, status=405)
+    curr_user = request.user.profile
+    path_to = request.POST.get("path_to")
+    if not path_to:
+        return JsonResponse({"error": "path_to required"}, status=400)
+    count_raw = request.POST.get("count")
+    overrides = curr_user.user_overrides or {}
+    if count_raw is None or count_raw == "":
+        overrides.pop(path_to, None)
+    else:
+        overrides[path_to] = {"count": int(count_raw), "notes": request.POST.get("notes", "")}
+    curr_user.user_overrides = overrides
+    curr_user.save(update_fields=["user_overrides"])
+    return get_requirements(request)
 
 
 @login_required
