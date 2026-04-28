@@ -45,7 +45,32 @@ function withFallbackMajorUrls(mainReq, urlsRaw) {
 }
 
 const MAJOR_LINK_LABELS = ['Major Offerings', 'Department Site'];
+const MINOR_LINK_LABELS = ['Program Overview'];
 const DEGREE_LINK_LABELS = ['Program Overview', 'General Education Requirements'];
+const PROGRESS_MILESTONE_LABELS = {
+  1: 'By Freshman Fall',
+  2: 'By Freshman Spring',
+  3: 'By Sophomore Fall',
+  4: 'By Sophomore Spring',
+  5: 'By Junior Fall',
+  6: 'By Junior Spring',
+  7: 'By Senior Fall',
+  8: 'By Senior Spring',
+};
+const PROGRESS_YEARS = [
+  { label: 'Freshman', semesters: [1, 2] },
+  { label: 'Sophomore', semesters: [3, 4] },
+  { label: 'Junior', semesters: [5, 6] },
+  { label: 'Senior', semesters: [7, 8] },
+];
+function getRequirementKind(mainReq) {
+  const path = String(mainReq?.path_to || '');
+  if (path.startsWith('Major//')) return 'major';
+  if (path.startsWith('Minor//')) return 'minor';
+  if (path.startsWith('Degree//')) return 'degree';
+  if (Boolean(mainReq?.degree)) return 'major';
+  return 'degree';
+}
 
 function shortenContactRole(role) {
   if (!role) return '';
@@ -56,9 +81,41 @@ function shortenContactRole(role) {
     .replace(/Placement Officer/i, 'Placement Officer');
 }
 
+function getParentRequirementPath(path) {
+  const parts = String(path || '').split('//');
+  if (parts.length <= 1) return String(path || '');
+  return parts.slice(0, -1).join('//');
+}
+
+function normalizeCourseName(courseName) {
+  return String(courseName || '')
+    .split('/')
+    .map((part) => part.replace(/\s+/g, '').toUpperCase())
+    .filter(Boolean)
+    .sort()
+    .join('/');
+}
+
+function collectDegreeProgressMilestones(requirementsList) {
+  const milestones = [];
+
+  (requirementsList || []).forEach((requirement) => {
+    if (!requirement || typeof requirement !== 'object') return;
+    if (Number.isFinite(Number(requirement.completed_by_semester))) {
+      milestones.push(requirement);
+    }
+    if (Array.isArray(requirement.req_list)) {
+      milestones.push(...collectDegreeProgressMilestones(requirement.req_list));
+    }
+  });
+
+  return milestones;
+}
+
 function buildHeaderPopoverHtml(info) {
   const contacts = Array.isArray(info.contacts) ? info.contacts : [];
-  const isMajor = Boolean(info.isMajor);
+  const requirementKind = info.requirementKind || 'degree';
+  const isProgram = requirementKind === 'major' || requirementKind === 'minor';
   const urls = [
     (info.ref0 != null && info.ref0 !== '' ? String(info.ref0) : '') ||
       (Array.isArray(info.urls) ? info.urls[0] || '' : ''),
@@ -90,10 +147,18 @@ function buildHeaderPopoverHtml(info) {
     html += '</div>';
   }
 
-  if (isMajor || urls[0] || urls[1]) {
-    const labels = isMajor ? MAJOR_LINK_LABELS : DEGREE_LINK_LABELS;
+  if (isProgram || urls[0] || urls[1]) {
+    const labels =
+      requirementKind === 'major'
+        ? MAJOR_LINK_LABELS
+        : requirementKind === 'minor'
+          ? MINOR_LINK_LABELS
+          : DEGREE_LINK_LABELS;
     html += '<div class="info-card">';
-    html += '<div class="info-card-title">Reference links:</div>';
+    html +=
+      '<div class="info-card-title">Reference ' +
+      (labels.length === 1 ? 'link' : 'links') +
+      ':</div>';
     labels.forEach((label, i) => {
       const url = urls[i] || '';
       if (url) {
@@ -103,7 +168,7 @@ function buildHeaderPopoverHtml(info) {
           '" class="ref-link-item" target="_blank" rel="noopener noreferrer">' +
           escapeHtml(label) +
           '</a>';
-      } else if (isMajor) {
+      } else if (isProgram) {
         html +=
           '<div class="ref-link-item ref-link-item-disabled">' + escapeHtml(label) + '</div>';
       }
@@ -127,44 +192,52 @@ const CardWrapper = styled.div`
   min-height: 0;
   display: flex;
   flex-direction: column;
+  gap: 0;
 `;
 
 const TabStrip = styled.div`
   display: flex;
   align-items: flex-end;
-  padding: 0 8px;
+  padding: 0 14px 0 6px;
   gap: 2px;
   flex-shrink: 0;
+  margin-left: 0;
 `;
 
 const RidgeTab = styled.button`
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-bottom-color: ${({ $active }) => ($active ? 'white' : 'inherit')};
-  border-radius: 6px 6px 0 0;
-  background: ${({ $active, theme }) => ($active ? 'white' : theme.greySemBody)};
-  color: ${({ theme }) => theme.darkGreyText};
-  padding: 4px 10px;
-  font-size: 12px;
-  font-weight: ${({ $active }) => ($active ? 700 : 500)};
+  border: 2px solid #dfdfdf;
+  border-bottom-color: ${({ $active }) => ($active ? 'white' : '#dfdfdf')};
+  border-radius: 18px 18px 0 0;
+  background: ${({ $active }) => ($active ? 'white' : 'rgba(255,255,255,0.82)')};
+  color: ${({ $active }) => ($active ? '#111111' : '#d3d3d3')};
+  padding: 10px 18px 9px;
+  font-size: 20px;
+  font-weight: ${({ $active }) => ($active ? 800 : 700)};
   cursor: pointer;
   white-space: nowrap;
   line-height: 1.4;
   position: relative;
-  margin-bottom: -1px;
-  z-index: 1;
+  margin-bottom: -2px;
+  z-index: 2;
+  box-shadow: ${({ $active }) => ($active ? '0 -2px 6px rgba(0, 0, 0, 0.06)' : 'none')};
 
   &:hover {
-    background: ${({ $active, theme }) => ($active ? 'white' : theme.lightGrey)};
+    background: ${({ $active }) => ($active ? 'white' : '#fafafa')};
+  }
+
+  &:first-child {
+    margin-left: 0;
+    border-top-left-radius: 18px;
   }
 `;
 
 const CardInfoIcon = styled.i`
   margin-left: auto;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   cursor: pointer;
   color: ${({ theme }) => theme.darkGreyText};
   opacity: 0.45;
-  font-size: 13px;
+  font-size: 16px;
   padding: 2px 4px;
   flex-shrink: 0;
 
@@ -179,23 +252,107 @@ const CardBody = styled.div`
   display: flex;
   flex-direction: column;
   background: white;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 8px;
+  border: 2px solid #dfdfdf;
+  border-radius: 0 20px 20px 20px;
   overflow: hidden;
-  position: relative;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
 `;
 
 const CardContent = styled.div`
   flex: 1;
   min-height: 0;
-  padding: 8px 10px;
+  padding: 10px 10px 14px;
   overflow-y: auto;
+`;
+
+const ProgressSummary = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+const ProgressHeader = styled.div`
+  padding: 2px 4px 0;
+`;
+
+const ProgressEyebrow = styled.div`
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666666;
+`;
+
+const YearProgressGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+`;
+
+const YearProgressCard = styled.div`
+  border: 2px solid ${({ $done }) => ($done ? '#d8ecc0' : '#e3e3e3')};
+  border-radius: 16px;
+  padding: 12px;
+  background: ${({ $done }) => ($done ? '#fbffef' : '#ffffff')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+`;
+
+const YearProgressRing = styled.div`
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  background: ${({ $percent, $done }) =>
+    `conic-gradient(${$done ? '#9fdc63' : '#111111'} ${$percent}%, #ededed 0)`};
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+`;
+
+const YearProgressRingInner = styled.div`
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1;
+`;
+
+const YearProgressPercent = styled.div`
+  font-size: 19px;
+`;
+
+const YearProgressLabel = styled.div`
+  font-size: 10px;
+  color: #777777;
+  margin-top: 3px;
+`;
+
+const YearProgressName = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  text-align: center;
+`;
+
+const YearProgressStatus = styled.div`
+  font-size: 13px;
+  color: ${({ $done }) => ($done ? '#4e7d2f' : '#666666')};
+  font-weight: 700;
+  text-align: center;
 `;
 
 
 // ── Component ──────────────────────────────────────────────────────────────────
 
-export default function Requirements({ onChange, requirements, schedule }) {
+export default function Requirements({ onChange, requirements, schedule, activePlanId }) {
   const [loading, setLoading] = useState(false); // eslint-disable-line no-unused-vars
   const containerRef = useRef(null);
   const [topTab, setTopTab] = useState('major'); // 'major' | 'degree' | 'grad'
@@ -236,8 +393,9 @@ export default function Requirements({ onChange, requirements, schedule }) {
     };
   }, [requirements]);
 
-  // Reset tab selections whenever the plan/requirements change
-  useEffect(() => { setTopTab('major'); }, [requirements]);
+  // Reset top tab only when switching plans. Requirement recalculations should keep
+  // the user on whichever tab they were already viewing.
+  useEffect(() => { setTopTab('major'); }, [activePlanId]);
   useEffect(() => {
     setSelectedMinorIndex((prev) =>
       minorReqs.length > 0 ? Math.min(prev, minorReqs.length - 1) : 0
@@ -296,11 +454,17 @@ export default function Requirements({ onChange, requirements, schedule }) {
     /* grad */            degreeProgressOnly;
   const selectedMinorReq = minorReqs[selectedMinorIndex] ?? null;
 
+  const degreeProgressMilestones = useMemo(
+    () => collectDegreeProgressMilestones(degreeProgressOnly?.req_list),
+    [degreeProgressOnly]
+  );
+
   // Build info-icon data attributes for a requirement (returns null if no info available)
   const getInfoIconAttrs = (mainReq) => {
     if (!mainReq || typeof mainReq !== 'object') return null;
     const contacts = Array.isArray(mainReq.contacts) ? mainReq.contacts : [];
-    const isMajor = 'degree' in mainReq;
+    const requirementKind = getRequirementKind(mainReq);
+    const isMajor = requirementKind === 'major';
     const urlsRaw = Array.isArray(mainReq.urls) ? mainReq.urls.filter(Boolean) : [];
     const refUrls = isMajor
       ? withFallbackMajorUrls(mainReq, urlsRaw)
@@ -309,7 +473,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
     return {
       'data-bs-toggle': 'popover',
       'data-bs-html': 'true',
-      'data-tp-info': JSON.stringify({ contacts, isMajor }),
+      'data-tp-info': JSON.stringify({ contacts, requirementKind }),
       'data-tp-ref0': refUrls[0] || '',
       'data-tp-ref1': refUrls[1] || '',
     };
@@ -472,22 +636,35 @@ export default function Requirements({ onChange, requirements, schedule }) {
   };
 
   const toggleSettle = (course, pathTo, settle) => {
-    let pathToType = pathTo.split('//', 3).join('//');
     let newSchedule = schedule.slice();
+    const normalizedTargetCourse = normalizeCourseName(course);
 
     semLoop: for (let sem_num = 0; sem_num < newSchedule.length; sem_num++) {
       for (let course_index = 0; course_index < newSchedule[sem_num].length; course_index++) {
         let scheduleCourse = newSchedule[sem_num][course_index];
-        if (scheduleCourse['name'] === course && !scheduleCourse['external']) {
-          let settledReqTypes = scheduleCourse['settled'].map((path) =>
-            path.split('//', 3).join('//')
-          );
-          let indexOfPathToType = settledReqTypes.indexOf(pathToType);
-          if (indexOfPathToType === -1 && settle) {
-            scheduleCourse['settled'].push(pathTo);
+        if (
+          normalizeCourseName(scheduleCourse['name']) === normalizedTargetCourse &&
+          !scheduleCourse['external']
+        ) {
+          const settledPaths = Array.isArray(scheduleCourse['settled'])
+            ? scheduleCourse['settled']
+            : [];
+          const targetParentPath = getParentRequirementPath(pathTo);
+
+          if (settle) {
+            // Switch ambiguous courses within the same requirement bucket to the clicked leaf.
+            const siblingSettledPathsRemoved = settledPaths.filter(
+              (existingPath) =>
+                getParentRequirementPath(existingPath) !== targetParentPath
+            );
+            scheduleCourse['settled'] = [...siblingSettledPathsRemoved, pathTo];
             break semLoop;
-          } else if (indexOfPathToType !== -1 && !settle) {
-            scheduleCourse['settled'].splice(indexOfPathToType, 1);
+          }
+
+          if (settledPaths.includes(pathTo)) {
+            scheduleCourse['settled'] = settledPaths.filter(
+              (existingPath) => existingPath !== pathTo
+            );
             break semLoop;
           }
         }
@@ -534,7 +711,18 @@ export default function Requirements({ onChange, requirements, schedule }) {
           data-bs-content={popoverContent}
         >
           <span className="reqName">{requirement['name']}</span>
-          <span className="reqCount">{tag}</span>
+          <span className={`reqCount ${finished !== 'req-done' ? 'reqCount-incomplete' : ''}`}>
+            {requirement['min_needed'] === 0 ? (
+              tag
+            ) : (
+              <>
+                <span className="reqCountCurrent">{requirement['count']}</span>
+                /
+                <span>{requirement['min_needed']}</span>
+                {isOrGroup && finished !== 'req-done' ? ' (any 1)' : ''}
+              </>
+            )}
+          </span>
         </div>
       );
 
@@ -560,24 +748,40 @@ export default function Requirements({ onChange, requirements, schedule }) {
               requirement['settled'].map((course, idx) => (
                 <li
                   key={idx}
-                  className="settled"
-                  onClick={() => toggleSettle(course, requirement['path_to'], false)}
+                  className="req-course-row"
                 >
-                  {course}
+                  <button
+                    type="button"
+                    className="req-course-chip settled"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      toggleSettle(course, requirement['path_to'], false);
+                    }}
+                  >
+                    {course}
+                  </button>
                 </li>
               ))}
             {requirement['unsettled'] &&
               requirement['unsettled'].map((course, idx) => (
                 <li
                   key={idx}
-                  className="unsettled text-muted"
-                  onClick={() => toggleSettle(course, requirement['path_to'], true)}
+                  className="req-course-row"
                 >
-                  {course}{' '}
-                  <i
-                    className="fa fa-exclamation-circle"
-                    title="This course could satisfy multiple requirements. Click to settle it here."
-                  ></i>
+                  <button
+                    type="button"
+                    className="req-course-chip unsettled text-muted"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      toggleSettle(course, requirement['path_to'], true);
+                    }}
+                  >
+                    {course}{' '}
+                    <i
+                      className="fa fa-exclamation-circle"
+                      title="This course could satisfy multiple requirements. Click to settle it here."
+                    ></i>
+                  </button>
                 </li>
               ))}
           </TreeView>
@@ -615,6 +819,60 @@ export default function Requirements({ onChange, requirements, schedule }) {
 
     if (!mainReq.req_list) return null;
     return <>{populateReqTree(mainReq)}</>;
+  };
+
+  const renderDegreeProgressSummary = () => {
+    const yearProgress = PROGRESS_YEARS.map((year) => {
+      const milestones = degreeProgressMilestones.filter((milestone) =>
+        year.semesters.includes(Number(milestone.completed_by_semester))
+      );
+      const latestMilestone = milestones
+        .slice()
+        .sort(
+          (a, b) =>
+            Number(b.completed_by_semester || 0) -
+            Number(a.completed_by_semester || 0)
+        )[0];
+      const required = Math.max(0, Number(latestMilestone?.min_needed || 0));
+      const completed = latestMilestone
+        ? Math.min(Math.max(0, Number(latestMilestone.count || 0)), required)
+        : 0;
+      const percent = required > 0 ? Math.round((completed / required) * 100) : 0;
+      const done = Boolean(latestMilestone?.satisfied);
+
+      return {
+        ...year,
+        milestones,
+        completed,
+        required,
+        percent: Math.max(0, Math.min(100, percent)),
+        done,
+      };
+    });
+
+    return (
+      <ProgressSummary>
+        <ProgressHeader>
+          <ProgressEyebrow>Degree Progress</ProgressEyebrow>
+        </ProgressHeader>
+        <YearProgressGrid>
+          {yearProgress.map((year) => (
+            <YearProgressCard key={year.label} $done={year.done}>
+              <YearProgressRing $percent={year.percent} $done={year.done}>
+                <YearProgressRingInner>
+                  <YearProgressPercent>{year.percent}%</YearProgressPercent>
+                  <YearProgressLabel>done</YearProgressLabel>
+                </YearProgressRingInner>
+              </YearProgressRing>
+              <YearProgressName>{year.label}</YearProgressName>
+              <YearProgressStatus $done={year.done}>
+                {year.required > 0 ? `${year.completed}/${year.required} courses` : 'No checkpoint yet'}
+              </YearProgressStatus>
+            </YearProgressCard>
+          ))}
+        </YearProgressGrid>
+      </ProgressSummary>
+    );
   };
 
   // Re-bind DOM popovers and click handlers whenever visible content changes
@@ -675,7 +933,7 @@ export default function Requirements({ onChange, requirements, schedule }) {
                   type="button"
                   $active={topTab === 'grad'}
                   onClick={() => setTopTab('grad')}
-                  aria-label="Path to graduation"
+                  aria-label="Degree progress"
                 >
                   <i className="fas fa-graduation-cap" aria-hidden="true" />
                 </RidgeTab>
@@ -696,7 +954,9 @@ export default function Requirements({ onChange, requirements, schedule }) {
 
           <CardBody>
             <CardContent>
-              {renderSingleReqContent(selectedTopReq)}
+              {topTab === 'grad'
+                ? renderDegreeProgressSummary()
+                : renderSingleReqContent(selectedTopReq)}
             </CardContent>
           </CardBody>
         </CardWrapper>

@@ -1,32 +1,66 @@
-/* items in requirement column */
+/* ── Requirements tree nodes ─────────────────────────────────── */
 #requirements li {
   list-style-type: none;
-  background-color: #d1dcff;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  color: #4B0082;
-  border-radius: 2px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 55%, var(--tp-requirement-fill-end) 100%);
+  padding: 12px 16px;
+  margin-right: 8px;
+  margin-bottom: 12px;
+  color: var(--tp-requirement-text);
+  border-radius: 12px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
 
   overflow: hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#requirements .req-course-row {
+  list-style-type: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+#requirements .req-course-chip {
+  width: 100%;
+  border: none;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 55%, var(--tp-requirement-fill-end) 100%);
+  padding: 12px 16px;
+  color: var(--tp-requirement-text);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#requirements .req-course-chip:hover {
+  filter: brightness(0.98);
 }
 
 /* styles all levels */
 #requirements .tree-view_item {
-  padding-left: 3px;
+  padding: 7px 4px;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
 }
 
 #requirements .reqLabel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 6px;
+  column-gap: 10px;
   align-items: end;
   flex: 1;
   min-width: 0;
@@ -46,19 +80,24 @@
 
 #requirements .tree-view_arrow {
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 4px;
+  color: #111111;
+  font-size: 18px;
 }
 
-/* greyed out unsettled reqs*/
+/* greyed out unsettled reqs */
 #requirements .unsettled {
-  background-color: #DCDCDC;
+  background: #f4f4f4;
+  color: #555555;
 }
 
 /* styles root */
 #requirements .tree-root {
-  margin-bottom: 3px;
-  background-color: #DB7093;
-  color: white;
+  margin-bottom: 8px;
+  color: #111111;
+  border-radius: 4px;
+  padding: 0;
+  font-weight: 700;
 }
 
 #requirements .tree-view_item.tree-root {
@@ -69,38 +108,47 @@
   margin-top: 0;
 }
 
-/* style everything except main roots*/
+/* style everything except main roots */
 #requirements .tree-sub-reqs .tree-view_item {
-  border-radius: 2px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  background-color: #ffc0cb;
-  color: #690012;
+  border-radius: 0;
+  margin-right: 0;
+  margin-bottom: 6px;
+  background-color: transparent;
+  color: #111111;
+  border: none;
 }
 
-/* styles reqs that are >= min needed*/
+/* styles reqs that are >= min needed */
 #requirements .tree-sub-reqs .tree-view_item.req-done {
-  background-color: #D0EBCF;
-  color: #045d00;
+  background-color: transparent;
+  color: #111111;
 }
-/* styles main req */
+
+/* styles main req done */
 #requirements .req-done {
-  background-color: #47a545;
-  color: white;
+  background-color: transparent;
+  color: #111111;
 }
 
-/* styles reqs that are min_needed = 0, count = 0*/
+/* styles reqs that are min_needed = 0, count = 0 */
 #requirements .tree-sub-reqs .tree-view_item.req-neutral {
-  background-color: #f3eab4;
-  color: #756613;
+  background-color: transparent;
+  color: #555555;
 }
 
-/* count of courses*/
+/* count of courses */
 #requirements .reqCount {
   position: static;
   justify-self: end;
   align-self: end;
   white-space: nowrap;
+  font-weight: 700;
+  font-size: 18px;
+  padding-left: 8px;
+}
+
+#requirements .reqCount-incomplete .reqCountCurrent {
+  color: #ef5a47;
 }
 
 #requirements {
@@ -109,7 +157,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
 }
 
 .fa-search {
@@ -122,17 +170,16 @@
   margin-top: 5px;
 }
 
-
 .fa-exclamation-circle {
   color: #e74c3c;
 }
 
-/* moves info icon a little up */
+/* info icon */
 .info-icon {
   cursor: pointer;
   position: relative;
   top: 0;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
 }
 
@@ -176,7 +223,6 @@
   border-radius: 16px;
 }
 
-/* Wrapper — gap between cards visible as grey background */
 .info-popover-content {
   display: flex;
   flex-direction: column;
@@ -184,7 +230,6 @@
   padding: 10px;
 }
 
-/* Individual white card */
 .info-card {
   background: #ffffff;
   border-radius: 12px;
@@ -199,7 +244,6 @@
   line-height: 1.1;
 }
 
-/* Contact block */
 .info-contact {
   margin-bottom: 8px;
 }
@@ -234,7 +278,6 @@
   line-height: 1.15;
 }
 
-/* Reference link items */
 .ref-link-item {
   display: block;
   font-weight: 700;

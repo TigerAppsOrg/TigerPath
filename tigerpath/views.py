@@ -166,6 +166,10 @@ def update_profile(request, profile_form):
         if form.is_valid():
             # save data to database and redirect to app
             profile = form.save(commit=False)
+            if "theme" in form.cleaned_data:
+                user_state = profile.user_state or {}
+                user_state["theme"] = form.cleaned_data["theme"]
+                profile.user_state = user_state
             profile.user = request.user
             profile.save()
     # if it's any other request, we raise a 404 error
@@ -389,6 +393,7 @@ def get_quality_ratings(request):
     if not ids:
         return JsonResponse({})
 
+    ids = ids[:200]
     ratings = {}
     with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
         futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
@@ -452,17 +457,8 @@ def get_courses(request, search_query):
     )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
 
-    # Fetch quality ratings for all results in parallel and embed them
-    ids = [c["id"] for c in course_info_list]
-    if ids:
-        ratings = {}
-        with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
-            futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
-            for future in as_completed(futures):
-                cid, rating = future.result()
-                ratings[cid] = rating
-        for c in course_info_list:
-            c["quality_rating"] = ratings.get(c["id"])
+    for c in course_info_list:
+        c["quality_rating"] = None
 
     cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
     if settings.DEBUG:
@@ -836,6 +832,8 @@ def rename_plan(request):
     name = (request.POST.get("name") or "").strip()
     if not name:
         return JsonResponse({"error": "Plan name is required"}, status=400)
+    if len(name) > 80:
+        return JsonResponse({"error": "Plan name must be 80 characters or fewer"}, status=400)
 
     plan.name = name
     plan.save(update_fields=["name", "updated_at"])
@@ -909,6 +907,8 @@ def update_plan_settings(request):
     name = (request.POST.get("name") or "").strip()
     if not name:
         return JsonResponse({"error": "Plan name is required"}, status=400)
+    if len(name) > 80:
+        return JsonResponse({"error": "Plan name must be 80 characters or fewer"}, status=400)
 
     major_id = parse_plan_id(request.POST.get("majorId"))
     major = None
@@ -968,6 +968,7 @@ def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
+    profile["theme"] = (curr_user.user_state or {}).get("theme", "purple")
     profile["activePlanId"] = get_active_plan(curr_user).id
     return JsonResponse(profile)
 

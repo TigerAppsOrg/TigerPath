@@ -346,17 +346,17 @@ def _init_courses(courses, req, year):
                 course["external"] = False
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
-            elif req["type"] in [
-                "Major",
-                "Degree",
-            ]:  # filter out irrelevant requirements from list
-                for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["code"])):
-                        course["settled"].remove(path)
+            elif req["type"] in ["Major", "Degree", "Minor"]:
+                # Keep only settled paths that belong to the active requirement tree.
+                valid_prefix = REQ_PATH_PREFIX % (req["type"], year, req["code"])
+                course["settled"] = [
+                    path for path in course["settled"] if path.startswith(valid_prefix)
+                ]
             else:  # type must be "Certificate"
-                for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["name"])):
-                        course["settled"].remove(path)
+                valid_prefix = REQ_PATH_PREFIX % (req["type"], year, req["name"])
+                course["settled"] = [
+                    path for path in course["settled"] if path.startswith(valid_prefix)
+                ]
     return courses
 
 
@@ -510,7 +510,7 @@ def _init_path_to(req, year):
     2. The path gives the traversal of the tree needed to reach that node.
     """
     if "path_to" not in req:  # only for root of the tree
-        if req["type"] in ["Major", "Degree"]:
+        if req["type"] in ["Major", "Degree", "Minor"]:
             req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["code"])
         else:  # type must be "Certificate"
             req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["name"])

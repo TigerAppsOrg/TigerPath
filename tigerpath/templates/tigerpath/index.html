@@ -60,45 +60,30 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center gap-2"
+      <a class="navbar-brand"
          href="{% url 'index' %}">
         <img src="{% static 'app/tigerpathlogo.png' %}" alt="TigerPath logo" height="36">
         TigerPath
       </a>
-      <div>
-        <a class="btn nav-btn"
-           href="{% url 'about' %}"
-           target="_blank"
-           rel="noopener noreferrer">About</a>
+      <div class="d-flex align-items-center gap-2">
+        <a id="settings-btn"
+           class="btn nav-btn"
+           href="#">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
         <a class="btn nav-btn"
            href="https://docs.google.com/forms/d/e/1FAIpQLSdjBwHsURKujVqfnUk7nyocAMnFDFI6fyubDmqYMgLElpm_Nw/viewform"
            target="_blank"
-           rel="noopener noreferrer">Feedback</a>
+           rel="noopener noreferrer">
+          <i class="far fa-comment-dots"></i>
+          <span>Feedback</span>
+        </a>
         <a class="btn nav-btn"
-           href="https://github.com/PrincetonUSG/TigerPath"
-           target="_blank"
-           rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-        <a id="print-btn"
-           class="btn nav-btn"
-           href="javascript:window.print()"
-           rel="noopener noreferrer"><i class="fas fa-print"></i></a>
-        <div class="dropdown">
-          <a id="netid-btn"
-             class="btn nav-btn dropdown-toggle"
-             data-bs-toggle="dropdown"
-             href="#">{{ request.user.profile.nickname|default:request.user.username }}</a>
-          <div id="netid-dropdown"
-               class="dropdown-menu">
-            <a class="dropdown-item"
-               href="#"
-               id="help-btn">Tutorial<i class="far fa-question-circle ms-2"></i></a>
-            <a class="dropdown-item"
-               href="#"
-               id="settings-btn">Settings</a>
-            <a class="dropdown-item"
-               href="{% url 'logout' %}">Logout</a>
-          </div>
-        </div>
+           href="{% url 'logout' %}">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
       </div>
     </div>
   </nav>

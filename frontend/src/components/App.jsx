@@ -1,11 +1,15 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { apiFetch, apiPost } from 'utils/api';
 import Search from 'components/Search';
 import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
 import { DragDropContext } from '@hello-pangea/dnd';
 import { ThemeProvider } from 'styled-components';
-import { TIGERPATH_THEME } from 'styles/theme';
+import {
+  DEFAULT_TIGERPATH_THEME,
+  getTigerPathTheme,
+  getTigerPathThemeVariables,
+} from 'styles/theme';
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 
 const RADIX = 10;
@@ -36,7 +40,7 @@ export default function App() {
   const fetchProfile = useCallback(() => {
     apiFetch('/api/v1/get_profile/')
       .then(setProfile)
-      .catch(() => setProfile({ classYear: null }));
+      .catch(() => setProfile({ classYear: null, theme: DEFAULT_TIGERPATH_THEME }));
   }, []);
 
   const fetchRequirements = useCallback(() => {
@@ -132,22 +136,6 @@ export default function App() {
         });
     },
     [applyPlansPayload, reloadPlanData]
-  );
-
-  const renamePlan = useCallback(
-    ({ planId, name }) => {
-      return apiPost('/api/v1/rename_plan/', {
-        planId: String(planId),
-        name,
-      })
-        .then((payload) => {
-          applyPlansPayload(payload);
-        })
-        .catch((error) => {
-          console.error('[plans] rename failed', error);
-        });
-    },
-    [applyPlansPayload]
   );
 
   const updatePlanSettings = useCallback(
@@ -299,8 +287,23 @@ export default function App() {
     [schedule, searchResults]
   );
 
+  const activeThemeName = profile?.theme || DEFAULT_TIGERPATH_THEME;
+  const activeTheme = useMemo(
+    () => getTigerPathTheme(activeThemeName),
+    [activeThemeName]
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const themeVariables = getTigerPathThemeVariables(activeThemeName);
+    Object.entries(themeVariables).forEach(([property, value]) => {
+      root.style.setProperty(property, value);
+    });
+    root.dataset.tigerpathTheme = activeThemeName;
+  }, [activeThemeName]);
+
   return (
-    <ThemeProvider theme={TIGERPATH_THEME}>
+    <ThemeProvider theme={activeTheme}>
       <>
         <h1 className="print-only">My Four Year Schedule</h1>
         <p className="print-only">
@@ -324,7 +327,7 @@ export default function App() {
               searchResults={searchResults}
             />
           </div>
-          <div className="col-lg-8 p-0">
+          <div id="main-view-pane" className="col-lg-8 p-0">
             <MainView
               onChange={onChange}
               profile={profile}
@@ -333,7 +336,6 @@ export default function App() {
               activePlanId={activePlanId}
               onSetActivePlan={setActivePlan}
               onCreatePlan={createPlan}
-              onRenamePlan={renamePlan}
               onUpdatePlanSettings={updatePlanSettings}
               onCopyPlan={copyPlan}
               onDeletePlan={deletePlan}
@@ -346,6 +348,7 @@ export default function App() {
             onChange={onChange}
             requirements={requirements}
             schedule={schedule}
+            activePlanId={activePlanId}
           />
         </div>
       </>

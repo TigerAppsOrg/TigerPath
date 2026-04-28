@@ -20,49 +20,55 @@ const MissingYearNotice = styled.p`
 const ScheduleOuter = styled.div`
   display: flex;
   flex-direction: column;
-  height: inherit;
-  padding: 0 5px 5px;
+  flex: 1;
+  min-height: 0;
+  padding: 2px 4px 12px;
 `;
 
 const ScheduleCard = styled.div`
   flex: 1;
   min-height: 0;
   background: white;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  box-shadow:
+    0 0 0 2px rgba(217, 217, 217, 0.9),
+    0 3px 12px rgba(0, 0, 0, 0.10);
 `;
 
 const YearBlock = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 6px 10px 8px;
+  padding: 12px 14px 10px;
   min-height: 0;
-  ${({ $borderRight, theme }) => $borderRight && `border-right: 1px solid ${theme.lightGrey};`}
-  ${({ $borderBottom, theme }) => $borderBottom && `border-bottom: 1px solid ${theme.lightGrey};`}
+  min-width: 0;
+  ${({ $borderRight }) => $borderRight && `border-right: 2px solid rgba(217, 217, 217, 0.95);`}
+  ${({ $borderBottom }) => $borderBottom && `border-bottom: 2px solid rgba(217, 217, 217, 0.95);`}
 `;
 
 const YearTitle = styled.h2`
-  font-size: 22px;
-  font-weight: 900;
+  font-size: 27px;
+  font-weight: 800;
   text-align: center;
-  margin: 4px 0 6px;
-  color: #1a1a1a;
+  margin: 0 0 8px;
+  color: #111111;
+  letter-spacing: -0.03em;
 `;
 
 const SemPair = styled.div`
   flex: 1;
   min-height: 0;
+  min-width: 0;
   display: grid;
-  grid-template-columns: 1fr 1px 1fr;
+  grid-template-columns: minmax(0, 1fr) 2px minmax(0, 1fr);
 `;
 
 const SemColDivider = styled.div`
   background: ${({ theme }) => theme.lightGrey};
-  opacity: 0.4;
+  opacity: 0.9;
 `;
 
 export default function Schedule({ onChange, profile, schedule }) {

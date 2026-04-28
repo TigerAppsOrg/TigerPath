@@ -1,4 +1,5 @@
 import React from 'react';
+import { Draggable, Droppable } from '@hello-pangea/dnd';
 import SearchCourseCard from './SearchCourseCard';
 
 // const RADIX = 10;
@@ -65,38 +66,57 @@ function getRatingColor(rating) {
 // }
 
 export default function SearchCard({ course, courseKey, index: courseIndex, onSelect, isSelected, qualityRating = null }) {
-  // let prevOfferedSemList = getPrevOfferedSemList(course['semester_list']);
+  const ratingLabel = qualityRating != null ? qualityRating.toFixed(2) : null;
 
   return (
-    <div
-      className={`search-card ${course['semester']}${isSelected ? ' selected' : ''}`}
-      onClick={() => onSelect && onSelect(course)}
-      style={{ cursor: 'pointer' }}
+    <Droppable
+      droppableId={`search-result-droppable-${courseKey}`}
+      isDropDisabled={true}
     >
-      <SearchCourseCard
-        course={course}
-        courseKey={courseKey}
-        courseIndex={courseIndex}
-        qualityRating={qualityRating}
-        ratingColor={getRatingColor(qualityRating)}
-      />
-      <div className="search-card-info">
-        <div className="course-title">{course['title']}</div>
-        <button
-          className="search-card-info-btn"
-          title="View course details"
-          onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
-          style={{
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            cursor: 'pointer',
-            color: 'inherit',
-          }}
-        >
-          <i className="fas fa-info-circle fa-lg fa-fw course-info" />
-        </button>
-      </div>
-    </div>
+      {(droppableProvided) => (
+        <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
+          <Draggable draggableId={courseKey} index={courseIndex}>
+            {(draggableProvided, snapshot) => (
+              <div
+                ref={draggableProvided.innerRef}
+                className={`search-card ${course['semester']}${isSelected ? ' selected' : ''}${snapshot.isDragging ? ' dragging' : ''}`}
+                onClick={() => onSelect && onSelect(course)}
+                style={{
+                  cursor: snapshot.isDragging ? 'grabbing' : 'grab',
+                  ...draggableProvided.draggableProps.style,
+                }}
+                {...draggableProvided.draggableProps}
+                {...draggableProvided.dragHandleProps}
+              >
+                <SearchCourseCard
+                  course={course}
+                />
+                <div className="search-card-info">
+                  <div className="course-title">{course['title']}</div>
+                  <div className="search-card-info-actions">
+                    <button
+                      className="search-card-info-btn"
+                      title="View course details"
+                      onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
+                      style={{
+                        background: 'none',
+                        border: 'none',
+                        padding: 0,
+                        cursor: 'pointer',
+                        color: 'inherit',
+                        opacity: 0.45,
+                      }}
+                    >
+                      <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </Draggable>
+          <div style={{ display: 'none' }}>{droppableProvided.placeholder}</div>
+        </div>
+      )}
+    </Droppable>
   );
 }

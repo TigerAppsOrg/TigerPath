@@ -1,9 +1,9 @@
 .course-detail-panel {
   position: fixed;
-  top: 56px;
+  top: 0;
   right: 0;
-  width: 420px;
-  height: calc(100vh - 56px);
+  width: 440px;
+  height: 100vh;
   background: white;
   box-shadow: -6px 0 24px rgba(0, 0, 0, 0.1);
   z-index: 200;
@@ -22,8 +22,8 @@
 /* Close button */
 .panel-collapse-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 16px;
+  right: 14px;
   background: none;
   border: none;
   padding: 0;
@@ -39,7 +39,7 @@
 
 /* Header: course title */
 .panel-header {
-  padding: 18px 48px 14px 20px;
+  padding: 72px 48px 14px 20px;
   flex-shrink: 0;
 }
 .panel-title {

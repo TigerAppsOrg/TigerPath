@@ -8,7 +8,10 @@ export const MAIN_VIEW_TABS = Object.freeze({
 });
 
 const Content = styled.div`
-  height: calc(100vh - 130px);
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default function MainView({
@@ -19,7 +22,6 @@ export default function MainView({
   activePlanId,
   onSetActivePlan,
   onCreatePlan,
-  onRenamePlan,
   onUpdatePlanSettings,
   onCopyPlan,
   onDeletePlan,
@@ -33,7 +35,6 @@ export default function MainView({
         activePlanId={activePlanId}
         onSetActivePlan={onSetActivePlan}
         onCreatePlan={onCreatePlan}
-        onRenamePlan={onRenamePlan}
         // The header owns the multi-plan rail and the centered edit popup workflow.
         onUpdatePlanSettings={onUpdatePlanSettings}
         onCopyPlan={onCopyPlan}

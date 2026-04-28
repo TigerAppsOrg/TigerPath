@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 const Header = styled.div`
@@ -6,9 +6,8 @@ const Header = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 10px;
-  border-bottom: 1px solid ${({ theme }) => theme.lightGrey};
-  margin-bottom: 10px;
+  padding: 4px 8px 14px;
+  margin-bottom: 8px;
 
   @media print {
     display: none;
@@ -18,12 +17,12 @@ const Header = styled.div`
 const PlanTabs = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   overflow-x: auto;
   white-space: nowrap;
   min-width: 0;
   flex: 1;
-  background: ${({ theme }) => theme.greySemBody};
+  background: #e8e8e8;
   border-radius: 999px;
   padding: 6px 10px;
 `;
@@ -34,39 +33,48 @@ const PlanTab = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border: none;
-  background: ${({ theme, $active }) =>
-    $active ? theme.greenSemBody : 'transparent'};
-  color: ${({ theme }) => theme.darkGreyText};
+  gap: 6px;
+  border: 1px solid ${({ $active }) => ($active ? 'var(--tp-active-plan-border)' : 'transparent')};
+  box-shadow: ${({ $active }) => ($active ? 'inset 0 0 0 1px rgba(255, 255, 255, 0.45)' : 'none')};
+  background: ${({ $active }) => ($active ? 'var(--tp-active-plan-fill)' : 'transparent')};
+  color: #181818;
   border-radius: 999px;
-  padding: 4px 14px;
-  min-height: 28px;
+  padding: 6px 16px;
+  min-height: 34px;
+  font-size: 14px;
+  font-weight: ${({ $active }) => ($active ? 600 : 500)};
+  position: relative;
 
   &:hover {
-    background: ${({ theme, $active }) =>
-      $active ? theme.greenSemBody : theme.greySemBody};
+    background: ${({ $active }) => ($active ? 'var(--tp-active-plan-fill)' : 'rgba(255,255,255,0.55)')};
   }
 `;
 
 const TabLabel = styled.span`
-  font-size: 14px;
+  font-size: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   min-width: 0;
+  max-width: calc(100% - 22px);
 `;
 
 const EditButton = styled.button`
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.darkGreyText};
+  color: #111111;
   padding: 0;
   line-height: 1;
+  font-size: 13px;
+  opacity: 0.68;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 
   &:hover {
-    background: ${({ theme }) => theme.darkGrey};
-    color: white;
+    color: #111111;
+    opacity: 1;
   }
 `;
 
@@ -86,36 +94,38 @@ const EditPanel = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 41;
-  width: min(560px, calc(100vw - 48px));
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 8px;
+  width: min(630px, calc(100vw - 48px));
+  border: 2px solid #dddddd;
+  border-radius: 16px;
   background: white;
-  padding: 12px;
+  padding: 18px 20px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 160px;
-  column-gap: 28px;
-  row-gap: 10px;
+  grid-template-columns: minmax(0, 1fr) 170px;
+  column-gap: 24px;
+  row-gap: 16px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
 `;
 
 const PanelSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
+  min-width: 0;
 `;
 
 const PathTitleRow = styled.div`
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid ${({ theme }) => theme.lightGrey};
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 3px solid #d4d4d4;
 `;
 
 const PathTitleInput = styled.input`
   border: none;
   background: transparent;
   color: ${({ theme }) => theme.darkGreyText};
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.1;
   width: 100%;
@@ -135,58 +145,81 @@ const PathTitleEditButton = styled.button`
   border: none;
   background: transparent;
   color: ${({ theme }) => theme.darkGreyText};
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1;
-  padding: 0;
+  padding: 4px;
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.68;
 
   &:hover {
-    color: ${({ theme }) => theme.darkGrey};
+    color: var(--tp-accent);
+    opacity: 1;
   }
 `;
 
 const PanelSelect = styled.select`
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 6px;
-  height: 28px;
-  padding: 0 8px;
-  font-size: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 2px solid #d8d8d8;
+  border-radius: 12px;
+  min-height: 64px;
+  padding: 0 46px 0 18px;
+  font-size: 15px;
   color: ${({ theme }) => theme.darkGreyText};
-  background: white;
+  background: #ffffff;
+  width: 100%;
+  min-width: 0;
+
+  &:focus {
+    border-color: var(--tp-accent);
+    outline: none;
+  }
+`;
+
+const PanelSelectWrapper = styled.div`
+  position: relative;
+  min-width: 0;
 `;
 
 const MultiSelectWrapper = styled.div`
   position: relative;
+  min-width: 0;
 `;
 
 const SelectedMinorsBox = styled.div`
   position: relative;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 8px;
+  border: 2px solid #d8d8d8;
+  border-radius: 12px;
   background: white;
-  height: 56px;
+  min-height: 76px;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 8px 38px 8px 12px;
+  padding: 12px 42px 12px 14px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
   gap: 8px;
   cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border-color: var(--tp-accent);
+    outline: none;
+  }
 `;
 
 const MinorChip = styled.div`
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid ${({ theme }) => theme.fallSemHeaderColor};
+  border: 1px solid var(--tp-course-border);
   border-radius: 999px;
-  background: ${({ theme }) => theme.greySemBody};
-  color: ${({ theme }) => theme.fallSemHeaderColor};
+  background: var(--tp-course-fill);
+  color: var(--tp-course-text);
   padding: 4px 10px;
   flex: 0 0 auto;
   max-width: min(220px, calc(100% - 28px));
@@ -205,7 +238,7 @@ const MinorChipLabel = styled.span`
 const RemoveChipButton = styled.button`
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.fallSemHeaderColor};
+  color: var(--tp-course-text);
   padding: 0;
   line-height: 1;
   font-size: 14px;
@@ -218,10 +251,11 @@ const MinorsChevron = styled.i`
   transform: translateY(-50%);
   color: ${({ theme }) => theme.lightGrey};
   font-size: 16px;
+  pointer-events: none;
 `;
 
 const EmptyMinorHint = styled.span`
-  font-size: 12px;
+  font-size: 15px;
   color: ${({ theme }) => theme.darkGreyText};
 `;
 
@@ -232,16 +266,38 @@ const MinorSupportHint = styled.span`
 
 const MultiSelectMenu = styled.div`
   position: absolute;
-  top: 56px;
+  top: calc(100% + 8px);
   left: 0;
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
+  border: 2px solid #d8d8d8;
   border-radius: 14px;
   max-height: 180px;
   overflow-y: auto;
-  padding: 10px 12px;
+  padding: 10px 12px 12px;
   background: white;
   z-index: 42;
+`;
+
+const MinorSearchInput = styled.input`
+  width: 100%;
+  border: 2px solid #eeeeee;
+  border-radius: 10px;
+  min-height: 34px;
+  padding: 0 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: ${({ theme }) => theme.darkGreyText};
+
+  &:focus {
+    border-color: var(--tp-accent);
+    outline: none;
+  }
+`;
+
+const EmptyMinorSearch = styled.div`
+  padding: 8px 2px 2px;
+  color: #8b8b8b;
+  font-size: 13px;
 `;
 
 const MinorOptionRow = styled.button`
@@ -276,13 +332,15 @@ const MinorOptionSupportText = styled.span`
 
 const InfoRow = styled.div`
   display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 8px;
+  grid-template-columns: 70px minmax(0, 1fr);
+  gap: 12px;
   align-items: center;
+  min-width: 0;
 `;
 
 const InfoLabel = styled.span`
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 700;
   color: ${({ theme }) => theme.darkGreyText};
 `;
 
@@ -301,51 +359,70 @@ const InfoValue = styled.div`
 const PanelActions = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  justify-content: flex-end;
+  gap: 10px;
   min-width: 0;
+  padding-top: 8px;
 `;
 
 const PanelActionButton = styled.button`
   width: 100%;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  border-radius: 6px;
-  min-height: 30px;
-  font-size: 11px;
+  border: 2px solid ${({ $variant }) => {
+    if ($variant === 'save') return '#a7d84f';
+    if ($variant === 'danger') return '#efb6ad';
+    if ($variant === 'warn') return '#d0d0d0';
+    return '#d0d0d0';
+  }};
+  border-radius: 10px;
+  min-height: 46px;
+  font-size: 15px;
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 7px;
+  padding: 0 14px;
   white-space: nowrap;
-  background: ${({ $variant, theme }) => {
-    if ($variant === 'save') return theme.greenSemBody;
-    if ($variant === 'danger') return theme.redSemBody;
-    if ($variant === 'warn') return theme.greySemBody;
+  color: #1b1b1b;
+  background: ${({ $variant }) => {
+    if ($variant === 'save') return '#e5ff9d';
+    if ($variant === 'danger') return '#ffdcd6';
+    if ($variant === 'warn') return '#f2f2f2';
     return 'white';
   }};
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.09);
+  }
 `;
 
 const Divider = styled.span`
-  color: ${({ theme }) => theme.lightGrey};
+  color: #8e8e8e;
   user-select: none;
+  font-size: 22px;
+  opacity: 1;
 `;
 
 const AddButton = styled.button`
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.darkGreyText};
+  color: #7d7d7d;
   border-radius: 2px;
-  min-width: 22px;
-  min-height: 22px;
-  padding: 0;
-  font-size: 32px;
+  min-width: 20px;
+  min-height: 20px;
+  padding: 0 4px;
+  font-size: 34px;
   line-height: 1;
 
   &:hover {
-    color: ${({ theme }) => theme.darkGrey};
+    color: #555555;
   }
 `;
 
-const LockIcon = styled.span`
+const LockIcon = styled.button`
+  border: none;
+  background: transparent;
+  padding: 0;
   font-size: 16px;
   color: ${({ theme }) => theme.darkGreyText};
   opacity: 0.45;
@@ -354,7 +431,13 @@ const LockIcon = styled.span`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: default;
+  cursor: help;
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+    outline: none;
+  }
 `;
 
 const MAX_PLANS = 5;
@@ -364,7 +447,6 @@ export default function PlanHeader({
   activePlanId,
   onSetActivePlan,
   onCreatePlan,
-  onRenamePlan,
   onUpdatePlanSettings,
   onCopyPlan,
   onDeletePlan,
@@ -379,7 +461,11 @@ export default function PlanHeader({
   const [draftMajorId, setDraftMajorId] = useState('');
   const [draftMinorCodes, setDraftMinorCodes] = useState([]);
   const [isMinorMenuOpen, setIsMinorMenuOpen] = useState(false);
+  const [minorSearchQuery, setMinorSearchQuery] = useState('');
+  const panelRef = useRef(null);
+  const minorWrapperRef = useRef(null);
   const titleInputRef = useRef(null);
+  const lockIconRef = useRef(null);
 
   useEffect(() => {
     if (!activePlan) {
@@ -388,12 +474,40 @@ export default function PlanHeader({
       setDraftMajorId('');
       setDraftMinorCodes([]);
       setIsMinorMenuOpen(false);
+      setMinorSearchQuery('');
       return;
     }
     setDraftName(activePlan.name || '');
     setDraftMajorId(activePlan.majorId ? String(activePlan.majorId) : '');
     setDraftMinorCodes(activePlan.minorCodes || []);
   }, [activePlan]);
+
+  useEffect(() => {
+    if (!isEditing || !isMinorMenuOpen) return undefined;
+
+    const handlePointerDown = (event) => {
+      if (!panelRef.current?.contains(event.target)) return;
+      if (minorWrapperRef.current?.contains(event.target)) return;
+      setIsMinorMenuOpen(false);
+    };
+
+    document.addEventListener('mousedown', handlePointerDown);
+    return () => document.removeEventListener('mousedown', handlePointerDown);
+  }, [isEditing, isMinorMenuOpen]);
+
+  useEffect(() => {
+    if (!atPlanLimit || !lockIconRef.current || !window.bootstrap?.Tooltip) {
+      return undefined;
+    }
+
+    const tooltip = new window.bootstrap.Tooltip(lockIconRef.current, {
+      trigger: 'hover focus',
+      placement: 'bottom',
+      title: `You have reached the maximum of ${MAX_PLANS} plans.`,
+    });
+
+    return () => tooltip.dispose();
+  }, [atPlanLimit]);
 
   const closeEditPanel = () => {
     // Reset unsaved modal edits whenever the popup closes.
@@ -402,6 +516,7 @@ export default function PlanHeader({
     setDraftMajorId(activePlan?.majorId ? String(activePlan.majorId) : '');
     setDraftMinorCodes(activePlan?.minorCodes || []);
     setIsMinorMenuOpen(false);
+    setMinorSearchQuery('');
   };
 
   const handleCreate = () => {
@@ -421,6 +536,7 @@ export default function PlanHeader({
         minorCodes: draftMinorCodes,
       });
       setIsMinorMenuOpen(false);
+      setMinorSearchQuery('');
       setIsEditing(false);
     } catch (error) {
       const backendMessage = error?.responseJSON?.error || error?.error;
@@ -447,6 +563,15 @@ export default function PlanHeader({
   const selectedMinorOptions = (planEditorOptions?.minorOptions || []).filter(
     (minorOption) => draftMinorCodes.includes(minorOption.code)
   );
+  const filteredMinorOptions = useMemo(() => {
+    const query = minorSearchQuery.trim().toLowerCase();
+    const minorOptions = planEditorOptions?.minorOptions || [];
+    if (!query) return minorOptions;
+    return minorOptions.filter((minorOption) => {
+      const label = `${minorOption.name} ${minorOption.code}`.toLowerCase();
+      return label.includes(query);
+    });
+  }, [minorSearchQuery, planEditorOptions]);
   const hasUnsupportedMinorSelections = selectedMinorOptions.some(
     (minorOption) => !minorOption.supported
   );
@@ -485,7 +610,7 @@ export default function PlanHeader({
 
   return (
     <Header>
-      <PlanTabs>
+      <PlanTabs id="main-view-tabs">
         {plans.map((plan, index) => {
           const isActive = plan.id === activePlanId;
           return (
@@ -510,10 +635,11 @@ export default function PlanHeader({
                       );
                       setDraftMinorCodes(activePlan?.minorCodes || []);
                       setIsMinorMenuOpen(false);
+                      setMinorSearchQuery('');
                       setIsEditing(true);
                     }}
                   >
-                    ✎
+                    <i className="fas fa-pencil-alt" aria-hidden="true" />
                   </EditButton>
                 )}
               </PlanTab>
@@ -524,7 +650,14 @@ export default function PlanHeader({
         {/* Keep the add/lock action inside the rail so it shifts right as plans are added. */}
         <Divider>|</Divider>
         {atPlanLimit ? (
-          <LockIcon aria-label="Plan limit reached" title="You can have at most 5 plans">
+          <LockIcon
+            ref={lockIconRef}
+            type="button"
+            aria-label="Plan limit reached"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title={`You have reached the maximum of ${MAX_PLANS} plans.`}
+          >
             <i className="fas fa-lock" aria-hidden="true" />
           </LockIcon>
         ) : (
@@ -535,7 +668,7 @@ export default function PlanHeader({
       </PlanTabs>
       {isEditing && <PanelBackdrop onClick={closeEditPanel} />}
       {isEditing && activePlan && (
-        <EditPanel>
+        <EditPanel ref={panelRef}>
           <PanelSection>
             {/* Large editable title row mirrors the Figma modal header treatment. */}
             <PathTitleRow>
@@ -552,27 +685,30 @@ export default function PlanHeader({
                 aria-label="Edit path title"
                 onClick={() => titleInputRef.current?.focus()}
               >
-                <span aria-hidden="true">✎</span>
+                <i className="fas fa-pencil-alt" aria-hidden="true" />
               </PathTitleEditButton>
             </PathTitleRow>
             <InfoRow>
               <InfoLabel>Major</InfoLabel>
-              <PanelSelect
-                value={draftMajorId}
-                onChange={(event) => setDraftMajorId(event.target.value)}
-              >
-                <option value="">No major selected</option>
-                {(planEditorOptions?.majorOptions || []).map((majorOption) => (
-                  <option key={majorOption.id} value={majorOption.id}>
-                    {majorOption.name}
-                  </option>
-                ))}
-              </PanelSelect>
+              <PanelSelectWrapper>
+                <PanelSelect
+                  value={draftMajorId}
+                  onChange={(event) => setDraftMajorId(event.target.value)}
+                >
+                  <option value="">No major selected</option>
+                  {(planEditorOptions?.majorOptions || []).map((majorOption) => (
+                    <option key={majorOption.id} value={majorOption.id}>
+                      {majorOption.name}
+                    </option>
+                  ))}
+                </PanelSelect>
+                <MinorsChevron className="fas fa-chevron-down" aria-hidden="true" />
+              </PanelSelectWrapper>
             </InfoRow>
             <InfoRow>
               <InfoLabel>Minors</InfoLabel>
               {(planEditorOptions?.minorOptions || []).length > 0 ? (
-                <MultiSelectWrapper>
+                <MultiSelectWrapper ref={minorWrapperRef}>
                   {/* Fixed-height chip field prevents long minor lists from stretching the modal. */}
                   <SelectedMinorsBox
                     role="button"
@@ -616,7 +752,14 @@ export default function PlanHeader({
                   </SelectedMinorsBox>
                   {isMinorMenuOpen && (
                     <MultiSelectMenu>
-                      {(planEditorOptions?.minorOptions || []).map((minorOption) => {
+                      <MinorSearchInput
+                        type="text"
+                        placeholder="Search minors..."
+                        value={minorSearchQuery}
+                        onClick={(event) => event.stopPropagation()}
+                        onChange={(event) => setMinorSearchQuery(event.target.value)}
+                      />
+                      {filteredMinorOptions.length > 0 ? filteredMinorOptions.map((minorOption) => {
                         const isSelected = draftMinorCodes.includes(minorOption.code);
                         return (
                           <MinorOptionRow
@@ -635,7 +778,9 @@ export default function PlanHeader({
                             </MinorOptionText>
                           </MinorOptionRow>
                         );
-                      })}
+                      }) : (
+                        <EmptyMinorSearch>No minors found.</EmptyMinorSearch>
+                      )}
                     </MultiSelectMenu>
                   )}
                 </MultiSelectWrapper>
@@ -653,10 +798,6 @@ export default function PlanHeader({
             <PanelActionButton type="button" $variant="save" onClick={handleSave}>
               <span>Save</span>
               <i className="fas fa-check" aria-hidden="true" />
-            </PanelActionButton>
-            <PanelActionButton type="button" onClick={closeEditPanel}>
-              <span>Cancel</span>
-              <i className="fas fa-times" aria-hidden="true" />
             </PanelActionButton>
             <PanelActionButton type="button" $variant="danger" onClick={handleDelete}>
               <span>Delete</span>

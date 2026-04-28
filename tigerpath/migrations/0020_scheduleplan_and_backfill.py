@@ -63,5 +63,7 @@ class Migration(migrations.Migration):
             ],
             options={"ordering": ["id"]},
         ),
+        # Reverse is intentionally a noop: rolling back drops the SchedulePlan table
+        # via DeleteModel, so there is nothing to undo for the data backfill.
         migrations.RunPython(backfill_schedule_plans, migrations.RunPython.noop),
     ]

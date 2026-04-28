@@ -29,5 +29,7 @@ class Migration(migrations.Migration):
             name='minors',
             field=models.JSONField(blank=True, default=list),
         ),
+        # Reverse is intentionally a noop: the column drop handles cleanup; restoring
+        # per-plan major from profile is not worth the complexity on rollback.
         migrations.RunPython(backfill_plan_major, migrations.RunPython.noop),
     ]

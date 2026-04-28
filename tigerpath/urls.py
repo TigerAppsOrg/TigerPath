@@ -37,7 +37,7 @@ urlpatterns = [
         name="update_plan_settings",
     ),
     path(
-        "api/v1/get_req_courses/<req_path>",
+        "api/v1/get_req_courses/<path:req_path>",
         views.get_req_courses,
         name="get_req_courses",
     ),

@@ -1,23 +1,50 @@
 <div class="modal fade in" id="settings-modal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="settings-modal-label" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="settings-modal-label">Settings</h5>
+        <h5 class="modal-title" id="settings-modal-label">Preferences</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="post" action="{% url 'save_settings' %}" id="settings-form">
-          <div class="container">
-            <h6 class="mb-3">General</h6>
-            <div class="container bg-light pt-3 pb-3">
-              {% csrf_token %}
-              {% include 'includes/bs4_form.html' with form=settings_form %}
-            </div>
+          {% csrf_token %}
+          <div class="settings-panel">
+            <label class="settings-field">
+              <span class="settings-label">Class year</span>
+              {{ settings_form.year }}
+              {% if settings_form.year.errors %}
+                <span class="settings-error">{{ settings_form.year.errors|striptags }}</span>
+              {% endif %}
+            </label>
+            <fieldset class="settings-field">
+              <legend class="settings-label">Theme</legend>
+              <div class="theme-choice-grid">
+                {% for value, label in settings_form.fields.theme.choices %}
+                  <label class="theme-choice theme-choice-{{ value }}">
+                    <input
+                      type="radio"
+                      name="{{ settings_form.theme.html_name }}"
+                      value="{{ value }}"
+                      {% if settings_form.theme.value == value %}checked{% endif %}
+                    >
+                    <span class="theme-choice-preview" aria-hidden="true">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </span>
+                    <span class="theme-choice-label">{{ label }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+              {% if settings_form.theme.errors %}
+                <span class="settings-error">{{ settings_form.theme.errors|striptags }}</span>
+              {% endif %}
+            </fieldset>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" form="settings-form" class="btn btn-primary" id="save-btn">Save</button>
+        <button type="submit" form="settings-form" class="btn btn-primary" id="save-btn">Save preferences</button>
       </div>
     </div>
   </div>

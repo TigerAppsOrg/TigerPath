@@ -20,37 +20,65 @@ const SemesterColumn = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 0;
-  padding: 0 4px;
+  min-width: 0;
+  padding: 0 0 0 2px;
 `;
 
 const SemLabelWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   flex-shrink: 0;
+  min-width: 0;
 `;
 
 const SemLabelLine = styled.div`
   flex: 1;
-  height: 1px;
+  height: 2px;
   background: ${({ theme }) => theme.lightGrey};
-  opacity: 0.4;
+  opacity: 0.8;
 `;
 
 const SemLabelText = styled.span`
-  font-size: 12px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.darkGreyText};
+  font-size: 17px;
+  font-weight: 700;
+  color: #111111;
   flex-shrink: 0;
 `;
 
 const SemesterBody = styled.div`
   flex: 1;
   min-height: 0;
+  min-width: 0;
   overflow-y: auto;
-  padding: 2px 0;
+  padding: 0 10px 0 12px;
   border-radius: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &:hover,
+  &:focus-within {
+    scrollbar-color: rgba(0, 0, 0, 0.24) transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 999px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb,
+  &:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.24);
+  }
 
   background-color: ${({ theme, $semesterBodyColor }) => {
     switch ($semesterBodyColor) {
