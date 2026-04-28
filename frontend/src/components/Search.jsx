@@ -122,20 +122,21 @@ export default function Search({ onChange, searchQuery, searchResults }) {
         onClose={() => setSelectedCourse(null)}
       />
       <div id="search-courses">
-        <input
-          type="text"
-          id="search-text"
-          placeholder="Search Courses"
-          value={searchQuery}
-          onChange={updateSearch}
-          className="form-control"
-          autoFocus
-        />
+        <div className="search-input-shell">
+          <i className="fas fa-search search-input-icon" aria-hidden="true" />
+          <input
+            type="text"
+            id="search-text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={updateSearch}
+            className="form-control"
+            autoFocus
+          />
+        </div>
       </div>
       <div id="search-info">
-        <div id="search-count">
-          <span id="search-count-num">{searchResults.length}</span>
-        </div>
+        <span id="search-count-num">{searchResults.length}</span>
         <span>Search Results</span>
         {loading && (
           <i id="spinner" className="fas fa-circle-notch fa-spin" style={{ display: 'inline-block' }}></i>

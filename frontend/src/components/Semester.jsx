@@ -16,31 +16,69 @@ const SEMESTER_BODY_COLOR = Object.freeze({
   RED: Symbol('redSemBody'),
 });
 
-const SemesterHeader = styled.div`
-  color: #ffffff;
-  text-align: center;
-  font-size: large;
-  border-radius: 2px 2px 0 0;
-  padding: 2px;
+const SemesterColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+  padding: 0 0 0 2px;
+`;
 
-  background-color: ${({ theme, $semesterType }) => {
-    switch ($semesterType) {
-      case SEMESTER_TYPE.FALL_SEM:
-        return `${theme.fallSemHeaderColor}`;
-      case SEMESTER_TYPE.SPRING_SEM:
-        return `${theme.springSemHeaderColor}`;
-      default:
-        return `${theme.ECHeaderColor}`;
-    }
-  }};
+const SemLabelWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+  min-width: 0;
+`;
+
+const SemLabelLine = styled.div`
+  flex: 1;
+  height: 2px;
+  background: ${({ theme }) => theme.lightGrey};
+  opacity: 0.8;
+`;
+
+const SemLabelText = styled.span`
+  font-size: 17px;
+  font-weight: 700;
+  color: #111111;
+  flex-shrink: 0;
 `;
 
 const SemesterBody = styled.div`
-  list-style-type: none;
-  padding: 5px;
-  height: calc(100% - 31px);
-  min-height: 200px;
-  border-radius: 0 0 2px 2px;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 0 10px 0 12px;
+  border-radius: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &:hover,
+  &:focus-within {
+    scrollbar-color: rgba(0, 0, 0, 0.24) transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 999px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb,
+  &:focus-within::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.24);
+  }
 
   background-color: ${({ theme, $semesterBodyColor }) => {
     switch ($semesterBodyColor) {
@@ -49,7 +87,7 @@ const SemesterBody = styled.div`
       case SEMESTER_BODY_COLOR.RED:
         return `${theme.redSemBody}`;
       default:
-        return `${theme.greySemBody}`;
+        return 'transparent';
     }
   }};
 `;
@@ -105,7 +143,6 @@ export default function Semester({ onChange, schedule, semesterIndex, className,
         return SEMESTER_BODY_COLOR.RED;
       }
     }
-
     return SEMESTER_BODY_COLOR.GREY;
   };
 
@@ -114,10 +151,12 @@ export default function Semester({ onChange, schedule, semesterIndex, className,
   if (className) classNameStr += ` ${className}`;
 
   return (
-    <div className={classNameStr}>
-      <SemesterHeader $semesterType={semesterType}>
-        {children}
-      </SemesterHeader>
+    <SemesterColumn className={classNameStr}>
+      <SemLabelWrapper>
+        <SemLabelLine />
+        <SemLabelText>{children}</SemLabelText>
+        <SemLabelLine />
+      </SemLabelWrapper>
       <Droppable
         key={semId}
         droppableId={semId}
@@ -134,6 +173,6 @@ export default function Semester({ onChange, schedule, semesterIndex, className,
           </SemesterBody>
         )}
       </Droppable>
-    </div>
+    </SemesterColumn>
   );
 }

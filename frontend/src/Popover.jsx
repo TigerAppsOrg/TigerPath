@@ -35,6 +35,7 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
   let courseTitle = course['title'];
   let courseSemType = course['semester'];
   let qualityRating = course['quality_rating'] ?? null;
+  let courseInfoLink = '';
 
   const courseElement = document.getElementById(courseKey);
   if (!courseElement) return;
@@ -44,13 +45,25 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
     existingCleanup();
   }
 
-  // Build header with rating badge on the right
-  let titleHtml = `<span style="display:flex;justify-content:space-between;align-items:center;width:100%;gap:8px">
-    <span>${courseName}</span>`;
-  if (qualityRating != null) {
-    titleHtml += `<span style="background:${getRatingColor(qualityRating)};color:white;border-radius:3px;padding:1px 6px;font-size:0.85em;font-weight:bold;white-space:nowrap;flex-shrink:0">${qualityRating.toFixed(2)}</span>`;
+  let courseId = course['id'];
+  let courseSemList = course['semester_list'];
+  if (courseSemList && courseSemList.length > 0) {
+    let termCode = convertSemToTermCode(
+      courseSemList[courseSemList.length - 1]
+    );
+    courseInfoLink = BASE_COURSE_OFFERINGS_URL + termCode + courseId;
   }
-  titleHtml += `</span>`;
+
+  let titleHtml = `<span class="course-popover-title">
+    <span class="course-popover-name">${courseName}</span>
+    <span class="course-popover-actions">`;
+  if (qualityRating != null) {
+    titleHtml += `<span class="course-popover-rating" style="background:${getRatingColor(qualityRating)}">${qualityRating.toFixed(2)}</span>`;
+  }
+  if (courseInfoLink) {
+    titleHtml += `<a class="course-popover-info-link" href="${courseInfoLink}" target="_blank" rel="noopener noreferrer" title="View course details"><i class="fas fa-info-circle fa-lg fa-fw course-info"></i></a>`;
+  }
+  titleHtml += `</span></span>`;
   courseElement.setAttribute('data-bs-title', titleHtml);
 
   // Build content
@@ -83,24 +96,6 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
       "<div class='popover-warning'>This course has previously only been offered in the Spring.</div>";
   }
 
-  let courseId = course['id'];
-  let courseSemList = course['semester_list'];
-  if (courseSemList && courseSemList.length > 0) {
-    let termCode = convertSemToTermCode(
-      courseSemList[courseSemList.length - 1]
-    );
-    let courseInfoLink = BASE_COURSE_OFFERINGS_URL + termCode + courseId;
-
-    content += "<div class='search-card-links'>";
-    content +=
-      '<a href=' +
-      courseInfoLink +
-      " target='_blank' rel='noopener noreferrer'> ";
-    content += "<i class='fas fa-info-circle fa-lg fa-fw course-info'></i>";
-    content += '</a> ';
-    content += '</div>';
-  }
-
   courseElement.setAttribute('data-bs-content', content);
 
   // Use Bootstrap 5 Popover API
@@ -116,6 +111,8 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
     html: true,
     animation: true,
     sanitize: false,
+    template:
+      '<div class="popover course-popover" role="tooltip"><div class="popover-arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>',
   });
 
   const cleanupHoverBehavior = bindManualHoverPopover(
