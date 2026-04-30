@@ -6,6 +6,7 @@ import {
   SEMESTER_TYPE,
   EXTERNAL_CREDITS_SEMESTER_INDEX,
   getSemesterType,
+  getScheduledCourseKey,
   isFallSemester,
   isSpringSemester,
 } from 'utils/SemesterUtils';
@@ -111,7 +112,7 @@ export default function Semester({ onChange, schedule, semesterIndex, className,
     return (
       <>
         {semester[semIndex].map((course, courseIndex) => {
-          let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
+          let courseKey = getScheduledCourseKey(course, semIndex, courseIndex);
           return (
             <CourseCard
               key={courseKey}

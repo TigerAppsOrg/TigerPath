@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { apiFetch } from 'utils/api';
 import Semester from 'components/Semester';
 import styled from 'styled-components';
-import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
+import { DEFAULT_SCHEDULE, getScheduledCourseKey } from 'utils/SemesterUtils';
 import { addPopover } from 'Popover';
 
 const YEARS = [
@@ -112,7 +112,7 @@ export default function Schedule({ onChange, profile, schedule }) {
     for (let semIndex = 0; semIndex < sched.length; semIndex++) {
       for (let courseIndex = 0; courseIndex < sched[semIndex].length; courseIndex++) {
         let course = sched[semIndex][courseIndex];
-        let courseKey = `course-card-${course['semester']}-${semIndex}-${courseIndex}`;
+        let courseKey = getScheduledCourseKey(course, semIndex, courseIndex);
         addPopover(course, courseKey, semIndex, courseNameCounts);
       }
     }

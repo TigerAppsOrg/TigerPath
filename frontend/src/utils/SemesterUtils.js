@@ -44,6 +44,11 @@ export function getSemesterNames(classYear) {
   return semesterNames;
 }
 
+export function getScheduledCourseKey(course, semIndex, courseIndex) {
+  const stableId = course?.id || `${semIndex}-${courseIndex}`;
+  return `course-card-${course?.semester || 'both'}-${stableId}`;
+}
+
 /* Converts semester to term code */
 export function convertSemToTermCode(sem) {
   let code = '1';

@@ -8,7 +8,9 @@ import TreeView from 'react-treeview/lib/react-treeview.js';
 import { v1 as uuidv1 } from 'uuid';
 
 const REQUIREMENTS_POPOVER_CLEANUP_KEY = '__tigerpathReqPopoverCleanup';
+const REQUIREMENTS_POPOVER_CONTENT_KEY = '__tigerpathReqPopoverContent';
 const HEADER_POPOVER_CLEANUP_KEY = '__tigerpathHeaderPopoverCleanup';
+const HEADER_POPOVER_CONTENT_KEY = '__tigerpathHeaderPopoverContent';
 const TREE_ITEM_CLICK_HANDLER_KEY = '__tigerpathTreeItemClickHandler';
 
 function escapeHref(url) {
@@ -502,7 +504,7 @@ export default function Requirements({ onChange, requirements, schedule, activeP
     items.forEach((item) => {
       const existingHandler = item[TREE_ITEM_CLICK_HANDLER_KEY];
       if (typeof existingHandler === 'function') {
-        item.removeEventListener('click', existingHandler);
+        return;
       }
 
       const clickHandler = (event) => {
@@ -541,7 +543,18 @@ export default function Requirements({ onChange, requirements, schedule, activeP
       '.reqLabel:not(.reqLabel-main)'
     );
     reqLabels.forEach((reqLabel) => {
+      const contentSignature = [
+        reqLabel.getAttribute('reqpath') || '',
+        reqLabel.getAttribute('title') || '',
+        reqLabel.getAttribute('data-bs-content') || '',
+      ].join('|');
       const existingCleanup = reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
+      if (
+        typeof existingCleanup === 'function' &&
+        reqLabel[REQUIREMENTS_POPOVER_CONTENT_KEY] === contentSignature
+      ) {
+        return;
+      }
       if (typeof existingCleanup === 'function') existingCleanup();
 
       const existing = Popover.getInstance(reqLabel);
@@ -583,7 +596,9 @@ export default function Requirements({ onChange, requirements, schedule, activeP
         cleanupHoverBehavior();
         popoverInstance.dispose();
         delete reqLabel[REQUIREMENTS_POPOVER_CLEANUP_KEY];
+        delete reqLabel[REQUIREMENTS_POPOVER_CONTENT_KEY];
       };
+      reqLabel[REQUIREMENTS_POPOVER_CONTENT_KEY] = contentSignature;
     });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -594,7 +609,19 @@ export default function Requirements({ onChange, requirements, schedule, activeP
 
     const icons = containerRef.current.querySelectorAll('.info-icon');
     icons.forEach((icon) => {
+      const contentSignature = [
+        icon.getAttribute('data-tp-info') || '',
+        icon.getAttribute('data-tp-ref0') || '',
+        icon.getAttribute('data-tp-ref1') || '',
+        icon.getAttribute('data-bs-content') || '',
+      ].join('|');
       const existingCleanup = icon[HEADER_POPOVER_CLEANUP_KEY];
+      if (
+        typeof existingCleanup === 'function' &&
+        icon[HEADER_POPOVER_CONTENT_KEY] === contentSignature
+      ) {
+        return;
+      }
       if (typeof existingCleanup === 'function') existingCleanup();
 
       const existing = Popover.getInstance(icon);
@@ -640,7 +667,9 @@ export default function Requirements({ onChange, requirements, schedule, activeP
         cleanupHover();
         popoverInstance.dispose();
         delete icon[HEADER_POPOVER_CLEANUP_KEY];
+        delete icon[HEADER_POPOVER_CONTENT_KEY];
       };
+      icon[HEADER_POPOVER_CONTENT_KEY] = contentSignature;
     });
   }, []);
 

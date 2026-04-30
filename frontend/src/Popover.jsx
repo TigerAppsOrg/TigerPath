@@ -8,6 +8,7 @@ import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 
 const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
+const COURSE_POPOVER_CONTENT_KEY = '__tigerpathCoursePopoverContent';
 
 function getRatingColor(rating) {
   if (rating == null) return '#e0e0e0';
@@ -39,11 +40,6 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
 
   const courseElement = document.getElementById(courseKey);
   if (!courseElement) return;
-
-  const existingCleanup = courseElement[COURSE_POPOVER_CLEANUP_KEY];
-  if (typeof existingCleanup === 'function') {
-    existingCleanup();
-  }
 
   let courseId = course['id'];
   let courseSemList = course['semester_list'];
@@ -97,6 +93,17 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
   }
 
   courseElement.setAttribute('data-bs-content', content);
+  const contentSignature = `${titleHtml}|${content}`;
+  const existingCleanup = courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  if (
+    typeof existingCleanup === 'function' &&
+    courseElement[COURSE_POPOVER_CONTENT_KEY] === contentSignature
+  ) {
+    return;
+  }
+  if (typeof existingCleanup === 'function') {
+    existingCleanup();
+  }
 
   // Use Bootstrap 5 Popover API
   const Popover = window.bootstrap?.Popover;
@@ -123,5 +130,7 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
     cleanupHoverBehavior();
     popoverInstance.dispose();
     delete courseElement[COURSE_POPOVER_CLEANUP_KEY];
+    delete courseElement[COURSE_POPOVER_CONTENT_KEY];
   };
+  courseElement[COURSE_POPOVER_CONTENT_KEY] = contentSignature;
 }
