@@ -14,11 +14,36 @@ body {
   --tp-search-fill-end: #ded3ff;
   --tp-search-pill-fill: rgba(188, 137, 237, 0.45);
   --tp-search-text: #5922a5;
+  --tp-search-action-fill: #ffffff;
+  --tp-search-action-text: #3f167a;
+  --tp-search-action-border: #b89de8;
   --tp-active-plan-fill: #ddd6ff;
   --tp-active-plan-border: #b99df7;
   --tp-requirement-fill-start: #dff6b4;
   --tp-requirement-fill-end: #e1ff9a;
   --tp-requirement-text: #247427;
+  --tp-panel-surface: #ffffff;
+  --tp-panel-body: #f0f1f3;
+  --tp-panel-border: #d8d8d8;
+  --tp-panel-rule: #eeeeee;
+  --tp-panel-overlay: rgba(18, 18, 18, 0.18);
+  --tp-panel-overlay-mobile: rgba(18, 18, 18, 0.28);
+  --tp-panel-shadow: rgba(0, 0, 0, 0.12);
+  --tp-panel-card-shadow: rgba(0, 0, 0, 0.08);
+  --tp-panel-scrollbar: #bfc2c8;
+  --tp-panel-muted: #5f5f5f;
+  --tp-panel-text: #242424;
+  --tp-panel-close-hover: #b3261e;
+  --tp-panel-rating-text: #ffffff;
+  --tp-panel-tag-code-fill: #ebebeb;
+  --tp-panel-tag-code-text: #3f3f3f;
+  --tp-panel-tag-pdf-fill: #fff2c5;
+  --tp-panel-tag-pdf-text: #6c5100;
+  --tp-panel-tag-dist-fill: #efe0ff;
+  --tp-panel-tag-dist-text: #4a1f87;
+  --tp-panel-link-fill: #eee7ff;
+  --tp-panel-link-text: #3f167a;
+  --tp-panel-link-border: #cbbaf4;
   --tp-accent: #4a1f87;
 }
 h1,
@@ -149,6 +174,18 @@ h6 {
 
 .hidden {
   display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* scrollbars — narrow, blending with cream background */
