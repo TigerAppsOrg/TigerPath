@@ -164,6 +164,7 @@ DJANGO_VITE = {
         "dev_mode": os.getenv("DJANGO_VITE_DEV_MODE", "False").lower() in ("true", "1"),
         "dev_server_host": "localhost",
         "dev_server_port": 3000,
+        "static_url_prefix": "dist",
         "manifest_path": os.path.join(REACT_BASE_DIR, "assets", "dist", "manifest.json"),
     }
 }
