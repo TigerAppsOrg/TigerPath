@@ -42,8 +42,101 @@
   white-space: nowrap;
 }
 
+#requirements .req-course-chip:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
 #requirements .req-course-chip:hover {
   filter: brightness(0.98);
+}
+
+#requirements .req-course-chip:disabled:hover {
+  filter: none;
+}
+
+#requirements .req-course-chip-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#requirements .external-credit-chip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #f2ffc7 65%, var(--tp-requirement-fill-end) 100%);
+  color: var(--tp-requirement-text);
+  border: 2px dashed #9eb866;
+}
+
+#requirements .external-credit-badge {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--tp-requirement-text);
+  border: 1px solid #7f9f3d;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#requirements .external-credit-remove {
+  color: var(--tp-requirement-text);
+  opacity: 0.72;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#requirements .external-credit-remove:hover,
+#requirements .external-credit-remove:focus {
+  opacity: 1;
+}
+
+#requirements .external-credit-inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  background: #ffffff;
+  border: 2px dashed #cfcfcf;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+#requirements .external-credit-inline-form input {
+  min-width: 0;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#requirements .external-credit-inline-form button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+#requirements .external-credit-inline-form button:disabled {
+  background: #cfcfcf;
+  cursor: not-allowed;
+}
+
+#requirements .external-credit-inline-form .external-credit-cancel {
+  background: #eeeeee;
+  color: #333333;
 }
 
 /* styles all levels */
@@ -161,6 +254,45 @@
 }
 
 .fa-search {
+  padding-right: 5px;
+}
+
+.req-popover-action {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.searchByReq {
+  background: #eef5ff;
+  border: 1px solid #7da0ce;
+  color: #21476f;
+}
+
+.searchByReq:hover,
+.searchByReq:focus {
+  background: #dcecff;
+  border-color: #5f88ba;
+  color: #14365c;
+}
+
+.addExternalCreditByReq {
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 60%, var(--tp-requirement-fill-end) 100%);
+  border: 1px solid #9eb866;
+  color: var(--tp-requirement-text);
+}
+
+.addExternalCreditByReq:hover,
+.addExternalCreditByReq:focus {
+  filter: brightness(0.98);
+  border-color: #7f9f3d;
+  color: var(--tp-requirement-text);
+}
+
+.addExternalCreditByReq .fa-plus-circle {
   padding-right: 5px;
 }
 

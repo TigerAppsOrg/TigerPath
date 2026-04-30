@@ -5,7 +5,7 @@ import CourseDetailPanel from 'components/CourseDetailPanel';
 const SEARCH_DEBOUNCE_MS = 50;
 const MIN_QUERY_LENGTH = 3;
 
-export default function Search({ onChange, searchQuery, searchResults }) {
+export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage }) {
   const [loading, setLoading] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -142,6 +142,11 @@ export default function Search({ onChange, searchQuery, searchResults }) {
           <i id="spinner" className="fas fa-circle-notch fa-spin" style={{ display: 'inline-block' }}></i>
         )}
       </div>
+      {duplicateCourseMessage && (
+        <div className="duplicate-course-message" role="status">
+          {duplicateCourseMessage}
+        </div>
+      )}
       <div id="display-courses">
         {renderSearchResults()}
       </div>

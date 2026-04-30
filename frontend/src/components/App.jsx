@@ -13,6 +13,13 @@ import {
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 
 const RADIX = 10;
+const DUPLICATE_COURSE_MESSAGE_MS = 2500;
+
+function isCourseAlreadyScheduled(schedule, courseId) {
+  return (schedule || [])
+    .flat()
+    .some((course) => !course?.external && course.id === courseId);
+}
 
 export default function App() {
   const [profile, setProfile] = useState(null);
@@ -22,6 +29,7 @@ export default function App() {
   const [requirements, setRequirements] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [duplicateCourseMessage, setDuplicateCourseMessage] = useState('');
   const [planEditorOptions, setPlanEditorOptions] = useState({
     majorOptions: [],
     minorOptions: [],
@@ -223,6 +231,14 @@ export default function App() {
     }
   }, [schedule, updateScheduleAndGetRequirements]);
 
+  useEffect(() => {
+    if (!duplicateCourseMessage) return undefined;
+    const timeoutId = setTimeout(() => {
+      setDuplicateCourseMessage('');
+    }, DUPLICATE_COURSE_MESSAGE_MS);
+    return () => clearTimeout(timeoutId);
+  }, [duplicateCourseMessage]);
+
   const onChange = useCallback((name, value) => {
     switch (name) {
       case 'profile':
@@ -260,6 +276,11 @@ export default function App() {
 
       if (result.source.droppableId.includes('search-result-droppable')) {
         let searchResultsCourse = currentSearchResults[sourceCourseIndex];
+        if (isCourseAlreadyScheduled(currentSchedule, searchResultsCourse['id'])) {
+          setDuplicateCourseMessage(`${searchResultsCourse['name']} is already in your schedule.`);
+          return;
+        }
+
         let course = {};
         course['id'] = searchResultsCourse['id'];
         course['name'] = searchResultsCourse['name'];
@@ -325,6 +346,7 @@ export default function App() {
               onChange={onChange}
               searchQuery={searchQuery}
               searchResults={searchResults}
+              duplicateCourseMessage={duplicateCourseMessage}
             />
           </div>
           <div id="main-view-pane" className="col-lg-8 p-0">

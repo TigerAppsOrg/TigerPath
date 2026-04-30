@@ -286,6 +286,8 @@ def _format_req_output(req):
             output["req_list"] = req_list
     if "settled" in req:
         output["settled"] = req["settled"]
+    if "settled_details" in req:
+        output["settled_details"] = req["settled_details"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
     return output
@@ -308,6 +310,7 @@ def _add_course_lists_to_req(req, courses):
         include_course_lists = True
     if include_course_lists:
         req["settled"] = []
+        req["settled_details"] = []
         req["unsettled"] = []
         for sem in courses:
             for course in sem:
@@ -316,17 +319,28 @@ def _add_course_lists_to_req(req, courses):
                         for path in course["reqs_double_counted"]:
                             if path.startswith(req["path_to"]):
                                 req["settled"].append(course["name"])
+                                req["settled_details"].append(_format_course_list_item(course))
                                 ## add to reqs_satisfied because couldn't be added in _assign_settled_courses_to_reqs()
                                 course["reqs_satisfied"].append(req["path_to"])
                 elif len(course["settled"]) > 0:
                     for path in course["settled"]:
                         if path.startswith(req["path_to"]):
                             req["settled"].append(course["name"])
+                            req["settled_details"].append(_format_course_list_item(course))
                 else:
                     for path in course["possible_reqs"]:
                         if path.startswith(req["path_to"]):
                             req["unsettled"].append(course["name"])
                             break
+
+
+def _format_course_list_item(course):
+    item = collections.OrderedDict()
+    item["name"] = course["name"]
+    item["external"] = bool(course.get("external"))
+    if course.get("id") is not None:
+        item["id"] = course["id"]
+    return item
 
 
 def _init_courses(courses, req, year):
@@ -680,7 +694,9 @@ def _check_degree_progress(req, courses):
     if by_semester == None or by_semester > len(courses):
         by_semester = len(courses)
     for i in range(by_semester):
-        num_courses += len(courses[i])
+        for course in courses[i]:
+            if not course.get("external"):
+                num_courses += 1
     return num_courses
 
 

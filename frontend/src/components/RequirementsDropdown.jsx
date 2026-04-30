@@ -41,16 +41,20 @@ function populateReqTree(reqTree, level, handleChange) {
         </React.Fragment>
       );
     } else {
+      const isFull =
+        Number(requirement['min_needed'] || 0) > 0 &&
+        Number(requirement['count'] || 0) >= Number(requirement['min_needed'] || 0);
       return (
         <React.Fragment key={reqName}>
           <ReqDropdownItem
             eventKey={requirement['path_to']}
             leftPadding={leftPadding}
+            disabled={isFull}
             onSelect={(e) =>
               handleChange('selectedRequirement', reqName, e)
             }
           >
-            {reqName}
+            {reqName}{isFull ? ' (fulfilled)' : ''}
           </ReqDropdownItem>
         </React.Fragment>
       );

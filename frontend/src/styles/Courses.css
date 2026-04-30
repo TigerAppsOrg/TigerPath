@@ -54,6 +54,18 @@
   font-weight: 500;
 }
 
+.duplicate-course-message {
+  margin: 0 12px 12px 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #c99a36;
+  background: #fff4d7;
+  color: #5a3900;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
 /* ── Search result cards (left pane) ──────────────────────────── */
 .search-card {
   font-size: 12px;
