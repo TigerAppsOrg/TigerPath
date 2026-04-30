@@ -27,8 +27,15 @@ const PlanTabs = styled.div`
   padding: 6px 10px;
 `;
 
-const PlanTab = styled.button`
+const PlanTabItem = styled.div`
+  position: relative;
   flex: 1;
+  min-width: 0;
+  display: flex;
+`;
+
+const PlanTab = styled.button`
+  width: 100%;
   min-width: 0;
   display: inline-flex;
   align-items: center;
@@ -39,7 +46,7 @@ const PlanTab = styled.button`
   background: ${({ $active }) => ($active ? 'var(--tp-active-plan-fill)' : 'transparent')};
   color: #181818;
   border-radius: 999px;
-  padding: 6px 16px;
+  padding: 6px 38px 6px 16px;
   min-height: 34px;
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? 600 : 500)};
@@ -71,6 +78,7 @@ const EditButton = styled.button`
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
 
   &:hover {
     color: #111111;
@@ -664,15 +672,16 @@ export default function PlanHeader({
           const isActive = plan.id === activePlanId;
           return (
             <React.Fragment key={plan.id}>
-              {/* Click the pill to switch active plan context for schedule + requirements. */}
-              <PlanTab
-                type="button"
-                $active={isActive}
-                onClick={() => onSetActivePlan(plan.id)}
-              >
-                <TabLabel>{plan.name}</TabLabel>
+              <PlanTabItem>
+                {/* Click the pill to switch active plan context for schedule + requirements. */}
+                <PlanTab
+                  type="button"
+                  $active={isActive}
+                  onClick={() => onSetActivePlan(plan.id)}
+                >
+                  <TabLabel>{plan.name}</TabLabel>
+                </PlanTab>
                 {isActive && (
-                  // Edit icon opens the in-place workflow panel.
                   <EditButton
                     ref={editButtonRef}
                     type="button"
@@ -692,7 +701,7 @@ export default function PlanHeader({
                     <i className="fas fa-pencil-alt" aria-hidden="true" />
                   </EditButton>
                 )}
-              </PlanTab>
+              </PlanTabItem>
               {index < plans.length - 1 && <Divider>|</Divider>}
             </React.Fragment>
           );
