@@ -131,6 +131,10 @@ h6 {
   align-items: stretch;
 }
 
+#mobile-pane-tabs {
+  display: none;
+}
+
 #app > [class*='col-'] {
   width: auto;
   max-width: none;
@@ -320,10 +324,64 @@ div#banner-content {
   text-align: center;
 }
 
-/* Show banner on medium devices (less than 992px) */
+@media (min-width: 992px) and (max-width: 1279.98px) {
+  #app {
+    grid-template-columns: minmax(560px, 1fr) minmax(280px, 0.46fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "main search"
+      "main requirements";
+    height: calc(100vh - 78px);
+  }
+
+  #search-pane {
+    grid-area: search;
+    border-right: none;
+    border-left: 1px solid #e6e6e6;
+    padding-left: 14px;
+  }
+
+  #main-view-pane {
+    grid-area: main;
+  }
+
+  #app .requirements-pane {
+    grid-area: requirements;
+    padding-top: 8px;
+    padding-left: 14px;
+    border-left: 1px solid #e6e6e6;
+  }
+}
+
 @media (max-width: 991.98px) {
+  body {
+    overflow: auto;
+  }
+
   div#banner {
-    display: block;
+    display: none;
+  }
+
+  .navbar {
+    min-height: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .navbar .container {
+    align-items: flex-start;
+    gap: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .navbar-brand {
+    font-size: 28px;
+  }
+
+  .nav-btn {
+    min-height: 44px;
+    padding: 8px 10px;
   }
 
   #app {
@@ -347,6 +405,65 @@ div#banner-content {
 
   #app .requirements-pane {
     padding-top: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #mobile-pane-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 12px 6px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  #mobile-pane-tabs button {
+    border: 1px solid #d8d8d8;
+    border-radius: 999px;
+    min-height: 44px;
+    background: #ffffff;
+    color: #171717;
+    font-weight: 800;
+  }
+
+  #mobile-pane-tabs button.active {
+    background: var(--tp-active-plan-fill);
+    border-color: var(--tp-active-plan-border);
+    color: var(--tp-accent);
+  }
+
+  #app {
+    display: block;
+    min-height: calc(100dvh - 150px);
+    padding: 10px 12px 20px;
+  }
+
+  #app .mobile-pane {
+    display: none;
+  }
+
+  #app .mobile-pane.mobile-pane-active {
+    display: flex;
+  }
+
+  #search-pane,
+  #main-view-pane,
+  #app .requirements-pane {
+    width: 100%;
+    min-height: calc(100dvh - 176px);
+    padding: 8px 0 0;
+    border: none;
+  }
+
+  #display-courses {
+    height: auto;
+    max-height: none;
+    overflow: visible;
     padding-right: 0;
   }
 }

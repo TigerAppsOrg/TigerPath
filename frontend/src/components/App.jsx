@@ -32,6 +32,7 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [duplicateCourseMessage, setDuplicateCourseMessage] = useState('');
   const [selectedDetailCourse, setSelectedDetailCourse] = useState(null);
+  const [mobilePane, setMobilePane] = useState('schedule');
   const [planEditorOptions, setPlanEditorOptions] = useState({
     majorOptions: [],
     minorOptions: [],
@@ -362,9 +363,35 @@ export default function App() {
           </a>
           .
         </p>
+        <div id="mobile-pane-tabs" className="dont-print" aria-label="Planner sections">
+          <button
+            type="button"
+            className={mobilePane === 'schedule' ? 'active' : ''}
+            onClick={() => setMobilePane('schedule')}
+          >
+            Plan
+          </button>
+          <button
+            type="button"
+            className={mobilePane === 'search' ? 'active' : ''}
+            onClick={() => setMobilePane('search')}
+          >
+            Search
+          </button>
+          <button
+            type="button"
+            className={mobilePane === 'requirements' ? 'active' : ''}
+            onClick={() => setMobilePane('requirements')}
+          >
+            Reqs
+          </button>
+        </div>
         {/* Single-page layout: search (left), schedule + plan bar (center), requirements (right). */}
         <DragDropContext onDragEnd={onDragEnd}>
-          <div id="search-pane" className="col-lg-2 p-0 dont-print">
+          <div
+            id="search-pane"
+            className={`col-lg-2 p-0 dont-print mobile-pane ${mobilePane === 'search' ? 'mobile-pane-active' : ''}`}
+          >
             <Search
               onChange={onChange}
               searchQuery={searchQuery}
@@ -372,7 +399,10 @@ export default function App() {
               duplicateCourseMessage={duplicateCourseMessage}
             />
           </div>
-          <div id="main-view-pane" className="col-lg-8 p-0">
+          <div
+            id="main-view-pane"
+            className={`col-lg-8 p-0 mobile-pane ${mobilePane === 'schedule' ? 'mobile-pane-active' : ''}`}
+          >
             <MainView
               onChange={onChange}
               profile={profile}
@@ -389,7 +419,7 @@ export default function App() {
             />
           </div>
         </DragDropContext>
-        <div className="col-lg-2 px-0 break dont-print requirements-pane">
+        <div className={`col-lg-2 px-0 break dont-print requirements-pane mobile-pane ${mobilePane === 'requirements' ? 'mobile-pane-active' : ''}`}>
           <Requirements
             onChange={onChange}
             requirements={requirements}

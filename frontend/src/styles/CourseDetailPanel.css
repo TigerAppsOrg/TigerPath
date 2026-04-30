@@ -33,6 +33,40 @@
   color: #666;
   z-index: 1;
 }
+
+@media (max-width: 767.98px) {
+  .course-detail-panel {
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: min(86dvh, 720px);
+    border-left: none;
+    border-radius: 18px 18px 0 0;
+    transform: translateY(100%);
+  }
+
+  .course-detail-panel.open {
+    transform: translateY(0);
+  }
+
+  .panel-collapse-btn {
+    top: 12px;
+    right: 12px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 24px;
+  }
+
+  .panel-header {
+    padding: 64px 64px 14px 18px;
+  }
+
+  .panel-body {
+    padding-bottom: 24px;
+  }
+}
 .panel-collapse-btn:hover {
   color: #e74c3c;
 }

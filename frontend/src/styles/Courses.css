@@ -112,6 +112,8 @@
   color: inherit;
   opacity: 0.45;
   transition: color 0.15s ease, opacity 0.15s ease;
+  min-width: 32px;
+  min-height: 32px;
 }
 
 .search-card-info-btn:hover,
