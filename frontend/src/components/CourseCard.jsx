@@ -43,12 +43,18 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             style={getDragStyle(provided.draggableProps.style, snapshot)}
+            aria-label={`${course['name']} in schedule`}
           >
             <div className="course-name">{course['name']}</div>
-            <i
-              className="fas fa-times-circle delete-course"
+            <button
+              type="button"
+              className="delete-course"
+              aria-label={`Remove ${course['name']}`}
+              title={`Remove ${course['name']}`}
               onClick={removeCourse}
-            />
+            >
+              <i className="fas fa-times-circle" aria-hidden="true" />
+            </button>
           </div>
         )}
       </Draggable>

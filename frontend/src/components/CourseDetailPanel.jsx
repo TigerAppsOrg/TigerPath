@@ -45,17 +45,28 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
 
   useEffect(() => {
     if (!course) return;
+    const controller = new AbortController();
     setLoading(true);
     setDetails(null);
-    fetch(`/api/v1/get_course_details/${encodeURIComponent(course.id)}/`, {
+    const courseId = course.id;
+    fetch(`/api/v1/get_course_details/${encodeURIComponent(courseId)}/`, {
       credentials: 'same-origin',
+      signal: controller.signal,
     })
       .then((res) => res.json())
       .then((data) => {
-        setDetails(data);
-        setLoading(false);
+        if (!controller.signal.aborted) {
+          setDetails(data);
+          setLoading(false);
+        }
       })
-      .catch(() => setLoading(false));
+      .catch((error) => {
+        if (error.name !== 'AbortError') {
+          setLoading(false);
+        }
+      });
+
+    return () => controller.abort();
   }, [course]);
 
   const courseLink =
@@ -70,12 +81,24 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
     (details.offerings?.length > 0 || details.comments?.length > 0);
 
   return (
-    <div className={`course-detail-panel${isOpen ? ' open' : ''}`}>
-      <button className="panel-collapse-btn" onClick={onClose} title="Close panel">
-        <i className="fas fa-times-circle" />
-      </button>
+    <aside
+      className={`course-detail-panel${isOpen ? ' open' : ''}`}
+      aria-hidden={!isOpen}
+      aria-label={course ? `${course.name} course details` : 'Course details'}
+    >
+      {isOpen && (
+        <button
+          type="button"
+          className="panel-collapse-btn"
+          onClick={onClose}
+          aria-label="Close course details"
+          title="Close panel"
+        >
+          <i className="fas fa-times-circle" aria-hidden="true" />
+        </button>
+      )}
 
-      {course && (
+      {isOpen && course && (
         <>
           <div className="panel-header">
             <h3 className="panel-title">{course.title}</h3>
@@ -186,6 +209,6 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
           )}
         </>
       )}
-    </div>
+    </aside>
   );
 }

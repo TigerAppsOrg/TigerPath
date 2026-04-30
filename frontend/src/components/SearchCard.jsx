@@ -66,7 +66,16 @@ function getRatingColor(rating) {
 // }
 
 export default function SearchCard({ course, courseKey, index: courseIndex, onSelect, isSelected, qualityRating = null }) {
-  const ratingLabel = qualityRating != null ? qualityRating.toFixed(2) : null;
+  const handleSelect = () => {
+    if (onSelect) onSelect(course);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleSelect();
+    }
+  };
 
   return (
     <Droppable
@@ -80,7 +89,11 @@ export default function SearchCard({ course, courseKey, index: courseIndex, onSe
               <div
                 ref={draggableProvided.innerRef}
                 className={`search-card ${course['semester']}${isSelected ? ' selected' : ''}${snapshot.isDragging ? ' dragging' : ''}`}
-                onClick={() => onSelect && onSelect(course)}
+                onClick={handleSelect}
+                onKeyDown={handleKeyDown}
+                role="button"
+                aria-pressed={isSelected}
+                aria-label={`View details for ${course['name']}: ${course['title']}`}
                 style={{
                   cursor: snapshot.isDragging ? 'grabbing' : 'grab',
                   ...draggableProvided.draggableProps.style,
@@ -97,7 +110,8 @@ export default function SearchCard({ course, courseKey, index: courseIndex, onSe
                     <button
                       className="search-card-info-btn"
                       title="View course details"
-                      onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
+                      aria-label={`View details for ${course['name']}`}
+                      onClick={(e) => { e.stopPropagation(); handleSelect(); }}
                       style={{
                         background: 'none',
                         border: 'none',

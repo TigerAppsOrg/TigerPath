@@ -34,6 +34,7 @@ export default function App() {
     majorOptions: [],
     minorOptions: [],
   });
+  const requirementsRequestRef = React.useRef(0);
 
   const handleRequirementData = useCallback((data) => {
     if (data) {
@@ -189,6 +190,8 @@ export default function App() {
 
   const updateScheduleAndGetRequirements = useCallback(
     (currentSchedule) => {
+      const requestId = requirementsRequestRef.current + 1;
+      requirementsRequestRef.current = requestId;
       let strippedSchedule = [];
       for (let semIndex = 0; semIndex < currentSchedule.length; semIndex++) {
         strippedSchedule.push([]);
@@ -205,10 +208,16 @@ export default function App() {
       apiPost('/api/v1/update_schedule_and_get_requirements/', {
         schedule: JSON.stringify(strippedSchedule),
       })
-        .then(handleRequirementData)
+        .then((data) => {
+          if (requestId === requirementsRequestRef.current) {
+            handleRequirementData(data);
+          }
+        })
         .catch((error) => {
-          console.error('[requirements] update failed', error);
-          fetchRequirements();
+          if (requestId === requirementsRequestRef.current) {
+            console.error('[requirements] update failed', error);
+            fetchRequirements();
+          }
         });
     },
     [fetchRequirements, handleRequirementData]

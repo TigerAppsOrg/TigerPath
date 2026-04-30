@@ -311,7 +311,8 @@
 }
 
 /* add delete button on course hover in semesters */
-.course-card:hover .delete-course {
+.course-card:hover .delete-course,
+.course-card:focus-within .delete-course {
   display: inline-block;
 }
 
@@ -322,11 +323,22 @@
   margin-left: 8px;
   color: var(--tp-accent);
   font-size: 18px;
+  border: 0;
+  background: transparent;
+  padding: 4px;
+  line-height: 1;
 }
 
-.delete-course:hover {
+.delete-course:hover,
+.delete-course:focus-visible {
   color: #c0392b;
   cursor: pointer;
+}
+
+.delete-course:focus-visible {
+  outline: 2px solid var(--tp-accent);
+  outline-offset: 2px;
+  border-radius: 999px;
 }
 
 .popover-warning {

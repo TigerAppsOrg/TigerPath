@@ -466,6 +466,7 @@ export default function PlanHeader({
   const minorWrapperRef = useRef(null);
   const titleInputRef = useRef(null);
   const lockIconRef = useRef(null);
+  const editButtonRef = useRef(null);
 
   useEffect(() => {
     if (!activePlan) {
@@ -494,6 +495,54 @@ export default function PlanHeader({
     document.addEventListener('mousedown', handlePointerDown);
     return () => document.removeEventListener('mousedown', handlePointerDown);
   }, [isEditing, isMinorMenuOpen]);
+
+  useEffect(() => {
+    if (!isEditing) return undefined;
+
+    const previousActiveElement = document.activeElement;
+    window.setTimeout(() => titleInputRef.current?.focus(), 0);
+
+    const getFocusableElements = () => {
+      if (!panelRef.current) return [];
+      return Array.from(
+        panelRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.offsetParent !== null);
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeEditPanel();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusableElements = getFocusableElements();
+      if (focusableElements.length === 0) return;
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      if (previousActiveElement instanceof HTMLElement) {
+        previousActiveElement.focus();
+      } else {
+        editButtonRef.current?.focus();
+      }
+    };
+  }, [isEditing]);
 
   useEffect(() => {
     if (!atPlanLimit || !lockIconRef.current || !window.bootstrap?.Tooltip) {
@@ -625,6 +674,7 @@ export default function PlanHeader({
                 {isActive && (
                   // Edit icon opens the in-place workflow panel.
                   <EditButton
+                    ref={editButtonRef}
                     type="button"
                     aria-label="Open plan editor"
                     onClick={(event) => {
@@ -668,12 +718,18 @@ export default function PlanHeader({
       </PlanTabs>
       {isEditing && <PanelBackdrop onClick={closeEditPanel} />}
       {isEditing && activePlan && (
-        <EditPanel ref={panelRef}>
+        <EditPanel
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plan-editor-title"
+          >
           <PanelSection>
             {/* Large editable title row mirrors the Figma modal header treatment. */}
             <PathTitleRow>
               <PathTitleInput
                 ref={titleInputRef}
+                  id="plan-editor-title"
                 aria-label="Path title"
                 placeholder="Path Title"
                 value={draftName}

@@ -123,6 +123,9 @@ export default function Search({ onChange, searchQuery, searchResults, duplicate
       />
       <div id="search-courses">
         <div className="search-input-shell">
+          <label className="visually-hidden" htmlFor="search-text">
+            Search courses
+          </label>
           <i className="fas fa-search search-input-icon" aria-hidden="true" />
           <input
             type="text"

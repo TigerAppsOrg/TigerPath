@@ -65,8 +65,24 @@ export function bindManualHoverPopover(
     popoverInstance.show();
   }
 
+  function onTriggerFocus() {
+    clearHideTimeout();
+    popoverInstance.show();
+  }
+
   function onTriggerMouseLeave(event) {
     scheduleHide(event.relatedTarget);
+  }
+
+  function onTriggerBlur(event) {
+    scheduleHide(event.relatedTarget);
+  }
+
+  function onTriggerKeyDown(event) {
+    if (event.key === 'Escape') {
+      clearHideTimeout();
+      popoverInstance.hide();
+    }
   }
 
   function onPopoverShown() {
@@ -102,6 +118,9 @@ export function bindManualHoverPopover(
 
   triggerElement.addEventListener('mouseenter', onTriggerMouseEnter);
   triggerElement.addEventListener('mouseleave', onTriggerMouseLeave);
+  triggerElement.addEventListener('focus', onTriggerFocus);
+  triggerElement.addEventListener('blur', onTriggerBlur);
+  triggerElement.addEventListener('keydown', onTriggerKeyDown);
   triggerElement.addEventListener('shown.bs.popover', onPopoverShown);
   triggerElement.addEventListener('hidden.bs.popover', onPopoverHidden);
 
@@ -109,6 +128,9 @@ export function bindManualHoverPopover(
     clearHideTimeout();
     triggerElement.removeEventListener('mouseenter', onTriggerMouseEnter);
     triggerElement.removeEventListener('mouseleave', onTriggerMouseLeave);
+    triggerElement.removeEventListener('focus', onTriggerFocus);
+    triggerElement.removeEventListener('blur', onTriggerBlur);
+    triggerElement.removeEventListener('keydown', onTriggerKeyDown);
     triggerElement.removeEventListener('shown.bs.popover', onPopoverShown);
     triggerElement.removeEventListener('hidden.bs.popover', onPopoverHidden);
     detachPopoverListeners();
