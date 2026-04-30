@@ -144,6 +144,9 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
           course.semester_list[course.semester_list.length - 1]
         )}${course.id}`
       : null;
+  const titleId = course
+    ? `course-detail-title-${String(course.id).replace(/[^a-zA-Z0-9_-]/g, '-')}`
+    : undefined;
 
   const hasEvalData =
     details &&
@@ -166,7 +169,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
         role={isOpen ? 'dialog' : undefined}
         aria-modal={isOpen ? 'true' : undefined}
         aria-hidden={!isOpen}
-        aria-labelledby={isOpen && course ? 'course-detail-title' : undefined}
+        aria-labelledby={isOpen && course ? titleId : undefined}
         aria-label={isOpen && !course ? 'Course details' : undefined}
         tabIndex={isOpen ? -1 : undefined}
       >
@@ -186,7 +189,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
       {isOpen && course && (
         <>
           <div className="panel-header">
-            <h3 id="course-detail-title" className="panel-title">{course.title}</h3>
+            <h3 id={titleId} className="panel-title">{course.title}</h3>
           </div>
 
           <div className="panel-tags">

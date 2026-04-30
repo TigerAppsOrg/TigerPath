@@ -71,7 +71,7 @@ const SemColDivider = styled.div`
   opacity: 0.9;
 `;
 
-export default function Schedule({ onChange, profile, schedule }) {
+export default function Schedule({ onChange, profile, schedule, onCourseSelect }) {
   const hasLoadedProfile = profile !== null;
   const shouldShowMissingYearNotice = hasLoadedProfile && !profile?.classYear;
 
@@ -134,11 +134,21 @@ export default function Schedule({ onChange, profile, schedule }) {
           >
             <YearTitle>{year.label}</YearTitle>
             <SemPair>
-              <Semester onChange={onChange} schedule={schedule} semesterIndex={year.fall}>
+              <Semester
+                onChange={onChange}
+                schedule={schedule}
+                semesterIndex={year.fall}
+                onCourseSelect={onCourseSelect}
+              >
                 Fall
               </Semester>
               <SemColDivider />
-              <Semester onChange={onChange} schedule={schedule} semesterIndex={year.spring}>
+              <Semester
+                onChange={onChange}
+                schedule={schedule}
+                semesterIndex={year.spring}
+                onCourseSelect={onCourseSelect}
+              >
                 Spring
               </Semester>
             </SemPair>

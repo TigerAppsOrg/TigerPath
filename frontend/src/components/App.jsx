@@ -3,6 +3,7 @@ import { apiFetch, apiPost } from 'utils/api';
 import Search from 'components/Search';
 import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
+import CourseDetailPanel from 'components/CourseDetailPanel';
 import { DragDropContext } from '@hello-pangea/dnd';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -30,6 +31,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [duplicateCourseMessage, setDuplicateCourseMessage] = useState('');
+  const [selectedDetailCourse, setSelectedDetailCourse] = useState(null);
   const [planEditorOptions, setPlanEditorOptions] = useState({
     majorOptions: [],
     minorOptions: [],
@@ -248,6 +250,18 @@ export default function App() {
     return () => clearTimeout(timeoutId);
   }, [duplicateCourseMessage]);
 
+  useEffect(() => {
+    const openCourseDetail = (event) => {
+      if (event.detail?.course) {
+        setSelectedDetailCourse(event.detail.course);
+      }
+    };
+    window.addEventListener('tigerpath:open-course-detail', openCourseDetail);
+    return () => {
+      window.removeEventListener('tigerpath:open-course-detail', openCourseDetail);
+    };
+  }, []);
+
   const onChange = useCallback((name, value) => {
     switch (name) {
       case 'profile':
@@ -363,6 +377,7 @@ export default function App() {
               onChange={onChange}
               profile={profile}
               schedule={schedule}
+              onCourseSelect={setSelectedDetailCourse}
               plans={plans}
               activePlanId={activePlanId}
               onSetActivePlan={setActivePlan}
@@ -382,6 +397,11 @@ export default function App() {
             activePlanId={activePlanId}
           />
         </div>
+        <CourseDetailPanel
+          course={selectedDetailCourse}
+          isOpen={selectedDetailCourse !== null}
+          onClose={() => setSelectedDetailCourse(null)}
+        />
       </>
     </ThemeProvider>
   );

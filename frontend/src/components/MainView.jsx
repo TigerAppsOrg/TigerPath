@@ -18,6 +18,7 @@ export default function MainView({
   onChange,
   profile,
   schedule,
+  onCourseSelect,
   plans,
   activePlanId,
   onSetActivePlan,
@@ -47,6 +48,7 @@ export default function MainView({
           onChange={onChange}
           profile={profile}
           schedule={schedule}
+          onCourseSelect={onCourseSelect}
         />
       </Content>
     </>

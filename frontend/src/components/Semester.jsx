@@ -92,7 +92,14 @@ const SemesterBody = styled.div`
   }};
 `;
 
-export default function Semester({ onChange, schedule, semesterIndex, className, children }) {
+export default function Semester({
+  onChange,
+  schedule,
+  semesterIndex,
+  className,
+  onCourseSelect,
+  children,
+}) {
   const semesterType = useMemo(
     () => getSemesterType(semesterIndex),
     [semesterIndex]
@@ -118,6 +125,7 @@ export default function Semester({ onChange, schedule, semesterIndex, className,
               course={course}
               courseKey={courseKey}
               onCourseRemove={removeCourse}
+              onCourseSelect={onCourseSelect}
               semIndex={semIndex}
               courseIndex={courseIndex}
             />
