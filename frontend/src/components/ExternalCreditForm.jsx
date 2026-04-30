@@ -39,6 +39,24 @@ const FORM_STATE = Object.freeze({
   SUCCESS: Symbol('formSuccess'),
 });
 
+function findRequirementByPath(requirements, pathTo) {
+  for (const requirement of requirements || []) {
+    if (!requirement || typeof requirement !== 'object') continue;
+    const found = findRequirementInTree(requirement, pathTo);
+    if (found) return found;
+  }
+  return null;
+}
+
+function findRequirementInTree(requirement, pathTo) {
+  if (requirement.path_to === pathTo) return requirement;
+  for (const child of requirement.req_list || []) {
+    const found = findRequirementInTree(child, pathTo);
+    if (found) return found;
+  }
+  return null;
+}
+
 export default function ExternalCreditForm({ onChange, profile, schedule, requirements, className }) {
   const [name, setName] = useState(DEFAULT_NAME);
   const [selectedSemester, setSelectedSemester] = useState(null);
@@ -63,10 +81,20 @@ export default function ExternalCreditForm({ onChange, profile, schedule, requir
   const handleSubmit = (event) => {
     const form = event.currentTarget;
 
+    const targetRequirement = findRequirementByPath(
+      requirements,
+      selectedRequirement?.value
+    );
+    const hasRemainingRequirementSpace =
+      targetRequirement &&
+      Number(targetRequirement.min_needed || 0) > 0 &&
+      Number(targetRequirement.count || 0) < Number(targetRequirement.min_needed || 0);
+
     if (
       form.checkValidity() === false ||
       !selectedSemester ||
-      !selectedRequirement
+      !selectedRequirement ||
+      !hasRemainingRequirementSpace
     ) {
       setFormState(FORM_STATE.FAILURE);
       event.preventDefault();
@@ -126,7 +154,7 @@ export default function ExternalCreditForm({ onChange, profile, schedule, requir
             onClose={() => setFormState(FORM_STATE.NOT_SUBMITTED)}
             dismissible={true}
           >
-            Please fill out all of the fields.
+            Please fill out all of the fields and choose a requirement that still needs credit.
           </Alert>
 
           <Form onSubmit={handleSubmit}>

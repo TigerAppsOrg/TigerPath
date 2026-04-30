@@ -2,8 +2,10 @@ import React, { useEffect, useCallback, useRef, useState, useMemo } from 'react'
 import styled from 'styled-components';
 import { apiFetch } from 'utils/api';
 import { bindManualHoverPopover } from 'utils/manualHoverPopover';
+import { DEFAULT_SCHEDULE, EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 import 'react-treeview/react-treeview.css';
 import TreeView from 'react-treeview/lib/react-treeview.js';
+import { v1 as uuidv1 } from 'uuid';
 
 const REQUIREMENTS_POPOVER_CLEANUP_KEY = '__tigerpathReqPopoverCleanup';
 const HEADER_POPOVER_CLEANUP_KEY = '__tigerpathHeaderPopoverCleanup';
@@ -88,12 +90,23 @@ function getParentRequirementPath(path) {
 }
 
 function normalizeCourseName(courseName) {
-  return String(courseName || '')
+  const name = typeof courseName === 'object' && courseName !== null ? courseName.name : courseName;
+  return String(name || '')
     .split('/')
     .map((part) => part.replace(/\s+/g, '').toUpperCase())
     .filter(Boolean)
     .sort()
     .join('/');
+}
+
+function getCourseListItemName(course) {
+  if (typeof course === 'object' && course !== null) return course.name || '';
+  return String(course || '');
+}
+
+function getSettledItems(requirement) {
+  if (Array.isArray(requirement?.settled_details)) return requirement.settled_details;
+  return (requirement?.settled || []).map((name) => ({ name, external: false }));
 }
 
 function collectDegreeProgressMilestones(requirementsList) {
@@ -357,6 +370,8 @@ export default function Requirements({ onChange, requirements, schedule, activeP
   const containerRef = useRef(null);
   const [topTab, setTopTab] = useState('major'); // 'major' | 'degree' | 'grad'
   const [selectedMinorIndex, setSelectedMinorIndex] = useState(0);
+  const [externalCreditDrafts, setExternalCreditDrafts] = useState({});
+  const [openExternalCreditPath, setOpenExternalCreditPath] = useState(null);
 
   // Partition requirements into the top card (major + degree) and the bottom card (minors).
   //
@@ -555,6 +570,12 @@ export default function Requirements({ onChange, requirements, schedule, activeP
               popoverInstance.hide();
             };
           });
+          popoverEl.querySelectorAll('.addExternalCreditByReq').forEach((btn) => {
+            btn.onclick = () => {
+              if (reqPath) setOpenExternalCreditPath(reqPath);
+              popoverInstance.hide();
+            };
+          });
         },
       });
 
@@ -674,8 +695,79 @@ export default function Requirements({ onChange, requirements, schedule, activeP
     onChange('schedule', newSchedule);
   };
 
+  const getRemainingRequirementSlots = (requirement) => {
+    const minNeeded = Number(requirement?.min_needed || 0);
+    if (minNeeded <= 0) return 0;
+    const pathTo = requirement?.path_to;
+    const renderedExternalCount = getSettledItems(requirement).filter((course) =>
+      Boolean(course?.external)
+    ).length;
+    const scheduleExternalCount = (schedule || [])
+      .flat()
+      .filter(
+        (course) =>
+          course?.external &&
+          Array.isArray(course.settled) &&
+          course.settled.includes(pathTo)
+      ).length;
+    const pendingExternalCount = Math.max(0, scheduleExternalCount - renderedExternalCount);
+    const projectedCount = Number(requirement?.count || 0) + pendingExternalCount;
+    return Math.max(0, minNeeded - projectedCount);
+  };
+
+  const removeExternalCredit = (creditId, pathTo) => {
+    if (!creditId) return;
+    const newSchedule = (schedule || DEFAULT_SCHEDULE).map((semester) =>
+      (semester || [])
+        .map((course) => {
+          if (!course?.external || course.id !== creditId) return course;
+          const settled = Array.isArray(course.settled)
+            ? course.settled.filter((path) => path !== pathTo)
+            : [];
+          return { ...course, settled };
+        })
+        .filter((course) => !(course?.external && course.id === creditId && (!course.settled || course.settled.length === 0)))
+    );
+
+    onChange('schedule', newSchedule);
+  };
+
+  const addExternalCredit = (requirement) => {
+    const pathTo = requirement?.path_to;
+    const remaining = getRemainingRequirementSlots(requirement);
+    const name = (externalCreditDrafts[pathTo] || '').trim();
+    if (!pathTo || remaining <= 0 || !name) return;
+
+    const newSchedule = (schedule || DEFAULT_SCHEDULE).map((semester) => [...(semester || [])]);
+    while (newSchedule.length <= EXTERNAL_CREDITS_SEMESTER_INDEX) {
+      newSchedule.push([]);
+    }
+
+    newSchedule[EXTERNAL_CREDITS_SEMESTER_INDEX].push({
+      id: uuidv1(),
+      external: true,
+      name,
+      dist_area: null,
+      semester: 'external',
+      settled: [pathTo],
+    });
+
+    setExternalCreditDrafts((drafts) => ({ ...drafts, [pathTo]: '' }));
+    setOpenExternalCreditPath(null);
+    onChange('schedule', newSchedule);
+  };
+
   const populateReqTree = (reqTree) => {
     return reqTree['req_list'].map((requirement, index) => {
+      const isLeafRequirement = !('req_list' in requirement);
+      const remainingExternalSlots = isLeafRequirement
+        ? getRemainingRequirementSlots(requirement)
+        : 0;
+      const canAddExternalCredit =
+        isLeafRequirement && requirement['min_needed'] > 0 && remainingExternalSlots > 0;
+      const isExternalCreditFormOpen = openExternalCreditPath === requirement['path_to'];
+      const externalCreditDraft = externalCreditDrafts[requirement['path_to']] || '';
+
       let finished = '';
       if (
         (requirement['min_needed'] === 0 && requirement['count'] >= 0) ||
@@ -696,7 +788,11 @@ export default function Requirements({ onChange, requirements, schedule, activeP
       if (isOrGroup && finished !== 'req-done') tag += ' (any 1)';
 
       let popoverContent =
-        '<button type="button" class="btn btn-light btn-sm btn-block searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
+        '<button type="button" class="btn btn-sm req-popover-action searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
+      if (canAddExternalCredit) {
+        popoverContent +=
+          '<button type="button" class="btn btn-sm req-popover-action addExternalCreditByReq"><i class="fa fa-plus-circle"></i>Add External Credit</button>';
+      }
       popoverContent += '<div class="popoverContentContainer">';
       if (requirement.explanation) {
         popoverContent += '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
@@ -744,24 +840,58 @@ export default function Requirements({ onChange, requirements, schedule, activeP
       } else {
         return (
           <TreeView key={index} itemClassName={finished} nodeLabel={reqLabel}>
-            {requirement['settled'] &&
-              requirement['settled'].map((course, idx) => (
+            {getSettledItems(requirement).map((course, idx) => {
+              const courseName = getCourseListItemName(course);
+              const isExternalCredit = Boolean(course?.external);
+              return (
                 <li
                   key={idx}
-                  className="req-course-row"
+                  className={`req-course-row ${isExternalCredit ? 'req-course-row-external' : ''}`}
                 >
                   <button
                     type="button"
-                    className="req-course-chip settled"
+                    className={`req-course-chip settled ${isExternalCredit ? 'external-credit-chip' : ''}`}
                     onClick={(event) => {
                       event.stopPropagation();
-                      toggleSettle(course, requirement['path_to'], false);
                     }}
+                    disabled={!isExternalCredit}
+                    title={
+                      isExternalCredit
+                        ? 'External credit'
+                        : 'Scheduled courses cannot be removed from requirement progress here.'
+                    }
                   >
-                    {course}
+                    <span className="req-course-chip-name">{courseName}</span>
+                    {isExternalCredit && (
+                      <>
+                        <span className="external-credit-badge">External credit</span>
+                        <span
+                          role="button"
+                          tabIndex={0}
+                          className="external-credit-remove"
+                          title="Remove this external credit"
+                          aria-label={`Remove ${courseName}`}
+                          onClick={(event) => {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            removeExternalCredit(course.id, requirement['path_to']);
+                          }}
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault();
+                              event.stopPropagation();
+                              removeExternalCredit(course.id, requirement['path_to']);
+                            }
+                          }}
+                        >
+                          <i className="fas fa-times-circle" />
+                        </span>
+                      </>
+                    )}
                   </button>
                 </li>
-              ))}
+              );
+            })}
             {requirement['unsettled'] &&
               requirement['unsettled'].map((course, idx) => (
                 <li
@@ -784,6 +914,46 @@ export default function Requirements({ onChange, requirements, schedule, activeP
                   </button>
                 </li>
               ))}
+            {canAddExternalCredit && isExternalCreditFormOpen && (
+              <li className="req-course-row req-external-credit-row">
+                <form
+                  className="external-credit-inline-form"
+                  onSubmit={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    addExternalCredit(requirement);
+                  }}
+                >
+                  <input
+                    type="text"
+                    value={externalCreditDraft}
+                    placeholder="Credit name"
+                    aria-label={`External credit for ${requirement['name']}`}
+                    autoFocus
+                    onClick={(event) => event.stopPropagation()}
+                    onChange={(event) =>
+                      setExternalCreditDrafts((drafts) => ({
+                        ...drafts,
+                        [requirement['path_to']]: event.target.value,
+                      }))
+                    }
+                  />
+                  <button type="submit" disabled={!externalCreditDraft.trim()}>
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    className="external-credit-cancel"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      setOpenExternalCreditPath(null);
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </li>
+            )}
           </TreeView>
         );
       }
