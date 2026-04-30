@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { convertSemToTermCode } from 'utils/SemesterUtils';
 import 'styles/CourseDetailPanel.css';
 
@@ -16,10 +16,10 @@ const DIST_NAMES = {
   SEN: 'Science and Engineering without Lab',
 };
 
-// Interpolates a colour across the same red→orange→yellow→green scale
+// Interpolates a colour across the same red/orange/yellow/green scale
 // that PrincetonCourses uses (ratings out of 5).
 function getRatingColor(rating) {
-  if (rating == null) return '#e0e0e0';
+  if (rating == null) return 'var(--tp-panel-tag-code-fill)';
   const stops = [
     [0,   [224, 82,  82 ]],
     [2,   [224, 112, 48 ]],
@@ -42,18 +42,86 @@ function getRatingColor(rating) {
 export default function CourseDetailPanel({ course, isOpen, onClose }) {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [loadAttempt, setLoadAttempt] = useState(0);
+  const panelRef = useRef(null);
+  const closeButtonRef = useRef(null);
+  const previousFocusRef = useRef(null);
+  const onCloseRef = useRef(onClose);
 
   useEffect(() => {
-    if (!course) return;
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
+
+    previousFocusRef.current =
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+
+    const focusTimer = window.setTimeout(() => {
+      closeButtonRef.current?.focus();
+    }, 0);
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        onCloseRef.current();
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const focusable = panelRef.current?.querySelectorAll(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        const activeItems = Array.from(focusable ?? []).filter(
+          (item) => item instanceof HTMLElement && item.offsetParent !== null
+        );
+        if (activeItems.length === 0) {
+          event.preventDefault();
+          panelRef.current?.focus();
+          return;
+        }
+        const firstItem = activeItems[0];
+        const lastItem = activeItems[activeItems.length - 1];
+        if (event.shiftKey && document.activeElement === firstItem) {
+          event.preventDefault();
+          lastItem.focus();
+        } else if (!event.shiftKey && document.activeElement === lastItem) {
+          event.preventDefault();
+          firstItem.focus();
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.clearTimeout(focusTimer);
+      document.removeEventListener('keydown', handleKeyDown);
+      if (previousFocusRef.current?.isConnected) {
+        previousFocusRef.current.focus();
+      }
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!course || !isOpen) return undefined;
     const controller = new AbortController();
     setLoading(true);
     setDetails(null);
+    setError(null);
     const courseId = course.id;
     fetch(`/api/v1/get_course_details/${encodeURIComponent(courseId)}/`, {
       credentials: 'same-origin',
       signal: controller.signal,
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Course details request failed');
+        }
+        return res.json();
+      })
       .then((data) => {
         if (!controller.signal.aborted) {
           setDetails(data);
@@ -62,12 +130,13 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
       })
       .catch((error) => {
         if (error.name !== 'AbortError') {
+          setError('Unable to load course details.');
           setLoading(false);
         }
       });
 
     return () => controller.abort();
-  }, [course]);
+  }, [course, isOpen, loadAttempt]);
 
   const courseLink =
     course && course.semester_list?.length > 0
@@ -81,13 +150,29 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
     (details.offerings?.length > 0 || details.comments?.length > 0);
 
   return (
-    <aside
-      className={`course-detail-panel${isOpen ? ' open' : ''}`}
-      aria-hidden={!isOpen}
-      aria-label={course ? `${course.name} course details` : 'Course details'}
-    >
+    <>
       {isOpen && (
         <button
+          type="button"
+          className="course-detail-backdrop"
+          aria-label="Close course details"
+          tabIndex={-1}
+          onClick={onClose}
+        />
+      )}
+      <aside
+        ref={panelRef}
+        className={`course-detail-panel${isOpen ? ' open' : ''}`}
+        role={isOpen ? 'dialog' : undefined}
+        aria-modal={isOpen ? 'true' : undefined}
+        aria-hidden={!isOpen}
+        aria-labelledby={isOpen && course ? 'course-detail-title' : undefined}
+        aria-label={isOpen && !course ? 'Course details' : undefined}
+        tabIndex={isOpen ? -1 : undefined}
+      >
+      {isOpen && (
+        <button
+          ref={closeButtonRef}
           type="button"
           className="panel-collapse-btn"
           onClick={onClose}
@@ -101,7 +186,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
       {isOpen && course && (
         <>
           <div className="panel-header">
-            <h3 className="panel-title">{course.title}</h3>
+            <h3 id="course-detail-title" className="panel-title">{course.title}</h3>
           </div>
 
           <div className="panel-tags">
@@ -126,13 +211,21 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
 
           {loading && <p className="panel-loading">Loading...</p>}
 
-          {!loading && details && !hasEvalData && !details.description && (
+          {!loading && error && (
+            <div className="panel-error" role="alert">
+              <p>{error}</p>
+              <button type="button" onClick={() => setLoadAttempt((attempt) => attempt + 1)}>
+                Retry
+              </button>
+            </div>
+          )}
+
+          {!loading && !error && details && !hasEvalData && !details.description && (
             <p className="panel-no-data">No evaluation data available.</p>
           )}
 
-          {!loading && details && (
+          {!loading && !error && details && (
             <>
-              {/* ── Scrollable body ── */}
               <div className="panel-body">
                 {details.offerings?.length > 0 && (
                   <div className="panel-section">
@@ -146,15 +239,6 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
                                 <td className="offering-sem">{offering.semester}</td>
                                 <td
                                   className="offering-professors"
-                                  onScroll={(e) => {
-                                    const el = e.currentTarget;
-                                    el.classList.add('is-scrolling');
-                                    clearTimeout(el._scrollTimer);
-                                    el._scrollTimer = setTimeout(
-                                      () => el.classList.remove('is-scrolling'),
-                                      800
-                                    );
-                                  }}
                                 >
                                   {offering.professors}
                                 </td>
@@ -163,7 +247,9 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
                                     className="offering-rating"
                                     style={{
                                       background: getRatingColor(offering.rating),
-                                      color: offering.rating != null ? 'white' : '#777',
+                                      color: offering.rating != null
+                                        ? 'var(--tp-panel-rating-text)'
+                                        : 'var(--tp-panel-muted)',
                                     }}
                                   >
                                     {offering.rating != null ? offering.rating.toFixed(2) : 'N/A'}
@@ -209,6 +295,7 @@ export default function CourseDetailPanel({ course, isOpen, onClose }) {
           )}
         </>
       )}
-    </aside>
+      </aside>
+    </>
   );
 }

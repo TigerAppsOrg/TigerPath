@@ -5,7 +5,7 @@ import CourseDetailPanel from 'components/CourseDetailPanel';
 const SEARCH_DEBOUNCE_MS = 50;
 const MIN_QUERY_LENGTH = 3;
 
-export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage }) {
+export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage, onAddCourse }) {
   const [loading, setLoading] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -89,7 +89,7 @@ export default function Search({ onChange, searchQuery, searchResults, duplicate
             course={course}
             onSelect={handleCourseSelect}
             isSelected={selectedCourse?.id === course.id}
-            qualityRating={course.quality_rating ?? null}
+            onAddCourse={onAddCourse}
           />
         );
       });
