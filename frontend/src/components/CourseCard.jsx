@@ -20,6 +20,14 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
     return classNames.join(' ');
   };
 
+  const getDragStyle = (style, snapshot) => {
+    if (!snapshot.isDropAnimating) return style;
+    return {
+      ...style,
+      transitionDuration: '0.08s',
+    };
+  };
+
   return (
     <div className="unbreakable">
       <Draggable
@@ -31,10 +39,10 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
           <div
             ref={provided.innerRef}
             id={courseKey}
-            title={course['name']}
             className={getClassNames(snapshot.isDragging)}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            style={getDragStyle(provided.draggableProps.style, snapshot)}
           >
             <div className="course-name">{course['name']}</div>
             <i

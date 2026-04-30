@@ -1,0 +1,58 @@
+type: Certificate
+name: Gender and Sexuality Studies
+code: GSS
+urls:
+  - https://ua.princeton.edu/fields-study/minors/gender-and-sexuality-studies
+contacts:
+  - type: Director
+    name: Wallace D. Best
+    email: wbest@princeton.edu
+description: >-
+  The Program in Gender and Sexuality Studies is an interdisciplinary forum for
+  the study of gender and sexuality, as well as their intersections with race,
+  class, ethnicity and physical ability across cultures and global geographies
+  both past and present. The program's courses, which are open to all students,
+  examine gender and sexuality from a variety of disciplinary and
+  interdisciplinary perspectives. The program offers core courses, seminars and
+  cross-listed courses. A current list of course offerings is available on the
+  program website. The program also encourages summer internships in relevant
+  community-based programs, nonprofits and nongovernmental organizations with
+  which the program's theoretical and historical inquiries can be applied in a
+  practical setting.
+max_common_with_major: ALL
+declaration_limit: 6
+req_list:
+  - name: Introductory Course
+    min_needed: 1
+    max_counted: 1
+    explanation: >-
+      The introductory course, GSS 201 (or, with permission, a cross-listed
+      200-level or above course)
+    course_list:
+      - GSS 201
+      - GSS 2**
+  - name: Electives
+    min_needed: 3
+    max_counted: 1
+    explanation: >-
+      Three elective courses in GSS or cross-listed with GSS from at least three
+      of five thematic clusters (Transnational/Global Perspectives; Gender,
+      Race, and Ethnicity; Bodies, Sexualities; Culture and Representation;
+      Politics and Social Change; Historical Perspectives)
+    course_list:
+      - GSS ***
+  - name: Advanced Course
+    min_needed: 1
+    max_counted: 1
+    explanation: One additional 300- or 400-level GSS course or cross-listed with GSS
+    course_list:
+      - GSS 3**
+      - GSS 4**
+  - name: Independent Work
+    max_counted: 1
+    explanation: >-
+      In addition, certificate students are required to incorporate issues
+      related to feminism, women, gender and/or sexuality into one junior paper
+      and their senior thesis.
+    iw_relationship: combined
+    no_req: null

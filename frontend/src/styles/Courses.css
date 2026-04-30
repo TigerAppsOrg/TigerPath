@@ -1,155 +1,331 @@
-/* for search box, get rid of rounded corners and highlighted box on focus */
-#search-courses .form-control{
-  border-radius:0rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+/* ── Search box ───────────────────────────────────────────────── */
+#search-courses {
+  padding: 0 12px;
+  margin-bottom: 10px;
 }
 
-#search-courses .form-control:focus{
-  border-color: #aaa;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0) inset, 0 0 8px rgba(255, 255, 255, 0);
+.search-input-shell {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 18px;
+  color: #b8b8b8;
+  font-size: 18px;
+  z-index: 1;
+}
+
+#search-courses .form-control {
+  border-radius: 999px;
+  border: 3px solid #dcdcdc;
+  background: #ffffff;
+  padding: 10px 16px 10px 46px;
+  font-size: 21px;
+  color: #171717;
+  min-height: 48px;
+  box-shadow: none;
+}
+
+#search-courses .form-control::placeholder {
+  color: #b0b0b0;
+}
+
+#search-courses .form-control:focus {
+  border-color: #d7d7d7;
+  box-shadow: none;
   outline: 0 none;
+  background: #ffffff;
 }
 
-#search-info{
-  display: -webkit-box;
-  padding-left: 10px;
-  padding-top: 5px;
+#search-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 12px 12px;
+  font-size: 16px;
+  color: #161616;
 }
 
-#search-count-num{
-  margin-right: 3px;
+#search-count-num {
+  margin-right: 0;
+  font-weight: 500;
 }
 
-.search-card {
+.duplicate-course-message {
+  margin: 0 12px 12px 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid #c99a36;
+  background: #fff4d7;
+  color: #5a3900;
   font-size: 13px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+/* ── Search result cards (left pane) ──────────────────────────── */
+.search-card {
+  font-size: 12px;
   height: auto;
-  padding: 5px;
-  margin: 3px;
-  border-radius: 2px;
-  background-color: #f5f5f5;
+  padding: 10px;
+  margin: 0 0 10px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--tp-search-fill-start) 0%, var(--tp-search-fill-end) 100%);
+  color: var(--tp-search-text);
+  border: none;
+  box-shadow: none;
+  user-select: none;
 }
 
-.search-card.fall {
-  background-color: #f6ebff;
-  color: #53008f;
-}
-
-.search-card.spring {
-  background-color: #ebf6f9;
-  color: #004a63;
-}
-
+.search-card.fall,
+.search-card.spring,
 .search-card.both {
-  background: linear-gradient(to right, #f6ebff, #ebf6f9);
-  color: #333;
+  background: linear-gradient(180deg, var(--tp-search-fill-start) 0%, var(--tp-search-fill-end) 100%);
+  color: var(--tp-search-text);
 }
 
 .search-card-info {
   display: grid;
   grid-template-columns: 1fr auto;
-  grid-gap: 5px;
+  grid-gap: 4px;
   align-items: center;
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: 8px;
+}
+
+.search-card-info-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-card-info .course-title {
+  color: var(--tp-search-text);
+  font-weight: 500;
+}
+
+.search-card-info-btn {
+  color: inherit;
+  opacity: 0.45;
+  transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.search-card-info-btn:hover,
+.search-card-info-btn:focus,
+.search-card-info-btn:active {
+  color: var(--tp-accent);
+  opacity: 1;
 }
 
 .search-card .search-card-links {
-  visibility: hidden;
+  visibility: visible;
 }
 
-.search-card:hover .search-card-links {
-  visibility: visible;
+.search-card.selected {
+  outline: 2px solid var(--tp-accent);
+  outline-offset: -2px;
+}
+
+.search-card.dragging {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
 }
 
 .popover .search-card-links {
   visibility: visible;
 }
 
+.course-popover {
+  width: 270px;
+  max-width: min(270px, calc(100vw - 32px));
+}
+
+.course-popover .popover-header {
+  min-height: 40px;
+  padding: 9px 12px;
+  background: #e9eaec;
+  border-bottom: 1px solid #c5c7ca;
+  font-size: 15px;
+}
+
+.course-popover .popover-body {
+  min-height: 72px;
+  padding: 16px 12px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.course-popover-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.course-popover-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.course-popover-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.course-popover-rating {
+  color: white;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.course-popover-info-link {
+  color: #0d6efd;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.course-popover-info-link:hover,
+.course-popover-info-link:focus {
+  color: #4a1f87;
+}
+
 #display-courses {
-  height: calc(100vh - 122px);
-  overflow: auto;
+  height: calc(100vh - 180px);
+  overflow-y: auto;
+  padding: 0 12px 18px 0;
 }
 
 .course-title {
-  font-weight: bold;
-  margin-left: 5px;
+  font-weight: 500;
+  margin-left: 0;
 }
 
 /* smaller font size for semester in search results */
 .course-prev-sems {
-  font-size: 11px;
-  margin-left: 5px;
+  font-size: 10px;
+  margin-left: 2px;
   margin-bottom: 0;
+  opacity: 0.75;
 }
 
 #spinner {
   display: none;
   font-size: inherit;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
-/* courses cards */
+/* ── Course cards (in semester grid) ──────────────────────────── */
+.unbreakable {
+  width: 100%;
+  min-width: 0;
+}
+
 .course-card {
-  font-size: large;
-  height: 36px;
-  padding: 5px;
-  border-radius: 2px;
-  margin-bottom: 5px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 7px;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  border: none;
+  box-shadow: none;
 }
 
-.course-card.fall {
-  background-color: #eaccff;
-  color: #53008f;
-}
-
-.course-card.spring {
-  background-color: #c4e3ed;
-  color: #004a63;
-}
-
+.course-card.fall,
+.course-card.spring,
 .course-card.both {
-  background: linear-gradient(to right, #eaccff, #c4e3ed);
-  color: #333;
+  background: var(--tp-course-fill);
+  color: var(--tp-course-text);
+  border: 1px solid var(--tp-course-border);
 }
 
 .course-card.external {
-  background-color: #f9d4cd;
-  color: #543129;
+  background-color: #f2d3c8;
+  color: #4a2418;
+  border-color: #d8a28f;
+}
+
+/* When a course-card is nested inside a search-card, let the outer purple
+   wrapper own the border so the two blocks read as one cohesive card. */
+.search-card .course-card {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  min-height: 44px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.search-card .search-course-pill {
+  background: var(--tp-search-pill-fill);
+  border: 1px solid rgba(158, 112, 214, 0.18);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border-radius: 7px;
 }
 
 .course-card .course-name {
+  min-width: 0;
   max-width: calc(100% - 18px);
-	overflow: hidden;
-	float: left;
-	text-overflow: ellipsis;
+  overflow: hidden;
+  float: left;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  flex: 1;
+}
+
+.search-card .search-course-pill .course-name {
+  padding-left: 2px;
 }
 
 .course-card:hover {
   cursor: grab;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 2px 6px rgba(42, 38, 54, 0.18);
   position: relative;
   z-index: 1;
 }
 
 .course-info:hover, .course-eval:hover {
-  color: #5a6268;
+  color: #2a2636;
 }
 
 /* add delete button on course hover in semesters */
 .course-card:hover .delete-course {
-  display: block;
+  display: inline-block;
 }
 
 .delete-course {
-	display: none; /* gets rid of delete button */
-	float: right;
-  margin-top: 4px;
-  color: #666;
+  display: none;
+  float: right;
+  margin-top: 0;
+  margin-left: 8px;
+  color: var(--tp-accent);
+  font-size: 18px;
 }
 
 .delete-course:hover {
-  color: #e74c3c;
+  color: #c0392b;
   cursor: pointer;
 }
 

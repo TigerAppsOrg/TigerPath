@@ -1,11 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SearchCard from 'components/SearchCard';
+import CourseDetailPanel from 'components/CourseDetailPanel';
 
 const SEARCH_DEBOUNCE_MS = 50;
 const MIN_QUERY_LENGTH = 3;
 
-export default function Search({ onChange, searchQuery, searchResults }) {
+export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage }) {
   const [loading, setLoading] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  const handleCourseSelect = (course) => {
+    setSelectedCourse((prev) =>
+      prev && prev.id === course.id ? null : course
+    );
+  };
   const abortControllerRef = useRef(null);
   const searchTimeoutRef = useRef(null);
 
@@ -79,6 +87,9 @@ export default function Search({ onChange, searchQuery, searchResults }) {
             courseKey={courseKey}
             index={courseIndex}
             course={course}
+            onSelect={handleCourseSelect}
+            isSelected={selectedCourse?.id === course.id}
+            qualityRating={course.quality_rating ?? null}
           />
         );
       });
@@ -105,26 +116,37 @@ export default function Search({ onChange, searchQuery, searchResults }) {
 
   return (
     <>
+      <CourseDetailPanel
+        course={selectedCourse}
+        isOpen={selectedCourse !== null}
+        onClose={() => setSelectedCourse(null)}
+      />
       <div id="search-courses">
-        <input
-          type="text"
-          id="search-text"
-          placeholder="Search Courses"
-          value={searchQuery}
-          onChange={updateSearch}
-          className="form-control"
-          autoFocus
-        />
+        <div className="search-input-shell">
+          <i className="fas fa-search search-input-icon" aria-hidden="true" />
+          <input
+            type="text"
+            id="search-text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={updateSearch}
+            className="form-control"
+            autoFocus
+          />
+        </div>
       </div>
       <div id="search-info">
-        <div id="search-count">
-          <span id="search-count-num">{searchResults.length}</span>
-        </div>
+        <span id="search-count-num">{searchResults.length}</span>
         <span>Search Results</span>
         {loading && (
           <i id="spinner" className="fas fa-circle-notch fa-spin" style={{ display: 'inline-block' }}></i>
         )}
       </div>
+      {duplicateCourseMessage && (
+        <div className="duplicate-course-message" role="status">
+          {duplicateCourseMessage}
+        </div>
+      )}
       <div id="display-courses">
         {renderSearchResults()}
       </div>

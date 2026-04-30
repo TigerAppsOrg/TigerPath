@@ -3,6 +3,10 @@ import json
 import re
 import hashlib
 import time
+import copy
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+import requests
 
 import django_cas_ng.views
 from django.conf import settings
@@ -21,13 +25,32 @@ from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 from .majors_and_certificates.scripts.verifier import (
     check_degree,
     check_major,
+    check_minor,
     get_courses_by_path,
+    list_minor_definitions,
 )
 
 SEARCH_RESULT_LIMIT = 200
+MAX_PLANS_PER_USER = 5
 SEARCH_CACHE_TIMEOUT_SECONDS = 300
 SEARCH_CACHE_KEY_VERSION = "v1"
 SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
+DEFAULT_PLAN_NAME = "My Plan"
+
+
+def get_minor_options_catalog():
+    return list_minor_definitions()
+
+
+def get_minor_codes():
+    return {minor["code"] for minor in get_minor_options_catalog()}
+
+
+def get_minor_name_by_code(code):
+    for minor in get_minor_options_catalog():
+        if minor["code"] == code:
+            return minor["name"]
+    return None
 
 
 # cas auth login
@@ -57,10 +80,8 @@ def index(request):
 
         # check user state
         user_state = instance.user_state or {}
-        has_major_options = models.Major.objects.exists()
         needs_year = instance.year is None
-        needs_major = has_major_options and not instance.major
-        needs_onboarding = needs_year or needs_major
+        needs_onboarding = needs_year
 
         if needs_onboarding:
             # Always collect missing profile basics before showing the planner UI.
@@ -78,19 +99,14 @@ def index(request):
             instance.user_state = user_state
             instance.save(update_fields=["user_state"])
 
-        # Pre-compute requirements so the right sidebar renders instantly
+        # Pre-compute requirements so the right sidebar renders instantly.
+        # Requirements should always come from the active plan's major/minors settings.
         preloaded_requirements = []
-        if instance.major and instance.major.supported and instance.year:
-            schedule = populate_user_schedule(instance.user_schedule)
-            try:
-                preloaded_requirements.append(
-                    check_major(instance.major.code, schedule, instance.year)
-                )
-                preloaded_requirements.append(
-                    check_degree(instance.major.degree, schedule, instance.year)
-                )
-            except Exception:
-                preloaded_requirements = []
+        active_plan = get_active_plan(instance)
+        try:
+            preloaded_requirements = build_requirements_for_plan(instance, active_plan)
+        except Exception:
+            preloaded_requirements = []
         context["preloaded_requirements_json"] = json.dumps(preloaded_requirements)
         return render(request, "tigerpath/index.html", context)
     else:
@@ -150,6 +166,10 @@ def update_profile(request, profile_form):
         if form.is_valid():
             # save data to database and redirect to app
             profile = form.save(commit=False)
+            if "theme" in form.cleaned_data:
+                user_state = profile.user_state or {}
+                user_state["theme"] = form.cleaned_data["theme"]
+                profile.user_state = user_state
             profile.user = request.user
             profile.save()
     # if it's any other request, we raise a 404 error
@@ -209,6 +229,181 @@ def convert_courses(course_list, queries):
     return course_info_list
 
 
+JUNCTION_ENGINE_BASE_URL = "https://junction-engine.tigerapps.org"
+JUNCTION_EVAL_CACHE_TIMEOUT = 3600       # per-course detail cache: 1 hour
+JUNCTION_EVAL_CACHE_VERSION = "v5"       # bump to bust stale per-course entries
+JUNCTION_COURSES_ALL_CACHE_KEY = "junction_courses_all_v1"
+JUNCTION_COURSES_ALL_CACHE_TIMEOUT = 6 * 3600  # courses/all cache: 6 hours
+
+
+def _term_code_to_name(code):
+    """
+    Convert a term code integer to a human-readable semester name.
+    Format: 1{YY}{S} where YY = ending school-year digits, S = 2(Fall) or 4(Spring).
+    Examples: 1262 -> "Fall 2025", 1264 -> "Spring 2026"
+    """
+    try:
+        s = str(int(code))
+        year = int(s[1:3])
+        season = s[3]
+        if season == '2':
+            return f'Fall 20{year - 1:02d}'
+        if season == '4':
+            return f'Spring 20{year:02d}'
+    except (ValueError, IndexError, TypeError):
+        pass
+    return str(code)
+
+
+@login_required
+def get_course_details(request, course_id):
+    import logging
+    logger = logging.getLogger(__name__)
+
+    empty = {
+        "has_pdf": False, "dists": [], "offerings": [],
+        "quality_rating": None, "comments": [], "comments_semester": None, "description": "",
+    }
+
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return JsonResponse(cached)
+
+    try:
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return JsonResponse(empty)
+
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return JsonResponse(empty)
+
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        most_recent = evaluations[0]
+        most_recent_term = most_recent.get("evalTerm")
+
+        courses_all = cache.get(JUNCTION_COURSES_ALL_CACHE_KEY)
+        if courses_all is None:
+            try:
+                all_resp = requests.get(
+                    f"{JUNCTION_ENGINE_BASE_URL}/api/courses/all",
+                    timeout=30,
+                    headers={"User-Agent": "TigerPath/1.0"},
+                )
+                courses_all = all_resp.json().get("data", []) if all_resp.status_code == 200 else []
+            except Exception:
+                courses_all = []
+            cache.set(JUNCTION_COURSES_ALL_CACHE_KEY, courses_all, JUNCTION_COURSES_ALL_CACHE_TIMEOUT)
+
+        instructors_by_term = {}
+        has_pdf = False
+        dists = []
+        for c in courses_all:
+            if c.get("listingId") == course_id:
+                term_key = str(c.get("term", ""))
+                names = ", ".join(
+                    i.get("name", "") for i in c.get("instructors", []) if i.get("name")
+                )
+                if names:
+                    instructors_by_term[term_key] = names
+                if c.get("gradingBasis", "") in ("FUL", "PDF"):
+                    has_pdf = True
+                if not dists:
+                    dists = c.get("dists", [])
+
+        description = ""
+        try:
+            db_course = models.Course.objects.filter(registrar_id=course_id).first()
+            if db_course:
+                description = db_course.description or ""
+        except Exception:
+            pass
+
+        offerings = []
+        for ev in evaluations:
+            term = ev.get("evalTerm")
+            raw_rating = ev.get("rating")
+            offerings.append({
+                "semester": _term_code_to_name(term),
+                "professors": instructors_by_term.get(term, ""),
+                "rating": round(float(raw_rating), 2) if raw_rating is not None else None,
+            })
+
+        comments = [c for c in most_recent.get("comments", []) if c and c.strip()]
+        comments_semester = _term_code_to_name(most_recent_term)
+        raw_rating = most_recent.get("rating")
+        quality_rating = round(float(raw_rating), 2) if raw_rating is not None else None
+
+        data = {
+            "has_pdf": has_pdf, "dists": dists, "offerings": offerings,
+            "quality_rating": quality_rating, "comments": comments,
+            "comments_semester": comments_semester, "description": description,
+        }
+        cache.set(cache_key, data, JUNCTION_EVAL_CACHE_TIMEOUT)
+        return JsonResponse(data)
+
+    except Exception as e:
+        logger.error("get_course_details(%s): %s", course_id, e)
+        return JsonResponse(empty)
+
+
+def _fetch_quality_rating(course_id):
+    """Return (course_id, quality_rating) — checks cache first, then fetches evaluations only."""
+    cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course_id}"
+    cached = cache.get(cache_key)
+    if cached is not None:
+        return course_id, cached.get("quality_rating")
+    try:
+        eval_resp = requests.get(
+            f"{JUNCTION_ENGINE_BASE_URL}/api/evaluations/{course_id}",
+            timeout=5,
+            headers={"User-Agent": "TigerPath/1.0"},
+        )
+        if eval_resp.status_code != 200:
+            return course_id, None
+        evaluations = eval_resp.json().get("data", [])
+        if not evaluations:
+            return course_id, None
+        evaluations.sort(key=lambda e: e.get("evalTerm", ""), reverse=True)
+        raw_rating = evaluations[0].get("rating")
+        rating = round(float(raw_rating), 2) if raw_rating is not None else None
+        return course_id, rating
+    except Exception:
+        return course_id, None
+
+
+@login_required
+def get_quality_ratings(request):
+    """
+    POST {"ids": ["COS126", "MAT201", ...]}
+    Returns {"COS126": 4.2, "MAT201": null, ...}
+    Fetches all ratings in parallel; cached results resolve instantly.
+    """
+    try:
+        body = json.loads(request.body)
+        ids = body.get("ids", [])
+    except (json.JSONDecodeError, AttributeError):
+        return JsonResponse({"error": "invalid body"}, status=400)
+
+    if not ids:
+        return JsonResponse({})
+
+    ids = ids[:200]
+    ratings = {}
+    with ThreadPoolExecutor(max_workers=min(len(ids), 20)) as executor:
+        futures = {executor.submit(_fetch_quality_rating, cid): cid for cid in ids}
+        for future in as_completed(futures):
+            cid, rating = future.result()
+            ratings[cid] = rating
+
+    return JsonResponse(ratings)
+
+
 # filters courses with query from react and sends back a list of filtered courses to display
 @login_required
 def get_courses(request, search_query):
@@ -261,6 +456,10 @@ def get_courses(request, search_query):
         "title", "registrar_id", "cross_listings", "all_semesters", "dist_area"
     )[:SEARCH_RESULT_LIMIT]
     course_info_list = convert_courses(course_list, queries)
+
+    for c in course_info_list:
+        c["quality_rating"] = None
+
     cache.set(cache_key, course_info_list, timeout=SEARCH_CACHE_TIMEOUT_SECONDS)
     if settings.DEBUG:
         elapsed_ms = (time.monotonic() - search_start) * 1000
@@ -391,28 +590,361 @@ def populate_user_schedule(schedule):
             course["semester"] = get_semester_type(db_course.all_semesters)
             if "settled" not in course:
                 course["settled"] = []
+            if "quality_rating" not in course:
+                cache_key = f"course_details_{JUNCTION_EVAL_CACHE_VERSION}_{course['id']}"
+                cached = cache.get(cache_key)
+                course["quality_rating"] = cached.get("quality_rating") if cached else None
     return schedule
+
+
+def ensure_minimum_schedule(schedule):
+    populated_schedule = populate_user_schedule(schedule) or []
+    while len(populated_schedule) < 9:
+        populated_schedule.append([])
+    return populated_schedule
+
+def build_requirements_for_plan(profile, plan):
+    if not profile.year:
+        return []
+
+    schedule = populate_user_schedule(plan.schedule)
+    requirements = []
+
+    if plan.major:
+        if plan.major.supported:
+            try:
+                requirements.append(check_major(plan.major.code, schedule, profile.year))
+            except Exception:
+                requirements.append(plan.major.name)
+        else:
+            # appends user major name so we can display error message
+            requirements.append(plan.major.name)
+        try:
+            requirements.append(check_degree(plan.major.degree, schedule, profile.year))
+        except Exception:
+            pass
+
+    for minor_code in plan.minors or []:
+        try:
+            requirements.append(check_minor(minor_code, schedule, profile.year))
+        except ValueError:
+            continue
+
+    return requirements
+
+
+def get_active_plan(profile):
+    plans = profile.schedule_plans.order_by("id")
+    if not plans.exists():
+        created_plan = models.SchedulePlan.objects.create(
+            user_profile=profile,
+            name=DEFAULT_PLAN_NAME,
+            major=profile.major,
+            minors=[],
+            schedule=profile.user_schedule or [],
+        )
+        user_state = profile.user_state or {}
+        user_state["active_plan_id"] = created_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+        return created_plan
+
+    user_state = profile.user_state or {}
+    active_plan_id = user_state.get("active_plan_id")
+    active_plan = None
+    if active_plan_id:
+        active_plan = plans.filter(id=active_plan_id).first()
+    if not active_plan:
+        active_plan = plans.first()
+        user_state["active_plan_id"] = active_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+    return active_plan
+
+
+def serialize_plan(plan, active_plan_id):
+    # Include plan-specific academic metadata so the frontend can edit/render each scenario independently.
+    minor_names = []
+    for minor_code in plan.minors or []:
+        minor_name = get_minor_name_by_code(minor_code)
+        if minor_name:
+            minor_names.append(minor_name)
+
+    return {
+        "id": plan.id,
+        "name": plan.name,
+        "isActive": plan.id == active_plan_id,
+        "majorId": plan.major_id,
+        "majorName": plan.major.name if plan.major else None,
+        "minorCodes": plan.minors or [],
+        "minorNames": minor_names,
+    }
+
+
+def get_user_plans_payload(profile):
+    active_plan = get_active_plan(profile)
+    plans = [
+        serialize_plan(plan, active_plan.id)
+        for plan in profile.schedule_plans.order_by("id")
+    ]
+    return {
+        "plans": plans,
+        "activePlanId": active_plan.id,
+    }
+
+
+def parse_plan_id(raw_plan_id):
+    try:
+        return int(raw_plan_id)
+    except (TypeError, ValueError):
+        return None
+
+
+def parse_minor_codes(raw_minor_codes):
+    if raw_minor_codes is None:
+        return []
+
+    try:
+        parsed = json.loads(raw_minor_codes)
+    except (TypeError, json.JSONDecodeError):
+        return None
+
+    if not isinstance(parsed, list):
+        return None
+
+    certificate_codes = get_minor_codes()
+    cleaned_codes = []
+    for value in parsed:
+        code = str(value).strip().upper()
+        if not code:
+            continue
+        if code in certificate_codes and code not in cleaned_codes:
+            cleaned_codes.append(code)
+
+    return cleaned_codes
+
+
+def serialize_plan_editor_options():
+    # Frontend modal uses these precomputed option lists for its major and minor selectors.
+    major_options = [
+        {
+            "id": major.id,
+            "name": major.name,
+            "code": major.code,
+            "degree": major.degree,
+        }
+        for major in models.Major.objects.order_by("name")
+    ]
+    minor_options = [
+        {
+            "code": minor_option["code"],
+            "name": minor_option["name"],
+            "supported": True,
+        }
+        for minor_option in get_minor_options_catalog()
+    ]
+    return {
+        "majorOptions": major_options,
+        "minorOptions": minor_options,
+    }
+
+
+@login_required
+def get_plans(request):
+    return JsonResponse(get_user_plans_payload(request.user.profile))
+
+
+@login_required
+def create_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    if profile.schedule_plans.count() >= MAX_PLANS_PER_USER:
+        return JsonResponse({"error": f"Plans are limited to {MAX_PLANS_PER_USER}."}, status=400)
+
+    active_plan = get_active_plan(profile)
+
+    plan_count = profile.schedule_plans.count()
+    name = (request.POST.get("name") or "").strip() or f"Plan {plan_count + 1}"
+    created_plan = models.SchedulePlan.objects.create(
+        user_profile=profile,
+        name=name,
+        major=None,
+        minors=[],
+        schedule=[],
+    )
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = created_plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def copy_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    if profile.schedule_plans.count() >= MAX_PLANS_PER_USER:
+        return JsonResponse({"error": f"Plans are limited to {MAX_PLANS_PER_USER}."}, status=400)
+
+    active_plan = get_active_plan(profile)
+    source_plan_id = parse_plan_id(request.POST.get("sourcePlanId"))
+    source_plan = active_plan
+    if source_plan_id:
+        source_plan = profile.schedule_plans.filter(id=source_plan_id).first()
+        if not source_plan:
+            return JsonResponse({"error": "Source plan not found"}, status=404)
+
+    default_copy_name = f"{source_plan.name} Copy"
+    name = (request.POST.get("name") or "").strip() or default_copy_name
+    copied_schedule = copy.deepcopy(source_plan.schedule or [])
+    # Copy preserves both classes and academic metadata for quick what-if planning.
+    created_plan = models.SchedulePlan.objects.create(
+        user_profile=profile,
+        name=name,
+        major=source_plan.major,
+        minors=source_plan.minors or [],
+        schedule=copied_schedule,
+    )
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = created_plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def rename_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    name = (request.POST.get("name") or "").strip()
+    if not name:
+        return JsonResponse({"error": "Plan name is required"}, status=400)
+    if len(name) > 80:
+        return JsonResponse({"error": "Plan name must be 80 characters or fewer"}, status=400)
+
+    plan.name = name
+    plan.save(update_fields=["name", "updated_at"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def delete_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plans = profile.schedule_plans.order_by("id")
+    if plans.count() <= 1:
+        return JsonResponse(
+            {"error": "At least one plan is required"},
+            status=400,
+        )
+
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    active_plan = get_active_plan(profile)
+    if active_plan.id == plan.id:
+        replacement_plan = plans.exclude(id=plan.id).first()
+        user_state = profile.user_state or {}
+        user_state["active_plan_id"] = replacement_plan.id
+        profile.user_state = user_state
+        profile.save(update_fields=["user_state"])
+
+    plan.delete()
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def set_active_plan(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    user_state = profile.user_state or {}
+    user_state["active_plan_id"] = plan.id
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse(get_user_plans_payload(profile))
+
+
+@login_required
+def get_plan_editor_options(request):
+    return JsonResponse(serialize_plan_editor_options())
+
+
+@login_required
+def update_plan_settings(request):
+    if request.method != "POST":
+        raise Http404
+
+    profile = request.user.profile
+    plan_id = parse_plan_id(request.POST.get("planId"))
+    plan = profile.schedule_plans.filter(id=plan_id).first()
+    if not plan:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+
+    name = (request.POST.get("name") or "").strip()
+    if not name:
+        return JsonResponse({"error": "Plan name is required"}, status=400)
+    if len(name) > 80:
+        return JsonResponse({"error": "Plan name must be 80 characters or fewer"}, status=400)
+
+    major_id = parse_plan_id(request.POST.get("majorId"))
+    major = None
+    if major_id is not None:
+        major = models.Major.objects.filter(id=major_id).first()
+        if not major:
+            return JsonResponse({"error": "Major not found"}, status=404)
+
+    minor_codes = parse_minor_codes(request.POST.get("minorCodes"))
+    if minor_codes is None:
+        return JsonResponse({"error": "Invalid minor selections"}, status=400)
+
+    # Title, major, and minors are saved together so the popup behaves like a single form.
+    plan.name = name
+    plan.major = major
+    plan.minors = minor_codes
+    plan.save(update_fields=["name", "major", "minors", "updated_at"])
+    return JsonResponse(get_user_plans_payload(profile))
 
 
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
-    current_user = request.user.profile
-    current_user.user_schedule = json.loads(request.POST.get("schedule", "[]"))
-    current_user.save()
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    active_plan.schedule = json.loads(request.POST.get("schedule", "[]"))
+    active_plan.save(update_fields=["schedule", "updated_at"])
     return JsonResponse({"status": "ok"})
 
 
 # returns user's existing schedule
 @login_required
 def get_schedule(request):
-    curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule) or []
-
-    # make sure that the schedule has 9 semesters
-    while len(schedule) < 9:
-        schedule.append([])
-
+    profile = request.user.profile
+    active_plan = get_active_plan(profile)
+    schedule = ensure_minimum_schedule(active_plan.schedule)
     return JsonResponse(schedule, safe=False)
 
 
@@ -420,17 +952,8 @@ def get_schedule(request):
 @login_required
 def get_requirements(request):
     curr_user = request.user.profile
-    schedule = populate_user_schedule(curr_user.user_schedule)
-
-    requirements = []
-    if curr_user.major:
-        if curr_user.major.supported:
-            requirements.append(check_major(curr_user.major.code, schedule, curr_user.year))
-        else:
-            # appends user major name so we can display error message
-            requirements.append(curr_user.major.name)
-        requirements.append(check_degree(curr_user.major.degree, schedule, curr_user.year))
-
+    active_plan = get_active_plan(curr_user)
+    requirements = build_requirements_for_plan(curr_user, active_plan)
     return JsonResponse(requirements, safe=False)
 
 
@@ -445,6 +968,8 @@ def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
+    profile["theme"] = (curr_user.user_state or {}).get("theme", "purple")
+    profile["activePlanId"] = get_active_plan(curr_user).id
     return JsonResponse(profile)
 
 def admin_required(view_func):

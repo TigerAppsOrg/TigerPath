@@ -1,32 +1,159 @@
-/* items in requirement column */
+/* ── Requirements tree nodes ─────────────────────────────────── */
 #requirements li {
   list-style-type: none;
-  background-color: #d1dcff;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  color: #4B0082;
-  border-radius: 2px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 55%, var(--tp-requirement-fill-end) 100%);
+  padding: 12px 16px;
+  margin-right: 8px;
+  margin-bottom: 12px;
+  color: var(--tp-requirement-text);
+  border-radius: 12px;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
 
   overflow: hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#requirements .req-course-row {
+  list-style-type: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+#requirements .req-course-chip {
+  width: 100%;
+  border: none;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 55%, var(--tp-requirement-fill-end) 100%);
+  padding: 12px 16px;
+  color: var(--tp-requirement-text);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#requirements .req-course-chip:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+#requirements .req-course-chip:hover {
+  filter: brightness(0.98);
+}
+
+#requirements .req-course-chip:disabled:hover {
+  filter: none;
+}
+
+#requirements .req-course-chip-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#requirements .external-credit-chip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #f2ffc7 65%, var(--tp-requirement-fill-end) 100%);
+  color: var(--tp-requirement-text);
+  border: 2px dashed #9eb866;
+}
+
+#requirements .external-credit-badge {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--tp-requirement-text);
+  border: 1px solid #7f9f3d;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#requirements .external-credit-remove {
+  color: var(--tp-requirement-text);
+  opacity: 0.72;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#requirements .external-credit-remove:hover,
+#requirements .external-credit-remove:focus {
+  opacity: 1;
+}
+
+#requirements .external-credit-inline-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 8px;
+  align-items: center;
+  background: #ffffff;
+  border: 2px dashed #cfcfcf;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+#requirements .external-credit-inline-form input {
+  min-width: 0;
+  border: 1px solid #cfcfcf;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+#requirements .external-credit-inline-form button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+#requirements .external-credit-inline-form button:disabled {
+  background: #cfcfcf;
+  cursor: not-allowed;
+}
+
+#requirements .external-credit-inline-form .external-credit-cancel {
+  background: #eeeeee;
+  color: #333333;
 }
 
 /* styles all levels */
 #requirements .tree-view_item {
-  padding-left: 3px;
+  padding: 7px 4px;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
 }
 
 #requirements .reqLabel {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 6px;
+  column-gap: 10px;
   align-items: end;
   flex: 1;
   min-width: 0;
@@ -46,65 +173,126 @@
 
 #requirements .tree-view_arrow {
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 4px;
+  color: #111111;
+  font-size: 18px;
 }
 
-/* greyed out unsettled reqs*/
+/* greyed out unsettled reqs */
 #requirements .unsettled {
-  background-color: #DCDCDC;
+  background: #f4f4f4;
+  color: #555555;
 }
 
 /* styles root */
 #requirements .tree-root {
-  margin-bottom: 3px;
-  background-color: #DB7093;
-  color: white;
+  margin-bottom: 8px;
+  color: #111111;
+  border-radius: 4px;
+  padding: 0;
+  font-weight: 700;
 }
 
-/* style everything except main roots*/
+#requirements .tree-view_item.tree-root {
+  align-items: center;
+}
+
+#requirements .tree-root .tree-view_arrow {
+  margin-top: 0;
+}
+
+/* style everything except main roots */
 #requirements .tree-sub-reqs .tree-view_item {
-  border-radius: 2px;
-  margin-right: 3px;
-  margin-bottom: 3px;
-  background-color: #ffc0cb;
-  color: #690012;
+  border-radius: 0;
+  margin-right: 0;
+  margin-bottom: 6px;
+  background-color: transparent;
+  color: #111111;
+  border: none;
 }
 
-/* styles reqs that are >= min needed*/
+/* styles reqs that are >= min needed */
 #requirements .tree-sub-reqs .tree-view_item.req-done {
-  background-color: #D0EBCF;
-  color: #045d00;
+  background-color: transparent;
+  color: #111111;
 }
-/* styles main req */
+
+/* styles main req done */
 #requirements .req-done {
-  background-color: #47a545;
-  color: white;
+  background-color: transparent;
+  color: #111111;
 }
 
-/* styles reqs that are min_needed = 0, count = 0*/
+/* styles reqs that are min_needed = 0, count = 0 */
 #requirements .tree-sub-reqs .tree-view_item.req-neutral {
-  background-color: #f3eab4;
-  color: #756613;
+  background-color: transparent;
+  color: #555555;
 }
 
-/* count of courses*/
+/* count of courses */
 #requirements .reqCount {
   position: static;
   justify-self: end;
   align-self: end;
   white-space: nowrap;
+  font-weight: 700;
+  font-size: 18px;
+  padding-left: 8px;
+}
+
+#requirements .reqCount-incomplete .reqCountCurrent {
+  color: #ef5a47;
 }
 
 #requirements {
   flex: 1;
-  height: 100%;
   min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-gutter: stable;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .fa-search {
+  padding-right: 5px;
+}
+
+.req-popover-action {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.searchByReq {
+  background: #eef5ff;
+  border: 1px solid #7da0ce;
+  color: #21476f;
+}
+
+.searchByReq:hover,
+.searchByReq:focus {
+  background: #dcecff;
+  border-color: #5f88ba;
+  color: #14365c;
+}
+
+.addExternalCreditByReq {
+  margin-top: 10px;
+  background: linear-gradient(90deg, var(--tp-requirement-fill-start) 0%, #ecffb1 60%, var(--tp-requirement-fill-end) 100%);
+  border: 1px solid #9eb866;
+  color: var(--tp-requirement-text);
+}
+
+.addExternalCreditByReq:hover,
+.addExternalCreditByReq:focus {
+  filter: brightness(0.98);
+  border-color: #7f9f3d;
+  color: var(--tp-requirement-text);
+}
+
+.addExternalCreditByReq .fa-plus-circle {
   padding-right: 5px;
 }
 
@@ -114,29 +302,140 @@
   margin-top: 5px;
 }
 
-/* Main-req popover only (paired classes in Requirements.jsx); resets scroll/height from .popoverContentContainer */
-.popoverContentContainer.main-req-popover-wrap {
-  max-height: none;
-  margin-top: 0;
-  overflow: visible;
-}
-
 .fa-exclamation-circle {
   color: #e74c3c;
 }
 
-.ref-link {
-  font-family: "Lucida Console", Monaco, monospace;
-  font-size: 12px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: block;
-}
-
-/* moves info icon a little up */
+/* info icon */
 .info-icon {
   cursor: pointer;
   position: relative;
-  top: -2px;
+  top: 0;
+  font-size: 18px;
+  line-height: 1;
+}
+
+#requirements .reqLabel.reqLabel-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+#requirements .reqLabel-main-title {
+  flex: 1;
+  min-width: 0;
+  padding-right: 6px;
+}
+
+#requirements .reqLabel.reqLabel-main .info-icon {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Outer popover — light grey background to show card separation */
+.popover.info-popover {
+  max-width: 280px;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  background: #f0f0f0;
+}
+
+.popover.info-popover .popover-arrow::after {
+  border-left-color: #f0f0f0;
+}
+
+.popover.info-popover .popover-body {
+  padding: 0;
+  background: transparent;
+  border-radius: 16px;
+}
+
+.info-popover-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.info-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.info-card-title {
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #000;
+  line-height: 1.1;
+}
+
+.info-contact {
+  margin-bottom: 8px;
+}
+
+.info-contact:last-child {
+  margin-bottom: 0;
+}
+
+.contact-role {
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  display: block;
+  line-height: 1.15;
+}
+
+.contact-name {
+  font-weight: 800;
+  font-size: 15px;
+  color: #000;
+  line-height: 1.15;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.contact-email {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d6efd;
+  text-decoration: underline;
+  display: block;
+  line-height: 1.15;
+}
+
+.ref-link-item {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  text-decoration: none;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+a.ref-link-item {
+  color: #0d6efd;
+  text-decoration: underline;
+}
+
+.ref-link-item.ref-link-item-disabled {
+  color: #6c757d;
+  text-decoration: none;
+  cursor: default;
+}
+
+.ref-link-item:last-child {
+  margin-bottom: 0;
+}
+
+a.ref-link-item:hover {
+  color: #0a58ca;
+  text-decoration: underline;
 }

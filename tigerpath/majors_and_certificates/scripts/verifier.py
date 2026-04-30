@@ -20,6 +20,7 @@ def _load_yaml(path: str):
 
 
 MAJORS_LOCATION = "majors/"  # relative path to folder containing the major requirements JSONs
+MINORS_LOCATION = "minors/"  # relative path to folder containing the minor requirements YAMLs
 CERTIFICATES_LOCATION = (
     "certificates/"  # relative path to folder containing the certificate requirements JSONs
 )
@@ -33,6 +34,21 @@ REQ_PATH_SEPARATOR = "//"
 REQ_PATH_PREFIX = "%.12s" + REQ_PATH_SEPARATOR + "%d" + REQ_PATH_SEPARATOR + "%.100s"
 
 DEFAULT_SCHEDULE = [[]] * 8
+
+
+@lru_cache(maxsize=1)
+def list_minor_definitions():
+    definitions = []
+    minors_dir = _LOCAL_DATA_DIR / MINORS_LOCATION
+    if not minors_dir.exists():
+        return definitions
+
+    for filepath in sorted(minors_dir.glob("*.yaml")):
+        data = yaml.safe_load(filepath.read_text()) or {}
+        code = data.get("code") or filepath.stem
+        name = data.get("name") or code
+        definitions.append({"code": str(code), "name": str(name)})
+    return definitions
 
 
 def check_major(major_name, courses, year):
@@ -120,6 +136,24 @@ def check_certificate(certificate_name, courses, year):
     return check_requirements(certificate_filepath, courses, year)
 
 
+def check_minor(minor_code, courses, year):
+    """
+    Returns information about the minor requirements satisfied by the courses
+    given in courses.
+    """
+    year = int(year)
+    if year < 2000 or year > 3000:
+        raise ValueError("Year is invalid.")
+
+    valid_minor_codes = {minor["code"] for minor in list_minor_definitions()}
+    if minor_code not in valid_minor_codes:
+        raise ValueError("Minor code not recognized.")
+
+    minor_filename = "%s.yaml" % minor_code
+    minor_filepath = os.path.join(MINORS_LOCATION, minor_filename)
+    return check_requirements(minor_filepath, courses, year)
+
+
 def check_requirements(req_file, courses, year):
     """
     Returns information about the requirements satisfied by the courses
@@ -186,6 +220,11 @@ def get_courses_by_path(path):
         if req_name not in university_info.CERTIFICATES:
             raise ValueError("Path malformatted.")
         req_filepath = os.path.join(CERTIFICATES_LOCATION, filename)
+    elif req_type == "Minor":
+        valid_minor_codes = {minor["code"] for minor in list_minor_definitions()}
+        if req_name not in valid_minor_codes:
+            raise ValueError("Path malformatted.")
+        req_filepath = os.path.join(MINORS_LOCATION, filename)
     elif req_type == "Degree":
         if req_name not in ["AB", "BSE"]:
             raise ValueError("Path malformatted.")
@@ -247,6 +286,8 @@ def _format_req_output(req):
             output["req_list"] = req_list
     if "settled" in req:
         output["settled"] = req["settled"]
+    if "settled_details" in req:
+        output["settled_details"] = req["settled_details"]
     if "unsettled" in req:
         output["unsettled"] = req["unsettled"]
     return output
@@ -269,6 +310,7 @@ def _add_course_lists_to_req(req, courses):
         include_course_lists = True
     if include_course_lists:
         req["settled"] = []
+        req["settled_details"] = []
         req["unsettled"] = []
         for sem in courses:
             for course in sem:
@@ -277,17 +319,28 @@ def _add_course_lists_to_req(req, courses):
                         for path in course["reqs_double_counted"]:
                             if path.startswith(req["path_to"]):
                                 req["settled"].append(course["name"])
+                                req["settled_details"].append(_format_course_list_item(course))
                                 ## add to reqs_satisfied because couldn't be added in _assign_settled_courses_to_reqs()
                                 course["reqs_satisfied"].append(req["path_to"])
                 elif len(course["settled"]) > 0:
                     for path in course["settled"]:
                         if path.startswith(req["path_to"]):
                             req["settled"].append(course["name"])
+                            req["settled_details"].append(_format_course_list_item(course))
                 else:
                     for path in course["possible_reqs"]:
                         if path.startswith(req["path_to"]):
                             req["unsettled"].append(course["name"])
                             break
+
+
+def _format_course_list_item(course):
+    item = collections.OrderedDict()
+    item["name"] = course["name"]
+    item["external"] = bool(course.get("external"))
+    if course.get("id") is not None:
+        item["id"] = course["id"]
+    return item
 
 
 def _init_courses(courses, req, year):
@@ -307,17 +360,17 @@ def _init_courses(courses, req, year):
                 course["external"] = False
             if "settled" not in course or course["settled"] == None:
                 course["settled"] = []
-            elif req["type"] in [
-                "Major",
-                "Degree",
-            ]:  # filter out irrelevant requirements from list
-                for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["code"])):
-                        course["settled"].remove(path)
+            elif req["type"] in ["Major", "Degree", "Minor"]:
+                # Keep only settled paths that belong to the active requirement tree.
+                valid_prefix = REQ_PATH_PREFIX % (req["type"], year, req["code"])
+                course["settled"] = [
+                    path for path in course["settled"] if path.startswith(valid_prefix)
+                ]
             else:  # type must be "Certificate"
-                for path in course["settled"]:
-                    if not path.startswith(REQ_PATH_PREFIX % (req["type"], year, req["name"])):
-                        course["settled"].remove(path)
+                valid_prefix = REQ_PATH_PREFIX % (req["type"], year, req["name"])
+                course["settled"] = [
+                    path for path in course["settled"] if path.startswith(valid_prefix)
+                ]
     return courses
 
 
@@ -471,7 +524,7 @@ def _init_path_to(req, year):
     2. The path gives the traversal of the tree needed to reach that node.
     """
     if "path_to" not in req:  # only for root of the tree
-        if req["type"] in ["Major", "Degree"]:
+        if req["type"] in ["Major", "Degree", "Minor"]:
             req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["code"])
         else:  # type must be "Certificate"
             req["path_to"] = REQ_PATH_PREFIX % (req["type"], year, req["name"])
@@ -641,7 +694,9 @@ def _check_degree_progress(req, courses):
     if by_semester == None or by_semester > len(courses):
         by_semester = len(courses)
     for i in range(by_semester):
-        num_courses += len(courses[i])
+        for course in courses[i]:
+            if not course.get("external"):
+                num_courses += 1
     return num_courses
 
 

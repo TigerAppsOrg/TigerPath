@@ -186,6 +186,25 @@ class UserProfile(models.Model):
         return f"{self.user.username}"
 
 
+class SchedulePlan(models.Model):
+    user_profile = models.ForeignKey(
+        UserProfile, related_name="schedule_plans", on_delete=models.CASCADE
+    )
+    name = models.CharField(max_length=80)
+    # Each plan can now carry its own academic scenario instead of sharing profile-only metadata.
+    major = models.ForeignKey(Major, related_name="+", on_delete=models.SET_NULL, null=True, blank=True)
+    minors = JSONField(default=list, blank=True)
+    schedule = JSONField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["id"]
+
+    def __str__(self):
+        return f"{self.user_profile.user.username}: {self.name}"
+
+
 class UserProfileAdmin(admin.ModelAdmin):
     search_fields = ["user__username"]
 
@@ -196,3 +215,16 @@ def create_user_profile(sender, instance, created, **kwargs):
         profile = UserProfile.objects.create(
             user=instance, user_state={"onboarding_complete": False}
         )
+        # Seed every new account with a default editable plan so the planner always has one active path.
+        plan = SchedulePlan.objects.create(
+            user_profile=profile,
+            name="My Plan",
+            major=profile.major,
+            minors=[],
+            schedule=[],
+        )
+        profile.user_state = {
+            "onboarding_complete": False,
+            "active_plan_id": plan.id,
+        }
+        profile.save(update_fields=["user_state"])

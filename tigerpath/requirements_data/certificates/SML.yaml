@@ -1,0 +1,166 @@
+type: Certificate
+name: Statistics and Machine Learning
+code: SML
+urls:
+  - https://ua.princeton.edu/fields-study/minors/statistics-and-machine-learning
+  - https://csml.princeton.edu/undergraduate/minor-program
+contacts:
+  - type: Director
+    name: Ryan Adams
+    email: rpa@cs.princeton.edu
+description: >-
+  The Undergraduate Minor Program in Statistics and Machine Learning is designed
+  for students, majoring in any department, who have a strong interest in data
+  analysis and its application across disciplines. Statistics and machine
+  learning, the academic disciplines centered around developing and
+  understanding data analysis tools, play an essential role in various
+  scientific fields including biology, engineering and the social sciences. This
+  new field of “data science” is interdisciplinary, merging contributions from a
+  variety of disciplines to address numerous applied problems. Examples of data
+  analysis problems include analyzing massive quantities of text and images,
+  modeling cellular-biological processes, pricing financial assets, evaluating
+  the efficacy of public policy programs and forecasting election outcomes. In
+  addition to its importance in scientific research and policymaking, the study
+  of data analysis comes with its own theoretical challenges, such as the
+  development of methods and algorithms for making reliable inferences from
+  high-dimensional and heterogeneous data. The program provides students with a
+  set of tools required for addressing these emerging challenges. Through the
+  program, students will learn basic theoretical frameworks and also leave them
+  equipped to apply statistics and machine learning methods to many problems of
+  interest.
+max_common_with_major: 2
+declaration_limit: 6
+pdfs_allowed: 0
+req_list:
+  - name: Prerequisites
+    min_needed: ALL
+    max_counted: 1
+    req_list:
+      - name: Coding
+        min_needed: 1
+        max_counted: 1
+        explanation: Normally completed by the end of sophomore year
+        course_list:
+          - COS 126
+          - COS 217
+          - COS 226
+          - POL 345
+          - SML 201
+      - name: Mathematics
+        min_needed: ALL
+        max_counted: 1
+        explanation: Normally completed before the spring semester of junior year
+        req_list:
+          - name: Calculus
+            min_needed: 1
+            max_counted: 1
+            course_list:
+              - MAT 201
+              - MAT 203
+              - MAT 216
+              - MAT 300
+              - SML 305
+          - name: Linear Algebra
+            min_needed: 1
+            max_counted: 1
+            course_list:
+              - MAT 202
+              - EGR 154
+              - SML 305
+              - MAT 204
+              - MAT 217
+              - MAT 218
+      - name: Probability
+        min_needed: 1
+        max_counted: 1
+        explanation: >-
+          Taking one of the approved core statistics courses provides a basic
+          understanding of probability. An additional course from ORF 309/SML
+          305 is strongly recommended for students interested in advanced
+          machine learning courses.
+        course_list:
+          - ECO 202
+          - ORF 245
+          - POL 345
+          - PSY 251
+          - SPI 200
+  - name: Machine Learning
+    min_needed: 1
+    max_counted: 1
+    explanation: One machine learning course from an approved list.
+    course_list:
+      - COS 324
+      - COS 424
+      - ECE 364
+      - ECE 435
+      - MAT 490
+      - ORF 350
+  - name: Electives
+    min_needed: 3
+    max_counted: 1
+    explanation: >-
+      Three additional courses from the approved list of elective courses or
+      (with approval) additional non-cognate courses from the statistics and
+      machine learning approved lists.
+    req_list:
+      - name: null
+        min_needed: 0
+        max_counted: ALL
+        course_list:
+          - POL 245
+          - SML 201
+          - COS 429
+          - COS 484
+          - COS 485
+          - ORF 418
+          - SOC 306
+          - ECE 434
+          - MAT 385
+          - ORF 309
+          - ORF 363
+          - AST 303
+          - CEE 460
+          - ECO 302
+          - ECO 312
+          - ECO 313
+          - ECO 491
+          - ECE 382
+          - ECE 480
+          - GEO 422
+          - MAE 345
+          - NEU 330
+          - ORF 405
+          - ORF 473
+          - POL 346
+          - PSY 360
+          - PSY 454
+          - QCB 408
+          - QCB 455
+          - SOC 400
+      - name: null
+        min_needed: 0
+        max_counted: 1
+        explanation: >-
+          Students who take both SML 301 and SML 310/312 will only receive
+          credit for one course. SML 310 and SML 312 are project based courses,
+          while SML 301 is a lecture based course. However, there is
+          considerable overlap in course content. Hence a student can take at
+          most one of these courses.
+        course_list:
+          - SML 301
+          - SML 310
+          - SML 312
+  - name: Independent Work
+    max_counted: 1
+    explanation: >-
+      Students are required to complete at least one semester of independent
+      work in their junior or senior year on a topic that applies SML methods or
+      investigates these methods. This work may be used to satisfy the IW
+      requirement of the SML minor and the student's major. All work will be
+      reviewed by the Statistics and Machine Learning Minor committee. In May,
+      there will be an (online) poster session in which students must present
+      their independent work to other students, researchers and the faculty.
+      Students must adhere to submission due dates for independent work papers
+      and poster requirements.
+    iw_relationship: hybrid
+    no_req: null

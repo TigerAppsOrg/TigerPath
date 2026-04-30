@@ -1,0 +1,76 @@
+type: Certificate
+name: Creative Writing
+code: CWR
+urls:
+  - https://ua.princeton.edu/fields-study/minors/creative-writing
+contacts:
+  - type: Director
+    name: Yiyun Li
+    email: yiyun.li@princeton.edu
+description: >-
+  The Program in Creative Writing, part of the Lewis Center for the Arts, with a
+  minor in creative writing, like our present certificate students, will
+  encounter a rigorous framework of courses. These courses are designed, first
+  and foremost, to teach the students how to read like a writer, thoughtfully,
+  artistically, curiously, with an open mind attuned to the nuances of any human
+  situation. This skill is not only for students who plan to be professional
+  writers, but most important, this is a skill we believe to be crucial for all
+  students. The many courses offered by the creative writing department teach
+  students how to structure a narrative and write it well; how to use lived
+  experience in the compressed linguistic construct of a poem so that it
+  provides a meaningful experience for a reader; how to think about, and
+  undertake, the translation of a literary work into another literary work in
+  another language; how to write and adapt literary narratives for a variety of
+  screen media.
+max_common_with_major: null
+declaration_limit: 6
+pdfs_allowed: 0
+req_list:
+  - name: Prerequisites
+    min_needed: 5
+    max_counted: 1
+    completed_by_semester: 6
+    explanation: >-
+      For the minor program, our goal is to guide students through a course of
+      study that begins with introductory courses, and then combines courses at
+      advanced levels with cross-listed and approved courses offered by other
+      units. The minor in creative writing includes a total of five courses,
+      three of which must be housed in creative writing, and two which may be
+      cross-listed with creative writing. To be eligible to apply for the minor,
+      students must have taken the five courses as described below by the end of
+      their junior year. Senior year is focused on development of students'
+      independent work.
+    req_list:
+      - name: CWR Departmentals
+        min_needed: 3
+        max_counted: 1
+        course_list:
+          - CWR ***
+      - name: CWR Crosslists
+        min_needed: 0
+        max_counted: 2
+        no_crosslist: null
+        course_list:
+          - CWR ***
+  - name: Independent Work
+    max_counted: 1
+    explanation: >-
+      Students admitted to the minor program will have one year of one-on-one
+      thesis work with an established poet or prose writer. This independent
+      work includes weekly or biweekly conferences with the thesis advisers for
+      two semesters. Under the direction of the thesis advisers, the students
+      will produce a full-length collection of poetry, a collection of short
+      stories or a finished novel manuscript. Each final thesis is read by
+      another writer, who provides a thoughtful and detailed commentary, which
+      gives a snapshot of the student's career and offers future direction. This
+      independent thesis work has long been a treasured tradition of the
+      creative writing program, and we believe that the conversion to the minor
+      program will more accurately reflect the amount of work both the students
+      and the advisers have put in during their senior year. Apart from
+      independent work, the students will also participate in two public
+      readings — a reading of their work-in-progress with their peers alongside
+      a published writer, and a thesis reading, a celebration of their final
+      theses. An unofficial monthly lunch meeting for the thesis cohort,
+      directed by an appointed faculty member, will serve as a support group.
+    iw_relationship: separate
+    no_req: null

@@ -1,16 +1,117 @@
-export const TIGERPATH_THEME = {
-  /* Navigation colors */
-  darkGreyText: '#555555',
-  lightGrey: '#6c757d',
-  darkGrey: '#5a6268',
-
-  /* Semester body colors */
+const BASE_THEME = {
+  darkGreyText: '#181818',
+  lightGrey: '#d9d9d9',
+  darkGrey: '#767676',
   greySemBody: '#f5f5f5',
-  greenSemBody: '#D0EBCF',
-  redSemBody: '#ffc0cb',
-
-  /* Should change description in tutorial.js whenever these colors are modified. */
-  ECHeaderColor: '#ec775f',
-  fallSemHeaderColor: '#ad79d4',
-  springSemHeaderColor: '#3aaed4',
+  greenSemBody: '#eaffb8',
+  redSemBody: '#ffe9e4',
 };
+
+export const TIGERPATH_THEME_OPTIONS = {
+  purple: {
+    ...BASE_THEME,
+    name: 'Purple',
+    fallSemHeaderColor: '#b67be2',
+    springSemHeaderColor: '#ddd6ff',
+    ECHeaderColor: '#ec775f',
+    courseText: '#5a23a4',
+    courseFill: '#ddd6ff',
+    courseBorder: '#c8bbff',
+    searchFillStart: '#ead8ff',
+    searchFillEnd: '#ded3ff',
+    searchPillFill: 'rgba(188, 137, 237, 0.45)',
+    searchText: '#5922a5',
+    activePlanFill: '#ddd6ff',
+    activePlanBorder: '#b99df7',
+    requirementFillStart: '#dff6b4',
+    requirementFillEnd: '#e1ff9a',
+    requirementText: '#0da745',
+    accent: '#4a1f87',
+  },
+  orange: {
+    ...BASE_THEME,
+    name: 'Orange',
+    fallSemHeaderColor: '#ffad7a',
+    springSemHeaderColor: '#ffe7d6',
+    ECHeaderColor: '#ef6c45',
+    courseText: '#ef3f22',
+    courseFill: '#ffe6da',
+    courseBorder: '#ffc9b0',
+    searchFillStart: '#ffd1bd',
+    searchFillEnd: '#ffe0d2',
+    searchPillFill: 'rgba(255, 151, 104, 0.36)',
+    searchText: '#d9471c',
+    activePlanFill: '#ffe6da',
+    activePlanBorder: '#ffad7a',
+    requirementFillStart: '#eaffb8',
+    requirementFillEnd: '#e1ff9a',
+    requirementText: '#289b2f',
+    accent: '#c64019',
+  },
+  blue: {
+    ...BASE_THEME,
+    name: 'Blue',
+    fallSemHeaderColor: '#80d4de',
+    springSemHeaderColor: '#dff7fb',
+    ECHeaderColor: '#4cb7c3',
+    courseText: '#0c8192',
+    courseFill: '#dcf4f6',
+    courseBorder: '#bee9ef',
+    searchFillStart: '#c7eef5',
+    searchFillEnd: '#dff6fb',
+    searchPillFill: 'rgba(116, 205, 218, 0.34)',
+    searchText: '#087789',
+    activePlanFill: '#dcf4f6',
+    activePlanBorder: '#80d4de',
+    requirementFillStart: '#eaffb8',
+    requirementFillEnd: '#e1ff9a',
+    requirementText: '#17a244',
+    accent: '#006f80',
+  },
+  pink: {
+    ...BASE_THEME,
+    name: 'Pink',
+    fallSemHeaderColor: '#ff9fc7',
+    springSemHeaderColor: '#ffe4ef',
+    ECHeaderColor: '#f46196',
+    courseText: '#f02372',
+    courseFill: '#ffe3ef',
+    courseBorder: '#ffc1da',
+    searchFillStart: '#ffd2e5',
+    searchFillEnd: '#ffe2ef',
+    searchPillFill: 'rgba(255, 135, 186, 0.35)',
+    searchText: '#d71b68',
+    activePlanFill: '#ffe3ef',
+    activePlanBorder: '#ff9fc7',
+    requirementFillStart: '#eaffb8',
+    requirementFillEnd: '#e1ff9a',
+    requirementText: '#17a340',
+    accent: '#b70f55',
+  },
+};
+
+export const DEFAULT_TIGERPATH_THEME = 'purple';
+
+export function getTigerPathTheme(themeName) {
+  const normalizedThemeName = themeName === 'sunset' ? 'orange' : themeName;
+  return TIGERPATH_THEME_OPTIONS[normalizedThemeName] || TIGERPATH_THEME_OPTIONS[DEFAULT_TIGERPATH_THEME];
+}
+
+export function getTigerPathThemeVariables(themeName) {
+  const theme = getTigerPathTheme(themeName);
+  return {
+    '--tp-course-text': theme.courseText,
+    '--tp-course-fill': theme.courseFill,
+    '--tp-course-border': theme.courseBorder,
+    '--tp-search-fill-start': theme.searchFillStart,
+    '--tp-search-fill-end': theme.searchFillEnd,
+    '--tp-search-pill-fill': theme.searchPillFill,
+    '--tp-search-text': theme.searchText,
+    '--tp-active-plan-fill': theme.activePlanFill,
+    '--tp-active-plan-border': theme.activePlanBorder,
+    '--tp-requirement-fill-start': theme.requirementFillStart,
+    '--tp-requirement-fill-end': theme.requirementFillEnd,
+    '--tp-requirement-text': theme.requirementText,
+    '--tp-accent': theme.accent,
+  };
+}
