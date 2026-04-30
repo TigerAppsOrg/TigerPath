@@ -1,5 +1,5 @@
 import React from 'react'
-import 'styles/Landing.css'
+import 'styles/landing.css'
 import tigerImg from '../assets/TigerPath Landing Graphic.svg'
 import waveImg from '../assets/TigerPath Waves.svg'
 
@@ -7,8 +7,7 @@ import waveImg from '../assets/TigerPath Waves.svg'
 function Landing() {
   return (
     <div className="landing-container">
-        {/* hidden SVG filter for sketchy button border */}
-        <svg width="0" height="0" style={{position: 'relative'}}>
+        <svg className="landing-filter" width="0" height="0" aria-hidden="true">
         <defs>
             <filter id="sketchy">
             <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" />
@@ -25,18 +24,14 @@ function Landing() {
                 feedback
             </a>
         </div>
-    <div className="body">
-        {/* left side - tiger illustration */}
+    <main className="body">
         <div className="landing-left">
             <div className="landing-left-graphics">
                 <img src={tigerImg} className="tiger-illustration"
                 alt="Tiger on a ship" />
             </div>
-            
-
         </div>
 
-        {/* right side - text and button */}
         <div className="landing-right">
             <div className="landing-header">
                 <h1 className="landing-title">TigerPath</h1>
@@ -47,13 +42,13 @@ function Landing() {
             <p className="landing-credit">Made by <a href="https://tigerapps.org/" className="hyperlink">TigerApps</a>
             </p>
         </div>
-    </div>
+    </main>
 
-    <div className="wave-wrapper">
+    <div className="wave-wrapper" aria-hidden="true">
       <div className="wave-carousel">
-        <img src={waveImg} className="wave-illustration" alt="Waves"/>
-        <img src={waveImg} className="wave-illustration" alt="Waves"/>
-        <img src={waveImg} className="wave-illustration" alt="Waves"/>
+        <img src={waveImg} className="wave-illustration" alt=""/>
+        <img src={waveImg} className="wave-illustration" alt=""/>
+        <img src={waveImg} className="wave-illustration" alt=""/>
       </div>
     </div>
     </div>
