@@ -29,11 +29,14 @@ export default defineConfig({
     host: true,
     origin: 'http://localhost:3000',
   },
-  build: {
-    manifest: 'manifest.json',
-    outDir: path.resolve(__dirname, '../assets/dist'),
-    rollupOptions: {
-      input: path.resolve(__dirname, 'src/index.jsx'),
+build: {
+        manifest: 'manifest.json',
+        outDir: path.resolve(__dirname, '../assets/dist'),
+        rollupOptions: {
+            input: {
+                index: path.resolve(__dirname, 'src/index.jsx'),
+                landing: path.resolve(__dirname, 'src/landing.jsx'),
+            },
+        },
     },
-  },
 });
