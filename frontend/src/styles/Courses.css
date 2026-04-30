@@ -13,7 +13,7 @@
 .search-input-icon {
   position: absolute;
   left: 18px;
-  color: #b8b8b8;
+  color: #6f6f6f;
   font-size: 18px;
   z-index: 1;
 }
@@ -30,13 +30,13 @@
 }
 
 #search-courses .form-control::placeholder {
-  color: #b0b0b0;
+  color: #6f6f6f;
 }
 
 #search-courses .form-control:focus {
-  border-color: #d7d7d7;
-  box-shadow: none;
-  outline: 0 none;
+  border-color: var(--tp-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tp-accent) 18%, transparent);
+  outline: 0;
   background: #ffffff;
 }
 
@@ -190,7 +190,7 @@
 }
 
 .course-popover-info-link {
-  color: #0d6efd;
+  color: #075fc7;
   display: inline-flex;
   align-items: center;
   justify-content: center;

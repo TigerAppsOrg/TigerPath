@@ -234,7 +234,7 @@ const RidgeTab = styled.button`
   border-bottom-color: ${({ $active }) => ($active ? 'white' : '#dfdfdf')};
   border-radius: 18px 18px 0 0;
   background: ${({ $active }) => ($active ? 'white' : 'rgba(255,255,255,0.82)')};
-  color: ${({ $active }) => ($active ? '#111111' : '#d3d3d3')};
+  color: ${({ $active }) => ($active ? '#111111' : '#666666')};
   padding: 10px 18px 9px;
   font-size: 20px;
   font-weight: ${({ $active }) => ($active ? 800 : 700)};
@@ -315,7 +315,7 @@ const ProgressEyebrow = styled.div`
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #666666;
+  color: #5f5f5f;
 `;
 
 const YearProgressGrid = styled.div`
@@ -366,7 +366,7 @@ const YearProgressPercent = styled.div`
 
 const YearProgressLabel = styled.div`
   font-size: 10px;
-  color: #777777;
+  color: #666666;
   margin-top: 3px;
 `;
 
@@ -379,7 +379,7 @@ const YearProgressName = styled.div`
 
 const YearProgressStatus = styled.div`
   font-size: 13px;
-  color: ${({ $done }) => ($done ? '#4e7d2f' : '#666666')};
+  color: ${({ $done }) => ($done ? '#3a6f1f' : '#5f5f5f')};
   font-weight: 700;
   text-align: center;
 `;
