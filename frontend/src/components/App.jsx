@@ -332,6 +332,33 @@ export default function App() {
     [schedule, searchResults]
   );
 
+  const addSearchCourseToSemester = useCallback(
+    (searchResultsCourse, destSemId) => {
+      const currentSchedule = (schedule || DEFAULT_SCHEDULE).map((semester) =>
+        semester.slice()
+      );
+      if (isCourseAlreadyScheduled(currentSchedule, searchResultsCourse.id)) {
+        setDuplicateCourseMessage(`${searchResultsCourse.name} is already in your schedule.`);
+        return false;
+      }
+
+      currentSchedule[destSemId].push({
+        id: searchResultsCourse.id,
+        name: searchResultsCourse.name,
+        title: searchResultsCourse.title,
+        dist_area: searchResultsCourse.dist_area,
+        semester: searchResultsCourse.semester,
+        semester_list: searchResultsCourse.semester_list,
+        quality_rating: searchResultsCourse.quality_rating ?? null,
+        settled: [],
+      });
+      setSchedule(currentSchedule);
+      setMobilePane('schedule');
+      return true;
+    },
+    [schedule]
+  );
+
   const activeThemeName = profile?.theme || DEFAULT_TIGERPATH_THEME;
   const activeTheme = useMemo(
     () => getTigerPathTheme(activeThemeName),
@@ -397,6 +424,7 @@ export default function App() {
               searchQuery={searchQuery}
               searchResults={searchResults}
               duplicateCourseMessage={duplicateCourseMessage}
+              onAddCourse={addSearchCourseToSemester}
             />
           </div>
           <div
