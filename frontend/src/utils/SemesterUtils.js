@@ -46,7 +46,7 @@ export function getSemesterNames(classYear) {
 
 export function getScheduledCourseKey(course, semIndex, courseIndex) {
   const stableId = course?.id || `${semIndex}-${courseIndex}`;
-  return `course-card-${course?.semester || 'both'}-${stableId}`;
+  return `course-card-${course?.semester || 'both'}-${stableId}-${semIndex}-${courseIndex}`;
 }
 
 /* Converts semester to term code */
