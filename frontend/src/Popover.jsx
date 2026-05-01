@@ -92,6 +92,9 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
   const Popover = window.bootstrap?.Popover;
   if (!Popover) return;
 
+  const cleanupExistingPopover = courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  if (cleanupExistingPopover) cleanupExistingPopover();
+
   // Dispose existing popover if any
   const existing = Popover.getInstance(courseElement);
   if (existing) existing.dispose();

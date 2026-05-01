@@ -48,7 +48,11 @@ export default function SearchCard({
     >
       {(droppableProvided) => (
         <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
-          <Draggable draggableId={courseKey} index={courseIndex}>
+          <Draggable
+            draggableId={courseKey}
+            index={courseIndex}
+            disableInteractiveElementBlocking
+          >
             {(draggableProvided, snapshot) => (
               <div
                 ref={draggableProvided.innerRef}
