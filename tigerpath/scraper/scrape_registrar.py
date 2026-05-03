@@ -11,6 +11,7 @@ import re
 from concurrent.futures import ThreadPoolExecutor
 
 import cloudscraper
+import certifi
 import requests
 
 _REGISTRAR_PAGE_URL = "https://registrar.princeton.edu/course-offerings"
@@ -32,6 +33,7 @@ def _fetch_registrar_page():
         _REGISTRAR_PAGE_URL,
         headers={"User-Agent": _USER_AGENT},
         timeout=30,
+        verify=certifi.where(),
     )
     resp.raise_for_status()
     html = resp.text
