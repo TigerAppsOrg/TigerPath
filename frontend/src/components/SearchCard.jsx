@@ -1,72 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Draggable, Droppable } from '@hello-pangea/dnd';
 import SearchCourseCard from './SearchCourseCard';
 
-// const RADIX = 10;
+const SEMESTER_OPTIONS = [
+  { label: 'Fresh Fall', value: 0 },
+  { label: 'Fresh Spring', value: 1 },
+  { label: 'Soph Fall', value: 2 },
+  { label: 'Soph Spring', value: 3 },
+  { label: 'Jr Fall', value: 4 },
+  { label: 'Jr Spring', value: 5 },
+  { label: 'Sr Fall', value: 6 },
+  { label: 'Sr Spring', value: 7 },
+];
 
-function getRatingColor(rating) {
-  if (rating == null) return '#e0e0e0';
-  const stops = [
-    [0,   [224, 82,  82 ]],
-    [2,   [224, 112, 48 ]],
-    [3,   [224, 144, 32 ]],
-    [3.5, [200, 176, 32 ]],
-    [4,   [144, 176, 32 ]],
-    [4.5, [92,  184, 92 ]],
-    [5,   [45,  176, 45 ]],
-  ];
-  const r = Math.max(0, Math.min(5, rating));
-  let lo = stops[0], hi = stops[stops.length - 1];
-  for (let i = 0; i < stops.length - 1; i++) {
-    if (r >= stops[i][0] && r <= stops[i + 1][0]) { lo = stops[i]; hi = stops[i + 1]; break; }
-  }
-  const t = hi[0] === lo[0] ? 0 : (r - lo[0]) / (hi[0] - lo[0]);
-  const c = lo[1].map((v, i) => Math.round(v + t * (hi[1][i] - v)));
-  return `rgb(${c[0]},${c[1]},${c[2]})`;
-}
+export default function SearchCard({
+  course,
+  courseKey,
+  index: courseIndex,
+  onSelect,
+  isSelected,
+  onAddCourse,
+}) {
+  const [isAddMenuOpen, setIsAddMenuOpen] = useState(false);
+  const [selectedSemester, setSelectedSemester] = useState(0);
 
-// function convertSemToReadableForm(sem) {
-//   if (sem[0] === 'f') {
-//     return 'Fall 20' + sem.slice(1);
-//   } else {
-//     return 'Spring 20' + sem.slice(1);
-//   }
-// }
+  const handleSelect = () => {
+    if (onSelect) onSelect(course);
+  };
 
-// function getPrevOfferedSemList(semList) {
-//   semList.sort(function (sem1, sem2) {
-//     let yearCmp =
-//       parseInt(sem1.slice(1), RADIX) - parseInt(sem2.slice(1), RADIX);
-//     if (yearCmp !== 0) return yearCmp;
-//     else if (sem1[0] === 's' && sem2[0] === 'f') return -1;
-//     else if (sem1[0] === 'f' && sem2[0] === 's') return 1;
-//     else return 0;
-//   });
+  const toggleAddMenu = (event) => {
+    event.stopPropagation();
+    setIsAddMenuOpen((isOpen) => !isOpen);
+  };
 
-//   let result = '';
-//   for (
-//     let index = Math.max(0, semList.length - 2);
-//     index < semList.length;
-//     index++
-//   ) {
-//     result += convertSemToReadableForm(semList[index]);
-//     if (index !== semList.length - 1) result += ', ';
-//   }
-//   return result;
-// }
-
-// function convertSemToTermCode(sem) {
-//   let code = '1';
-//   if (sem[0] === 'f') {
-//     code += (parseInt(sem.slice(1), 10) + 1).toString() + '2';
-//   } else {
-//     code += sem.slice(1) + '4';
-//   }
-//   return code;
-// }
-
-export default function SearchCard({ course, courseKey, index: courseIndex, onSelect, isSelected, qualityRating = null }) {
-  const ratingLabel = qualityRating != null ? qualityRating.toFixed(2) : null;
+  const handleAddCourse = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!onAddCourse) return;
+    const added = onAddCourse(course, selectedSemester);
+    if (added) setIsAddMenuOpen(false);
+  };
 
   return (
     <Droppable
@@ -75,42 +48,82 @@ export default function SearchCard({ course, courseKey, index: courseIndex, onSe
     >
       {(droppableProvided) => (
         <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
-          <Draggable draggableId={courseKey} index={courseIndex}>
+          <Draggable
+            draggableId={courseKey}
+            index={courseIndex}
+            disableInteractiveElementBlocking
+          >
             {(draggableProvided, snapshot) => (
               <div
                 ref={draggableProvided.innerRef}
                 className={`search-card ${course['semester']}${isSelected ? ' selected' : ''}${snapshot.isDragging ? ' dragging' : ''}`}
-                onClick={() => onSelect && onSelect(course)}
                 style={{
                   cursor: snapshot.isDragging ? 'grabbing' : 'grab',
                   ...draggableProvided.draggableProps.style,
                 }}
                 {...draggableProvided.draggableProps}
-                {...draggableProvided.dragHandleProps}
               >
-                <SearchCourseCard
-                  course={course}
-                />
-                <div className="search-card-info">
-                  <div className="course-title">{course['title']}</div>
-                  <div className="search-card-info-actions">
-                    <button
-                      className="search-card-info-btn"
-                      title="View course details"
-                      onClick={(e) => { e.stopPropagation(); onSelect && onSelect(course); }}
-                      style={{
-                        background: 'none',
-                        border: 'none',
-                        padding: 0,
-                        cursor: 'pointer',
-                        color: 'inherit',
-                        opacity: 0.45,
-                      }}
+                <button
+                  type="button"
+                  className="search-card-main"
+                  aria-pressed={isSelected}
+                  aria-label={`View details for ${course['name']}: ${course['title']}`}
+                  onClick={handleSelect}
+                  {...draggableProvided.dragHandleProps}
+                >
+                  <SearchCourseCard course={course} />
+                  <span className="course-title">{course['title']}</span>
+                </button>
+                {onAddCourse && (
+                  <button
+                    type="button"
+                    className="search-card-add-btn"
+                    aria-expanded={isAddMenuOpen}
+                    aria-controls={`${courseKey}-add-menu`}
+                    onClick={toggleAddMenu}
+                  >
+                    <i className="fas fa-plus" aria-hidden="true" />
+                    <span>Add</span>
+                  </button>
+                )}
+                {onAddCourse && isAddMenuOpen && (
+                  <form
+                    id={`${courseKey}-add-menu`}
+                    className="search-card-add-menu"
+                    aria-label={`Add ${course.name} to a semester`}
+                    onClick={(event) => event.stopPropagation()}
+                    onSubmit={handleAddCourse}
+                  >
+                    <label className="visually-hidden" htmlFor={`${courseKey}-semester`}>
+                      Destination semester
+                    </label>
+                    <select
+                      id={`${courseKey}-semester`}
+                      value={selectedSemester}
+                      onChange={(event) => setSelectedSemester(Number(event.target.value))}
                     >
-                      <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+                      {SEMESTER_OPTIONS.map((semester) => (
+                        <option key={semester.value} value={semester.value}>
+                          {semester.label}
+                        </option>
+                      ))}
+                    </select>
+                    <button type="submit">
+                      Add to Plan
                     </button>
-                  </div>
-                </div>
+                  </form>
+                )}
+                {!onAddCourse && (
+                  <button
+                    type="button"
+                    className="search-card-info-btn"
+                    title="View course details"
+                    aria-label={`View details for ${course['name']}`}
+                    onClick={(e) => { e.stopPropagation(); handleSelect(); }}
+                  >
+                    <i className="fas fa-info-circle fa-lg fa-fw course-info" />
+                  </button>
+                )}
               </div>
             )}
           </Draggable>

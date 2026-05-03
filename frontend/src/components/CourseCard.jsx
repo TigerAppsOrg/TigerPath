@@ -2,7 +2,14 @@ import React from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 import { EXTERNAL_CREDITS_SEMESTER_INDEX } from 'utils/SemesterUtils';
 
-export default function CourseCard({ course, courseKey, courseIndex, semIndex, onCourseRemove }) {
+export default function CourseCard({
+  course,
+  courseKey,
+  courseIndex,
+  semIndex,
+  onCourseRemove,
+  onCourseSelect,
+}) {
   const removeCourse = () => {
     onCourseRemove(semIndex, courseIndex);
     // Hide Bootstrap 5 popover if active
@@ -12,6 +19,11 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
       const instance = Popover?.getInstance(el);
       if (instance) instance.hide();
     }
+  };
+
+  const showCourseDetails = (event) => {
+    event.stopPropagation();
+    onCourseSelect?.(course);
   };
 
   const getClassNames = (isDragging) => {
@@ -43,12 +55,29 @@ export default function CourseCard({ course, courseKey, courseIndex, semIndex, o
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             style={getDragStyle(provided.draggableProps.style, snapshot)}
+            aria-label={`${course['name']} in schedule`}
           >
             <div className="course-name">{course['name']}</div>
-            <i
-              className="fas fa-times-circle delete-course"
+            {!course.external && (
+              <button
+                type="button"
+                className="course-detail-course-btn"
+                aria-label={`View details for ${course['name']}`}
+                title={`View details for ${course['name']}`}
+                onClick={showCourseDetails}
+              >
+                <i className="fas fa-info-circle" aria-hidden="true" />
+              </button>
+            )}
+            <button
+              type="button"
+              className="delete-course"
+              aria-label={`Remove ${course['name']}`}
+              title={`Remove ${course['name']}`}
               onClick={removeCourse}
-            />
+            >
+              <i className="fas fa-times-circle" aria-hidden="true" />
+            </button>
           </div>
         )}
       </Draggable>

@@ -3,6 +3,7 @@ import { apiFetch, apiPost } from 'utils/api';
 import Search from 'components/Search';
 import MainView from 'components/MainView';
 import Requirements from 'components/Requirements';
+import CourseDetailPanel from 'components/CourseDetailPanel';
 import { DragDropContext } from '@hello-pangea/dnd';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -30,10 +31,12 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [duplicateCourseMessage, setDuplicateCourseMessage] = useState('');
+  const [selectedDetailCourse, setSelectedDetailCourse] = useState(null);
   const [planEditorOptions, setPlanEditorOptions] = useState({
     majorOptions: [],
     minorOptions: [],
   });
+  const requirementsRequestRef = React.useRef(0);
 
   const handleRequirementData = useCallback((data) => {
     if (data) {
@@ -189,6 +192,8 @@ export default function App() {
 
   const updateScheduleAndGetRequirements = useCallback(
     (currentSchedule) => {
+      const requestId = requirementsRequestRef.current + 1;
+      requirementsRequestRef.current = requestId;
       let strippedSchedule = [];
       for (let semIndex = 0; semIndex < currentSchedule.length; semIndex++) {
         strippedSchedule.push([]);
@@ -205,10 +210,16 @@ export default function App() {
       apiPost('/api/v1/update_schedule_and_get_requirements/', {
         schedule: JSON.stringify(strippedSchedule),
       })
-        .then(handleRequirementData)
+        .then((data) => {
+          if (requestId === requirementsRequestRef.current) {
+            handleRequirementData(data);
+          }
+        })
         .catch((error) => {
-          console.error('[requirements] update failed', error);
-          fetchRequirements();
+          if (requestId === requirementsRequestRef.current) {
+            console.error('[requirements] update failed', error);
+            fetchRequirements();
+          }
         });
     },
     [fetchRequirements, handleRequirementData]
@@ -238,6 +249,18 @@ export default function App() {
     }, DUPLICATE_COURSE_MESSAGE_MS);
     return () => clearTimeout(timeoutId);
   }, [duplicateCourseMessage]);
+
+  useEffect(() => {
+    const openCourseDetail = (event) => {
+      if (event.detail?.course) {
+        setSelectedDetailCourse(event.detail.course);
+      }
+    };
+    window.addEventListener('tigerpath:open-course-detail', openCourseDetail);
+    return () => {
+      window.removeEventListener('tigerpath:open-course-detail', openCourseDetail);
+    };
+  }, []);
 
   const onChange = useCallback((name, value) => {
     switch (name) {
@@ -354,6 +377,7 @@ export default function App() {
               onChange={onChange}
               profile={profile}
               schedule={schedule}
+              onCourseSelect={setSelectedDetailCourse}
               plans={plans}
               activePlanId={activePlanId}
               onSetActivePlan={setActivePlan}
@@ -373,6 +397,11 @@ export default function App() {
             activePlanId={activePlanId}
           />
         </div>
+        <CourseDetailPanel
+          course={selectedDetailCourse}
+          isOpen={selectedDetailCourse !== null}
+          onClose={() => setSelectedDetailCourse(null)}
+        />
       </>
     </ThemeProvider>
   );

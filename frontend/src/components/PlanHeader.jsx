@@ -27,8 +27,15 @@ const PlanTabs = styled.div`
   padding: 6px 10px;
 `;
 
-const PlanTab = styled.button`
+const PlanTabItem = styled.div`
+  position: relative;
   flex: 1;
+  min-width: 0;
+  display: flex;
+`;
+
+const PlanTab = styled.button`
+  width: 100%;
   min-width: 0;
   display: inline-flex;
   align-items: center;
@@ -39,7 +46,7 @@ const PlanTab = styled.button`
   background: ${({ $active }) => ($active ? 'var(--tp-active-plan-fill)' : 'transparent')};
   color: #181818;
   border-radius: 999px;
-  padding: 6px 16px;
+  padding: 6px 38px 6px 16px;
   min-height: 34px;
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? 600 : 500)};
@@ -71,6 +78,7 @@ const EditButton = styled.button`
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
 
   &:hover {
     color: #111111;
@@ -466,6 +474,7 @@ export default function PlanHeader({
   const minorWrapperRef = useRef(null);
   const titleInputRef = useRef(null);
   const lockIconRef = useRef(null);
+  const editButtonRef = useRef(null);
 
   useEffect(() => {
     if (!activePlan) {
@@ -494,6 +503,54 @@ export default function PlanHeader({
     document.addEventListener('mousedown', handlePointerDown);
     return () => document.removeEventListener('mousedown', handlePointerDown);
   }, [isEditing, isMinorMenuOpen]);
+
+  useEffect(() => {
+    if (!isEditing) return undefined;
+
+    const previousActiveElement = document.activeElement;
+    window.setTimeout(() => titleInputRef.current?.focus(), 0);
+
+    const getFocusableElements = () => {
+      if (!panelRef.current) return [];
+      return Array.from(
+        panelRef.current.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.offsetParent !== null);
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeEditPanel();
+        return;
+      }
+      if (event.key !== 'Tab') return;
+
+      const focusableElements = getFocusableElements();
+      if (focusableElements.length === 0) return;
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      if (previousActiveElement instanceof HTMLElement) {
+        previousActiveElement.focus();
+      } else {
+        editButtonRef.current?.focus();
+      }
+    };
+  }, [isEditing]);
 
   useEffect(() => {
     if (!atPlanLimit || !lockIconRef.current || !window.bootstrap?.Tooltip) {
@@ -615,16 +672,18 @@ export default function PlanHeader({
           const isActive = plan.id === activePlanId;
           return (
             <React.Fragment key={plan.id}>
-              {/* Click the pill to switch active plan context for schedule + requirements. */}
-              <PlanTab
-                type="button"
-                $active={isActive}
-                onClick={() => onSetActivePlan(plan.id)}
-              >
-                <TabLabel>{plan.name}</TabLabel>
+              <PlanTabItem>
+                {/* Click the pill to switch active plan context for schedule + requirements. */}
+                <PlanTab
+                  type="button"
+                  $active={isActive}
+                  onClick={() => onSetActivePlan(plan.id)}
+                >
+                  <TabLabel>{plan.name}</TabLabel>
+                </PlanTab>
                 {isActive && (
-                  // Edit icon opens the in-place workflow panel.
                   <EditButton
+                    ref={editButtonRef}
                     type="button"
                     aria-label="Open plan editor"
                     onClick={(event) => {
@@ -642,7 +701,7 @@ export default function PlanHeader({
                     <i className="fas fa-pencil-alt" aria-hidden="true" />
                   </EditButton>
                 )}
-              </PlanTab>
+              </PlanTabItem>
               {index < plans.length - 1 && <Divider>|</Divider>}
             </React.Fragment>
           );
@@ -668,12 +727,18 @@ export default function PlanHeader({
       </PlanTabs>
       {isEditing && <PanelBackdrop onClick={closeEditPanel} />}
       {isEditing && activePlan && (
-        <EditPanel ref={panelRef}>
+        <EditPanel
+            ref={panelRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="plan-editor-title"
+          >
           <PanelSection>
             {/* Large editable title row mirrors the Figma modal header treatment. */}
             <PathTitleRow>
               <PathTitleInput
                 ref={titleInputRef}
+                  id="plan-editor-title"
                 aria-label="Path title"
                 placeholder="Path Title"
                 value={draftName}

@@ -2,12 +2,19 @@ import {
   getSemesterType,
   isFallSemester,
   isSpringSemester,
-  convertSemToTermCode,
 } from 'utils/SemesterUtils';
 import { bindManualHoverPopover } from 'utils/manualHoverPopover';
 
-const BASE_COURSE_OFFERINGS_URL = 'https://www.princetoncourses.com/course/';
 const COURSE_POPOVER_CLEANUP_KEY = '__tigerpathCoursePopoverCleanup';
+
+function escapeHtml(text) {
+  return String(text ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
 
 function getRatingColor(rating) {
   if (rating == null) return '#e0e0e0';
@@ -35,41 +42,24 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
   let courseTitle = course['title'];
   let courseSemType = course['semester'];
   let qualityRating = course['quality_rating'] ?? null;
-  let courseInfoLink = '';
 
   const courseElement = document.getElementById(courseKey);
   if (!courseElement) return;
 
-  const existingCleanup = courseElement[COURSE_POPOVER_CLEANUP_KEY];
-  if (typeof existingCleanup === 'function') {
-    existingCleanup();
-  }
-
-  let courseId = course['id'];
-  let courseSemList = course['semester_list'];
-  if (courseSemList && courseSemList.length > 0) {
-    let termCode = convertSemToTermCode(
-      courseSemList[courseSemList.length - 1]
-    );
-    courseInfoLink = BASE_COURSE_OFFERINGS_URL + termCode + courseId;
-  }
-
   let titleHtml = `<span class="course-popover-title">
-    <span class="course-popover-name">${courseName}</span>
+    <span class="course-popover-name">${escapeHtml(courseName)}</span>
     <span class="course-popover-actions">`;
   if (qualityRating != null) {
     titleHtml += `<span class="course-popover-rating" style="background:${getRatingColor(qualityRating)}">${qualityRating.toFixed(2)}</span>`;
   }
-  if (courseInfoLink) {
-    titleHtml += `<a class="course-popover-info-link" href="${courseInfoLink}" target="_blank" rel="noopener noreferrer" title="View course details"><i class="fas fa-info-circle fa-lg fa-fw course-info"></i></a>`;
-  }
+  titleHtml += `<button type="button" class="course-popover-info-link" title="View course details" aria-label="View ${escapeHtml(courseName)} details"><i class="fas fa-info-circle fa-lg fa-fw course-info" aria-hidden="true"></i></button>`;
   titleHtml += `</span></span>`;
   courseElement.setAttribute('data-bs-title', titleHtml);
 
   // Build content
   let content;
   if (!course['external']) {
-    content = courseTitle;
+    content = escapeHtml(courseTitle);
   } else {
     content = "This is an external credit that you've added.";
   }
@@ -102,6 +92,9 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
   const Popover = window.bootstrap?.Popover;
   if (!Popover) return;
 
+  const cleanupExistingPopover = courseElement[COURSE_POPOVER_CLEANUP_KEY];
+  if (cleanupExistingPopover) cleanupExistingPopover();
+
   // Dispose existing popover if any
   const existing = Popover.getInstance(courseElement);
   if (existing) existing.dispose();
@@ -117,7 +110,23 @@ export function addPopover(course, courseKey, semIndex, duplicateCourseCounts = 
 
   const cleanupHoverBehavior = bindManualHoverPopover(
     courseElement,
-    popoverInstance
+    popoverInstance,
+    {
+      onShow: (popoverEl) => {
+        popoverEl?.querySelectorAll('.course-popover-info-link').forEach((button) => {
+          button.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            popoverInstance.hide();
+            window.dispatchEvent(
+              new CustomEvent('tigerpath:open-course-detail', {
+                detail: { course },
+              })
+            );
+          }, { once: true });
+        });
+      },
+    }
   );
   courseElement[COURSE_POPOVER_CLEANUP_KEY] = () => {
     cleanupHoverBehavior();

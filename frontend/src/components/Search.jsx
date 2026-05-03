@@ -5,7 +5,7 @@ import CourseDetailPanel from 'components/CourseDetailPanel';
 const SEARCH_DEBOUNCE_MS = 50;
 const MIN_QUERY_LENGTH = 3;
 
-export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage }) {
+export default function Search({ onChange, searchQuery, searchResults, duplicateCourseMessage, onAddCourse }) {
   const [loading, setLoading] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState(null);
 
@@ -89,7 +89,7 @@ export default function Search({ onChange, searchQuery, searchResults, duplicate
             course={course}
             onSelect={handleCourseSelect}
             isSelected={selectedCourse?.id === course.id}
-            qualityRating={course.quality_rating ?? null}
+            onAddCourse={onAddCourse}
           />
         );
       });
@@ -123,6 +123,9 @@ export default function Search({ onChange, searchQuery, searchResults, duplicate
       />
       <div id="search-courses">
         <div className="search-input-shell">
+          <label className="visually-hidden" htmlFor="search-text">
+            Search courses
+          </label>
           <i className="fas fa-search search-input-icon" aria-hidden="true" />
           <input
             type="text"

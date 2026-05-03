@@ -10,9 +10,17 @@ import { v1 as uuidv1 } from 'uuid';
 const REQUIREMENTS_POPOVER_CLEANUP_KEY = '__tigerpathReqPopoverCleanup';
 const HEADER_POPOVER_CLEANUP_KEY = '__tigerpathHeaderPopoverCleanup';
 const TREE_ITEM_CLICK_HANDLER_KEY = '__tigerpathTreeItemClickHandler';
+const TREE_ITEM_KEYDOWN_HANDLER_KEY = '__tigerpathTreeItemKeydownHandler';
 
 function escapeHref(url) {
-  return String(url).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+  const rawUrl = String(url || '').trim();
+  try {
+    const parsed = new URL(rawUrl, window.location.origin);
+    if (!['http:', 'https:', 'mailto:'].includes(parsed.protocol)) return '';
+  } catch (error) {
+    return '';
+  }
+  return rawUrl.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '%3C').replace(/>/g, '%3E');
 }
 
 function escapeHtml(text) {
@@ -21,6 +29,10 @@ function escapeHtml(text) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function escapeAttribute(text) {
+  return escapeHtml(text).replace(/'/g, '&#39;');
 }
 
 function orderMajorReferenceUrls(urls) {
@@ -244,7 +256,9 @@ const RidgeTab = styled.button`
   }
 `;
 
-const CardInfoIcon = styled.i`
+const CardInfoIcon = styled.button`
+  border: 0;
+  background: transparent;
   margin-left: auto;
   margin-bottom: 6px;
   cursor: pointer;
@@ -253,9 +267,17 @@ const CardInfoIcon = styled.i`
   font-size: 16px;
   padding: 2px 4px;
   flex-shrink: 0;
+  min-width: 32px;
+  min-height: 32px;
 
   &:hover {
     opacity: 1;
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    outline: 2px solid var(--tp-accent);
+    outline-offset: 2px;
   }
 `;
 
@@ -372,6 +394,7 @@ export default function Requirements({ onChange, requirements, schedule, activeP
   const [selectedMinorIndex, setSelectedMinorIndex] = useState(0);
   const [externalCreditDrafts, setExternalCreditDrafts] = useState({});
   const [openExternalCreditPath, setOpenExternalCreditPath] = useState(null);
+  const reqCoursesRequestRef = useRef(0);
 
   // Partition requirements into the top card (major + degree) and the bottom card (minors).
   //
@@ -504,8 +527,12 @@ export default function Requirements({ onChange, requirements, schedule, activeP
       if (typeof existingHandler === 'function') {
         item.removeEventListener('click', existingHandler);
       }
+      const existingKeydownHandler = item[TREE_ITEM_KEYDOWN_HANDLER_KEY];
+      if (typeof existingKeydownHandler === 'function') {
+        item.removeEventListener('keydown', existingKeydownHandler);
+      }
 
-      const clickHandler = (event) => {
+      const toggleTreeItem = (event) => {
         const interactiveTarget = event.target.closest(
           'li.settled, li.unsettled, a, button, input, select, textarea'
         );
@@ -526,9 +553,19 @@ export default function Requirements({ onChange, requirements, schedule, activeP
           if (children) children.classList.add(treeCollapsedClass);
         }
       };
+      const clickHandler = (event) => toggleTreeItem(event);
+      const keydownHandler = (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        toggleTreeItem(event);
+      };
 
       item[TREE_ITEM_CLICK_HANDLER_KEY] = clickHandler;
+      item[TREE_ITEM_KEYDOWN_HANDLER_KEY] = keydownHandler;
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
       item.addEventListener('click', clickHandler);
+      item.addEventListener('keydown', keydownHandler);
     });
   }, []);
 
@@ -645,15 +682,23 @@ export default function Requirements({ onChange, requirements, schedule, activeP
   }, []);
 
   const getReqCourses = (req_path) => {
+    const requestId = reqCoursesRequestRef.current + 1;
+    reqCoursesRequestRef.current = requestId;
     const searchQueryLabel = 'Satisfying: ' + req_path.split('//').pop();
     onChange('searchQuery', searchQueryLabel);
     setLoading(true);
     apiFetch('/api/v1/get_req_courses/' + req_path.replace(/\/\//g, '$'))
       .then((results) => {
-        onChange('searchResults', results);
-        setLoading(false);
+        if (requestId === reqCoursesRequestRef.current) {
+          onChange('searchResults', results);
+          setLoading(false);
+        }
       })
-      .catch(() => setLoading(false));
+      .catch(() => {
+        if (requestId === reqCoursesRequestRef.current) {
+          setLoading(false);
+        }
+      });
   };
 
   const toggleSettle = (course, pathTo, settle) => {
@@ -788,14 +833,14 @@ export default function Requirements({ onChange, requirements, schedule, activeP
       if (isOrGroup && finished !== 'req-done') tag += ' (any 1)';
 
       let popoverContent =
-        '<button type="button" class="btn btn-sm req-popover-action searchByReq"><i class="fa fa-search"></i>Find Satisfying Courses</button>';
+        '<button type="button" class="btn btn-sm req-popover-action searchByReq"><i class="fa fa-search" aria-hidden="true"></i>Find Satisfying Courses</button>';
       if (canAddExternalCredit) {
         popoverContent +=
-          '<button type="button" class="btn btn-sm req-popover-action addExternalCreditByReq"><i class="fa fa-plus-circle"></i>Add External Credit</button>';
+          '<button type="button" class="btn btn-sm req-popover-action addExternalCreditByReq"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add External Credit</button>';
       }
       popoverContent += '<div class="popoverContentContainer">';
       if (requirement.explanation) {
-        popoverContent += '<p>' + requirement.explanation.split('\n').join('<br>') + '</p>';
+        popoverContent += '<p>' + escapeHtml(requirement.explanation).split('\n').join('<br>') + '</p>';
       }
       popoverContent += '</div>';
 
@@ -803,8 +848,11 @@ export default function Requirements({ onChange, requirements, schedule, activeP
         <div
           className="reqLabel"
           reqpath={requirement['path_to']}
-          title={'<span>' + requirement['name'] + '</span>'}
+          title={'<span>' + escapeAttribute(requirement['name']) + '</span>'}
           data-bs-content={popoverContent}
+          role="button"
+          tabIndex={0}
+          aria-label={`${requirement['name']} requirement details`}
         >
           <span className="reqName">{requirement['name']}</span>
           <span className={`reqCount ${finished !== 'req-done' ? 'reqCount-incomplete' : ''}`}>
@@ -1115,6 +1163,8 @@ export default function Requirements({ onChange, requirements, schedule, activeP
               if (!attrs) return null;
               return (
                 <CardInfoIcon
+                    type="button"
+                    aria-label="Requirement information"
                   className="fa fa-info-circle info-icon"
                   {...attrs}
                 />
@@ -1152,6 +1202,8 @@ export default function Requirements({ onChange, requirements, schedule, activeP
               if (!attrs) return null;
               return (
                 <CardInfoIcon
+                    type="button"
+                    aria-label="Requirement information"
                   className="fa fa-info-circle info-icon"
                   {...attrs}
                 />
