@@ -92,6 +92,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
 }
 
 #requirements .external-credit-remove:hover,
@@ -253,6 +255,23 @@
   gap: 16px;
 }
 
+@media (max-width: 767.98px) {
+  #requirements {
+    overflow: visible;
+  }
+
+  #requirements .req-course-chip,
+  #requirements li {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  #requirements .external-credit-remove {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
 .fa-search {
   padding-right: 5px;
 }
@@ -263,6 +282,7 @@
   align-items: center;
   justify-content: center;
   font-weight: 800;
+  min-height: 44px;
 }
 
 .searchByReq {
