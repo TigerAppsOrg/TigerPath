@@ -14,11 +14,36 @@ body {
   --tp-search-fill-end: #ded3ff;
   --tp-search-pill-fill: rgba(188, 137, 237, 0.45);
   --tp-search-text: #5922a5;
+  --tp-search-action-fill: #ffffff;
+  --tp-search-action-text: #3f167a;
+  --tp-search-action-border: #b89de8;
   --tp-active-plan-fill: #ddd6ff;
   --tp-active-plan-border: #b99df7;
   --tp-requirement-fill-start: #dff6b4;
   --tp-requirement-fill-end: #e1ff9a;
-  --tp-requirement-text: #0da745;
+  --tp-requirement-text: #247427;
+  --tp-panel-surface: #ffffff;
+  --tp-panel-body: #f0f1f3;
+  --tp-panel-border: #d8d8d8;
+  --tp-panel-rule: #eeeeee;
+  --tp-panel-overlay: rgba(18, 18, 18, 0.18);
+  --tp-panel-overlay-mobile: rgba(18, 18, 18, 0.28);
+  --tp-panel-shadow: rgba(0, 0, 0, 0.12);
+  --tp-panel-card-shadow: rgba(0, 0, 0, 0.08);
+  --tp-panel-scrollbar: #bfc2c8;
+  --tp-panel-muted: #5f5f5f;
+  --tp-panel-text: #242424;
+  --tp-panel-close-hover: #b3261e;
+  --tp-panel-rating-text: #ffffff;
+  --tp-panel-tag-code-fill: #ebebeb;
+  --tp-panel-tag-code-text: #3f3f3f;
+  --tp-panel-tag-pdf-fill: #fff2c5;
+  --tp-panel-tag-pdf-text: #6c5100;
+  --tp-panel-tag-dist-fill: #efe0ff;
+  --tp-panel-tag-dist-text: #4a1f87;
+  --tp-panel-link-fill: #eee7ff;
+  --tp-panel-link-text: #3f167a;
+  --tp-panel-link-border: #cbbaf4;
   --tp-accent: #4a1f87;
 }
 h1,
@@ -106,6 +131,10 @@ h6 {
   align-items: stretch;
 }
 
+#mobile-pane-tabs {
+  display: none;
+}
+
 #app > [class*='col-'] {
   width: auto;
   max-width: none;
@@ -149,6 +178,18 @@ h6 {
 
 .hidden {
   display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* scrollbars — narrow, blending with cream background */
@@ -283,10 +324,64 @@ div#banner-content {
   text-align: center;
 }
 
-/* Show banner on medium devices (less than 992px) */
+@media (min-width: 992px) and (max-width: 1279.98px) {
+  #app {
+    grid-template-columns: minmax(560px, 1fr) minmax(280px, 0.46fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "main search"
+      "main requirements";
+    height: calc(100vh - 78px);
+  }
+
+  #search-pane {
+    grid-area: search;
+    border-right: none;
+    border-left: 1px solid #e6e6e6;
+    padding-left: 14px;
+  }
+
+  #main-view-pane {
+    grid-area: main;
+  }
+
+  #app .requirements-pane {
+    grid-area: requirements;
+    padding-top: 8px;
+    padding-left: 14px;
+    border-left: 1px solid #e6e6e6;
+  }
+}
+
 @media (max-width: 991.98px) {
+  body {
+    overflow: auto;
+  }
+
   div#banner {
-    display: block;
+    display: none;
+  }
+
+  .navbar {
+    min-height: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .navbar .container {
+    align-items: flex-start;
+    gap: 12px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .navbar-brand {
+    font-size: 28px;
+  }
+
+  .nav-btn {
+    min-height: 44px;
+    padding: 8px 10px;
   }
 
   #app {
@@ -310,6 +405,65 @@ div#banner-content {
 
   #app .requirements-pane {
     padding-top: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #mobile-pane-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 12px 6px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  #mobile-pane-tabs button {
+    border: 1px solid #d8d8d8;
+    border-radius: 999px;
+    min-height: 44px;
+    background: #ffffff;
+    color: #171717;
+    font-weight: 800;
+  }
+
+  #mobile-pane-tabs button.active {
+    background: var(--tp-active-plan-fill);
+    border-color: var(--tp-active-plan-border);
+    color: var(--tp-accent);
+  }
+
+  #app {
+    display: block;
+    min-height: calc(100dvh - 150px);
+    padding: 10px 12px 20px;
+  }
+
+  #app .mobile-pane {
+    display: none;
+  }
+
+  #app .mobile-pane.mobile-pane-active {
+    display: flex;
+  }
+
+  #search-pane,
+  #main-view-pane,
+  #app .requirements-pane {
+    width: 100%;
+    min-height: calc(100dvh - 176px);
+    padding: 8px 0 0;
+    border: none;
+  }
+
+  #display-courses {
+    height: auto;
+    max-height: none;
+    overflow: visible;
     padding-right: 0;
   }
 }

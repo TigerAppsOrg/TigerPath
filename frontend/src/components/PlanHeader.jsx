@@ -12,6 +12,10 @@ const Header = styled.div`
   @media print {
     display: none;
   }
+
+  @media (max-width: 767.98px) {
+    padding: 2px 0 12px;
+  }
 `;
 
 const PlanTabs = styled.div`
@@ -25,6 +29,11 @@ const PlanTabs = styled.div`
   background: #e8e8e8;
   border-radius: 999px;
   padding: 6px 10px;
+
+  @media (max-width: 767.98px) {
+    border-radius: 16px;
+    padding: 8px;
+  }
 `;
 
 const PlanTabItem = styled.div`
@@ -51,6 +60,11 @@ const PlanTab = styled.button`
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? 600 : 500)};
   position: relative;
+
+  @media (max-width: 767.98px) {
+    min-height: 44px;
+    padding: 8px 38px 8px 14px;
+  }
 
   &:hover {
     background: ${({ $active }) => ($active ? 'var(--tp-active-plan-fill)' : 'rgba(255,255,255,0.55)')};
@@ -79,6 +93,12 @@ const EditButton = styled.button`
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+
+  @media (max-width: 767.98px) {
+    right: 8px;
+    min-width: 32px;
+    min-height: 32px;
+  }
 
   &:hover {
     color: #111111;
@@ -112,6 +132,16 @@ const EditPanel = styled.div`
   column-gap: 24px;
   row-gap: 16px;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
+
+  @media (max-width: 767.98px) {
+    top: auto;
+    bottom: 12px;
+    transform: translateX(-50%);
+    width: calc(100vw - 24px);
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+    grid-template-columns: 1fr;
+  }
 `;
 
 const PanelSection = styled.div`
@@ -402,6 +432,11 @@ const PanelActionButton = styled.button`
     transform: translateY(-1px);
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.09);
   }
+
+  @media (max-width: 767.98px) {
+    justify-content: center;
+    gap: 10px;
+  }
 `;
 
 const Divider = styled.span`
@@ -421,6 +456,11 @@ const AddButton = styled.button`
   padding: 0 4px;
   font-size: 34px;
   line-height: 1;
+
+  @media (max-width: 767.98px) {
+    min-width: 44px;
+    min-height: 44px;
+  }
 
   &:hover {
     color: #555555;

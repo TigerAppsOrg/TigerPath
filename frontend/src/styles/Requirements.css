@@ -92,6 +92,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
 }
 
 #requirements .external-credit-remove:hover,
@@ -241,7 +243,7 @@
 }
 
 #requirements .reqCount-incomplete .reqCountCurrent {
-  color: #ef5a47;
+  color: #c53d2f;
 }
 
 #requirements {
@@ -251,6 +253,23 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+@media (max-width: 767.98px) {
+  #requirements {
+    overflow: visible;
+  }
+
+  #requirements .req-course-chip,
+  #requirements li {
+    min-height: 44px;
+    font-size: 16px;
+  }
+
+  #requirements .external-credit-remove {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 .fa-search {
@@ -263,12 +282,13 @@
   align-items: center;
   justify-content: center;
   font-weight: 800;
+  min-height: 44px;
 }
 
 .searchByReq {
   background: #eef5ff;
   border: 1px solid #7da0ce;
-  color: #21476f;
+  color: #163f68;
 }
 
 .searchByReq:hover,
@@ -372,7 +392,7 @@
   font-weight: 800;
   font-size: 16px;
   margin-bottom: 10px;
-  color: #000;
+  color: #111111;
   line-height: 1.1;
 }
 
@@ -387,7 +407,7 @@
 .contact-role {
   font-weight: 700;
   font-size: 14px;
-  color: #000;
+  color: #111111;
   display: block;
   line-height: 1.15;
 }
@@ -395,7 +415,7 @@
 .contact-name {
   font-weight: 800;
   font-size: 15px;
-  color: #000;
+  color: #111111;
   line-height: 1.15;
   margin-top: 2px;
   margin-bottom: 2px;
@@ -414,14 +434,14 @@
   display: block;
   font-weight: 700;
   font-size: 15px;
-  color: #000;
+  color: #111111;
   text-decoration: none;
   margin-bottom: 8px;
   line-height: 1.2;
 }
 
 a.ref-link-item {
-  color: #0d6efd;
+  color: #075fc7;
   text-decoration: underline;
 }
 

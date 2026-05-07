@@ -227,6 +227,13 @@ const TabStrip = styled.div`
   gap: 2px;
   flex-shrink: 0;
   margin-left: 0;
+
+  @media (max-width: 767.98px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 8px 0 0;
+    scrollbar-width: thin;
+  }
 `;
 
 const RidgeTab = styled.button`
@@ -234,7 +241,7 @@ const RidgeTab = styled.button`
   border-bottom-color: ${({ $active }) => ($active ? 'white' : '#dfdfdf')};
   border-radius: 18px 18px 0 0;
   background: ${({ $active }) => ($active ? 'white' : 'rgba(255,255,255,0.82)')};
-  color: ${({ $active }) => ($active ? '#111111' : '#d3d3d3')};
+  color: ${({ $active }) => ($active ? '#111111' : '#666666')};
   padding: 10px 18px 9px;
   font-size: 20px;
   font-weight: ${({ $active }) => ($active ? 800 : 700)};
@@ -245,6 +252,12 @@ const RidgeTab = styled.button`
   margin-bottom: -2px;
   z-index: 2;
   box-shadow: ${({ $active }) => ($active ? '0 -2px 6px rgba(0, 0, 0, 0.06)' : 'none')};
+
+  @media (max-width: 767.98px) {
+    min-height: 44px;
+    padding: 9px 16px;
+    font-size: 18px;
+  }
 
   &:hover {
     background: ${({ $active }) => ($active ? 'white' : '#fafafa')};
@@ -291,6 +304,10 @@ const CardBody = styled.div`
   border-radius: 0 20px 20px 20px;
   overflow: hidden;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
+
+  @media (max-width: 767.98px) {
+    border-radius: 0 14px 14px 14px;
+  }
 `;
 
 const CardContent = styled.div`
@@ -298,6 +315,10 @@ const CardContent = styled.div`
   min-height: 0;
   padding: 10px 10px 14px;
   overflow-y: auto;
+
+  @media (max-width: 767.98px) {
+    overflow-y: visible;
+  }
 `;
 
 const ProgressSummary = styled.div`
@@ -315,13 +336,17 @@ const ProgressEyebrow = styled.div`
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #666666;
+  color: #5f5f5f;
 `;
 
 const YearProgressGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+
+  @media (max-width: 420px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const YearProgressCard = styled.div`
@@ -366,7 +391,7 @@ const YearProgressPercent = styled.div`
 
 const YearProgressLabel = styled.div`
   font-size: 10px;
-  color: #777777;
+  color: #666666;
   margin-top: 3px;
 `;
 
@@ -379,7 +404,7 @@ const YearProgressName = styled.div`
 
 const YearProgressStatus = styled.div`
   font-size: 13px;
-  color: ${({ $done }) => ($done ? '#4e7d2f' : '#666666')};
+  color: ${({ $done }) => ($done ? '#3a6f1f' : '#5f5f5f')};
   font-weight: 700;
   text-align: center;
 `;

@@ -37,6 +37,12 @@ const ScheduleCard = styled.div`
   box-shadow:
     0 0 0 2px rgba(217, 217, 217, 0.9),
     0 3px 12px rgba(0, 0, 0, 0.10);
+
+  @media (max-width: 1279.98px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    overflow-y: auto;
+  }
 `;
 
 const YearBlock = styled.div`
@@ -47,6 +53,17 @@ const YearBlock = styled.div`
   min-width: 0;
   ${({ $borderRight }) => $borderRight && `border-right: 2px solid rgba(217, 217, 217, 0.95);`}
   ${({ $borderBottom }) => $borderBottom && `border-bottom: 2px solid rgba(217, 217, 217, 0.95);`}
+
+  @media (max-width: 1279.98px) {
+    border-right: 0;
+    border-bottom: 2px solid rgba(217, 217, 217, 0.95);
+    min-height: 320px;
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 14px 12px 12px;
+    min-height: auto;
+  }
 `;
 
 const YearTitle = styled.h2`
@@ -56,6 +73,10 @@ const YearTitle = styled.h2`
   margin: 0 0 8px;
   color: #111111;
   letter-spacing: -0.03em;
+
+  @media (max-width: 767.98px) {
+    font-size: 25px;
+  }
 `;
 
 const SemPair = styled.div`
@@ -64,11 +85,20 @@ const SemPair = styled.div`
   min-width: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 2px minmax(0, 1fr);
+
+  @media (max-width: 520px) {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 `;
 
 const SemColDivider = styled.div`
   background: ${({ theme }) => theme.lightGrey};
   opacity: 0.9;
+
+  @media (max-width: 520px) {
+    display: none;
+  }
 `;
 
 export default function Schedule({ onChange, profile, schedule, onCourseSelect }) {

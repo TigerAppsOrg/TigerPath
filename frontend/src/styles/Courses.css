@@ -13,7 +13,7 @@
 .search-input-icon {
   position: absolute;
   left: 18px;
-  color: #b8b8b8;
+  color: #6f6f6f;
   font-size: 18px;
   z-index: 1;
 }
@@ -30,13 +30,13 @@
 }
 
 #search-courses .form-control::placeholder {
-  color: #b0b0b0;
+  color: #6f6f6f;
 }
 
 #search-courses .form-control:focus {
-  border-color: #d7d7d7;
-  box-shadow: none;
-  outline: 0 none;
+  border-color: var(--tp-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--tp-accent) 18%, transparent);
+  outline: 0;
   background: #ffffff;
 }
 
@@ -70,7 +70,7 @@
 .search-card {
   font-size: 12px;
   height: auto;
-  padding: 10px;
+  padding: 9px;
   margin: 0 0 10px;
   border-radius: 8px;
   background: linear-gradient(180deg, var(--tp-search-fill-start) 0%, var(--tp-search-fill-end) 100%);
@@ -78,6 +78,10 @@
   border: none;
   box-shadow: none;
   user-select: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: start;
 }
 
 .search-card.fall,
@@ -87,38 +91,114 @@
   color: var(--tp-search-text);
 }
 
-.search-card-info {
+.search-card-main {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  text-align: left;
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-gap: 4px;
-  align-items: center;
-  font-size: 12px;
-  line-height: 1.2;
-  margin-top: 8px;
-}
-
-.search-card-info-actions {
-  display: inline-flex;
-  align-items: center;
   gap: 8px;
+  cursor: inherit;
 }
 
-.search-card-info .course-title {
+.search-card-main:focus-visible,
+.search-card-info-btn:focus-visible,
+.search-card-add-btn:focus-visible,
+.search-card-add-menu select:focus-visible,
+.search-card-add-menu button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--tp-accent) 45%, white);
+  outline-offset: 2px;
+}
+
+.search-card-main .course-title {
   color: var(--tp-search-text);
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .search-card-info-btn {
-  color: inherit;
-  opacity: 0.45;
+  align-self: start;
+  color: var(--tp-search-text);
+  opacity: 0.62;
   transition: color 0.15s ease, opacity 0.15s ease;
+  min-width: 36px;
+  min-height: 36px;
+  border: 0;
+  background: transparent;
 }
 
 .search-card-info-btn:hover,
-.search-card-info-btn:focus,
+.search-card-info-btn:focus-visible,
 .search-card-info-btn:active {
   color: var(--tp-accent);
   opacity: 1;
+}
+
+.search-card-add-btn {
+  min-height: 36px;
+  align-self: start;
+  border: 1px solid var(--tp-search-action-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--tp-search-action-fill) 84%, transparent);
+  color: var(--tp-search-action-text);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 10px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.search-card-add-btn:hover,
+.search-card-add-btn:focus-visible,
+.search-card-add-btn[aria-expanded='true'] {
+  border-color: var(--tp-accent);
+  background: var(--tp-search-action-fill);
+  color: var(--tp-accent);
+}
+
+.search-card-add-menu {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 2px;
+  padding-top: 9px;
+  border-top: 1px solid color-mix(in srgb, var(--tp-search-text) 16%, transparent);
+}
+
+.search-card-add-menu select,
+.search-card-add-menu button {
+  min-height: 40px;
+  border: 1px solid var(--tp-search-action-border);
+  border-radius: 8px;
+  background: var(--tp-search-action-fill);
+  color: var(--tp-search-action-text);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.search-card-add-menu select {
+  width: 100%;
+  min-width: 0;
+  padding: 0 10px;
+}
+
+.search-card-add-menu button {
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.search-card-add-menu button:hover,
+.search-card-add-menu button:focus-visible {
+  border-color: var(--tp-accent);
+  color: var(--tp-accent);
 }
 
 .search-card .search-card-links {
@@ -190,7 +270,7 @@
 }
 
 .course-popover-info-link {
-  color: #0d6efd;
+  color: #075fc7;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -282,7 +362,7 @@
 
 .search-card .search-course-pill {
   background: var(--tp-search-pill-fill);
-  border: 1px solid rgba(158, 112, 214, 0.18);
+  border: 1px solid color-mix(in srgb, var(--tp-search-action-border) 42%, transparent);
   width: 100%;
   box-sizing: border-box;
   padding: 0 16px;
