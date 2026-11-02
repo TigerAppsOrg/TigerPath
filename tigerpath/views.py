@@ -32,10 +32,19 @@ from .majors_and_certificates.scripts.verifier import (
 
 SEARCH_RESULT_LIMIT = 200
 MAX_PLANS_PER_USER = 5
+MAX_MAJORS_PER_PLAN = 3
 SEARCH_CACHE_TIMEOUT_SECONDS = 300
 SEARCH_CACHE_KEY_VERSION = "v1"
 SEARCH_DEBUG_QUERY_LOG_MAX_LEN = 60
 DEFAULT_PLAN_NAME = "My Plan"
+# Which planner frontend a user sees; "classic" keeps the original React UI.
+UI_VERSIONS = ("new", "classic")
+DEFAULT_UI_VERSION = "new"
+
+
+def get_ui_version(profile):
+    ui_version = (profile.user_state or {}).get("ui_version")
+    return ui_version if ui_version in UI_VERSIONS else DEFAULT_UI_VERSION
 
 
 def get_minor_options_catalog():
@@ -108,6 +117,9 @@ def index(request):
         except Exception:
             preloaded_requirements = []
         context["preloaded_requirements_json"] = json.dumps(preloaded_requirements)
+        # Onboarding still lives in the classic template until the new UI ships its own flow.
+        if get_ui_version(instance) == "new" and not needs_onboarding:
+            return render(request, "tigerpath/index_new.html", context)
         return render(request, "tigerpath/index.html", context)
     else:
         return render(request, "tigerpath/new_landing.html")
@@ -633,6 +645,44 @@ def build_requirements_for_plan(profile, plan):
     return requirements
 
 
+def get_plan_majors(plan):
+    """Primary major first, then the plan's additional majors (missing ids skipped)."""
+    majors = [plan.major] if plan.major else []
+    extra_ids = [i for i in (plan.additional_major_ids or []) if i != plan.major_id]
+    if extra_ids:
+        by_id = models.Major.objects.in_bulk(extra_ids)
+        majors.extend(by_id[i] for i in extra_ids if i in by_id)
+    return majors
+
+
+def _check_major_or_name(major, schedule, year):
+    if not major.supported:
+        return major.name
+    try:
+        return check_major(major.code, schedule, year)
+    except Exception:
+        return major.name
+
+
+def build_grouped_requirements(profile, plan):
+    """Requirements for every major and minor on the plan (new UI only), grouped by kind."""
+    grouped = {"majors": [], "minors": []}
+    if not profile.year:
+        return grouped
+
+    schedule = populate_user_schedule(plan.schedule)
+    for major in get_plan_majors(plan):
+        grouped["majors"].append(_check_major_or_name(major, schedule, profile.year))
+
+    for minor_code in plan.minors or []:
+        try:
+            grouped["minors"].append(check_minor(minor_code, schedule, profile.year))
+        except ValueError:
+            continue
+
+    return grouped
+
+
 def get_active_plan(profile):
     plans = profile.schedule_plans.order_by("id")
     if not plans.exists():
@@ -664,6 +714,7 @@ def get_active_plan(profile):
 
 def serialize_plan(plan, active_plan_id):
     # Include plan-specific academic metadata so the frontend can edit/render each scenario independently.
+    majors = get_plan_majors(plan)
     minor_names = []
     for minor_code in plan.minors or []:
         minor_name = get_minor_name_by_code(minor_code)
@@ -676,6 +727,8 @@ def serialize_plan(plan, active_plan_id):
         "isActive": plan.id == active_plan_id,
         "majorId": plan.major_id,
         "majorName": plan.major.name if plan.major else None,
+        "majorIds": [major.id for major in majors],
+        "majorNames": [major.name for major in majors],
         "minorCodes": plan.minors or [],
         "minorNames": minor_names,
     }
@@ -724,6 +777,30 @@ def parse_minor_codes(raw_minor_codes):
     return cleaned_codes
 
 
+def parse_major_ids(raw_major_ids):
+    """JSON list of Major ids -> deduplicated, existing ids in order, or None if invalid."""
+    try:
+        parsed = json.loads(raw_major_ids)
+    except (TypeError, json.JSONDecodeError):
+        return None
+    if not isinstance(parsed, list):
+        return None
+
+    major_ids = []
+    for value in parsed:
+        major_id = parse_plan_id(value)
+        if major_id is None:
+            return None
+        if major_id not in major_ids:
+            major_ids.append(major_id)
+
+    if len(major_ids) > MAX_MAJORS_PER_PLAN:
+        return None
+    if models.Major.objects.filter(id__in=major_ids).count() != len(major_ids):
+        return None
+    return major_ids
+
+
 def serialize_plan_editor_options():
     # Frontend modal uses these precomputed option lists for its major and minor selectors.
     major_options = [
@@ -746,6 +823,7 @@ def serialize_plan_editor_options():
     return {
         "majorOptions": major_options,
         "minorOptions": minor_options,
+        "maxMajors": MAX_MAJORS_PER_PLAN,
     }
 
 
@@ -808,6 +886,7 @@ def copy_plan(request):
         name=name,
         major=source_plan.major,
         minors=source_plan.minors or [],
+        additional_major_ids=list(source_plan.additional_major_ids or []),
         schedule=copied_schedule,
     )
 
@@ -910,22 +989,39 @@ def update_plan_settings(request):
     if len(name) > 80:
         return JsonResponse({"error": "Plan name must be 80 characters or fewer"}, status=400)
 
-    major_id = parse_plan_id(request.POST.get("majorId"))
-    major = None
-    if major_id is not None:
-        major = models.Major.objects.filter(id=major_id).first()
-        if not major:
-            return JsonResponse({"error": "Major not found"}, status=404)
+    if "majorIds" in request.POST:
+        # New UI: the full ordered list of majors; the first one is the primary.
+        major_ids = parse_major_ids(request.POST.get("majorIds"))
+        if major_ids is None:
+            return JsonResponse(
+                {"error": f"Choose up to {MAX_MAJORS_PER_PLAN} valid majors."}, status=400
+            )
+        major = models.Major.objects.get(id=major_ids[0]) if major_ids else None
+        additional_major_ids = major_ids[1:]
+    else:
+        # Classic UI: only the primary major; keep any additional majors the new UI set.
+        major_id = parse_plan_id(request.POST.get("majorId"))
+        major = None
+        if major_id is not None:
+            major = models.Major.objects.filter(id=major_id).first()
+            if not major:
+                return JsonResponse({"error": "Major not found"}, status=404)
+        additional_major_ids = [
+            i for i in (plan.additional_major_ids or []) if not major or i != major.id
+        ]
 
     minor_codes = parse_minor_codes(request.POST.get("minorCodes"))
     if minor_codes is None:
         return JsonResponse({"error": "Invalid minor selections"}, status=400)
 
-    # Title, major, and minors are saved together so the popup behaves like a single form.
+    # Title, majors, and minors are saved together so the popup behaves like a single form.
     plan.name = name
     plan.major = major
+    plan.additional_major_ids = additional_major_ids
     plan.minors = minor_codes
-    plan.save(update_fields=["name", "major", "minors", "updated_at"])
+    plan.save(
+        update_fields=["name", "major", "additional_major_ids", "minors", "updated_at"]
+    )
     return JsonResponse(get_user_plans_payload(profile))
 
 
@@ -953,6 +1049,9 @@ def get_schedule(request):
 def get_requirements(request):
     curr_user = request.user.profile
     active_plan = get_active_plan(curr_user)
+    # The new UI asks for every major and minor on the plan; the classic response is unchanged.
+    if request.GET.get("layout") == "grouped":
+        return JsonResponse(build_grouped_requirements(curr_user, active_plan))
     requirements = build_requirements_for_plan(curr_user, active_plan)
     return JsonResponse(requirements, safe=False)
 
@@ -964,12 +1063,30 @@ def update_schedule_and_get_requirements(request):
 
 
 @login_required
+def set_ui_version(request):
+    if request.method != "POST":
+        raise Http404
+
+    ui_version = request.POST.get("uiVersion")
+    if ui_version not in UI_VERSIONS:
+        return JsonResponse({"error": "Invalid UI version"}, status=400)
+
+    profile = request.user.profile
+    user_state = profile.user_state or {}
+    user_state["ui_version"] = ui_version
+    profile.user_state = user_state
+    profile.save(update_fields=["user_state"])
+    return JsonResponse({"uiVersion": ui_version})
+
+
+@login_required
 def get_profile(request):
     curr_user = request.user.profile
     profile = {}
     profile["classYear"] = curr_user.year
     profile["theme"] = (curr_user.user_state or {}).get("theme", "purple")
     profile["activePlanId"] = get_active_plan(curr_user).id
+    profile["uiVersion"] = get_ui_version(curr_user)
     return JsonResponse(profile)
 
 def admin_required(view_func):

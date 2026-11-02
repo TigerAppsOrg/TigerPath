@@ -42,6 +42,7 @@ urlpatterns = [
         name="get_req_courses",
     ),
     path("api/v1/get_profile/", views.get_profile, name="get_profile"),
+    path("api/v1/set_ui_version/", views.set_ui_version, name="set_ui_version"),
     path(
         "api/v1/update_schedule_and_get_requirements/",
         views.update_schedule_and_get_requirements,

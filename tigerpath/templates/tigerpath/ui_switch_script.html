@@ -1,0 +1,30 @@
+{% comment %}
+  Saves the user's planner UI preference and reloads into it.
+  Params: target_ui ("new" | "classic"), button_id.
+{% endcomment %}
+<script>
+  (function () {
+    var button = document.getElementById('{{ button_id }}');
+    if (!button) return;
+    button.addEventListener('click', function () {
+      var match = document.cookie.match(/(?:^|; )csrftoken=([^;]*)/);
+      button.disabled = true;
+      fetch('{% url "set_ui_version" %}', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'X-CSRFToken': match ? decodeURIComponent(match[1]) : '',
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'uiVersion={{ target_ui }}',
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Request failed');
+          window.location.reload();
+        })
+        .catch(function () {
+          button.disabled = false;
+        });
+    });
+  })();
+</script>

@@ -36,6 +36,7 @@ build: {
             input: {
                 index: path.resolve(__dirname, 'src/index.jsx'),
                 landing: path.resolve(__dirname, 'src/landing.jsx'),
+                newApp: path.resolve(__dirname, 'src/new/main.jsx'),
             },
         },
     },

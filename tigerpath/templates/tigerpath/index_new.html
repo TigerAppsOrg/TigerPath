@@ -1,0 +1,60 @@
+{% load django_vite static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="TigerPath helps Princeton University students plan out their four-year course schedules.">
+
+  <title>TigerPath - Four-Year Course Planner</title>
+
+  <link rel="icon"
+        type="image/png"
+        href="{% static 'app/favicon-96x96.png' %}"
+        sizes="96x96" />
+  <link rel="icon"
+        type="image/svg+xml"
+        href="{% static 'app/favicon.svg' %}" />
+  <link rel="shortcut icon"
+        href="{% static 'app/favicon.ico' %}" />
+  <link rel="apple-touch-icon"
+        sizes="180x180"
+        href="{% static 'app/apple-touch-icon.png' %}" />
+  <link rel="manifest"
+        href="{% static 'app/site.webmanifest' %}" />
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+  {% include 'includes/analytics/analytics_head.html' %}
+
+  {% vite_hmr_client %}
+  {% vite_react_refresh %}
+</head>
+
+<body>
+  {% include 'includes/analytics/analytics_body.html' %}
+
+  <div id="app"></div>
+  {# Renders a token so Django sets the csrftoken cookie the API client reads. #}
+  <div hidden>{% csrf_token %}</div>
+
+  {% if show_tutorial %}
+  <script>
+    window.__TIGERPATH_SHOW_TUTORIAL__ = true;
+  </script>
+  {% endif %}
+  {% if preloaded_requirements_json %}
+  <script>
+    window.__TIGERPATH_PRELOADED_REQUIREMENTS__ = {{ preloaded_requirements_json|safe }};
+  </script>
+  {% endif %}
+  {% vite_asset 'src/new/main.jsx' %}
+</body>
+
+</html>

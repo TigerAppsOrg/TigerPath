@@ -66,6 +66,12 @@
         TigerPath
       </a>
       <div class="d-flex align-items-center gap-2">
+        <button id="try-new-ui-btn"
+                type="button"
+                class="btn nav-btn">
+          <i class="fas fa-magic"></i>
+          <span>Try the new TigerPath</span>
+        </button>
         <a id="settings-btn"
            class="btn nav-btn"
            href="#">
@@ -105,6 +111,7 @@
   </script>
   {% endif %}
   {% vite_asset 'src/index.jsx' %}
+  {% include 'tigerpath/ui_switch_script.html' with target_ui='new' button_id='try-new-ui-btn' %}
 
   {% include 'tigerpath/settings.html' %}
   {% include 'includes/messages.html' %}

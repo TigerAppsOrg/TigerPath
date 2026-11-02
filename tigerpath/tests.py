@@ -81,11 +81,20 @@ class OnboardingFlowTest(TestCase):
         valid_year = forms.create_year_choices()[0][0]
         response = self.client.post("/onboarding/save", {"year": valid_year}, follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "startIntro();")
+        self.assertContains(response, "__TIGERPATH_SHOW_TUTORIAL__ = true")
 
         profile = self.user.profile
         profile.refresh_from_db()
         self.assertTrue(profile.user_state["onboarding_complete"])
+
+    def test_post_onboarding_classic_ui_starts_classic_tutorial(self):
+        profile = self.user.profile
+        profile.user_state = {**profile.user_state, "ui_version": "classic"}
+        profile.save(update_fields=["user_state"])
+
+        valid_year = forms.create_year_choices()[0][0]
+        response = self.client.post("/onboarding/save", {"year": valid_year}, follow=True)
+        self.assertContains(response, "startIntro();")
 
     def test_index_does_not_require_major_for_onboarding_when_year_exists(self):
         Major.objects.create(name="Computer Science", code="COS", degree="AB", supported=True)
@@ -328,3 +337,144 @@ class SchedulePlanApiTest(TestCase):
         response = self.client.get("/api/v1/get_requirements/")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), [])
+
+
+class UiVersionToggleTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="toggle_user", password="testpass")
+        self.client.force_login(self.user)
+        self.profile = self.user.profile
+        self.profile.year = forms.create_year_choices()[0][0]
+        self.profile.user_state = {**self.profile.user_state, "onboarding_complete": True}
+        self.profile.save(update_fields=["year", "user_state"])
+
+    def test_new_ui_is_default(self):
+        response = self.client.get("/")
+        self.assertTemplateUsed(response, "tigerpath/index_new.html")
+        self.assertEqual(self.client.get("/api/v1/get_profile/").json()["uiVersion"], "new")
+
+    def test_new_ui_sets_csrf_cookie_for_api_posts(self):
+        response = self.client.get("/")
+        self.assertIn("csrftoken", response.cookies)
+
+    def test_switch_to_classic_and_back(self):
+        response = self.client.post("/api/v1/set_ui_version/", {"uiVersion": "classic"})
+        self.assertEqual(response.json(), {"uiVersion": "classic"})
+        self.assertTemplateUsed(self.client.get("/"), "tigerpath/index.html")
+
+        self.client.post("/api/v1/set_ui_version/", {"uiVersion": "new"})
+        self.assertTemplateUsed(self.client.get("/"), "tigerpath/index_new.html")
+
+    def test_switch_preserves_other_user_state(self):
+        self.client.post("/api/v1/set_ui_version/", {"uiVersion": "classic"})
+        self.profile.refresh_from_db()
+        self.assertTrue(self.profile.user_state["onboarding_complete"])
+        self.assertIn("active_plan_id", self.profile.user_state)
+
+    def test_invalid_ui_version_rejected(self):
+        response = self.client.post("/api/v1/set_ui_version/", {"uiVersion": "retro"})
+        self.assertEqual(response.status_code, 400)
+
+    def test_onboarding_still_uses_classic_template(self):
+        self.profile.year = None
+        self.profile.save(update_fields=["year"])
+        self.assertTemplateUsed(self.client.get("/"), "tigerpath/index.html")
+
+
+class MultiMajorPlanTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="multi_major_user", password="testpass")
+        self.client.force_login(self.user)
+        self.profile = self.user.profile
+        self.profile.year = forms.create_year_choices()[0][0]
+        self.profile.save(update_fields=["year"])
+        self.plan = self.profile.schedule_plans.get()
+        # Unsupported majors skip the YAML verifier so these tests stay about plan wiring.
+        self.eco = Major.objects.create(name="Economics", code="ECO", degree="AB", supported=False)
+        self.pol = Major.objects.create(name="Politics", code="POL", degree="AB", supported=False)
+        self.cos = Major.objects.create(
+            name="Computer Science", code="COS", degree="BSE", supported=False
+        )
+
+    def save_majors(self, major_ids, **extra):
+        return self.client.post(
+            "/api/v1/update_plan_settings/",
+            {"planId": self.plan.id, "name": "Path", "majorIds": json.dumps(major_ids), **extra},
+        )
+
+    def test_update_with_major_ids_keeps_order_and_primary(self):
+        response = self.save_majors([self.cos.id, self.eco.id])
+        self.assertEqual(response.status_code, 200)
+        plan_payload = response.json()["plans"][0]
+        self.assertEqual(plan_payload["majorIds"], [self.cos.id, self.eco.id])
+        self.assertEqual(plan_payload["majorNames"], ["Computer Science", "Economics"])
+        self.assertEqual(plan_payload["majorId"], self.cos.id)
+
+        self.plan.refresh_from_db()
+        self.assertEqual(self.plan.major, self.cos)
+        self.assertEqual(self.plan.additional_major_ids, [self.eco.id])
+
+    def test_empty_major_ids_clears_all_majors(self):
+        self.save_majors([self.eco.id, self.pol.id])
+        self.save_majors([])
+        self.plan.refresh_from_db()
+        self.assertIsNone(self.plan.major)
+        self.assertEqual(self.plan.additional_major_ids, [])
+
+    def test_invalid_major_ids_rejected(self):
+        extra = Major.objects.create(name="History", code="HIS", degree="AB")
+        too_many = [self.eco.id, self.pol.id, self.cos.id, extra.id]
+        self.assertEqual(self.save_majors(too_many).status_code, 400)
+        self.assertEqual(self.save_majors([999999]).status_code, 400)
+        response = self.client.post(
+            "/api/v1/update_plan_settings/",
+            {"planId": self.plan.id, "name": "Path", "majorIds": "not json"},
+        )
+        self.assertEqual(response.status_code, 400)
+
+    def test_duplicate_major_ids_are_collapsed(self):
+        self.save_majors([self.eco.id, self.eco.id, self.pol.id])
+        self.plan.refresh_from_db()
+        self.assertEqual(self.plan.additional_major_ids, [self.pol.id])
+
+    def test_classic_single_major_update_keeps_additional_majors(self):
+        self.save_majors([self.eco.id, self.pol.id, self.cos.id])
+        # Classic UI replaces "the major" (ECO) with one of the additional majors (POL):
+        # ECO is dropped, POL becomes primary, and COS is untouched.
+        self.client.post(
+            "/api/v1/update_plan_settings/",
+            {"planId": self.plan.id, "name": "Path", "majorId": self.pol.id},
+        )
+        self.plan.refresh_from_db()
+        self.assertEqual(self.plan.major, self.pol)
+        self.assertEqual(self.plan.additional_major_ids, [self.cos.id])
+
+    def test_classic_requirements_shape_is_unchanged(self):
+        self.save_majors([self.eco.id, self.pol.id])
+        requirements = self.client.get("/api/v1/get_requirements/").json()
+        self.assertIsInstance(requirements, list)
+        self.assertEqual(requirements[0], "Economics")
+        self.assertNotIn("Politics", requirements)
+
+    def test_grouped_requirements_include_every_major_in_order(self):
+        self.save_majors([self.cos.id, self.eco.id])
+        grouped = self.client.get("/api/v1/get_requirements/?layout=grouped").json()
+        self.assertEqual(grouped, {"majors": ["Computer Science", "Economics"], "minors": []})
+
+    def test_grouped_layout_on_schedule_save(self):
+        self.save_majors([self.eco.id, self.pol.id])
+        response = self.client.post(
+            "/api/v1/update_schedule_and_get_requirements/?layout=grouped",
+            {"schedule": json.dumps([[] for _ in range(9)])},
+        )
+        self.assertEqual(response.json()["majors"], ["Economics", "Politics"])
+
+    def test_copy_plan_copies_additional_majors(self):
+        self.save_majors([self.eco.id, self.cos.id])
+        payload = self.client.post("/api/v1/copy_plan/", {"sourcePlanId": self.plan.id}).json()
+        copied = next(p for p in payload["plans"] if p["id"] == payload["activePlanId"])
+        self.assertEqual(copied["majorIds"], [self.eco.id, self.cos.id])
+
+    def test_editor_options_expose_major_cap(self):
+        options = self.client.get("/api/v1/get_plan_editor_options/").json()
+        self.assertEqual(options["maxMajors"], 3)

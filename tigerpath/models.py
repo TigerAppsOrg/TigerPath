@@ -194,6 +194,9 @@ class SchedulePlan(models.Model):
     # Each plan can now carry its own academic scenario instead of sharing profile-only metadata.
     major = models.ForeignKey(Major, related_name="+", on_delete=models.SET_NULL, null=True, blank=True)
     minors = JSONField(default=list, blank=True)
+    # Ordered Major ids beyond `major` (the primary). Only the new UI edits these;
+    # the classic UI keeps reading and writing `major` alone.
+    additional_major_ids = JSONField(default=list, blank=True)
     schedule = JSONField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
