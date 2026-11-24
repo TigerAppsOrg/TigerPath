@@ -34,7 +34,7 @@ _TERM_OTHER = re.compile(
 _COURSE = re.compile(r"^\s*([A-Z]{3})\s*(\d{3}[A-Z]?)\b(.*)$")
 # Layout-mode text separates table columns with runs of 2+ spaces.
 _COLUMN_GAP = re.compile(r"\s{2,}")
-_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "P", "INC"}
+_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "P"}
 # Final grades that earn no credit: skipped like withdrawals, so they can't satisfy requirements.
 _NO_CREDIT = {"F", "W"}
 # "Grade Basis" column right after the course number (graded, P/D/F, audit, ...).
@@ -152,6 +152,8 @@ def _grade_status(token):
     token = token.strip().upper()
     if token in _GRADES:
         return TAKEN
+    if token == "INC":
+        return UNCLEAR  # incomplete: not finished at the end of the term, so the student decides
     if token in _NO_CREDIT:
         return None  # failed or withdrawn: no credit
     if token == "IP":
