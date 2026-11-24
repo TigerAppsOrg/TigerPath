@@ -179,15 +179,26 @@ def _status(rest_of_line):
             if found != "unknown":
                 return found
         return CURRENT
-    # Single-spaced text: scan from the end, skipping numbers and a trailing distribution area.
+    # Single-spaced text (columns lost): scan from the end, skipping numbers and a trailing
+    # distribution area. A lone letter is ambiguous here ("Physics Lab Part B" vs a grade of B), so
+    # it only counts as a grade next to a credit/grade-point number; otherwise the row is kept as in
+    # progress. Status is a review label only (never saved): ambiguity costs a label, not a course.
     tokens = rest_of_line.split()
     if tokens and tokens[0].upper() == "AUD":
         return None
     if tokens and tokens[0].upper() in _GRADE_BASIS:
         tokens = tokens[1:]
-    for token in reversed(tokens):
+    for i in range(len(tokens) - 1, -1, -1):
+        token = tokens[i]
         if _NUMERIC.match(token) or token.upper() in _DISTRIB_AREAS:
             continue
+        if len(token) == 1:
+            beside = [
+                t
+                for t in (tokens[i - 1] if i else "", tokens[i + 1] if i + 1 < len(tokens) else "")
+            ]
+            if not any(_NUMERIC.match(t) for t in beside if t):
+                return CURRENT
         found = _grade_status(token)
         return CURRENT if found == "unknown" else found
     return CURRENT

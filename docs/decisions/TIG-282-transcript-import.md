@@ -36,7 +36,7 @@ layout (no student data is in the repo):
    Grade column is blank while a course is in progress. Status is now read column by column: grade basis
    (`GRD`/`PDF`/`AUD`), title, then grade, skipping distribution areas. A title ending in "B" or an `AUD`
    basis is never read as a grade. Single-spaced text without columns falls back to reading tokens from
-   the end, skipping numbers and distribution areas.
+   the end, skipping numbers and distribution areas; there a lone letter only counts as a grade next to a credit or grade-point number, since without columns it could be the end of a title ("Part B"). An ambiguous row is kept as in progress: the status is only a label in review, never saved.
 
 **Grades:** a passing final grade (A to D, P, INC) means taken. A blank grade, `IP` or "In Progress" means
 currently taking. Failed (`F`), withdrawn (`W`) and audited (grade basis `AUD`) rows are skipped, since none earns credit. Term headings like "2026-2027 Fall", "Fall 2023" and
