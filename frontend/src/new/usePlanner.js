@@ -314,22 +314,35 @@ export default function usePlanner() {
 
       const startedOn = activePlanRef.current;
       const startedAction = actionSeq.current;
-      let added = 0;
-      try {
-        // Read the plan's stored courses first: saving without them would replace them.
-        const stored = await api.getSchedule(target);
-        const result = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
-        added = result.added;
-        if (added > 0) await api.saveScheduleAndGetRequirements(stripSchedule(result.schedule), target);
-        report(added, result.skipped);
-      } catch {
-        showNotice(`Couldn't add the courses${where}. Nothing was imported. Please try again.`, 'error');
-        return 0;
-      }
-      if (schedulePlanId.current === target) {
-        // The student opened the plan meanwhile: show what was saved.
-        loadPlanContents(target);
-      } else if (activePlanRef.current === startedOn && actionSeq.current === startedAction) {
+      // Runs in the plan-action queue, so opening the target plan waits until its new courses are saved
+      // (the student can't load the old copy and edit it over the import).
+      const showsTarget = () => schedulePlanId.current === target;
+      const work = actionQueue.current.then(async () => {
+        if (showsTarget()) {
+          // The target is on screen but not loaded yet: hold off its load until the save is done.
+          loadSeq.current += 1;
+          setSchedule(null);
+        }
+        try {
+          // Read the plan's stored courses first: saving without them would replace them.
+          const stored = await api.getSchedule(target);
+          const result = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
+          if (result.added > 0) {
+            await api.saveScheduleAndGetRequirements(stripSchedule(result.schedule), target);
+          }
+          report(result.added, result.skipped);
+          return result.added;
+        } catch {
+          showNotice(`Couldn't add the courses${where}. Nothing was imported. Please try again.`, 'error');
+          return null;
+        } finally {
+          if (showsTarget()) loadPlanContents(target);
+        }
+      });
+      actionQueue.current = work.catch(() => {});
+      const added = await work;
+      if (added == null) return 0;
+      if (!showsTarget() && activePlanRef.current === startedOn && actionSeq.current === startedAction) {
         // Still where they started: take them to the plan the courses went to.
         await changeActivePlan(() => api.setActivePlan(target)).catch(() => {});
       }
