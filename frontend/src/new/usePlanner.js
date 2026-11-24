@@ -22,6 +22,9 @@ export default function usePlanner() {
   const [plans, setPlans] = useState([]);
   const [activePlanId, setActivePlanId] = useState(null);
   const [schedule, setSchedule] = useState(null);
+  // True when the last schedule load failed and `schedule` is only an empty placeholder: nothing
+  // automatic (like a pending transcript import) may save over the plan in that state.
+  const [scheduleLoadFailed, setScheduleLoadFailed] = useState(false);
   const [requirements, setRequirements] = useState(null);
   const [editorOptions, setEditorOptions] = useState({ majorOptions: [], minorOptions: [], maxMajors: 3 });
   const [notice, setNotice] = useState(null);
@@ -56,10 +59,14 @@ export default function usePlanner() {
   const loadPlanContents = useCallback(() => {
     setSchedule(null);
     setRequirements(null);
+    setScheduleLoadFailed(false);
     api
       .getSchedule()
       .then((data) => setSchedule(data && data.length ? data : emptySchedule()))
-      .catch(() => setSchedule(emptySchedule()));
+      .catch(() => {
+        setScheduleLoadFailed(true);
+        setSchedule(emptySchedule());
+      });
     api
       .getRequirements()
       .then((data) => setRequirements(unwrapGroupedRequirements(data)))
@@ -331,8 +338,13 @@ export default function usePlanner() {
   useEffect(() => {
     if (!pendingImport || activePlanId !== pendingImport.planId || !schedule) return;
     setPendingImport(null);
+    if (scheduleLoadFailed) {
+      // The target plan's courses didn't load; saving now would replace them with just the import.
+      showNotice(`Couldn't load ${activePlan?.name || 'that plan'}, so nothing was imported. Please try again.`, 'error');
+      return;
+    }
     finishImport(pendingImport.rows, schedule, activePlan?.name);
-  }, [pendingImport, activePlanId, schedule, activePlan, finishImport]);
+  }, [pendingImport, activePlanId, schedule, scheduleLoadFailed, activePlan, finishImport, showNotice]);
 
   return {
     profile,
