@@ -32,6 +32,14 @@ _TERM_OTHER = re.compile(
     r"|\d{4}\s*[-\u2013/]\s*\d{2,4}\s+(?:Summer|Winter|Intersession))\b",
     re.IGNORECASE,
 )
+# Lines that end the current term without starting another: TigerHub's summary block ("Total Course
+# Credits", "Number of Audits", "Unofficial GPA") and credit sections that aren't Princeton terms
+# (advanced standing, transfer, test credit). Rows after them must not be filed into the last term.
+_TERM_END = re.compile(
+    r"^(?:total\b|number of\b|unofficial gpa\b|cumulative\b)"
+    r"|\b(?:advanced standing|advanced placement|transfer credits?|test credits?)\b",
+    re.IGNORECASE,
+)
 
 # Course row: dept (3 capitals) + number (3 digits, optional letter). The TigerHub transcript lays
 # these out in columns ("COS     226     GRD ..."), and other exports glue them ("COS126").
@@ -234,6 +242,8 @@ def parse_transcript_text(text):
             found = parse_term(line)
             if found is not None:
                 term = None if found == "other" else found
+            elif _TERM_END.search(line):
+                term = None
             continue
         if term is None:
             continue

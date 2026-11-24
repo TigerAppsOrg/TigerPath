@@ -82,7 +82,8 @@ export default function usePlanner() {
   }, []);
 
   // Load one plan's schedule and requirements by id (null: whatever plan the server has active).
-  const loadPlanContents = useCallback((planId) => {
+  // `quiet` skips the load-failure notice when the caller is already showing a more useful one.
+  const loadPlanContents = useCallback((planId, { quiet = false } = {}) => {
     const seq = ++loadSeq.current;
     const current = () => seq === loadSeq.current;
     // Responses to saves made for the plan on screen until now no longer apply.
@@ -106,13 +107,17 @@ export default function usePlanner() {
           if (!current()) return;
           setScheduleLoadFailed(true);
           setSchedule(emptySchedule());
+          // Say so: an empty board would otherwise look like the plan's courses were deleted.
+          if (quiet) return;
+          const name = plansRef.current.find((p) => p.id === planId)?.name;
+          showNotice(`Couldn't load ${name || 'this plan'}. Your courses are safe; reload the page to try again.`, 'error');
         });
       api
         .getRequirements(planId)
         .then((data) => current() && setRequirements(unwrapGroupedRequirements(data)))
         .catch(() => current() && setRequirements(unwrapGroupedRequirements(null)));
     });
-  }, []);
+  }, [showNotice]);
 
   const reloadPlan = useCallback(() => loadPlanContents(activePlanRef.current), [loadPlanContents]);
 
@@ -162,11 +167,17 @@ export default function usePlanner() {
         })
         .catch(() => {
           if (seq !== saveSeq.current) {
-            // The student has moved on (e.g. switched plans). Still say the change was lost, unless a
-            // later save for the same plan replaced it or the plan has since been deleted.
+            // The plan was reloaded or left since (switching away and back, a settings change). Still
+            // say the change was lost, unless a later save for the same plan replaced it or the plan has
+            // since been deleted. The reload waits for this save, so it shows what the server kept.
             const plan = plansRef.current.find((p) => p.id === planId);
-            if (plan && lastSaveFor.current[planId] === seq && schedulePlanId.current !== planId) {
-              showNotice(`Could not save your last change to ${plan.name}. Please open it and check.`, 'error');
+            if (plan && lastSaveFor.current[planId] === seq) {
+              showNotice(
+                schedulePlanId.current === planId
+                  ? `Could not save your last change to ${plan.name}, so it isn't shown. Please make it again.`
+                  : `Could not save your last change to ${plan.name}. Please open it and check.`,
+                'error'
+              );
             }
             return;
           }
@@ -306,12 +317,22 @@ export default function usePlanner() {
 
   const actions = useMemo(
     () => ({
+      // Tab clicks don't handle errors, so a failed switch is reported here (the page has already
+      // resynced with the server by then).
       selectPlan: (id) =>
         id === activePlanRef.current && pendingActions.current === 0
           ? Promise.resolve()
-          : changeActivePlan(() => api.setActivePlan(id)),
+          : changeActivePlan(() => api.setActivePlan(id)).catch(() =>
+              showNotice('Could not switch plans. Please try again.', 'error')
+            ),
       createPlan: () => changeActivePlan(() => api.createPlan()),
-      copyPlan: (sourcePlanId, name) => changeActivePlan(() => api.copyPlan({ sourcePlanId, name })),
+      // The server copies the source's stored schedule, so let edits already sent to it land first.
+      copyPlan: (sourcePlanId, name) =>
+        changeActivePlan(() =>
+          (writeChains.current[String(sourcePlanId)] || Promise.resolve()).then(() =>
+            api.copyPlan({ sourcePlanId, name })
+          )
+        ),
       deletePlan: (id) => changeActivePlan(() => api.deletePlan(id)),
       // Settings (name, majors, minors) reload the plan: its requirements depend on them.
       updatePlan: (settings) => changeActivePlan(() => api.updatePlanSettings(settings)),
@@ -325,7 +346,7 @@ export default function usePlanner() {
             )
         ),
     }),
-    [changeActivePlan]
+    [changeActivePlan, showNotice]
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
@@ -364,6 +385,7 @@ export default function usePlanner() {
           loadSeq.current += 1;
           setSchedule(null);
         }
+        let failed = false;
         try {
           // Read what the plan stores and save it back as one write in its line, after any edits
           // already sent: saving without its courses would replace them.
@@ -378,10 +400,12 @@ export default function usePlanner() {
           report(result.added, result.skipped);
           return result.added;
         } catch {
+          failed = true;
           showNotice(`Couldn't add the courses${where}. Nothing was imported. Please try again.`, 'error');
           return null;
         } finally {
-          if (showsTarget()) loadPlanContents(target);
+          // The import's own notice (success or failure) is the one to keep on screen.
+          if (showsTarget()) loadPlanContents(target, { quiet: failed });
         }
       });
       actionQueue.current = work.catch(() => {});
