@@ -172,20 +172,6 @@ export default function usePlanner() {
     [schedule, commitSchedule]
   );
 
-  // TIG-282: add the transcript rows the student confirmed, as one normal schedule save.
-  const importCourses = useCallback(
-    (rows) => {
-      if (!schedule) return 0;
-      const { schedule: next, added } = applyImport(schedule, rows);
-      if (added > 0) {
-        commitSchedule(next);
-        showNotice(`Added ${added} course${added === 1 ? '' : 's'} from your transcript.`, 'success');
-      }
-      return added;
-    },
-    [schedule, commitSchedule, showNotice]
-  );
-
   // ── Plans ────────────────────────────────────────────────────────────────
 
   const planAction = useCallback(
@@ -217,6 +203,49 @@ export default function usePlanner() {
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
+
+  // TIG-282: add the transcript rows the student confirmed, as one normal schedule save, into the
+  // plan they picked. Another plan is made active first (the server saves the active plan's schedule),
+  // then the rows are applied once its schedule has loaded.
+  const [pendingImport, setPendingImport] = useState(null);
+
+  const finishImport = useCallback(
+    (rows, targetSchedule, planName) => {
+      const { schedule: next, added, skipped } = applyImport(targetSchedule, rows);
+      if (added > 0) commitSchedule(next);
+      const where = planName ? ` to ${planName}` : '';
+      const already = skipped ? ` (${skipped} already there)` : '';
+      showNotice(
+        added > 0
+          ? `Added ${added} course${added === 1 ? '' : 's'} from your transcript${where}${already}.`
+          : `Nothing new to add${where}: ${skipped ? 'those courses are already there' : 'no courses selected'}.`,
+        added > 0 ? 'success' : 'warning'
+      );
+      return added;
+    },
+    [commitSchedule, showNotice]
+  );
+
+  const importCourses = useCallback(
+    (rows, targetPlanId = activePlanId) => {
+      if (targetPlanId == null || targetPlanId === activePlanId) {
+        if (!schedule) return Promise.resolve(0);
+        return Promise.resolve(finishImport(rows, schedule, activePlan?.name));
+      }
+      setPendingImport({ planId: targetPlanId, rows });
+      return actions.selectPlan(targetPlanId).catch(() => {
+        setPendingImport(null);
+        showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
+      });
+    },
+    [activePlanId, activePlan, schedule, finishImport, actions, showNotice]
+  );
+
+  useEffect(() => {
+    if (!pendingImport || activePlanId !== pendingImport.planId || !schedule) return;
+    setPendingImport(null);
+    finishImport(pendingImport.rows, schedule, activePlan?.name);
+  }, [pendingImport, activePlanId, schedule, activePlan, finishImport]);
 
   return {
     profile,

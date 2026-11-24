@@ -35,16 +35,24 @@ export function buildImportRows(payload, schedule) {
   });
 }
 
-/** New schedule with the chosen rows appended to their semesters (input is not mutated). */
+/**
+ * New schedule with the chosen rows appended to their semesters (input is not mutated). `skipped`
+ * counts rows whose course was already in the schedule; that check happens here when the rows were
+ * reviewed against a different plan than the one they land in.
+ */
 export function applyImport(schedule, rows) {
   const next = (schedule || []).map((semester) => semester.slice());
   let added = 0;
+  let skipped = 0;
   rows.forEach((row) => {
     if (row.reason || row.semesterIndex == null || !row.course) return;
-    if (isCourseAlreadyScheduled(next, row.course.id)) return;
+    if (isCourseAlreadyScheduled(next, row.course.id)) {
+      skipped += 1;
+      return;
+    }
     while (next.length <= row.semesterIndex) next.push([]);
     next[row.semesterIndex].push(courseFromSearchResult(row.course));
     added += 1;
   });
-  return { schedule: next, added };
+  return { schedule: next, added, skipped };
 }

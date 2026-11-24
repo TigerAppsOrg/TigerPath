@@ -199,7 +199,8 @@ export default function App() {
       {importOpen && (
         <ImportTranscriptModal
           schedule={schedule}
-          planName={activePlan?.name}
+          plans={plans}
+          activePlanId={activePlan?.id}
           onImport={planner.importCourses}
           onClose={() => setImportOpen(false)}
         />

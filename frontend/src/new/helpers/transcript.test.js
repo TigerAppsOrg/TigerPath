@@ -50,6 +50,19 @@ describe('applyImport', () => {
   });
 });
 
+describe('applyImport into another plan', () => {
+  it('skips courses already in the target plan and counts them', () => {
+    // Rows reviewed with no target schedule (another plan): no "already" reasons yet.
+    const rows = buildImportRows(payload, null);
+    const target = empty();
+    target[4].push({ id: '1', name: 'COS 126' }); // COS 126 already in the target plan
+    const { added, skipped, schedule: next } = applyImport(target, rows);
+    expect(skipped).toBe(1);
+    expect(added).toBe(2); // COS 226 and COS 217
+    expect(next[4].map((c) => c.id)).toEqual(['1']);
+  });
+});
+
 describe('semesterLabel', () => {
   it('names board semesters', () => {
     expect(semesterLabel(7)).toBe('Senior Spring');

@@ -1321,6 +1321,28 @@ button:disabled {
   opacity: 0;
 }
 
+.tp-import-target {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tp-import-target .tp-select {
+  width: auto;
+  min-width: 200px;
+}
+
+.tp-import-note {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #fff6cc;
+  font-size: 14px;
+}
+
 .tp-import-list {
   list-style: none;
   margin: 0;
