@@ -15,7 +15,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
-from django.views.decorators.csrf import csrf_exempt
+from django.core.files.uploadhandler import MemoryFileUploadHandler
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
 from functools import wraps
@@ -1141,17 +1142,38 @@ def match_transcript_courses(entries):
     return matched
 
 
+TRANSCRIPT_TOO_LARGE = "Upload a transcript PDF under 2 MB."
+
+
 # TIG-282: parse an uploaded transcript PDF into a preview. Nothing is stored and nothing is saved;
 # the client adds the courses the student confirms through the normal schedule save.
-@login_required
+# The upload must never touch disk: oversized requests are refused before the body is read, and
+# the rest use only the in-memory upload handler (Django would otherwise spool large files to a
+# temporary file). Upload handlers can only be swapped before CSRF checking reads the body, hence
+# csrf_exempt here with csrf_protect on the inner view.
+@csrf_exempt
 def import_transcript(request):
+    try:
+        content_length = int(request.META.get("CONTENT_LENGTH") or 0)
+    except ValueError:
+        content_length = 0
+    # Room for the multipart headers around the file itself.
+    if content_length > MAX_TRANSCRIPT_BYTES + 64 * 1024:
+        return JsonResponse({"error": TRANSCRIPT_TOO_LARGE}, status=400)
+    request.upload_handlers = [MemoryFileUploadHandler(request)]
+    return _import_transcript(request)
+
+
+@csrf_protect
+@login_required
+def _import_transcript(request):
     if request.method != "POST":
         raise Http404
     upload = request.FILES.get("transcript")
     if upload is None:
         return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)
     if upload.size > MAX_TRANSCRIPT_BYTES:
-        return JsonResponse({"error": "Upload a transcript PDF under 5 MB."}, status=400)
+        return JsonResponse({"error": TRANSCRIPT_TOO_LARGE}, status=400)
     try:
         entries = parse_transcript_text(extract_text(upload.read()))
     except TranscriptError as error:

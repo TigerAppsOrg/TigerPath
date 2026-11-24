@@ -4,11 +4,12 @@ import datetime
 
 from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
-from django.test import SimpleTestCase, TestCase
+from django.test import Client, SimpleTestCase, TestCase
 
 from tigerpath.models import Course, Course_Listing, Semester
 from tigerpath.transcript import (
     CURRENT,
+    MAX_TRANSCRIPT_BYTES,
     TAKEN,
     UNCLEAR,
     TranscriptError,
@@ -310,6 +311,21 @@ class ImportTranscriptApiTest(TestCase):
         self.assertEqual(self.upload(b"hello", name="notes.txt").status_code, 400)
         self.assertEqual(self.client.post("/api/v1/import_transcript/").status_code, 400)
         self.assertEqual(self.client.get("/api/v1/import_transcript/").status_code, 404)
+
+    def test_rejects_oversized_uploads_without_spooling(self):
+        too_big = b"%PDF-" + b"0" * (MAX_TRANSCRIPT_BYTES + 100 * 1024)
+        response = self.upload(too_big)
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("2 MB", response.json()["error"])
+
+    def test_upload_still_checks_csrf(self):
+        client = Client(enforce_csrf_checks=True)
+        client.force_login(self.user)
+        response = client.post(
+            "/api/v1/import_transcript/",
+            {"transcript": SimpleUploadedFile("t.pdf", make_pdf(TRANSCRIPT_LINES))},
+        )
+        self.assertEqual(response.status_code, 403)
 
     def test_requires_login(self):
         self.client.logout()

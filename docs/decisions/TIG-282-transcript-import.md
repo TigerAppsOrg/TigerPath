@@ -48,9 +48,13 @@ transcript when one is available.
 
 ### D3. Privacy: no storage and no grades returned
 
-The upload is read in memory (5 MB cap, must start with `%PDF-`, PDFs that need a real password are
-rejected) and discarded. Grades only decide taken versus current, and they're never sent back to the browser (a test
-asserts this).
+The upload is read in memory only and then discarded:
+- The cap is 2 MB, below Django's 2.5 MB in-memory upload threshold.
+- The view uses only the memory upload handler, so nothing is spooled to a temporary file, and larger
+  requests are refused before the body is read.
+- The file must start with `%PDF-`. PDFs that need a real password are rejected.
+
+Grades only decide taken versus current, and they're never sent back to the browser (a test asserts this).
 
 ### D4. Review before adding, never auto-add
 
