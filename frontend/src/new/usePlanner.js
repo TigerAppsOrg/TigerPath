@@ -237,6 +237,11 @@ export default function usePlanner() {
     (rows, targetPlanId = activePlanId) => {
       if (targetPlanId == null || targetPlanId === activePlanId) {
         if (!schedule) return Promise.resolve(0);
+        if (scheduleLoadFailed) {
+          // The plan's courses didn't load; saving now would replace them with just the import.
+          showNotice(`Couldn't load ${activePlan?.name || 'this plan'}, so nothing was imported. Please reload and try again.`, 'error');
+          return Promise.resolve(0);
+        }
         return Promise.resolve(finishImport(rows, schedule, activePlan?.name));
       }
       setPendingImport({ planId: targetPlanId, rows });
@@ -245,7 +250,7 @@ export default function usePlanner() {
         showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
       });
     },
-    [activePlanId, activePlan, schedule, finishImport, actions, showNotice]
+    [activePlanId, activePlan, schedule, scheduleLoadFailed, finishImport, actions, showNotice]
   );
 
   useEffect(() => {
