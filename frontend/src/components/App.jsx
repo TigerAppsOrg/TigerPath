@@ -9,6 +9,7 @@ import {
   DEFAULT_TIGERPATH_THEME,
   getTigerPathTheme,
   getTigerPathThemeVariables,
+  rememberTigerPathTheme,
 } from 'styles/theme';
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 
@@ -321,7 +322,10 @@ export default function App() {
       root.style.setProperty(property, value);
     });
     root.dataset.tigerpathTheme = activeThemeName;
-  }, [activeThemeName]);
+    // Keep the new planner's remembered theme in sync, so switching UIs never paints a stale theme.
+    // Only once the profile has loaded: before that, activeThemeName is just the default.
+    if (profile?.theme) rememberTigerPathTheme(profile.theme);
+  }, [activeThemeName, profile?.theme]);
 
   return (
     <ThemeProvider theme={activeTheme}>

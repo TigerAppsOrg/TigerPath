@@ -225,15 +225,20 @@ export function getTigerPathThemeVariables(themeName) {
 
 const THEME_STORAGE_KEY = 'tigerpath-theme';
 
-/** Writes the theme's CSS variables onto <html> and remembers the choice for the next first paint. */
-export function applyTigerPathTheme(themeName, root = document.documentElement) {
-  Object.entries(getTigerPathThemeVariables(themeName)).forEach(([k, v]) => root.style.setProperty(k, v));
-  root.dataset.tigerpathTheme = themeName;
+/** Remembers the user's theme so the new planner's first paint uses it (shared with the classic UI). */
+export function rememberTigerPathTheme(themeName) {
   try {
     window.localStorage.setItem(THEME_STORAGE_KEY, themeName);
   } catch {
     // Storage can be unavailable (private mode); the theme still applies for this page.
   }
+}
+
+/** Writes the theme's CSS variables onto <html> and remembers the choice for the next first paint. */
+export function applyTigerPathTheme(themeName, root = document.documentElement) {
+  Object.entries(getTigerPathThemeVariables(themeName)).forEach(([k, v]) => root.style.setProperty(k, v));
+  root.dataset.tigerpathTheme = themeName;
+  rememberTigerPathTheme(themeName);
 }
 
 /** Last theme this browser used, so the first paint is themed before the profile request returns. */

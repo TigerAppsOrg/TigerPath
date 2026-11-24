@@ -39,7 +39,7 @@ describe('planSummaries', () => {
   });
 });
 
-import { courseKey, diffSchedules } from './compare';
+import { courseKey, diffSchedules, occurrenceKey } from './compare';
 
 describe('diffSchedules', () => {
   const sched = (...semesters) => [...semesters, ...Array.from({ length: 9 - semesters.length }, () => [])];
@@ -49,11 +49,11 @@ describe('diffSchedules', () => {
     const left = sched([c('eco100'), c('cos126')], [c('mat103')]);
     const right = sched([c('eco100')], [], [c('cos126'), c('pol220')]);
     const { left: l, right: r } = diffSchedules(left, right);
-    expect(l.get('id:eco100')).toEqual({ status: 'same' });
-    expect(l.get('id:cos126')).toEqual({ status: 'moved', otherIndex: 2 });
-    expect(l.get('id:mat103')).toEqual({ status: 'only' });
-    expect(r.get('id:cos126')).toEqual({ status: 'moved', otherIndex: 0 });
-    expect(r.get('id:pol220')).toEqual({ status: 'only' });
+    expect(l.get('id:eco100@0')).toEqual({ status: 'same' });
+    expect(l.get('id:cos126@0')).toEqual({ status: 'moved', otherIndex: 2 });
+    expect(l.get('id:mat103@1')).toEqual({ status: 'only' });
+    expect(r.get('id:cos126@2')).toEqual({ status: 'moved', otherIndex: 0 });
+    expect(r.get('id:pol220@2')).toEqual({ status: 'only' });
   });
 
   it('matches external credits by name and ignores the external-credits slot', () => {
@@ -61,7 +61,16 @@ describe('diffSchedules', () => {
     const left = sched([ap]);
     const right = sched([{ ...ap, id: 'random-2' }]);
     right[8] = [c('only-in-slot-9')];
-    expect(diffSchedules(left, right).left.get(courseKey(ap))).toEqual({ status: 'same' });
-    expect(diffSchedules(left, right).right.has('id:only-in-slot-9')).toBe(false);
+    expect(diffSchedules(left, right).left.get(occurrenceKey(ap, 0))).toEqual({ status: 'same' });
+    expect(diffSchedules(left, right).right.has('id:only-in-slot-9@8')).toBe(false);
+  });
+
+  it('marks each copy of a course scheduled twice on its own', () => {
+    // Left has COS 126 in semesters 0 and 2; right has it only in semester 0.
+    const left = sched([c('cos126')], [], [c('cos126')]);
+    const right = sched([c('cos126')]);
+    const { left: l } = diffSchedules(left, right);
+    expect(l.get('id:cos126@0')).toEqual({ status: 'same' });
+    expect(l.get('id:cos126@2')).toEqual({ status: 'moved', otherIndex: 0 });
   });
 });

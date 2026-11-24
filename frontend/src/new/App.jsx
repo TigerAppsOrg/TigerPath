@@ -220,7 +220,23 @@ export default function App() {
                 </button>
               </div>
               </div>
-              {compareLayout === 'year' ? (
+              {planner.compareError ? (
+                <div className="tp-notice error tp-compare-error" role="alert">
+                  <p>Couldn&apos;t load {comparePlan.name} to compare. Your own plan is unaffected.</p>
+                  <div className="tp-confirm-actions">
+                    <button type="button" className="tp-btn tp-btn-save tp-btn-sm" onClick={planner.retryCompare}>
+                      Try again
+                    </button>
+                    <button
+                      type="button"
+                      className="tp-btn tp-btn-neutral tp-btn-sm"
+                      onClick={() => planner.setComparePlanId(null)}
+                    >
+                      Close compare
+                    </button>
+                  </div>
+                </div>
+              ) : compareLayout === 'year' ? (
                 <>
                   <div className="dont-print tp-byyear-wrap">
                     <CompareByYear

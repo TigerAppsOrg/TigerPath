@@ -1501,6 +1501,14 @@ button:disabled {
 
 /* ── Compare: By year layout (TIG-337) ──────────────────────────────────── */
 
+.tp-compare-error p {
+  margin: 0;
+}
+
+.tp-compare-error .tp-confirm-actions {
+  margin-top: 10px;
+}
+
 .tp-compare-controls {
   display: flex;
   align-items: center;
