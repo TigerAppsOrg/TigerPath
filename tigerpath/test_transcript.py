@@ -175,6 +175,11 @@ class TigerHubLayoutTest(SimpleTestCase):
             ],
         )
 
+    def test_incomplete_is_check_grade(self):
+        text = "Fall 2025\nCOS 126  GRD  Intro  INC  QCR\nCOS 226  GRD  Algorithms  A  QCR"
+        got = [(e.code, e.status) for e in parse_transcript_text(text)]
+        self.assertEqual(got, [("COS 126", UNCLEAR), ("COS 226", TAKEN)])
+
     def test_failed_courses_are_skipped(self):
         text = (
             "Fall 2025\nCOS 126  GRD  Intro  F  QCR\n"

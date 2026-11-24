@@ -263,20 +263,32 @@ export default function usePlanner() {
     [applyPlans, loadPlanContents]
   );
 
+  // Create, copy, delete and switch can all change which plan the server treats as active, and the
+  // server does that as soon as the request lands. So: (1) any load still in flight for the plan we
+  // may be leaving stops counting (a waiting import would otherwise save it to the new plan), and
+  // (2) if the action fails, reload the plan we're still on so it never stays stuck loading.
+  const changeActivePlan = useCallback(
+    (makeRequest) => {
+      loadSeq.current += 1;
+      return planAction(makeRequest()).catch((error) => {
+        loadPlanContents();
+        throw error;
+      });
+    },
+    [planAction, loadPlanContents]
+  );
+
   const actions = useMemo(
     () => ({
       selectPlan: (id) => {
         if (id === activePlanId) return Promise.resolve();
-        // The server switches plans as soon as this request lands, so a slower load for the plan
-        // we're leaving must not count any more (an import waiting on it would save to the new plan).
-        loadSeq.current += 1;
         // Picking the compared plan as active swaps the sides instead of showing one plan twice.
         if (id === comparePlanId) {
           const previous = activePlanId;
           swapping.current = true;
           setComparePlanIdState(previous);
           loadCompare(previous);
-          return planAction(api.setActivePlan(id))
+          return changeActivePlan(() => api.setActivePlan(id))
             .catch((error) => {
               // Switch failed: put the compared plan back so the sides stay distinct.
               setComparePlanIdState(id);
@@ -287,21 +299,23 @@ export default function usePlanner() {
               swapping.current = false;
             });
         }
-        return planAction(api.setActivePlan(id));
+        return changeActivePlan(() => api.setActivePlan(id));
       },
-      createPlan: () => planAction(api.createPlan()),
-      copyPlan: (sourcePlanId, name) => planAction(api.copyPlan({ sourcePlanId, name })),
-      deletePlan: (id) => planAction(api.deletePlan(id)),
+      createPlan: () => changeActivePlan(() => api.createPlan()),
+      copyPlan: (sourcePlanId, name) => changeActivePlan(() => api.copyPlan({ sourcePlanId, name })),
+      deletePlan: (id) => changeActivePlan(() => api.deletePlan(id)),
       updatePlan: (settings) => planAction(api.updatePlanSettings(settings)),
       // Create a plan, then name it and set its major/minors in one flow.
-      createPlanWith: async ({ name, majorIds, minorCodes }) => {
-        const payload = await api.createPlan();
-        await planAction(
-          api.updatePlanSettings({ planId: payload.activePlanId, name, majorIds, minorCodes })
-        );
-      },
+      createPlanWith: ({ name, majorIds, minorCodes }) =>
+        changeActivePlan(() =>
+          api
+            .createPlan()
+            .then((payload) =>
+              api.updatePlanSettings({ planId: payload.activePlanId, name, majorIds, minorCodes })
+            )
+        ),
     }),
-    [activePlanId, comparePlanId, loadCompare, planAction]
+    [activePlanId, comparePlanId, loadCompare, planAction, changeActivePlan]
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;

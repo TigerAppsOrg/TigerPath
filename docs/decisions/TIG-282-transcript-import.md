@@ -38,7 +38,7 @@ layout (no student data is in the repo):
    basis is never read as a grade. Single-spaced text without columns falls back to reading tokens from
    the end, skipping numbers and distribution areas; there a lone grade letter only counts as a grade next to a credit or grade-point number, since without columns it could also end the title ("Part B", "Microeconomics W"). Such rows are marked **Check grade** and are not pre-selected: the student decides, so a possible withdrawal is never added automatically and a real course is never silently dropped.
 
-**Grades:** a passing final grade (A to D, P, INC) means taken. A blank grade, `IP` or "In Progress" means
+**Grades:** a passing final grade (A to D, P) means taken; an incomplete (`INC`) is marked **Check grade**, since the course wasn't finished at the end of the term. A blank grade, `IP` or "In Progress" means
 currently taking. Failed (`F`), withdrawn (`W`) and audited (grade basis `AUD`) rows are skipped, since none earns credit. Term headings like "2026-2027 Fall", "Fall 2023" and
 "Spring Term 2022-23" are recognised; Summer and Winter terms are skipped.
 
