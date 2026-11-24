@@ -1,6 +1,8 @@
 // Dev-only fetch mock so the new planner renders without Django. Not part of the PR.
 const params = new URLSearchParams(location.search);
 const theme = params.get('theme') || 'purple';
+// ?year=2030 sets the class year (where imported transcript courses land).
+const classYear = Number(params.get('year')) || 2027;
 
 const course = (id, name, title, semester = 'both') => ({
   id: String(id),
@@ -173,7 +175,7 @@ const newPlanId = () => Math.max(0, ...planList.map((p) => p.id)) + 1;
 const emptyPlan = () => ({ schedule: Array.from({ length: 9 }, () => []), majors: [], minors: [] });
 
 const routes = [
-  [/get_profile/, () => ({ classYear: 2027, theme, username: 'preview', activePlanId })],
+  [/get_profile/, () => ({ classYear, theme, username: 'preview', activePlanId })],
   [/get_plans/, plansPayload],
   [/set_active_plan/, (url, body) => {
     activePlanId = Number(new URLSearchParams(body).get('planId'));
@@ -211,24 +213,20 @@ const routes = [
   [/get_schedule/, (url) => planFor(url).schedule],
   [/layout=grouped/, (url) => ({ majors: planFor(url).majors, minors: planFor(url).minors })],
   [/get_requirements|update_schedule_and_get_requirements/, (url) => [...planFor(url).majors, ...planFor(url).minors]],
-  [/import_transcript/, () => ({
-    classYear: 2027,
-    courses: [
-      { code: 'ECO 100', term: 'Fall 2023', status: 'taken', semesterIndex: 0, course: { id: '1', name: 'ECO 100', title: 'Introduction to Microeconomics', semester: 'both', semester_list: ['f23'], dist_area: 'SA' } },
-      { code: 'COS 126', term: 'Fall 2023', status: 'taken', semesterIndex: 0, course: { id: 'c126', name: 'COS 126 / EGR 126', title: 'Computer Science: An Interdisciplinary Approach', semester: 'both', semester_list: ['f23'], dist_area: 'QCR' } },
-      { code: 'MAT 175', term: 'Spring 2024', status: 'taken', semesterIndex: 1, course: { id: 'm175', name: 'MAT 175', title: 'Mathematics for Economics', semester: 'both', semester_list: ['s24'], dist_area: 'QCR' } },
-      { code: 'PHI 201', term: 'Fall 2025', status: 'current', semesterIndex: 4, course: { id: 'p201', name: 'PHI 201', title: 'Introductory Logic', semester: 'fall', semester_list: ['f25'], dist_area: 'EC' } },
-      { code: 'PHY 104', term: 'Fall 2027', status: 'current', semesterIndex: null, course: { id: 'y104', name: 'PHY 104', title: 'Physics for the Life Sciences', semester: 'fall', semester_list: ['f25'], dist_area: 'SEL' } },
-    ],
-    unmatched: ['ZZZ 999'],
-  })],
   [/get_courses\//, () => searchResults],
   [/get_req_courses\//, () => searchResults],
   [/get_course_details\//, () => ({})],
   [/./, () => ({})],
 ];
 
+const realFetch = window.fetch.bind(window);
+
 window.fetch = async (url, options = {}) => {
+  // Transcript import is real: the demo server runs the actual parser on the uploaded PDF.
+  if (/import_transcript/.test(String(url))) {
+    window.__writes.push(`POST ${url} (preview only)`);
+    return realFetch(`${url}?year=${classYear}`, options);
+  }
   const method = (options.method || 'GET').toUpperCase();
   if (method !== 'GET') window.__writes.push(`${method} ${url}`);
   const [, handler] = routes.find(([re]) => re.test(String(url)));
