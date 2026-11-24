@@ -50,8 +50,10 @@ transcript when one is available.
 
 The upload is read in memory only and then discarded:
 - The cap is 2 MB, below Django's 2.5 MB in-memory upload threshold.
-- The view uses only the memory upload handler, so nothing is spooled to a temporary file, and larger
-  requests are refused before the body is read.
+- The view uses only the memory upload handler, so nothing is spooled to a temporary file. Larger
+  requests, and requests that don't state their length, are refused before the body is read, and login is
+  checked first.
+- PDFs over 20 pages are refused (a transcript is a few pages).
 - The file must start with `%PDF-`. PDFs that need a real password are rejected.
 
 Grades only decide taken versus current, and they're never sent back to the browser (a test asserts this).
@@ -94,8 +96,14 @@ wrong plan. Review kept finding new versions of that race, so the fix is at the 
   written. Without `planId`, everything works as before, so the classic UI is unchanged.
 - The new planner remembers which plan the on-screen schedule came from, and every save names it. A plan
   whose courses failed to load can't be saved over.
+- Saves to one plan go out one at a time, in order. Each save sends the whole schedule, so two in flight
+  could land out of order and the older one would win. An import into a plan waits its turn in the same
+  line, after edits already sent.
+- Saves must be POST: CSRF protection only covers POST, and a GET used to clear the active plan. A schedule
+  that isn't a JSON list is refused with a 400.
+- Plan changes (switch, create, copy, delete, settings) run one at a time; only the newest one's result is shown.
 - Tests: a save naming a non-active plan lands there and leaves the active plan alone; another user's plan is
-  rejected for both reads and saves.
+  rejected for both reads and saves; GET and malformed saves change nothing.
 
 ### D7. New dependency: `pypdf==6.21.4`
 

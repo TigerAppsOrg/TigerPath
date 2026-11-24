@@ -12,6 +12,8 @@ from dataclasses import dataclass
 # Below Django's 2.5 MB in-memory upload threshold, so an accepted transcript never touches disk.
 # TigerHub transcripts are a few hundred KB.
 MAX_TRANSCRIPT_BYTES = 2 * 1024 * 1024
+# A transcript is a few pages; a longer PDF isn't one, and parsing it would only tie up the server.
+MAX_TRANSCRIPT_PAGES = 20
 
 # "Fall 2023-2024", "Fall Term 2023-24", "Spring 2023-2024 Term"
 _TERM_SEASON_FIRST_ACADEMIC = re.compile(
@@ -80,7 +82,7 @@ class TranscriptEntry:
     number: str
     season: str  # "fall" | "spring"
     year: int  # calendar year the term falls in
-    status: str  # TAKEN | CURRENT
+    status: str  # TAKEN | CURRENT | UNCLEAR
 
     @property
     def code(self):
@@ -112,6 +114,11 @@ def extract_text(pdf_bytes):
         # editing), so try that before treating the file as password-protected.
         if reader.is_encrypted and not reader.decrypt(""):
             raise TranscriptError("That PDF is password-protected. Download an unprotected copy.")
+        if len(reader.pages) > MAX_TRANSCRIPT_PAGES:
+            raise TranscriptError(
+                "That PDF is too long to be a transcript. "
+                "Upload the unofficial transcript from TigerHub."
+            )
         pages = []
         for page in reader.pages:
             try:

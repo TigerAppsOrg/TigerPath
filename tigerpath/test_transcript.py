@@ -10,6 +10,7 @@ from tigerpath.models import Course, Course_Listing, Semester
 from tigerpath.transcript import (
     CURRENT,
     MAX_TRANSCRIPT_BYTES,
+    MAX_TRANSCRIPT_PAGES,
     TAKEN,
     UNCLEAR,
     TranscriptError,
@@ -312,11 +313,34 @@ class ImportTranscriptApiTest(TestCase):
         self.assertEqual(self.client.post("/api/v1/import_transcript/").status_code, 400)
         self.assertEqual(self.client.get("/api/v1/import_transcript/").status_code, 404)
 
+    def test_rejects_pdfs_too_long_to_be_a_transcript(self):
+        import io
+
+        from pypdf import PdfWriter
+
+        writer = PdfWriter()
+        for _ in range(MAX_TRANSCRIPT_PAGES + 1):
+            writer.add_blank_page(width=612, height=792)
+        buffer = io.BytesIO()
+        writer.write(buffer)
+        response = self.upload(buffer.getvalue())
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("too long", response.json()["error"])
+
     def test_rejects_oversized_uploads_without_spooling(self):
         too_big = b"%PDF-" + b"0" * (MAX_TRANSCRIPT_BYTES + 100 * 1024)
         response = self.upload(too_big)
         self.assertEqual(response.status_code, 400)
         self.assertIn("2 MB", response.json()["error"])
+
+    def test_rejects_uploads_without_a_length(self):
+        response = self.client.generic(
+            "POST",
+            "/api/v1/import_transcript/",
+            b"",
+            content_type="multipart/form-data; boundary=x",
+        )
+        self.assertEqual(response.status_code, 400)
 
     def test_upload_still_checks_csrf(self):
         client = Client(enforce_csrf_checks=True)

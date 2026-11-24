@@ -50,9 +50,10 @@ export default function usePlanner() {
   // The newest save sent for each plan: a failed save only matters if no later save for that plan
   // (which carries the whole schedule) was sent after it.
   const lastSaveFor = useRef({});
-  // Each plan's in-flight saves (settled either way), so an import into that plan can wait for them
-  // instead of reading and replacing the schedule while an edit is still landing.
-  const pendingSaves = useRef({});
+  // Writes to each plan run one at a time, in order (keyed by plan id): each save sends the whole
+  // schedule, so two in flight at once could land out of order and the older one would win. An import
+  // into a plan joins the same line, so it reads and replaces the schedule only after earlier edits.
+  const writeChains = useRef({});
   const plansRef = useRef([]);
   // Only the newest plan load may set the schedule: after a plan switch, a slower response for the
   // previous plan must not land on the new one (a pending import would save it over that plan).
@@ -63,8 +64,19 @@ export default function usePlanner() {
   // Active-plan changes run one at a time, in order: the server applies each as it lands, so letting
   // two overlap could leave the server on one plan and the page on another.
   const actionQueue = useRef(Promise.resolve());
+  // Plan actions queued or running. While any are, the active plan is about to change, so a click on
+  // the plan that is active right now is still a real request (it must not be skipped).
+  const pendingActions = useRef(0);
 
   const showNotice = useCallback((text, tone = 'warning') => setNotice({ text, tone, at: Date.now() }), []);
+
+  // Run `write` after every earlier write to the same plan has settled; returns its result.
+  const queueWrite = useCallback((planId, write) => {
+    const key = String(planId);
+    const run = (writeChains.current[key] || Promise.resolve()).then(write);
+    writeChains.current[key] = run.catch(() => {});
+    return run;
+  }, []);
 
   useEffect(() => {
     if (!notice) return undefined;
@@ -146,23 +158,18 @@ export default function usePlanner() {
       const planId = schedulePlanId.current;
       lastSaveFor.current[planId] = seq;
       setSaving(true);
-      const request = api.saveScheduleAndGetRequirements(stripSchedule(next), planId);
-      const settled = request.then(
-        () => {},
-        () => {}
-      );
-      pendingSaves.current[planId] = Promise.all([pendingSaves.current[planId], settled]);
-      request
+      const stripped = stripSchedule(next);
+      queueWrite(planId, () => api.saveScheduleAndGetRequirements(stripped, planId))
         .then((data) => {
           if (seq === saveSeq.current) setRequirements(unwrapGroupedRequirements(data));
         })
         .catch(() => {
           if (seq !== saveSeq.current) {
             // The student has moved on (e.g. switched plans). Still say the change was lost, unless a
-            // later save for the same plan replaced it.
-            if (lastSaveFor.current[planId] === seq && schedulePlanId.current !== planId) {
-              const name = plansRef.current.find((p) => p.id === planId)?.name;
-              showNotice(`Could not save your last change to ${name || 'your previous plan'}. Please open it and check.`, 'error');
+            // later save for the same plan replaced it or the plan has since been deleted.
+            const plan = plansRef.current.find((p) => p.id === planId);
+            if (plan && lastSaveFor.current[planId] === seq && schedulePlanId.current !== planId) {
+              showNotice(`Could not save your last change to ${plan.name}. Please open it and check.`, 'error');
             }
             return;
           }
@@ -174,7 +181,7 @@ export default function usePlanner() {
           if (seq === saveSeq.current) setSaving(false);
         });
     },
-    [scheduleLoadFailed, showNotice, loadPlanContents]
+    [scheduleLoadFailed, showNotice, loadPlanContents, queueWrite]
   );
 
   // ── Schedule edits ───────────────────────────────────────────────────────
@@ -308,24 +315,24 @@ export default function usePlanner() {
 
   // ── Plans ────────────────────────────────────────────────────────────────
 
-  const planAction = useCallback(
-    (request, { reload = true } = {}) =>
-      request.then((payload) => {
-        applyPlans(payload);
-        if (reload) loadPlanContents(payload?.activePlanId);
-        return payload;
-      }),
-    [applyPlans, loadPlanContents]
-  );
-
   // Create, copy, delete and switch can all change which plan the server treats as active, as soon as
-  // the request lands. They run one at a time; only the newest one's result is shown. If one fails,
-  // re-read the plan list (it may still have changed the server) and show the plan the server is on.
+  // the request lands, and plan settings change the plan list. They run one at a time; only the newest
+  // one's result is shown. If one fails, re-read the plan list (it may still have changed the server)
+  // and show the plan the server is on.
   const changeActivePlan = useCallback(
     (makeRequest) => {
       loadSeq.current += 1;
       const seq = ++actionSeq.current;
+      pendingActions.current += 1;
       const run = actionQueue.current.then(() => makeRequest());
+      run.then(
+        () => {
+          pendingActions.current -= 1;
+        },
+        () => {
+          pendingActions.current -= 1;
+        }
+      );
       // Keep the queue going even if this action fails.
       actionQueue.current = run.catch(() => {});
       return run.then(
@@ -358,7 +365,8 @@ export default function usePlanner() {
   const actions = useMemo(
     () => ({
       selectPlan: (id) => {
-        if (id === activePlanId) return Promise.resolve();
+        // Skip only when nothing is pending: during a switch, clicking the current plan is a real request.
+        if (id === activePlanRef.current && pendingActions.current === 0) return Promise.resolve();
         // Picking the compared plan as active swaps the sides instead of showing one plan twice.
         if (id === comparePlanId) {
           const previous = activePlanId;
@@ -381,7 +389,8 @@ export default function usePlanner() {
       createPlan: () => changeActivePlan(() => api.createPlan()),
       copyPlan: (sourcePlanId, name) => changeActivePlan(() => api.copyPlan({ sourcePlanId, name })),
       deletePlan: (id) => changeActivePlan(() => api.deletePlan(id)),
-      updatePlan: (settings) => planAction(api.updatePlanSettings(settings)),
+      // Settings (name, majors, minors) reload the plan: its requirements depend on them.
+      updatePlan: (settings) => changeActivePlan(() => api.updatePlanSettings(settings)),
       // Create a plan, then name it and set its major/minors in one flow.
       createPlanWith: ({ name, majorIds, minorCodes }) =>
         changeActivePlan(() =>
@@ -392,7 +401,7 @@ export default function usePlanner() {
             )
         ),
     }),
-    [activePlanId, comparePlanId, loadCompare, planAction, changeActivePlan]
+    [activePlanId, comparePlanId, loadCompare, changeActivePlan]
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
@@ -433,14 +442,16 @@ export default function usePlanner() {
           setSchedule(null);
         }
         try {
-          // Let edits already sent for this plan land first, then read what it stores: saving
-          // without its courses would replace them.
-          await pendingSaves.current[target];
-          const stored = await api.getSchedule(target);
-          const result = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
-          if (result.added > 0) {
-            await api.saveScheduleAndGetRequirements(stripSchedule(result.schedule), target);
-          }
+          // Read what the plan stores and save it back as one write in its line, after any edits
+          // already sent: saving without its courses would replace them.
+          const result = await queueWrite(target, async () => {
+            const stored = await api.getSchedule(target);
+            const merged = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
+            if (merged.added > 0) {
+              await api.saveScheduleAndGetRequirements(stripSchedule(merged.schedule), target);
+            }
+            return merged;
+          });
           report(result.added, result.skipped);
           return result.added;
         } catch {
@@ -459,7 +470,7 @@ export default function usePlanner() {
       }
       return added;
     },
-    [activePlanId, plans, schedule, scheduleLoadFailed, commitSchedule, loadPlanContents, changeActivePlan, showNotice]
+    [activePlanId, plans, schedule, scheduleLoadFailed, commitSchedule, loadPlanContents, changeActivePlan, queueWrite, showNotice]
   );
 
   return {

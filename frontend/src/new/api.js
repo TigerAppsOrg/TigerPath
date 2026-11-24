@@ -73,17 +73,26 @@ export async function saveSettings({ year, theme }) {
 export async function importTranscript(file) {
   const body = new FormData();
   body.append('transcript', file);
-  const response = await fetch('/api/v1/import_transcript/', {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: { 'X-CSRFToken': getCookie('csrftoken') },
-    body,
-  });
-  // An expired session redirects to the login page, which still answers 200 with HTML.
-  const isJson = (response.headers.get('Content-Type') || '').includes('application/json');
-  if (response.redirected || !isJson) {
-    throw new Error('Your session has expired. Reload the page to sign in again, then retry the import.');
+  const sessionExpired = 'Your session has expired. Reload the page to sign in again, then retry the import.';
+  let response;
+  try {
+    response = await fetch('/api/v1/import_transcript/', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'X-CSRFToken': getCookie('csrftoken') },
+      body,
+    });
+  } catch {
+    // Offline, or an expired session redirected to the (cross-site) login page, which fetch can't follow.
+    throw new Error("Couldn't reach TigerPath. Check your connection, or reload the page to sign in again, then retry the import.");
   }
+  // An expired session can also land on a same-site login page: 200 with HTML. A CSRF failure (403)
+  // after a long idle is HTML too; both are fixed by reloading.
+  const isJson = (response.headers.get('Content-Type') || '').includes('application/json');
+  if (response.redirected || (!isJson && (response.ok || response.status === 403))) {
+    throw new Error(sessionExpired);
+  }
+  if (!isJson) throw new Error('Could not read that transcript. Please try again.');
   const payload = await response.json().catch(() => null);
   if (!response.ok) throw new Error(payload?.error || 'Could not read that transcript. Please try again.');
   if (!payload || !Array.isArray(payload.courses)) {
