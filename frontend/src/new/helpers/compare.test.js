@@ -38,3 +38,30 @@ describe('planSummaries', () => {
     expect(planSummaries(null)).toEqual([]);
   });
 });
+
+import { courseKey, diffSchedules } from './compare';
+
+describe('diffSchedules', () => {
+  const sched = (...semesters) => [...semesters, ...Array.from({ length: 9 - semesters.length }, () => [])];
+  const c = (id, name = id) => ({ id, name });
+
+  it('marks courses as same, moved or only, from each side', () => {
+    const left = sched([c('eco100'), c('cos126')], [c('mat103')]);
+    const right = sched([c('eco100')], [], [c('cos126'), c('pol220')]);
+    const { left: l, right: r } = diffSchedules(left, right);
+    expect(l.get('id:eco100')).toEqual({ status: 'same' });
+    expect(l.get('id:cos126')).toEqual({ status: 'moved', otherIndex: 2 });
+    expect(l.get('id:mat103')).toEqual({ status: 'only' });
+    expect(r.get('id:cos126')).toEqual({ status: 'moved', otherIndex: 0 });
+    expect(r.get('id:pol220')).toEqual({ status: 'only' });
+  });
+
+  it('matches external credits by name and ignores the external-credits slot', () => {
+    const ap = { id: 'random-1', external: true, name: 'AP Calculus' };
+    const left = sched([ap]);
+    const right = sched([{ ...ap, id: 'random-2' }]);
+    right[8] = [c('only-in-slot-9')];
+    expect(diffSchedules(left, right).left.get(courseKey(ap))).toEqual({ status: 'same' });
+    expect(diffSchedules(left, right).right.has('id:only-in-slot-9')).toBe(false);
+  });
+});
