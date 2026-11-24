@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Modal from './Modal';
 import Icon from './Icon';
-import { getSchedule, importTranscript } from '../api';
+import { importTranscript } from '../api';
 import { buildImportRows } from '../helpers/transcript';
 
 const STATUS_LABEL = { taken: 'Taken', current: 'Taking now', unclear: 'Check grade' };
@@ -10,7 +10,14 @@ const STATUS_LABEL = { taken: 'Taken', current: 'Taking now', unclear: 'Check gr
  * TIG-282: upload the TigerHub unofficial transcript PDF, review what was found, then add the chosen
  * courses to the plan picked in "Add to". Nothing is saved until "Add" (then as one schedule save).
  */
-export default function ImportTranscriptModal({ schedule, plans, activePlanId, onImport, onClose }) {
+export default function ImportTranscriptModal({
+  schedule,
+  plans,
+  activePlanId,
+  readPlanSchedule,
+  onImport,
+  onClose,
+}) {
   const [file, setFile] = useState(null);
   const [targetPlanId, setTargetPlanId] = useState(activePlanId);
   // The dialog can open before the plan list has loaded: default to the current plan once it's known.
@@ -28,18 +35,19 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
   const [toggled, setToggled] = useState(() => new Set());
 
   // Duplicates are checked against the picked plan: the active plan's schedule is already loaded;
-  // another plan's is read (without switching to it). Courses are re-checked when they're added.
+  // another plan's is read (without switching to it) after any of its saves still in flight, so a
+  // course just removed there isn't shown as already in it. Courses are re-checked when added.
   const [otherSchedule, setOtherSchedule] = useState({ planId: null, schedule: null });
   useEffect(() => {
     if (targetIsActive || targetPlanId == null) return undefined;
     let live = true;
-    getSchedule(targetPlanId)
+    readPlanSchedule(targetPlanId)
       .then((data) => live && setOtherSchedule({ planId: targetPlanId, schedule: data }))
       .catch(() => {});
     return () => {
       live = false;
     };
-  }, [targetPlanId, targetIsActive]);
+  }, [targetPlanId, targetIsActive, readPlanSchedule]);
   const targetSchedule = targetIsActive
     ? schedule
     : otherSchedule.planId === targetPlanId

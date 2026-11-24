@@ -119,6 +119,14 @@ export default function usePlanner() {
     });
   }, [showNotice]);
 
+  // Read a plan's stored schedule once its pending writes have landed (for previews that decide what
+  // the student can pick, so a just-removed course isn't still shown as there).
+  const readPlanSchedule = useCallback(
+    (planId) =>
+      (writeChains.current[String(planId)] || Promise.resolve()).then(() => api.getSchedule(planId)),
+    []
+  );
+
   const reloadPlan = useCallback(() => loadPlanContents(activePlanRef.current), [loadPlanContents]);
 
   useEffect(() => {
@@ -438,6 +446,7 @@ export default function usePlanner() {
     addExternalCredit,
     removeExternalCredit,
     reloadPlan,
+    readPlanSchedule,
     importCourses,
     ...actions,
   };
