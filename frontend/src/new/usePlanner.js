@@ -25,6 +25,16 @@ export default function usePlanner() {
   const [editorOptions, setEditorOptions] = useState({ majorOptions: [], minorOptions: [], maxMajors: 3 });
   const [notice, setNotice] = useState(null);
   const [saving, setSaving] = useState(false);
+  // Compare mode (TIG-337): a second plan shown read-only next to the active one.
+  const [comparePlanId, setComparePlanIdState] = useState(null);
+  const [compareSchedule, setCompareSchedule] = useState(null);
+  const [compareRequirements, setCompareRequirements] = useState(null);
+  // A failed compare read shows an error, never an empty plan (which would look like every course differs).
+  const [compareError, setCompareError] = useState(false);
+  const compareSeq = useRef(0);
+  // True while a tab click swaps the two sides: for a moment the compared plan equals the still-active
+  // plan, which must not count as "both sides show the same plan".
+  const swapping = useRef(false);
 
   // Responses for older saves are ignored so fast edits can't apply stale requirements.
   const saveSeq = useRef(0);
@@ -172,6 +182,61 @@ export default function usePlanner() {
     [schedule, commitSchedule]
   );
 
+  // ── Compare mode ─────────────────────────────────────────────────────────
+  // Read-only GETs by planId: opening, switching or closing compare never calls setActivePlan
+  // and never saves a schedule.
+
+  const loadCompare = useCallback((planId) => {
+    const seq = ++compareSeq.current;
+    setCompareSchedule(null);
+    setCompareRequirements(null);
+    setCompareError(false);
+    if (planId == null) return;
+    const failed = () => {
+      if (seq !== compareSeq.current) return;
+      setCompareSchedule(null);
+      setCompareRequirements(null);
+      setCompareError(true);
+    };
+    api
+      .getSchedule(planId)
+      .then((data) => seq === compareSeq.current && setCompareSchedule(data && data.length ? data : emptySchedule()))
+      .catch(failed);
+    api
+      .getRequirements(planId)
+      .then((data) => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(data)))
+      .catch(failed);
+  }, []);
+
+  const setComparePlanId = useCallback(
+    (planId) => {
+      const next = planId == null ? null : planId;
+      // The same plan can't be on both sides.
+      if (next != null && next === activePlanId) return;
+      setComparePlanIdState(next);
+      loadCompare(next);
+    },
+    [activePlanId, loadCompare]
+  );
+
+  // Close compare if its plan disappears (deleted) or becomes the active plan, e.g. deleting the
+  // active plan makes the server activate the compared one; both sides would show the same plan.
+  useEffect(() => {
+    if (comparePlanId == null) return;
+    const sameAsActive = comparePlanId === activePlanId && !swapping.current;
+    if (sameAsActive || !plans.some((p) => p.id === comparePlanId)) {
+      setComparePlanIdState(null);
+      loadCompare(null);
+    }
+  }, [plans, activePlanId, comparePlanId, loadCompare]);
+
+  // Reload both sides: requirements depend on the class year, so a Settings change must refresh the
+  // compared plan too, not only the active one.
+  const reloadPlans = useCallback(() => {
+    loadPlanContents();
+    if (comparePlanId != null) loadCompare(comparePlanId);
+  }, [loadPlanContents, loadCompare, comparePlanId]);
+
   // ── Plans ────────────────────────────────────────────────────────────────
 
   const planAction = useCallback(
@@ -186,7 +251,27 @@ export default function usePlanner() {
 
   const actions = useMemo(
     () => ({
-      selectPlan: (id) => (id === activePlanId ? Promise.resolve() : planAction(api.setActivePlan(id))),
+      selectPlan: (id) => {
+        if (id === activePlanId) return Promise.resolve();
+        // Picking the compared plan as active swaps the sides instead of showing one plan twice.
+        if (id === comparePlanId) {
+          const previous = activePlanId;
+          swapping.current = true;
+          setComparePlanIdState(previous);
+          loadCompare(previous);
+          return planAction(api.setActivePlan(id))
+            .catch((error) => {
+              // Switch failed: put the compared plan back so the sides stay distinct.
+              setComparePlanIdState(id);
+              loadCompare(id);
+              throw error;
+            })
+            .finally(() => {
+              swapping.current = false;
+            });
+        }
+        return planAction(api.setActivePlan(id));
+      },
       createPlan: () => planAction(api.createPlan()),
       copyPlan: (sourcePlanId, name) => planAction(api.copyPlan({ sourcePlanId, name })),
       deletePlan: (id) => planAction(api.deletePlan(id)),
@@ -199,10 +284,11 @@ export default function usePlanner() {
         );
       },
     }),
-    [activePlanId, planAction]
+    [activePlanId, comparePlanId, loadCompare, planAction]
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
+  const comparePlan = plans.find((p) => p.id === comparePlanId) || null;
 
   return {
     profile,
@@ -221,7 +307,13 @@ export default function usePlanner() {
     settle,
     addExternalCredit,
     removeExternalCredit,
-    reloadPlan: loadPlanContents,
+    reloadPlan: reloadPlans,
+    comparePlan,
+    compareSchedule,
+    compareRequirements,
+    compareError,
+    retryCompare: () => loadCompare(comparePlanId),
+    setComparePlanId,
     ...actions,
   };
 }

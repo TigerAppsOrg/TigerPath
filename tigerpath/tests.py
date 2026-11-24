@@ -478,3 +478,89 @@ class MultiMajorPlanTest(TestCase):
     def test_editor_options_expose_major_cap(self):
         options = self.client.get("/api/v1/get_plan_editor_options/").json()
         self.assertEqual(options["maxMajors"], 3)
+
+
+# External credits need no Course rows, so these fixtures stay independent of course data.
+ACTIVE_CREDIT = {"id": "a1", "external": True, "name": "Credit A", "settled": []}
+OTHER_CREDIT = {"id": "b1", "external": True, "name": "Credit B", "settled": []}
+
+
+class ComparePlanApiTest(TestCase):
+    """TIG-337: compare mode reads a second plan by ?planId= without touching the active plan."""
+
+    def setUp(self):
+        self.user = User.objects.create_user(username="compare_user", password="testpass")
+        self.client.force_login(self.user)
+        self.profile = self.user.profile
+        self.profile.year = forms.create_year_choices()[0][0]
+        self.profile.save(update_fields=["year"])
+        self.eco = Major.objects.create(name="Economics", code="ECO", degree="AB", supported=False)
+        self.pol = Major.objects.create(name="Politics", code="POL", degree="AB", supported=False)
+        self.cos = Major.objects.create(
+            name="Computer Science", code="COS", degree="BSE", supported=False
+        )
+
+        self.active = self.profile.schedule_plans.get()
+        self.active.major = self.eco
+        self.active.additional_major_ids = [self.pol.id]
+        self.active.schedule = [[ACTIVE_CREDIT]] + [[] for _ in range(8)]
+        self.active.save()
+        self.other = SchedulePlan.objects.create(
+            user_profile=self.profile,
+            name="Plan B",
+            major=self.cos,
+            minors=[],
+            additional_major_ids=[],
+            schedule=[[], [OTHER_CREDIT]] + [[] for _ in range(7)],
+        )
+        state = self.profile.user_state or {}
+        state["active_plan_id"] = self.active.id
+        self.profile.user_state = state
+        self.profile.save(update_fields=["user_state"])
+
+    def active_plan_id(self):
+        return self.client.get("/api/v1/get_profile/").json()["activePlanId"]
+
+    def test_schedule_for_compare_plan(self):
+        response = self.client.get(f"/api/v1/get_schedule/?planId={self.other.id}")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json()[1][0]["name"], "Credit B")
+        # Without planId the active plan is still returned.
+        active_schedule = self.client.get("/api/v1/get_schedule/").json()
+        self.assertEqual(active_schedule[0][0]["name"], "Credit A")
+
+    def test_each_plan_reports_its_own_majors(self):
+        # Plans with different additional_major_ids (migration 0023) get their own requirements.
+        active = self.client.get("/api/v1/get_requirements/?layout=grouped").json()
+        other = self.client.get(
+            f"/api/v1/get_requirements/?layout=grouped&planId={self.other.id}"
+        ).json()
+        self.assertEqual(active["majors"], ["Economics", "Politics"])
+        self.assertEqual(other["majors"], ["Computer Science"])
+
+    def test_compare_reads_never_change_active_plan_or_write(self):
+        before = {p.id: (p.schedule, p.updated_at) for p in self.profile.schedule_plans.all()}
+        self.client.get(f"/api/v1/get_schedule/?planId={self.other.id}")
+        self.client.get(f"/api/v1/get_requirements/?layout=grouped&planId={self.other.id}")
+        self.client.get(f"/api/v1/get_requirements/?planId={self.other.id}")
+        self.assertEqual(self.active_plan_id(), self.active.id)
+        after = {p.id: (p.schedule, p.updated_at) for p in self.profile.schedule_plans.all()}
+        self.assertEqual(before, after)
+
+    def test_other_users_plan_is_not_found(self):
+        stranger = User.objects.create_user(username="stranger", password="testpass")
+        foreign = stranger.profile.schedule_plans.get()
+        for url in ("/api/v1/get_schedule/", "/api/v1/get_requirements/?layout=grouped"):
+            sep = "&" if "?" in url else "?"
+            self.assertEqual(self.client.get(f"{url}{sep}planId={foreign.id}").status_code, 404)
+            self.assertEqual(self.client.get(f"{url}{sep}planId=not-a-number").status_code, 404)
+
+    def test_schedule_save_ignores_plan_id(self):
+        # The save endpoint always writes and answers for the active plan.
+        response = self.client.post(
+            f"/api/v1/update_schedule_and_get_requirements/?layout=grouped&planId={self.other.id}",
+            {"schedule": json.dumps([[] for _ in range(9)])},
+        )
+        self.assertEqual(response.json()["majors"], ["Economics", "Politics"])
+        self.other.refresh_from_db()
+        self.assertEqual(self.other.schedule[1], [OTHER_CREDIT])

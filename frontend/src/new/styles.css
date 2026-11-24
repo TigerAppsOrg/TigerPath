@@ -1282,6 +1282,381 @@ button:disabled {
   line-height: 1.5;
 }
 
+/* ── Compare mode (TIG-337) ────────────────────────────────────────────── */
+
+.tp-compare-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 14px;
+  border: 1.5px solid var(--tp-border);
+  border-radius: 19px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tp-compare-btn:hover:not(:disabled) {
+  border-color: var(--tp-active-plan-border);
+}
+
+.tp-compare-picker {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.tp-compare-picker label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tp-compare-picker .tp-select {
+  width: auto;
+  min-width: 140px;
+  max-width: 220px;
+}
+
+.tp-main.comparing {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tp-compare {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.tp-compare-toggle {
+  display: none;
+}
+
+.tp-compare-sides {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  /* Header, summary, board: shared rows keep both boards top-aligned whatever each summary holds. */
+  grid-template-rows: auto auto minmax(0, 1fr);
+  column-gap: 22px;
+}
+
+.tp-compare-side {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  min-width: 0;
+  min-height: 0;
+}
+
+.tp-compare-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.tp-compare-head h2 {
+  margin: 0;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tp-compare-tag {
+  flex-shrink: 0;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--tp-plan-tabs-fill);
+  color: var(--tp-text);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tp-compare-tag.editable {
+  background: var(--tp-plan-tab-active-fill);
+}
+
+.tp-compare-summary {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.tp-compare-program {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--tp-req-panel-fill);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
+}
+
+.tp-compare-program-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.tp-compare-program-head .tp-req-count {
+  font-size: 13px;
+}
+
+/* Text color, not muted grey or --tp-incomplete red: both fall just under 4.5:1 on the tinted card.
+   The status dots carry the done/incomplete signal. */
+.tp-compare-program-head .tp-req-count.incomplete .current,
+.tp-compare-unsupported {
+  color: var(--tp-text);
+}
+
+.tp-compare-unsupported {
+  font-size: 13px;
+  font-style: italic;
+}
+
+.tp-compare-reqs {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.tp-compare-req {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 20px;
+}
+
+.tp-compare-req::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--tp-border);
+}
+
+.tp-compare-req.done::before {
+  background: var(--tp-req-chip-text);
+}
+
+.tp-compare-req.incomplete::before {
+  background: var(--tp-incomplete);
+}
+
+.tp-compare-req-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-compare-req-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.tp-compare-side .tp-board {
+  min-height: 0;
+}
+
+.tp-compare-side .tp-year-title {
+  padding: 10px 0 8px;
+  font-size: clamp(18px, 1.6vw, 24px);
+}
+
+/* The compared plan is read-only: no grab cursor and no hover gradient that suggests dragging. */
+.tp-course.readonly {
+  cursor: default;
+}
+
+.tp-course.readonly:hover,
+.tp-course.readonly:focus-visible {
+  background: linear-gradient(to bottom, var(--tp-course-card-fill-start), var(--tp-course-card-fill-end));
+  box-shadow: none;
+}
+
+/* ── Compare: By year layout (TIG-337) ──────────────────────────────────── */
+
+.tp-compare-error p {
+  margin: 0;
+}
+
+.tp-compare-error .tp-confirm-actions {
+  margin-top: 10px;
+}
+
+.tp-compare-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.tp-compare-layout {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 19px;
+  background: var(--tp-plan-tabs-fill);
+}
+
+.tp-compare-layout button {
+  height: 30px;
+  padding: 0 14px;
+  border: 1.5px solid transparent;
+  border-radius: 15px;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tp-compare-layout button.active {
+  background: #fff;
+  border-color: var(--tp-active-plan-border);
+  font-weight: 700;
+}
+
+.tp-byyear-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.tp-byyear-legend {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.tp-byyear-grid {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 16px;
+  row-gap: 6px;
+}
+
+.tp-byyear-head {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding-bottom: 8px;
+  background: #fff;
+}
+
+.tp-byyear-year {
+  grid-column: 1 / -1;
+  margin: 10px 0 2px;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--tp-border);
+  font-size: 18px;
+}
+
+.tp-byyear-season {
+  align-self: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* One line per semester: chips shrink and truncate (full name on hover) instead of wrapping. */
+.tp-byyear-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  transition: background-color 0.12s;
+}
+
+.tp-byyear-row.drop-ok {
+  background: var(--tp-drop-ok);
+}
+
+.tp-byyear-row.drop-warn {
+  background: var(--tp-drop-warn);
+}
+
+.tp-byyear-row .tp-course {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 200px;
+  min-height: 34px;
+  font-size: 14px;
+}
+
+.tp-byyear-empty {
+  padding: 0 6px;
+  color: var(--tp-muted);
+  font-size: 13px;
+}
+
+/* Diff markers: a word tag plus an outline, so the difference never relies on color alone. */
+.tp-course.diff-only {
+  box-shadow: inset 0 0 0 2px var(--tp-active-plan-border);
+}
+
+.tp-course.diff-moved {
+  outline: 2px dashed var(--tp-active-plan-border);
+  outline-offset: -2px;
+}
+
+.tp-byyear-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 16px;
+}
+
+.tp-byyear-swatch {
+  width: 26px;
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(to bottom, var(--tp-course-card-fill-start), var(--tp-course-card-fill-end));
+}
+
+.tp-byyear-swatch.diff-only {
+  box-shadow: inset 0 0 0 2px var(--tp-active-plan-border);
+}
+
+.tp-byyear-swatch.diff-moved {
+  outline: 2px dashed var(--tp-active-plan-border);
+  outline-offset: -2px;
+}
+
+.tp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ── Responsive ────────────────────────────────────────────────────────── */
 
 @media (max-width: 1100px) {
@@ -1300,6 +1675,62 @@ button:disabled {
   }
 
   .tp-center {
+    min-height: 720px;
+  }
+
+  /* Compare mode falls back to one board at a time with a toggle between the two plans. */
+  .tp-compare-toggle {
+    display: flex;
+    align-self: flex-start;
+    gap: 4px;
+    margin-bottom: 12px;
+    padding: 4px;
+    border-radius: 19px;
+    background: var(--tp-plan-tabs-fill);
+  }
+
+  .tp-compare-toggle button {
+    height: 30px;
+    padding: 0 14px;
+    border: 1.5px solid transparent;
+    border-radius: 15px;
+    background: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .tp-compare-toggle button.active {
+    background: var(--tp-plan-tab-active-fill);
+    border-color: var(--tp-active-plan-border);
+    font-weight: 700;
+  }
+
+  .tp-compare-sides {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tp-compare[data-show='active'] .compare-side,
+  .tp-compare[data-show='compare'] .active-side,
+  .tp-compare[data-show='active'] .compare-col,
+  .tp-compare[data-show='compare'] .active-col {
+    display: none;
+  }
+
+  .tp-byyear-grid {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .tp-compare-toggle {
+    margin-bottom: 0;
+  }
+
+  .tp-compare-sides {
+    grid-template-rows: none;
+  }
+
+  .tp-compare-side {
+    display: flex;
+    flex-direction: column;
     min-height: 720px;
   }
 }

@@ -1035,12 +1035,29 @@ def update_schedule(request):
     return JsonResponse({"status": "ok"})
 
 
-# returns user's existing schedule
+def get_requested_plan(request, profile):
+    """The plan named by ?planId= (read-only compare view), else the active plan.
+
+    Looking up a plan this way never changes which plan is active. Returns None when
+    planId is given but is not one of this user's plans.
+    """
+    raw_plan_id = request.GET.get("planId") if request.method == "GET" else None
+    if raw_plan_id in (None, ""):
+        return get_active_plan(profile)
+    plan_id = parse_plan_id(raw_plan_id)
+    if plan_id is None:
+        return None
+    return profile.schedule_plans.filter(id=plan_id).first()
+
+
+# returns user's existing schedule (the active plan, or ?planId= for compare mode)
 @login_required
 def get_schedule(request):
     profile = request.user.profile
-    active_plan = get_active_plan(profile)
-    schedule = ensure_minimum_schedule(active_plan.schedule)
+    plan = get_requested_plan(request, profile)
+    if plan is None:
+        return JsonResponse({"error": "Plan not found"}, status=404)
+    schedule = ensure_minimum_schedule(plan.schedule)
     return JsonResponse(schedule, safe=False)
 
 
@@ -1048,11 +1065,13 @@ def get_schedule(request):
 @login_required
 def get_requirements(request):
     curr_user = request.user.profile
-    active_plan = get_active_plan(curr_user)
+    plan = get_requested_plan(request, curr_user)
+    if plan is None:
+        return JsonResponse({"error": "Plan not found"}, status=404)
     # The new UI asks for every major and minor on the plan; the classic response is unchanged.
     if request.GET.get("layout") == "grouped":
-        return JsonResponse(build_grouped_requirements(curr_user, active_plan))
-    requirements = build_requirements_for_plan(curr_user, active_plan)
+        return JsonResponse(build_grouped_requirements(curr_user, plan))
+    requirements = build_requirements_for_plan(curr_user, plan)
     return JsonResponse(requirements, safe=False)
 
 
