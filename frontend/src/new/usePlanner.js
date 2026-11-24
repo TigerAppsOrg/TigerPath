@@ -42,6 +42,9 @@ export default function usePlanner() {
 
   // Responses for older saves are ignored so fast edits can't apply stale requirements.
   const saveSeq = useRef(0);
+  // Only the newest plan load may set the schedule: after a plan switch, a slower response for the
+  // previous plan must not land on the new one (a pending import would save it over that plan).
+  const loadSeq = useRef(0);
 
   const showNotice = useCallback((text, tone = 'warning') => setNotice({ text, tone, at: Date.now() }), []);
 
@@ -57,20 +60,23 @@ export default function usePlanner() {
   }, []);
 
   const loadPlanContents = useCallback(() => {
+    const seq = ++loadSeq.current;
+    const current = () => seq === loadSeq.current;
     setSchedule(null);
     setRequirements(null);
     setScheduleLoadFailed(false);
     api
       .getSchedule()
-      .then((data) => setSchedule(data && data.length ? data : emptySchedule()))
+      .then((data) => current() && setSchedule(data && data.length ? data : emptySchedule()))
       .catch(() => {
+        if (!current()) return;
         setScheduleLoadFailed(true);
         setSchedule(emptySchedule());
       });
     api
       .getRequirements()
-      .then((data) => setRequirements(unwrapGroupedRequirements(data)))
-      .catch(() => setRequirements(unwrapGroupedRequirements(null)));
+      .then((data) => current() && setRequirements(unwrapGroupedRequirements(data)))
+      .catch(() => current() && setRequirements(unwrapGroupedRequirements(null)));
   }, []);
 
   useEffect(() => {

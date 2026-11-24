@@ -77,6 +77,10 @@ class ParseTranscriptTest(SimpleTestCase):
         self.assertEqual(parse_term("Summer 2023"), "other")
         self.assertEqual(parse_term("2022-2023 Summer"), "other")
         self.assertEqual(parse_term("2022-23 Winter"), "other")
+        # Season-first with an academic year, like "Spring Term 2022-23".
+        self.assertEqual(parse_term("Summer Term 2022-23"), "other")
+        self.assertEqual(parse_term("Summer 2022-2023"), "other")
+        self.assertEqual(parse_term("Intersession 2023-2024"), "other")
         self.assertIsNone(parse_term("Cumulative GPA 3.80"))
 
     def test_statuses_and_terms(self):
@@ -103,6 +107,14 @@ class ParseTranscriptTest(SimpleTestCase):
         got = [(e.code, e.term_label) for e in parse_transcript_text(text)]
         # The summer course is skipped, not filed under Spring 2023.
         self.assertEqual(got, [("COS 226", "Spring 2023"), ("COS 217", "Fall 2023")])
+
+    def test_season_first_summer_heading_ends_the_spring_term(self):
+        text = (
+            "Spring 2022-2023\nCOS 226  GRD  Algorithms  A  QCR\n"
+            "Summer Term 2022-23\nENV 101  GRD  Field Course  A  SEN\n"
+        )
+        got = [(e.code, e.term_label) for e in parse_transcript_text(text)]
+        self.assertEqual(got, [("COS 226", "Spring 2023")])
 
     def test_courses_before_any_term_are_ignored(self):
         self.assertEqual(parse_transcript_text("COS 126 Something A\nFall 2023"), [])
@@ -156,12 +168,18 @@ class TigerHubLayoutTest(SimpleTestCase):
             [
                 ("COS 126", "Fall 2025", TAKEN),
                 ("HIS 214", "Fall 2025", TAKEN),  # P/D/F basis, graded P
-                # ECO 100 withdrawn (W) is skipped.
+                # ECO 100 withdrawn (W) and MUS 105 audited (AUD) are skipped: no credit.
                 ("PHY 104", "Fall 2026", CURRENT),  # title ends in "B"; no grade column yet
-                ("MUS 105", "Fall 2026", CURRENT),  # AUD is the grade basis, not a grade
                 ("WRI 140", "Fall 2026", CURRENT),  # "Writing" is the distrib area
             ],
         )
+
+    def test_audited_rows_are_skipped(self):
+        text = (
+            "Fall 2025\nMUS 105  AUD  Music Theory    LA\n"
+            "MUS 106 AUD Music Theory II LA\nCOS 126  GRD  Intro  A  QCR"
+        )
+        self.assertEqual([e.code for e in parse_transcript_text(text)], ["COS 126"])
 
     def test_single_spaced_row_with_distrib_area(self):
         text = "Fall 2025\nCOS 126 GRD Computer Science A QCR\nMAT 202 GRD Linear Algebra QCR"
