@@ -59,7 +59,8 @@ export default function usePlanner() {
     api
       .getProfile()
       .then(setProfile)
-      .catch(() => setProfile({ classYear: null, theme: 'purple' }));
+      // No theme on failure: the remembered theme stays applied instead of resetting to purple.
+      .catch(() => setProfile({ classYear: null, theme: null }));
     api.getPlans().then(applyPlans).catch(() => {});
     api
       .getPlanEditorOptions()

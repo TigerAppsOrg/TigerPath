@@ -9,6 +9,7 @@ import {
   DEFAULT_TIGERPATH_THEME,
   getTigerPathTheme,
   getTigerPathThemeVariables,
+  rememberTigerPathTheme,
 } from 'styles/theme';
 import { DEFAULT_SCHEDULE } from 'utils/SemesterUtils';
 
@@ -48,7 +49,9 @@ export default function App() {
   const fetchProfile = useCallback(() => {
     apiFetch('/api/v1/get_profile/')
       .then(setProfile)
-      .catch(() => setProfile({ classYear: null, theme: DEFAULT_TIGERPATH_THEME }));
+      // No theme on failure: the page still shows the default (activeThemeName below), but the
+      // fallback must not be remembered as the user's theme.
+      .catch(() => setProfile({ classYear: null, theme: null }));
   }, []);
 
   const fetchRequirements = useCallback(() => {
@@ -321,7 +324,10 @@ export default function App() {
       root.style.setProperty(property, value);
     });
     root.dataset.tigerpathTheme = activeThemeName;
-  }, [activeThemeName]);
+    // Keep the new planner's remembered theme in sync, so switching UIs never paints a stale theme.
+    // Only once the profile has loaded: before that, activeThemeName is just the default.
+    if (profile?.theme) rememberTigerPathTheme(profile.theme);
+  }, [activeThemeName, profile?.theme]);
 
   return (
     <ThemeProvider theme={activeTheme}>
