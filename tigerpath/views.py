@@ -1064,12 +1064,24 @@ def get_posted_plan(request, profile):
 
 
 def save_posted_schedule(request):
-    """Write the posted schedule to its plan and return that plan (None if it is not the user's)."""
+    """Write the posted schedule to its plan. Returns (plan, None) or (None, error response).
+
+    Only POST may save: CSRF protection covers POST only, so a GET must never change a plan.
+    """
+    if request.method != "POST":
+        return None, JsonResponse({"error": "POST required"}, status=405)
+    try:
+        schedule = json.loads(request.POST.get("schedule", "[]"))
+    except ValueError:
+        schedule = None
+    if not isinstance(schedule, list):
+        return None, JsonResponse({"error": "Invalid schedule"}, status=400)
     plan = get_posted_plan(request, request.user.profile)
-    if plan is not None:
-        plan.schedule = json.loads(request.POST.get("schedule", "[]"))
-        plan.save(update_fields=["schedule", "updated_at"])
-    return plan
+    if plan is None:
+        return None, plan_not_found()
+    plan.schedule = schedule
+    plan.save(update_fields=["schedule", "updated_at"])
+    return plan, None
 
 
 def plan_not_found():
@@ -1086,9 +1098,8 @@ def requirements_response(request, profile, plan):
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
-    if save_posted_schedule(request) is None:
-        return plan_not_found()
-    return JsonResponse({"status": "ok"})
+    _, error = save_posted_schedule(request)
+    return error or JsonResponse({"status": "ok"})
 
 
 # returns user's existing schedule (the active plan, or ?planId=)
@@ -1115,9 +1126,9 @@ def get_requirements(request):
 # saves the schedule to the plan it names (planId), then returns that plan's requirements
 @login_required
 def update_schedule_and_get_requirements(request):
-    plan = save_posted_schedule(request)
-    if plan is None:
-        return plan_not_found()
+    plan, error = save_posted_schedule(request)
+    if error:
+        return error
     return requirements_response(request, request.user.profile, plan)
 
 
@@ -1150,14 +1161,22 @@ TRANSCRIPT_TOO_LARGE = "Upload a transcript PDF under 2 MB."
 # The upload must never touch disk: oversized requests are refused before the body is read, and
 # the rest use only the in-memory upload handler (Django would otherwise spool large files to a
 # temporary file). Upload handlers can only be swapped before CSRF checking reads the body, hence
-# csrf_exempt here with csrf_protect on the inner view.
+# csrf_exempt here with csrf_protect on the inner view. Login is checked before any of the body
+# is read.
 @csrf_exempt
+@login_required
 def import_transcript(request):
+    if request.method != "POST":
+        raise Http404
     try:
         content_length = int(request.META.get("CONTENT_LENGTH") or 0)
     except ValueError:
         content_length = 0
-    # Room for the multipart headers around the file itself.
+    # A browser upload always states its length. Without one (e.g. chunked) the size can't be
+    # checked before the body is buffered, so refuse it. Django never reads past the stated length,
+    # so a body longer than it claims is cut off there. Room is left for the multipart headers.
+    if content_length <= 0:
+        return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)
     if content_length > MAX_TRANSCRIPT_BYTES + 64 * 1024:
         return JsonResponse({"error": TRANSCRIPT_TOO_LARGE}, status=400)
     request.upload_handlers = [MemoryFileUploadHandler(request)]
@@ -1165,10 +1184,7 @@ def import_transcript(request):
 
 
 @csrf_protect
-@login_required
 def _import_transcript(request):
-    if request.method != "POST":
-        raise Http404
     upload = request.FILES.get("transcript")
     if upload is None:
         return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)

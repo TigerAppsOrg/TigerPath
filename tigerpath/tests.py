@@ -313,6 +313,16 @@ class SchedulePlanApiTest(TestCase):
         active = self.client.get("/api/v1/get_plans/").json()["activePlanId"]
         self.assertEqual(active, self.default_plan.id)
 
+    def test_schedule_saves_need_post_and_a_valid_schedule(self):
+        before = self.default_plan.schedule
+        for url in ("/api/v1/update_schedule/", "/api/v1/update_schedule_and_get_requirements/"):
+            # CSRF only guards POST, so a GET (e.g. a link on another site) must never save.
+            self.assertEqual(self.client.get(url).status_code, 405)
+            self.assertEqual(self.client.post(url, {"schedule": "not json"}).status_code, 400)
+            self.assertEqual(self.client.post(url, {"schedule": '{"a": 1}'}).status_code, 400)
+        self.default_plan.refresh_from_db()
+        self.assertEqual(self.default_plan.schedule, before)
+
     def test_schedule_save_rejects_another_users_plan(self):
         stranger = User.objects.create_user(username="stranger", password="pw")
         foreign = stranger.profile.schedule_plans.first() or SchedulePlan.objects.create(
