@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
-import { applyTigerPathTheme } from 'styles/theme';
+import { applyTigerPathTheme, getStoredTigerPathTheme } from 'styles/theme';
 import usePlanner from './usePlanner';
 import { getRequirementCourses, setUiVersion } from './api';
 import startTutorial from './tutorial';
@@ -39,10 +39,14 @@ export default function App() {
   // 'year': semesters lined up across both plans (default); 'boards': two four-year boards.
   const [compareLayout, setCompareLayout] = useState('year');
 
-  const themeName = profile?.theme || 'purple';
+  // main.jsx already applied the last-used theme before the first paint. Only apply (and remember)
+  // a theme once the profile says which one, so there is no flash to purple while it loads and a
+  // failed profile request never overwrites the remembered theme.
+  const profileTheme = profile?.theme || null;
+  const themeName = profileTheme || getStoredTigerPathTheme();
   useEffect(() => {
-    applyTigerPathTheme(themeName);
-  }, [themeName]);
+    if (profileTheme) applyTigerPathTheme(profileTheme);
+  }, [profileTheme]);
 
   useEffect(() => {
     if (window.__TIGERPATH_SHOW_TUTORIAL__ && schedule) {
