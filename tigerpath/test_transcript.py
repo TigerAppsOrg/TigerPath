@@ -75,6 +75,8 @@ class ParseTranscriptTest(SimpleTestCase):
         self.assertEqual(parse_term("Spring Term 2022-23"), ("spring", 2023))
         self.assertEqual(parse_term("Fall 2023"), ("fall", 2023))
         self.assertEqual(parse_term("Summer 2023"), "other")
+        self.assertEqual(parse_term("2022-2023 Summer"), "other")
+        self.assertEqual(parse_term("2022-23 Winter"), "other")
         self.assertIsNone(parse_term("Cumulative GPA 3.80"))
 
     def test_statuses_and_terms(self):
@@ -91,6 +93,16 @@ class ParseTranscriptTest(SimpleTestCase):
                 ("ZZZ 999", "Fall 2023", CURRENT),
             ],
         )  # ECO 100 (withdrawn) and the summer course are skipped
+
+    def test_year_first_summer_heading_ends_the_spring_term(self):
+        text = (
+            "2022-2023 Spring\nCOS 226  GRD  Algorithms  A  QCR\n"
+            "2022-2023 Summer\nENV 101  GRD  Field Course  A  SEN\n"
+            "2023-2024 Fall\nCOS 217  GRD  Programming Systems    SEN\n"
+        )
+        got = [(e.code, e.term_label) for e in parse_transcript_text(text)]
+        # The summer course is skipped, not filed under Spring 2023.
+        self.assertEqual(got, [("COS 226", "Spring 2023"), ("COS 217", "Fall 2023")])
 
     def test_courses_before_any_term_are_ignored(self):
         self.assertEqual(parse_transcript_text("COS 126 Something A\nFall 2023"), [])
