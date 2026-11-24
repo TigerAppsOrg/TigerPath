@@ -1032,16 +1032,6 @@ def update_plan_settings(request):
     return JsonResponse(get_user_plans_payload(profile))
 
 
-# updates user's schedules with added courses
-@login_required
-def update_schedule(request):
-    profile = request.user.profile
-    active_plan = get_active_plan(profile)
-    active_plan.schedule = json.loads(request.POST.get("schedule", "[]"))
-    active_plan.save(update_fields=["schedule", "updated_at"])
-    return JsonResponse({"status": "ok"})
-
-
 def get_requested_plan(request, profile):
     """The plan named by ?planId= (read-only compare view), else the active plan.
 
@@ -1057,13 +1047,56 @@ def get_requested_plan(request, profile):
     return profile.schedule_plans.filter(id=plan_id).first()
 
 
-# returns user's existing schedule (the active plan, or ?planId= for compare mode)
+def get_posted_plan(request, profile):
+    """The plan a save names with planId, else the active plan (the classic UI sends none).
+
+    Naming the plan means a save always lands on the plan it was loaded from, even if the active
+    plan changed while the request was in flight. Returns None for a plan the user does not own.
+    """
+    raw_plan_id = request.POST.get("planId")
+    if raw_plan_id in (None, ""):
+        return get_active_plan(profile)
+    plan_id = parse_plan_id(raw_plan_id)
+    if plan_id is None:
+        return None
+    return profile.schedule_plans.filter(id=plan_id).first()
+
+
+def save_posted_schedule(request):
+    """Write the posted schedule to its plan and return that plan (None if it is not the user's)."""
+    plan = get_posted_plan(request, request.user.profile)
+    if plan is not None:
+        plan.schedule = json.loads(request.POST.get("schedule", "[]"))
+        plan.save(update_fields=["schedule", "updated_at"])
+    return plan
+
+
+def plan_not_found():
+    return JsonResponse({"error": "Plan not found"}, status=404)
+
+
+def requirements_response(request, profile, plan):
+    # The new UI asks for every major and minor on the plan; the classic response is unchanged.
+    if request.GET.get("layout") == "grouped":
+        return JsonResponse(build_grouped_requirements(profile, plan))
+    return JsonResponse(build_requirements_for_plan(profile, plan), safe=False)
+
+
+# updates user's schedules with added courses
+@login_required
+def update_schedule(request):
+    if save_posted_schedule(request) is None:
+        return plan_not_found()
+    return JsonResponse({"status": "ok"})
+
+
+# returns user's existing schedule (the active plan, or ?planId=)
 @login_required
 def get_schedule(request):
     profile = request.user.profile
     plan = get_requested_plan(request, profile)
     if plan is None:
-        return JsonResponse({"error": "Plan not found"}, status=404)
+        return plan_not_found()
     schedule = ensure_minimum_schedule(plan.schedule)
     return JsonResponse(schedule, safe=False)
 
@@ -1074,18 +1107,17 @@ def get_requirements(request):
     curr_user = request.user.profile
     plan = get_requested_plan(request, curr_user)
     if plan is None:
-        return JsonResponse({"error": "Plan not found"}, status=404)
-    # The new UI asks for every major and minor on the plan; the classic response is unchanged.
-    if request.GET.get("layout") == "grouped":
-        return JsonResponse(build_grouped_requirements(curr_user, plan))
-    requirements = build_requirements_for_plan(curr_user, plan)
-    return JsonResponse(requirements, safe=False)
+        return plan_not_found()
+    return requirements_response(request, curr_user, plan)
 
 
+# saves the schedule to the plan it names (planId), then returns that plan's requirements
 @login_required
 def update_schedule_and_get_requirements(request):
-    update_schedule(request)
-    return get_requirements(request)
+    plan = save_posted_schedule(request)
+    if plan is None:
+        return plan_not_found()
+    return requirements_response(request, request.user.profile, plan)
 
 
 def match_transcript_courses(entries):

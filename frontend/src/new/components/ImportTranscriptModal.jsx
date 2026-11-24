@@ -1,14 +1,14 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Modal from './Modal';
 import Icon from './Icon';
-import { importTranscript } from '../api';
+import { getSchedule, importTranscript } from '../api';
 import { buildImportRows } from '../helpers/transcript';
 
 const STATUS_LABEL = { taken: 'Taken', current: 'Taking now', unclear: 'Check grade' };
 
 /**
  * TIG-282: upload the TigerHub unofficial transcript PDF, review what was found, then add the chosen
- * courses to the active plan. Nothing is saved until "Add" (and then only through the normal save).
+ * courses to the plan picked in "Add to". Nothing is saved until "Add" (then as one schedule save).
  */
 export default function ImportTranscriptModal({ schedule, plans, activePlanId, onImport, onClose }) {
   const [file, setFile] = useState(null);
@@ -21,11 +21,27 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
   // Rows the student flipped from their default (most start checked; "Check grade" rows start unchecked).
   const [toggled, setToggled] = useState(() => new Set());
 
-  // Duplicates are checked against the target plan: here for the active plan (its schedule is loaded),
-  // or when the rows are added for any other plan.
+  // Duplicates are checked against the picked plan: the active plan's schedule is already loaded;
+  // another plan's is read (without switching to it). Courses are re-checked when they're added.
+  const [otherSchedule, setOtherSchedule] = useState({ planId: null, schedule: null });
+  useEffect(() => {
+    if (targetIsActive || targetPlanId == null) return undefined;
+    let live = true;
+    getSchedule(targetPlanId)
+      .then((data) => live && setOtherSchedule({ planId: targetPlanId, schedule: data }))
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [targetPlanId, targetIsActive]);
+  const targetSchedule = targetIsActive
+    ? schedule
+    : otherSchedule.planId === targetPlanId
+      ? otherSchedule.schedule
+      : null;
   const rows = useMemo(
-    () => (payload ? buildImportRows(payload, targetIsActive ? schedule : null) : []),
-    [payload, schedule, targetIsActive]
+    () => (payload ? buildImportRows(payload, targetSchedule) : []),
+    [payload, targetSchedule]
   );
   const isChosen = (r) => !r.reason && (r.defaultOff ? toggled.has(r.key) : !toggled.has(r.key));
   const chosen = rows.filter(isChosen);
@@ -137,8 +153,8 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
               )}
               {!targetIsActive && (
                 <p className="tp-import-note">
-                  TigerPath will switch to <strong>{targetName}</strong> and add the courses there, skipping any
-                  already in that plan.
+                  The courses will be added to <strong>{targetName}</strong>, skipping any already in that
+                  plan, and TigerPath will then open it.
                 </p>
               )}
               <ul className="tp-import-list" aria-label="Courses found on your transcript">

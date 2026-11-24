@@ -14,16 +14,21 @@ import { applyImport } from './helpers/transcript';
 const NOTICE_MS = 2500;
 
 /**
- * All planner state and server sync. Mirrors the classic App.jsx data flow:
- * every schedule change is saved to the active plan and requirements are recomputed.
+ * All planner state and server sync. Mirrors the classic App.jsx data flow: every schedule change
+ * is saved and requirements are recomputed. Loads and saves name their plan by id, so a save always
+ * lands on the plan the schedule on screen came from, whatever the server's active plan is by then.
  */
 export default function usePlanner() {
   const [profile, setProfile] = useState(null);
   const [plans, setPlans] = useState([]);
   const [activePlanId, setActivePlanId] = useState(null);
   const [schedule, setSchedule] = useState(null);
+  // The plan the on-screen schedule belongs to; every save names it.
+  const schedulePlanId = useRef(null);
+  // Mirrors activePlanId for async callbacks that must see the latest value.
+  const activePlanRef = useRef(null);
   // True when the last schedule load failed and `schedule` is only an empty placeholder: nothing
-  // automatic (like a pending transcript import) may save over the plan in that state.
+  // may save over the plan in that state (it would replace the plan's real courses).
   const [scheduleLoadFailed, setScheduleLoadFailed] = useState(false);
   const [requirements, setRequirements] = useState(null);
   const [editorOptions, setEditorOptions] = useState({ majorOptions: [], minorOptions: [], maxMajors: 3 });
@@ -46,7 +51,7 @@ export default function usePlanner() {
   // previous plan must not land on the new one (a pending import would save it over that plan).
   const loadSeq = useRef(0);
   // Plan actions that change the active plan are numbered too: if a newer one starts, the older one's
-  // response is ignored (applying it would point the client at a plan the server has already left).
+  // response (and any recovery read after it fails) is ignored.
   const actionSeq = useRef(0);
   // Active-plan changes run one at a time, in order: the server applies each as it lands, so letting
   // two overlap could leave the server on one plan and the page on another.
@@ -62,17 +67,23 @@ export default function usePlanner() {
 
   const applyPlans = useCallback((payload) => {
     setPlans(payload?.plans || []);
-    setActivePlanId(payload?.activePlanId ?? null);
+    activePlanRef.current = payload?.activePlanId ?? null;
+    setActivePlanId(activePlanRef.current);
   }, []);
 
-  const loadPlanContents = useCallback(() => {
+  // Load one plan's schedule and requirements by id (null: whatever plan the server has active).
+  const loadPlanContents = useCallback((planId) => {
     const seq = ++loadSeq.current;
     const current = () => seq === loadSeq.current;
+    // Responses to saves made for the plan on screen until now no longer apply.
+    saveSeq.current += 1;
+    setSaving(false);
+    schedulePlanId.current = planId ?? null;
     setSchedule(null);
     setRequirements(null);
     setScheduleLoadFailed(false);
     api
-      .getSchedule()
+      .getSchedule(planId)
       .then((data) => current() && setSchedule(data && data.length ? data : emptySchedule()))
       .catch(() => {
         if (!current()) return;
@@ -80,10 +91,12 @@ export default function usePlanner() {
         setSchedule(emptySchedule());
       });
     api
-      .getRequirements()
+      .getRequirements(planId)
       .then((data) => current() && setRequirements(unwrapGroupedRequirements(data)))
       .catch(() => current() && setRequirements(unwrapGroupedRequirements(null)));
   }, []);
+
+  const reloadPlan = useCallback(() => loadPlanContents(activePlanRef.current), [loadPlanContents]);
 
   useEffect(() => {
     api
@@ -91,7 +104,16 @@ export default function usePlanner() {
       .then(setProfile)
       // No theme on failure: the remembered theme stays applied instead of resetting to purple.
       .catch(() => setProfile({ classYear: null, theme: null }));
-    api.getPlans().then(applyPlans).catch(() => {});
+    // The plan list says which plan is active, so its contents can be loaded by id.
+    const firstAction = actionSeq.current;
+    api
+      .getPlans()
+      .then((payload) => {
+        if (firstAction !== actionSeq.current) return; // a plan action already took over
+        applyPlans(payload);
+        loadPlanContents(payload?.activePlanId);
+      })
+      .catch(() => firstAction === actionSeq.current && loadPlanContents(null));
     api
       .getPlanEditorOptions()
       .then((payload) =>
@@ -102,16 +124,21 @@ export default function usePlanner() {
         })
       )
       .catch(() => {});
-    loadPlanContents();
   }, [applyPlans, loadPlanContents]);
 
   const commitSchedule = useCallback(
     (next) => {
+      if (scheduleLoadFailed) {
+        // The plan's courses never loaded: saving would replace them with only what's on screen.
+        showNotice("This plan didn't load, so changes can't be saved. Please reload the page.", 'error');
+        return false;
+      }
       setSchedule(next);
       const seq = ++saveSeq.current;
+      const planId = schedulePlanId.current;
       setSaving(true);
       api
-        .saveScheduleAndGetRequirements(stripSchedule(next))
+        .saveScheduleAndGetRequirements(stripSchedule(next), planId)
         .then((data) => {
           if (seq === saveSeq.current) setRequirements(unwrapGroupedRequirements(data));
         })
@@ -119,13 +146,13 @@ export default function usePlanner() {
           if (seq !== saveSeq.current) return;
           showNotice('Could not save your last change. Your plan was reloaded.', 'error');
           // Resync with what the server actually stored instead of showing unsaved edits.
-          loadPlanContents();
+          loadPlanContents(planId);
         })
         .finally(() => {
           if (seq === saveSeq.current) setSaving(false);
         });
     },
-    [showNotice, loadPlanContents]
+    [scheduleLoadFailed, showNotice, loadPlanContents]
   );
 
   // ── Schedule edits ───────────────────────────────────────────────────────
@@ -253,9 +280,9 @@ export default function usePlanner() {
   // Reload both sides: requirements depend on the class year, so a Settings change must refresh the
   // compared plan too, not only the active one.
   const reloadPlans = useCallback(() => {
-    loadPlanContents();
+    reloadPlan();
     if (comparePlanId != null) loadCompare(comparePlanId);
-  }, [loadPlanContents, loadCompare, comparePlanId]);
+  }, [reloadPlan, loadCompare, comparePlanId]);
 
   // ── Plans ────────────────────────────────────────────────────────────────
 
@@ -263,16 +290,15 @@ export default function usePlanner() {
     (request, { reload = true } = {}) =>
       request.then((payload) => {
         applyPlans(payload);
-        if (reload) loadPlanContents();
+        if (reload) loadPlanContents(payload?.activePlanId);
         return payload;
       }),
     [applyPlans, loadPlanContents]
   );
 
-  // Create, copy, delete and switch can all change which plan the server treats as active, and the
-  // server does that as soon as the request lands. So: (1) any load still in flight for the plan we
-  // may be leaving stops counting (a waiting import would otherwise save it to the new plan), and
-  // (2) if the action fails, reload the plan we're still on so it never stays stuck loading.
+  // Create, copy, delete and switch can all change which plan the server treats as active, as soon as
+  // the request lands. They run one at a time; only the newest one's result is shown. If one fails,
+  // re-read the plan list (it may still have changed the server) and show the plan the server is on.
   const changeActivePlan = useCallback(
     (makeRequest) => {
       loadSeq.current += 1;
@@ -284,15 +310,21 @@ export default function usePlanner() {
         (payload) => {
           if (seq !== actionSeq.current) return payload; // a newer plan action is queued after this one
           applyPlans(payload);
-          loadPlanContents();
+          loadPlanContents(payload?.activePlanId);
           return payload;
         },
         (error) => {
           // A failed or half-finished action (e.g. a plan created but not named) may still have changed
           // the server: re-read the plan list and the active plan so the page matches it.
           if (seq === actionSeq.current) {
-            api.getPlans().then(applyPlans).catch(() => {});
-            loadPlanContents();
+            api
+              .getPlans()
+              .then((payload) => {
+                if (seq !== actionSeq.current) return; // a newer plan action took over meanwhile
+                applyPlans(payload);
+                loadPlanContents(payload?.activePlanId);
+              })
+              .catch(() => seq === actionSeq.current && loadPlanContents(activePlanRef.current));
           }
           throw error;
         }
@@ -344,81 +376,67 @@ export default function usePlanner() {
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
   const comparePlan = plans.find((p) => p.id === comparePlanId) || null;
 
-  // TIG-282: add the transcript rows the student confirmed, as one normal schedule save, into the
-  // plan they picked. Another plan is made active first (the server saves the active plan's schedule),
-  // then the rows are applied once its schedule has loaded.
-  const [pendingImport, setPendingImport] = useState(null);
-  // True only while the import's own plan switch is in flight (before the server confirms it).
-  const importSwitching = useRef(false);
-
-  const finishImport = useCallback(
-    (rows, targetSchedule, planName) => {
-      const { schedule: next, added, skipped } = applyImport(targetSchedule, rows);
-      if (added > 0) commitSchedule(next);
+  // TIG-282: add the transcript rows the student confirmed to the plan they picked, as one save.
+  // The plan on screen is updated in place. Any other plan is read and saved by id (the active plan
+  // never changes underneath it), then shown if the student is still where they started.
+  const importCourses = useCallback(
+    async (rows, targetPlanId = activePlanId) => {
+      const target = targetPlanId ?? activePlanId;
+      const planName = plans.find((p) => p.id === target)?.name;
       const where = planName ? ` to ${planName}` : '';
-      const already = skipped ? ` (${skipped} already there)` : '';
-      showNotice(
-        added > 0
-          ? `Added ${added} course${added === 1 ? '' : 's'} from your transcript${where}${already}.`
-          : `Nothing new to add${where}: ${skipped ? 'those courses are already there' : 'no courses selected'}.`,
-        added > 0 ? 'success' : 'warning'
-      );
+      const report = (added, skipped) =>
+        showNotice(
+          added > 0
+            ? `Added ${added} course${added === 1 ? '' : 's'} from your transcript${where}${skipped ? ` (${skipped} already there)` : ''}.`
+            : `Nothing new to add${where}: ${skipped ? 'those courses are already there' : 'no courses selected'}.`,
+          added > 0 ? 'success' : 'warning'
+        );
+
+      if (target === schedulePlanId.current && schedule && !scheduleLoadFailed) {
+        const { schedule: next, added, skipped } = applyImport(schedule, rows);
+        if (added > 0 && commitSchedule(next) === false) return 0;
+        report(added, skipped);
+        return added;
+      }
+
+      const startedOn = activePlanRef.current;
+      const startedAction = actionSeq.current;
+      // Runs in the plan-action queue, so opening the target plan waits until its new courses are saved
+      // (the student can't load the old copy and edit it over the import).
+      const showsTarget = () => schedulePlanId.current === target;
+      const work = actionQueue.current.then(async () => {
+        if (showsTarget()) {
+          // The target is on screen but not loaded yet: hold off its load until the save is done.
+          loadSeq.current += 1;
+          setSchedule(null);
+        }
+        try {
+          // Read the plan's stored courses first: saving without them would replace them.
+          const stored = await api.getSchedule(target);
+          const result = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
+          if (result.added > 0) {
+            await api.saveScheduleAndGetRequirements(stripSchedule(result.schedule), target);
+          }
+          report(result.added, result.skipped);
+          return result.added;
+        } catch {
+          showNotice(`Couldn't add the courses${where}. Nothing was imported. Please try again.`, 'error');
+          return null;
+        } finally {
+          if (showsTarget()) loadPlanContents(target);
+        }
+      });
+      actionQueue.current = work.catch(() => {});
+      const added = await work;
+      if (added == null) return 0;
+      if (!showsTarget() && activePlanRef.current === startedOn && actionSeq.current === startedAction) {
+        // Still where they started: take them to the plan the courses went to.
+        await changeActivePlan(() => api.setActivePlan(target)).catch(() => {});
+      }
       return added;
     },
-    [commitSchedule, showNotice]
+    [activePlanId, plans, schedule, scheduleLoadFailed, commitSchedule, loadPlanContents, changeActivePlan, showNotice]
   );
-
-  const importCourses = useCallback(
-    (rows, targetPlanId = activePlanId) => {
-      if (targetPlanId == null || targetPlanId === activePlanId) {
-        if (!schedule) {
-          // Still loading: finish the import once this plan's schedule arrives (the effect below),
-          // or report the failure if the load fails.
-          setPendingImport({ planId: activePlanId, fromPlanId: activePlanId, rows });
-          return Promise.resolve(0);
-        }
-        if (scheduleLoadFailed) {
-          // The plan's courses didn't load; saving now would replace them with just the import.
-          showNotice(`Couldn't load ${activePlan?.name || 'this plan'}, so nothing was imported. Please reload and try again.`, 'error');
-          return Promise.resolve(0);
-        }
-        return Promise.resolve(finishImport(rows, schedule, activePlan?.name));
-      }
-      setPendingImport({ planId: targetPlanId, fromPlanId: activePlanId, rows });
-      importSwitching.current = true;
-      return actions
-        .selectPlan(targetPlanId)
-        .catch(() => {
-          setPendingImport(null);
-          showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
-        })
-        .finally(() => {
-          importSwitching.current = false;
-        });
-    },
-    [activePlanId, activePlan, schedule, scheduleLoadFailed, finishImport, actions, showNotice]
-  );
-
-  useEffect(() => {
-    if (!pendingImport) return;
-    // The student went to some other plan before the import finished: drop it rather than apply it
-    // later, out of the blue. Only while the import's own switch is in flight may the active plan
-    // still be the starting plan; going back to it afterwards cancels too.
-    const ownSwitch = importSwitching.current && activePlanId === pendingImport.fromPlanId;
-    if (activePlanId !== pendingImport.planId && !ownSwitch) {
-      setPendingImport(null);
-      showNotice('Import cancelled because you switched plans. Nothing was added.', 'warning');
-      return;
-    }
-    if (activePlanId !== pendingImport.planId || !schedule) return;
-    setPendingImport(null);
-    if (scheduleLoadFailed) {
-      // The target plan's courses didn't load; saving now would replace them with just the import.
-      showNotice(`Couldn't load ${activePlan?.name || 'that plan'}, so nothing was imported. Please try again.`, 'error');
-      return;
-    }
-    finishImport(pendingImport.rows, schedule, activePlan?.name);
-  }, [pendingImport, activePlanId, schedule, scheduleLoadFailed, activePlan, finishImport, showNotice]);
 
   return {
     profile,

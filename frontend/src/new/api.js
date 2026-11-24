@@ -24,18 +24,24 @@ export const updatePlanSettings = ({ planId, name, majorIds, minorCodes }) =>
     minorCodes: JSON.stringify(minorCodes || []),
   });
 
-// Without a planId these read the active plan. With one (compare mode) they read that plan
-// read-only; the server never changes the active plan for these GETs.
+// Pass planId to read a plan without making it active (the active plan otherwise).
 export const getSchedule = (planId) =>
-  apiFetch(planId == null ? '/api/v1/get_schedule/' : `/api/v1/get_schedule/?planId=${encodeURIComponent(planId)}`);
+  apiFetch(
+    planId == null
+      ? '/api/v1/get_schedule/'
+      : `/api/v1/get_schedule/?planId=${encodeURIComponent(planId)}`
+  );
 // "grouped" returns {majors, degrees, minors} covering every major on the plan.
 export const getRequirements = (planId) =>
   apiFetch(
     `/api/v1/get_requirements/?layout=grouped${planId == null ? '' : `&planId=${encodeURIComponent(planId)}`}`
   );
-export const saveScheduleAndGetRequirements = (strippedSchedule) =>
+// Saves name their plan so a save always lands on the plan the schedule was loaded from, even if
+// the active plan changes while the request is in flight.
+export const saveScheduleAndGetRequirements = (strippedSchedule, planId) =>
   apiPost('/api/v1/update_schedule_and_get_requirements/?layout=grouped', {
     schedule: JSON.stringify(strippedSchedule),
+    ...(planId == null ? {} : { planId: String(planId) }),
   });
 
 export const searchCourses = (query, signal) =>
