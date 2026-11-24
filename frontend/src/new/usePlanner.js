@@ -30,6 +30,9 @@ export default function usePlanner() {
   const [compareSchedule, setCompareSchedule] = useState(null);
   const [compareRequirements, setCompareRequirements] = useState(null);
   const compareSeq = useRef(0);
+  // True while a tab click swaps the two sides: for a moment the compared plan equals the still-active
+  // plan, which must not count as "both sides show the same plan".
+  const swapping = useRef(false);
 
   // Responses for older saves are ignored so fast edits can't apply stale requirements.
   const saveSeq = useRef(0);
@@ -207,14 +210,23 @@ export default function usePlanner() {
     [activePlanId, loadCompare]
   );
 
-  // Close compare if its plan disappears (deleted) and keep the two sides distinct.
+  // Close compare if its plan disappears (deleted) or becomes the active plan, e.g. deleting the
+  // active plan makes the server activate the compared one; both sides would show the same plan.
   useEffect(() => {
     if (comparePlanId == null) return;
-    if (!plans.some((p) => p.id === comparePlanId)) {
+    const sameAsActive = comparePlanId === activePlanId && !swapping.current;
+    if (sameAsActive || !plans.some((p) => p.id === comparePlanId)) {
       setComparePlanIdState(null);
       loadCompare(null);
     }
-  }, [plans, comparePlanId, loadCompare]);
+  }, [plans, activePlanId, comparePlanId, loadCompare]);
+
+  // Reload both sides: requirements depend on the class year, so a Settings change must refresh the
+  // compared plan too, not only the active one.
+  const reloadPlans = useCallback(() => {
+    loadPlanContents();
+    if (comparePlanId != null) loadCompare(comparePlanId);
+  }, [loadPlanContents, loadCompare, comparePlanId]);
 
   // ── Plans ────────────────────────────────────────────────────────────────
 
@@ -234,8 +246,20 @@ export default function usePlanner() {
         if (id === activePlanId) return Promise.resolve();
         // Picking the compared plan as active swaps the sides instead of showing one plan twice.
         if (id === comparePlanId) {
-          setComparePlanIdState(activePlanId);
-          loadCompare(activePlanId);
+          const previous = activePlanId;
+          swapping.current = true;
+          setComparePlanIdState(previous);
+          loadCompare(previous);
+          return planAction(api.setActivePlan(id))
+            .catch((error) => {
+              // Switch failed: put the compared plan back so the sides stay distinct.
+              setComparePlanIdState(id);
+              loadCompare(id);
+              throw error;
+            })
+            .finally(() => {
+              swapping.current = false;
+            });
         }
         return planAction(api.setActivePlan(id));
       },
@@ -274,7 +298,7 @@ export default function usePlanner() {
     settle,
     addExternalCredit,
     removeExternalCredit,
-    reloadPlan: loadPlanContents,
+    reloadPlan: reloadPlans,
     comparePlan,
     compareSchedule,
     compareRequirements,
