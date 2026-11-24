@@ -45,6 +45,9 @@ export default function usePlanner() {
   // Only the newest plan load may set the schedule: after a plan switch, a slower response for the
   // previous plan must not land on the new one (a pending import would save it over that plan).
   const loadSeq = useRef(0);
+  // Plan actions that change the active plan are numbered too: if a newer one starts, the older one's
+  // response is ignored (applying it would point the client at a plan the server has already left).
+  const actionSeq = useRef(0);
 
   const showNotice = useCallback((text, tone = 'warning') => setNotice({ text, tone, at: Date.now() }), []);
 
@@ -270,12 +273,21 @@ export default function usePlanner() {
   const changeActivePlan = useCallback(
     (makeRequest) => {
       loadSeq.current += 1;
-      return planAction(makeRequest()).catch((error) => {
-        loadPlanContents();
-        throw error;
-      });
+      const seq = ++actionSeq.current;
+      return makeRequest().then(
+        (payload) => {
+          if (seq !== actionSeq.current) return payload; // overtaken by a newer plan action
+          applyPlans(payload);
+          loadPlanContents();
+          return payload;
+        },
+        (error) => {
+          if (seq === actionSeq.current) loadPlanContents();
+          throw error;
+        }
+      );
     },
-    [planAction, loadPlanContents]
+    [applyPlans, loadPlanContents]
   );
 
   const actions = useMemo(
