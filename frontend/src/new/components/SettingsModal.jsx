@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import Icon from './Icon';
-import { TIGERPATH_THEME_OPTIONS } from 'styles/theme';
+import { TIGERPATH_THEME_OPTIONS, getStoredTigerPathTheme } from 'styles/theme';
 import { classYearChoices } from '../helpers/schedule';
 import { saveSettings } from '../api';
 
 export default function SettingsModal({ profile, onSaved, onClose }) {
   const years = classYearChoices();
   const [year, setYear] = useState(profile?.classYear ?? years[0]);
-  const [theme, setTheme] = useState(profile?.theme === 'sunset' ? 'orange' : profile?.theme || 'purple');
+  const [theme, setTheme] = useState(
+    profile?.theme === 'sunset' ? 'orange' : profile?.theme || getStoredTigerPathTheme()
+  );
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
