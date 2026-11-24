@@ -1,8 +1,9 @@
 // Dev-only fetch mock so the new planner renders without Django. Not part of the PR.
 const params = new URLSearchParams(location.search);
 const theme = params.get('theme') || 'purple';
-// ?year=2030 sets the class year (where imported transcript courses land).
-const classYear = Number(params.get('year')) || 2027;
+// Class year decides which board semester a term lands in (imports, labels). ?year=2030 sets it at
+// load; saving Settings changes it, just as the real server stores it on the profile.
+let classYear = Number(params.get('year')) || 2027;
 
 const course = (id, name, title, semester = 'both') => ({
   id: String(id),
@@ -180,6 +181,11 @@ const routes = [
   [/set_active_plan/, (url, body) => {
     activePlanId = Number(new URLSearchParams(body).get('planId'));
     return plansPayload();
+  }],
+  [/settings\/save/, (url, body) => {
+    const year = Number(form(body).get('year'));
+    if (year) classYear = year;
+    return { ok: true };
   }],
   [/update_plan_settings/, (url, body) => {
     const f = form(body);
