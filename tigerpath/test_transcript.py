@@ -168,12 +168,18 @@ class TigerHubLayoutTest(SimpleTestCase):
             [
                 ("COS 126", "Fall 2025", TAKEN),
                 ("HIS 214", "Fall 2025", TAKEN),  # P/D/F basis, graded P
-                # ECO 100 withdrawn (W) is skipped.
+                # ECO 100 withdrawn (W) and MUS 105 audited (AUD) are skipped: no credit.
                 ("PHY 104", "Fall 2026", CURRENT),  # title ends in "B"; no grade column yet
-                ("MUS 105", "Fall 2026", CURRENT),  # AUD is the grade basis, not a grade
                 ("WRI 140", "Fall 2026", CURRENT),  # "Writing" is the distrib area
             ],
         )
+
+    def test_audited_rows_are_skipped(self):
+        text = (
+            "Fall 2025\nMUS 105  AUD  Music Theory    LA\n"
+            "MUS 106 AUD Music Theory II LA\nCOS 126  GRD  Intro  A  QCR"
+        )
+        self.assertEqual([e.code for e in parse_transcript_text(text)], ["COS 126"])
 
     def test_single_spaced_row_with_distrib_area(self):
         text = "Fall 2025\nCOS 126 GRD Computer Science A QCR\nMAT 202 GRD Linear Algebra QCR"

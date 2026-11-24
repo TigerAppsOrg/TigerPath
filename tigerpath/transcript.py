@@ -155,7 +155,7 @@ def _grade_status(token):
 
 
 def _status(rest_of_line):
-    """TAKEN with a final grade, CURRENT for IP/no grade, None for withdrawn (W).
+    """TAKEN with a final grade, CURRENT for IP/no grade, None for withdrawn (W) or audited (AUD).
 
     TigerHub rows read: [grade basis] title [grade] [distrib area]. When the text keeps its columns,
     the title is one column, so a title ending in "B" can't be read as a grade, and the grade basis
@@ -164,6 +164,8 @@ def _status(rest_of_line):
     if re.search(r"\bin progress\b", rest_of_line, re.IGNORECASE):
         return CURRENT
     columns = [c for c in _COLUMN_GAP.split(rest_of_line.strip()) if c]
+    if columns and columns[0].upper() == "AUD":
+        return None  # audited: no credit, so it can't count toward requirements; skip it
     if columns and columns[0].upper() in _GRADE_BASIS:
         columns = columns[1:]
     if len(columns) >= 2:
@@ -177,6 +179,8 @@ def _status(rest_of_line):
         return CURRENT
     # Single-spaced text: scan from the end, skipping numbers and a trailing distribution area.
     tokens = rest_of_line.split()
+    if tokens and tokens[0].upper() == "AUD":
+        return None
     if tokens and tokens[0].upper() in _GRADE_BASIS:
         tokens = tokens[1:]
     for token in reversed(tokens):
