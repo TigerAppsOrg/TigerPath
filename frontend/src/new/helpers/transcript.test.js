@@ -63,6 +63,26 @@ describe('unclear rows', () => {
   });
 });
 
+describe('repeated courses', () => {
+  it('keep a completed retake over an earlier unclear attempt', () => {
+    const cos = course('1', 'COS 126');
+    const rows = buildImportRows(
+      {
+        classYear: 2026,
+        courses: [
+          { code: 'COS 126', term: 'Fall 2022', status: 'unclear', semesterIndex: 0, course: cos },
+          { code: 'COS 126', term: 'Fall 2023', status: 'taken', semesterIndex: 2, course: cos },
+        ],
+      },
+      empty()
+    );
+    expect(rows.map((r) => [r.semester, r.reason])).toEqual([
+      ['Freshman Fall', 'Listed twice on the transcript'],
+      ['Sophomore Fall', null],
+    ]);
+  });
+});
+
 describe('applyImport into another plan', () => {
   it('skips courses already in the target plan and counts them', () => {
     // Rows reviewed with no target schedule (another plan): no "already" reasons yet.
