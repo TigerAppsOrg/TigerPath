@@ -10,7 +10,7 @@ Branch: `tig-282-import-pre-existing-taken-and-currently-taking`, cut from `para
   unwanted, and clicks **Add N courses**.
 - **`POST /api/v1/import_transcript/`** (login required) parses the PDF in memory and returns a preview.
   It stores nothing and saves nothing. The chosen courses are added on the client and saved with the
-  normal `update_schedule_and_get_requirements` call, as one save.
+  normal `update_schedule_and_get_requirements` call, as one save, into the plan the student picks.
 - **`tigerpath/transcript.py`** is the parser: pure functions, unit-tested, and runnable locally with
   `python -m tigerpath.transcript TRANSCRIPT.pdf [CLASS_YEAR]`, which prints codes, terms and status
   only (no grades).
@@ -68,9 +68,17 @@ The schedule format has no status field, and adding one would touch the classic 
 verifier. Status is shown in the review step only. Current-term courses are placed in their semester
 like any other course.
 
-### D6. Imports go into the active plan only
+### D6. The student picks which plan to import into (revised)
 
-This matches how every other edit works. To import into another plan, switch to it first.
+The first version imported into the active plan only. Review asked for a choice, so the review step now has an
+**Add to** dropdown with every plan, defaulting to the current one.
+- **Current plan:** duplicates are checked in the review list, and Add makes one normal save.
+- **Another plan:** the server only saves the active plan's schedule, so Add switches to that plan
+  (`set_active_plan`, the same as clicking its tab), waits for its schedule to load, then adds the courses with
+  one save. Duplicates already in that plan are skipped at that point and counted in the confirmation ("Added 3
+  courses … to plan b (1 already there)"). The dialog says this before you confirm. If the switch fails, nothing
+  is imported and an error notice says so.
+- **No backend change**, so #547 stays independent of #545 and #546.
 
 ### D7. New dependency: `pypdf==6.21.4`
 

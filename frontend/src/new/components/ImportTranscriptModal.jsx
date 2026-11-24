@@ -10,14 +10,22 @@ const STATUS_LABEL = { taken: 'Taken', current: 'Taking now' };
  * TIG-282: upload the TigerHub unofficial transcript PDF, review what was found, then add the chosen
  * courses to the active plan. Nothing is saved until "Add" (and then only through the normal save).
  */
-export default function ImportTranscriptModal({ schedule, planName, onImport, onClose }) {
+export default function ImportTranscriptModal({ schedule, plans, activePlanId, onImport, onClose }) {
   const [file, setFile] = useState(null);
+  const [targetPlanId, setTargetPlanId] = useState(activePlanId);
+  const targetIsActive = targetPlanId === activePlanId;
+  const targetName = (plans || []).find((p) => p.id === targetPlanId)?.name || 'this plan';
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [payload, setPayload] = useState(null);
   const [excluded, setExcluded] = useState(() => new Set());
 
-  const rows = useMemo(() => (payload ? buildImportRows(payload, schedule) : []), [payload, schedule]);
+  // Duplicates are checked against the target plan: here for the active plan (its schedule is loaded),
+  // or when the rows are added for any other plan.
+  const rows = useMemo(
+    () => (payload ? buildImportRows(payload, targetIsActive ? schedule : null) : []),
+    [payload, schedule, targetIsActive]
+  );
   const chosen = rows.filter((r) => !r.reason && !excluded.has(r.key));
 
   const upload = async (e) => {
@@ -51,8 +59,8 @@ export default function ImportTranscriptModal({ schedule, planName, onImport, on
         <form onSubmit={upload}>
           <p className="tp-import-help">
             Upload your <strong>unofficial transcript PDF</strong> from TigerHub. TigerPath reads the course codes and
-            terms, then lets you choose which to add to <strong>{planName || 'this plan'}</strong>. The file isn&apos;t
-            stored, and grades aren&apos;t kept.
+            terms, then lets you choose which courses to add and which plan to add them to. The file isn&apos;t stored,
+            and grades aren&apos;t kept.
           </p>
           <label className="tp-import-file">
             <Icon name="upload" size={18} />
@@ -93,6 +101,29 @@ export default function ImportTranscriptModal({ schedule, planName, onImport, on
               <p className="tp-import-help">
                 Found {rows.length} course{rows.length === 1 ? '' : 's'}. Uncheck any you don&apos;t want to add.
               </p>
+              {(plans || []).length > 1 && (
+                <label className="tp-import-target">
+                  <span>Add to</span>
+                  <select
+                    className="tp-select"
+                    value={targetPlanId ?? ''}
+                    onChange={(e) => setTargetPlanId(Number(e.target.value))}
+                  >
+                    {plans.map((plan) => (
+                      <option key={plan.id} value={plan.id}>
+                        {plan.name}
+                        {plan.id === activePlanId ? ' (current plan)' : ''}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+              {!targetIsActive && (
+                <p className="tp-import-note">
+                  TigerPath will switch to <strong>{targetName}</strong> and add the courses there, skipping any
+                  already in that plan.
+                </p>
+              )}
               <ul className="tp-import-list" aria-label="Courses found on your transcript">
                 {rows.map((row) => (
                   <li key={row.key} className={`tp-import-row ${row.reason ? 'skipped' : ''}`}>
@@ -126,11 +157,11 @@ export default function ImportTranscriptModal({ schedule, planName, onImport, on
               className="tp-btn tp-btn-save"
               disabled={chosen.length === 0}
               onClick={() => {
-                onImport(chosen);
+                onImport(chosen, targetPlanId);
                 onClose();
               }}
             >
-              Add {chosen.length} course{chosen.length === 1 ? '' : 's'} <Icon name="check" size={16} />
+              Add {chosen.length} to {targetName} <Icon name="check" size={16} />
             </button>
             <button type="button" className="tp-btn tp-btn-neutral" onClick={onClose}>
               Cancel <Icon name="ban" size={16} />
