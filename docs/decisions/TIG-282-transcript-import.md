@@ -98,7 +98,8 @@ wrong plan. Review kept finding new versions of that race, so the fix is at the 
   whose courses failed to load can't be saved over.
 - Saves to one plan go out one at a time, in order. Each save sends the whole schedule, so two in flight
   could land out of order and the older one would win. An import into a plan waits its turn in the same
-  line, after edits already sent.
+  line, after edits already sent. Loading a plan also waits for writes already sent to it, so switching
+  away and straight back never shows (and then saves back) the schedule from before an edit.
 - Saves must be POST: CSRF protection only covers POST, and a GET used to clear the active plan. A schedule
   that isn't a JSON list is refused with a 400.
 - Plan changes (switch, create, copy, delete, settings) run one at a time; only the newest one's result is shown.
