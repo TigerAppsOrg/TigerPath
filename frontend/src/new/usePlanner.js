@@ -47,6 +47,10 @@ export default function usePlanner() {
 
   // Responses for older saves are ignored so fast edits can't apply stale requirements.
   const saveSeq = useRef(0);
+  // The newest save sent for each plan: a failed save only matters if no later save for that plan
+  // (which carries the whole schedule) was sent after it.
+  const lastSaveFor = useRef({});
+  const plansRef = useRef([]);
   // Only the newest plan load may set the schedule: after a plan switch, a slower response for the
   // previous plan must not land on the new one (a pending import would save it over that plan).
   const loadSeq = useRef(0);
@@ -66,7 +70,8 @@ export default function usePlanner() {
   }, [notice]);
 
   const applyPlans = useCallback((payload) => {
-    setPlans(payload?.plans || []);
+    plansRef.current = payload?.plans || [];
+    setPlans(plansRef.current);
     activePlanRef.current = payload?.activePlanId ?? null;
     setActivePlanId(activePlanRef.current);
   }, []);
@@ -136,6 +141,7 @@ export default function usePlanner() {
       setSchedule(next);
       const seq = ++saveSeq.current;
       const planId = schedulePlanId.current;
+      lastSaveFor.current[planId] = seq;
       setSaving(true);
       api
         .saveScheduleAndGetRequirements(stripSchedule(next), planId)
@@ -143,7 +149,15 @@ export default function usePlanner() {
           if (seq === saveSeq.current) setRequirements(unwrapGroupedRequirements(data));
         })
         .catch(() => {
-          if (seq !== saveSeq.current) return;
+          if (seq !== saveSeq.current) {
+            // The student has moved on (e.g. switched plans). Still say the change was lost, unless a
+            // later save for the same plan replaced it.
+            if (lastSaveFor.current[planId] === seq && schedulePlanId.current !== planId) {
+              const name = plansRef.current.find((p) => p.id === planId)?.name;
+              showNotice(`Could not save your last change to ${name || 'your previous plan'}. Please open it and check.`, 'error');
+            }
+            return;
+          }
           showNotice('Could not save your last change. Your plan was reloaded.', 'error');
           // Resync with what the server actually stored instead of showing unsaved edits.
           loadPlanContents(planId);
