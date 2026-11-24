@@ -9,18 +9,28 @@ export const semesterLabel = (index) =>
  * course isn't already somewhere in the plan; otherwise `reason` says why it's skipped.
  */
 export function buildImportRows(payload, schedule) {
-  const seen = new Set();
-  return (payload?.courses || []).map((item, i) => {
-    const id = item.course?.id;
-    let reason = null;
+  const items = payload?.courses || [];
+  const placedReason = (item) => {
     if (item.semesterIndex == null) {
-      reason = payload?.classYear ? 'Outside your four years' : 'Set your class year in Settings';
-    } else if (isCourseAlreadyScheduled(schedule, id)) {
-      reason = 'Already in this plan';
-    } else if (seen.has(id)) {
-      reason = 'Listed twice on the transcript';
+      return payload?.classYear ? 'Outside your four years' : 'Set your class year in Settings';
     }
-    if (!reason) seen.add(id);
+    if (isCourseAlreadyScheduled(schedule, item.course?.id)) return 'Already in this plan';
+    return null;
+  };
+  // A course listed more than once (a repeat) keeps one row: the first taken/in-progress one, so a
+  // completed retake wins over an earlier incomplete or unclear attempt; otherwise the first row.
+  const keeper = new Map();
+  items.forEach((item, i) => {
+    if (placedReason(item)) return;
+    const id = item.course?.id;
+    const current = keeper.get(id);
+    if (current === undefined || (items[current].status === 'unclear' && item.status !== 'unclear')) {
+      keeper.set(id, i);
+    }
+  });
+  return items.map((item, i) => {
+    const reason =
+      placedReason(item) || (keeper.get(item.course?.id) !== i ? 'Listed twice on the transcript' : null);
     return {
       key: `${item.code}-${item.term}-${i}`,
       code: item.course?.name || item.code,
