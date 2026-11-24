@@ -15,6 +15,7 @@ import SettingsModal from './components/SettingsModal';
 import ComparePicker from './components/ComparePicker';
 import CompareSummary from './components/CompareSummary';
 import ImportTranscriptModal from './components/ImportTranscriptModal';
+import CompareByYear from './components/CompareByYear';
 import './styles.css';
 
 const semesterIndexOf = (droppableId) => parseInt(droppableId.replace('sem', ''), 10);
@@ -35,6 +36,8 @@ export default function App() {
   const [creditPath, setCreditPath] = useState(null);
   // Below 1100px compare mode shows one board at a time; this picks which.
   const [compareView, setCompareView] = useState('active');
+  // 'year': semesters lined up across both plans (default); 'boards': two four-year boards.
+  const [compareLayout, setCompareLayout] = useState('year');
 
   const themeName = profile?.theme || 'purple';
   useEffect(() => {
@@ -171,7 +174,28 @@ export default function App() {
                   {planner.notice.text}
                 </div>
               )}
-              <div className="tp-compare-toggle dont-print" role="tablist" aria-label="Plan shown">
+              <div className="tp-compare-controls dont-print">
+              <div className="tp-compare-layout" role="tablist" aria-label="Compare layout">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={compareLayout === 'year'}
+                  className={compareLayout === 'year' ? 'active' : ''}
+                  onClick={() => setCompareLayout('year')}
+                >
+                  By year
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={compareLayout === 'boards'}
+                  className={compareLayout === 'boards' ? 'active' : ''}
+                  onClick={() => setCompareLayout('boards')}
+                >
+                  Boards
+                </button>
+              </div>
+              <div className="tp-compare-toggle" role="tablist" aria-label="Plan shown">
                 <button
                   type="button"
                   role="tab"
@@ -191,6 +215,27 @@ export default function App() {
                   {comparePlan.name}
                 </button>
               </div>
+              </div>
+              {compareLayout === 'year' ? (
+                <>
+                  <div className="dont-print tp-byyear-wrap">
+                    <CompareByYear
+                      activePlan={activePlan}
+                      comparePlan={comparePlan}
+                      schedule={schedule}
+                      compareSchedule={planner.compareSchedule}
+                      requirements={requirements}
+                      compareRequirements={planner.compareRequirements}
+                      draggingSeason={draggingSeason}
+                      onRemove={planner.removeCourse}
+                    />
+                  </div>
+                  {/* Printing while comparing prints the active plan as a normal board. */}
+                  <div className="print-only">
+                    {schedule && <Board readOnly schedule={schedule} classYear={profile?.classYear} />}
+                  </div>
+                </>
+              ) : (
               <div className="tp-compare-sides">
                 <section className="tp-compare-side active-side" aria-label={`${activePlan?.name || 'Active plan'} (editable)`}>
                   <header className="tp-compare-head">
@@ -220,6 +265,7 @@ export default function App() {
                   )}
                 </section>
               </div>
+              )}
             </div>
           </main>
         ) : (

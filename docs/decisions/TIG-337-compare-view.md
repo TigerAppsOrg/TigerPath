@@ -81,3 +81,21 @@ The tour highlights the search pane and requirements panel, which compare mode h
 ### D9. Print shows the active plan only
 
 The compare side and the summaries are `dont-print`. The printout stays "My Four Year Schedule: <active plan>".
+
+### D10. "By year" is the default compare layout; "Boards" stays as an option
+
+Requested in review: line the two plans up year by year so each semester can be compared at a glance.
+**Decision:** compare mode opens in **By year**: Freshman to Senior run top to bottom, each with a Fall row
+and a Spring row. Each row holds one plan's courses on a single line, active plan on the left and compared plan
+on the right, so the same semester sits side by side.
+- **Differences** are shown by outline shape, not color alone. A solid outline means the course is only in this
+  plan; a dashed outline means it's in a different semester in the other plan (the chip's tooltip says which).
+  Courses in the same semester in both plans stay plain. A one-line summary counts each kind, and screen readers
+  get the same wording. Matching uses the catalog id (external credits match by name), over the eight board
+  semesters (`diffSchedules`, unit-tested).
+- **The left plan stays editable:** each row is a horizontal drop target, so courses can be reordered, moved
+  between semesters (including by keyboard) or removed. Chips shrink and truncate to keep one line per semester;
+  the hover card shows the full name.
+- **Below 1100px** the existing toggle shows one plan's column, still aligned by semester with the markers.
+- **Printing** while comparing prints the active plan as a normal board.
+- **Boards** (two four-year grids, the issue's literal ask) is one click away, so reviewers can choose.

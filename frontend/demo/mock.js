@@ -134,12 +134,14 @@ const fin = {
   req_list: [leaf('Minor//FIN//Core', 'Core', 2, ['ECO 202'])],
 };
 
+// Plan b shares catalog ids with plan a for the courses both contain, as real data does, so the
+// By-year compare shows a realistic mix of same / moved / only.
 const schedule2 = [
-  [course(101, 'ECO 100', 'Introduction to Microeconomics'), course(102, 'POL 220', 'American Politics'), course(103, 'MAT 103', 'Calculus I')],
-  [course(104, 'SPI 200', 'Public Policy'), course(105, 'POL 230', 'Political Theory'), course(106, 'WRI 159', 'Writing Seminar')],
-  [course(107, 'ECO 202', 'Statistics and Data Analysis'), course(108, 'SOC 101', 'Introduction to Sociology')],
-  [course(109, 'POL 351', 'Comparative Politics'), course(110, 'SPI 305 / ECO 305', 'Public Finance')],
-  [course(111, 'POL 380', 'International Relations'), course(112, 'HIS 214', 'The Atlantic World')],
+  [course(1, 'ECO 100', 'Introduction to Microeconomics'), course(102, 'POL 220', 'American Politics'), course(3, 'MAT 103', 'Calculus I')],
+  [course(104, 'SPI 200', 'Public Policy'), course(105, 'POL 230', 'Political Theory'), course(8, 'WRI 159', 'Writing Seminar')],
+  [course(10, 'ECO 202', 'Statistics and Data Analysis'), course(108, 'SOC 101', 'Introduction to Sociology')],
+  [course(109, 'POL 351', 'Comparative Politics'), course(21, 'SPI 305 / ECO 305', 'Public Finance')],
+  [course(111, 'POL 380', 'International Relations'), course(4, 'HIS 214', 'The Atlantic World')],
   [course(113, 'SPI 331', 'Urban Policy')],
   [course(114, 'SPI 401', 'Policy Task Force')],
   [course(115, 'POL 495', 'Senior Thesis')],

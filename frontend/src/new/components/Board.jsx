@@ -40,12 +40,29 @@ function CourseHoverCard({ course, semesterIndex, duplicate }) {
   );
 }
 
+/**
+ * By-year compare marker. The chip's outline (solid = only in this plan, dashed = other semester there)
+ * shows the difference; this text says it for screen readers, and the chip's title for hover.
+ */
+function DiffTag({ diff }) {
+  if (!diff || diff.status === 'same') return null;
+  return <span className="tp-sr-only">{diff.status === 'only' ? ' (only in this plan)' : ` (${diff.title})`}</span>;
+}
+
+const diffTitle = (diff) => {
+  if (!diff || diff.status === 'same') return undefined;
+  return diff.status === 'only' ? 'Only in this plan' : `Moved: ${diff.title}`;
+};
+
+const diffClass = (diff) => (diff && diff.status !== 'same' ? `diff-${diff.status}` : '');
+
 /** Compare mode's right-hand board: same look, no drag-and-drop and no remove button. */
-function ReadOnlyCourseChip({ course, semesterIndex, duplicate }) {
+export function ReadOnlyCourseChip({ course, semesterIndex, duplicate, diff }) {
   const [hover, setHover] = useState(false);
   return (
     <div
-      className={`tp-course readonly ${isWrongSeason(course, semesterIndex) ? 'wrong-season' : ''}`}
+      className={`tp-course readonly ${isWrongSeason(course, semesterIndex) ? 'wrong-season' : ''} ${diffClass(diff)}`}
+      title={diffTitle(diff)}
       tabIndex={0}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -54,13 +71,14 @@ function ReadOnlyCourseChip({ course, semesterIndex, duplicate }) {
       aria-label={`${course.name}${course.title ? `: ${course.title}` : ''}`}
     >
       <span className="tp-course-name">{course.name}</span>
+      <DiffTag diff={diff} />
       <span className="print-only tp-course-title">{course.title}</span>
       {hover && <CourseHoverCard course={course} semesterIndex={semesterIndex} duplicate={duplicate} />}
     </div>
   );
 }
 
-function CourseChip({ course, semesterIndex, index, duplicate, onRemove }) {
+export function CourseChip({ course, semesterIndex, index, duplicate, onRemove, diff }) {
   const [hover, setHover] = useState(false);
   return (
     <Draggable draggableId={`course-${semesterIndex}-${index}-${course.id}`} index={index}>
@@ -71,7 +89,8 @@ function CourseChip({ course, semesterIndex, index, duplicate, onRemove }) {
           {...provided.dragHandleProps}
           className={`tp-course ${snapshot.isDragging ? 'dragging' : ''} ${
             isWrongSeason(course, semesterIndex) ? 'wrong-season' : ''
-          }`}
+          } ${diffClass(diff)}`}
+          title={diffTitle(diff)}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           onFocus={() => setHover(true)}
@@ -79,6 +98,7 @@ function CourseChip({ course, semesterIndex, index, duplicate, onRemove }) {
           aria-label={`${course.name}${course.title ? `: ${course.title}` : ''}`}
         >
           <span className="tp-course-name">{course.name}</span>
+          <DiffTag diff={diff} />
           <span className="print-only tp-course-title">{course.title}</span>
           <button
             type="button"
@@ -119,20 +139,25 @@ function ReadOnlySemester({ index, season, courses, duplicateNames }) {
   );
 }
 
+/** Highlight for the semester under a drag: green if the course is offered that term, red if not. */
+export function dropToneFor(season, draggingSeason, isDraggingOver) {
+  if (!isDraggingOver) return '';
+  if (draggingSeason !== 'fall' && draggingSeason !== 'spring') return 'drop-ok';
+  return draggingSeason === season.toLowerCase() ? 'drop-ok' : 'drop-warn';
+}
+
+/** Course names that appear more than once in the first eight semesters. */
+export function duplicateNamesIn(schedule) {
+  const counts = new Map();
+  (schedule || []).slice(0, 8).flat().forEach((c) => counts.set(c.name, (counts.get(c.name) || 0) + 1));
+  return new Set([...counts].filter(([, n]) => n > 1).map(([name]) => name));
+}
+
 function Semester({ index, season, courses, draggingSeason, duplicateNames, onRemove }) {
   return (
     <Droppable droppableId={semesterDroppableId(index)}>
       {(provided, snapshot) => {
-        let dropTone = '';
-        if (snapshot.isDraggingOver) {
-          const columnSeason = season.toLowerCase();
-          dropTone =
-            draggingSeason === 'fall' || draggingSeason === 'spring'
-              ? draggingSeason === columnSeason
-                ? 'drop-ok'
-                : 'drop-warn'
-              : 'drop-ok';
-        }
+        const dropTone = dropToneFor(season, draggingSeason, snapshot.isDraggingOver);
         return (
           <div className={`tp-semester ${dropTone}`} aria-label={`${season} semester`}>
             <span className="tp-season-label">{season}</span>
@@ -164,9 +189,7 @@ function Semester({ index, season, courses, draggingSeason, duplicateNames, onRe
  * collide with the editable board's droppables) and no #semesters id, which the tutorial targets.
  */
 export default function Board({ schedule, classYear, draggingSeason, onRemove, readOnly = false, label }) {
-  const counts = new Map();
-  (schedule || []).slice(0, 8).flat().forEach((c) => counts.set(c.name, (counts.get(c.name) || 0) + 1));
-  const duplicateNames = new Set([...counts].filter(([, n]) => n > 1).map(([name]) => name));
+  const duplicateNames = duplicateNamesIn(schedule);
 
   return (
     <section
