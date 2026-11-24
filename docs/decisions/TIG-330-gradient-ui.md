@@ -63,8 +63,8 @@ and saturation, with lightness lowered to the lightest value that clears 4.5:1 o
 
 `theme.test.js` checks every text/stop pair for every theme.
 
-**Other option:** `tig-330-alt-figma-exact-text` uses Lucy's exact colors (its AA test is marked as
-an expected failure). Use it if Lucy would rather fix contrast in the design.
+**Other option:** `tig-330-alt-figma-exact-text` uses Lucy's exact colors (its AA test is skipped
+there). Use it if Lucy would rather fix contrast in the design.
 
 ## D5. Requirement chip direction: `to bottom`
 
