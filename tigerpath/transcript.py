@@ -62,6 +62,8 @@ _DISTRIB_AREAS = {
     "W/L",
 }
 _NUMERIC = re.compile(r"^[\d.,()*]+$")
+# Extra cross-listed codes right after the first one ("COS 126/EGR 126", "COS 126 / EGR 126").
+_CROSS_LISTING = re.compile(r"^(?:\s*/\s*[A-Z]{3}\s*\d{3}[A-Z]?\b)+")
 
 TAKEN = "taken"
 CURRENT = "current"
@@ -227,6 +229,7 @@ def parse_transcript_text(text):
         if term is None:
             continue
         dept, number, rest = course.group(1), course.group(2), course.group(3)
+        rest = _CROSS_LISTING.sub("", rest)  # so the grade-basis column (e.g. AUD) comes first
         status = _status(rest)
         if status is None:
             continue
