@@ -1,12 +1,7 @@
-/* TigerPath new UI. Colors come from the classic theme variables (styles/theme.js). */
+/* TigerPath new UI. Every color variable (--tp-*) is written at runtime by
+   applyTigerPathTheme() in styles/theme.js; only layout tokens live here. */
 
 :root {
-  --tp-border: #d9d9d9;
-  --tp-muted: #767676;
-  --tp-text: #181818;
-  --tp-incomplete: #e5372c;
-  --tp-drop-ok: #eaffb8;
-  --tp-drop-warn: #ffe9e4;
   --tp-header-h: 74px;
   --tp-radius: 6px;
 }
@@ -276,7 +271,7 @@ button:disabled {
 .tp-search-card {
   padding: 10px;
   border-radius: var(--tp-radius);
-  background: linear-gradient(to bottom, var(--tp-search-fill-start), var(--tp-search-fill-end));
+  background: linear-gradient(to bottom, var(--tp-search-card-fill-start), var(--tp-search-card-fill-end));
   cursor: grab;
   user-select: none;
   border: 2px solid transparent;
@@ -298,8 +293,8 @@ button:disabled {
   height: 38px;
   padding: 0 9px;
   border-radius: var(--tp-radius);
-  background: var(--tp-search-pill-fill);
-  color: var(--tp-search-text);
+  background: linear-gradient(to bottom, var(--tp-search-code-fill-start), var(--tp-search-code-fill-end));
+  color: var(--tp-course-card-text);
   font-weight: 700;
   font-size: 16px;
   white-space: nowrap;
@@ -313,7 +308,7 @@ button:disabled {
   gap: 2px;
   margin-top: 8px;
   font-size: 11px;
-  color: var(--tp-search-text);
+  color: var(--tp-course-card-text);
   line-height: 1.35;
 }
 
@@ -329,7 +324,7 @@ button:disabled {
   gap: 4px;
   height: 38px;
   padding: 5px;
-  background: #eee;
+  background: var(--tp-plan-tabs-fill);
   border-radius: 19px;
   max-width: 100%;
   overflow-x: auto;
@@ -348,7 +343,7 @@ button:disabled {
 }
 
 .tp-plan-tab.active {
-  background: var(--tp-active-plan-fill);
+  background: var(--tp-plan-tab-active-fill);
   border-color: var(--tp-active-plan-border);
 }
 
@@ -501,9 +496,9 @@ button:disabled {
   min-height: 38px;
   padding: 0 6px 0 10px;
   border-radius: var(--tp-radius);
-  background: var(--tp-course-fill);
+  background: linear-gradient(to bottom, var(--tp-course-card-fill-start), var(--tp-course-card-fill-end));
   border: 1.5px solid transparent;
-  color: var(--tp-course-text);
+  color: var(--tp-course-card-text);
   font-weight: 700;
   font-size: 15px;
   cursor: grab;
@@ -512,7 +507,11 @@ button:disabled {
 
 .tp-course:hover,
 .tp-course:focus-visible {
-  border-color: var(--tp-course-border);
+  background: linear-gradient(
+    to bottom,
+    var(--tp-course-card-hover-fill-start),
+    var(--tp-course-card-hover-fill-end)
+  );
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -606,7 +605,7 @@ button:disabled {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  background: #fff;
+  background: var(--tp-req-panel-fill);
   border-radius: 12px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
 }
@@ -767,8 +766,8 @@ button:disabled {
 }
 
 .tp-req-chip.settled {
-  background: linear-gradient(to right, var(--tp-requirement-fill-start), var(--tp-requirement-fill-end));
-  color: var(--tp-requirement-text);
+  background: linear-gradient(to bottom, var(--tp-req-chip-fill-start), var(--tp-req-chip-fill-end));
+  color: var(--tp-req-chip-text);
 }
 
 .tp-req-chip.unsettled {
@@ -778,8 +777,8 @@ button:disabled {
 }
 
 .tp-req-chip.unsettled:hover {
-  border-color: var(--tp-requirement-text);
-  color: var(--tp-requirement-text);
+  border-color: var(--tp-req-chip-text);
+  color: var(--tp-req-chip-text);
 }
 
 .tp-req-chip .tp-badge {
@@ -1096,7 +1095,7 @@ button:disabled {
 }
 
 .tp-btn-copy {
-  background: #d6c6fd;
+  background: var(--tp-course-card-hover-fill-start);
 }
 
 .tp-btn:hover:not(:disabled) {
@@ -1218,16 +1217,15 @@ button:disabled {
   gap: 4px;
   padding: 4px 10px;
   border-radius: 8px;
-  background: #f1e9ff;
-  color: #54168e;
+  background: var(--tp-course-card-fill-start);
+  color: var(--tp-course-card-text);
   font-size: 13px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .tp-tag.code {
-  background: var(--tp-course-fill);
-  color: var(--tp-course-text);
+  background: linear-gradient(to bottom, var(--tp-course-card-fill-start), var(--tp-course-card-fill-end));
 }
 
 .tp-tag.link {
@@ -1390,14 +1388,39 @@ button:disabled {
     break-inside: avoid;
   }
 
-  .tp-course {
+  /* Print uses flat fills: gradients print unevenly and the hover state never applies. */
+  .tp-course,
+  .tp-course:hover,
+  .tp-course:focus-visible {
     break-inside: avoid;
     flex-direction: column;
     align-items: flex-start;
     padding: 4px 8px;
     margin-bottom: 6px;
+    background: var(--tp-course-card-fill-end);
+    box-shadow: none;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+  }
+
+  .tp-search-card,
+  .tp-search-card-code {
+    background: var(--tp-search-card-fill-end);
+  }
+
+  .tp-tag.code {
+    background: var(--tp-course-card-fill-end);
+  }
+
+  .tp-req-chip.settled {
+    background: var(--tp-req-chip-fill-end);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .tp-card {
+    background: #fff;
+    box-shadow: none;
   }
 
   .tp-course-title {
@@ -1420,7 +1443,7 @@ button:disabled {
 
 .tp-chip.primary {
   background: var(--tp-active-plan-fill);
-  color: var(--tp-course-text);
+  color: var(--tp-course-card-text);
 }
 
 .tp-chip-tag {

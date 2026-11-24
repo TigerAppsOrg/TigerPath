@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { DragDropContext } from '@hello-pangea/dnd';
-import { getTigerPathThemeVariables } from 'styles/theme';
+import { applyTigerPathTheme } from 'styles/theme';
 import usePlanner from './usePlanner';
 import { getRequirementCourses, setUiVersion } from './api';
 import startTutorial from './tutorial';
@@ -31,9 +31,7 @@ export default function App() {
 
   const themeName = profile?.theme || 'purple';
   useEffect(() => {
-    const root = document.documentElement;
-    Object.entries(getTigerPathThemeVariables(themeName)).forEach(([k, v]) => root.style.setProperty(k, v));
-    root.dataset.tigerpathTheme = themeName;
+    applyTigerPathTheme(themeName);
   }, [themeName]);
 
   useEffect(() => {
