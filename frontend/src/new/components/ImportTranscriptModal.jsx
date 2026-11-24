@@ -13,6 +13,12 @@ const STATUS_LABEL = { taken: 'Taken', current: 'Taking now', unclear: 'Check gr
 export default function ImportTranscriptModal({ schedule, plans, activePlanId, onImport, onClose }) {
   const [file, setFile] = useState(null);
   const [targetPlanId, setTargetPlanId] = useState(activePlanId);
+  // The dialog can open before the plan list has loaded: default to the current plan once it's known.
+  useEffect(() => {
+    if (targetPlanId == null && activePlanId != null) setTargetPlanId(activePlanId);
+  }, [targetPlanId, activePlanId]);
+  // "Add" runs once, even on a double click.
+  const [submitted, setSubmitted] = useState(false);
   const targetIsActive = targetPlanId === activePlanId;
   const targetName = (plans || []).find((p) => p.id === targetPlanId)?.name || 'this plan';
   const [busy, setBusy] = useState(false);
@@ -188,8 +194,10 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
             <button
               type="button"
               className="tp-btn tp-btn-save"
-              disabled={chosen.length === 0}
+              disabled={chosen.length === 0 || submitted}
               onClick={() => {
+                if (submitted) return;
+                setSubmitted(true);
                 onImport(chosen, targetPlanId);
                 onClose();
               }}

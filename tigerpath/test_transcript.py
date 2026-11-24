@@ -119,6 +119,17 @@ class ParseTranscriptTest(SimpleTestCase):
         got = [(e.code, e.term_label) for e in parse_transcript_text(text)]
         self.assertEqual(got, [("COS 226", "Spring 2023")])
 
+    def test_summary_and_credit_sections_end_the_last_term(self):
+        text = (
+            "2025-2026 Fall\nCOS 217  GRD  Programming Systems    SEN\n"
+            "Total Course Credits: 4\nMAT 103  Calculus I\n"
+            "2025-2026 Spring\nCOS 226  GRD  Algorithms    QCR\n"
+            "Advanced Standing Credits\nPHY 103  General Physics I  A\n"
+        )
+        got = [(e.code, e.term_label) for e in parse_transcript_text(text)]
+        # Rows after the summary block or under an advanced-standing section aren't Princeton terms.
+        self.assertEqual(got, [("COS 217", "Fall 2025"), ("COS 226", "Spring 2026")])
+
     def test_courses_before_any_term_are_ignored(self):
         self.assertEqual(parse_transcript_text("COS 126 Something A\nFall 2023"), [])
 
@@ -341,6 +352,14 @@ class ImportTranscriptApiTest(TestCase):
             content_type="multipart/form-data; boundary=x",
         )
         self.assertEqual(response.status_code, 400)
+
+    def test_accepted_uploads_fit_the_in_memory_upload_limit(self):
+        # The view uses only the in-memory upload handler, which drops files over this setting.
+        from django.conf import settings
+
+        self.assertGreaterEqual(
+            settings.FILE_UPLOAD_MAX_MEMORY_SIZE, MAX_TRANSCRIPT_BYTES + 64 * 1024
+        )
 
     def test_upload_still_checks_csrf(self):
         client = Client(enforce_csrf_checks=True)
