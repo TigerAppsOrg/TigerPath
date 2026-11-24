@@ -199,7 +199,13 @@ export default function usePlanner() {
 
   const actions = useMemo(
     () => ({
-      selectPlan: (id) => (id === activePlanId ? Promise.resolve() : planAction(api.setActivePlan(id))),
+      selectPlan: (id) => {
+        if (id === activePlanId) return Promise.resolve();
+        // The server switches plans as soon as this request lands, so a slower load for the plan
+        // we're leaving must not count any more (an import waiting on it would save to the new plan).
+        loadSeq.current += 1;
+        return planAction(api.setActivePlan(id));
+      },
       createPlan: () => planAction(api.createPlan()),
       copyPlan: (sourcePlanId, name) => planAction(api.copyPlan({ sourcePlanId, name })),
       deletePlan: (id) => planAction(api.deletePlan(id)),
