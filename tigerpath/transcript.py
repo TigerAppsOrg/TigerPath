@@ -22,7 +22,12 @@ _TERM_YEAR_FIRST_ACADEMIC = re.compile(
 # "Fall 2023", "Spring Term 2024"
 _TERM_CALENDAR = re.compile(r"\b(Fall|Spring)(?:\s+Term)?\s+(\d{4})\b", re.IGNORECASE)
 # Summer and other non-fall/spring terms end the current term so their courses aren't misfiled.
-_TERM_OTHER = re.compile(r"\b(Summer|Winter|Intersession)\b(?:\s+Term)?\s+\d{4}", re.IGNORECASE)
+# Both orders, like fall/spring: "Summer 2023", "Summer Term 2023", "2022-2023 Summer".
+_TERM_OTHER = re.compile(
+    r"\b(?:(?:Summer|Winter|Intersession)(?:\s+Term)?\s+\d{4}"
+    r"|\d{4}\s*[-\u2013/]\s*\d{2,4}\s+(?:Summer|Winter|Intersession))\b",
+    re.IGNORECASE,
+)
 
 # Course row: dept (3 capitals) + number (3 digits, optional letter). The TigerHub transcript lays
 # these out in columns ("COS     226     GRD ..."), and other exports glue them ("COS126").
