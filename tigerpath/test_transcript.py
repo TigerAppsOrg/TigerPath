@@ -174,6 +174,13 @@ class TigerHubLayoutTest(SimpleTestCase):
             ],
         )
 
+    def test_failed_courses_are_skipped(self):
+        text = (
+            "Fall 2025\nCOS 126  GRD  Intro  F  QCR\n"
+            "COS 226  GRD  Algorithms  B  QCR\nMAT 103 GRD Calculus F QCR"
+        )
+        self.assertEqual([e.code for e in parse_transcript_text(text)], ["COS 226"])
+
     def test_audited_rows_are_skipped(self):
         text = (
             "Fall 2025\nMUS 105  AUD  Music Theory    LA\n"

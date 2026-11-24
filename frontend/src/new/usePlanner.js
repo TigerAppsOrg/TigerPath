@@ -221,6 +221,8 @@ export default function usePlanner() {
   // plan they picked. Another plan is made active first (the server saves the active plan's schedule),
   // then the rows are applied once its schedule has loaded.
   const [pendingImport, setPendingImport] = useState(null);
+  // True only while the import's own plan switch is in flight (before the server confirms it).
+  const importSwitching = useRef(false);
 
   const finishImport = useCallback(
     (rows, targetSchedule, planName) => {
@@ -256,10 +258,16 @@ export default function usePlanner() {
         return Promise.resolve(finishImport(rows, schedule, activePlan?.name));
       }
       setPendingImport({ planId: targetPlanId, fromPlanId: activePlanId, rows });
-      return actions.selectPlan(targetPlanId).catch(() => {
-        setPendingImport(null);
-        showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
-      });
+      importSwitching.current = true;
+      return actions
+        .selectPlan(targetPlanId)
+        .catch(() => {
+          setPendingImport(null);
+          showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
+        })
+        .finally(() => {
+          importSwitching.current = false;
+        });
     },
     [activePlanId, activePlan, schedule, scheduleLoadFailed, finishImport, actions, showNotice]
   );
@@ -267,8 +275,10 @@ export default function usePlanner() {
   useEffect(() => {
     if (!pendingImport) return;
     // The student went to some other plan before the import finished: drop it rather than apply it
-    // later, out of the blue. (Moving from the starting plan to the target is the import's own switch.)
-    if (activePlanId !== pendingImport.planId && activePlanId !== pendingImport.fromPlanId) {
+    // later, out of the blue. Only while the import's own switch is in flight may the active plan
+    // still be the starting plan; going back to it afterwards cancels too.
+    const ownSwitch = importSwitching.current && activePlanId === pendingImport.fromPlanId;
+    if (activePlanId !== pendingImport.planId && !ownSwitch) {
       setPendingImport(null);
       showNotice('Import cancelled because you switched plans. Nothing was added.', 'warning');
       return;

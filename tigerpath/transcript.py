@@ -34,7 +34,9 @@ _TERM_OTHER = re.compile(
 _COURSE = re.compile(r"^\s*([A-Z]{3})\s*(\d{3}[A-Z]?)\b(.*)$")
 # Layout-mode text separates table columns with runs of 2+ spaces.
 _COLUMN_GAP = re.compile(r"\s{2,}")
-_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "F", "P", "INC"}
+_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "P", "INC"}
+# Final grades that earn no credit: skipped like withdrawals, so they can't satisfy requirements.
+_NO_CREDIT = {"F", "W"}
 # "Grade Basis" column right after the course number (graded, P/D/F, audit, ...).
 _GRADE_BASIS = {"GRD", "PDF", "AUD", "NGR", "NG"}
 # "Distrib Area" column at the end of a TigerHub row; skipped when looking for the grade.
@@ -147,15 +149,15 @@ def _grade_status(token):
     token = token.strip().upper()
     if token in _GRADES:
         return TAKEN
-    if token == "W":
-        return None  # withdrawn: not taken
+    if token in _NO_CREDIT:
+        return None  # failed or withdrawn: no credit
     if token == "IP":
         return CURRENT
     return "unknown"
 
 
 def _status(rest_of_line):
-    """TAKEN with a final grade, CURRENT for IP/no grade, None for withdrawn (W) or audited (AUD).
+    """TAKEN with a passing grade, CURRENT for IP/no grade, None for F, W or audited (AUD).
 
     TigerHub rows read: [grade basis] title [grade] [distrib area]. When the text keeps its columns,
     the title is one column, so a title ending in "B" can't be read as a grade, and the grade basis

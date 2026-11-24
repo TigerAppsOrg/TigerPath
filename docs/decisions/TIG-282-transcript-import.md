@@ -38,8 +38,8 @@ layout (no student data is in the repo):
    basis is never read as a grade. Single-spaced text without columns falls back to reading tokens from
    the end, skipping numbers and distribution areas.
 
-**Grades:** a final grade (A to F, P, INC) means taken. A blank grade, `IP` or "In Progress" means
-currently taking. `W` (withdrawn) and audited rows (grade basis `AUD`) are skipped, since neither earns credit. Term headings like "2026-2027 Fall", "Fall 2023" and
+**Grades:** a passing final grade (A to D, P, INC) means taken. A blank grade, `IP` or "In Progress" means
+currently taking. Failed (`F`), withdrawn (`W`) and audited (grade basis `AUD`) rows are skipped, since none earns credit. Term headings like "2026-2027 Fall", "Fall 2023" and
 "Spring Term 2022-23" are recognised; Summer and Winter terms are skipped.
 
 **Still unverified:** a transcript with *finished* terms (letter grades in the Grade column). The layout
