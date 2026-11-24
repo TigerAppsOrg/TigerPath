@@ -73,12 +73,25 @@ like any other course.
 The first version imported into the active plan only. Review asked for a choice, so the review step now has an
 **Add to** dropdown with every plan, defaulting to the current one.
 - **Current plan:** duplicates are checked in the review list, and Add makes one normal save.
-- **Another plan:** the server only saves the active plan's schedule, so Add switches to that plan
-  (`set_active_plan`, the same as clicking its tab), waits for its schedule to load, then adds the courses with
-  one save. Duplicates already in that plan are skipped at that point and counted in the confirmation ("Added 3
-  courses … to plan b (1 already there)"). The dialog says this before you confirm. If the switch fails, nothing
-  is imported and an error notice says so.
-- **No backend change**, so #547 stays independent of #545 and #546.
+- **Another plan:** Add reads that plan's courses by id, adds the new ones (skipping any already there), and
+  saves that plan by id, without changing which plan is active. If the student is still where they started,
+  TigerPath then opens that plan. The review list checks duplicates against the picked plan, and the dialog
+  says what will happen before you confirm. If the read or save fails, nothing is imported and a notice says so.
+- See D8 for why loads and saves name their plan.
+
+### D8. Schedule loads and saves name their plan (`planId`)
+
+The server used to save every schedule to whichever plan was *active*, and switching plans changes that at once.
+So a save still in flight when the student switched plans (or an import into another plan) could land on the
+wrong plan. Review kept finding new versions of that race, so the fix is at the root:
+- `get_schedule` and `get_requirements` take an optional `?planId=` (the same code as #546's compare view, so
+  the two PRs merge cleanly). `update_schedule` and `update_schedule_and_get_requirements` take an optional
+  `planId` in the POST body and write only that plan. A plan that isn't the user's returns 404 and nothing is
+  written. Without `planId`, everything works as before, so the classic UI is unchanged.
+- The new planner remembers which plan the on-screen schedule came from, and every save names it. A plan
+  whose courses failed to load can't be saved over.
+- Tests: a save naming a non-active plan lands there and leaves the active plan alone; another user's plan is
+  rejected for both reads and saves.
 
 ### D7. New dependency: `pypdf==6.21.4`
 

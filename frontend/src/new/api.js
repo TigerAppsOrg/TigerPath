@@ -24,12 +24,24 @@ export const updatePlanSettings = ({ planId, name, majorIds, minorCodes }) =>
     minorCodes: JSON.stringify(minorCodes || []),
   });
 
-export const getSchedule = () => apiFetch('/api/v1/get_schedule/');
+// Pass planId to read a plan without making it active (the active plan otherwise).
+export const getSchedule = (planId) =>
+  apiFetch(
+    planId == null
+      ? '/api/v1/get_schedule/'
+      : `/api/v1/get_schedule/?planId=${encodeURIComponent(planId)}`
+  );
 // "grouped" returns {majors, degrees, minors} covering every major on the plan.
-export const getRequirements = () => apiFetch('/api/v1/get_requirements/?layout=grouped');
-export const saveScheduleAndGetRequirements = (strippedSchedule) =>
+export const getRequirements = (planId) =>
+  apiFetch(
+    `/api/v1/get_requirements/?layout=grouped${planId == null ? '' : `&planId=${encodeURIComponent(planId)}`}`
+  );
+// Saves name their plan so a save always lands on the plan the schedule was loaded from, even if
+// the active plan changes while the request is in flight.
+export const saveScheduleAndGetRequirements = (strippedSchedule, planId) =>
   apiPost('/api/v1/update_schedule_and_get_requirements/?layout=grouped', {
     schedule: JSON.stringify(strippedSchedule),
+    ...(planId == null ? {} : { planId: String(planId) }),
   });
 
 export const searchCourses = (query, signal) =>
