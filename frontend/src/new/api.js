@@ -67,7 +67,15 @@ export async function importTranscript(file) {
     headers: { 'X-CSRFToken': getCookie('csrftoken') },
     body,
   });
-  const payload = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(payload.error || 'Could not read that transcript. Please try again.');
+  // An expired session redirects to the login page, which still answers 200 with HTML.
+  const isJson = (response.headers.get('Content-Type') || '').includes('application/json');
+  if (response.redirected || !isJson) {
+    throw new Error('Your session has expired. Reload the page to sign in again, then retry the import.');
+  }
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(payload?.error || 'Could not read that transcript. Please try again.');
+  if (!payload || !Array.isArray(payload.courses)) {
+    throw new Error('Could not read that transcript. Please try again.');
+  }
   return payload;
 }
