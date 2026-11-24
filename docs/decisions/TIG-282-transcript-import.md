@@ -103,7 +103,8 @@ wrong plan. Review kept finding new versions of that race, so the fix is at the 
   could land out of order and the older one would win. An import into a plan waits its turn in the same
   line, after edits already sent. Loading a plan also waits for writes already sent to it, so switching
   away and straight back never shows (and then saves back) the schedule from before an edit.
-  Duplicating a plan waits the same way, so the copy includes edits still being saved.
+  Duplicating a plan and the import dialog's duplicate check wait the same way, so a copy includes edits
+  still being saved and a course just removed from a plan can be picked again.
 - Failures are always said: a save that fails after the student moved on (or came back), a plan switch
   that fails, and a plan that fails to load (an empty board would look like deleted courses).
 - Saves must be POST: CSRF protection only covers POST, and a GET used to clear the active plan. A schedule

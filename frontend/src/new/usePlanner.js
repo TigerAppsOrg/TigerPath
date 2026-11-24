@@ -129,6 +129,14 @@ export default function usePlanner() {
     });
   }, [showNotice]);
 
+  // Read a plan's stored schedule once its pending writes have landed (for previews that decide what
+  // the student can pick, so a just-removed course isn't still shown as there).
+  const readPlanSchedule = useCallback(
+    (planId) =>
+      (writeChains.current[String(planId)] || Promise.resolve()).then(() => api.getSchedule(planId)),
+    []
+  );
+
   const reloadPlan = useCallback(() => loadPlanContents(activePlanRef.current), [loadPlanContents]);
 
   useEffect(() => {
@@ -293,14 +301,19 @@ export default function usePlanner() {
       setCompareRequirements(null);
       setCompareError(true);
     };
-    api
-      .getSchedule(planId)
-      .then((data) => seq === compareSeq.current && setCompareSchedule(data && data.length ? data : emptySchedule()))
-      .catch(failed);
-    api
-      .getRequirements(planId)
-      .then((data) => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(data)))
-      .catch(failed);
+    // Like the main side, read only after saves already sent to this plan have landed: after a swap the
+    // compared plan is the one just being edited.
+    (writeChains.current[String(planId)] || Promise.resolve()).then(() => {
+      if (seq !== compareSeq.current) return;
+      api
+        .getSchedule(planId)
+        .then((data) => seq === compareSeq.current && setCompareSchedule(data && data.length ? data : emptySchedule()))
+        .catch(failed);
+      api
+        .getRequirements(planId)
+        .then((data) => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(data)))
+        .catch(failed);
+    });
   }, []);
 
   const setComparePlanId = useCallback(
@@ -528,6 +541,7 @@ export default function usePlanner() {
     compareError,
     retryCompare: () => loadCompare(comparePlanId),
     setComparePlanId,
+    readPlanSchedule,
     importCourses,
     ...actions,
   };

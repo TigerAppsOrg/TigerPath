@@ -352,6 +352,7 @@ export default function App() {
           schedule={schedule}
           plans={plans}
           activePlanId={activePlan?.id}
+          readPlanSchedule={planner.readPlanSchedule}
           onImport={planner.importCourses}
           onClose={() => setImportOpen(false)}
         />
