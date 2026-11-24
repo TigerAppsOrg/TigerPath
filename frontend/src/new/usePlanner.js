@@ -245,7 +245,7 @@ export default function usePlanner() {
         if (!schedule) {
           // Still loading: finish the import once this plan's schedule arrives (the effect below),
           // or report the failure if the load fails.
-          setPendingImport({ planId: activePlanId, rows });
+          setPendingImport({ planId: activePlanId, fromPlanId: activePlanId, rows });
           return Promise.resolve(0);
         }
         if (scheduleLoadFailed) {
@@ -255,7 +255,7 @@ export default function usePlanner() {
         }
         return Promise.resolve(finishImport(rows, schedule, activePlan?.name));
       }
-      setPendingImport({ planId: targetPlanId, rows });
+      setPendingImport({ planId: targetPlanId, fromPlanId: activePlanId, rows });
       return actions.selectPlan(targetPlanId).catch(() => {
         setPendingImport(null);
         showNotice('Could not switch plans, so nothing was imported. Please try again.', 'error');
@@ -265,7 +265,15 @@ export default function usePlanner() {
   );
 
   useEffect(() => {
-    if (!pendingImport || activePlanId !== pendingImport.planId || !schedule) return;
+    if (!pendingImport) return;
+    // The student went to some other plan before the import finished: drop it rather than apply it
+    // later, out of the blue. (Moving from the starting plan to the target is the import's own switch.)
+    if (activePlanId !== pendingImport.planId && activePlanId !== pendingImport.fromPlanId) {
+      setPendingImport(null);
+      showNotice('Import cancelled because you switched plans. Nothing was added.', 'warning');
+      return;
+    }
+    if (activePlanId !== pendingImport.planId || !schedule) return;
     setPendingImport(null);
     if (scheduleLoadFailed) {
       // The target plan's courses didn't load; saving now would replace them with just the import.
