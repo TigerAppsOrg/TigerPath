@@ -533,7 +533,8 @@ button:disabled {
   background: none;
   padding: 3px;
   border-radius: 4px;
-  color: var(--tp-accent);
+  /* Card text color, not --tp-accent: the accent drops below 3:1 on some hover gradients. */
+  color: inherit;
 }
 
 .tp-course:hover .tp-course-remove,
@@ -543,6 +544,8 @@ button:disabled {
 
 .tp-course-remove:hover {
   color: #c0392b;
+  /* The red alone is under 3:1 on the hover gradient; a light backing keeps it at 4.4:1 or better. */
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .tp-hovercard {

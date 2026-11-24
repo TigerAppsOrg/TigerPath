@@ -9,7 +9,7 @@ option, so you can switch with `git switch <branch>`.
 
 | Branch | What it changes |
 |---|---|
-| `tig-330-tigerpath-implement-lucys-color-gradient-ui-on-the` | **Main branch.** Every decision uses its default (D1–D9). |
+| `tig-330-tigerpath-implement-lucys-color-gradient-ui-on-the` | **Main branch.** Every decision uses its default (D1–D11). |
 | `tig-330-alt-figma-exact-text` | D4 alternative: Lucy's exact text colors, which fail WCAG AA. |
 | `tig-330-alt-shared-tokens` | D1 alternative: the classic UI adopts the new palette too. |
 
@@ -77,6 +77,10 @@ active tab must stay easy to tell apart. **Decision:** lime fill from the Figma,
 `--tp-active-plan-border` outline, so the active tab still reads clearly against the grey bar and
 still shows the theme.
 
+Caveat for design review: the lime fill and the grey bar differ mostly in hue. Their luminance
+contrast is only 1.03 to 1.12, so what marks the active tab is its color, the outline and the bold name.
+The tab text (`#181818`) is 15.8:1 on lime.
+
 ## D7. Duplicate color tokens removed from `new/styles.css`
 
 `new/styles.css :root` had its own copies of `--tp-text`, `--tp-border`, `--tp-muted`,
@@ -95,6 +99,22 @@ it loads.
 
 `@media print` swaps every gradient for its end stop (course card, search card, code pill, requirement
 chip) and keeps the requirement panel white. Print text stays black via the existing `* { color: #000 }`.
+
+## D10. Course-card remove icon (×) contrast
+
+**Blocker (found while checking TIG-336):** the × used `--tp-accent`, which drops below the 3:1 that
+icons need on the hover gradient (orange 2.75). Its red hover color (`#c0392b`) also fell as low as
+1.84 on that gradient.
+
+**Decision:** the × now uses the card's text color, which is held to 4.5:1 or better on every hover stop
+by `theme.test.js`. When hovered, it turns red over an 80% white backing, which measures 4.47:1 or
+better in every theme. The classic accent token itself is unchanged.
+
+## D11. One branch and PR for TIG-330 and TIG-336
+
+TIG-336 is the implementation half of TIG-330, so both ship from
+`tig-330-tigerpath-implement-lucys-color-gradient-ui-on-the`. The PR names both issues so Linear
+links it to each. No separate `tig-336-…` branch, which would have duplicated the same commits.
 
 ## Not changed (out of scope, recorded for follow-up)
 
