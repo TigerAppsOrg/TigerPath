@@ -49,7 +49,9 @@ export default function App() {
   const fetchProfile = useCallback(() => {
     apiFetch('/api/v1/get_profile/')
       .then(setProfile)
-      .catch(() => setProfile({ classYear: null, theme: DEFAULT_TIGERPATH_THEME }));
+      // No theme on failure: the page still shows the default (activeThemeName below), but the
+      // fallback must not be remembered as the user's theme.
+      .catch(() => setProfile({ classYear: null, theme: null }));
   }, []);
 
   const fetchRequirements = useCallback(() => {
