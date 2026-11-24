@@ -1406,6 +1406,10 @@ button:disabled {
   background: var(--tp-drop-ok);
 }
 
+.tp-import-status.unclear {
+  background: #fff6cc;
+}
+
 .tp-import-status.current {
   background: var(--tp-plan-tabs-fill, #eee);
 }

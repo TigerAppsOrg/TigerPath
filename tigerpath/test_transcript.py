@@ -10,6 +10,7 @@ from tigerpath.models import Course, Course_Listing, Semester
 from tigerpath.transcript import (
     CURRENT,
     TAKEN,
+    UNCLEAR,
     TranscriptError,
     extract_text,
     parse_term,
@@ -189,24 +190,26 @@ class TigerHubLayoutTest(SimpleTestCase):
         self.assertEqual([e.code for e in parse_transcript_text(text)], ["COS 126"])
 
     def test_single_spaced_rows_without_columns(self):
-        # Columns lost: a lone trailing letter is ambiguous with a title ending, so it is not taken
-        # as a grade (and never drops the row) unless credit numbers follow it.
+        # Columns lost: a lone trailing grade letter could be a grade or the end of the title, so
+        # the row is UNCLEAR (shown, not pre-selected) unless a credit number sits next to it.
         text = (
             "Fall 2025\nCOS 126 GRD Computer Science A QCR\nPHY 104 GRD Physics Lab Part B SEN\n"
-            "ENV 200 GRD Field Methods Part F SEN\nCOS 226 GRD Algorithms 1.00 A 4.00\n"
-            "MAT 202 GRD Linear Algebra A- QCR\nCOS 217 GRD Systems 1.00 F 0.00"
+            "ECO 100 GRD Intro to Microeconomics W SA\nHIN 105 GRD Intermediate Hindi I NONE\n"
+            "COS 226 GRD Algorithms 1.00 A 4.00\nMAT 202 GRD Linear Algebra A- QCR\n"
+            "COS 217 GRD Systems 1.00 F 0.00"
         )
         got = [(e.code, e.status) for e in parse_transcript_text(text)]
         self.assertEqual(
             got,
             [
-                ("COS 126", CURRENT),
-                ("PHY 104", CURRENT),
-                ("ENV 200", CURRENT),
+                ("COS 126", UNCLEAR),
+                ("PHY 104", UNCLEAR),
+                ("ECO 100", UNCLEAR),  # maybe withdrawn: never added without the student choosing
+                ("HIN 105", CURRENT),  # "I" isn't a grade letter
                 ("COS 226", TAKEN),
                 ("MAT 202", TAKEN),
             ],
-        )  # COS 217: F with credit numbers after it is a real failing grade, so skipped
+        )  # COS 217: F next to credit numbers is a real failing grade, so skipped
 
     def test_empty_password_pdf_opens_but_real_password_is_refused(self):
         import io
