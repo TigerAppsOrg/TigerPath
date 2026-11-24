@@ -158,20 +158,51 @@ let activePlanId = Number(params.get('active') || 1);
 window.__writes = [];
 
 const planFor = (url) => PLANS[Number(new URL(url, location.origin).searchParams.get('planId')) || activePlanId];
-const plansPayload = () => ({
-  plans: [
-    { id: 1, name: 'plan a: econ', majorNames: ['Economics'] },
-    { id: 2, name: 'plan b: spia', majorNames: ['SPIA', 'Politics'] },
-    { id: 3, name: 'plan c: rip', majorNames: ['Astrophysics'] },
-  ],
-  activePlanId,
-});
+// Plan list kept in memory so rename / create / copy / delete behave like the real server, which
+// answers every plan action with the full list ({plans, activePlanId}).
+let planList = [
+  { id: 1, name: 'plan a: econ', majorNames: ['Economics'] },
+  { id: 2, name: 'plan b: spia', majorNames: ['SPIA', 'Politics'] },
+  { id: 3, name: 'plan c: rip', majorNames: ['Astrophysics'] },
+];
+const plansPayload = () => ({ plans: planList.map((p) => ({ ...p, isActive: p.id === activePlanId })), activePlanId });
+const form = (body) => new URLSearchParams(body);
+const newPlanId = () => Math.max(0, ...planList.map((p) => p.id)) + 1;
+const emptyPlan = () => ({ schedule: Array.from({ length: 9 }, () => []), majors: [], minors: [] });
 
 const routes = [
   [/get_profile/, () => ({ classYear: 2027, theme, username: 'preview', activePlanId })],
   [/get_plans/, plansPayload],
   [/set_active_plan/, (url, body) => {
     activePlanId = Number(new URLSearchParams(body).get('planId'));
+    return plansPayload();
+  }],
+  [/update_plan_settings/, (url, body) => {
+    const f = form(body);
+    const id = Number(f.get('planId'));
+    planList = planList.map((p) => (p.id === id && f.get('name') ? { ...p, name: f.get('name') } : p));
+    return plansPayload();
+  }],
+  [/create_plan/, () => {
+    const id = newPlanId();
+    planList = [...planList, { id, name: `Plan ${planList.length + 1}`, majorNames: [] }];
+    PLANS[id] = emptyPlan();
+    activePlanId = id;
+    return plansPayload();
+  }],
+  [/copy_plan/, (url, body) => {
+    const f = form(body);
+    const source = planList.find((p) => p.id === Number(f.get('sourcePlanId'))) || planList[0];
+    const id = newPlanId();
+    planList = [...planList, { ...source, id, name: f.get('name') || `${source.name} (copy)` }];
+    PLANS[id] = JSON.parse(JSON.stringify(PLANS[source.id] || emptyPlan()));
+    activePlanId = id;
+    return plansPayload();
+  }],
+  [/delete_plan/, (url, body) => {
+    const id = Number(form(body).get('planId'));
+    if (planList.length > 1) planList = planList.filter((p) => p.id !== id);
+    if (activePlanId === id) activePlanId = planList[0].id;
     return plansPayload();
   }],
   [/get_plan_editor_options/, () => ({ majorOptions: [], minorOptions: [], maxMajors: 3 })],
