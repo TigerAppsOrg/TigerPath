@@ -38,6 +38,9 @@ export default function usePlanner() {
   // Plan actions that change the active plan are numbered too: if a newer one starts, the older one's
   // response is ignored (applying it would point the client at a plan the server has already left).
   const actionSeq = useRef(0);
+  // Active-plan changes run one at a time, in order: the server applies each as it lands, so letting
+  // two overlap could leave the server on one plan and the page on another.
+  const actionQueue = useRef(Promise.resolve());
 
   const showNotice = useCallback((text, tone = 'warning') => setNotice({ text, tone, at: Date.now() }), []);
 
@@ -208,15 +211,23 @@ export default function usePlanner() {
     (makeRequest) => {
       loadSeq.current += 1;
       const seq = ++actionSeq.current;
-      return makeRequest().then(
+      const run = actionQueue.current.then(() => makeRequest());
+      // Keep the queue going even if this action fails.
+      actionQueue.current = run.catch(() => {});
+      return run.then(
         (payload) => {
-          if (seq !== actionSeq.current) return payload; // overtaken by a newer plan action
+          if (seq !== actionSeq.current) return payload; // a newer plan action is queued after this one
           applyPlans(payload);
           loadPlanContents();
           return payload;
         },
         (error) => {
-          if (seq === actionSeq.current) loadPlanContents();
+          // A failed or half-finished action (e.g. a plan created but not named) may still have changed
+          // the server: re-read the plan list and the active plan so the page matches it.
+          if (seq === actionSeq.current) {
+            api.getPlans().then(applyPlans).catch(() => {});
+            loadPlanContents();
+          }
           throw error;
         }
       );
