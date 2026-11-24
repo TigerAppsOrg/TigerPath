@@ -65,6 +65,9 @@ _NUMERIC = re.compile(r"^[\d.,()*]+$")
 
 TAKEN = "taken"
 CURRENT = "current"
+# Columns were lost and the row ends in a lone grade letter that could also end the title
+# ("... Part B", "... Microeconomics W"): the student decides; the row is not pre-selected.
+UNCLEAR = "unclear"
 
 
 @dataclass(frozen=True)
@@ -180,9 +183,10 @@ def _status(rest_of_line):
                 return found
         return CURRENT
     # Single-spaced text (columns lost): scan from the end, skipping numbers and a trailing
-    # distribution area. A lone letter is ambiguous here ("Physics Lab Part B" vs a grade of B), so
-    # it only counts as a grade next to a credit/grade-point number; otherwise the row is kept as in
-    # progress. Status is a review label only (never saved): ambiguity costs a label, not a course.
+    # distribution area. A lone grade letter is ambiguous here ("Physics Lab Part B" vs a grade of
+    # B, "Intro to Microeconomics W" vs withdrawn), so it only counts as a grade next to a credit or
+    # grade-point number. Otherwise the row is UNCLEAR: shown but not pre-selected, so neither is a
+    # withdrawn course added nor a real course dropped without the student deciding.
     tokens = rest_of_line.split()
     if tokens and tokens[0].upper() == "AUD":
         return None
@@ -193,12 +197,11 @@ def _status(rest_of_line):
         if _NUMERIC.match(token) or token.upper() in _DISTRIB_AREAS:
             continue
         if len(token) == 1:
-            beside = [
-                t
-                for t in (tokens[i - 1] if i else "", tokens[i + 1] if i + 1 < len(tokens) else "")
-            ]
-            if not any(_NUMERIC.match(t) for t in beside if t):
-                return CURRENT
+            before = tokens[i - 1] if i else ""
+            after = tokens[i + 1] if i + 1 < len(tokens) else ""
+            if not any(_NUMERIC.match(t) for t in (before, after) if t):
+                letter = token.upper()
+                return UNCLEAR if letter in _GRADES or letter in _NO_CREDIT else CURRENT
         found = _grade_status(token)
         return CURRENT if found == "unknown" else found
     return CURRENT

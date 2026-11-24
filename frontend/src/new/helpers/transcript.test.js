@@ -50,6 +50,19 @@ describe('applyImport', () => {
   });
 });
 
+describe('unclear rows', () => {
+  it('are addable but not pre-selected', () => {
+    const rows = buildImportRows(
+      { classYear: 2026, courses: [{ ...payload.courses[0], status: 'unclear' }, payload.courses[1]] },
+      empty()
+    );
+    expect(rows.map((r) => [r.code, r.reason, r.defaultOff])).toEqual([
+      ['COS 126', null, true],
+      ['COS 226', null, false],
+    ]);
+  });
+});
+
 describe('applyImport into another plan', () => {
   it('skips courses already in the target plan and counts them', () => {
     // Rows reviewed with no target schedule (another plan): no "already" reasons yet.

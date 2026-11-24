@@ -4,7 +4,7 @@ import Icon from './Icon';
 import { importTranscript } from '../api';
 import { buildImportRows } from '../helpers/transcript';
 
-const STATUS_LABEL = { taken: 'Taken', current: 'Taking now' };
+const STATUS_LABEL = { taken: 'Taken', current: 'Taking now', unclear: 'Check grade' };
 
 /**
  * TIG-282: upload the TigerHub unofficial transcript PDF, review what was found, then add the chosen
@@ -18,7 +18,8 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const [payload, setPayload] = useState(null);
-  const [excluded, setExcluded] = useState(() => new Set());
+  // Rows the student flipped from their default (most start checked; "Check grade" rows start unchecked).
+  const [toggled, setToggled] = useState(() => new Set());
 
   // Duplicates are checked against the target plan: here for the active plan (its schedule is loaded),
   // or when the rows are added for any other plan.
@@ -26,7 +27,9 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
     () => (payload ? buildImportRows(payload, targetIsActive ? schedule : null) : []),
     [payload, schedule, targetIsActive]
   );
-  const chosen = rows.filter((r) => !r.reason && !excluded.has(r.key));
+  const isChosen = (r) => !r.reason && (r.defaultOff ? toggled.has(r.key) : !toggled.has(r.key));
+  const chosen = rows.filter(isChosen);
+  const unclearCount = rows.filter((r) => r.defaultOff && !r.reason).length;
 
   const upload = async (e) => {
     e.preventDefault();
@@ -35,7 +38,7 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
     setError('');
     try {
       setPayload(await importTranscript(file));
-      setExcluded(new Set());
+      setToggled(new Set());
     } catch (err) {
       setError(err.message);
     } finally {
@@ -44,7 +47,7 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
   };
 
   const toggle = (key) =>
-    setExcluded((prev) => {
+    setToggled((prev) => {
       const next = new Set(prev);
       if (next.has(key)) next.delete(key);
       else next.add(key);
@@ -125,6 +128,13 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
                   </select>
                 </label>
               )}
+              {unclearCount > 0 && (
+                <p className="tp-import-note">
+                  {unclearCount} course{unclearCount === 1 ? '' : 's'} marked <strong>Check grade</strong>: TigerPath
+                  couldn&apos;t tell the grade apart from the title (for example a withdrawal, W). They aren&apos;t
+                  selected; check the ones you took.
+                </p>
+              )}
               {!targetIsActive && (
                 <p className="tp-import-note">
                   TigerPath will switch to <strong>{targetName}</strong> and add the courses there, skipping any
@@ -137,7 +147,7 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
                     <label>
                       <input
                         type="checkbox"
-                        checked={!row.reason && !excluded.has(row.key)}
+                        checked={isChosen(row)}
                         disabled={Boolean(row.reason)}
                         onChange={() => toggle(row.key)}
                       />

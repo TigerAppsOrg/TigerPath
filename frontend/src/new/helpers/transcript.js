@@ -31,6 +31,8 @@ export function buildImportRows(payload, schedule) {
       semester: semesterLabel(item.semesterIndex),
       course: item.course,
       reason,
+      // The parser couldn't tell the grade from the title (e.g. a possible W): unchecked by default.
+      defaultOff: item.status === 'unclear',
     };
   });
 }
