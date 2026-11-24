@@ -329,7 +329,12 @@ export default function usePlanner() {
   const importCourses = useCallback(
     (rows, targetPlanId = activePlanId) => {
       if (targetPlanId == null || targetPlanId === activePlanId) {
-        if (!schedule) return Promise.resolve(0);
+        if (!schedule) {
+          // Still loading: finish the import once this plan's schedule arrives (the effect below),
+          // or report the failure if the load fails.
+          setPendingImport({ planId: activePlanId, rows });
+          return Promise.resolve(0);
+        }
         if (scheduleLoadFailed) {
           // The plan's courses didn't load; saving now would replace them with just the import.
           showNotice(`Couldn't load ${activePlan?.name || 'this plan'}, so nothing was imported. Please reload and try again.`, 'error');
