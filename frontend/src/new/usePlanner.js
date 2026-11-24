@@ -102,18 +102,26 @@ export default function usePlanner() {
     setSchedule(null);
     setRequirements(null);
     setScheduleLoadFailed(false);
-    api
-      .getSchedule(planId)
-      .then((data) => current() && setSchedule(data && data.length ? data : emptySchedule()))
-      .catch(() => {
-        if (!current()) return;
-        setScheduleLoadFailed(true);
-        setSchedule(emptySchedule());
-      });
-    api
-      .getRequirements(planId)
-      .then((data) => current() && setRequirements(unwrapGroupedRequirements(data)))
-      .catch(() => current() && setRequirements(unwrapGroupedRequirements(null)));
+    // Read only after every write already sent to this plan has landed (all plans' writes when the id
+    // isn't known): reading first could show, and then save back, the schedule from before an edit.
+    const chains = writeChains.current;
+    const writesDone =
+      planId == null ? Promise.all(Object.values(chains)) : chains[String(planId)] || Promise.resolve();
+    writesDone.then(() => {
+      if (!current()) return;
+      api
+        .getSchedule(planId)
+        .then((data) => current() && setSchedule(data && data.length ? data : emptySchedule()))
+        .catch(() => {
+          if (!current()) return;
+          setScheduleLoadFailed(true);
+          setSchedule(emptySchedule());
+        });
+      api
+        .getRequirements(planId)
+        .then((data) => current() && setRequirements(unwrapGroupedRequirements(data)))
+        .catch(() => current() && setRequirements(unwrapGroupedRequirements(null)));
+    });
   }, []);
 
   const reloadPlan = useCallback(() => loadPlanContents(activePlanRef.current), [loadPlanContents]);
