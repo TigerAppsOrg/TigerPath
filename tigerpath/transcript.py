@@ -24,11 +24,36 @@ _TERM_CALENDAR = re.compile(r"\b(Fall|Spring)(?:\s+Term)?\s+(\d{4})\b", re.IGNOR
 # Summer and other non-fall/spring terms end the current term so their courses aren't misfiled.
 _TERM_OTHER = re.compile(r"\b(Summer|Winter|Intersession)\b(?:\s+Term)?\s+\d{4}", re.IGNORECASE)
 
-# Course row: dept (3 capitals) + number (3 digits, optional letter), optionally glued ("COS126").
-_COURSE = re.compile(r"^\s*([A-Z]{3})\s?(\d{3}[A-Z]?)\b(.*)$")
-# Final grades. Read only from the end of a row (after the title), so a title word like "A"
-# never counts.
-_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "F", "P", "AUD", "INC"}
+# Course row: dept (3 capitals) + number (3 digits, optional letter). The TigerHub transcript lays
+# these out in columns ("COS     226     GRD ..."), and other exports glue them ("COS126").
+_COURSE = re.compile(r"^\s*([A-Z]{3})\s*(\d{3}[A-Z]?)\b(.*)$")
+# Layout-mode text separates table columns with runs of 2+ spaces.
+_COLUMN_GAP = re.compile(r"\s{2,}")
+_GRADES = {"A+", "A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D", "F", "P", "INC"}
+# "Grade Basis" column right after the course number (graded, P/D/F, audit, ...).
+_GRADE_BASIS = {"GRD", "PDF", "AUD", "NGR", "NG"}
+# "Distrib Area" column at the end of a TigerHub row; skipped when looking for the grade.
+_DISTRIB_AREAS = {
+    "CD",
+    "EC",
+    "EM",
+    "HA",
+    "LA",
+    "QCR",
+    "QR",
+    "SA",
+    "SEL",
+    "SEN",
+    "ST",
+    "STL",
+    "STN",
+    "STX",
+    "NONE",
+    "WRITING",
+    "LANGUAGE",
+    "LANG",
+    "W/L",
+}
 _NUMERIC = re.compile(r"^[\d.,()*]+$")
 
 TAKEN = "taken"
@@ -69,7 +94,9 @@ def extract_text(pdf_bytes):
 
     try:
         reader = PdfReader(io.BytesIO(pdf_bytes))
-        if reader.is_encrypted:
+        # TigerHub's transcript is encrypted with an empty open-password (it only restricts
+        # editing), so try that before treating the file as password-protected.
+        if reader.is_encrypted and not reader.decrypt(""):
             raise TranscriptError("That PDF is password-protected. Download an unprotected copy.")
         pages = []
         for page in reader.pages:
@@ -111,19 +138,47 @@ def parse_term(line):
     return None
 
 
+def _grade_status(token):
+    token = token.strip().upper()
+    if token in _GRADES:
+        return TAKEN
+    if token == "W":
+        return None  # withdrawn: not taken
+    if token == "IP":
+        return CURRENT
+    return "unknown"
+
+
 def _status(rest_of_line):
-    """TAKEN with a final grade, CURRENT for IP/no grade, None for withdrawn (W)."""
+    """TAKEN with a final grade, CURRENT for IP/no grade, None for withdrawn (W).
+
+    TigerHub rows read: [grade basis] title [grade] [distrib area]. When the text keeps its columns,
+    the title is one column, so a title ending in "B" can't be read as a grade, and the grade basis
+    (e.g. AUD) is never mistaken for one. Otherwise, fall back to scanning tokens from the end.
+    """
     if re.search(r"\bin progress\b", rest_of_line, re.IGNORECASE):
         return CURRENT
-    for token in reversed(rest_of_line.split()):
-        if _NUMERIC.match(token):
-            continue  # credits / grade points columns
-        token = token.upper()
-        if token in _GRADES:
-            return TAKEN
-        if token == "W":
-            return None
-        return CURRENT  # "IP", or the row ends in the title: no grade yet
+    columns = [c for c in _COLUMN_GAP.split(rest_of_line.strip()) if c]
+    if columns and columns[0].upper() in _GRADE_BASIS:
+        columns = columns[1:]
+    if len(columns) >= 2:
+        # columns[0] is the title; a grade can only be one of the columns after it.
+        for column in columns[1:]:
+            if _NUMERIC.match(column) or column.upper() in _DISTRIB_AREAS:
+                continue
+            found = _grade_status(column)
+            if found != "unknown":
+                return found
+        return CURRENT
+    # Single-spaced text: scan from the end, skipping numbers and a trailing distribution area.
+    tokens = rest_of_line.split()
+    if tokens and tokens[0].upper() in _GRADE_BASIS:
+        tokens = tokens[1:]
+    for token in reversed(tokens):
+        if _NUMERIC.match(token) or token.upper() in _DISTRIB_AREAS:
+            continue
+        found = _grade_status(token)
+        return CURRENT if found == "unknown" else found
     return CURRENT
 
 

@@ -22,25 +22,34 @@ Branch: `tig-282-import-pre-existing-taken-and-currently-taking`, cut from `para
 Alternatives considered: pasting TigerHub text (depends on page layout) and an OIT student API
 (needs access the repo doesn't have).
 
-### D2. The real transcript layout hasn't been verified yet
+### D2. Checked against a real TigerHub transcript
 
-No real Princeton transcript was available, so the parser is tolerant by design:
-- **Term headings:** "Fall 2023", "2023-2024 Fall", "Fall Term 2023-24" and "Spring Term 2022-23".
-  Summer and Winter terms close the current term, so their courses aren't misfiled.
-- **Course rows:** "COS 126" or "COS126" at the start of a line. Cross-listed courses map to their
-  catalog course through the `Course_Listing` lookup.
-- **Status:** read from the *end* of the row, after the credit and grade-point numbers. A final grade
-  (A to F, P, AUD, INC) means taken. "IP", "In Progress" or no grade means currently taking. "W"
-  (withdrawn) is skipped. Reading from the end means a title word like "A History…" is never taken for
-  a grade.
+A real "Undergraduate Internal Transcript" PDF from TigerHub (Oracle/PeopleSoft) showed three things the
+first version got wrong. All three are fixed and covered by tests that use made-up courses in the same
+layout (no student data is in the repo):
 
-**Before merging:** run `python -m tigerpath.transcript <your transcript>.pdf <class year>` on a real
-transcript. If a heading or row style is missed, add it as a test case in `test_transcript.py`.
+1. **The PDF is encrypted with an empty open-password** (it only restricts editing). It's now opened with
+   `decrypt("")`; a PDF with a real password is still refused.
+2. **The table is laid out in columns** (`COS     226     GRD     Title     Grade     Distrib Area`), so the
+   department and number are separated by several spaces. The course pattern now allows any spacing.
+3. **Each row ends with a Distrib Area** (`QCR`, `NONE`, `Writing`, …) after the Grade column, and the
+   Grade column is blank while a course is in progress. Status is now read column by column: grade basis
+   (`GRD`/`PDF`/`AUD`), title, then grade, skipping distribution areas. A title ending in "B" or an `AUD`
+   basis is never read as a grade. Single-spaced text without columns falls back to reading tokens from
+   the end, skipping numbers and distribution areas.
+
+**Grades:** a final grade (A to F, P, INC) means taken. A blank grade, `IP` or "In Progress" means
+currently taking. `W` (withdrawn) is skipped. Term headings like "2026-2027 Fall", "Fall 2023" and
+"Spring Term 2022-23" are recognised; Summer and Winter terms are skipped.
+
+**Still unverified:** a transcript with *finished* terms (letter grades in the Grade column). The layout
+is the same, and the tests cover it, but run `python -m tigerpath.transcript` on a multi-term
+transcript when one is available.
 
 ### D3. Privacy: no storage and no grades returned
 
-The upload is read in memory (5 MB cap, must start with `%PDF-`, encrypted PDFs are rejected) and
-discarded. Grades only decide taken versus current, and they're never sent back to the browser (a test
+The upload is read in memory (5 MB cap, must start with `%PDF-`, PDFs that need a real password are
+rejected) and discarded. Grades only decide taken versus current, and they're never sent back to the browser (a test
 asserts this).
 
 ### D4. Review before adding, never auto-add

@@ -116,6 +116,66 @@ class ParseTranscriptTest(SimpleTestCase):
         self.assertEqual(len(parse_transcript_text(text)), 5)
 
 
+# Mirrors the TigerHub "Undergraduate Internal Transcript" layout (made-up courses, no student
+# data):
+# layout-mode text keeps table columns, separated by runs of spaces, and rows end in a distrib area.
+TIGERHUB_LAYOUT = """Undergraduate Internal Transcript
+(not for External Use)
+2025-2026 Fall
+    Course              Grade    Title                                   Grade   Distrib Area
+                        Basis
+    COS       126       GRD      Computer Science: An Approach    A       QCR
+    HIS       214       PDF      The Atlantic World                      P       HA
+    ECO       100       GRD      Intro to Microeconomics          W       SA
+2026-2027 Fall
+    PHY       104       GRD      Physics Lab Part B                              SEN
+    MUS       105       AUD      Music Theory                                    LA
+    WRI       140       GRD      Writing Seminar                                 Writing
+Number of Elected PDFs: 0
+Unofficial GPA: .000
+"""
+
+
+class TigerHubLayoutTest(SimpleTestCase):
+    def test_columns_grades_and_distrib_areas(self):
+        got = [(e.code, e.term_label, e.status) for e in parse_transcript_text(TIGERHUB_LAYOUT)]
+        self.assertEqual(
+            got,
+            [
+                ("COS 126", "Fall 2025", TAKEN),
+                ("HIS 214", "Fall 2025", TAKEN),  # P/D/F basis, graded P
+                # ECO 100 withdrawn (W) is skipped.
+                ("PHY 104", "Fall 2026", CURRENT),  # title ends in "B"; no grade column yet
+                ("MUS 105", "Fall 2026", CURRENT),  # AUD is the grade basis, not a grade
+                ("WRI 140", "Fall 2026", CURRENT),  # "Writing" is the distrib area
+            ],
+        )
+
+    def test_single_spaced_row_with_distrib_area(self):
+        text = "Fall 2025\nCOS 126 GRD Computer Science A QCR\nMAT 202 GRD Linear Algebra QCR"
+        got = [(e.code, e.status) for e in parse_transcript_text(text)]
+        self.assertEqual(got, [("COS 126", TAKEN), ("MAT 202", CURRENT)])
+
+    def test_empty_password_pdf_opens_but_real_password_is_refused(self):
+        import io
+
+        from pypdf import PdfReader, PdfWriter
+
+        def encrypted(user_password):
+            writer = PdfWriter()
+            for page in PdfReader(io.BytesIO(make_pdf(TRANSCRIPT_LINES))).pages:
+                writer.add_page(page)
+            writer.encrypt(user_password=user_password, owner_password="owner-only")
+            out = io.BytesIO()
+            writer.write(out)
+            return out.getvalue()
+
+        # TigerHub's PDFs are like the first: encrypted, but with an empty open-password.
+        self.assertIn("COS 126", extract_text(encrypted("")))
+        with self.assertRaises(TranscriptError):
+            extract_text(encrypted("secret"))
+
+
 class ImportTranscriptApiTest(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(username="transcript_user", password="testpass")
