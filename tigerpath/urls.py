@@ -19,6 +19,7 @@ urlpatterns = [
     path("api/v1/get_courses/", views.get_courses, name="get_courses"),
     path("api/v1/update_schedule/", views.update_schedule, name="update_schedule"),
     path("api/v1/get_schedule/", views.get_schedule, name="get_schedule"),
+    path("api/v1/import_transcript/", views.import_transcript, name="import_transcript"),
     path("api/v1/get_requirements/", views.get_requirements, name="get_requirements"),
     path("api/v1/get_plans/", views.get_plans, name="get_plans"),
     path("api/v1/create_plan/", views.create_plan, name="create_plan"),

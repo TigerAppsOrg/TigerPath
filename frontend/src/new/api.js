@@ -53,3 +53,21 @@ export async function saveSettings({ year, theme }) {
   });
   if (!response.ok) throw new Error(`API error: ${response.status}`);
 }
+
+/**
+ * TIG-282: upload a transcript PDF and get back a preview of its courses. The server stores
+ * nothing; courses are only added when the student confirms (through the normal schedule save).
+ */
+export async function importTranscript(file) {
+  const body = new FormData();
+  body.append('transcript', file);
+  const response = await fetch('/api/v1/import_transcript/', {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: { 'X-CSRFToken': getCookie('csrftoken') },
+    body,
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(payload.error || 'Could not read that transcript. Please try again.');
+  return payload;
+}

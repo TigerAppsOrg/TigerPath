@@ -1,0 +1,143 @@
+import React, { useMemo, useState } from 'react';
+import Modal from './Modal';
+import Icon from './Icon';
+import { importTranscript } from '../api';
+import { buildImportRows } from '../helpers/transcript';
+
+const STATUS_LABEL = { taken: 'Taken', current: 'Taking now' };
+
+/**
+ * TIG-282: upload the TigerHub unofficial transcript PDF, review what was found, then add the chosen
+ * courses to the active plan. Nothing is saved until "Add" (and then only through the normal save).
+ */
+export default function ImportTranscriptModal({ schedule, planName, onImport, onClose }) {
+  const [file, setFile] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+  const [payload, setPayload] = useState(null);
+  const [excluded, setExcluded] = useState(() => new Set());
+
+  const rows = useMemo(() => (payload ? buildImportRows(payload, schedule) : []), [payload, schedule]);
+  const chosen = rows.filter((r) => !r.reason && !excluded.has(r.key));
+
+  const upload = async (e) => {
+    e.preventDefault();
+    if (!file) return;
+    setBusy(true);
+    setError('');
+    try {
+      setPayload(await importTranscript(file));
+      setExcluded(new Set());
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const toggle = (key) =>
+    setExcluded((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  return (
+    <Modal label="Import courses from your transcript" onClose={onClose} className="tp-import-modal">
+      <h2 className="tp-path-heading">Import from transcript</h2>
+
+      {!payload && (
+        <form onSubmit={upload}>
+          <p className="tp-import-help">
+            Upload your <strong>unofficial transcript PDF</strong> from TigerHub. TigerPath reads the course codes and
+            terms, then lets you choose which to add to <strong>{planName || 'this plan'}</strong>. The file isn&apos;t
+            stored, and grades aren&apos;t kept.
+          </p>
+          <label className="tp-import-file">
+            <Icon name="upload" size={18} />
+            <span>{file ? file.name : 'Choose transcript PDF'}</span>
+            <input
+              type="file"
+              accept="application/pdf,.pdf"
+              onChange={(e) => {
+                setFile(e.target.files?.[0] || null);
+                setError('');
+              }}
+            />
+          </label>
+          {error && (
+            <p className="tp-form-error" role="alert">
+              {error}
+            </p>
+          )}
+          <div className="tp-confirm-actions">
+            <button type="submit" className="tp-btn tp-btn-save" disabled={!file || busy}>
+              {busy ? 'Reading…' : 'Read transcript'} <Icon name={busy ? 'loader' : 'check'} size={16} className={busy ? 'tp-spin' : ''} />
+            </button>
+            <button type="button" className="tp-btn tp-btn-neutral" onClick={onClose}>
+              Cancel <Icon name="ban" size={16} />
+            </button>
+          </div>
+        </form>
+      )}
+
+      {payload && (
+        <div>
+          {rows.length === 0 ? (
+            <p className="tp-import-help">
+              No Princeton courses were found in that PDF. Make sure it&apos;s the unofficial transcript from TigerHub.
+            </p>
+          ) : (
+            <>
+              <p className="tp-import-help">
+                Found {rows.length} course{rows.length === 1 ? '' : 's'}. Uncheck any you don&apos;t want to add.
+              </p>
+              <ul className="tp-import-list" aria-label="Courses found on your transcript">
+                {rows.map((row) => (
+                  <li key={row.key} className={`tp-import-row ${row.reason ? 'skipped' : ''}`}>
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={!row.reason && !excluded.has(row.key)}
+                        disabled={Boolean(row.reason)}
+                        onChange={() => toggle(row.key)}
+                      />
+                      <span className="tp-import-code">{row.code}</span>
+                      <span className="tp-import-title">{row.title}</span>
+                    </label>
+                    <span className="tp-import-meta">
+                      <span className={`tp-import-status ${row.status}`}>{STATUS_LABEL[row.status] || row.status}</span>
+                      <span>{row.reason || row.semester}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {payload.unmatched?.length > 0 && (
+            <p className="tp-import-unmatched">
+              Not in the TigerPath catalog, so not added: {payload.unmatched.join(', ')}.
+            </p>
+          )}
+          <div className="tp-confirm-actions">
+            <button
+              type="button"
+              className="tp-btn tp-btn-save"
+              disabled={chosen.length === 0}
+              onClick={() => {
+                onImport(chosen);
+                onClose();
+              }}
+            >
+              Add {chosen.length} course{chosen.length === 1 ? '' : 's'} <Icon name="check" size={16} />
+            </button>
+            <button type="button" className="tp-btn tp-btn-neutral" onClick={onClose}>
+              Cancel <Icon name="ban" size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+    </Modal>
+  );
+}

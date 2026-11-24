@@ -9,6 +9,7 @@ import {
   stripSchedule,
 } from './helpers/schedule';
 import { settleCourse, unwrapGroupedRequirements } from './helpers/requirements';
+import { applyImport } from './helpers/transcript';
 
 const NOTICE_MS = 2500;
 
@@ -171,6 +172,20 @@ export default function usePlanner() {
     [schedule, commitSchedule]
   );
 
+  // TIG-282: add the transcript rows the student confirmed, as one normal schedule save.
+  const importCourses = useCallback(
+    (rows) => {
+      if (!schedule) return 0;
+      const { schedule: next, added } = applyImport(schedule, rows);
+      if (added > 0) {
+        commitSchedule(next);
+        showNotice(`Added ${added} course${added === 1 ? '' : 's'} from your transcript.`, 'success');
+      }
+      return added;
+    },
+    [schedule, commitSchedule, showNotice]
+  );
+
   // ── Plans ────────────────────────────────────────────────────────────────
 
   const planAction = useCallback(
@@ -221,6 +236,7 @@ export default function usePlanner() {
     addExternalCredit,
     removeExternalCredit,
     reloadPlan: loadPlanContents,
+    importCourses,
     ...actions,
   };
 }
