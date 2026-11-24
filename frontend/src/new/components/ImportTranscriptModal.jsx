@@ -100,6 +100,13 @@ export default function ImportTranscriptModal({ schedule, plans, activePlanId, o
             <>
               <p className="tp-import-help">
                 Found {rows.length} course{rows.length === 1 ? '' : 's'}. Uncheck any you don&apos;t want to add.
+                {payload.classYear ? (
+                  <>
+                    {' '}
+                    Semesters are placed for the <strong>class of {payload.classYear}</strong> (change it in Settings if
+                    that&apos;s wrong).
+                  </>
+                ) : null}
               </p>
               {(plans || []).length > 1 && (
                 <label className="tp-import-target">
