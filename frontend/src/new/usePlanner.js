@@ -40,6 +40,9 @@ export default function usePlanner() {
   // The newest save sent for each plan: a failed save only matters if no later save for that plan
   // (which carries the whole schedule) was sent after it.
   const lastSaveFor = useRef({});
+  // Each plan's in-flight saves (settled either way), so an import into that plan can wait for them
+  // instead of reading and replacing the schedule while an edit is still landing.
+  const pendingSaves = useRef({});
   const plansRef = useRef([]);
   // Only the newest plan load may set the schedule: after a plan switch, a slower response for the
   // previous plan must not land on the new one (a pending import would save it over that plan).
@@ -132,8 +135,13 @@ export default function usePlanner() {
       const planId = schedulePlanId.current;
       lastSaveFor.current[planId] = seq;
       setSaving(true);
-      api
-        .saveScheduleAndGetRequirements(stripSchedule(next), planId)
+      const request = api.saveScheduleAndGetRequirements(stripSchedule(next), planId);
+      const settled = request.then(
+        () => {},
+        () => {}
+      );
+      pendingSaves.current[planId] = Promise.all([pendingSaves.current[planId], settled]);
+      request
         .then((data) => {
           if (seq === saveSeq.current) setRequirements(unwrapGroupedRequirements(data));
         })
@@ -338,7 +346,9 @@ export default function usePlanner() {
           setSchedule(null);
         }
         try {
-          // Read the plan's stored courses first: saving without them would replace them.
+          // Let edits already sent for this plan land first, then read what it stores: saving
+          // without its courses would replace them.
+          await pendingSaves.current[target];
           const stored = await api.getSchedule(target);
           const result = applyImport(stored && stored.length ? stored : emptySchedule(), rows);
           if (result.added > 0) {

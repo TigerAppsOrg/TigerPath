@@ -9,7 +9,9 @@ import io
 import re
 from dataclasses import dataclass
 
-MAX_TRANSCRIPT_BYTES = 5 * 1024 * 1024
+# Below Django's 2.5 MB in-memory upload threshold, so an accepted transcript never touches disk.
+# TigerHub transcripts are a few hundred KB.
+MAX_TRANSCRIPT_BYTES = 2 * 1024 * 1024
 
 # "Fall 2023-2024", "Fall Term 2023-24", "Spring 2023-2024 Term"
 _TERM_SEASON_FIRST_ACADEMIC = re.compile(
@@ -96,7 +98,7 @@ class TranscriptError(ValueError):
 def extract_text(pdf_bytes):
     """Text of every page. Layout mode keeps table rows on one line; plain mode is the fallback."""
     if not pdf_bytes or len(pdf_bytes) > MAX_TRANSCRIPT_BYTES:
-        raise TranscriptError("Upload a transcript PDF under 5 MB.")
+        raise TranscriptError("Upload a transcript PDF under 2 MB.")
     if not pdf_bytes.lstrip()[:5] == b"%PDF-":
         raise TranscriptError(
             "That file isn't a PDF. Upload the unofficial transcript PDF from TigerHub."
