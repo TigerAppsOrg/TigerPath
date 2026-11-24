@@ -187,6 +187,15 @@ class TigerHubLayoutTest(SimpleTestCase):
         )
         self.assertEqual([e.code for e in parse_transcript_text(text)], ["COS 226"])
 
+    def test_cross_listed_rows(self):
+        text = (
+            "Fall 2025\nCOS 126/EGR 126  AUD  Intro    QCR\n"
+            "COS 226 / EGR 226  GRD  Algorithms  A  QCR\nMUS 314/COS 314  GRD  Music    LA"
+        )
+        got = [(e.code, e.status) for e in parse_transcript_text(text)]
+        # The audit is skipped even with a cross-listing before its basis column.
+        self.assertEqual(got, [("COS 226", TAKEN), ("MUS 314", CURRENT)])
+
     def test_audited_rows_are_skipped(self):
         text = (
             "Fall 2025\nMUS 105  AUD  Music Theory    LA\n"
