@@ -15,12 +15,20 @@ from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
 from django.http import Http404, JsonResponse
 from django.shortcuts import redirect, render
-from django.views.decorators.csrf import csrf_exempt
+from django.core.files.uploadhandler import MemoryFileUploadHandler
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.models import User
 from functools import wraps
 
 from . import forms, models, utils
+from .transcript import (
+    MAX_TRANSCRIPT_BYTES,
+    TranscriptError,
+    extract_text,
+    parse_transcript_text,
+    semester_index,
+)
 from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 from .majors_and_certificates.scripts.verifier import (
     check_degree,
@@ -1025,22 +1033,83 @@ def update_plan_settings(request):
     return JsonResponse(get_user_plans_payload(profile))
 
 
+def get_requested_plan(request, profile):
+    """The plan named by ?planId= (read-only compare view), else the active plan.
+
+    Looking up a plan this way never changes which plan is active. Returns None when
+    planId is given but is not one of this user's plans.
+    """
+    raw_plan_id = request.GET.get("planId") if request.method == "GET" else None
+    if raw_plan_id in (None, ""):
+        return get_active_plan(profile)
+    plan_id = parse_plan_id(raw_plan_id)
+    if plan_id is None:
+        return None
+    return profile.schedule_plans.filter(id=plan_id).first()
+
+
+def get_posted_plan(request, profile):
+    """The plan a save names with planId, else the active plan (the classic UI sends none).
+
+    Naming the plan means a save always lands on the plan it was loaded from, even if the active
+    plan changed while the request was in flight. Returns None for a plan the user does not own.
+    """
+    raw_plan_id = request.POST.get("planId")
+    if raw_plan_id in (None, ""):
+        return get_active_plan(profile)
+    plan_id = parse_plan_id(raw_plan_id)
+    if plan_id is None:
+        return None
+    return profile.schedule_plans.filter(id=plan_id).first()
+
+
+def save_posted_schedule(request):
+    """Write the posted schedule to its plan. Returns (plan, None) or (None, error response).
+
+    Only POST may save: CSRF protection covers POST only, so a GET must never change a plan.
+    """
+    if request.method != "POST":
+        return None, JsonResponse({"error": "POST required"}, status=405)
+    try:
+        schedule = json.loads(request.POST.get("schedule", "[]"))
+    except ValueError:
+        schedule = None
+    if not isinstance(schedule, list):
+        return None, JsonResponse({"error": "Invalid schedule"}, status=400)
+    plan = get_posted_plan(request, request.user.profile)
+    if plan is None:
+        return None, plan_not_found()
+    plan.schedule = schedule
+    plan.save(update_fields=["schedule", "updated_at"])
+    return plan, None
+
+
+def plan_not_found():
+    return JsonResponse({"error": "Plan not found"}, status=404)
+
+
+def requirements_response(request, profile, plan):
+    # The new UI asks for every major and minor on the plan; the classic response is unchanged.
+    if request.GET.get("layout") == "grouped":
+        return JsonResponse(build_grouped_requirements(profile, plan))
+    return JsonResponse(build_requirements_for_plan(profile, plan), safe=False)
+
+
 # updates user's schedules with added courses
 @login_required
 def update_schedule(request):
-    profile = request.user.profile
-    active_plan = get_active_plan(profile)
-    active_plan.schedule = json.loads(request.POST.get("schedule", "[]"))
-    active_plan.save(update_fields=["schedule", "updated_at"])
-    return JsonResponse({"status": "ok"})
+    _, error = save_posted_schedule(request)
+    return error or JsonResponse({"status": "ok"})
 
 
-# returns user's existing schedule
+# returns user's existing schedule (the active plan, or ?planId=)
 @login_required
 def get_schedule(request):
     profile = request.user.profile
-    active_plan = get_active_plan(profile)
-    schedule = ensure_minimum_schedule(active_plan.schedule)
+    plan = get_requested_plan(request, profile)
+    if plan is None:
+        return plan_not_found()
+    schedule = ensure_minimum_schedule(plan.schedule)
     return JsonResponse(schedule, safe=False)
 
 
@@ -1048,18 +1117,105 @@ def get_schedule(request):
 @login_required
 def get_requirements(request):
     curr_user = request.user.profile
-    active_plan = get_active_plan(curr_user)
-    # The new UI asks for every major and minor on the plan; the classic response is unchanged.
-    if request.GET.get("layout") == "grouped":
-        return JsonResponse(build_grouped_requirements(curr_user, active_plan))
-    requirements = build_requirements_for_plan(curr_user, active_plan)
-    return JsonResponse(requirements, safe=False)
+    plan = get_requested_plan(request, curr_user)
+    if plan is None:
+        return plan_not_found()
+    return requirements_response(request, curr_user, plan)
 
 
+# saves the schedule to the plan it names (planId), then returns that plan's requirements
 @login_required
 def update_schedule_and_get_requirements(request):
-    update_schedule(request)
-    return get_requirements(request)
+    plan, error = save_posted_schedule(request)
+    if error:
+        return error
+    return requirements_response(request, request.user.profile, plan)
+
+
+def match_transcript_courses(entries):
+    """(dept, number) -> catalog Course for every course code on the transcript."""
+    from django.db.models import Q
+
+    codes = {(e.dept, e.number) for e in entries}
+    if not codes:
+        return {}
+    query = Q()
+    for dept, number in codes:
+        query |= Q(dept=dept, number=number)
+    matched = {}
+    listings = (
+        models.Course_Listing.objects.filter(query)
+        .select_related("course")
+        .order_by("-course__is_master", "-course__id")
+    )
+    for listing in listings:
+        matched.setdefault((listing.dept, listing.number), listing.course)
+    return matched
+
+
+TRANSCRIPT_TOO_LARGE = "Upload a transcript PDF under 2 MB."
+
+
+# TIG-282: parse an uploaded transcript PDF into a preview. Nothing is stored and nothing is saved;
+# the client adds the courses the student confirms through the normal schedule save.
+# The upload must never touch disk: oversized requests are refused before the body is read, and
+# the rest use only the in-memory upload handler (Django would otherwise spool large files to a
+# temporary file). Upload handlers can only be swapped before CSRF checking reads the body, hence
+# csrf_exempt here with csrf_protect on the inner view. Login is checked before any of the body
+# is read.
+@csrf_exempt
+@login_required
+def import_transcript(request):
+    if request.method != "POST":
+        raise Http404
+    try:
+        content_length = int(request.META.get("CONTENT_LENGTH") or 0)
+    except ValueError:
+        content_length = 0
+    # A browser upload always states its length. Without one (e.g. chunked) the size can't be
+    # checked before the body is buffered, so refuse it. Django never reads past the stated length,
+    # so a body longer than it claims is cut off there. Room is left for the multipart headers.
+    if content_length <= 0:
+        return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)
+    if content_length > MAX_TRANSCRIPT_BYTES + 64 * 1024:
+        return JsonResponse({"error": TRANSCRIPT_TOO_LARGE}, status=400)
+    request.upload_handlers = [MemoryFileUploadHandler(request)]
+    return _import_transcript(request)
+
+
+@csrf_protect
+def _import_transcript(request):
+    upload = request.FILES.get("transcript")
+    if upload is None:
+        return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)
+    if upload.size > MAX_TRANSCRIPT_BYTES:
+        return JsonResponse({"error": TRANSCRIPT_TOO_LARGE}, status=400)
+    try:
+        entries = parse_transcript_text(extract_text(upload.read()))
+    except TranscriptError as error:
+        return JsonResponse({"error": str(error)}, status=400)
+
+    class_year = request.user.profile.year
+    matched = match_transcript_courses(entries)
+    courses = []
+    unmatched = []
+    for entry in entries:
+        course = matched.get((entry.dept, entry.number))
+        if course is None:
+            unmatched.append(entry.code)
+            continue
+        courses.append(
+            {
+                "code": entry.code,
+                "term": entry.term_label,
+                "status": entry.status,
+                "semesterIndex": semester_index(entry.season, entry.year, class_year),
+                "course": convert_courses([course], [])[0],
+            }
+        )
+    return JsonResponse(
+        {"classYear": class_year, "courses": courses, "unmatched": sorted(set(unmatched))}
+    )
 
 
 @login_required

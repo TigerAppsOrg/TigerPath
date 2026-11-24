@@ -24,12 +24,24 @@ export const updatePlanSettings = ({ planId, name, majorIds, minorCodes }) =>
     minorCodes: JSON.stringify(minorCodes || []),
   });
 
-export const getSchedule = () => apiFetch('/api/v1/get_schedule/');
+// Pass planId to read a plan without making it active (the active plan otherwise).
+export const getSchedule = (planId) =>
+  apiFetch(
+    planId == null
+      ? '/api/v1/get_schedule/'
+      : `/api/v1/get_schedule/?planId=${encodeURIComponent(planId)}`
+  );
 // "grouped" returns {majors, degrees, minors} covering every major on the plan.
-export const getRequirements = () => apiFetch('/api/v1/get_requirements/?layout=grouped');
-export const saveScheduleAndGetRequirements = (strippedSchedule) =>
+export const getRequirements = (planId) =>
+  apiFetch(
+    `/api/v1/get_requirements/?layout=grouped${planId == null ? '' : `&planId=${encodeURIComponent(planId)}`}`
+  );
+// Saves name their plan so a save always lands on the plan the schedule was loaded from, even if
+// the active plan changes while the request is in flight.
+export const saveScheduleAndGetRequirements = (strippedSchedule, planId) =>
   apiPost('/api/v1/update_schedule_and_get_requirements/?layout=grouped', {
     schedule: JSON.stringify(strippedSchedule),
+    ...(planId == null ? {} : { planId: String(planId) }),
   });
 
 export const searchCourses = (query, signal) =>
@@ -52,4 +64,39 @@ export async function saveSettings({ year, theme }) {
     body,
   });
   if (!response.ok) throw new Error(`API error: ${response.status}`);
+}
+
+/**
+ * TIG-282: upload a transcript PDF and get back a preview of its courses. The server stores
+ * nothing; courses are only added when the student confirms (through the normal schedule save).
+ */
+export async function importTranscript(file) {
+  const body = new FormData();
+  body.append('transcript', file);
+  const sessionExpired = 'Your session has expired. Reload the page to sign in again, then retry the import.';
+  let response;
+  try {
+    response = await fetch('/api/v1/import_transcript/', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'X-CSRFToken': getCookie('csrftoken') },
+      body,
+    });
+  } catch {
+    // Offline, or an expired session redirected to the (cross-site) login page, which fetch can't follow.
+    throw new Error("Couldn't reach TigerPath. Check your connection, or reload the page to sign in again, then retry the import.");
+  }
+  // An expired session can also land on a same-site login page: 200 with HTML. A CSRF failure (403)
+  // after a long idle is HTML too; both are fixed by reloading.
+  const isJson = (response.headers.get('Content-Type') || '').includes('application/json');
+  if (response.redirected || (!isJson && (response.ok || response.status === 403))) {
+    throw new Error(sessionExpired);
+  }
+  if (!isJson) throw new Error('Could not read that transcript. Please try again.');
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) throw new Error(payload?.error || 'Could not read that transcript. Please try again.');
+  if (!payload || !Array.isArray(payload.courses)) {
+    throw new Error('Could not read that transcript. Please try again.');
+  }
+  return payload;
 }

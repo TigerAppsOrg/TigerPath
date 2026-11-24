@@ -290,6 +290,56 @@ class SchedulePlanApiTest(TestCase):
         self.assertEqual(second_plan.schedule, updated_schedule)
         self.assertNotEqual(self.default_plan.schedule, updated_schedule)
 
+    def test_schedule_reads_and_saves_can_name_their_plan(self):
+        other_plan = SchedulePlan.objects.create(
+            user_profile=self.profile, name="Other", schedule=[[] for _ in range(9)]
+        )
+        saved = [[{"id": "ext-9", "name": "AP Bio", "external": True, "settled": []}]] + [
+            [] for _ in range(8)
+        ]
+        # The default plan stays active; the save names the other plan and must land there.
+        response = self.client.post(
+            "/api/v1/update_schedule_and_get_requirements/?layout=grouped",
+            {"schedule": json.dumps(saved), "planId": other_plan.id},
+        )
+        self.assertEqual(response.status_code, 200)
+        other_plan.refresh_from_db()
+        self.default_plan.refresh_from_db()
+        self.assertEqual(other_plan.schedule, saved)
+        self.assertNotEqual(self.default_plan.schedule, saved)
+
+        fetched = self.client.get(f"/api/v1/get_schedule/?planId={other_plan.id}").json()
+        self.assertEqual(fetched[0][0]["id"], "ext-9")
+        active = self.client.get("/api/v1/get_plans/").json()["activePlanId"]
+        self.assertEqual(active, self.default_plan.id)
+
+    def test_schedule_saves_need_post_and_a_valid_schedule(self):
+        before = self.default_plan.schedule
+        for url in ("/api/v1/update_schedule/", "/api/v1/update_schedule_and_get_requirements/"):
+            # CSRF only guards POST, so a GET (e.g. a link on another site) must never save.
+            self.assertEqual(self.client.get(url).status_code, 405)
+            self.assertEqual(self.client.post(url, {"schedule": "not json"}).status_code, 400)
+            self.assertEqual(self.client.post(url, {"schedule": '{"a": 1}'}).status_code, 400)
+        self.default_plan.refresh_from_db()
+        self.assertEqual(self.default_plan.schedule, before)
+
+    def test_schedule_save_rejects_another_users_plan(self):
+        stranger = User.objects.create_user(username="stranger", password="pw")
+        foreign = stranger.profile.schedule_plans.first() or SchedulePlan.objects.create(
+            user_profile=stranger.profile, name="Theirs", schedule=[[] for _ in range(9)]
+        )
+        before = foreign.schedule
+        response = self.client.post(
+            "/api/v1/update_schedule_and_get_requirements/?layout=grouped",
+            {"schedule": json.dumps([[{"id": "x"}]]), "planId": foreign.id},
+        )
+        self.assertEqual(response.status_code, 404)
+        foreign.refresh_from_db()
+        self.assertEqual(foreign.schedule, before)
+        self.assertEqual(
+            self.client.get(f"/api/v1/get_schedule/?planId={foreign.id}").status_code, 404
+        )
+
     def test_requirements_use_active_plan_major_not_profile_major(self):
         profile_major = Major.objects.create(
             name="Profile Major",

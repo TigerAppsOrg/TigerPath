@@ -12,6 +12,7 @@ import Board from './components/Board';
 import RequirementsPanel from './components/RequirementsPanel';
 import CourseDrawer from './components/CourseDrawer';
 import SettingsModal from './components/SettingsModal';
+import ImportTranscriptModal from './components/ImportTranscriptModal';
 import './styles.css';
 
 const semesterIndexOf = (droppableId) => parseInt(droppableId.replace('sem', ''), 10);
@@ -27,6 +28,7 @@ export default function App() {
   const [draggingSeason, setDraggingSeason] = useState(null);
   const [pathModal, setPathModal] = useState(null); // {mode: 'create'|'edit', plan}
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const [creditPath, setCreditPath] = useState(null);
 
   const themeName = profile?.theme || 'purple';
@@ -103,6 +105,7 @@ export default function App() {
     <div className="tp-app" data-theme={themeName}>
       <Header
         onOpenSettings={() => setSettingsOpen(true)}
+        onImportTranscript={() => setImportOpen(true)}
         onSwitchToClassic={switchToClassic}
         onStartTutorial={startTutorial}
       />
@@ -190,6 +193,17 @@ export default function App() {
           onDelete={planner.deletePlan}
           onDuplicate={planner.copyPlan}
           onClose={() => setPathModal(null)}
+        />
+      )}
+
+      {importOpen && (
+        <ImportTranscriptModal
+          schedule={schedule}
+          plans={plans}
+          activePlanId={activePlan?.id}
+          readPlanSchedule={planner.readPlanSchedule}
+          onImport={planner.importCourses}
+          onClose={() => setImportOpen(false)}
         />
       )}
 

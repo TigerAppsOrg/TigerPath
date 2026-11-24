@@ -43,6 +43,7 @@ const PATHS = {
   plusCircle: ['M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z', 'M8 12h8', 'M12 8v8'],
   history: ['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8', 'M3 3v5h5', 'M12 7v5l4 2'],
   loader: ['M21 12a9 9 0 1 1-6.22-8.56'],
+  upload: ['M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4', 'M17 8l-5-5-5 5', 'M12 3v12'],
 };
 
 export default function Icon({ name, size = 18, strokeWidth = 2, className = '', title }) {

@@ -4,7 +4,7 @@ import Icon from './Icon';
 const FEEDBACK_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLSdjBwHsURKujVqfnUk7nyocAMnFDFI6fyubDmqYMgLElpm_Nw/viewform';
 
-export default function Header({ onOpenSettings, onSwitchToClassic, onStartTutorial }) {
+export default function Header({ onOpenSettings, onSwitchToClassic, onStartTutorial, onImportTranscript }) {
   return (
     <header className="tp-header dont-print">
       <a className="tp-brand" href="/">
@@ -19,6 +19,10 @@ export default function Header({ onOpenSettings, onSwitchToClassic, onStartTutor
         <button type="button" className="tp-nav-btn" onClick={onStartTutorial}>
           <Icon name="info" size={17} />
           <span>Tutorial</span>
+        </button>
+        <button type="button" className="tp-nav-btn" onClick={onImportTranscript}>
+          <Icon name="upload" size={17} />
+          <span>Import transcript</span>
         </button>
         <button type="button" id="tp-settings-btn" className="tp-nav-btn" onClick={onOpenSettings}>
           <Icon name="settings" size={17} />
