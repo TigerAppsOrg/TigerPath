@@ -267,6 +267,9 @@ export default function usePlanner() {
     () => ({
       selectPlan: (id) => {
         if (id === activePlanId) return Promise.resolve();
+        // The server switches plans as soon as this request lands, so a slower load for the plan
+        // we're leaving must not count any more (an import waiting on it would save to the new plan).
+        loadSeq.current += 1;
         // Picking the compared plan as active swaps the sides instead of showing one plan twice.
         if (id === comparePlanId) {
           const previous = activePlanId;
