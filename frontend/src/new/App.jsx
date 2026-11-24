@@ -14,6 +14,7 @@ import CourseDrawer from './components/CourseDrawer';
 import SettingsModal from './components/SettingsModal';
 import ComparePicker from './components/ComparePicker';
 import CompareSummary from './components/CompareSummary';
+import ImportTranscriptModal from './components/ImportTranscriptModal';
 import './styles.css';
 
 const semesterIndexOf = (droppableId) => parseInt(droppableId.replace('sem', ''), 10);
@@ -30,6 +31,7 @@ export default function App() {
   const [draggingSeason, setDraggingSeason] = useState(null);
   const [pathModal, setPathModal] = useState(null); // {mode: 'create'|'edit', plan}
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
   const [creditPath, setCreditPath] = useState(null);
   // Below 1100px compare mode shows one board at a time; this picks which.
   const [compareView, setCompareView] = useState('active');
@@ -141,6 +143,7 @@ export default function App() {
     <div className="tp-app" data-theme={themeName}>
       <Header
         onOpenSettings={() => setSettingsOpen(true)}
+        onImportTranscript={() => setImportOpen(true)}
         onSwitchToClassic={switchToClassic}
         onStartTutorial={() => {
           // The tour points at the search pane and requirements panel, which compare mode hides.
@@ -275,6 +278,15 @@ export default function App() {
           onDelete={planner.deletePlan}
           onDuplicate={planner.copyPlan}
           onClose={() => setPathModal(null)}
+        />
+      )}
+
+      {importOpen && (
+        <ImportTranscriptModal
+          schedule={schedule}
+          planName={activePlan?.name}
+          onImport={planner.importCourses}
+          onClose={() => setImportOpen(false)}
         />
       )}
 

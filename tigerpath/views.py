@@ -21,6 +21,13 @@ from django.contrib.auth.models import User
 from functools import wraps
 
 from . import forms, models, utils
+from .transcript import (
+    MAX_TRANSCRIPT_BYTES,
+    TranscriptError,
+    extract_text,
+    parse_transcript_text,
+    semester_index,
+)
 from .majors_and_certificates.scripts.university_info import LANG_DEPTS
 from .majors_and_certificates.scripts.verifier import (
     check_degree,
@@ -1079,6 +1086,66 @@ def get_requirements(request):
 def update_schedule_and_get_requirements(request):
     update_schedule(request)
     return get_requirements(request)
+
+
+def match_transcript_courses(entries):
+    """(dept, number) -> catalog Course for every course code on the transcript."""
+    from django.db.models import Q
+
+    codes = {(e.dept, e.number) for e in entries}
+    if not codes:
+        return {}
+    query = Q()
+    for dept, number in codes:
+        query |= Q(dept=dept, number=number)
+    matched = {}
+    listings = (
+        models.Course_Listing.objects.filter(query)
+        .select_related("course")
+        .order_by("-course__is_master", "-course__id")
+    )
+    for listing in listings:
+        matched.setdefault((listing.dept, listing.number), listing.course)
+    return matched
+
+
+# TIG-282: parse an uploaded transcript PDF into a preview. Nothing is stored and nothing is saved;
+# the client adds the courses the student confirms through the normal schedule save.
+@login_required
+def import_transcript(request):
+    if request.method != "POST":
+        raise Http404
+    upload = request.FILES.get("transcript")
+    if upload is None:
+        return JsonResponse({"error": "Choose your transcript PDF to upload."}, status=400)
+    if upload.size > MAX_TRANSCRIPT_BYTES:
+        return JsonResponse({"error": "Upload a transcript PDF under 5 MB."}, status=400)
+    try:
+        entries = parse_transcript_text(extract_text(upload.read()))
+    except TranscriptError as error:
+        return JsonResponse({"error": str(error)}, status=400)
+
+    class_year = request.user.profile.year
+    matched = match_transcript_courses(entries)
+    courses = []
+    unmatched = []
+    for entry in entries:
+        course = matched.get((entry.dept, entry.number))
+        if course is None:
+            unmatched.append(entry.code)
+            continue
+        courses.append(
+            {
+                "code": entry.code,
+                "term": entry.term_label,
+                "status": entry.status,
+                "semesterIndex": semester_index(entry.season, entry.year, class_year),
+                "course": convert_courses([course], [])[0],
+            }
+        )
+    return JsonResponse(
+        {"classYear": class_year, "courses": courses, "unmatched": sorted(set(unmatched))}
+    )
 
 
 @login_required
