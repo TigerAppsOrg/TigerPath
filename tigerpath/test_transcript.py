@@ -353,6 +353,14 @@ class ImportTranscriptApiTest(TestCase):
         )
         self.assertEqual(response.status_code, 400)
 
+    def test_accepted_uploads_fit_the_in_memory_upload_limit(self):
+        # The view uses only the in-memory upload handler, which drops files over this setting.
+        from django.conf import settings
+
+        self.assertGreaterEqual(
+            settings.FILE_UPLOAD_MAX_MEMORY_SIZE, MAX_TRANSCRIPT_BYTES + 64 * 1024
+        )
+
     def test_upload_still_checks_csrf(self):
         client = Client(enforce_csrf_checks=True)
         client.force_login(self.user)
