@@ -29,6 +29,8 @@ export default function usePlanner() {
   const [comparePlanId, setComparePlanIdState] = useState(null);
   const [compareSchedule, setCompareSchedule] = useState(null);
   const [compareRequirements, setCompareRequirements] = useState(null);
+  // A failed compare read shows an error, never an empty plan (which would look like every course differs).
+  const [compareError, setCompareError] = useState(false);
   const compareSeq = useRef(0);
   // True while a tab click swaps the two sides: for a moment the compared plan equals the still-active
   // plan, which must not count as "both sides show the same plan".
@@ -188,15 +190,22 @@ export default function usePlanner() {
     const seq = ++compareSeq.current;
     setCompareSchedule(null);
     setCompareRequirements(null);
+    setCompareError(false);
     if (planId == null) return;
+    const failed = () => {
+      if (seq !== compareSeq.current) return;
+      setCompareSchedule(null);
+      setCompareRequirements(null);
+      setCompareError(true);
+    };
     api
       .getSchedule(planId)
       .then((data) => seq === compareSeq.current && setCompareSchedule(data && data.length ? data : emptySchedule()))
-      .catch(() => seq === compareSeq.current && setCompareSchedule(emptySchedule()));
+      .catch(failed);
     api
       .getRequirements(planId)
       .then((data) => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(data)))
-      .catch(() => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(null)));
+      .catch(failed);
   }, []);
 
   const setComparePlanId = useCallback(
@@ -302,6 +311,8 @@ export default function usePlanner() {
     comparePlan,
     compareSchedule,
     compareRequirements,
+    compareError,
+    retryCompare: () => loadCompare(comparePlanId),
     setComparePlanId,
     ...actions,
   };

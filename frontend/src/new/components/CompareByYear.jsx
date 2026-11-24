@@ -3,7 +3,7 @@ import { Droppable } from '@hello-pangea/dnd';
 import CompareSummary from './CompareSummary';
 import { CourseChip, ReadOnlyCourseChip, dropToneFor, duplicateNamesIn, semesterDroppableId } from './Board';
 import { SEASONS, YEARS } from '../helpers/schedule';
-import { courseKey, diffSchedules } from '../helpers/compare';
+import { diffSchedules, occurrenceKey } from '../helpers/compare';
 
 const semesterName = (index) => `${YEARS[Math.floor(index / 2)]} ${SEASONS[index % 2]}`;
 
@@ -31,7 +31,7 @@ function EditableRow({ index, season, courses, draggingSeason, duplicateNames, m
               index={i}
               duplicate={duplicateNames.has(course.name)}
               onRemove={onRemove}
-              diff={withTitle(marks.get(courseKey(course)), otherName)}
+              diff={withTitle(marks.get(occurrenceKey(course, index)), otherName)}
             />
           ))}
           {provided.placeholder}
@@ -51,7 +51,7 @@ function ReadOnlyRow({ index, courses, duplicateNames, marks, otherName }) {
           course={course}
           semesterIndex={index}
           duplicate={duplicateNames.has(course.name)}
-          diff={withTitle(marks.get(courseKey(course)), otherName)}
+          diff={withTitle(marks.get(occurrenceKey(course, index)), otherName)}
         />
       ))}
       {courses.length === 0 && <span className="tp-byyear-empty">—</span>}

@@ -45,37 +45,45 @@ const BOARD_SEMESTERS = 8;
 /** One identity per course: catalog id, or the name for external credits (which have random ids). */
 export const courseKey = (course) => (course?.external ? `ext:${course.name}` : `id:${course?.id}`);
 
-function semesterIndexByKey(schedule) {
+/** Every board semester each course appears in (a course can be scheduled more than once). */
+function semestersByKey(schedule) {
   const where = new Map();
   (schedule || []).slice(0, BOARD_SEMESTERS).forEach((semester, index) => {
     (semester || []).forEach((course) => {
       const key = courseKey(course);
-      if (!where.has(key)) where.set(key, index);
+      if (!where.has(key)) where.set(key, new Set());
+      where.get(key).add(index);
     });
   });
   return where;
 }
 
+/** Mark key for one occurrence: the course plus the semester it sits in. */
+export const occurrenceKey = (course, semesterIndex) => `${courseKey(course)}@${semesterIndex}`;
+
 function markSide(schedule, otherWhere) {
   const marks = new Map();
   (schedule || []).slice(0, BOARD_SEMESTERS).forEach((semester, index) => {
     (semester || []).forEach((course) => {
-      const key = courseKey(course);
-      if (!otherWhere.has(key)) marks.set(key, { status: 'only' });
-      else if (otherWhere.get(key) !== index) marks.set(key, { status: 'moved', otherIndex: otherWhere.get(key) });
-      else marks.set(key, { status: 'same' });
+      const others = otherWhere.get(courseKey(course));
+      let mark;
+      if (!others) mark = { status: 'only' };
+      else if (others.has(index)) mark = { status: 'same' };
+      else mark = { status: 'moved', otherIndex: Math.min(...others) };
+      marks.set(occurrenceKey(course, index), mark);
     });
   });
   return marks;
 }
 
 /**
- * Per-course differences between two plans, for the "By year" compare view: each course is
- * 'same' (same semester in both), 'moved' (other semester in the other plan: `otherIndex`) or
- * 'only' (not in the other plan at all). Only the eight board semesters are compared.
+ * Per-occurrence differences between two plans, for the "By year" compare view, keyed by
+ * `occurrenceKey(course, semester)`: 'same' (the other plan has it in this semester too), 'moved'
+ * (only in other semesters there: `otherIndex`) or 'only' (not in the other plan at all). A course
+ * scheduled twice gets a mark for each copy. Only the eight board semesters are compared.
  */
 export function diffSchedules(left, right) {
-  const leftWhere = semesterIndexByKey(left);
-  const rightWhere = semesterIndexByKey(right);
+  const leftWhere = semestersByKey(left);
+  const rightWhere = semestersByKey(right);
   return { left: markSide(left, rightWhere), right: markSide(right, leftWhere) };
 }
