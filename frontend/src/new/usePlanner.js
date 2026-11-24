@@ -25,6 +25,11 @@ export default function usePlanner() {
   const [editorOptions, setEditorOptions] = useState({ majorOptions: [], minorOptions: [], maxMajors: 3 });
   const [notice, setNotice] = useState(null);
   const [saving, setSaving] = useState(false);
+  // Compare mode (TIG-337): a second plan shown read-only next to the active one.
+  const [comparePlanId, setComparePlanIdState] = useState(null);
+  const [compareSchedule, setCompareSchedule] = useState(null);
+  const [compareRequirements, setCompareRequirements] = useState(null);
+  const compareSeq = useRef(0);
 
   // Responses for older saves are ignored so fast edits can't apply stale requirements.
   const saveSeq = useRef(0);
@@ -171,6 +176,45 @@ export default function usePlanner() {
     [schedule, commitSchedule]
   );
 
+  // ── Compare mode ─────────────────────────────────────────────────────────
+  // Read-only GETs by planId: opening, switching or closing compare never calls setActivePlan
+  // and never saves a schedule.
+
+  const loadCompare = useCallback((planId) => {
+    const seq = ++compareSeq.current;
+    setCompareSchedule(null);
+    setCompareRequirements(null);
+    if (planId == null) return;
+    api
+      .getSchedule(planId)
+      .then((data) => seq === compareSeq.current && setCompareSchedule(data && data.length ? data : emptySchedule()))
+      .catch(() => seq === compareSeq.current && setCompareSchedule(emptySchedule()));
+    api
+      .getRequirements(planId)
+      .then((data) => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(data)))
+      .catch(() => seq === compareSeq.current && setCompareRequirements(unwrapGroupedRequirements(null)));
+  }, []);
+
+  const setComparePlanId = useCallback(
+    (planId) => {
+      const next = planId == null ? null : planId;
+      // The same plan can't be on both sides.
+      if (next != null && next === activePlanId) return;
+      setComparePlanIdState(next);
+      loadCompare(next);
+    },
+    [activePlanId, loadCompare]
+  );
+
+  // Close compare if its plan disappears (deleted) and keep the two sides distinct.
+  useEffect(() => {
+    if (comparePlanId == null) return;
+    if (!plans.some((p) => p.id === comparePlanId)) {
+      setComparePlanIdState(null);
+      loadCompare(null);
+    }
+  }, [plans, comparePlanId, loadCompare]);
+
   // ── Plans ────────────────────────────────────────────────────────────────
 
   const planAction = useCallback(
@@ -185,7 +229,15 @@ export default function usePlanner() {
 
   const actions = useMemo(
     () => ({
-      selectPlan: (id) => (id === activePlanId ? Promise.resolve() : planAction(api.setActivePlan(id))),
+      selectPlan: (id) => {
+        if (id === activePlanId) return Promise.resolve();
+        // Picking the compared plan as active swaps the sides instead of showing one plan twice.
+        if (id === comparePlanId) {
+          setComparePlanIdState(activePlanId);
+          loadCompare(activePlanId);
+        }
+        return planAction(api.setActivePlan(id));
+      },
       createPlan: () => planAction(api.createPlan()),
       copyPlan: (sourcePlanId, name) => planAction(api.copyPlan({ sourcePlanId, name })),
       deletePlan: (id) => planAction(api.deletePlan(id)),
@@ -198,10 +250,11 @@ export default function usePlanner() {
         );
       },
     }),
-    [activePlanId, planAction]
+    [activePlanId, comparePlanId, loadCompare, planAction]
   );
 
   const activePlan = plans.find((p) => p.id === activePlanId) || null;
+  const comparePlan = plans.find((p) => p.id === comparePlanId) || null;
 
   return {
     profile,
@@ -221,6 +274,10 @@ export default function usePlanner() {
     addExternalCredit,
     removeExternalCredit,
     reloadPlan: loadPlanContents,
+    comparePlan,
+    compareSchedule,
+    compareRequirements,
+    setComparePlanId,
     ...actions,
   };
 }

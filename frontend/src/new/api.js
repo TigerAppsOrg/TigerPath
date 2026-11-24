@@ -24,9 +24,15 @@ export const updatePlanSettings = ({ planId, name, majorIds, minorCodes }) =>
     minorCodes: JSON.stringify(minorCodes || []),
   });
 
-export const getSchedule = () => apiFetch('/api/v1/get_schedule/');
+// Without a planId these read the active plan. With one (compare mode) they read that plan
+// read-only; the server never changes the active plan for these GETs.
+export const getSchedule = (planId) =>
+  apiFetch(planId == null ? '/api/v1/get_schedule/' : `/api/v1/get_schedule/?planId=${encodeURIComponent(planId)}`);
 // "grouped" returns {majors, degrees, minors} covering every major on the plan.
-export const getRequirements = () => apiFetch('/api/v1/get_requirements/?layout=grouped');
+export const getRequirements = (planId) =>
+  apiFetch(
+    `/api/v1/get_requirements/?layout=grouped${planId == null ? '' : `&planId=${encodeURIComponent(planId)}`}`
+  );
 export const saveScheduleAndGetRequirements = (strippedSchedule) =>
   apiPost('/api/v1/update_schedule_and_get_requirements/?layout=grouped', {
     schedule: JSON.stringify(strippedSchedule),

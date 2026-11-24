@@ -12,13 +12,16 @@ import Board from './components/Board';
 import RequirementsPanel from './components/RequirementsPanel';
 import CourseDrawer from './components/CourseDrawer';
 import SettingsModal from './components/SettingsModal';
+import ComparePicker from './components/ComparePicker';
+import CompareSummary from './components/CompareSummary';
 import './styles.css';
 
 const semesterIndexOf = (droppableId) => parseInt(droppableId.replace('sem', ''), 10);
 
 export default function App() {
   const planner = usePlanner();
-  const { profile, plans, activePlan, schedule, requirements } = planner;
+  const { profile, plans, activePlan, schedule, requirements, comparePlan } = planner;
+  const comparing = Boolean(comparePlan);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -28,6 +31,8 @@ export default function App() {
   const [pathModal, setPathModal] = useState(null); // {mode: 'create'|'edit', plan}
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [creditPath, setCreditPath] = useState(null);
+  // Below 1100px compare mode shows one board at a time; this picks which.
+  const [compareView, setCompareView] = useState('active');
 
   const themeName = profile?.theme || 'purple';
   useEffect(() => {
@@ -97,12 +102,52 @@ export default function App() {
 
   const switchToClassic = () => setUiVersion('classic').then(() => window.location.reload());
 
+  const centerTop = (
+    <div className="tp-center-top">
+      <PlanTabs
+        plans={plans}
+        activePlanId={activePlan?.id}
+        onSelect={planner.selectPlan}
+        onEdit={(plan) => setPathModal({ mode: 'edit', plan })}
+        onCreate={() => setPathModal({ mode: 'create' })}
+      />
+      <ComparePicker
+        plans={plans}
+        activePlanId={activePlan?.id}
+        comparePlanId={comparePlan?.id ?? null}
+        onChange={(id) => {
+          setCompareView('active');
+          planner.setComparePlanId(id);
+        }}
+      />
+      <span className="tp-save-state dont-print" aria-live="polite">
+        {planner.saving ? 'Saving…' : ''}
+      </span>
+    </div>
+  );
+
+  const activeBoard = schedule ? (
+    <Board
+      schedule={schedule}
+      classYear={profile?.classYear}
+      draggingSeason={draggingSeason}
+      onRemove={planner.removeCourse}
+    />
+  ) : (
+    <p className="tp-empty">Loading your plan...</p>
+  );
+
   return (
     <div className="tp-app" data-theme={themeName}>
       <Header
         onOpenSettings={() => setSettingsOpen(true)}
         onSwitchToClassic={switchToClassic}
-        onStartTutorial={startTutorial}
+        onStartTutorial={() => {
+          // The tour points at the search pane and requirements panel, which compare mode hides.
+          if (!comparing) return startTutorial();
+          planner.setComparePlanId(null);
+          return requestAnimationFrame(() => requestAnimationFrame(startTutorial));
+        }}
       />
 
       <div className="print-only tp-print-header">
@@ -114,6 +159,67 @@ export default function App() {
       </div>
 
       <DragDropContext onDragStart={onDragStart} onDragEnd={onDragEnd}>
+        {comparing ? (
+          <main className="tp-main comparing">
+            <div className="tp-compare" data-show={compareView}>
+              {centerTop}
+              {planner.notice && (
+                <div className={`tp-notice ${planner.notice.tone}`} role="status">
+                  {planner.notice.text}
+                </div>
+              )}
+              <div className="tp-compare-toggle dont-print" role="tablist" aria-label="Plan shown">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={compareView === 'active'}
+                  className={compareView === 'active' ? 'active' : ''}
+                  onClick={() => setCompareView('active')}
+                >
+                  {activePlan?.name || 'Active plan'}
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={compareView === 'compare'}
+                  className={compareView === 'compare' ? 'active' : ''}
+                  onClick={() => setCompareView('compare')}
+                >
+                  {comparePlan.name}
+                </button>
+              </div>
+              <div className="tp-compare-sides">
+                <section className="tp-compare-side active-side" aria-label={`${activePlan?.name || 'Active plan'} (editable)`}>
+                  <header className="tp-compare-head">
+                    <h2>{activePlan?.name || 'Active plan'}</h2>
+                    <span className="tp-compare-tag editable">Editing</span>
+                  </header>
+                  <div className="dont-print">
+                    <CompareSummary requirements={requirements} />
+                  </div>
+                  {activeBoard}
+                </section>
+                <section className="tp-compare-side compare-side dont-print" aria-label={`${comparePlan.name} (read-only)`}>
+                  <header className="tp-compare-head">
+                    <h2>{comparePlan.name}</h2>
+                    <span className="tp-compare-tag">Read-only</span>
+                  </header>
+                  <CompareSummary requirements={planner.compareRequirements} />
+                  {planner.compareSchedule ? (
+                    <Board
+                      readOnly
+                      schedule={planner.compareSchedule}
+                      classYear={profile?.classYear}
+                      label={`${comparePlan.name} four-year plan (read-only)`}
+                    />
+                  ) : (
+                    <p className="tp-empty">Loading {comparePlan.name}...</p>
+                  )}
+                </section>
+              </div>
+            </div>
+          </main>
+        ) : (
         <main className="tp-main">
           <SearchPanel
             query={searchQuery}
@@ -127,33 +233,13 @@ export default function App() {
           />
 
           <div className="tp-center">
-            <div className="tp-center-top">
-              <PlanTabs
-                plans={plans}
-                activePlanId={activePlan?.id}
-                onSelect={planner.selectPlan}
-                onEdit={(plan) => setPathModal({ mode: 'edit', plan })}
-                onCreate={() => setPathModal({ mode: 'create' })}
-              />
-              <span className="tp-save-state dont-print" aria-live="polite">
-                {planner.saving ? 'Saving…' : ''}
-              </span>
-            </div>
+            {centerTop}
             {planner.notice && (
               <div className={`tp-notice ${planner.notice.tone}`} role="status">
                 {planner.notice.text}
               </div>
             )}
-            {schedule ? (
-              <Board
-                schedule={schedule}
-                classYear={profile?.classYear}
-                draggingSeason={draggingSeason}
-                onRemove={planner.removeCourse}
-              />
-            ) : (
-              <p className="tp-empty">Loading your plan...</p>
-            )}
+            {activeBoard}
           </div>
 
           <RequirementsPanel
@@ -163,6 +249,7 @@ export default function App() {
             onEditPlan={() => activePlan && setPathModal({ mode: 'edit', plan: activePlan })}
           />
         </main>
+        )}
       </DragDropContext>
 
       <CourseDrawer

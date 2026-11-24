@@ -40,6 +40,26 @@ function CourseHoverCard({ course, semesterIndex, duplicate }) {
   );
 }
 
+/** Compare mode's right-hand board: same look, no drag-and-drop and no remove button. */
+function ReadOnlyCourseChip({ course, semesterIndex, duplicate }) {
+  const [hover, setHover] = useState(false);
+  return (
+    <div
+      className={`tp-course readonly ${isWrongSeason(course, semesterIndex) ? 'wrong-season' : ''}`}
+      tabIndex={0}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      aria-label={`${course.name}${course.title ? `: ${course.title}` : ''}`}
+    >
+      <span className="tp-course-name">{course.name}</span>
+      <span className="print-only tp-course-title">{course.title}</span>
+      {hover && <CourseHoverCard course={course} semesterIndex={semesterIndex} duplicate={duplicate} />}
+    </div>
+  );
+}
+
 function CourseChip({ course, semesterIndex, index, duplicate, onRemove }) {
   const [hover, setHover] = useState(false);
   return (
@@ -77,6 +97,25 @@ function CourseChip({ course, semesterIndex, index, duplicate, onRemove }) {
         </div>
       )}
     </Draggable>
+  );
+}
+
+function ReadOnlySemester({ index, season, courses, duplicateNames }) {
+  return (
+    <div className="tp-semester" aria-label={`${season} semester`}>
+      <span className="tp-season-label">{season}</span>
+      <div className="tp-semester-body">
+        {courses.map((course, i) => (
+          <ReadOnlyCourseChip
+            key={`${course.id}-${i}`}
+            course={course}
+            semesterIndex={index}
+            duplicate={duplicateNames.has(course.name)}
+          />
+        ))}
+        {courses.length === 0 && <p className="tp-semester-empty dont-print">No courses</p>}
+      </div>
+    </div>
   );
 }
 
@@ -120,14 +159,22 @@ function Semester({ index, season, courses, draggingSeason, duplicateNames, onRe
   );
 }
 
-export default function Board({ schedule, classYear, draggingSeason, onRemove }) {
+/**
+ * The four-year grid. `readOnly` renders the compare-mode board: no drag-and-drop (so its ids never
+ * collide with the editable board's droppables) and no #semesters id, which the tutorial targets.
+ */
+export default function Board({ schedule, classYear, draggingSeason, onRemove, readOnly = false, label }) {
   const counts = new Map();
   (schedule || []).slice(0, 8).flat().forEach((c) => counts.set(c.name, (counts.get(c.name) || 0) + 1));
   const duplicateNames = new Set([...counts].filter(([, n]) => n > 1).map(([name]) => name));
 
   return (
-    <section id="semesters" className="tp-board" aria-label="Four-year plan">
-      {!classYear && (
+    <section
+      id={readOnly ? undefined : 'semesters'}
+      className={`tp-board ${readOnly ? 'readonly' : ''}`}
+      aria-label={label || 'Four-year plan'}
+    >
+      {!classYear && !readOnly && (
         <p className="tp-board-warning dont-print">Set your class year in Settings to label semesters correctly.</p>
       )}
       <div className="tp-years">
@@ -137,6 +184,17 @@ export default function Board({ schedule, classYear, draggingSeason, onRemove })
             <div className="tp-year-semesters">
               {SEASONS.map((season, s) => {
                 const index = y * 2 + s;
+                if (readOnly) {
+                  return (
+                    <ReadOnlySemester
+                      key={season}
+                      index={index}
+                      season={season}
+                      courses={schedule?.[index] || []}
+                      duplicateNames={duplicateNames}
+                    />
+                  );
+                }
                 return (
                   <Semester
                     key={season}
